@@ -1,0 +1,639 @@
+{
+  "personal": {
+    "aid": "AID-hh_4.1.4.0",
+    "first_name": "Hartmann",
+    "last_name": "Hausherr",
+    "birth_year": 1956,
+    "location": "D6 im Umkreis von: Frankfurt am Main (100 km)",
+    "availability": "01.04.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1978,
+    "headline": "Projektleitung, Teststrategien, Konfigurationsmanagement, Oualitätssicherung, Wertpapier, Banken, KORDOBA, RZ-Organisation, Rollout, Schulung, Training",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 5,
+    "skills": 159,
+    "certifications": 0,
+    "education": 0,
+    "experience": 7,
+    "industries": 6,
+    "focus_areas": 15,
+    "focus_experience": 25,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Arabisch",
+      "level": ""
+    },
+    {
+      "name": "in Wort und Schrift",
+      "level": ""
+    },
+    {
+      "name": "Grundkenntnisse",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Handel",
+    "Banken",
+    "Industrie",
+    "Versicherungen",
+    "Wertpapierhandel",
+    "Börse"
+  ],
+  "focus_areas": [
+    "Projektleitung",
+    "Teststrategien",
+    "Konfigurationsmanagement",
+    "Oualitätssicherung",
+    "Wertpapier",
+    "Banken",
+    "KORDOBA",
+    "RZ-Organisation",
+    "Rollout",
+    "Schulung",
+    "Training",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Schwerpunkte sind RZ-Automatisierung (Ablauf und",
+    "Konfigurationsmanagement, Qualitätsmanagement bevorzugt Studium zum Wirtschaftsinformatiker;Abschluss: Diplom, weitere Ausbildung beim Hersteller SPERRY-Univac (heute UNISYS) Diverse Fortbildungen RZ-"
+  ],
+  "focus_experience": [
+    {
+      "name": "RZ-ORGANISATION",
+      "category": "product_standard"
+    },
+    {
+      "name": "RZ-Automatisierung (ATOP",
+      "category": "product_standard"
+    },
+    {
+      "name": "AVUS/AVAS",
+      "category": "product_standard"
+    },
+    {
+      "name": "TAPE-Roboter)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SYSTEMVERWALTUNG",
+      "category": "product_standard"
+    },
+    {
+      "name": "SYSTEMPROGRAMMIERUNG",
+      "category": "product_standard"
+    },
+    {
+      "name": "BANKEN (KORDOBA)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wertpapierhandel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Meldewesen (SAMBA)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zahlungsverkehr",
+      "category": "product_standard"
+    },
+    {
+      "name": "Industrie (Materialwirtschaft)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Versicherung (Bestandsverwaltung)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Handel (Rechnungswesen)",
+      "category": "product_standard"
+    },
+    {
+      "name": "TRAINING",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfigurationsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitätsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teststrategien und -plattformen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eskalationsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Infrastruktur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dokumentation (Windows",
+      "category": "product_standard"
+    },
+    {
+      "name": "Word",
+      "category": "product_standard"
+    },
+    {
+      "name": "Excel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Access)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Data-Warehouse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test-",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "03/2015 - 11/2015",
+      "company": "Deutsche Bank Frankfurt am Main",
+      "role": "Test Manager",
+      "title": "Test- Testkoordination, Releasemangement DWH, Frankfurt am Main",
+      "activities": 9,
+      "technologies": 52
+    },
+    {
+      "period": "1993-1995",
+      "company": "",
+      "role": "",
+      "title": "Installation und Entwicklung der Software für",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "1990-1992",
+      "company": "",
+      "role": "",
+      "title": "Aufbau und Administration der Network Administrator",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "1986-1989",
+      "company": "EVU in Berlin",
+      "role": "Projektleiter",
+      "title": "RZ-Leitung, Koordination und Systemprogrammierung,",
+      "activities": 6,
+      "technologies": 10
+    },
+    {
+      "period": "1984-1985",
+      "company": "",
+      "role": "",
+      "title": "RZ-Leitung und Koordination bei einem Industrieunternehmen",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "1981-1983",
+      "company": "",
+      "role": "",
+      "title": "Training von 10 Mitarbeitern der CENTRAL Bank of Lybia in",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "1978-1980",
+      "company": "",
+      "role": "",
+      "title": "Stellvertretender Abteilungsleiter beim Hersteller Sperry",
+      "activities": 3,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Adabas",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DL/1",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IDMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ingres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "LEASY",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ROCHADE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SESAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "UDS/IDMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Industrie-Roboter",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Nixdorf",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Prozessrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens-SPS STEP x",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SNI RM-Rechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "UNISYS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM AS400",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM /3",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM /32",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM /34 etc",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BS2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VM 2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OSD3",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "sehr gute Kenntnisse im gesamten Spektrum",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Dos",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "sehr gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "HPUX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Grundkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "gut und langjährige Erfahrung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Detailkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "gute und langjährige Erfahrung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS1100",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "interne Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/400",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens ORG-R/M (BS300)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VMS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "3.11",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NT 4.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "/36",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "/38",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "auch COLUMBUS-COBOL und COBOL III",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ESQL/C",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Maschinensprachen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Natural",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RPG",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Siron",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PVCS (Merant)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CMM",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Mercury-Produkte",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "SQS-Test-Produkte",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    }
+  ]
+}

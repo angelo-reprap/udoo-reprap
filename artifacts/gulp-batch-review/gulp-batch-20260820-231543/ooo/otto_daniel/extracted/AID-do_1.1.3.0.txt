@@ -1,0 +1,131 @@
+AID: AID-do_1.1.3.0
+Name: Daniel Otto
+Headline: Administration, Erweiterung, Migration, Qualitätssicherung, Support, Test und Wartung von Linux- und Windows-Systemen sowie Infrastrukturen mit Informations- und Kommunikationstechnik (IKT)
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Wohnort: 135xx Berlin, Deutschland
+Jahrgang: 1974
+Verfügbar: 17.12.14 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2000
+Sprachen: Deutsch, Englisch
+
+FACHBEREICHE:
+Administration
+Erweiterung
+Migration
+Qualitätssicherung
+Support
+
+BRANCHEN:
+Dienstleister
+EDV
+Rechenzentrum
+Softwarehersteller
+Systemhaus
+Telekommunikation
+
+PROJEKTE:
+  07/2007 - 03/2011 |  | Systemhaus (Ludwigshafen)
+    - Administration (Betrieb, Wartung, Test, Migration, Inbetriebnahme,
+    - Außerbetriebnahme) von ca. 600 SLES-Servern (HP Proliant, Dell
+    - Poweredge, IBM eSeriespSeries, Cluster mit HP Serviceguard)
+    Techs: DV-Umgebung: SuSE Linux Enterprise Server (SLES) 8-11, Cluster (HP, Solaris 2.x
+  08/2005 - 01/2006 |  | Internationaler Telekomunikationskonzern
+    - (Nürnberg)
+    - 02/2004 - 02/2005
+    - 10/2001 - 11/2002
+  04/2005 - 06/2005 |  | Systemhaus (Frankfurt)
+    - Konzeption hochverfügbare Netzwerkanbindungen und deren Test
+    - Konfiguration Veritas Volume Manager und Filesystem auf SLES 8
+    - Servern
+    Techs: DV-Umgebung: SuSE Linux Enterprise Server (SLES) 8, Broadcom, Netzwerkhardware, Cisco LAN Switching Komponenten, Veritas, Volume
+  10/2003 - 04/2004 |  | Systemhaus (Berlin)
+    - Migration von Windows NT-Server auf SuSE Linux Enterprise Server 8
+    - Samba 3.0
+    - LDAP (Email-System)
+    Techs: DV-Umgebung: SuSE Linux Enterprise Server (SLES) 8, Samba, LDAP
+  08/2000 - 12/2000 |  | Systemhaus (Stuttgart)
+    - diverse Kleinaufträge selbständig durchgeführt (Bundesweite
+    - Tätigkeit) z.B. Installation von Linuxservern (Erfurt)
+    Techs: DV-Umgebung: SuSE Linux, Redhat Linux
+  07/2000 - 08/2000 |  | Jugenddorf (auf der EXPO 2000, Hannover)
+    - Aufbau und Leitung eines Internet-Cafes.
+    - Einrichtung und Administration der Clientrechner unter Windows 98 und 07/1999 06/2000 Systemhaus (Berlin)
+    - Windows NT4 und 2000)
+    Techs: Linux, Routers, DV-Umgebung: Windows 98, Proxyserver, Router, 45 Server z.B. SUN, FSC (Linux, Solaris, 98 und, NT 4.0
+
+SKILLS:
+  operating_system: Linux (CentOS, Debian, RedHat, OpenSuSE, SLES, Ubuntu), UNIX (Solaris), Windows (Windows 7, Windows Server 2008/2008 R2/2012)
+  programming_languages: Bash, Perl, Batch, Powershell, MYSQL, Oracle, HSQL, DELL (Poweredge), HP (ProLiant), IBM (eSeries, pSeries), Router, (Cisco), Firewall
+
+SKILL-ABLAGE:
+DNS, DSL, Firewall (iptables), FTP/SFTP, IMAP/POP3/SMTP (Sendmail, Postfix), LDAP, NFS, NIS, NIC Bonding, Multipath, Proxy (squid), Routing, Samba, SSH/SSL (DHE, ECDH), TCP/IP, Verschlüsselung (luks, pgp, truecrypt), VOIP, VPN
+
+FOCUS_EXP:
+  Produkte:  [product_standard]
+  Antivirus (ClamAV)  [product_standard]
+  Application Server (Tomcat)  [product_standard]
+  Archivierung / Backup (ARCserve  [product_standard]
+  rsync)  [product_standard]
+  Automatisierung/Monitoring (Puppet  [product_standard]
+  Nagios  [product_standard]
+  Webmin)  [product_standard]
+  Changeroot-Umgebungen (debootstrap  [product_standard]
+  bei sftp)  [product_standard]
+  DMS Server (document management system  [product_standard]
+  openKM  [product_standard]
+  logicalDOC)  [product_standard]
+  Fernwartung (Remote Desktop  [product_standard]
+  Powershell  [product_standard]
+  Teamviewer  [product_standard]
+  HP ILO  [product_standard]
+  Dell  [product_standard]
+  RACADM)  [product_standard]
+  Linux-HA (Pacemaker  [product_standard]
+  Corosync)  [product_standard]
+  Textverarbeitung (Microsoft Office  [product_standard]
+  Openoffice  [product_standard]
+  Libreoffice)  [product_standard]
+  Version Control (git)  [product_standard]
+  Virtualisierung (KVM  [product_standard]
+  Hyper-V  [product_standard]
+  Oracle Virtualbox  [product_standard]
+  VMware vSphere  [product_standard]
+  XEN)  [product_standard]
+  Webserver (Apache  [product_standard]
+  nginx  [product_standard]
+  Microsoft IIs)  [product_standard]
+  Erfahrunge in den Bereichen:  [product_standard]
+  Betrieb  [product_standard]
+  Diagnose  [product_standard]
+  Dokumentation  [product_standard]
+  Inbetriebnahme  [product_standard]
+  Installation  [product_standard]
+  Migration  [product_standard]
+  Test  [product_standard]
+  Support  [product_standard]
+  Troubleshooting  [product_standard]
+  Wartung  [product_standard]
+  Standards:  [product_standard]
+  ITIL (CMDB  [product_standard]
+  Change Request und Incident Management  [product_standard]
+  Prozesse)  [product_standard]
+  ClamAV  [product_standard]
+  Tomcat  [product_standard]
+  ARCserve  [product_standard]
+  rsync  [product_standard]
+  Puppet  [product_standard]
+  Webmin  [product_standard]
+  debootstrap  [product_standard]
+  logicalDOC  [product_standard]
+  Remote Desktop  [product_standard]
+  Dell RACADM  [product_standard]
+  Pacemaker  [product_standard]
+  Corosync  [product_standard]
+  Microsoft Office  [product_standard]
+  Libreoffice  [product_standard]
+  git  [product_standard]
+  KVM  [product_standard]
+  XEN  [product_standard]
+  Apache  [product_standard]
+  Microsoft IIs  [product_standard]
+  ITIL  [product_standard]

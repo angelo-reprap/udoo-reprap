@@ -1,0 +1,977 @@
+{
+  "metadata": {
+    "aid": "AID-mh_1.1.3.0",
+    "version": "1.1.3.0",
+    "consultant_dir": "huettermann_michael",
+    "first_name": "Michael",
+    "last_name": "Huettermann",
+    "headline": "Continuous Delivery; DevOps; Build-/Release Engineer; Konfig-, Build-, Deploy-, Release-, Deploy-Management; SCM; ALM",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:37:03.804818"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Michael",
+      "last_name": "Huettermann",
+      "birth_year": 1972,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch Fließend in Wort und Schrift",
+          "level": ""
+        }
+      ],
+      "availability": "01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "511xx Köln, Deutschland",
+      "headline": "Continuous Delivery; DevOps; Build-/Release Engineer; Konfig-, Build-, Deploy-, Release-, Deploy-Management; SCM; ALM"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DB2",
+        "ISAM",
+        "Lotus Notes",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle",
+        "Postgres",
+        "Progress",
+        "SQL",
+        "xBase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "AS/400",
+        "IBM Großrechner",
+        "PC"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MVS",
+        "OS/390",
+        "OS/400",
+        "SUN OS",
+        "Solaris",
+        "Unix Viele Derivate",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Basic",
+        "C++",
+        "CL/400",
+        "Cobol",
+        "Conzept 16",
+        "Java",
+        "JavaScript",
+        "JCL",
+        "Perl",
+        "PHP",
+        "PL/SQL",
+        "Prolog",
+        "Rexx",
+        "RPG",
+        "Scriptsprachen",
+        "Shell",
+        "J2EE / Java EE: JSF",
+        "EJB",
+        "Hibernate",
+        "Spring",
+        "JDO",
+        "JDBC",
+        "Servlets",
+        "JSP",
+        "Struts",
+        "Web-Services",
+        "XDoclet",
+        "JMS & MQSeries",
+        "J2SE: GUI (Swing",
+        "AWT)",
+        "JavaBeans",
+        "Class-Loader",
+        "Threading",
+        "Groovy",
+        "Scala",
+        "(J)Ruby",
+        "Jython/Python",
+        "XML: XML",
+        "XSL",
+        "XSLT",
+        "XPath",
+        "DTD",
+        "Schema",
+        "Testing: JUnit",
+        "TestNG",
+        "Selenium",
+        "WebTest",
+        "FEST",
+        "DBUnit",
+        "Performance-Tests",
+        "Continuous Integration (Cruise Control",
+        "Hudson/Jenkins",
+        "TeamCity",
+        "Maven",
+        "Ant",
+        "Gradle)",
+        "Continuous Delivery",
+        "DevOps (Docker",
+        "Puppet",
+        "Chef",
+        "Shell)"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "Sun Certified Programmer for the Java Platform SCJP",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Sun Certified Java Developer for the Java Platform SCJD",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Sun Certified Java Associate for the Java Platform SCJA",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Sun Certified Web Component Developer SCWCD",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "ITIL V3 Foundation",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Konferenzen",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Vortragender und regelmäßiger Besucher auf international führenden",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "z. B. Devoxx 2008",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "JavaOne San Francisco 2007",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "JavaOne San Francisco 2009",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Jazoon 2009",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "GeeCON",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Software & Systems Quality Conference",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "JavaOne Shanghai",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "2013",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Speaker auf Java User Group Veranstaltungen in Hamburg und Karlsruhe",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Buchlesung in Hamburg",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "...",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Bücher",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "1. [Titel auf Anfrage]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "2. [Titel auf Anfrage]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "3. [Titel auf Anfrage]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "4. [Titel auf Anfrage]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Artikel (Auswahl)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "[Liste auf Anfrage]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Wikipedia Artikel",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "\"Extreme Programming\", http: //de.wikipedia.org/wiki/Extreme_Programming",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "\"Anti-Pattern\", http: //de.wikipedia.org/wiki/Anti-pattern",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "[URL auf Anfrage] (aktuelle Vorträgsthemen)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "siehe [URL auf Anfrage]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Englisch anzeigen",
+        "issuer": "",
+        "date_obtained": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "Rolle / Position: Aufbau und operative Durchführung Prozess-, Build-, Release-,",
+        "title": "Bereitstellung einer Integrationsplattform auf einer Vielzahl von Umsystemen / Geschäftsprozessoptimierung Technologien: Eclipse, Eclipse Runtime, OSGi, Eclipse Plugin-Entwicklung Spring, Hibernate, EHCache, JDO, iBatis, JDBC, C, CORBA, Swing, JUnit EasyMock, Ant, CruiseControl, CVS, Fit, REST, agil",
+        "role": "Aufbau und operative Durchführung Prozess-, Build-, Release-,",
+        "technologies": [
+          "RPM",
+          "Puppet",
+          "Nagios",
+          "SUSE Linux",
+          "Ruby",
+          "WebServices",
+          "CMDB",
+          "Java",
+          "Continuous Delivery",
+          "JBoss",
+          "Subversion",
+          "Nexus",
+          "Mockito",
+          "Cobertura",
+          "Selenium",
+          "WebDriver",
+          "FEST",
+          "SVN",
+          "Git",
+          "Eclipse",
+          "Mylyn",
+          "JIRA",
+          "Crucible",
+          "FishEye",
+          "Confluence",
+          "Oracle",
+          "Linux",
+          "CentOS",
+          "Scripting",
+          "Bash",
+          "Artifactory",
+          "Agile Softwareentwicklung",
+          "ITIL",
+          "Java/J2EE",
+          "Cobol",
+          "xCobol",
+          "JCL",
+          "MFE",
+          "Xpediter",
+          "CICS",
+          "TSO",
+          "SPF",
+          "z/Linux",
+          "z/OS",
+          "z/VM",
+          "(VM/CMS)",
+          "Tomcat",
+          "WAS",
+          "DB2",
+          "DDL/",
+          "Sonstiges",
+          "Sonstige Anmerkungen:",
+          "Java Tooling Bootcamp",
+          "Agile ALM",
+          "Maven 3",
+          "Subversion - Versionskontrolle",
+          "DevOps",
+          "Termine nach Absprache",
+          "Infos hier: [URL auf Anfrage]",
+          "Training/Seminar",
+          "06.05 Aufbaukurs Projekt Management",
+          "01.04 Seminar Präsentationen",
+          "Schulung",
+          "05.03 Seminar Java JFC",
+          "Projekte)",
+          "03.01 Seminar PHP 4.0",
+          "Mitgliedschaften",
+          "[Name auf Anfrage] User Group",
+          "seit 2005: [URL auf Anfrage]",
+          "seit 2002: [URL auf Anfrage]",
+          "\"Agile Alliance\"",
+          "seit 2006: http://agilealliance.org",
+          "seit 2006 (aufgrund besonderer",
+          "\"[Name auf Anfrage] Community Manager\"",
+          "seit 2007: [URL auf Anfrage]"
+        ],
+        "activities": [
+          "Jenkins (+Plugins), Sonar, Maven (+Plugins), Ant, Continuous Integration,",
+          "07.2011 - 12.2011",
+          "Unternehmung: Deutsche Post AG",
+          "Release-/Konfig-Management (ALM); Senior Developer und Delivery Engineer",
+          "JBoss, Websphere, Puppet, Nagios, Continuous Integration, Continuous Delivery",
+          "01.2010 - 06.2011",
+          "Unternehmung: OBI",
+          "von Umsystemen / Geschäftsprozessoptimierung Technologien: Eclipse, Eclipse Runtime, OSGi, Eclipse Plugin-Entwicklung Spring, Hibernate, EHCache, JDO, iBatis, JDBC, C, CORBA, Swing, JUnit EasyMock, Ant, CruiseControl, CVS, Fit, REST, agile Entwicklung 07.2006 - 12.2006 Rolle: Consultant mit Fokus auf Prozess Management, Lead Developer, Architekt für eine komplexe J2EE Anwendung, die unter hoher Last steht, mit sehr großen Datenmengen umgeht und besteht aus: Java Swing Client, Java Web Client Sessions Beans, Entity Beans, MDB, JSP, Servlets, Spring u.a. Frameworks auf Tomcat/JBoss; Applikation nutzt sehr stark XML als Daten(austausch)-Format. Technologien: J2EE, JEE, EJB, JSP/Servlets, XML, XMLSchema, XSL, Oracle Eclipse u.a. 04.2003 - 06.2006 Rolle: Stabsstelle Prozesse und Werkzeuge, Enterprise-Frameworks Technologien: J2EE, JEE, EJB, Java Rich Client, Swing, JSF, DB2, Hibernate Spring 02.2001 - 03.2003 Unternehmung: Lycos Europe AG, Gütersloh Rolle: Entwicklung im Kontext Core Search, Paid Submission Technologien: Java, PHP, PL/SQL, XML, Protokolle, Cocoon, FOP, Lucene u.a. 02.2000 - 01.2001 (halbtags) Unternehmung: Jobware Online Services GmbH, Paderborn Rolle: Verantwortlicher Entwickler für eine B2C, B2B n-tier Web-Anwendung Anwendung Technologien: C++, Visual Basic, ASP, NT Server, IIS, SQL Server, MTS, DLLs 08.1999 - 02.2000 (halbtags) Unternehmung: Slawik Consulting GmbH, Paderborn Rolle: Entwicklung Enterprise Ressource Planning Systems Technologien: Progress Datenbank 05.1998 - 07.1998 Unternehmung: Cooperative Computing & Communication Laboratory C-Lab, Paderborn Rolle: Software Engineering im Bereich Middleware, Datenbanken Technologien: DB-Middleware OpenDM, JNI, C/C++, Java, RMI, Corba 06.1994 -06.1994 Unternehmung: 3M, Borken Rolle: Anwendungsentwickler ERP-Systeme Technologien: RPG/400, AS/400, z/Os, iSeries 08.1991 - 06.1994 Unternehmung: 3M, Borken Rolle: Ausbildung zum Datenverarbeitungskaufmann (DV-Kaufmann), Software Engineering im Bereich ERP Technologien: RPG/400, Cobol auf IBM AS/400, Durchlauf Fachabteilungen, PC Rechenzentrum, Unternehmung: Pironet NDH AG, Köln, Unternehmung: REWE-Informations-Systeme GmbH, Köln"
+        ]
+      }
+    ],
+    "industries": [
+      "Handel",
+      "Chemie",
+      "Banken",
+      "Finanz",
+      "Industrie",
+      "Logistik",
+      "Stahl",
+      "Dienstleistung",
+      "Versicherung",
+      "DIY"
+    ],
+    "focus_areas": [
+      "Continuous Delivery; DevOps; Build-/Release Engineer; Konfig-Build-Deploy-Release-Deploy-Management; SCM; ALM Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training"
+    ],
+    "focus_experience": [
+      {
+        "name": "Langjährige Praxiserfahrung im Bereich Build-/Deploy von komponentenbasierten",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Anwendungen.",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Große Erfahrung in Architektur",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Design und Entwicklung von hoch-komplexen",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "mehrschichtigen",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "datenbank-getriebenen Systemen auf unterschiedlichen",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Plattformen wie JEE",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Microsoft .NET und Host",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Exzellentes Wissen in heterogenen Applikationens- und Middleware-Landschaften",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "und dessen Integration (EAI",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "SOA)",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Außerordentlich gutes Wissen in allen relevanten Java/JEE Best-Of-Breed",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Technologien (Web",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Client)",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Frameworks (JDO",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Struts",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Tapestry...)",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Datenbanken (Oracle u.a.)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "IDEs",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Werkzeugen und Best-Practices",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Expertenwissen im Bereich Rich UI Anwendungen (Eigene Erstellung von Swing",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Frameworks und Swing Java Patching/Enhancement",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "JSF Frameworks",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "u.a.)",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Sehr gutes Wissen über Architekturen von verteilten",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "geschichteten Systemen mit",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Architektur-Patterns",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Design-Patterns und Idioms",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Umfangreiche Software-Life-Cycle Kenntnisse und Verantwortung inklusive",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Anforderungsmanagement",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Modellierung",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Spezifikation",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Design",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Coding",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Testing",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Dokumentation",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Rollout",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "User Support",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Große praktische Erfahrung sowohl in mittelständichen Unternehmen als auch in",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Großkonzernen.",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Ausübung verschiedener Rollen vom Chefarchitekt bis zum Entwickler mit der",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Einstellung der agilen Entwicklung \"Auch der Architekt muss mitentwickeln\".",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Hemdsärmelig.",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Langjährige Erfahrung als Festangestellter in verschiedenen",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Unternehmensformen",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "und somit Erfahrungen über interne Abläufe und \"Besonderheiten\"",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "eindeutiges",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Plus im Vergleich zu jemandem",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "der ausschließlich als Freelancer gearbeitet hat",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "(und nur in verhältnismässig kurzen Intervallen das Leben einer Unternehmung",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "begleitet hat",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "aber nie wirklich 100%-Bestandteil war)",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Herausragende Prozess Management/Projekt Management Fähigkeiten unter",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Anwendung",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "von agilen Methodiken und traditionellen Vorgehensmodellen.",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Durch interdisziplinäre Ausbildung und Projekte außergewöhnlich gute",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Fähigkeiten mich in die Fachbereiche/Interessen der Anwender/Nutzer",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "hineinzuversetzen.",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Große Service-Orientiertheit mit hervorragenden sozialen Skills (Coaching",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Leadership).",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Sehr gutes Zeit-Management",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "organisatorische und Problemlösungs-Fähigkeiten",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Herausragende Fähigkeiten mich in neue Abläufe und Umgebungen in kürzesten",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Zeiten hineinzuarbeiten.",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Coach und Tutor für Java Themen und Agile Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "mit zahlreichen",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "internationalen Kontakten und der Möglichkeit mich als \"Sun Java Champion\"",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "aktiv an der strategischen Weiterentwicklung der Java-Plattform zu beteiligen.",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Software Configuration Management (inkl. Build-",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Konfigurations-",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Deployment-",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Release-",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Integrations-Management)",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Testautomation",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Effektivität & Effizienz",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Application Lifecycle Management ALM.",
+        "category": "product_standard",
+        "sort_order": 78
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ausbildung zum DV-Kaufmann",
+        "institution": "3M, Borken",
+        "period": "1994",
+        "education_type": "course"
+      },
+      {
+        "degree": "Diplom Wirtschaftsinformatik",
+        "institution": "Universität Paderborn",
+        "period": "2001",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nSchulungen, die ich gebe:\nJava Tooling Bootcamp\nAgile ALM\nAutomatisiertes Testen von Webanwendungen mit Selenium und WebTest\nAutomatisiertes Testen von Java Swing Anwendungen\nMaven 3\nSubversion - Versionskontrolle\nContinuous Delivery\nDevOps\nTermine nach Absprache, Infos hier: [URL auf Anfrage]\nTraining/Seminar\n06.05 Aufbaukurs Projekt Management\n05.04 Seminar Grundlagen der Gesprächsführung\n01.04 Seminar Präsentationen\n10.03 Seminar EJB (Evaluierung der Schulung für Entwickler der Projekte)\n10.03 Augeo Projektmanagement-Tool (Teach the Teacher- Seminar)\n07.03 Seminar WebSphere Application Developer WSAD (Evaluierung der\nSchulung\nfür Entwickler der Projekte)\n05.03 Seminar Java JFC, Swing (Evaluierung der Schulung für Entwickler der\nProjekte)\n10.02 Software Quality Management / Software Testing\n03.01 Seminar PHP 4.0\nMitgliedschaften\n[Name auf Anfrage] User Group, seit 2005: [URL auf Anfrage]\n[Name auf Anfrage] Gründer und Organisator, seit 2002: [URL auf Anfrage]\n\"Agile Alliance\", seit 2006: http://agilealliance.org\n\"Mitglied des Sun Java Champion Programmes\", seit 2006 (aufgrund besonderer\nLeistung nominiert und gewählt worden, einer von weltweit 96): https://java-\nchampions.dev.java.net\n\"[Name auf Anfrage] Community Manager\", seit 2007: [URL auf Anfrage]",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "CICS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CORBA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proprietäre Protokolle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Public Networks",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "XML-RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SOAP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "REST",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "AutoCAD",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CASE",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MDSD",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FIT (Finite-Integral-Methode)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Rapid Control Prototyping (RCP)",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:37:03.804831",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "OTHER",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "ZERTIFIKATE",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 81.85840707964603,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

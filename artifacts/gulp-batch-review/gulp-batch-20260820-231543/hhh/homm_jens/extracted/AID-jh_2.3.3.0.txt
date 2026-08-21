@@ -1,0 +1,334 @@
+AID: AID-jh_2.3.3.0
+Name: Jens Homm
+Headline: JAVA-Entwicklung und Architektur mit Schwerpunkt JEE und Web / Training/ Coaching in Java, Design / Liferay-Entwicklung und Schulung
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9 im Umkreis von: Hamburg (50
+Wohnort: 221xx Hamburg, Deutschland
+Jahrgang: 1976
+Verfügbar: 01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1999
+Sprachen: Deutsch, Englisch
+
+FACHBEREICHE:
+JAVA-Entwicklung und Architektur mit Schwerpunkt JEE und Web / Training/ Coaching in Java
+Design / Liferay-Entwicklung und Schulung Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Engineering / IT-nahe Ingenieurdienstleistungen Entwicklung von Software in den folgenden Sprachen: JAVA / JEE C / C++ VisualBasic Objektorientiertes Design von Software mit entsprechenden Case-Tools.
+Analyse und Geschäftsprozessmodellierung mit UML Computergestützte MSR-Anwendungen.
+Model für Tabellen(JTable) und Bäume(JTree). Bearbeitung der JFC(Java Foundation Classes) für Oberflächengestaltung.
+18.03. - 22.03.2002 SUN-Schulung SL-320(GUI Construction with Swing and JFC) 27.11. - 28.11.2003 JBOSS Administration und Entwicklung 27.03. - 31.03.2006 OOGPM - Objektorientierte Geschäftprozessmodellierung 26.06. - 30.06.2006 OOAD - Objektorientierte Analyse und Design mit der UML 05.05. - 06.05.2011 Objective-C für Java-Entwickler
+
+BRANCHEN:
+Telekommunikation
+Bank
+Versicherungswesen
+Automotive
+Verteidigung
+Gaming
+Online-Gaming
+Glückspiel
+Handel
+Großhandel
+
+PROJEKTE:
+  07 2020 - 12 2020 | Lottostar24 | Entwicklung MaxNet 2.0 - Maklerportal einer Versicherung Projektgröße: 50 Mitarbeiter Branche: Versicherung
+    - Status: Selbstständig/Freiberuflich
+    - IT-Umgebung: Java8/Java11, Mongo, Spring-Boot, Kafka, Docker, Angular,
+    - Lets Encrypt, traefik
+    Techs: IntelliJ, Docker, Jenkins, Nexus, GitLab, CentOS, Spring, SpringBoot, Netdata
+  07 2018 - heute | Lottostar24 | Plattform für Lotterien und IWG Projektgröße: 16 Mitarbeiter Branche: Gambling
+    - Rolle(n): Software-Entwickler, Architect, Technische Projektleitung,
+    - DevOps
+    - Branche: Gambling
+    Techs: IntelliJ, Docker, Jenkins, Nexus, GitLab, CentOS, Spring, SpringBoot, Netdata
+  05 2018 - 04 2020 | SOLCOM (Vermittlungsprojekt) | Monitoring und Entwicklung Liferay-Portal Projektgröße: 1 Mitarbeiter Branche: Entsorgung
+    - Status: Selbstständig/Freiberuflich
+    - IT-Umgebung: Java, Java 8, Tomcat, Wildfly, Keycloak, Angular 8-10, Spring,
+    - Spring-Boot, Spring-Security, IntelliJ, Host, DB2, Jenkins, Jira, Confluence,
+  10 2015 - 03 2020 | weyher Entsorgung | Software für Funkempfänger und Funkpeiler, COMINT Projektgröße: 30 Mitarbeiter Branche: Elektronik,Funktechnik,Aufklärung
+    - Status: Selbstständig/Freiberuflich
+    - IT-Umgebung: Java, Java 8, Liferay, Liferay-SDK, mySQL, Tomcat, Eclipse,
+    - Jenkins, GitLab, CentOS, Let's Encrypt, Netdata
+  04 2015 - 09 2015 | GULP | Direktbanking Projektgröße: 40 Mitarbeiter Branche: Banking
+    - Status: Selbstständig/Freiberuflich
+    - IT-Umgebung: Java, Java 7, Java 8, Oracle 11, Oracle 12, JMS, Tomcat,
+    - Webservices, Eclipse, Eclipse RCP, SWT, JFace, OSGi, GIT, SVN, Scrum, KanBan, in-Step, Maven, Tycho, RTI DDS, Docker
+  01 2015 - 03 2015 | VOQUZ | eWorks Projektgröße: 6 Mitarbeiter Branche: Automotive, Elektronik
+    - Status: Selbstständig/Freiberuflich
+    - IT-Umgebung: Java, Java 6, C, SQL, PL/SQL, ProC, Oracle 11, JSF, JMS, MQSeries,
+    - JBoss, Eclipse, GIT, Scrum, KanBan, Jira
+  26.08.2013 - 28.08.2013 | PPI | Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, Eclipse, SVN, Oracle, Hibernate, Maven, Jetty,
+    - Spring, Spring MVC, Spring Security, Tomcat, Apache, JSF, PrimeFaces, Eclipse
+  07 2013 - 12 2014 | Gulp | 
+    - Status: Selbstständig/Freiberuflich
+    - IT-Umgebung: Java, Java 6, JEE 7, EJB3, EJB2, jBPM 3, jBPM 6, Hibernate, JBoss
+    - AS, Wildfly, JSF, Primefaces, XML, XSLT, Eclipse, GIT, Scrum
+  20.08.2012 - 22.08.2012 | Metro / Schaper | Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching
+    - Status: Selbstständig / Freiberuflich / Remote
+    - IT-Umgebung: Java 5/Java6/Java7, Eclipse, Unix, SVN, Rife, Spring, Tomcat,
+    - Axis2, Webservice, Geronimo, Redmine, SOA, Maven, ANT
+  24.05.2012 (2 * 2 Stunden) | GFU | Liferaytraining im virtuellen Klassenraum Branche: Portalentwicklung
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Eclipse, Liferay 6.1, Tomcat
+    - Durchführung einer dreitägigen Schulung mit dem Thema Liferayentwicklung für Javaentwickler.
+  01 2012 - 03 2020 | ConceptPeople | Interne Kommunikation Projektgröße: Variiert, ein Entwickler (ich) Branche: Intranet / Extranet / Handelsplattform / CMS / Marktkommunikation
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, Oracle, Hibernate, Maven,
+    - Jetty, Spring, Spring MVC, Spring Security, Wicket, Active-MQ, Tomcat, Apache
+  04 2011 - 12 2012 | ConceptPeople | Kundenantrag GAA Projektgröße: 3 Mitarbeiter Branche: Intranet / Handelsplattform/CMS
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, CVS, Oracle, Hibernate, Ant,
+    - Maven, Jetty, Spring, Spring MVC, Wicket, Adobe Dreamweaver CS 4, JSP
+  01 2010 - 06 2013 | GFU | 
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Eclipse, Liferay 6.1, Tomcat
+    - Durchführung einer dreitägigen Schulung mit dem Thema Liferayentwicklung für In dieser Schulung werden die Grundlagen der Portletentwicklung mit dem Rolle(n): Softwareentwickler
+  22.06.2009 - 26.06.2009 | Metro | SUN-Schulung SL-275-SE6 Teilnehmer: 8 Branche: Schulungsunternehmen
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, JSF 1.1/1.2 (MyFaces (1.1.7,
+    - 1.2), tomahawk (1.1.5, 1.1.7), RichFaces (3.1.6, 3.2. 3.3)), Facelets,
+  07 2009 - 12 2009. | Freund+Dirks | 
+    - Status: Selbstständig / Freiberuflich
+    - Hier habe ich ein gezieltes Liferaytraining in einem virtuellem Klassenraum für einen
+    - Daten zu einem angemeldetem Benutzer abfragen
+    Techs: IT-Umgebung: Eclipse, Liferay 6.1, Tomcat, GWT, Cisco WebEx, Meeting Center
+  08 2009 - Heute | Metro | MCS Projektgröße: 3 Mitarbeiter Branche: Intranet / Handelsplattform/CMS
+    - Status: Selbstständig / Freiberuflich / Remote
+    - IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, Rife, Spring, Tomcat, Axis2
+    - Projektbeschreibung:
+  04 2009 - 07 2009 | Metro | MCS Projektgröße: 3 Mitarbeiter Branche: Intranet / Handelsplattform/CMS
+    - Status: Selbstständig / Freiberuflich / Remote
+    - IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, JSF 1.1/1.2 (MyFaces (1.1.7,
+    - 1.2), tomahawk (1.1.5, 1.1.7), RichFaces (3.1.6, 3.2. 3.3)), Facelets,
+  01 2009 - 03 2009 | BOS-it oHG | Tipp24 / Tipp24Games / Webservices Projektgröße: 50 Mitarbeiter Branche: Internetplattform / Gaming
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: JAVA 6, Solaris 10
+    - Projektbeschreibung:
+  02 2009 - 03 2009 | Tipp24 AG | Go100 Projektgröße: 1 Mitarbeiter Branche: Medien/Verein
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, Eclipse, Unix, Webservice, WSDL, WSDD, SOAP, Apache
+    - Axis, Oracle, SQL, CVS, Ant, Shellskripte
+  16 01 2009 - 31 03 2009 | n-7Media / go100ev | Giesel Projektgröße: 5 Mitarbeiter Branche: Medien
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, OpenCMS, JBOSS 4.2, JSF 1.2, PostgressQL 8,
+    - Authentication and Authorization Service), SSL, XML, XSD
+    Techs: NetBeans 6, Subversion, Linux (OpenSuse + Debian), Hibernate, ANT, JAAS (Java
+  20.10.2008 - 24.10.2008 | PPI AG Informationstechnologie | SUN-Schulung SL-275-SE6 Teilnehmer: 6 Branche: Schulungsunternehmen
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 1.5, J2EE, Eclipse, Tomcat 5.5, CruiseControl, CVS, Oracle,
+    - HSQL, Liferay 4.4.2, Portlet (JSR 168), Spring, SpringMVC, Spring WebFlow,
+    Techs: Java 1.5, J2EE, Eclipse, Tomcat 5.5, CruiseControl, CVS, Oracle, HSQL, Liferay 4.4.2, Portlet (JSR 168)
+  03.03.2008 - 07.03.2008 | EADS Deutschland | SUN-Schulung SL-275-SE6 Teilnehmer: 4 Branche: Schulungsunternehmen
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 1.4, Java 1.5, Java 1.6, J2EE, Eclipse, SWT, JFaces, Ant,
+    - CruiseControl, ClearCase, SVN, Toplink, Oracle, Agitar, Websphere Application
+  27 12 2008 - 15 01 2009 | expeso / H-E-S | Giesel Projektgröße: 5 Mitarbeiter Branche: Medien
+    - Status: Selbstständig / Freiberuflich / Remote
+    - IT-Umgebung: Java 5/Java 6, Liferay 5.1, Eclipse, Tomcat 5, MySql, Displaytag
+    - (JSP-Tag), Subversion, Ant, Struts 1.2, Spring, Hibernate
+  08 2008 - 12 2008 | expeso / H-E-S | Go100 Projektgröße: 1 Mitarbeiter Branche: Medien/Verein
+    - Status: Selbstständig / Freiberuflich / Remote
+    - IT-Umgebung: Java 5/Java6, Liferay 5.1, Eclipse, Tomcat 5, MySql, Displaytag
+    - (JSP-Tag), Subversion, Ant, Struts 1.2, Spring, Hibernate
+  05 2008 - 12 2008 | n-7Media / go100ev | TRAVIC-Port Projektgröße: 10 - 15 Mitarbeiter Branche: Banking
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: Java 5/Java6, OpenCMS, JBOSS 4.2, JSF 1.2, PostgressQL 8,
+    - Authentication and Authorization Service), SSL, XML, XSD
+    Techs: NetBeans 6, Subversion, Linux (OpenSuse + Debian), Hibernate, ANT, JAAS (Java
+  26.06.2007 - 27.06.2007 | BOS-it oHG | J2EE Schulung für das Projekt PHOENIX Teilnehmer: 10 Branche: Versicherung
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: JAVA 6, Solaris 10
+    - Projektbeschreibung:
+  07 2007 - 04 2008 | BOS-it oHG | ARGE-Gast Projektgröße: 100 Mitarbeiter (4 Standorte) Branche: Verteidigung
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: JAVA 6, Solaris 10
+    - Projektbeschreibung:
+  08 2006 - 06 2007 | LogicaCMG / DBV Winterthur | ARMADA, FSH, CC Projektgröße: 6 Mitarbeiter Branche: Automotive, Leasing
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: J2EE 1.4, JAAS, JMS, JNDI, EJB, Middlegen, XDoclet, JBOSS 3.0.5,
+    - , XML, XSD, XSLT, XSL-FO
+  11 2005 - 07 2006 | ALD Autoleasing Deutschland | Produktentwicklung (CRIS-PE), Kundenprojektunterstützung (PHOENIX) Projektgröße: 10/20 Mitarbeiter Branche: Versicherung
+    - Status: Festangestellt
+    - IT-Umgebung: Java 1.4, J2EE, Eclipse, Ant, CruiseControl, CVS, Toplink,
+    - Hibernate, JSP, Servlet, Struts, Oracle, Velocity, iText, UJAC, POI, JMeter, oAWTest, SQL, PL/SQL, XML, XSD, XSLT
+  05 2004 - 07 2006 | LogicaCMG | Agentursystem PHOENIX (Kundenprojekt in Produktion) Projektgröße: 15 - 20 Mitarbeiter Branche: Versicherung
+    - Status: Festangestellt
+    - IT-Umgebung: Java 1.4, J2EE, JBuilder, Eclipse, Ant, Together, PoseidonUML,
+    - JBOSS, Oracle, Sybase, TOAD, Visio, XDoclet, Middlegen, Velocity, CVS,
+  03 2003 - 07 2006 | LogicaCMG | Produktentwicklung eines Agentursystems (CRIS-PE) Projektgröße: 10 Mitarbeiter Branche: Versicherung
+    - Status: Festangestellt
+    - IT-Umgebung: Java 1.4, J2EE, Servlets, JBuilder, Oracle, Sybase, VSS, JBOSS,
+    - Ant, Middlegen, XDoclet, Cruisecontrol, TOAD, Wise, XML, XSD, XSLT, XSL-FO
+  10 2000 - 02 2003 | LogicaCMG | Software für Versicherungen zur Bearbeitung von Schadensfällen. (INCAS) Projektgröße: 180 Mannmonate/50 Mitarbeiter Branche: Versicherung
+    - Status: Festangestellt
+    - IT-Umgebung: Java 1.3, Java 1.4, J2EE, JBuilder, Eclipse, Ant, Together,
+    - PoseidonUML, JBOSS, Oracle, Sybase, TOAD, Visio, XDoclet, Middlegen, Velocity,
+  11 1999 - 09 2000 | PDV Unternehmensberatung / LogicaCMG | GUI- und Businesslogikentwicklung in Java für ein Datenbankfrontend mit EJB (PEGASUS) Projektgröße: 20 Mitarbeiter Branche: Telekommunikation
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: PowerBuilder 7, HOW, Oracle 8, PVCS, TOAD, PL/SQL, HOW-PFC
+    - Projektbeschreibung:
+  05 1999 - 10 1999 | debis Systemhaus | Entwicklung von Treibern für Geldautomaten unter Benutzung von J/ XFS in Java sowie Implementierung der Sicherheitsrichtlinien im Geldverkehr. Projektgröße: 10 Mitarbeiter Branche: Banken
+    - Status: Selbstständig / Freiberuflich
+    - IT-Umgebung: JBuilder 4, CVS, Ant, Oracle 8, Java 1.2, J2EE, BEA Weblogic
+    - 4.5.1, XML
+  Firma/Institut: Lutz Wolf Unternehmensberatung | Lutz Wolf Unternehmensberatung | 
+    - Status: Festangestellt
+    - IT-Umgebung: Java 1.1.8, Swing 1.1, VSS, J/XFS, Visual SlickEdit, JNI
+    - Projektbeschreibung:
+
+SKILLS:
+  database: Access, BDE, JDBC Entwicklung, MariaDB, Mongo, Mongo DB, MS SQL Server, MySQL, ODBC, Oracle Entwicklung, Grundkenntnisse Administration, Postgres Entwicklung, SQL, Sybase
+  hardware: Emulatoren, Macintosh, Messgeräte, Mikrocontroller, Modem, PC Tiefgehende Hardwarekenntnisse, Sensoren, SPS
+  operating_system: CentOS, Mac OS Mac OS X, MS-DOS, Unix Linux, Windows
+  programming_languages: Angular, Assembler erw. Grundkenntnisse, Basic, C, C# Grundkenntnisse, C++, Imake, GNU-Make, Make-Maker etc, Java, JavaScript, Java8, Java8/Java11, Objective C Grundkenntnisse, Optima++ Nachfolger Power++ von Sybase, Perl, PL/SQL gute Kenntnisse, Powerbuilder Version 7.x, Qt
+
+SKILL-ABLAGE:
+Kafka, parallele Schnittstelle für MSR-Zwecke, RS232 für MSR-Zwecke, TCP/IP, Design/Entwicklung/Konstruktion, EAGLE, Berechnung/Simulation/Versuch/Validierung, TARGET 3001!
+
+AUSBILDUNG:
+04.98 - 09.99 | C/C++-Programmierer für Windows | SGD Darmstadt  [course]
+10.99 - 03.00 | JAVA-Programmierer | SGD Darmstadt  [course]
+01.05 - 06.06 | JAVA-Serverprogrammierung | SGD  [course]
+17.07. - 21.07.2000 | BEA Weblogic Application Server Development  [course]
+09.04. - 12.04.2001 | Objektorientierte Analyse und Design mit UML  [course]
+18.06. - 22.06.2001 | SWING. Anwendung des MVC-Konzepts. Model für Tabellen(JTable) und Bäume(JTree). Bearbeitung der JFC(Java Foundation Classes) für Oberflächengestaltung.  [course]
+18.03. - 22.03.2002 | SUN-Schulung SL-320(GUI Construction with Swing and JFC)  [course]
+27.11. - 28.11.2003 | JBOSS Administration und Entwicklung  [course]
+27.03. - 31.03.2006 | OOGPM - Objektorientierte Geschäftprozessmodellierung  [course]
+26.06. - 30.06.2006 | OOAD - Objektorientierte Analyse und Design mit der UML  [course]
+05.05. - 06.05.2011 | Objective-C für Java-Entwickler  [course]
+
+ZERTIFIKATE:
+15.03.2002 Prüfung zum Sun Certified Java Programmer (SCJP) abgelegt.
+30.06.2006 Prüfung zum OMG Certified UML Professional (OCUP-I)
+(Zertifizierungsnummer: OM0-101135)
+
+FOCUS_EXP:
+  Docker  [product_standard]
+  Eclipse  [product_standard]
+  GitLab  [product_standard]
+  IntelliJ  [product_standard]
+  Jenkins  [product_standard]
+  Lets Encrypt  [product_standard]
+  Liferay  [product_standard]
+  Liferay-SDK  [product_standard]
+  Netdata  [product_standard]
+  Nexus  [product_standard]
+  Spring  [product_standard]
+  Spring-Boot  [product_standard]
+  traefik  [product_standard]
+  J/XFS : Java eXtension for Financial Services  [product_standard]
+  MS-Office  [product_standard]
+  Power++(Optima++) : C/C++-Entwicklungsumgebung von Sybase  [product_standard]
+  PowerJ : JAVA-Entwicklungsumgebung von Sybase  [product_standard]
+  PowerBuilder: Entwicklungsumgebung von Sybase  [product_standard]
+  Visual C++  [product_standard]
+  Visual Basic  [product_standard]
+  JBuilder (ab Version 4)  [product_standard]
+  Visual SlickEdit : Programmiereditor  [product_standard]
+  Filemaker  [product_standard]
+  SQL Navigator  [product_standard]
+  BEA Weblogic Application Server Version 4.5  [product_standard]
+  5.1  [product_standard]
+  JBOSS ab 3.0.4  [product_standard]
+  Tomcat  [product_standard]
+  Apache  [product_standard]
+  HOW  [product_standard]
+  TogetherJ  [product_standard]
+  Enterprise Architekt  [product_standard]
+  PoseidonUML: Case-Tools  [product_standard]
+  Objektorientierte Analyse  [product_standard]
+  Design  [product_standard]
+  Programmierung  [product_standard]
+  n-Tier-Programmierung  [product_standard]
+  C/S-Programmierung  [product_standard]
+  Websitedesign  [product_standard]
+  Websitegestaltung ((X)HTML  [product_standard]
+  JAVA  [product_standard]
+  JavaScript)  [product_standard]
+  JAVA / JEE(Schwerpunk EJB und Datenbank)  [product_standard]
+  Struts  [product_standard]
+  Hibernate  [product_standard]
+  Toplink  [product_standard]
+  ANT  [product_standard]
+  CruiseControl  [product_standard]
+  Hudson  [product_standard]
+  Maven  [product_standard]
+  Archiva  [product_standard]
+  Continuum  [product_standard]
+  jBPM  [product_standard]
+  jPDL  [product_standard]
+  Drools  [product_standard]
+  BPMN  [product_standard]
+  15.03.2002 Prüfung zum Sun Certified Java Programmer (SCJP) abgelegt.  [product_standard]
+  30.06.2006 Prüfung zum OMG Certified UML Professional (OCUP-I)  [product_standard]
+  (Zertifizierungsnummer: OM0-101135)  [product_standard]
+  Frameworkaufbau und Erweiterung für Oberflächenframeworks und Abbildung der  [product_standard]
+  Businesslogik aus Datenbanken.  [product_standard]
+  Workflowabbildung für Geschäftsprozesse  [product_standard]
+  Tiefgehende Erfahrungen im Bereich der Versicherungen (Sach  [product_standard]
+  Haft  [product_standard]
+  Unfall  [product_standard]
+  KFZ)  [product_standard]
+  durch mehrere Projekte in der Zeit von 2000 - 2006 im Bereich der Versicherung  [product_standard]
+  (Backoffice  [product_standard]
+  Frontoffice)  [product_standard]
+  Schadenbearbeitung  [product_standard]
+  Vertriebsunterstützende Agentursoftware  [product_standard]
+
+SONSTIGES:
+Referenzen:
+Projekt CMS MCS und MCS-Portal, 04/09 - 07/09
+Referenz durch Abteilungsleiter, Handelsunternehmen, vom 11.08.09
+"Der Consultant war für uns ein kompetenter und angenehmer Ansprechpartner
+mit
+großem Fachwissen, der die gestellten Herausforderungen 'in time' und mit
+großem Engagement umgesetzt hat. Wir wuerden uns freuen, wenn wir bald in
+einem
+Projekt wieder zusammenarbeiten könnten."
+Projekt TRAVIC-Port, 05/08 - 12/08
+Referenz durch Unit-Manager, PPI AG Informationstechnologie, vom 17.02.09
+"[...] Nach einer angemessenen Einarbeitungszeit hat er sehr engagiert und
+selbstständig die ihm zugewiesenen Aufgaben erledigt. Hierbei konnte er seine
+umfangreichen Erfahrungen im Bereich des J2EE-Stack und der Implementierung
+von
+Webanwendungen allgemein einbringen, die er auch gerne an die Kollegen im
+Projekt weitergegeben hat. Der Consultant war dabei stets hilfsbereit und gab
+den Kollegen bei Bedarf die notwendige Unterstützung. Neben seiner fachlichen
+Qualifikation ist besonderes sein Engagement hervorzuheben. Gerne sind wir
+bereit, in einem neuen Projekt wieder mit ihm zusammenzuarbeiten und
+bedanken
+uns an dieser Stelle noch einmal für seinen Einsatz. Anderen Projektanbietern
+können wir seine Mitarbeit uneingeschränkt empfehlen."
+Projekt einer großen J2EE-Applikation, 07/07 - 04/08
+Referenz durch Gesamtprojektleiterin, T-Systems Enterprise Services GmbH, vom
+28.04.08
+"[...] Nach erfolgreicher Sicherheitsüberprüfung wechselte der Consultant im
+November 2007 in die Integration [...] und unterstützte hier das Team bei der
+Integration der J2EE-Applikation sowie überarbeitete und optimierte die
+bestehenden Prozesse, um die Wartbarkeit in der Integration sicherzustellen.
+Hierbei profitierte er von seinen tiefgehenden Kenntnissen im Bereich der JAVA/
+J2EE-Entwicklung sowie seiner Kenntnisse um die Funktionalität im Bereich
+Application Server und JMS sowie Kenntnissen im Bereich der Oracle-
+Datenbanken.
+Die von ihm angefertigten Distributionen für die Integration und den Betrieb
+sowie die zugehörigen Anleitungen waren von hoher fachlicher und technischer
+Qualität. Der Consultant verfügt über eine schnelle Auffassungsgabe auch
+komplexer Themen, womit er das Team seit seinem Eintritt schnell unterstützen
+konnte. Auch war er stets bereit, Kollegen fachlich und technisch zu
+unterstützen, um die Anwendung in Betrieb zu nehmen. Hierbei zeigte er ein
+überdurchschnittliches Engagement, um dem Projekt zu einem Erfolg zu
+verhelfen.
+Für den Einsatz des Consultants im Projekt möchten wir uns bedanken und
+können
+ihn für andere Projekte nur empfehlen."
+Alle Referenzen sind durch GULP bestätigt.
+Sonstige Anmerkungen:
+Besonderes Interesse habe ich an Projekten im Java-Umfeld. Mein Schwerpunkt
+liegt in der Implementierung von JEE-Konformen Anwendungen, dem Erstellen und
+Weiterentwickeln von Frameworks sowie Schulungen und Coaching in und für die
+JAVA-Entwicklung.
+Dabei greife ich, sofern vorhanden, auf die Unterstützung von Case-Tools für
+das Design sowie die Ana

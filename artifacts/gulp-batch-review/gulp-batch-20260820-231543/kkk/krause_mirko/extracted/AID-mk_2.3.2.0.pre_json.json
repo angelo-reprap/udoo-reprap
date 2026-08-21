@@ -1,0 +1,1413 @@
+{
+  "metadata": {
+    "aid": "AID-mk_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "krause_mirko",
+    "first_name": "Mirko",
+    "last_name": "Krause",
+    "headline": "Erfahrener JAVA Full-Stack Entwickler, Anwendungsentwicklung Internet, Java, Datenbanken, Softwarearchitektur und Programmierung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:42:46.927736"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Mirko",
+      "last_name": "Krause",
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch Projekterfahrung",
+          "level": ""
+        },
+        {
+          "name": "Vue.js",
+          "level": ""
+        }
+      ],
+      "availability": "01.05.21 zu 100%, Vor-Ort-Einsatz 60% möglich",
+      "location": "D2",
+      "wohnort": "236xx Ratekau, Deutschland Staatsbürgerschaft Deutsch",
+      "headline": "Erfahrener JAVA Full-Stack Entwickler, Anwendungsentwicklung Internet, Java, Datenbanken, Softwarearchitektur und Programmierung",
+      "edv_experience_since": 1994
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access Gute Kenntnisse",
+        "JDBC Sehr gute Kenntnisse",
+        "MS SQL Server",
+        "MySQL",
+        "Object Store",
+        "ODBC",
+        "Oracle",
+        "PostgresSQL",
+        "Prometheus",
+        "SQL",
+        "Sybase",
+        "Allgemein gute Kenntnisse im Relationalen Modell (ERM-Design",
+        "JDBC/ODBC)"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "PC Schwerpunkt",
+        "SPS Ausbildung",
+        "Projekterfahrung"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [
+        "OOA",
+        "OOP",
+        "OOD",
+        "Datenbank-Design (auf Basis UML bzw. ERM)",
+        "Programmierungs- und Entwicklungswerkzeuge /",
+        "Agile Softwareentwicklung",
+        "Scrum",
+        "Kanban",
+        "Continuous Integration (Jenkins)",
+        "Pair Programming",
+        "PRODUKTE / STANDARDS / ERFAHRUNGEN",
+        "DDD",
+        "Programmiersprachen / Skriptsprachen /"
+      ],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS",
+        "Unix",
+        "Windows Schwerpunkt"
+      ],
+      "programming_languages": [
+        "Basic VB",
+        "MS-Access",
+        "ASP (Active Server Pages)",
+        "C Im Rahmen des Studiums",
+        "C++ Im Rahmen des Studiums",
+        "CORBA IDL Studium",
+        "Weiterbildung",
+        "Delphi Im Rahmen des Studiums",
+        "Fortran Ausschliesslich im Rahmen des Studiums",
+        "Java Schwerpunkt",
+        "JavaScript Schwerpunkt",
+        "Perl Basiskenntnisse",
+        "PHP Basiskenntnisse",
+        "Scriptsprachen ASP",
+        "Tcl/Tk",
+        "JavaScript",
+        "Smalltalk Ausschliesslich im Rahmen des Studiums"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "Eclipse",
+        "IBM Rational Application Developer V6 (RAD)",
+        "IntelliJ IDEA",
+        "IBM WebSphere",
+        "Bea Weblogic",
+        "Visual Age for Java",
+        "Borland JBuilder",
+        "HomeSite",
+        "Dreamweaver",
+        "BugZilla",
+        "CVS (Win-CVS",
+        "Tortoise-CVS",
+        "Eclipse)",
+        "Mozilla",
+        "Photoshop",
+        "Fireworks",
+        "Toad",
+        "SQL plus",
+        "DB-Visualiser",
+        "Quest SQL Navigator",
+        "Andere Produkte",
+        "Apache/Jakarta: HTTP",
+        "Tomcat",
+        "Struts",
+        "Taglibs",
+        "Lucene",
+        "JMeter",
+        "(Commons",
+        "Ant",
+        "Log4J",
+        "...)",
+        "Vignette Story Server 5.0 / V/5",
+        "Gauss VIP ContentManager u. PortalManager",
+        "Visio",
+        "Rational",
+        "RoboHelp",
+        "MS Office",
+        "Wise for Windows Installer",
+        "CAST Enlighten",
+        "AKTUELLER TECHNOLOGIE STACK (ZUSAMMENFASSUNG)",
+        "Backend",
+        "Java 8",
+        "JPA",
+        "EclipseLink",
+        "Hibernate",
+        "TestNG",
+        "JUnit",
+        "Mockito",
+        "JasperReports / iText",
+        "Camunda Workflow Engine",
+        "Oracle (SQL / PL/SQL)",
+        "Frontend",
+        "Wicket 7",
+        "CSS (Bootstrap",
+        "Bulma",
+        "Less /SASS)",
+        "JavaScript (VUE.js",
+        "jQuery)",
+        "Selenium",
+        "HTML (Responsive)",
+        "Java (J2EE) / Web / Internet-Technologien (Schwerpunkt)",
+        "Wicket",
+        "Servlet-API/JSP",
+        "JSF",
+        "JPA (Eclipselink",
+        "Hibernate)",
+        "JDBC",
+        "Toplink",
+        "MyBatis",
+        "Spring",
+        "CSS3)",
+        "SASS / LESS",
+        "JavaScript (ECMAScript",
+        "JQuery",
+        "VUE.js)",
+        "Web Services (REST",
+        "JSON)",
+        "XML",
+        "DTD / XML Schema",
+        "XSLT",
+        "J2SE (Swing/AWT)",
+        "Oracle RDBMS",
+        "PL/SQL",
+        "JNDI",
+        "POI",
+        "Jasper Reports",
+        "iText/UJAC PDF",
+        "Jenkins",
+        "Gradle",
+        "Maven",
+        "GIT (Gitflow)",
+        "CVS",
+        "JIRA & Confluence",
+        "Bamboo",
+        "Bitbucket",
+        "Mantis",
+        "AsciiDoc",
+        "Plant UML",
+        "UMLet",
+        "BPMN (Camunda Modeler)",
+        "MS Office (z.B. Excel"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "07/2020 - 03/2021",
+        "company": "Hermes Germany GmbH, Hamburg (OTTO Group)",
+        "title": "myhermes.de (Privatkunden) / business.myhermes.de, Hamburg",
+        "role": "Fullstack Java Entwicklung und Unterstützung als DevOps",
+        "activities": [
+          "(Geschäftskunden)",
+          "Aufgaben:",
+          "Fullstack Java Entwicklung für die Portallösung zur Sendungsverfolgung",
+          "Ablösung des Altsystems und Migration auf das neue Portal basierend auf Microservice-Architektur.",
+          "Unterstützung als DevOps („you build it- you run it“), d.h. Betrieb der Microservices auf einer Cloud-Infrastruktur (Deployment, Monitoring,",
+          "Optimierung)",
+          "Unterstützung von Infrastruktur-Themen im Rahmen des Entwicklungsprojektes.",
+          "Unterstützung des Scrum-Teams:Sprints, Plannings, Reviews, Retrospektiven,",
+          "Bewertung und Priorisierung von Aufwänden",
+          "Hamburg"
+        ]
+      },
+      {
+        "period": "01/2019 - 10/2019",
+        "company": "Health AG (EOS Health IT-Concept GmbH / Otto Group)",
+        "title": "Hea die webbasierte vernetzte Praxissteuerung, Hamburg",
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Hea ist eine webbasierte Plattform für die vernetzte Steuerung von Zahnarztpraxen und verbindet, digitalisiert und vereinfacht betriebswirtschaftliche und organisatorische Praxisprozesse. Konkret umfasst das die Bereiche Factoring, Abrechnung, Praxissteuerung und Wissen.",
+          "Eigene Aufgabe:",
+          "Full-Stack-Entwicklung und Umsetzung des neuen Designs \"V2\":",
+          "Startseite Dashboard",
+          "Off Canvas Sidebar mit Toolelementen wie Dokumentenstrom, Gematik Feed,",
+          "Terminaufgaben und weitere Patientendashboard"
+        ]
+      },
+      {
+        "period": "10/2017 - 09/2018",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA OCSO II, Hamburg",
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Kalkulation von Leasingangeboten",
+          "Fahrzeugkonfiguration",
+          "Umsetzung erweiterter Anforderungen",
+          "Eigene Aufgabe:",
+          "Techn. Entwurf und Umsetzung der erweiterten Anforderungen",
+          "Unterstützung bei der Bewertung und Priorisierung von Aufwänden"
+        ]
+      },
+      {
+        "period": "08/2016 - 10/2017",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA OCSO - Vertriebsunterstützungs- und CRM-System im, Hamburg",
+        "activities": [
+          "Flotten-Auto-Leasing",
+          "Aufgaben:",
+          "Projektdetails:",
+          "Kalkulation von Leasingangeboten, Fahrzeugkonfiguration",
+          "Kunden- und Vertragsverwaltung, Obligo-Verwaltung",
+          "Integration mit dem Back-Office (Leasman, Data Warehouse)",
+          "Aufbau/Betreuung der herstellerunabhängigen Fahrzeugdatenbank (Schwacke)",
+          "Ausarbeitung fachlicher Anforderungen in Form von DV- und Fachkonzepten",
+          "im, Hamburg"
+        ]
+      },
+      {
+        "period": "02/2016 - 07/2016",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA Helena Erweiterung für Privatkunden Leasing, Hamburg",
+        "activities": [
+          "Aufgaben:",
+          "Eigene Aufgabe:",
+          "Umsetzung der Anforderungen und Konzepte",
+          "Funktionaler und technischer Test der Programme sowie Übergabe an den Fachbereichstest Test und Dokumentation",
+          "Teamgröße:",
+          "10 IT-Consultants",
+          "Java 7, Wicket, Servlet, Struts/JSP, RESTful Web Services JAX-RS, XML/XSLT,",
+          "JSON, JPA (Eclipselink), JDBC, MyBatis, Hibernate, Spring, BPMN (Camunda",
+          "Hamburg"
+        ]
+      },
+      {
+        "period": "05/2015 - 01/2016",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA - OSP (Optimize Sales Processing), Hamburg",
+        "activities": [
+          "Aufgaben:",
+          "Eigene Aufgabe:",
+          "Erweiterung um Versicherungsservices",
+          "Umfangreiche Erweiterungen des Moduls Kunden-Konditionierung",
+          "(Leasingpreislisten)",
+          "Umsetzung der Anforderungen und Konzepte sowie Übergabe an den Fachbereichstest",
+          "Test und Dokumentation",
+          "Teamgröße:",
+          "10 IT-Consultants"
+        ]
+      },
+      {
+        "period": "07/2014 - 04/2015",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA Benutzer und Rollenkonzept, Hamburg",
+        "activities": [
+          "Aufgaben:",
+          "Eigene Aufgabe:",
+          "Neues Benutzer- und Rollenkonzept: Aufteilung in (externe) Benutzerkonten und fachliche Benutzer sowie Konzeption und Einführung eines Rollen- und Profilmoduls mit Berechtigungssteuerung",
+          "Umsetzung der Anforderungen und Konzepte",
+          "Migration und Übergabe an den Fachbereichstest Test und Dokumentation",
+          "Teamgröße:",
+          "10 IT-Consultants",
+          "Java, Wicket, Servlet, Struts/JSP, RESTful Web Services JAX-RS, XML/XSLT, JSON,"
+        ]
+      },
+      {
+        "period": "04/2013 - 06/2014",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA DMS (Dealer Management System), Hamburg",
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Integration von externen Händler Systemen in das Armada H2B mit Übernahme von Kunden- und Angebotsdaten.",
+          "Eigene Aufgabe:",
+          "Spezifikation der Anforderungen und Konzepte",
+          "Spezifikation des WebService-Schnittstelle (XSL)",
+          "Workshops mit den Kooperationspartnern Umsetzung der Anforderungen und Konzepte",
+          "Migration und Übergabe an den Fachbereichstest Test und Dokumentation"
+        ]
+      },
+      {
+        "period": "01/2013 - 03/2013",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA - Einarbeitung und Coaching, Hamburg",
+        "technologies": [
+          "Windows",
+          "Linux",
+          "Firefox / Firebug"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "ARMADA - Einarbeitung und Coaching neuer Mitarbeiter",
+          "Dokumentation und Know-how-Transfer",
+          "Eigene Aufgabe:",
+          "Einweisung interner Mitarbeiter in ARMADA",
+          "Einweisung und Know-how-Transfer, Dokumentation (TWIKI)",
+          "Unterstützung bei der Bewertung von Aufwänden neuer Anforderungen"
+        ]
+      },
+      {
+        "period": "06/2012 - 12/2012",
+        "company": "ALD Automotive GmbH (IT Car Renting)",
+        "title": "ARMADA Subventionen, Hamburg",
+        "technologies": [
+          "ANT",
+          "CVS",
+          "Windows XP",
+          "Linux",
+          "Internet Explorer"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Neues Verwaltungsmodul für externe Subventionen und der Verwendung in der Angebotskalulation. Eigene Aufgabe:",
+          "Armada Subventionen (Aufwandsabschätzung)",
+          "Armada Subventionen Umsetzung",
+          "Going Live Armada Subventionen",
+          "Teamgröße:",
+          "6 IT-Consultants"
+        ]
+      },
+      {
+        "period": "07/2010 - 05/2012",
+        "company": "ALD Automotive GmbH (Automobil / Leasing)",
+        "title": "ARMADA H2B Neues Händler Tool, Hamburg",
+        "technologies": [
+          "JUnit",
+          "ANT",
+          "CVS",
+          "Windows XP",
+          "Linux",
+          "Internet Explorer"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Neuentwicklung eines modernen Händler Tools für die Angebotserstellung Eigene Aufgabe:",
+          "Spezifikation der Anforderungen und Konzepte",
+          "Spezifikation des WebLayers (Prototyp mit Wicket)",
+          "Workshops Web-UI, Spezifikation der (HTML-)Schnittstellen (externe",
+          "Agentur)",
+          "EclipseLink-Workshop"
+        ]
+      },
+      {
+        "period": "10/2009 - 06/2010",
+        "company": "ALD Automotive GmbH (Automobil / Leasing)",
+        "title": "ARMADA PRO Kooperationen - Erweiterung der Anwendung um eine, Hamburg",
+        "technologies": [
+          "PDF",
+          "JMeter",
+          "JUnit",
+          "ANT",
+          "CVS",
+          "Windows XP",
+          "Linux",
+          "Internet Explorer"
+        ],
+        "activities": [
+          "Multi- Mandantenfähigkeit",
+          "Aufgaben:",
+          "Projektdetails:",
+          "Unterscheidung und sichere Trennung zwischen mandantenabhängigen und mandantenübergreifenden Daten und Objekten.",
+          "Eigene Aufgabe:",
+          "Konzeption und Umsetzung der Erweiterung von Armada um eine Multi-Mandantenfähigkeit",
+          "Teamgröße:",
+          "6 IT-Consultants",
+          "um eine, Hamburg"
+        ]
+      },
+      {
+        "period": "06/2009 - 09/2010",
+        "company": "ALD Automotive GmbH (Automobil / Leasing)",
+        "title": "ARMADA PRO Kooperationen Technologie Upgrades /, Hamburg",
+        "technologies": [
+          "POI",
+          "iText/UJAC PDF",
+          "JMeter",
+          "JUnit",
+          "ANT",
+          "CVS",
+          "Windows",
+          "XP",
+          "Linux"
+        ],
+        "activities": [
+          "Performance Tuning",
+          "Aufgaben:",
+          "Eigene Aufgabe:",
+          "Performance-Optimierung (SQL-Tuning, Java-Profiling)",
+          "Technologie-Upgrade von JDK 1.4 auf Java 6, Axis 1.1 auf Axis2",
+          "Teamgröße:",
+          "4 IT-Consultants",
+          "Eclipse, PL/SQL-Developer, Oracle 9 / 10, Tomcat, WebService (Apache Axis-WS),",
+          "Hamburg"
+        ]
+      },
+      {
+        "period": "01/2008 - 05/2009",
+        "company": "ALD Automotive GmbH (Automobil / Leasing)",
+        "title": "Pflege und Wartung des Online Frontoffice-Tools, Hamburg",
+        "technologies": [
+          "CVS",
+          "Mantis",
+          "Windows XP",
+          "Linux",
+          "Internet Explorer"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Pflege und Wartung des Online Frontoffice-Tools für das Flotten-Leasing",
+          "(Full-Service-Leasing) und des Online Car Configurators.",
+          "Aufgabenstellung:",
+          "Ausarbeitung fachlicher Anforderungen in Form von DV- und Fachkonzepten.",
+          "Unterstützung bei der Bewertung, Zuordnung und Priorisierung von Aufwänden zu geplanten Implementierungsphasen neuer Releases",
+          "Umsetzung der Anforderungen und Konzepte"
+        ]
+      },
+      {
+        "period": "06/2007 - 12/2007",
+        "company": "TxB Bank / dwpbank-Gruppe",
+        "title": "WPBilanz Eigenbestandsverwaltung, Hamburg (Düsseldorf, Frankfurt)",
+        "technologies": [
+          "IBM WebSphere 5.x",
+          "Jetty",
+          "MQSeries",
+          "Host",
+          "CVS",
+          "Windows XP",
+          "Internet Explorer"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektdetails:",
+          "Portierung der HOST-Applikation auf Basis J2EE (Neu-Entwicklung)",
+          "Eigene Aufgabe:",
+          "Konzeption und Programmierung der Eigenbestandsverwaltung auf Basis Java",
+          "Server Faces (JSF) unter IBM WebSphere Application Server.",
+          "Teamgröße:",
+          "10 IT-Consultants",
+          "Frankfurt)"
+        ]
+      },
+      {
+        "period": "11/2006 - 05/2007",
+        "company": "Hypo- und Vereinsbank AG (HVB Information Services GmbH)",
+        "title": "TripleA Wealth Management, Hamburg",
+        "technologies": [
+          "Sun Solaris",
+          "Windows XP"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Produktdetails:",
+          "Produktionssicherung und Customizing (Java-Entwicklung) der Triple'A WUI im Bereich Portfolio-Management für den Geschäftsbereich Wealth",
+          "Management bei der HVB VMD (Vermögensdialog) – Retail Banking",
+          "Java-Entwicklung und Applikation-Management im Bereich Portfolio- Management für den Geschäftsbereich Retail Banking bei der HVB Eigene Aufgabe:",
+          "Implementierung der Kunden-seitigen Change-Requests",
+          "Betrieb/Wartung der Bea Weblogic Application Server, Staging etc.",
+          "Technologie-Stack:"
+        ]
+      },
+      {
+        "period": "02/2006 - 03/2007",
+        "company": "EDS / Continental Automotive Systems",
+        "title": "CORE-Applikation auf Basis Team Center Engineering (TCE)",
+        "activities": [
+          "Ort: Hannover",
+          "Branche: Automotive / Manufacturer",
+          "Aufgaben:",
+          "Projektdetails:",
+          "Java-Entwicklung im Bereich Applikations-Management-Services für den bGeschäftsbereich Forschung und Entwicklung bei Conti.",
+          "Eigene Aufgabe:",
+          "Konzeption des Klassen- und Objektmodells für das Refactoring auf Basis von Design-Patterns: MVC-Pattern, Observer-Pattern, DAO-Pattern, Session- Facade-Pattern",
+          "Refactoring der gewachsenen Java-Applikation"
+        ],
+        "role": "CORE-Applikation auf Basis Team Center Engineering (TCE)"
+      },
+      {
+        "period": "12/2005 - 01/2006",
+        "title": "2. EBICS-Server",
+        "activities": [
+          "Projektdetails:",
+          "Konzeptionierung eines Servers für EBICS (Electronic Banking Internet",
+          "Communication Standard: Erweiterung des Filetransferverfahrens FTAM) für den elektronischen Zahlungsverkehr mit Firmenkunden.",
+          "Eigene Aufgabe:",
+          "Anforderungsanalyse und Erstellung der Systemarchitektur zur Integration und Erweiterung in die bestehenden mehrschichtigen Server-Architekturen",
+          "(TRAVIC/WOP) unter Unix-AIX und HOST z/OS",
+          "Federführender Architekt bei der Entwicklung des Server-Designs (UML- Diagramme, Objekt-Modell)",
+          "Konzeption der Server-seitigen Prozess-Steuerung, der fachlichen Services"
+        ]
+      },
+      {
+        "period": "10/2005 - 01/2006",
+        "company": "PPI Financial Systems",
+        "title": "SI-Rating und EBICS-Server",
+        "activities": [
+          "Ort: Hamburg",
+          "Branche: Softwarehersteller für Finanzdienstleister (Banken)",
+          "Aufgaben:"
+        ]
+      },
+      {
+        "period": "10/2005 - 12/2005",
+        "title": "1. SI-Rating",
+        "technologies": [
+          "Solaris",
+          "Windows XP"
+        ],
+        "activities": [
+          "Projektdetails:",
+          "Java-Entwicklung im Bereich Kreditrisiko (Finanzrating, qualitatives",
+          "Rating) für die Sparkassen-Informatik Integration der Rating-Web-Applikation in das OSP-WebPortal",
+          "Eigene Aufgabe:",
+          "Entwicklung eines Web-basierten Prototypen für das Kunden-Rating des DSGV (Deutscher Sparkassen und Giro Verband)",
+          "Integration der Rating-Applikation in das OSP-WebPortal (OSP-Workflow- Steuerung, Domain-Daten) der Sparkassen unter Beachtung und Einhaltung des Architektur-Boards (OSP-Portal)",
+          "Tools/Sprachen:",
+          "Java (JDK 1.4.x): Verwendete Programmiersprache zur Implementierung"
+        ]
+      },
+      {
+        "period": "07/2005 - 09/2005",
+        "company": "Dresdner Kleinwort Wasserstein",
+        "title": "MISTRAL (MISTRAL-Datenbank",
+        "technologies": [
+          "Windows",
+          "Linux"
+        ],
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Finanzdienstleister (Investmentbanking)",
+          "Aufgaben:",
+          "Projektdetails:",
+          "MISTRAL (MISTRAL-Datenbank: Mapping und Bereitstellung von Konzernweiten eindeutigen Counterparties)",
+          "Wartung und Refactoring der Web-/Datenbank- Applikation MISRTAL",
+          "Eigene Aufgabe:",
+          "Wartung/Maintenance sowie die Umsetzung neuer Change-Requests der in Produktion befindlichen MISTRAL-Applikation"
+        ]
+      },
+      {
+        "period": "02/2004 - 07/2005",
+        "company": "Postbank Systems AG",
+        "title": "IOB (Internet Online Banking, Multikanal-Architektur/ Banking)",
+        "technologies": [
+          "Windows",
+          "Sun Solaris",
+          "Apache Webserver",
+          "Tomcat 5.x",
+          "Struts",
+          "1.1",
+          "BEA",
+          "SAP",
+          "JAVA"
+        ],
+        "activities": [
+          "Ort: Bonn",
+          "Branche: Finanzdienstleister",
+          "Aufagben:",
+          "Projektdetails:",
+          "Neuentwicklung Postbank Online-Banking (Link auf Anfrage)",
+          "Multikanal-Architektur/Banking, Load-Balancing, Cluster,",
+          "Distributed Sessions (ca. 10 Mio. Transaktionen pro Monat)",
+          "Banking)"
+        ],
+        "role": "IOB (Internet Online Banking, Multikanal-Architektur/ Banking)"
+      },
+      {
+        "period": "01/2004 - 02/2004",
+        "company": "CAPCO / Dresdner Bank",
+        "title": "ORTOS (Operational Risk Management Toolsuite)",
+        "technologies": [
+          "Windows NT / 2000",
+          "Sun Solaris",
+          "Internet Information Server",
+          "(IIS)",
+          "Jakarta"
+        ],
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Softwarehersteller, Service und Technologie Solution Provider, spezialisiert auf Finanzdienstleistungsunternehmen",
+          "Aufgaben:",
+          "Projektdetails:",
+          "Entwicklung weiterer Features in der Modulkomponente GOLD (Global",
+          "Operational Loss Database)",
+          "Unterstützung interner Mitarbeiter (CAPCO India)",
+          "Kunden-Support"
+        ]
+      },
+      {
+        "period": "07/2003 - 12/2003",
+        "company": "CAPCO / Dresdner Bank",
+        "title": "ORTOS (Operational Risk Management Toolsuite)",
+        "technologies": [
+          "Windows NT / 2000",
+          "Sun Solaris",
+          "Internet Information Server",
+          "(IIS)",
+          "JAVA (J2EE",
+          "HomeSite",
+          "HTML",
+          "DOM",
+          "XML",
+          "JavaScript",
+          "CVS",
+          "BugZilla",
+          "Wise for Windows"
+        ],
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Softwarehersteller, Service und Technologie Solution Provider, spezialisiert auf Finanzdienstleistungsunternehmen",
+          "Eigene Aufgaben:",
+          "Projektdetails:",
+          "Softwareentwicklung und -programmierung",
+          "Einweisung und Einarbeitung interner Teammitglieder (CAPCO India)",
+          "Unterstützung bei der Übergabe in den Regelbetrieb Kunden-Support"
+        ]
+      },
+      {
+        "period": "06/2003 - 07/2003",
+        "company": "Dresdner Bank",
+        "title": "ORTOS (Operational Risk Management Toolsuite)",
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Finanzdienstleistungsunternehmen (Abt. Risiko-Controlling)",
+          "Eigene Aufgaben:",
+          "Projektdetails:",
+          "Dokumentation und Qualitätssicherung",
+          "Erstellung einer englischen Dokumentation"
+        ]
+      },
+      {
+        "period": "05/2003 - 06/2003",
+        "company": "Dresdner Bank",
+        "title": "ORMIS (Operational Risk Management Information System)",
+        "technologies": [
+          "Windows NT / 2000",
+          "Sun Solaris",
+          "Internet Information Server",
+          "(IIS)",
+          "ORACLE 8i"
+        ],
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Finanzdienstleistungsunternehmen (Abt. Risiko-Controlling)",
+          "Eigene Aufgaben:",
+          "Projektdetails:",
+          "Neuentwicklung der Modulkomponente ORMIS (Operational RiskManagement",
+          "Information System)ORMIS präsentiert sich dem Benutzer in Form eines Web- Client und bietet im wesentlichen Reportingfunktionen",
+          "Die Daten werden aus einer zentralen Oracle Datenbank gelesen und aufbereitet"
+        ]
+      },
+      {
+        "period": "03/2002 - 05/2003",
+        "company": "Dresdner Bank",
+        "title": "ORTOS (Operational Risk Management Toolsuite)",
+        "technologies": [
+          "Windows NT / 2000",
+          "Sun Solaris",
+          "Internet Information Server",
+          "(IIS)",
+          "JAVA"
+        ],
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Finanzdienstleistungsunternehmen (Abt. Risiko-Controlling)",
+          "Aufgaben:",
+          "Projektdetails:",
+          "Entwicklung einer Produkt Suite im Bereich Operational Risk bestehend aus: Verlustdatensammlung, Strukturiertes Self Assessment, Key Risk",
+          "Indicators, Prozessmodellierung, Management Reporting und Risikoberechnung durch Monte Carlo Simulation.",
+          "Der Schwerpunkt lag in der Entwicklung einer globalen Verlustdatenbank",
+          "GOLD (Global Operational Loss Database) zur Erfassung operativer"
+        ]
+      },
+      {
+        "period": "12/2001 - 03/2002",
+        "company": "Dresdner Bank",
+        "title": "GOLD (Global Operational Loss Database)",
+        "technologies": [
+          "Windows NT / 2000",
+          "Internet Information Server (IIS)",
+          "JAVA",
+          "(Servlet-API",
+          "JSP"
+        ],
+        "activities": [
+          "Ort: Frankfurt am Main",
+          "Branche: Finanzdienstleistungsunternehmen (Abt. Risiko-Controlling)",
+          "Eigene Aufgaben:",
+          "Projektdetails:",
+          "Einarbeitung, Optimierung und Weiterentwicklung der Web-basierten, in Produktion befindlichen Ereignisdatenbank GOLD Version 1.0 zur Erfassung operativer Ereignisse mit finanzieller Auswirkung.",
+          "Softwareentwicklung: Redesign, Fehlerbereinigung, Optimierung und Erweiterung der auf Struts basierenden Anwendung GOLD Version 1.0",
+          "Software:"
+        ]
+      },
+      {
+        "period": "11/2001 - 12/2001",
+        "company": "Training / Weiterbildung",
+        "title": "Entwurfsstrategien Enterprise JavaBeans",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung von Entity- und Session-Beans (Architektur, Lebenszyklen von EJB",
+          "1.1 und 1.0), CTMs, Ressourcenverwaltung (Pooling, Instance Swapping,",
+          "Aktivierung/Passivierung), Primärdienste (Transaktions-verwaltung,",
+          "Nebenläufigkeit etc.), Container- und Bean-verwaltete Persistenz,",
+          "Entwurfsstrategien",
+          "Funktion:",
+          "Erarbeitung und Vertiefung von Detail- und Hintergrundwissen der EJB- Spezifikation und prototypische Umsetzung (Deployment in Application Server)"
+        ]
+      },
+      {
+        "period": "09/2001 - 11/2001",
+        "company": "Training / Weiterbildung",
+        "title": "WWW-Evaluierung in Java",
+        "technologies": [
+          "Rational Rose",
+          "Borland JBuilder",
+          "Linux",
+          "WinNT"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Vergleich aktueller Stand von Servlet-Engines (Tomcat 3.x, Tomcat 4.x und Resin), Anbindungen an Webserver (Apache, IIS über mod_jk, mod_webapp), SSL,",
+          "Zugriff auf DBMS (z.B. DB-Connection-Pools, JDBC), Logging, Session-Tracking,",
+          "Evaluierung von Webapplikationen (z.B. Jive-Forum, Java-Webmail, James- Mailserver, OpenCMS etc.)",
+          "Funktion:",
+          "Evaluierung und prototypische Umsetzung, Überblick über Open-Source-Projekte",
+          "(z.B. von der Apache-Group) in Hinblick auf Einsetzbarkeit, Anpassbarkeit bzw.",
+          "Erweiterbarkeit verschaffen."
+        ]
+      },
+      {
+        "period": "03/2001 - 09/2001",
+        "company": "Körber PaperLink",
+        "title": "Content Management System (CMS) - Redaktionssystem",
+        "technologies": [
+          "1.3.x",
+          "Visual Age for Java / WebSphere",
+          "JIVE-Forum",
+          "Lucene",
+          "Linux SuSe/Redhat",
+          "HP-Unix",
+          "Windows 2000"
+        ],
+        "activities": [
+          "Ort: Hamburg",
+          "Branche: Maschinenbau",
+          "Projekt:",
+          "Durch die Verwendung von Templates in einem Corporate Design des Kunden wird die Einhaltung des Corporate Design für alle Inhalte der Site gewährleistet.",
+          "Das VIP Redaktionssystem ist zusammen mit den für die Bereiche News, Messen und Gebrauchtmaschinen zu programmierenden formularbasierten Pflegemöglichkeiten die einheitliche Redaktionsum-gebung für alle Redakteure und Mitarbeiter der Qualitätssicherung des Kunden. Das VIP Redaktionssystem hat einen zweistufigen redaktionellen Workflow integriert. Eine Personalisierung des Webauftritts wird durch die Schaffung einer persönlichen Linkliste und die Einrichtung vonm geschützten Bereichen für registrierte Webuser erreicht. Weitere hervorzuhebende Funktionen sind eine HTMLbasierte Webuser-Verwaltung, ein Forum sowie eine Volltextsuche über statische und dynamische Inhalte.",
+          "Funktion:",
+          "Erstellung IT-Konzept (in deutscher und englischer Version)",
+          "Konzeption (gesamt)"
+        ]
+      },
+      {
+        "period": "01/2001 - 03/2001",
+        "company": "Otto Versand / Otto Agenturpartner/-partnerin",
+        "title": "IBA 2000 - Integrierte Bestell-Abwicklungssoftware",
+        "activities": [
+          "Ort: Hamburg",
+          "Branche: Großhandel / Einzelhandel",
+          "Projekt:",
+          "Geschäftsprozessmodellierung in UML für eine \"Integrierte Bestell-Abwicklungssoftware\" (IBA) OOA, OOD, OOP, UML, Datenbank-Design, Prototyping",
+          "Funktion:",
+          "Technische Projektleitung, Konzeption, Modellierung (UML, ERM), Präsentation des IT-Konzepts beim Kunden",
+          "Software:",
+          "MS Visual Studio 6 (Visual Basic), Rational Rose, VISIO, MS-SQL-Server 7, MS- Access 2000"
+        ]
+      },
+      {
+        "period": "11/2000 - 01/2001",
+        "company": "ENERGIS-ISION",
+        "title": "Software Consulting",
+        "activities": [
+          "Ort: Hamburg",
+          "Branche:Softwarehersteller (Medien, Groß-/Einzelhandel, Versicherung)",
+          "Projekt:",
+          "Erstellung von Angeboten und techn. Feinkonzepten (IT-Konzepte) im Bereich",
+          "Content Management (CMS), Evaluierung von Systemen, Durchführung von Kundenworkshops",
+          "Funktion:",
+          "UML-/ERM- Modellierung",
+          "Prototyping"
+        ]
+      },
+      {
+        "period": "06/2000 - 11/2001",
+        "company": "Verlagsgruppe Handelsblatt",
+        "title": "CMS (Content Management System)",
+        "activities": [
+          "Ort: Düsseldorf",
+          "Branche: Medien, Verlagswesen",
+          "Projekt:",
+          "Entwicklung und Implementierung eines Web-basierenden CMS mit Schwerpunkt",
+          "\"personal finance\" auf Basis Vignette Story Server",
+          "Funktion:",
+          "Technische Projektleitung",
+          "Konzeption, OOA, OOD, Datenbank-Design"
+        ]
+      },
+      {
+        "period": "01/2000 - 06/2000",
+        "company": "Wirtschaftsförderung Lübeck",
+        "title": "Standort Marketing System",
+        "activities": [
+          "Branche: Wirtschaftsförderung, Industrie- und Handelskammer,",
+          "Kreishandwerkerschaft, Deutschem Gewerkschaftsbund",
+          "Projekt:",
+          "CMS (Content-Management-SystemEntwicklung und Implementierung eines Webbasierenden \"Standort Marketing Systems\") auf Basis \"JPortal \" (meiner",
+          "Diplomarbeit mit Auszeichnung), Mehrsprachigkeit, Security: Trennung von Internet und Intranet (one way)",
+          "Funktion:",
+          "Projektleitung, Konzeption",
+          "Realisierung und Einführung"
+        ]
+      },
+      {
+        "period": "10/1999 - 01/2000",
+        "company": "Diplomarbeit",
+        "title": "JPortal Server",
+        "technologies": [
+          "HTML",
+          "JavaScript",
+          "Windows NT",
+          "Visual Age for Java",
+          "JBuilder",
+          "Borland"
+        ],
+        "activities": [
+          "Branche: Hochschule",
+          "Projekt:",
+          "Aufbauend auf diesen Techniken erfolgt die Entwicklung und Implementierung eines webbasierenden Applikationservers. Die dort entwickelten Komponenten werden als Basis für die Erstellung objektorientierter Web-Applikationen verwendet. Vorgestellt wird dies anhand der Administration der Verzeichnisstruktur des Servers, der integrierten Benutzerverwaltung und dem Beispiel eines Online-Shops.",
+          "JPortal Server (Diplomarbeit mit Auszeichnung). In dieser Diplomarbeit werden die Technologien Java-Servlet-AP und Java Server Pages (JSP) erläutert.",
+          "Funktion:",
+          "Konzeption",
+          "Realisierung"
+        ]
+      },
+      {
+        "period": "04/1999 - 09/1999",
+        "company": "Wirtschaftsförderung Lübeck",
+        "title": "Web Portal",
+        "technologies": [
+          "Access",
+          "HTML",
+          "JavaScript",
+          "Windows NT"
+        ],
+        "activities": [
+          "Branche: Wirtschaftsförderung, Industrie- und Handelskammer,Kreishandwerkerschaft, Deutschem Gewerkschaftsbund",
+          "Projekt:",
+          "Entwicklung und Implementierung diverser Datenbank-basierender",
+          "Web-Applikationen (u. a. Kontaktverwaltung, Pressemitteilungen",
+          "Pressespiegel, Dokumentenverwaltung, Statistikmodul)",
+          "Funktion:",
+          "Technische Projektleitung"
+        ]
+      },
+      {
+        "period": "11/1998 - 04/1999",
+        "company": "ROM",
+        "title": "Online-Shop",
+        "activities": [
+          "Ort: Hamburg",
+          "Branche: Maschinenbau",
+          "Projekt:",
+          "Design, Entwicklung und Realisierung eines Online-Shops (B2B",
+          "Entwicklung und Implementierung eines Web-basierenden",
+          "Warenkorbsystems mit Schnittstelle zu einer bestehender Warenwirtschaft",
+          "Funktion:",
+          "Technische Projektleitung"
+        ]
+      },
+      {
+        "period": "07/1998 - 11/1998",
+        "company": "Kaben interactive design, Lübeck",
+        "title": "Online-Shop",
+        "activities": [
+          "Branche: Softwarehersteller",
+          "Projekt:",
+          "Design, Entwicklung und Realisierung eines Online-Shops (B2B)",
+          "Funktion:",
+          "Konzeption und Realisierung",
+          "Software:",
+          "LinuxmySQL, MS-AccessApache, IISASP, PHP, Java",
+          "Teamgrösse:"
+        ]
+      },
+      {
+        "period": "07/1998 - 11/1998",
+        "company": "BRAINWARE / sitegeist media solutions",
+        "title": "Java Applets, CMS",
+        "activities": [
+          "Ort: Hamburg",
+          "Branche: Softwarehersteller / Internetagentur",
+          "Projekt:",
+          "Entwicklung von Java-Applets auf Basis AWT/Swing",
+          "Dynamische Webseiten mit PHP und ASP",
+          "Funktion:",
+          "Konzeption, Realisierung und Integration in jeweiliges Gesamtsystem",
+          "Software:"
+        ]
+      },
+      {
+        "period": "01/1995 - 01/1998",
+        "title": "Diverse Projekte",
+        "technologies": [
+          "MS Office (MS-Access",
+          "MS-Word",
+          "MS-Excel)",
+          "FoxPro",
+          "Windows",
+          "Netzwerk"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Diverse MS-Office-Lösungen im Bereich Warenwirtschaft",
+          "Netzwerk Administration",
+          "Anwender Support",
+          "Funktion:",
+          "Konzeption und Realisierung",
+          "Software:"
+        ]
+      },
+      {
+        "period": "01/1994 - 01/1995",
+        "company": "Parkhotel Seeblick",
+        "title": "PC-Kasse",
+        "activities": [
+          "Ort: Warnemünde",
+          "Branche:Gastronomie / Hotel",
+          "Projekt:",
+          "Entwicklung und Realisierung einer PC-Kasse",
+          "Funktion:",
+          "Konzeption und Programmierung",
+          "Software:",
+          "Pascal, MS-DOS",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekt Konzeption, Realisierung (CMS-)Redaktionssystem auf VIP GAUSS, 03/01-09/01 Referenz durch Project Manager, E-Business, Körber PaperLink GmbH, vom 29.05.02 \"Auch Referenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02, zusätzlich mit untenstehendem abschliessende Fazit.",
+          "Konzeption, Realisierung eines (CMS-)Redaktionssystems auf Basis von VIP GAUSS, JSP/Servlets (Tomcat 3.2.3), MySQL, Linux.",
+          "Projektbeschreibung:",
+          "Durch die Verwendung von Templates in einem Corporate Design des Kunden wird die Einhaltung des Corporate Design für alle Inhalte der Site gewährleistet.",
+          "Das VIP Redaktionssystem ist zusammen mit den für die Bereiche News, Messen und Gebrauchtmaschinen zu programmierenden formularbasierten Pflegemöglichkeiten die einheitliche Redaktionsumgebung für alle Redakteure und Mitarbeiter der Qualitätssicherung des Kunden. Das VIP Redaktionssystem hat einen zweistufigen redaktionellen Workflow integriert. Eine Personalisierung des Webauftritts wird durch die Schaffung einer persönlichen Linkliste und die Einrichtung von geschützten Bereichen für registrierte Webuser erreicht. Weitere hervorzuhebende Funktionen sind eine HTML-basierte Webuser-Verwaltung, ein Forum sowie eine Volltextsuche über statische und dynamische Inhalte.",
+          "Projektaufgaben:",
+          "Erstellung IT-Konzept (in deutscher und englischer Version) und Konzeption (gesamt), Realisierung (Module: DB-basierte Webuser-Verwaltung, Forum, Volltextsuche über statische und dyn. Inhalte) und Einführung.",
+          "Realisiert unter: VIP GAUSS 5.x, Java (JSP, Taglibs, Servlets, Admin-GUI als Applikation/Applet in AWT/Swing, XML, HTML, CSS, JavaScript, PHP, mySQL, Tomcat 3.2.x, Apache 1.3.x, Visual Age for Java/WebSphere, Jive-Forum, Linux SuSe/Redhat, HP-Unix, Windows 2000. * Fazit: konzeptionell und technologisch sehr überzeugend, erfolgreich und effizient.\" Projekt Geschäftsprozessmodellierung in UML, 01/01 - 03/01 Referenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02 \"Geschäftsprozessmodellierung in UML für eine 'Integrierte Bestell-Abwicklungssoftware'",
+          "OOA, OOD, OOP, UML, Datenbank-Design, Prototyping unter Visual Studio 6 (Visual Basic), Rational Rose, MS-SQL-Server 7, MS-Access 2000",
+          "Technische Projektleitung, Konzeption, Modellierung (UML, ERM), Präsentation des IT-Konzepts beim Kunden",
+          "Realisiert unter: UML-Tools (Rational Rose, VISIO 2000), MS Visual Studio, MS-Office",
+          "Evaluierung von CMS-Systemen, Lasten-/Pflichtenhefterstellung, Durchführung von Kundenworkshops",
+          "Erstellung von Angeboten und technischen Feinkonzepten (IT-Konzepte) im Bereich Content Management (CMS), Evaluierung von Systemen, Durchführung von Kundenworkshops",
+          "Realisiert unter: UML-/ERM- Modellierung (Rational Rose, VISIO 2000), Prototyping (Visual Age for Java, JBuilder), Präsentation MS-PowerPoint"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Finanzdienstleistungsunternehmen",
+      "Versicherungen",
+      "Automotive / Leasingbranche",
+      "Softwarehersteller",
+      "Internet",
+      "Medien",
+      "Verlagswesen",
+      "Maschinenbau",
+      "Energieversorgung",
+      "Elektrizitätswirtschaft",
+      "Gastronomie, Einzelhandel"
+    ],
+    "focus_areas": [
+      "Erfahrener JAVA Full-Stack Entwickler",
+      "Anwendungsentwicklung Internet",
+      "Java",
+      "Softwarearchitektur und Programmierung",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Interessenschwerpunkte: Software-Entwicklung und -design (Fullstack), Java-Technologien, Datenbankentwicklung und -design, Web-Dienste und Serviceorientierte Architekturen, JavaScript Frameworks 1995-1999 Studium an der Fachhochschule Hamburg",
+      "Studiengang: Softwaretechnik",
+      "Abschluss: Diplom-Informatiker (Diplomarbeit mit Auszeichnung) 1992-1995 Studium an der Fachhochschule Lübeck",
+      "Fachrichtung: Elektrotechnik / Techn. Informatik",
+      "Abschluss: Diplom-Vorprüfung",
+      "Weiterbildungen:",
+      "CAST Enlighten Training",
+      "CVS / Eclipse Workshop",
+      "Tcl/Tk Schulung",
+      "XML Schulung",
+      "Oracle Training",
+      "Objektorientierte Analyse und Design",
+      "J2EE Training"
+    ],
+    "focus_experience": [
+      {
+        "name": "AppAgile (Telekom Cloud)",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Bitbucket",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Docker",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "First Spirit",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Grafana",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "HTML5",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "IntelliJ IDEA",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Kibana",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Microservice-Architektur",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Online Payment (PayPal)",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "OpenShift",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "OTC",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Soap",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "SonarQube",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Spring Boot",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Terraform",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Berufserfahrung:",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "11/2000-heute",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "freiberuflicher IT-Consultant",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "1994-2000",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Diverse Projekte im Rahmen des Studiums",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "in selbstständiger Tätigkeit bzw. als",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Angestellter entwickelt.",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Schwerpunkt JAVA-Technologien:",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "* Servlet-API",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Applet",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "AWT",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "JNDI",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "XML/DOM",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "* am Rande: RMI",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "CORBA/IDL",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Interessenschwerpunkte:",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "* Softwareentwicklung (OOA / OOD / OOP",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "ERM",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "SQL)",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Überführung fachlicher Prozesse und -Zusammenhänge in Daten- und Objekt-",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Modelle (OO-Design und -Entwicklung in Multi-Tier-Architekturen)",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Datenbankentwicklung und -design",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Content Management Systeme (CMS) / eBusiness / eCommerce",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Anwendungsentwicklung Internet",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Continuous Delivery",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Datenbank-Design und Entwicklung",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Erfahrener JAVA Full-Stack Entwickler",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Softwarearchitektur und Programmierung",
+        "category": "product_standard",
+        "sort_order": 52
+      }
+    ],
+    "education": [],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Konzeption, Realisierung (CMS-)Redaktionssystem auf VIP GAUSS, 03/01-\n09/01\nReferenz durch Project Manager, E-Business, Körber PaperLink GmbH, vom\n29.05.02\n\"Auch Referenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02,\nzusätzlich mit untenstehendem abschliessende Fazit.\n* Konzeption, Realisierung eines (CMS-)Redaktionssystems auf Basis von VIP\nGAUSS, JSP/Servlets (Tomcat\n3.2.3), MySQL, Linux.\n* Projektbeschreibung:\nDurch die Verwendung von Templates in einem Corporate Design des Kunden\nwird\ndie Einhaltung des Corporate Design für alle Inhalte der Site gewährleistet.\nDas VIP Redaktionssystem ist zusammen mit den für die Bereiche News, Messen\nund\nGebrauchtmaschinen zu programmierenden formularbasierten\nPflegemöglichkeiten\ndie einheitliche Redaktionsumgebung für alle Redakteure und Mitarbeiter der\nQualitätssicherung des Kunden. Das VIP Redaktionssystem hat einen zweistufigen\nredaktionellen Workflow integriert. Eine Personalisierung des Webauftritts wird\ndurch die Schaffung einer persönlichen Linkliste und die Einrichtung von\ngeschützten Bereichen für registrierte Webuser erreicht. Weitere\nhervorzuhebende Funktionen sind eine HTML-basierte Webuser-Verwaltung, ein\nForum sowie eine Volltextsuche über statische und dynamische Inhalte.\n* Projektaufgaben:\nErstellung IT-Konzept (in deutscher und englischer Version) und Konzeption\n(gesamt), Realisierung (Module: DB-basierte Webuser-Verwaltung, Forum,\nVolltextsuche über statische und dyn. Inhalte) und Einführung.\n* Realisiert unter:\nVIP GAUSS 5.x, Java (JSP, Taglibs, Servlets, Admin-GUI als Applikation/Applet\nin AWT/Swing, XML, HTML, CSS, JavaScript, PHP, mySQL, Tomcat 3.2.x, Apache\n1.3.x, Visual Age for Java/WebSphere, Jive-Forum, Linux SuSe/Redhat, HP-Unix,\nWindows 2000. * Fazit: konzeptionell und technologisch sehr überzeugend,\nerfolgreich und effizient.\"\nProjekt Geschäftsprozessmodellierung in UML, 01/01 - 03/01\nReferenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02\n\"Geschäftsprozessmodellierung in UML für eine 'Integrierte Bestell-\nAbwicklungssoftware'\n* Projektbeschreibung:\nOOA, OOD, OOP, UML, Datenbank-Design, Prototyping unter Visual Studio 6\n(Visual\nBasic), Rational Rose, MS-SQL-Server 7, MS-Access 2000\n* Projektaufgaben:\nTechnische Projektleitung, Konzeption, Modellierung (UML, ERM), Präsentation\ndes IT-Konzepts beim Kunden\n* Realisiert unter:\nUML-Tools (Rational Rose, VISIO 2000), MS Visual Studio, MS-Office\n* Fazit: konzeptionell und technologisch sehr überzeugend, erfolgreich und\neffizient. Sehr professionelle Schnittstelle zum Anwender/Kunden gebildet.\"\nProjekt IT-Consulting/Konzeption, Lasten-/Pflichtenhefterstellung, 11/00 - 01/\n01\nReferenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02\n\"IT-Consulting/Konzeption, Lasten-/Pflichtenhefterstellung\n* Projektbeschreibung:\nEvaluierung von CMS-Systemen, Lasten-/Pflichtenhefterstellung, Durchführung\nvon\nKundenworkshops\n* Projektaufgaben:\nErstellung von Angeboten und technischen Feinkonze",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet Schwerpunkt",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:42:46.927747",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "OTHER",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'CORE-Applikation auf Basis Team Center Engineering (TCE)'",
+        "ROLLE aus TITLE: 'IOB (Internet Online Banking, Multikanal-Architektur/ Banking)'",
+        "EDV_SEIT: None→1994"
+      ],
+      "coverage_percent": 96.01809954751131,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

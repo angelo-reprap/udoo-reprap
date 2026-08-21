@@ -1,0 +1,576 @@
+{
+  "metadata": {
+    "aid": "AID-as_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "sprenger_andre",
+    "first_name": "Andre",
+    "last_name": "Sprenger",
+    "headline": "",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:01:21.069625"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Andre",
+      "last_name": "Sprenger",
+      "birth_year": 1969,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "fließend in Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Französisch",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (Grundkenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "03.11.14 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+      "wohnort": "201xx Hamburg, Deutschland"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "DB2",
+        "Administration und Programmierung",
+        "Oracle",
+        "Sybase",
+        "JDBC",
+        "ODBC",
+        "SQL"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "PC",
+        "Architektur/Projektmanagement/Consulting",
+        "J2EE",
+        ".NET",
+        "JRuby",
+        "Ethernet",
+        "Internet",
+        "Intranet",
+        "RPC",
+        "Sun RPC",
+        "DCE RPC",
+        "TCP/IP",
+        "CORBA",
+        "Visibroker for Java",
+        "EDIFACT",
+        "Message Queuing",
+        "JMS",
+        "OSF/DCE",
+        "SMTP"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Mac OS",
+        "MS-DOS",
+        "Unix",
+        "Windows",
+        "gute Kenntnisse",
+        "SUN OS",
+        "Solaris",
+        "Grundkenntnisse",
+        "AIX",
+        "Linux"
+      ],
+      "programming_languages": [
+        "Basic",
+        "1 Jahre",
+        "C",
+        "2 Jahre",
+        "C++",
+        "4 Jahre",
+        "Java",
+        "9 Jahre",
+        "JavaScript",
+        "CORBA IDL",
+        "1 Jahr",
+        "PHP",
+        "Smalltalk",
+        "3 Jahre",
+        "C# - 3 Jahre",
+        "Ruby - 1 Jahr"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Rolle / Position: Architekt",
+        "title": "Grenzkontrollstationen an Flughäfen. Die Lösung basiert auf einem",
+        "role": "Architekt",
+        "activities": [
+          "verteilten System mit dezentralen Komponenten zur Gerätesteuerung und einem Cluster von JBoss Servern. Zentrale Steuerung der Abläufe erfolgt durch den Einsatz einer Process Engine.",
+          "Verantwortung:",
+          "Konzeption und Integration der Process Engine jBPM",
+          "Erstellung von Prozessmodellen für die Umsetzung von Geschäftsprozessen",
+          "Programmierung von Komponenten und Adaptern in Java",
+          "Erstellung technischer Konzepte for Scalierung, Clustering und Fehlermanagement",
+          "Durchführung von Last- and Skalierungstests",
+          "Planung und Konfiguration eines JBoss Clusters mit 4 Knoten"
+        ],
+        "technologies": [
+          "jBPM",
+          "Java",
+          "JBoss"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Client\" Benutzerschnittstelle und einem EJB Backend. Das",
+        "title": "Client\" Benutzerschnittstelle und einem EJB Backend. Das Projekt wurde",
+        "activities": [
+          "als Outsourcing-Projekt in der Schweiz und in Indien realisiert. Das Vorgehensmodell war RUP.",
+          "Verantwortung:",
+          "Review bestehender Anforderungen, Geschäftsregeln und Usecases.",
+          "Erstellung statischer und dynamischer Designs in UML.",
+          "Erstellung von Unittest Beschreibungen.",
+          "Anleitung eines Entwicklerteams in Indien per Telefon und Videokonferenz.",
+          "Mehrere Wochen Projekteinsatz in Indien vor Ort",
+          "Review und Qualitätssicherung der Entwicklungsergebnisse. Java, J2EE, Hibernate, Spring, Maven, RCP, Eclipse, Websphere 6.0,"
+        ],
+        "technologies": [
+          "Java",
+          "J2EE",
+          "Hibernate",
+          "Spring",
+          "Maven",
+          "RCP",
+          "Eclipse",
+          "Websphere 6.0"
+        ]
+      },
+      {
+        "period": "Rolle / Position: Developer",
+        "title": "In dem Projekt wurde weiterhin ein Broker für die Erfassung, Analyse",
+        "role": "Developer",
+        "activities": [
+          "und Verteilung von Trade-Lifecycle-Ereignissen entwickelt. Die Broker wurde mit verschiedenen nachgelagerten System integriert (Position",
+          "Integration des Brokers mit verschiedenen nachgelagerten Systemen (Position Keeping, Risk Management, Accounting)",
+          "Verantwortung:",
+          "Technischer Ansprechpartner für das Projekt",
+          "Erstellung technischer Konzepte und Handlungsempfehlungen",
+          "Führung eines Teams von 4 Entwicklern",
+          "Erstellung von Kodierungsrichtlinien",
+          "Reviews und Qualitätssicherung"
+        ]
+      }
+    ],
+    "industries": [
+      "Investment-Banken",
+      "Finanzdienstleister",
+      "ECommerce, E-Commerce",
+      "Internet",
+      "Automobil",
+      "Online Marketing",
+      "Medien, Verlag"
+    ],
+    "focus_areas": [
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Software Entwicklung",
+      "14 Jahre praktische Erfahrung in in allen Phasen der Softwareentwicklung mit Java (10 Jahre), Ruby (2 Jahre), C# (3 Jahre), Smalltalk (4 Jahre), C++ (3 Jahre) und C (3 Jahre).",
+      "Erfahrung in objekt-orientiertem Design, testgetriebener Entwicklung, Datenmodellierung, Web- und Rich-Client Applikationen. Erfahrungen in allen Phasen des Entwicklungsprozesses in den Rollen Consultant, Architekt, Teamleiter und Entwickler.",
+      "Führungserfahrung",
+      "Erfahrung in der technischen und organisatorischen Führung von Projektteams mit bis zu 6 Mitarbeitern. RUP und agile Methoden.",
+      "Iterationsplanung und Fortschrittsverfolgung von Projekten. Bewertung der technischen und methodischen Fähigkeiten neuer Mitarbeiter.",
+      "Erstellung von Kodierungsrichlinien. Durchführung von Code Reviews und Qualitätssicherung.",
+      "Branchenerfahrung",
+      "5 Jahre Erfahrung Investment Banking mit FX, Equities, Derivaten und Strukturierten Produkten. Erfahungen in den Branchen E-Commerce, Versicherungen, Automotive und Medien.",
+      "Enterprise Integration Architecture",
+      "5 Jahre Erfahrung mit Design und Implementierung von Integrationslösungen mit MQ Websphere, Tibco, JMS, SOAP und REST.",
+      "Erfahrung mit Business Process Engines und Prozessmodellierung.",
+      "Dipl. Informatik",
+      "Universität Hamburg",
+      "Note 1,3",
+      "Dipl. Betriebswirt",
+      "Note: 1,7",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Software Architekture",
+      "Enterprise-Anwendungen",
+      "Cloud Computing",
+      "Objekt-orientiertes Design",
+      "Testgetriebene Entwicklung",
+      "Datenmodellierung",
+      "Web- und Rich-Client Applikationen",
+      "Technische und organisatorische Führung",
+      "RUP und agile Methoden",
+      "Iterationsplanung und Fortschrittsverfolgung",
+      "Bewertung technischer und methodischer Fähigkeiten",
+      "Erstellung von Kodierungsrichtlinien",
+      "Code Reviews und Qualitätssicherung",
+      "Integrationslösungen",
+      "Business Process Engines und Prozessmodellierung"
+    ],
+    "focus_experience": [
+      {
+        "name": "J2EE / J2SE / J2ME",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": ".NET",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Ruby on Rails",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Amazon EC2",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "XSL",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "WAP",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "WML",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "BEA Weblogic",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "BEA Portal Server",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "IBM WebSphere",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Jakarta Tomcat",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "CoreMedia CAP",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Apache Webserver",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "VisiBroker for Java",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "CORBA",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "MQ Series",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "GLUE",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Web Services",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "AltaVista Search Engine",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Continuus 4.5",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "CVS/RCS",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "WinRunner/LoadRunner (Mercury)",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Ant",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Junit",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Together J",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Rational Rose",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "ERWin",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "VisualAge for Java",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "JBuilder",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "OOA",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "RUP",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "MS Project",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "J2SE",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "J2ME",
+        "category": "product_standard",
+        "sort_order": 47
+      }
+    ],
+    "education": [
+      {
+        "degree": "Dipl. Informatik",
+        "institution": "Universität Hamburg",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Dipl. Betriebswirt",
+        "institution": "Universität Hamburg",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "mysql",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "postgres",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "rails.",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "coremedia.",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "aid-as",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "active",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:01:21.069636",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "AUTO_SKILLS: +6 in skill_ablage"
+      ],
+      "coverage_percent": 87.53709198813057,
+      "auto_added_skills": 6,
+      "integrity_ok": true
+    }
+  }
+}

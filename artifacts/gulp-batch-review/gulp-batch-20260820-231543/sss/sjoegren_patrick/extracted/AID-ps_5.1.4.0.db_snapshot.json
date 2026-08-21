@@ -1,0 +1,1351 @@
+{
+  "personal": {
+    "aid": "AID-ps_5.1.4.0",
+    "first_name": "Patrick",
+    "last_name": "Sjoegren",
+    "birth_year": 1972,
+    "location": "868xx Landsberg am Lech, Deutschland",
+    "availability": "18.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1995,
+    "headline": "Project Manager, Senior Berater Microsoft Server: Active Directory, Exchange Server, DFS, Dateiserver, Cluster, Hyper-V, Netzwerkinfrastruktur, Datenschutz, IT-Sicherheit, Client Lifecycle Management",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 144,
+    "certifications": 0,
+    "education": 7,
+    "experience": 25,
+    "industries": 10,
+    "focus_areas": 36,
+    "focus_experience": 151,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (Fließend)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Fließend",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Kommunikationselektroniker (Funktechnik)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Datenverarbeitungskaufmann",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "MCSE Messaging",
+      "institution": "Microsoft",
+      "period": "2003",
+      "education_type": "course"
+    },
+    {
+      "degree": "MCSE Security",
+      "institution": "Microsoft",
+      "period": "2004",
+      "education_type": "course"
+    },
+    {
+      "degree": "MCTS AD, Messaging, Network",
+      "institution": "Microsoft",
+      "period": "2006",
+      "education_type": "course"
+    },
+    {
+      "degree": "IHK Prüfer Fachinformatik",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Datenschutzbeauftragter (extern)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Bildung / Schulung / Training",
+    "Elektrotechnik / Elektronik",
+    "IT / Internet / EDV",
+    "IT-Dienstleister / Rechenzentrum",
+    "Medien / Kommunikation",
+    "Metall- und Kunststoffverarbeitung",
+    "Telekommunikation / Mobilfunk",
+    "Banken / Kreditinstitute",
+    "Behörden / Ämter / Öffentlich-rechtlich",
+    "Handwerk / Mittelstand / Industrie"
+  ],
+  "focus_areas": [
+    "Project Manager",
+    "Senior Berater Microsoft Server: Active Directory Exchange Server DFS Dateiserver Cluster Hyper-V Netzwerkinfrastruktur Datenschutz IT-Sicherheit Client Lifecycle Management",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Datenschutzbeauftragter (extern)",
+    "IHK Prüfer Fachinformatik",
+    "2006",
+    "MCTS AD, Messaging, Network",
+    "2004",
+    "MCSE Security",
+    "2003",
+    "MCSE Messaging",
+    "Senior Berater Microsoft Server: Active Directory",
+    "Exchange Server",
+    "DFS",
+    "Dateiserver",
+    "Cluster",
+    "Hyper-V",
+    "Netzwerkinfrastruktur",
+    "Datenschutz",
+    "IT-Sicherheit",
+    "Client Lifecycle Management",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Dokumentation / DTP",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "IT-Berater und IT Projekt Manager",
+    "Datenschutz- und IT-Sicherheitsberater",
+    "IHK Prüfer Fachinformatik, Netzwerkmanagement",
+    "Fachdozent Informatik",
+    "Netzwerkmanager (MCTS, MCSE Messaging & Security)",
+    "Systemadministrator (MCSA Messaging & Security)",
+    "Datenverarbeitungskaufmann",
+    "Kommunikationselektroniker (Funktechnik)",
+    "Microsoft Lizenzierungs Spezialist"
+  ],
+  "focus_experience": [
+    {
+      "name": "Active Directory AD",
+      "category": "product_standard"
+    },
+    {
+      "name": "ADDS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Active Directory Domain Service",
+      "category": "product_standard"
+    },
+    {
+      "name": "Active Directory Federation Service",
+      "category": "product_standard"
+    },
+    {
+      "name": "Administration Lotus Domino",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure AD",
+      "category": "product_standard"
+    },
+    {
+      "name": "Blackberry Enterprise Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Citrix RDP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Client Lifecycle Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dell Data Encryption.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dell Migration Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dynamics Axapta",
+      "category": "product_standard"
+    },
+    {
+      "name": "Empirum Matrix 42",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise AntiVirus McAffee",
+      "category": "product_standard"
+    },
+    {
+      "name": "ePO",
+      "category": "product_standard"
+    },
+    {
+      "name": "ePolicy Orchestrator",
+      "category": "product_standard"
+    },
+    {
+      "name": "AVG",
+      "category": "product_standard"
+    },
+    {
+      "name": "AntiVirus Business",
+      "category": "product_standard"
+    },
+    {
+      "name": "AVG Internet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Exchange 2013",
+      "category": "product_standard"
+    },
+    {
+      "name": "Exchange Server 2013",
+      "category": "product_standard"
+    },
+    {
+      "name": "global WLAN & VPN",
+      "category": "product_standard"
+    },
+    {
+      "name": "HDD based encryption Bitlocker",
+      "category": "product_standard"
+    },
+    {
+      "name": "TrueCrypt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hyper-V",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lotus Domino",
+      "category": "product_standard"
+    },
+    {
+      "name": "Matrix 42",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCDST Microsoft Certified Desktop Support",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technician 2003 2000 NT4",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCP Microsoft Certified Professional (Windows",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vista",
+      "category": "product_standard"
+    },
+    {
+      "name": "2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "NT4)",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCSA Microsoft Certified Systems Administrator",
+      "category": "product_standard"
+    },
+    {
+      "name": "2003 2000 NT4",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCSE Messaging Microsoft Certified Systems Engineer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Messaging 2010 2007 2003 2000 NT4",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCSE Security Microsoft Certified Systems Engineer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Security 2003 2000 NT4",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCTS Microsoft Certified Technology Specialist",
+      "category": "product_standard"
+    },
+    {
+      "name": "2008 R2 AD",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Cluster",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft CRM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Terminal Services Terminal Services / Remote Desktop / RDP /",
+      "category": "product_standard"
+    },
+    {
+      "name": "Citrix",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Exchange Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Winwos Update Server WUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "WSUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "NetApp filer SAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "O365",
+      "category": "product_standard"
+    },
+    {
+      "name": "physical & virtual (HyperV",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "self-developed SW.",
+      "category": "product_standard"
+    },
+    {
+      "name": "SharePoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sicherungskonzepte Backup",
+      "category": "product_standard"
+    },
+    {
+      "name": "EMC2 Networker",
+      "category": "product_standard"
+    },
+    {
+      "name": "Legato Networker",
+      "category": "product_standard"
+    },
+    {
+      "name": "Small Business Server SBS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareverteilung Microsoft System Center",
+      "category": "product_standard"
+    },
+    {
+      "name": "SMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Altiris",
+      "category": "product_standard"
+    },
+    {
+      "name": "CCM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Source: Windows 2012",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Telekommunikation Telko",
+      "category": "product_standard"
+    },
+    {
+      "name": "VoIP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Agfeo",
+      "category": "product_standard"
+    },
+    {
+      "name": "VPN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft",
+      "category": "product_standard"
+    },
+    {
+      "name": "DirectAccess",
+      "category": "product_standard"
+    },
+    {
+      "name": "vmware",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows & Citrix RDP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 2008 R2 AD DS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 2012",
+      "category": "product_standard"
+    },
+    {
+      "name": "WLAN & VPN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Top Fähigkeiten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Senior IT Project Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Steering & Reporting of Business & Supplier",
+      "category": "product_standard"
+    },
+    {
+      "name": "Senior IT Migration Consultant",
+      "category": "product_standard"
+    },
+    {
+      "name": "Senior IT Security Consultant",
+      "category": "product_standard"
+    },
+    {
+      "name": "SME AD Consolidation & Migration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Besondere Stärken",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verbinde technisch affine Projekte mit Menschen und Strukturen",
+      "category": "product_standard"
+    },
+    {
+      "name": "kombiniere",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrung aus Wirtschaft",
+      "category": "product_standard"
+    },
+    {
+      "name": "Behörde und Lehre mit jedem neuen Umfeld für",
+      "category": "product_standard"
+    },
+    {
+      "name": "passgenaue Lösungen nah am Kunden:",
+      "category": "product_standard"
+    },
+    {
+      "name": "System Design & Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Beratung",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Consulting",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Sicherheit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenschutz",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konzept",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dokumentation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Administration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Exchange Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Active Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Hyper-V",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Terminal Services",
+      "category": "product_standard"
+    },
+    {
+      "name": "Remote Desktop",
+      "category": "product_standard"
+    },
+    {
+      "name": "RDP",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Microsoft Small Business Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "(SBS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* KMU",
+      "category": "product_standard"
+    },
+    {
+      "name": "(SMB)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Microsoft Windows Update Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "(WUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SUS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft SQL Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Blackberry Enterprise Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "(BES)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* HDD based encryption",
+      "category": "product_standard"
+    },
+    {
+      "name": "(Bitlocker",
+      "category": "product_standard"
+    },
+    {
+      "name": "TrueCrypt)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Softwareverteilung",
+      "category": "product_standard"
+    },
+    {
+      "name": "(Microsoft System Center",
+      "category": "product_standard"
+    },
+    {
+      "name": "CCM)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sicherungskonzepte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Backup",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "NetApp filer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise AntiVirus",
+      "category": "product_standard"
+    },
+    {
+      "name": "McAffee",
+      "category": "product_standard"
+    },
+    {
+      "name": "* ePO",
+      "category": "product_standard"
+    },
+    {
+      "name": "AVG AntiVirus Business",
+      "category": "product_standard"
+    },
+    {
+      "name": "AVG Internet Security Business",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft DirectAccess;",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Consulting",
+      "category": "product_standard"
+    },
+    {
+      "name": "Active Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dell Data Encryption",
+      "category": "product_standard"
+    },
+    {
+      "name": "AVG Internet Security",
+      "category": "product_standard"
+    },
+    {
+      "name": "WLAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bitlocker",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCDST",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCP",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCSA",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCSE Messaging",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCSE Security",
+      "category": "product_standard"
+    },
+    {
+      "name": "MCTS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Terminal Services",
+      "category": "product_standard"
+    },
+    {
+      "name": "WUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Small Business Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "SBS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft System Center",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft DirectAccess",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 7",
+      "category": "product_standard"
+    },
+    {
+      "name": "NT4",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2019 - heute",
+      "company": "HCOB Bank",
+      "role": "SME AD DS & Data Migration",
+      "title": "AD DS & Data Migration following internal reorganization.",
+      "activities": 4,
+      "technologies": 1
+    },
+    {
+      "period": "10/2018 - 03/2019",
+      "company": "Microsoft Deutschland GmbH",
+      "role": "Active Directory Migration Expert",
+      "title": "Active Directory Migration w/ Windows 10 Rollout, Essen",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "03/2018 - 05/2018",
+      "company": "Fresenius Group",
+      "role": "Senior IT Project Manager",
+      "title": "Data Center Automation SCCM SCORCH",
+      "activities": 1,
+      "technologies": 2
+    },
+    {
+      "period": "02/2016 - 04/2016",
+      "company": "Non Disclosure",
+      "role": "ITProjectManager",
+      "title": "Transition Project",
+      "activities": 3,
+      "technologies": 6
+    },
+    {
+      "period": "11/2013 - 08/2018",
+      "company": "Fresenius Group",
+      "role": "Senior IT Project Manager, Senior IT Consultant, Team",
+      "title": "Global Active Directory Migration, Bad Homburg vor der Höhe",
+      "activities": 8,
+      "technologies": 24
+    },
+    {
+      "period": "11/2013 - 03/2016",
+      "company": "Fresenius Group",
+      "role": "Project Manager",
+      "title": "Project Management",
+      "activities": 5,
+      "technologies": 18
+    },
+    {
+      "period": "11/2011 - 07/2013",
+      "company": "Baker Tilly Roelfs (RölfsPartner)",
+      "role": "Projekt Manager, IT-Berater, Backoffice",
+      "title": "Administration/Prüfung IT-Infrastruktur Backoffice",
+      "activities": 7,
+      "technologies": 19
+    },
+    {
+      "period": "08/2011 - 06/2013",
+      "company": "stange architekten",
+      "role": "IT-Berater, Administration",
+      "title": "Analyse des IST",
+      "activities": 7,
+      "technologies": 12
+    },
+    {
+      "period": "10/2010 - 10/2011",
+      "company": "WEST GMBH",
+      "role": "IT-Berater, System-Analytiker",
+      "title": "Troubleshooting / Fehleranalyse",
+      "activities": 3,
+      "technologies": 6
+    },
+    {
+      "period": "10/2010 - 10/2011",
+      "company": "SkyWind GmbH",
+      "role": "IT-Berater, System-Analytiker",
+      "title": "Troubleshooting / Fehleranalyse",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "11/2009 - 03/2010",
+      "company": "Amt mittleres Nordfriesland",
+      "role": "IT-Berater",
+      "title": "Migration und Virtualisierung",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "01/2009 - 03/2011",
+      "company": "Northnetone Computer- und Bürosysteme",
+      "role": "IT-Berater",
+      "title": "Seniorconsulting",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "01/2009 - 12/2010",
+      "company": "Steuerberater Knut Feddersen",
+      "role": "IT-Berater",
+      "title": "Migration DATEV auf Microsoft Server 2003",
+      "activities": 3,
+      "technologies": 5
+    },
+    {
+      "period": "02/2008 - 12/2015",
+      "company": "KODO Stahl und Metallbau Handewitt GmbH",
+      "role": "IT-Berater, Projektleiter, Administration, Support, Datenschutzbeauftragter",
+      "title": "Support",
+      "activities": 7,
+      "technologies": 10
+    },
+    {
+      "period": "09/2005 - 01/2008",
+      "company": "Norddeutscher Rundfunk",
+      "role": "IT-Leitung",
+      "title": "Betrieb, Ersatz & Planung der IT-Infrastruktur",
+      "activities": 6,
+      "technologies": 3
+    },
+    {
+      "period": "07/2005 - 12/2014",
+      "company": "tt-projektentwicklung + consulting gmbh & co.kg",
+      "role": "IT-Berater",
+      "title": "Beratung",
+      "activities": 2,
+      "technologies": 8
+    },
+    {
+      "period": "02/2004 - 04/2004",
+      "company": "Motorola Deutschland GmbH",
+      "role": "Projektleiter Mitarbeiterschulung",
+      "title": "Konzeption, Gestaltung und Durchführung von Trainings",
+      "activities": 4,
+      "technologies": 1
+    },
+    {
+      "period": "07/2002 - 12/2012",
+      "company": "KALISCH.ORG",
+      "role": "IT-Berater, Datenschutz- und IT Sicherheitsberater",
+      "title": "Konzeption, Durchfuehrung und Bewertung komplexer IT",
+      "activities": 5,
+      "technologies": 3
+    },
+    {
+      "period": "01/2002 - 12/2014",
+      "company": "Mitsubishi Hitec Paper GmbH",
+      "role": "IT-Berater, IT-Trainer, System-Analytiker, Projektleiter",
+      "title": "Problemlösung Active Directory, Exchange Server,",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "07/2001 - 09/2014",
+      "company": "IHK Flensburg",
+      "role": "Prüfer im Prüfungsausschuss IHK Informatik",
+      "title": "Berufung in die Prüfungsausschüsse",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "11/1999 - 11/1999",
+      "company": "Taunus Sparkasse",
+      "role": "IT-Berater",
+      "title": "Review interne EDV/IT, optische Belegerfassung (OCR)",
+      "activities": 3,
+      "technologies": 1
+    },
+    {
+      "period": "09/1999 - 06/2002",
+      "company": "Orgweb IT",
+      "role": "IT-Berater, IT-Trainer, System-Analytiker",
+      "title": "Konzeption, Durchfuehrung und Bewertung komplexer IT",
+      "activities": 5,
+      "technologies": 3
+    },
+    {
+      "period": "08/1999 - 09/2004",
+      "company": "Wirtschaftsakademie Schleswig-Holstein",
+      "role": "Dozent",
+      "title": "Microsoft Betriebssysteme und Domänen",
+      "activities": 5,
+      "technologies": 10
+    },
+    {
+      "period": "06/1999 - 08/1999",
+      "company": "Genossentschaftliche Zentralbank (GZB Bank nach Fusion DZ",
+      "role": "System-Analytiker",
+      "title": "Datenbankrevision",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "06/1995 - heute",
+      "company": "Name auf Anfrage",
+      "role": "Senior IT Project Manager",
+      "title": "IT-Beratung",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PC Arbeitsplatzrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Rollout",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Softwareverteilung",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Patchmanagement",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Virtualisation mit \"Blade\"-Centern",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Backuplösungen (HDD-Staging & Bandroboter)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Active Directory Migration",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Server und Client: 2008 (R2)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2003 (R2)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NT4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Active Directory (AD)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Terminal Services (RDP)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Cluster",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Exchange: 2010",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2007",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "5.5",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Active Directory",
+      "category_name": "Identity Management",
+      "weight": 0.95
+    },
+    {
+      "name": "Active Directory Domain Service",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SCCM",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.75
+    },
+    {
+      "name": "SCORCH",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Messaging",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "Collaboration",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Database",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "File Services",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SharePoint",
+      "category_name": "Business Software",
+      "weight": 0.85
+    },
+    {
+      "name": "SAP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.75
+    },
+    {
+      "name": "Matrix",
+      "category_name": "Kommunikationstools",
+      "weight": 0.55
+    },
+    {
+      "name": "2010/2003",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Lotus Domino",
+      "category_name": "Datenbanken",
+      "weight": 0.75
+    },
+    {
+      "name": "vmware)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.75
+    },
+    {
+      "name": "DNS",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.55
+    },
+    {
+      "name": "DHCP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.55
+    },
+    {
+      "name": "GPO",
+      "category_name": "Identity Management",
+      "weight": 0.55
+    },
+    {
+      "name": "Windows 2008",
+      "category_name": "Betriebssysteme",
+      "weight": 0.75
+    },
+    {
+      "name": "Windows 2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.75
+    },
+    {
+      "name": "Exchange 2010",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.75
+    },
+    {
+      "name": "Exchange 2003",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.85
+    },
+    {
+      "name": "Matrix 42",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Windows 2012",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Exchange",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.85
+    },
+    {
+      "name": "2013",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "2010",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Dynamics",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "Axapta",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Microsoft CRM",
+      "category_name": "Business Software",
+      "weight": 0.47
+    },
+    {
+      "name": "TMG",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "Citrix",
+      "category_name": "Virtualisierung",
+      "weight": 0.47
+    },
+    {
+      "name": "ESX",
+      "category_name": "Virtualisierung",
+      "weight": 0.6
+    },
+    {
+      "name": "NetApp",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Microsoft Exchange Server 2007",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Symantec Backup Exec",
+      "category_name": "Security Tools",
+      "weight": 0.47
+    },
+    {
+      "name": "CommVault",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.47
+    },
+    {
+      "name": "SnapManager for Exchange",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Symantec Brightmail",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Netzwerk",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "AntiVirus",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Email",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.47
+    },
+    {
+      "name": "Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Datensicherung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "USV",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "VPN",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.85
+    },
+    {
+      "name": "Windows Server 2008",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "Exchange Server 2007",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.47
+    },
+    {
+      "name": "Directory",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Microsoft",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Windows 2003 AD",
+      "category_name": "Identity Management",
+      "weight": 0.38
+    },
+    {
+      "name": "Terminal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "DATEV",
+      "category_name": "Business Software",
+      "weight": 0.75
+    }
+  ]
+}

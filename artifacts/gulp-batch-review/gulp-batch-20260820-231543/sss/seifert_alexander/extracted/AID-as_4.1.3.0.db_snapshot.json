@@ -1,0 +1,846 @@
+{
+  "personal": {
+    "aid": "AID-as_4.1.3.0",
+    "first_name": "Alexander",
+    "last_name": "Seifert",
+    "birth_year": 1966,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "01.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2012,
+    "headline": "Projektleiter/Interims IT Manager/CISA, Governance IT Audit Trading/Treasury (COBIT, MaRisk), Outsourcing Audit (IDW PS951/SSAE 16), Datenschutz (Auftr- Datenverarb. §11), ORACLE Consulting",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 1,
+    "skills": 23,
+    "certifications": 2,
+    "education": 4,
+    "experience": 39,
+    "industries": 7,
+    "focus_areas": 16,
+    "focus_experience": 77,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "PRINCE2 Practitioner",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "CISA (Certified Information Systems Auditor der ISACA)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Dipl.-Betriebswirt VWA",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Diplominformatiker (Univ)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "CISA (Certified Information Systems Auditor der ISACA)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "PRINCE2 Practitioner",
+      "date_obtained": "",
+      "issuer": "AXELOS"
+    }
+  ],
+  "industries": [
+    "Banken",
+    "Behörden",
+    "Logistik",
+    "Versicherungen",
+    "Energieversorger",
+    "Mineralölindustrie",
+    "Mobilfunk-/Telekommunikation"
+  ],
+  "focus_areas": [
+    "Projektleiter/Interims IT Manager/CISA",
+    "Governance IT Audit Trading/Treasury (COBIT MaRisk) Outsourcing Audit (IDW PS951/SSAE 16) Datenschutz (Auftr- Datenverarb. §11) ORACLE Consulting",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Lead Audit IT Governance Risk and IT Compliance / Information Security",
+    "Interim Management IT-Organisation / Outsourcing / Carve Out Migrationen",
+    "Project Management / Multi Project Management IT-Betrieb Infrastructure",
+    "Datenschutz Compliance zur EU-DSGVO",
+    "Diplominformatiker (Univ)",
+    "Dipl.-Betriebswirt VWA",
+    "Zertifikate",
+    "CISA (Certified Information Systems Auditor der ISACA) PRINCE2 Practitioner",
+    "Governance IT Audit Trading/Treasury (COBIT MaRisk)",
+    "Outsourcing Audit (IDW PS951/SSAE 16)",
+    "Datenschutz (Auftr- Datenverarb. §11)",
+    "ORACLE Consulting"
+  ],
+  "focus_experience": [
+    {
+      "name": "ISO 27001 / EU-DSGVO / GWG / Solvency II",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO 27001 / EU-DSGVO / GWG / Volvency II",
+      "category": "product_standard"
+    },
+    {
+      "name": "Leistungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Governance Audit / Security -Audit / SOX Control Testing",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Prüfung der Ordnungsmäßigkeit und Sicherheit von IT-Organisationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozessen und Projekten nach gesetzlichen",
+      "category": "product_standard"
+    },
+    {
+      "name": "regulatorischer Anforderungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "und Prüfungsnormen (KwG",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOX 404",
+      "category": "product_standard"
+    },
+    {
+      "name": "MaRisk/BAIT",
+      "category": "product_standard"
+    },
+    {
+      "name": "IDW PS 330",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISAE 3402",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO",
+      "category": "product_standard"
+    },
+    {
+      "name": "IEC 27001)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Interims- /Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Planung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Durchführung und Controlling von IT-Service- und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sicherheitsprojekten mit Ressourcen-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Budgetsteuerung und Ergebnis-",
+      "category": "product_standard"
+    },
+    {
+      "name": "verantwortung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Compliance Beratung",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Entwicklung von Regelungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konzepten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verfahren und Kontrollen für",
+      "category": "product_standard"
+    },
+    {
+      "name": "Geldwäsche-prävention (GWG)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Informationssicherheit (ISMS) und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenschutz (EU-DSGVO)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vorbereitung von Control Self Assessments für Sonderprüfungen der",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bankenaufsicht (§44-KwG)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Behandlung von Kontrollschwächen in",
+      "category": "product_standard"
+    },
+    {
+      "name": "Abstellungsprojekten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozesserfahrung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rechnungslegungsrelevante IT Kontrollprozesse nach SOX Sec. 404",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozesse der KYC/ Geldwäsche-Prevention (Sanctions & Embargo)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Dienstleistersteuerung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Outsourcing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Benutzerrechtemanagement (IAM)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datensicherheit und Datenschutz zur EU-DSGVO",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Compliance/IT Governance Audit nach COBIT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Digitalisierung und Digital Transformation im Bank und Energiesektor",
+      "category": "product_standard"
+    },
+    {
+      "name": "COBIT5 Assessment",
+      "category": "product_standard"
+    },
+    {
+      "name": "SITB Prüfung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Berechtigungsprüfung / Identity Management Audit / Segregation of Duties",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Infrastrukturprojekte (IDW PS 850)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* SAP Systeme (SOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "GDPdU",
+      "category": "product_standard"
+    },
+    {
+      "name": "GoBS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vendorprüfung Outsourcing (IDW PS 951 und SSAE 16)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Auftragsdatenverarbeitung nach Bundesdatenschutzgesetz (BDSG §11)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Project / Multi Project Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Migrationsprojekte in IT Infrastrukturen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Trading Systeme",
+      "category": "product_standard"
+    },
+    {
+      "name": "Outsourcing / Transition Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Performance Consulting einschlaegig seit 15 Jahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "Standards",
+      "category": "product_standard"
+    },
+    {
+      "name": "* COBIT",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITSM / ITIL / SITB",
+      "category": "product_standard"
+    },
+    {
+      "name": "MaRisk",
+      "category": "product_standard"
+    },
+    {
+      "name": "SSAE 16 / ISAE3402",
+      "category": "product_standard"
+    },
+    {
+      "name": "* IDW PS 951",
+      "category": "product_standard"
+    },
+    {
+      "name": "PS 330",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO 27001",
+      "category": "product_standard"
+    },
+    {
+      "name": "EU-DSGVO",
+      "category": "product_standard"
+    },
+    {
+      "name": "GWG",
+      "category": "product_standard"
+    },
+    {
+      "name": "Solvency II",
+      "category": "product_standard"
+    },
+    {
+      "name": "COBIT",
+      "category": "product_standard"
+    },
+    {
+      "name": "COBIT5",
+      "category": "product_standard"
+    },
+    {
+      "name": "SITB",
+      "category": "product_standard"
+    },
+    {
+      "name": "IDW PS 850",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "GoBS",
+      "category": "product_standard"
+    },
+    {
+      "name": "IDW PS 951",
+      "category": "product_standard"
+    },
+    {
+      "name": "SSAE 16",
+      "category": "product_standard"
+    },
+    {
+      "name": "BDSG §11",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "04/2020 - 04/2021",
+      "company": "",
+      "role": "Project Manager",
+      "title": "SOX Compliance Framework ITGC Setup - Project Management GRC",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "08/2019 - 01/2020",
+      "company": "Energiesektor, Essen",
+      "role": "Prüfungsleitung Interne Revision",
+      "title": "Datenschutz Audit / EU-DSGVO Art.35",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "02/2019 - 09/2019",
+      "company": "Bank",
+      "role": "",
+      "title": "Audit & Risk Assessment- Key Control Information Security, Frankfurt/M",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "09/2018 - 12/2018",
+      "company": "Bank",
+      "role": "",
+      "title": "Audit & Risk Assessment- Key Control Information Security, Frankfurt/M.",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "01/2018 - 06/2019",
+      "company": "Bank",
+      "role": "",
+      "title": "Legal Requirements Implementation, Frankfurt/M.",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "09/2017 - 01/2018",
+      "company": "Förderbank",
+      "role": "",
+      "title": "ISMS Audit / Wirtschaftsprüfung, Köln",
+      "activities": 5,
+      "technologies": 2
+    },
+    {
+      "period": "05/2017 - 06/2019",
+      "company": "Bank",
+      "role": "",
+      "title": "U.S. Regulatory Compliance Control & Reporting, Frankfurt/M",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04/2017 - 10/2017",
+      "company": "Spezialbank",
+      "role": "",
+      "title": "IT Audit / Beratung und Vorbereitung",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04/2017 - 04/2017",
+      "company": "Versicherungsgruppe",
+      "role": "Leitung und Coaching - Revision der Agile Projekte",
+      "title": "Project Management Revision / Projektbegleitendes Audit",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "12/2016 - 06/2017",
+      "company": "Banken, Luftfahrt, Media",
+      "role": "Auditor",
+      "title": "IT Audit Wirtschaftsprüfung (Big4), PS 330 / ISAE3402, Deutschlandweit",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "09/2016 - 02/2017",
+      "company": "Bank",
+      "role": "Auditor / IT Bank Security",
+      "title": "Audit & Risk Assessment, Nürnberg",
+      "activities": 4,
+      "technologies": 3
+    },
+    {
+      "period": "04/2016 - 07/2016",
+      "company": "Bank",
+      "role": "Auditor / Revision",
+      "title": "Governance Audit - Programme und Business Case, Frankfurt /M.",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "03/2016 - 05/2016",
+      "company": "Bank",
+      "role": "Auditor / Revision",
+      "title": "Governance Audit CSP Programme (Customer Sales Processes), Frankfurt /M.",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "01/2016 - 10/2016",
+      "company": "Bank",
+      "role": "Auditor / Revision",
+      "title": "Governance Audit Bankstrategie (Digital Transformation), Frankfurt/M.",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "01/2015 - 03/2016",
+      "company": "Energie -/Stromnetzbetreiber",
+      "role": "",
+      "title": "IT Compliance Carve Out / Outsourcing, Berlin und Hamburg",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "01/2015 - 03/2016",
+      "company": "Vattenfall Asset Optimization & Trading, Hamburg",
+      "role": "Service Delivery",
+      "title": "Risk Management, Hamburg",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "10/2014 - 12/2015",
+      "company": "Energie- und Stromnetzbetreiber",
+      "role": "Projektmanagement",
+      "title": "Carve In MOODYS Riskmanagement Reporting und Rating System",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "10/2013 - 12/2015",
+      "company": "Energy- /Commodity Trading",
+      "role": "",
+      "title": "Projektmanagement ,Riskmanagement, Hamburg",
+      "activities": 6,
+      "technologies": 1
+    },
+    {
+      "period": "08/2013 - 09/2013",
+      "company": "Vattenfall Trading",
+      "role": "",
+      "title": "IT Audit Commodity Trading / OTC Derivatehandel, Hamburg/Amsterdam",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "01/2013 - 06/2014",
+      "company": "Energy- /Commodity Trading",
+      "role": "",
+      "title": "Projektmanagement Carve Out / Outsourcing, Hamburg und Berlin",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "01/2012 - 12/2013",
+      "company": "Vattenfall",
+      "role": "Teamleitung",
+      "title": "Interims Management, Berlin",
+      "activities": 6,
+      "technologies": 1
+    },
+    {
+      "period": "02/09 - 10/09",
+      "company": "Energiekonzern",
+      "role": "Project Management Rohstoff-Börsenhandel",
+      "title": "Project Management Rohstoff-Börsenhandel",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "11/08 - 01/09",
+      "company": "Energiekonzern",
+      "role": "IT Revisons-Audit Datenschutz (BDSG)",
+      "title": "IT Revisons-Audit Datenschutz (BDSG)",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/07 - 10/08",
+      "company": "Energiekonzern",
+      "role": "Project Management IT Infrastructure",
+      "title": "Project Management IT Infrastructure",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "01/07 - 04/07",
+      "company": "Versicherung / Investment Banking",
+      "role": "ORACLE Consulting Redesign Middleware Infstructure",
+      "title": "ORACLE Consulting Redesign Middleware Infstructure",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/06 - 12/06",
+      "company": "Versicherung / Financial Industry",
+      "role": "ORACLE Consulting Replication, Project Management Coaching",
+      "title": "ORACLE Consulting Replication, Project Management Coaching",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/06 - 07/06",
+      "company": "Bank / Financial Industry",
+      "role": "Project Management Coaching, Migrationsberatung,",
+      "title": "Project Management Coaching, Migrationsberatung, Prozeßsteuerung",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "07/04 - 05/06",
+      "company": "Telekommunikation",
+      "role": "Multi Project Management, Infrastructure Demand (Anford.- manag.)",
+      "title": "Multi Project Management, Infrastructure Demand (Anford.- manag.)",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/05 - 01/06",
+      "company": "Telekommunikation",
+      "role": "Project Management ORACLE Reorgansiation",
+      "title": "Project Management ORACLE Reorgansiation",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "06/02 - 07/04",
+      "company": "Telekommunikation",
+      "role": "ORACLE Consulting und ORACLE Administration",
+      "title": "ORACLE Consulting und ORACLE Administration",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/02 - 04/02",
+      "company": "Behörde",
+      "role": "Project Management Coaching",
+      "title": "Project Management Coaching",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/01 - 12/01",
+      "company": "Versicherung",
+      "role": "ORACLE Consulting",
+      "title": "ORACLE Consulting",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "12/99 - 12/00",
+      "company": "Logistik",
+      "role": "ORACLE Consulting",
+      "title": "ORACLE Consulting",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/99 - 12/99",
+      "company": "Bank",
+      "role": "ORACLE Consulting",
+      "title": "ORACLE Consulting",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "04/98 - 04/99",
+      "company": "Bundesbehörde",
+      "role": "ORACLE Consulting",
+      "title": "ORACLE Consulting",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "09/97 - 02/98",
+      "company": "Kommunalbehörde",
+      "role": "Project Management",
+      "title": "Project Management",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "04/97 - 07/97",
+      "company": "Mineralölindustrie",
+      "role": "Project Management Outsourcing",
+      "title": "Project Management Outsourcing",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "03/97 - 06/97",
+      "company": "Bank/Finanzdienstleister",
+      "role": "ORACLE Consulting",
+      "title": "ORACLE Consulting",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "12/95 - 01/97",
+      "company": "Kommunalbehoerde",
+      "role": "ORACLE Consulting",
+      "title": "ORACLE Consulting",
+      "activities": 12,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Mitgliedschaften gern auf Anfrage\nReferenzen gern auf Anfrage",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle insbesondere zu RAC in Clustersystemen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ISO 27001",
+      "category_name": "Methoden",
+      "weight": 0.7
+    },
+    {
+      "name": "BAIT",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "EU-DSGVO",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "Solvency II",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ISMS",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "IAM",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.38
+    },
+    {
+      "name": "BCM",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "SOX",
+      "category_name": "Security Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Cognos TM1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "eCM",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ENDUR",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "unter",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "GWG",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ISAE3402",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "AD Identity Access",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "PONTONXP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ORACLE 8i Release 8.0.5 64 bit unter HP-UX 11.00",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "R.8.0.4",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MaRisk",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "PS 330",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    }
+  ]
+}

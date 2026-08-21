@@ -1,0 +1,150 @@
+AID: AID-oj_1.2.3.0
+Name: Olaf Jourdan
+Headline: Telekommunikation Spezialist
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,
+Wohnort: 102xx Berlin, Deutschland
+Jahrgang: 1963
+Verfügbar: 01.11.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2006
+Sprachen: Deutsch, Englisch
+
+FACHBEREICHE:
+Telekommunikation Spezialist
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test 2000 Checkout zum Certified Nokia Instructor 1993 2000 Als Angestellter im Trainingszentrum Alcatel permanent mit Kursvorbereitung und
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+
+BRANCHEN:
+Telekommunikation
+GSM Netzbetreiber und -ausrüster
+
+PROJEKTE:
+  08/2016 - 05/2017 | Telekom Bonn | Contractor Acceptance Test
+    - Aufgaben:
+    - Unterstützung des Testcenters bei der Einführung einer SIP-basierten privaten Vermittlungsstelle (PABX) in der Cloud. Erstellen von Usecases in Zusammenarbeit mit den Stakeholdern aus Design- und Marketingabteilung, Umsetzung der Usecases in Testcases, Testplanung,
+    - Systemintegration, Testdurchführung, Testauswertung. Analyse von Signalisierungsnachrichten der Telekommunikation (Protokolle SIP, XMPP,
+    Techs: Wireshark, vi, awk, MS windows, ngrep, Trouble Ticket System, Quality Center, SIP, PABX, Cloud
+  03/2015 - 06/2016 | Telefonica o2 München | Contractor Netzbetrieb
+    - Aufgaben:
+    - Unterstützung des Netzbetriebs bei der Einführung von NationalRoaming, HD-Voice und mVoLTE.
+    - HD-Voice und mVoLTE. Tracen und Protokoll-analyse (MAP, CAP, ISUP, SCCP,
+    Techs: Wireshark, NSN traffica, Accanto tracing system, MS windows, ngrep, shell und, Trouble Ticket System Remedy, MAP, CAP, ISUP
+  12/2013 - 12/2014 | THALES Pforzheim | Contractor System Test
+    - Aufgaben:
+    - DUT ist eine Callcenter-Entwicklung mit einer großen (>100) Anzahl von CallCenter-Agent-Arbeitsplätzen, ausschließlich VoIP-basiert mit SIP,
+    - RTP, RTCP und proprietären streaming-Protokollen. Requirements-Analyse,
+    Techs: • Protokollanalyse Wireshark, Last generator SIPp, VoIP System Test, • Lasttest, Abnahmetest, Testfall design, AutoHotKey, Sprachaufzeichnung, • Voxtronic, Jira
+  12/2011 - 12/2013 | Vodafone Düsseldorf | Contractor Passive Probing, Customer Experience Network
+    - Quality
+    - Aufgaben:
+    - Unterstützung der Regionalen Teams Netzwerkqualität mit Traces, Callflows und Teststrategien
+    Techs: TEKTRONIX Geoprobe Signaling Monitoring System, Passive Probing, SS7 Signaling Monitoring, Session Analyzer, Protocol Correlation, Wireshark, LTE Core
+  10/2010 - 09/2011 | Vodafone Düsseldorf | Unterstützung L2 Operations R4 Core Network
+    - Aufgaben:
+    - Field Acceptance Test von (R4-basierten) Netzknoten
+    - Vorbereitung, Verwaltung und Durchführung von Funktionalen Tests
+    Techs: UMTS Release 4 Core Network, MSS, MGW, Media Gateway, VoIP, Troubleshooting, NetAct, Fehlerverfolgung, Network Monitoring, Nokia DX200 MSS
+  04/2010 - 09/2010 | T-Mobile Bonn | Coaching des UMTS&GSM Release4 Core Operation Teams
+    - Aufgaben:
+    - Coaching und on-the-job Training für Betreiberkräfte im SMC
+    - Erstellung und Durchführung von Workshops und Kursen
+    Techs: UMTS, GSM, Release 4, SMC, KPI
+  01/2010 - 03/2010 | Deutsche Telekom Darmstadt | Entwicklung Testkonzept
+    - Aufgaben:
+    - Entwicklung einer Integrierten Testumgebung für ein geographisch verteiltes Netz-Monitoring System
+    - Aufbau Testumgebung, Definition Testprozesse konform ITIL v.3
+    Techs: MS Project, MS Office, Trouble Ticket System Remedy MARS, Change Prozess, Asset-Database, Netzmonitoring, Projektplanung, Ressourcenplanung, Tivoli
+  01/2009 - 12/2009 | sc5m.com | Senior Testmanager / Projektleitung
+    - Aufgaben:
+    - Test und Projektmanagement einer Hardware Entwicklung im Bereich GSM RF Signalisierung
+    - Signalisierung
+    Techs: MS Project, MS Office, GSM Messplatz Agilent 8922H, Nokia Monitoring Handsets, Troubleticket System Mantis, HTML, GSM Air
+  08/2008 - 12/2008 | IBM Network Development Berlin | Testleiter
+    - Aufgaben:
+    - Erstellung von Testcases, Automatisierung, Koordinierung und Durchführung von Tests
+    - Entwicklung eines TestManagementSystems
+    Techs: Office Suite, Mantis, Test Driven Development, Agile Approach
+  01/2008 - 06/2008 |  | Testleiter
+    - Aufgaben:
+    - Architektur eines Test-Verwaltungs Werkzeugs (test management system)
+    - Analyse der vorhandenen Situation, Analyse der Fehler, Erfassung des Bedarf Gap-Analyse als Grundlage für externe Beauftragung
+    Techs: Office Suite, Rational Clearcase, Rational ClearQuest, Troubleticket System, Jira
+  07/2007 - 12/2007 | o2 München | Testmanager
+    - Aufgaben:
+    - Koordination aller Test-relevanten Tätigkeiten beim Abnahmetest. Getestet wird ein Portal zum Channelunabhängigen Austausch von email-, Kontakt- und Kalenderdaten.
+    - Austausch von von email-, Kontakt- und Kalenderdaten.
+  04/2007 - 06/2007 | o2 München | Testmanager
+    - Aufgaben:
+    - Abnahmetest eines komplexen Systems bei einem Netzbetreibers
+    - Leitung von allen Schritten des Acceptance-Test für verschiedene Phasen eines internetbasierten Kommunikationsportals für Mobilfunkteilnehmer
+    Techs: MS-Project, PowerPoint, Bugzilla
+  01/2007 - 03/2007 | o2 München | Testmanager
+    - Aufgaben:
+    - Teilprojekleitung und Koordination: Abnahmetest eines Teilprojektleitung und Koordination: Abnahmetest eines Kommunikationsportals für Mobilfunkteilnehmer
+    - Erstellung von Testfallkatalogen, Festlegung von Testdatenbeständen und Generierung von Testdaten
+  10/2006 - 12/2006 | o2 München | Testentwickung
+    - Aufgaben:
+    - Architektur eines End-to-end Testsystems für mobile Sprach- und Datendienste
+    - Erstellung Design, Architektur
+    Techs: MS-Office, MS-Project, TTCN-3
+  07/2006 - 10/2006 | o2 München | Requirement Design
+    - Aufgaben:
+    - Konzept und Architektur eines externen MMS Transcoders
+    - Erstellung Design
+    Techs: Skriptsprache "Perl", Betriebssystem :, "Windows", "Apple ", "Linux", Router "Cisco", SNMP-Hub "Asante", TK-Anlage, "Alcatel", Modems
+
+SKILLS:
+  database: MySQL (mittel), MS-Access (mittel)
+  framework: MS Office (Gut), MS Outlook (gut), Firefox (sehr gut), Lotus Notes (gut), MS, Visio (gut), MS Project (gut), Methoden/, UML (mittel), Microsoft Office (gut), Rational ClearQuest (gut), wiki (sehr gut)
+  operating_system: Echtzeitbetriebssysteme, Mac OS, SUN OS, Solaris, Unix, Windows
+  programming_languages: ASN.1, Chill, Perl, Shell, TTCN, yacc/lex
+
+SKILL-ABLAGE:
+AppleTalk, ATM, Ethernet, Fax, FTAM, HDLC, Internet, Intranet, IPNG, ISDN, ISO/OSI, LAN, LAN Manager, PC-Anywhere, Proprietäre Protokolle, RFC, Router, RPC, RS232, SMTP, SNMP, TCP/IP, Voice, Windows Netzwerk, Winsock, X.400 X.25 X.225 X.75, darüberhinaus Kenntnis der üblichen Protokolle zu VoIP wie H.323, SIP, MGCP, etc
+
+AUSBILDUNG:
+1983-1991 | Dipl.Phys | Universität Göttingen  [course]
+1977-1983 | Abitur | Freiherr-vom-Stein Gesamtschule, Hess.-Lichtenau  [course]
+1991-1992 | Studium der Pädagogik | PH Göttingen  [course]
+1986-1987 | Gaststudium | University of Minnesota, St. Paul, MN (USA)  [course]
+2000 | Certified Nokia Instructor  [course]
+seit 1992 | Train-the-Trainer, Methodik und Präsentationstechniken  [course]
+
+FOCUS_EXP:
+  Netzwerk  [product_standard]
+  LAN - Technologien  [product_standard]
+  Cisco und OpenSource Router  [product_standard]
+  Checkpoint und Opensource Firewalls  [product_standard]
+  Netzwerkmanagementsysteme von Nokia  [product_standard]
+  Alcatel und Hewlett-Packard  [product_standard]
+  RAS Lösungen  [product_standard]
+  Terminalserver VNC von ORL  [product_standard]
+  TSE von Microsoft  [product_standard]
+  WinFrame und MetaFrame von  [product_standard]
+  CITRIX  [product_standard]
+  Client/Server Lösungen auf UNIX Basis (X11)  [product_standard]
+  Netzwerkanalyse  [product_standard]
+  Netzwerktester und Protokollanalysatoren von Agilent  [product_standard]
+  Alcatel  [product_standard]
+  GN Nettest  [product_standard]
+  Siemens  [product_standard]
+  INET  [product_standard]
+  Cisco Router  [product_standard]
+  OpenSource Router  [product_standard]
+  Checkpoint Firewalls  [product_standard]
+  Opensource Firewalls  [product_standard]
+  Nokia Netzwerkmanagementsysteme  [product_standard]
+  Alcatel Netzwerkmanagementsysteme  [product_standard]
+  Hewlett-Packard Netzwerkmanagementsysteme  [product_standard]
+  VNC Terminalserver  [product_standard]
+  Microsoft TSE  [product_standard]
+  CITRIX WinFrame  [product_standard]
+  CITRIX MetaFrame  [product_standard]
+  X11  [product_standard]
+  Agilent Netzwerktester  [product_standard]
+  Alcatel Netzwerktester  [product_standard]
+  GN Nettest Netzwerktester  [product_standard]
+  Siemens Netzwerktester  [product_standard]
+  INET Netzwerktester  [product_standard]

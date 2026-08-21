@@ -1,0 +1,755 @@
+{
+  "personal": {
+    "aid": "AID-oj_1.2.3.0",
+    "first_name": "Olaf",
+    "last_name": "Jourdan",
+    "birth_year": 1963,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "01.11.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2006,
+    "headline": "Telekommunikation Spezialist",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 151,
+    "certifications": 0,
+    "education": 6,
+    "experience": 15,
+    "industries": 2,
+    "focus_areas": 6,
+    "focus_experience": 35,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Train-the-Trainer, Methodik und Präsentationstechniken",
+      "institution": "",
+      "period": "seit 1992",
+      "education_type": "course"
+    },
+    {
+      "degree": "Certified Nokia Instructor",
+      "institution": "",
+      "period": "2000",
+      "education_type": "course"
+    },
+    {
+      "degree": "Gaststudium",
+      "institution": "University of Minnesota, St. Paul, MN (USA)",
+      "period": "1986-1987",
+      "education_type": "course"
+    },
+    {
+      "degree": "Studium der Pädagogik",
+      "institution": "PH Göttingen",
+      "period": "1991-1992",
+      "education_type": "course"
+    },
+    {
+      "degree": "Abitur",
+      "institution": "Freiherr-vom-Stein Gesamtschule, Hess.-Lichtenau",
+      "period": "1977-1983",
+      "education_type": "course"
+    },
+    {
+      "degree": "Dipl.Phys",
+      "institution": "Universität Göttingen",
+      "period": "1983-1991",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Telekommunikation",
+    "GSM Netzbetreiber und -ausrüster"
+  ],
+  "focus_areas": [
+    "Telekommunikation Spezialist",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test 2000 Checkout zum Certified Nokia Instructor 1993 2000 Als Angestellter im Trainingszentrum A",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Qualitätsmanagement / Qualitätssicherung / Test"
+  ],
+  "focus_experience": [
+    {
+      "name": "Netzwerk",
+      "category": "product_standard"
+    },
+    {
+      "name": "LAN - Technologien",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco und OpenSource Router",
+      "category": "product_standard"
+    },
+    {
+      "name": "Checkpoint und Opensource Firewalls",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerkmanagementsysteme von Nokia",
+      "category": "product_standard"
+    },
+    {
+      "name": "Alcatel und Hewlett-Packard",
+      "category": "product_standard"
+    },
+    {
+      "name": "RAS Lösungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Terminalserver VNC von ORL",
+      "category": "product_standard"
+    },
+    {
+      "name": "TSE von Microsoft",
+      "category": "product_standard"
+    },
+    {
+      "name": "WinFrame und MetaFrame von",
+      "category": "product_standard"
+    },
+    {
+      "name": "CITRIX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Client/Server Lösungen auf UNIX Basis (X11)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerkanalyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerktester und Protokollanalysatoren von Agilent",
+      "category": "product_standard"
+    },
+    {
+      "name": "Alcatel",
+      "category": "product_standard"
+    },
+    {
+      "name": "GN Nettest",
+      "category": "product_standard"
+    },
+    {
+      "name": "Siemens",
+      "category": "product_standard"
+    },
+    {
+      "name": "INET",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco Router",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenSource Router",
+      "category": "product_standard"
+    },
+    {
+      "name": "Checkpoint Firewalls",
+      "category": "product_standard"
+    },
+    {
+      "name": "Opensource Firewalls",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nokia Netzwerkmanagementsysteme",
+      "category": "product_standard"
+    },
+    {
+      "name": "Alcatel Netzwerkmanagementsysteme",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hewlett-Packard Netzwerkmanagementsysteme",
+      "category": "product_standard"
+    },
+    {
+      "name": "VNC Terminalserver",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft TSE",
+      "category": "product_standard"
+    },
+    {
+      "name": "CITRIX WinFrame",
+      "category": "product_standard"
+    },
+    {
+      "name": "CITRIX MetaFrame",
+      "category": "product_standard"
+    },
+    {
+      "name": "X11",
+      "category": "product_standard"
+    },
+    {
+      "name": "Agilent Netzwerktester",
+      "category": "product_standard"
+    },
+    {
+      "name": "Alcatel Netzwerktester",
+      "category": "product_standard"
+    },
+    {
+      "name": "GN Nettest Netzwerktester",
+      "category": "product_standard"
+    },
+    {
+      "name": "Siemens Netzwerktester",
+      "category": "product_standard"
+    },
+    {
+      "name": "INET Netzwerktester",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2016 - 05/2017",
+      "company": "Telekom Bonn",
+      "role": "",
+      "title": "Contractor Acceptance Test",
+      "activities": 5,
+      "technologies": 16
+    },
+    {
+      "period": "03/2015 - 06/2016",
+      "company": "Telefonica o2 München",
+      "role": "Contractor Netzbetrieb",
+      "title": "Contractor Netzbetrieb",
+      "activities": 5,
+      "technologies": 15
+    },
+    {
+      "period": "12/2013 - 12/2014",
+      "company": "THALES Pforzheim",
+      "role": "",
+      "title": "Contractor System Test",
+      "activities": 8,
+      "technologies": 14
+    },
+    {
+      "period": "12/2011 - 12/2013",
+      "company": "Vodafone Düsseldorf",
+      "role": "",
+      "title": "Contractor Passive Probing, Customer Experience Network",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "10/2010 - 09/2011",
+      "company": "Vodafone Düsseldorf",
+      "role": "",
+      "title": "Unterstützung L2 Operations R4 Core Network",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "04/2010 - 09/2010",
+      "company": "T-Mobile Bonn",
+      "role": "",
+      "title": "Coaching des UMTS&GSM Release4 Core Operation Teams",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "01/2010 - 03/2010",
+      "company": "Deutsche Telekom Darmstadt",
+      "role": "",
+      "title": "Entwicklung Testkonzept",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "01/2009 - 12/2009",
+      "company": "sc5m.com",
+      "role": "Senior Testmanager / Projektleitung",
+      "title": "Senior Testmanager / Projektleitung",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "08/2008 - 12/2008",
+      "company": "IBM Network Development Berlin",
+      "role": "Testleiter",
+      "title": "Testleiter",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "01/2008 - 06/2008",
+      "company": "",
+      "role": "Testleiter",
+      "title": "Testleiter",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "07/2007 - 12/2007",
+      "company": "o2 München",
+      "role": "Testmanager",
+      "title": "Testmanager",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2007 - 06/2007",
+      "company": "o2 München",
+      "role": "Testmanager",
+      "title": "Testmanager",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "01/2007 - 03/2007",
+      "company": "o2 München",
+      "role": "Testmanager",
+      "title": "Testmanager",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "10/2006 - 12/2006",
+      "company": "o2 München",
+      "role": "",
+      "title": "Testentwickung",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "07/2006 - 10/2006",
+      "company": "o2 München",
+      "role": "",
+      "title": "Requirement Design",
+      "activities": 8,
+      "technologies": 14
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "MySQL (mittel)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Access (mittel)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Office (Gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Outlook (gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Firefox (sehr gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes (gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Visio (gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Project (gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Methoden/",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "UML (mittel)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Office (gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Rational ClearQuest (gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "wiki (sehr gut)",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Echtzeitbetriebssysteme",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ASN.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Chill",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TTCN",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "yacc/lex",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Wireshark",
+      "category_name": "Datenkommunikation",
+      "weight": 0.78
+    },
+    {
+      "name": "vi",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "awk",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "MS windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "ngrep",
+      "category_name": "Security Tools",
+      "weight": 0.6
+    },
+    {
+      "name": "Quality Center",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "PABX",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Cloud",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "XMPP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "ISUP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.6
+    },
+    {
+      "name": "MAP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Diameter",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.6
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "SCCP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Abnahmetest",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "AutoHotKey",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Sprachaufzeichnung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Jira",
+      "category_name": "Business Software",
+      "weight": 0.6
+    },
+    {
+      "name": "RTP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "RTCP",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.47
+    },
+    {
+      "name": "perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "shell scripte",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "MSS",
+      "category_name": "Business Software",
+      "weight": 0.47
+    },
+    {
+      "name": "Media Gateway",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "VoIP",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "Troubleshooting",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "NetAct",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Fehlerverfolgung",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.47
+    },
+    {
+      "name": "Network Monitoring",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "UMTS",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "GSM",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "SMC",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "KPI",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "MS Project",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.6
+    },
+    {
+      "name": "MS Office",
+      "category_name": "Business Software",
+      "weight": 0.6
+    },
+    {
+      "name": "Projektplanung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Ressourcenplanung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Tivoli",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Office Suite",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.6
+    },
+    {
+      "name": "Mantis",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Test Driven Development",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "Rational Clearcase",
+      "category_name": "Versionsverwaltung",
+      "weight": 0.38
+    },
+    {
+      "name": "Rational ClearQuest",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "MS-Project",
+      "category_name": "Programmiersprachen",
+      "weight": 0.7
+    },
+    {
+      "name": "PowerPoint",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "Bugzilla",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MS-Office",
+      "category_name": "Business Software",
+      "weight": 0.6
+    },
+    {
+      "name": "TTCN-3",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "TK-Anlage",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Modems",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "PC",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "X.400 X.25 X.225 X.75",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "etc",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Trouble Ticket System",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

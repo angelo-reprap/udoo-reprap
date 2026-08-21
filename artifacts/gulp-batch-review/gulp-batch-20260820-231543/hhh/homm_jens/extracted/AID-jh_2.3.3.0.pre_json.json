@@ -1,0 +1,1283 @@
+{
+  "metadata": {
+    "aid": "AID-jh_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "homm_jens",
+    "first_name": "Jens",
+    "last_name": "Homm",
+    "headline": "JAVA-Entwicklung und Architektur mit Schwerpunkt JEE und Web / Training/ Coaching in Java, Design / Liferay-Entwicklung und Schulung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:36:32.608004"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Jens",
+      "last_name": "Homm",
+      "birth_year": 1976,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9 im Umkreis von: Hamburg (50",
+      "wohnort": "221xx Hamburg, Deutschland",
+      "headline": "JAVA-Entwicklung und Architektur mit Schwerpunkt JEE und Web / Training/ Coaching in Java, Design / Liferay-Entwicklung und Schulung",
+      "edv_experience_since": 1999
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "JDBC Entwicklung",
+        "MariaDB",
+        "Mongo",
+        "Mongo DB",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle Entwicklung",
+        "Grundkenntnisse Administration",
+        "Postgres Entwicklung",
+        "SQL",
+        "Sybase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Emulatoren",
+        "Macintosh",
+        "Messgeräte",
+        "Mikrocontroller",
+        "Modem",
+        "PC Tiefgehende Hardwarekenntnisse",
+        "Sensoren",
+        "SPS"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "CentOS",
+        "Mac OS Mac OS X",
+        "MS-DOS",
+        "Unix Linux",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Angular",
+        "Assembler erw. Grundkenntnisse",
+        "Basic",
+        "C",
+        "C# Grundkenntnisse",
+        "C++",
+        "Imake",
+        "GNU-Make",
+        "Make-Maker etc",
+        "Java",
+        "JavaScript",
+        "Java8",
+        "Java8/Java11",
+        "Objective C Grundkenntnisse",
+        "Optima++ Nachfolger Power++ von Sybase",
+        "Perl",
+        "PL/SQL gute Kenntnisse",
+        "Powerbuilder Version 7.x",
+        "Qt"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "15.03.2002 Prüfung zum Sun Certified Java Programmer (SCJP) abgelegt.",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "30.06.2006 Prüfung zum OMG Certified UML Professional (OCUP-I)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "(Zertifizierungsnummer: OM0-101135)",
+        "issuer": "",
+        "date_obtained": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "07 2020 - 12 2020",
+        "company": "Lottostar24",
+        "title": "Entwicklung MaxNet 2.0 - Maklerportal einer Versicherung Projektgröße: 50 Mitarbeiter Branche: Versicherung",
+        "technologies": [
+          "IntelliJ",
+          "Docker",
+          "Jenkins",
+          "Nexus",
+          "GitLab",
+          "CentOS",
+          "Spring",
+          "SpringBoot",
+          "Netdata"
+        ],
+        "activities": [
+          "Status: Selbstständig/Freiberuflich",
+          "IT-Umgebung: Java8/Java11, Mongo, Spring-Boot, Kafka, Docker, Angular,",
+          "Lets Encrypt, traefik",
+          "Projektbeschreibung:",
+          "Der Kunde ist ein StartUp im Gambling-Bereich und verkauft über seine Plattform",
+          "Lotterieprodukte und IWG (Instant Winning Games).",
+          "Im Projekt habe ich die technische Weiterentwicklung und Stabilisierung der Plattform übernommen.",
+          "Ein Schwerpunkt hierbei ist die Skalierung der Plattform passend zum Lastaufkommen, vor allem nach der Integration der IWG. Auch die Weiterentwicklung hin zu einer serviceorientierten Architektur sowie einer"
+        ]
+      },
+      {
+        "period": "07 2018 - heute",
+        "title": "Plattform für Lotterien und IWG Projektgröße: 16 Mitarbeiter Branche: Gambling",
+        "industry": "Gambling",
+        "activities": [
+          "Rolle(n): Software-Entwickler, Architect, Technische Projektleitung,",
+          "DevOps",
+          "Branche: Gambling"
+        ],
+        "company": "Lottostar24",
+        "technologies": [
+          "IntelliJ",
+          "Docker",
+          "Jenkins",
+          "Nexus",
+          "GitLab",
+          "CentOS",
+          "Spring",
+          "SpringBoot",
+          "Netdata"
+        ]
+      },
+      {
+        "period": "05 2018 - 04 2020",
+        "company": "SOLCOM (Vermittlungsprojekt)",
+        "title": "Monitoring und Entwicklung Liferay-Portal Projektgröße: 1 Mitarbeiter Branche: Entsorgung",
+        "activities": [
+          "Status: Selbstständig/Freiberuflich",
+          "IT-Umgebung: Java, Java 8, Tomcat, Wildfly, Keycloak, Angular 8-10, Spring,",
+          "Spring-Boot, Spring-Security, IntelliJ, Host, DB2, Jenkins, Jira, Confluence,",
+          "Bitbucket",
+          "Projektbeschreibung:",
+          "Der Endkunde (Versicherung) betreibt ein webbasiertes Maklerportal zur Unterstützung der Makler im Außendienst sowie der internen Mitarbeiter im Innendienst, um Versicherungskunden zielgerichtet betreuen zu können",
+          "(Vertragsangebot, Vertragsabschluss, Schadenmeldung, ...)",
+          "Meine Aufgabe im Projekt lag in der Mitarbeit in der Neuentwicklung des MaxNet 2.0 (einbinden fachlicher Anforderungen, Schnittstellenentwicklung (REST) für das Frontend, Anbindung von Host-Prozessen/Datenbank in das Backend,",
+          "Mitarbeiter Branche: Entsorgung"
+        ]
+      },
+      {
+        "period": "10 2015 - 03 2020",
+        "company": "weyher Entsorgung",
+        "title": "Software für Funkempfänger und Funkpeiler, COMINT Projektgröße: 30 Mitarbeiter Branche: Elektronik,Funktechnik,Aufklärung",
+        "activities": [
+          "Status: Selbstständig/Freiberuflich",
+          "IT-Umgebung: Java, Java 8, Liferay, Liferay-SDK, mySQL, Tomcat, Eclipse,",
+          "Jenkins, GitLab, CentOS, Let's Encrypt, Netdata",
+          "Projektbeschreibung:",
+          "Der Kunde betreibt mehrere Liferay-Portale für seine Kunden. Auf diesen",
+          "Portalen laufen mehrere selbstentwickelte Portlets/Themes für die Auftragsabwicklung im Entsorgungsbereich.",
+          "Meine Aufgabe ist zum Einen das Monitoring der PROD-Umgebung um die generelle Erreichbarkeit der Server sicherzustellen und im Falle eines Engpasses schnell zu reagieren. Hierzu gehört auch das regelmäßige Sichern der Daten sowie die Aktualisierung des OS und der zu den Portalen gehörenden Zertifikate.",
+          "Die Weiterentwicklung/Pflege der Portlets nach Kundenwunsch wird auch von mir übernommen, hierfür betreibe ich eine eigene Deploymentpipeline sowie ein entsprechendes Testsystem.",
+          "Projektgröße: 30 Mitarbeiter Branche: Elektronik,Funktechnik,Aufklärung"
+        ]
+      },
+      {
+        "period": "04 2015 - 09 2015",
+        "company": "GULP",
+        "title": "Direktbanking Projektgröße: 40 Mitarbeiter Branche: Banking",
+        "activities": [
+          "Status: Selbstständig/Freiberuflich",
+          "IT-Umgebung: Java, Java 7, Java 8, Oracle 11, Oracle 12, JMS, Tomcat,",
+          "Webservices, Eclipse, Eclipse RCP, SWT, JFace, OSGi, GIT, SVN, Scrum, KanBan, in-Step, Maven, Tycho, RTI DDS, Docker",
+          "Projektbeschreibung:",
+          "In diesem Projekt geht es um die Entwicklung einer Steuer- und Auswertesoftware für die Ansteuerung von Funkempfängern, Funkscannern und Funkpeilanlagen. Die Software ist eine Eclipse RCP-Anwendung, über die die Signale der Sensoren angezeigt (Echtzeitanalyse) und analysiert werden. Zusätzlich ist auch eine Speicherung der Daten in einer Datenbank möglich. Dabei sind die einzelnen Analyse-Tools als OSGi-Bundles (Plugins) implementiert.",
+          "Die Anwendung selbst ist eine Plattform aus verschiedenen Plugins für verschiedene Arten von Auswertungen, die je nach Kundenwunsch in passenden",
+          "Konfigurationen ausgeliefert werden.",
+          "Meine Aufgabe im Projekt liegt im Beheben von Bugs sowie die Weiterentwicklung verschiedener Plugins. Der Schwerpunkt liegt hierbei in der Middleware, welche über DDS Datenströme die einzelnen Teile der Software miteinander verbindet",
+          "Banking"
+        ]
+      },
+      {
+        "period": "01 2015 - 03 2015",
+        "company": "VOQUZ",
+        "title": "eWorks Projektgröße: 6 Mitarbeiter Branche: Automotive, Elektronik",
+        "activities": [
+          "Status: Selbstständig/Freiberuflich",
+          "IT-Umgebung: Java, Java 6, C, SQL, PL/SQL, ProC, Oracle 11, JSF, JMS, MQSeries,",
+          "JBoss, Eclipse, GIT, Scrum, KanBan, Jira",
+          "Projektbeschreibung:",
+          "In diesem Projekt arbeite ich in allen Ebenen, sowohl in der Batch-Verarbeitung (C, ProC, Java, PL/SQL) als auch der Businesslogik (Java) und dem Frontend (JSF). Die Anwendung verteilt sich auf verschiedene Systeme, deren gemeinsames",
+          "Kommunikationsmedium die Datenbank ist, teilweise angebunden über JMS oder Webservices.",
+          "Genutzt wird das System sowohl von der Direktbank selbst als auch von der Muttergesellschaft, einer Filialbank.",
+          "Mein Schwerpunkteinsatz im Projekt ist das Bugfixing sowie die Stablisierung der Anwenung, vor allem im Bereich der Batch-Implementierung mit entsprechender",
+          "Elektronik"
+        ]
+      },
+      {
+        "period": "26.08.2013 - 28.08.2013",
+        "company": "PPI",
+        "title": "Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, Eclipse, SVN, Oracle, Hibernate, Maven, Jetty,",
+          "Spring, Spring MVC, Spring Security, Tomcat, Apache, JSF, PrimeFaces, Eclipse",
+          "Projektbeschreibung:",
+          "Vertriebsunterstützende Software mit Schwerpunkt in der Angebotsberechnung und Antragserstellung",
+          "Meine Aufgabe in diesem Projekt ist die Weiterentwicklung einer bestehenden",
+          "Webanwendung für die Angebotsberechnung und Antragserstellung von Versicherungen im Finanzumfeld sowie private Absicherung. Die bestehende Webanwendung wurde bisher nur intern eingesetzt und muss nun so angepasst werden, dass sie sowohl Endkundenfreundlich (Oberfläche, Benutzerführung) als auch entsprechend abgesichert ist. Dabei lege ich die grundlegende Sicherheitsarchitektur für die Implementierung fest und begleite die internen Entwickler bei der Umstellung. Als Grundlage für die Absicherung der Webanwendung setze ich die OWASP-Vorschläge zur Absicherung von Webanwendungen um.",
+          "Training/Coaching"
+        ],
+        "role": "Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching"
+      },
+      {
+        "period": "07 2013 - 12 2014",
+        "company": "Gulp",
+        "activities": [
+          "Status: Selbstständig/Freiberuflich",
+          "IT-Umgebung: Java, Java 6, JEE 7, EJB3, EJB2, jBPM 3, jBPM 6, Hibernate, JBoss",
+          "AS, Wildfly, JSF, Primefaces, XML, XSLT, Eclipse, GIT, Scrum",
+          "Projektbeschreibung: eWorks - elektronisch gestützte Prozessabwicklung",
+          "Dieses Projekt dient der internen Prozessunterstützung, indem die Prozesse",
+          "Webanwendung abgebildet sind. Da die Anwendung überwiegend aus Legacy-Code",
+          "Prozesse, bedingt durch einen Merge mehrerer Gesellschaften, in eWorks integriert.",
+          "Eine Besonderheit in diesem System ist die komplexe Zuständigkeitsmatrix für die"
+        ]
+      },
+      {
+        "period": "20.08.2012 - 22.08.2012",
+        "company": "Metro / Schaper",
+        "title": "Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich / Remote",
+          "IT-Umgebung: Java 5/Java6/Java7, Eclipse, Unix, SVN, Rife, Spring, Tomcat,",
+          "Axis2, Webservice, Geronimo, Redmine, SOA, Maven, ANT",
+          "Projektbeschreibung:",
+          "Nachdem ich in den letzten Jahren verschiedene Projekte im Intranet/ Extranetumfeld betreut und weiterentwicklet habe, habe ich zum Jahresanfang die komplette Entwicklung der Abteilung Kommunikation übernommen. Damit auch das Versionsverwaltungsrepository. Nun bin ich nicht mehr für ein bestimmtes Projekt zuständig, sondern betreue alle internen Kommunikationsplattformen, die in der Vergangenheit gewachsen sind. Diese fasse ich, soweit sinnvoll, technisch zusammen und bringe die Entwicklung wieder auf den aktuellen Stand.",
+          "Zusätzlich behebe ich Fehler in den Anwendungen und erweitere die Funktionalität nach Kundenwunsch. Einige dieser Erweiterungen werden auch von mir angestossen, wenn ich auf Grund der Beschreibungen entsprechendes Potential sehe. Dies geschieht dann immer nach Rücksprache mit den entsprechenden Fachabteilungen.",
+          "Außer den Tools für die interne Kommunikationsplattform betreue ich auch die öffentlichen Webseiten. Die Webseiten sind über ein Plugin-System realisiert worden, wobei die unterschiedlichen Plugins einen Zugriff auf interne Systeme /"
+        ],
+        "role": "Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching"
+      },
+      {
+        "period": "24.05.2012 (2 * 2 Stunden)",
+        "company": "GFU",
+        "title": "Liferaytraining im virtuellen Klassenraum Branche: Portalentwicklung",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Eclipse, Liferay 6.1, Tomcat",
+          "Durchführung einer dreitägigen Schulung mit dem Thema Liferayentwicklung für Javaentwickler.",
+          "In dieser Schulung werden die Grundlagen der Portletentwicklung mit dem Portalserver Liferay vermittelt sowie der Umgang mit dem Liferay-SDK.",
+          "===================================================== ==========================",
+          "Rolle(n): Trainer",
+          "Portalentwicklung"
+        ]
+      },
+      {
+        "period": "01 2012 - 03 2020",
+        "company": "ConceptPeople",
+        "title": "Interne Kommunikation Projektgröße: Variiert, ein Entwickler (ich) Branche: Intranet / Extranet / Handelsplattform / CMS / Marktkommunikation",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, Oracle, Hibernate, Maven,",
+          "Jetty, Spring, Spring MVC, Spring Security, Wicket, Active-MQ, Tomcat, Apache",
+          "Projektbeschreibung:",
+          "Portal für Onlinespiele im Internet.",
+          "Bei diesem Projekt handelt es sich um ein Redesign/Neuentwicklung sowie die Weiterentwicklung einer Internetplattform für einen Webshop. Hier bin ich hauptsächlich für die Anbindung der Oberfläche (JSP mit Spring-MVC) an die Serviceschicht zuständig.",
+          "Diese Verbindung wird durch Spring konfiguriert und innerhalb von Spring MVC benutzt.",
+          "Auch die Absicherung der Transaktionen im Webshop durch Spring Security wurde von mir aktiviert und weiterentwickelt.",
+          "Um mehrere verschiedene Webshops an die Backendlogik anbinden zu können, habe ich eine passende Architektur erstellt um auf der einen Seite eine Grundstruktur für die Abläufe in der Oberfläche zu haben, die auf der anderen Seite für jeden Webshop problemlos erweiterbar ist.",
+          "(ich) Branche: Intranet / Extranet / Handelsplattform / CMS / Marktkommunikation"
+        ]
+      },
+      {
+        "period": "04 2011 - 12 2012",
+        "company": "ConceptPeople",
+        "title": "Kundenantrag GAA Projektgröße: 3 Mitarbeiter Branche: Intranet / Handelsplattform/CMS",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, CVS, Oracle, Hibernate, Ant,",
+          "Maven, Jetty, Spring, Spring MVC, Wicket, Adobe Dreamweaver CS 4, JSP",
+          "Projektbeschreibung:",
+          "Portal für Onlinespiele im Internet.",
+          "Backoffice für die Verwaltung der Kundendaten des Portals. In diesem Projekt bin ich an mehreren Stellen tätig. Zum einem schreibe ich",
+          "JSP-Tags für die Anbindung der Oberfläche an die unterliegende Fachlogik, zum anderen schreibe ich templates für den Aufbau der JSP-Seiten. Diese Templates werden dann von den Designern für die Oberfläche benutzt um die gewünschten Inhalte darzustellen.",
+          "Zusätzlich erweitere ich auch das Backofficesystem. Über dieses werden unter anderem bestimmte Daten für die Oberfläche zur Verfügung gestellt, wobei die Anzeige dieser Daten teilweise zeitabhängig erfolgt oder aber abhängig vom Content der weiteren Daten auf der Seite ist (InHouse-Entwicklung eines Intranet / Handelsplattform/CMS"
+        ]
+      },
+      {
+        "period": "01 2010 - 06 2013",
+        "company": "GFU",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Eclipse, Liferay 6.1, Tomcat",
+          "Durchführung einer dreitägigen Schulung mit dem Thema Liferayentwicklung für In dieser Schulung werden die Grundlagen der Portletentwicklung mit dem Rolle(n): Softwareentwickler",
+          "Projekt:",
+          "Projektgröße: 50 Mitarbeiter",
+          "Branche: Internetplattform / Gaming"
+        ]
+      },
+      {
+        "period": "22.06.2009 - 26.06.2009",
+        "company": "Metro",
+        "title": "SUN-Schulung SL-275-SE6 Teilnehmer: 8 Branche: Schulungsunternehmen",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, JSF 1.1/1.2 (MyFaces (1.1.7,",
+          "1.2), tomahawk (1.1.5, 1.1.7), RichFaces (3.1.6, 3.2. 3.3)), Facelets,",
+          "Ajax4jsf, Oracle, PostgresQL, Hibernate, Ivy, Ant, Tomcat 6, Portlet (JSR 168,",
+          "JSR286, JSR 301), Liferay 5.1, Liferay 5.2, Spring, Spring MVC, Spring Webflow,",
+          "Lucene, SOA, Quartz",
+          "Projektbeschreibung:",
+          "Das CMS-Tool wird innerhalb des Metro-Intranets benutzt um die einzelnen Standorte via Newsletter über Veränderungen zu informieren. Solche",
+          "Schulungsunternehmen"
+        ]
+      },
+      {
+        "period": "07 2009 - 12 2009.",
+        "company": "Freund+Dirks",
+        "technologies": [
+          "IT-Umgebung: Eclipse",
+          "Liferay 6.1",
+          "Tomcat",
+          "GWT",
+          "Cisco WebEx",
+          "Meeting Center"
+        ],
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "Hier habe ich ein gezieltes Liferaytraining in einem virtuellem Klassenraum für einen",
+          "Daten zu einem angemeldetem Benutzer abfragen",
+          "Layoutänderung",
+          "Theme und anpassen des Themes - Grundlagen Administration (Rollen/Rechte)",
+          "Bilder aus dem Theme in der eigenen Anwendung referenzieren (über GWT- Zusätzlich wurden noch individuelle Fragen des Entwicklers zur Liferayumgebung in",
+          "Das Training fand einmal morgens und einmal abends statt, jeweils mit einer"
+        ]
+      },
+      {
+        "period": "08 2009 - Heute",
+        "company": "Metro",
+        "title": "MCS Projektgröße: 3 Mitarbeiter Branche: Intranet / Handelsplattform/CMS",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich / Remote",
+          "IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, Rife, Spring, Tomcat, Axis2",
+          "Projektbeschreibung:",
+          "Dieses Projekt dient der elektronischen Dokumentation für Neukundenanträgen. Um diese Anträge dauerhaft zu archivieren wird eine WS-Schnittstelle zwischen dem Kunden und einem externem Dienstleister, der entsprechend ISO-Zertifiziert",
+          "Dokumente archivieren kann, hergestellt.",
+          "Beim Kunden läuft dafür eine WEB-Anwendung, die im Intranet aufgerufen werden kann und über die sowohl der Upload von Dokumenten als auch die Suche im Archiv sowie der Download der Dokumente vorgenommen werden kann.",
+          "Da es sich hierbei um ein kleines Projekt handelt, bin ich sowohl als",
+          "Entwickler als auch als Architekt tätig. Eine Vorabversion des Projektes in zwei Versionen ist beim Kunden schon entstanden. Diese beiden Projekte habe ich dann wieder zusammengeführt und den Webservice implementiert bzw. weiterentwickelt um alle Anforderungen abdecken zu können.",
+          "Handelsplattform/CMS"
+        ]
+      },
+      {
+        "period": "04 2009 - 07 2009",
+        "company": "Metro",
+        "title": "MCS Projektgröße: 3 Mitarbeiter Branche: Intranet / Handelsplattform/CMS",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich / Remote",
+          "IT-Umgebung: Java 5/Java6, Eclipse, Unix, SVN, JSF 1.1/1.2 (MyFaces (1.1.7,",
+          "1.2), tomahawk (1.1.5, 1.1.7), RichFaces (3.1.6, 3.2. 3.3)), Facelets,",
+          "Ajax4jsf, Oracle, PostgresQL, Hibernate, Ivy, Ant, Tomcat 6, Portlet (JSR 168,",
+          "JSR286, JSR 301), Liferay 5.1, Liferay 5.2, Spring, Spring MVC, Spring Webflow,",
+          "Lucene, SOA, Quartz",
+          "Projektbeschreibung:",
+          "Dieses Projekt diente der Erstellung und Weiterentwicklung einer internen",
+          "Handelsplattform/CMS"
+        ]
+      },
+      {
+        "period": "01 2009 - 03 2009",
+        "company": "BOS-it oHG",
+        "title": "Tipp24 / Tipp24Games / Webservices Projektgröße: 50 Mitarbeiter Branche: Internetplattform / Gaming",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: JAVA 6, Solaris 10",
+          "Projektbeschreibung:",
+          "Hier habe ich für ein Schulungsunternehmen die Schulung 'Java Programming",
+          "Language/Java Programmierung (SL-275-SE6)' durchgeführt. Die Schulung richtet sich an Teilnehmer mit geringen Kenntnissen in JAVA und Programmiererfahrung in einer anderen Prozeduralen Sprache. Vermittelt werden in diesem Kurs",
+          "Grundlagen der JAVA-Entwicklung (Aufbau der Quellcodedatei, Übersetzen, Starten, Konstruktoren, Überladen/Überschreiben von Methoden, Vererbung, Exceptionhandling,",
+          "Threads, Netzwerkprogrammierung, Oberflächenerstellung mit Swing).",
+          "===================================================== ==========================",
+          "Mitarbeiter Branche: Internetplattform / Gaming"
+        ]
+      },
+      {
+        "period": "02 2009 - 03 2009",
+        "company": "Tipp24 AG",
+        "title": "Go100 Projektgröße: 1 Mitarbeiter Branche: Medien/Verein",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, Eclipse, Unix, Webservice, WSDL, WSDD, SOAP, Apache",
+          "Axis, Oracle, SQL, CVS, Ant, Shellskripte",
+          "Projektbeschreibung:",
+          "In diesem Projekt geht es um die Anpassung und Überprüfung von Webservices sowie der Zusammenfassung und Neuimplementierung der Webservices zur Performanceoptimierung. Auch die Auswertung der in einer Datenbanktabelle hinterlegten Aufrufzeiten der einzelnen Webservices gehört dazu (SQL-Skript), um Engpässe im Zeitverhalten zu ermitteln.",
+          "Tipp24Games ist eine Spieleplattform (Flash) im Internet, bei der man um Geld spielen kann. Dabei liegt die Kundenverwaltung und auch die Verwaltung der Kundenkonten auf einer anderen",
+          "Plattform (Tipp24), die über Webservices angesprochen wird um den Kunden zu authentifizieren bzw. um die jeweiligen Finanztransaktionen",
+          "(Spieleinsatz, Gewinnverbuchung) durchzuführen."
+        ]
+      },
+      {
+        "period": "16 01 2009 - 31 03 2009",
+        "company": "n-7Media / go100ev",
+        "title": "Giesel Projektgröße: 5 Mitarbeiter Branche: Medien",
+        "technologies": [
+          "NetBeans 6",
+          "Subversion",
+          "Linux (OpenSuse + Debian)",
+          "Hibernate",
+          "ANT",
+          "JAAS (Java"
+        ],
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, OpenCMS, JBOSS 4.2, JSF 1.2, PostgressQL 8,",
+          "Authentication and Authorization Service), SSL, XML, XSD",
+          "Projektbeschreibung:",
+          "Die Mitgliederverwaltung wurde um eine Suche für die Mitglieder selbst erweitert.",
+          "Damit haben die Mitglieder die Möglichkeit sich gegenseitig zu kontaktieren.",
+          "Zusätzlich wurde OpenCMS noch um ein Modul erweitert um ein Glossar in der Webseite anzubieten.",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "20.10.2008 - 24.10.2008",
+        "company": "PPI AG Informationstechnologie",
+        "title": "SUN-Schulung SL-275-SE6 Teilnehmer: 6 Branche: Schulungsunternehmen",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 1.5, J2EE, Eclipse, Tomcat 5.5, CruiseControl, CVS, Oracle,",
+          "HSQL, Liferay 4.4.2, Portlet (JSR 168), Spring, SpringMVC, Spring WebFlow,",
+          "Chipcard, EBICS, WebService, Together 6, XML, XSD, XMLBeans, XSLT, XSL-FO,",
+          "Hibernate",
+          "Projektbeschreibung:",
+          "TRAVIC-Port ist eine internet-basierte Applikation, die auf Seiten eines Kreditinstituts oder bei einem Firmenkunden betrieben wird. TRAVIC-Port stellt",
+          "SUN-Schulung SL-275-SE6 Teilnehmer: 6"
+        ],
+        "industry": "Schulungsunternehmen",
+        "technologies": [
+          "Java 1.5",
+          "J2EE",
+          "Eclipse",
+          "Tomcat 5.5",
+          "CruiseControl",
+          "CVS",
+          "Oracle",
+          "HSQL",
+          "Liferay 4.4.2",
+          "Portlet (JSR 168)",
+          "Spring",
+          "SpringMVC",
+          "Spring WebFlow",
+          "Chipcard",
+          "EBICS",
+          "WebService",
+          "Together 6",
+          "XML",
+          "XSD",
+          "XMLBeans",
+          "XSLT",
+          "XSL-FO",
+          "Hibernate"
+        ]
+      },
+      {
+        "period": "03.03.2008 - 07.03.2008",
+        "company": "EADS Deutschland",
+        "title": "SUN-Schulung SL-275-SE6 Teilnehmer: 4 Branche: Schulungsunternehmen",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 1.4, Java 1.5, Java 1.6, J2EE, Eclipse, SWT, JFaces, Ant,",
+          "CruiseControl, ClearCase, SVN, Toplink, Oracle, Agitar, Websphere Application",
+          "Server 6.1, RAD (Entwicklungsumgebung von IBM, basierend auf Eclipse), NetBeans",
+          "6, XML, XSL, JSF 1.2 (Sun RI)",
+          "Projektbeschreibung:",
+          "GAST ist ein neues Auswertesystem für die Bundeswehr. Dieses soll für alle",
+          "Teilstreitkräfte (Heer, Luftwaffe, Marine) verfügbar sein um die technische Aufklärung in einem übergreifenden System durchzuführen.",
+          "Schulungsunternehmen"
+        ]
+      },
+      {
+        "period": "27 12 2008 - 15 01 2009",
+        "company": "expeso / H-E-S",
+        "title": "Giesel Projektgröße: 5 Mitarbeiter Branche: Medien",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich / Remote",
+          "IT-Umgebung: Java 5/Java 6, Liferay 5.1, Eclipse, Tomcat 5, MySql, Displaytag",
+          "(JSP-Tag), Subversion, Ant, Struts 1.2, Spring, Hibernate",
+          "Projektbeschreibung:",
+          "Nach dem Feuerwehreinsatz geht es in diesem Projekt nun um die Weiterentwicklung der bestehenden Portlets sowie um die Entwicklung neuer Portlets. Auch wird die Entwicklungsumgebung und der Buildprozess von mir überarbeitet um zu einer stabileren Lösung zu kommen.",
+          "===================================================== ==========================",
+          "Rolle(n): Softwareentwickler"
+        ]
+      },
+      {
+        "period": "08 2008 - 12 2008",
+        "company": "expeso / H-E-S",
+        "title": "Go100 Projektgröße: 1 Mitarbeiter Branche: Medien/Verein",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich / Remote",
+          "IT-Umgebung: Java 5/Java6, Liferay 5.1, Eclipse, Tomcat 5, MySql, Displaytag",
+          "(JSP-Tag), Subversion, Ant, Struts 1.2, Spring, Hibernate",
+          "Projektbeschreibung:",
+          "Dieser Einsatz war ein Feuerwehreinsatz für eine Portalumgebung auf dem Liferay Portal Server. Umgesetzt wurde hier eine Anzeigeplattform für verschieden Arten von Anzeigen. Genutzt wird diese Plattform für die Internetauftritte verschiedener Zeitungen, die im Online-Marketing tätig sind bzw. ihre Tätigkeit in diesem Berreich ausweiten wollen.",
+          "Entwickelt wurde hier nach der von Liferay vorgegeben Architektur. Meine",
+          "Aufgabe war es, einige Portlets wieder Lauffähig zu machen, die mit der Datenmenge des Livesystems nicht mehr zurecht kamen sowie der Einbau weiterer Anforderungen in den Portlets. Ein Feuerwehreinsatz war es deshalb, weil Mitte Januar die Auslieferung für den Endkunden fertig sein musste und somit nicht viel Zeit für die Änderungen vorhanden war.",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "05 2008 - 12 2008",
+        "company": "n-7Media / go100ev",
+        "title": "TRAVIC-Port Projektgröße: 10 - 15 Mitarbeiter Branche: Banking",
+        "technologies": [
+          "NetBeans 6",
+          "Subversion",
+          "Linux (OpenSuse + Debian)",
+          "Hibernate",
+          "ANT",
+          "JAAS (Java"
+        ],
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: Java 5/Java6, OpenCMS, JBOSS 4.2, JSF 1.2, PostgressQL 8,",
+          "Authentication and Authorization Service), SSL, XML, XSD",
+          "Projektbeschreibung:",
+          "Für den Kunden wurde eine Mitgliederverwaltung als Web-Lösung implementiert.",
+          "Außer der Mitgliederverwaltung ist auch die Registrierung neuer Mitglieder möglich.",
+          "Dazu wurde ein mehrstufiger Registrierungsprozess umgesetzt, in dem das potentielle",
+          "Mitglied seine persönlichen Daten eingeben kann. Am Ende des Registrierungsprozesses wird eine Mail an das neue Mitglied geschickt zur Bestätigung der Registrierung. Diese Daten können von dem Mitglied nach erfolgtem Login nachträglich noch bearbeitet werden.",
+          "Über entsprechende administrative Masken kann die Vereinsverwaltung noch zusätzliche"
+        ]
+      },
+      {
+        "period": "26.06.2007 - 27.06.2007",
+        "company": "BOS-it oHG",
+        "title": "J2EE Schulung für das Projekt PHOENIX Teilnehmer: 10 Branche: Versicherung",
+        "industry": "Versicherung",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: JAVA 6, Solaris 10",
+          "Projektbeschreibung:",
+          "Hier habe ich für ein Schulungsunternehmen die Schulung 'Java Programming",
+          "Language/Java Programmierung (SL-275-SE6)' durchgeführt. Die Schulung richtet sich an Teilnehmer mit geringen Kenntnissen in JAVA und Programmiererfahrung in einer anderen Prozeduralen Sprache. Vermittelt werden in diesem Kurs",
+          "Grundlagen der JAVA-Entwicklung (Aufbau der Quellcodedatei, Übersetzen, Starten, Konstruktoren, Überladen/Überschreiben von Methoden, Vererbung, Exceptionhandling,",
+          "Threads, Netzwerkprogrammierung, Oberflächenerstellung mit Swing).",
+          "===================================================== ==========================",
+          "Branche: Versicherung"
+        ]
+      },
+      {
+        "period": "07 2007 - 04 2008",
+        "company": "BOS-it oHG",
+        "title": "ARGE-Gast Projektgröße: 100 Mitarbeiter (4 Standorte) Branche: Verteidigung",
+        "industry": "Verteidigung",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: JAVA 6, Solaris 10",
+          "Projektbeschreibung:",
+          "Hier habe ich für ein Schulungsunternehmen die Schulung 'Java Programming",
+          "Language/Java Programmierung (SL-275-SE6)' durchgeführt. Die Schulung richtet sich an Teilnehmer mit geringen Kenntnissen in JAVA und Programmiererfahrung in einer anderen Prozeduralen Sprache. Vermittelt werden in diesem Kurs",
+          "Grundlagen der JAVA-Entwicklung (Aufbau der Quellcodedatei, Übersetzen, Starten, Konstruktoren, Überladen/Überschreiben von Methoden, Vererbung, Exceptionhandling,",
+          "Threads, Netzwerkprogrammierung, Oberflächenerstellung mit Swing).",
+          "===================================================== ==========================",
+          "Branche: Verteidigung"
+        ]
+      },
+      {
+        "period": "08 2006 - 06 2007",
+        "company": "LogicaCMG / DBV Winterthur",
+        "title": "ARMADA, FSH, CC Projektgröße: 6 Mitarbeiter Branche: Automotive, Leasing",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: J2EE 1.4, JAAS, JMS, JNDI, EJB, Middlegen, XDoclet, JBOSS 3.0.5,",
+          ", XML, XSD, XSLT, XSL-FO",
+          "Projektbeschreibung:",
+          "J2EE-Schulung mit Bezug auf das Projekt PHOENIX (Agentursystem).",
+          "Der Hauptteil der Schulung bezog sich einmal auf J2EE generell (Was ist J2EE) sowie auf die Techniken JAAS, JNDI, JMS und EJB 2.x.",
+          "Diese Techniken werden innerhalb des Projektes PHOENIX benutzt.",
+          "Bei allen Themen wurde direkter Bezug auf das Projekt und die dortige Verwendung genommen.",
+          "Automotive, Leasing"
+        ]
+      },
+      {
+        "period": "11 2005 - 07 2006",
+        "company": "ALD Autoleasing Deutschland",
+        "title": "Produktentwicklung (CRIS-PE), Kundenprojektunterstützung (PHOENIX) Projektgröße: 10/20 Mitarbeiter Branche: Versicherung",
+        "activities": [
+          "Status: Festangestellt",
+          "IT-Umgebung: Java 1.4, J2EE, Eclipse, Ant, CruiseControl, CVS, Toplink,",
+          "Hibernate, JSP, Servlet, Struts, Oracle, Velocity, iText, UJAC, POI, JMeter, oAWTest, SQL, PL/SQL, XML, XSD, XSLT",
+          "Projektbeschreibung:",
+          "Frontofficesystem für die Angebots- und Antragsbearbeitung und -erstellung von Leasinganträgen für das Flottenmanagement.",
+          "Über die Software (Websysteme) können die Fuhrparkstrukturen einer Firma bearbeitet und verwaltet werden.",
+          "Zusätzlich können die Fahrer der Firma für den Fall einer Gehaltsumwandlung für ein Firmenfahrzeug eine Vorabkalkulation durchführen um die voraussichtliche Steuerersparnis zu errechnen.",
+          "Ein weiteres Aufgabenfeld ist die Erstellung von Testfällen mit JMeter und oAWTest um die Qualität der Software sicherzustellen und um die Performance der Anwendung zu prüfen und ggf. zu verbessern.",
+          "(PHOENIX) Projektgröße: 10/20 Mitarbeiter Branche: Versicherung"
+        ]
+      },
+      {
+        "period": "05 2004 - 07 2006",
+        "company": "LogicaCMG",
+        "title": "Agentursystem PHOENIX (Kundenprojekt in Produktion) Projektgröße: 15 - 20 Mitarbeiter Branche: Versicherung",
+        "activities": [
+          "Status: Festangestellt",
+          "IT-Umgebung: Java 1.4, J2EE, JBuilder, Eclipse, Ant, Together, PoseidonUML,",
+          "JBOSS, Oracle, Sybase, TOAD, Visio, XDoclet, Middlegen, Velocity, CVS,",
+          "Cruisecontrol, Wise, Visual C++, JNI, VSS, JSP, Servlets, Struts, XML, XSD,",
+          "XSLT, XSL-FO",
+          "Projektbeschreibung:",
+          "Im Zweiwochenrhythmus wechsele ich zwischen den Projekten Produktentwicklung und der Projektunterstützung f&uumlzung für ein Kundenprojekt. Dazu pendle ich zwischen Hamburg und München hin und her.",
+          "Dabei sind die Tätigkeiten wie in den beiden vorher beschriebenen Projekten.",
+          "Projektgröße: 15 - 20 Mitarbeiter Branche: Versicherung"
+        ]
+      },
+      {
+        "period": "03 2003 - 07 2006",
+        "company": "LogicaCMG",
+        "title": "Produktentwicklung eines Agentursystems (CRIS-PE) Projektgröße: 10 Mitarbeiter Branche: Versicherung",
+        "activities": [
+          "Status: Festangestellt",
+          "IT-Umgebung: Java 1.4, J2EE, Servlets, JBuilder, Oracle, Sybase, VSS, JBOSS,",
+          "Ant, Middlegen, XDoclet, Cruisecontrol, TOAD, Wise, XML, XSD, XSLT, XSL-FO",
+          "Projektbeschreibung:",
+          "In diesem Projekt bin ich zuständig für die Systemstabilität sowie die Verbesserung der Architektur. Dabei geschehen diese Änderungen in einem produktiven System.",
+          "Dabei liegt mein Haupteinsatzpunkt im Bereich der BLog (Businesslogik) sowie der Schwachstellenanalyse und der softwaretechnischen Beseitigung dieser",
+          "Zusätzlich schule ich die Mitarbeiter des Kunden, die das System übernehmen und warten sollen, im Bereich Java und J2EE.",
+          "Projektgröße: 10 Mitarbeiter Branche: Versicherung"
+        ]
+      },
+      {
+        "period": "10 2000 - 02 2003",
+        "company": "LogicaCMG",
+        "title": "Software für Versicherungen zur Bearbeitung von Schadensfällen. (INCAS) Projektgröße: 180 Mannmonate/50 Mitarbeiter Branche: Versicherung",
+        "activities": [
+          "Status: Festangestellt",
+          "IT-Umgebung: Java 1.3, Java 1.4, J2EE, JBuilder, Eclipse, Ant, Together,",
+          "PoseidonUML, JBOSS, Oracle, Sybase, TOAD, Visio, XDoclet, Middlegen, Velocity,",
+          "CVS, Cruisecontrol, Wise, Visual C++, JNI, JSP, Servlets, Struts, XML, XSD,",
+          "XSLT, XSL-FO",
+          "Projektbeschreibung:",
+          "Produktentwicklung für ein Agentursystem. Hier bin ich maßgeblich im Design des Produktes sowie der Implementierung tätig. Darüber hinaus in der internen Mitarbeiterschulung im Java/J2EE-Umfeld.",
+          "Bei diesem Agentursystem handelt es sich um ein System zur Bestandsverwaltung im Versicherungsbereich, welches von Agenten im Außendienst sowie im Innendienst benutzt wird.",
+          "Schadensfällen. (INCAS) Projektgröße: 180 Mannmonate/50 Mitarbeiter Branche: Versicherung"
+        ]
+      },
+      {
+        "period": "11 1999 - 09 2000",
+        "company": "PDV Unternehmensberatung / LogicaCMG",
+        "title": "GUI- und Businesslogikentwicklung in Java für ein Datenbankfrontend mit EJB (PEGASUS) Projektgröße: 20 Mitarbeiter Branche: Telekommunikation",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: PowerBuilder 7, HOW, Oracle 8, PVCS, TOAD, PL/SQL, HOW-PFC",
+          "Projektbeschreibung:",
+          "Software für Versicherungen zur Bearbeitung von Schadensfällen.",
+          "Entwicklung einer Client-Anwendung zur Erfassung und Bearbeitung von Schadensfällen durch Versicherungssachbearbeiter. Abbildung des gesamten Ablaufs in einer Oracle-Datenbank.",
+          "Vorbereitung zur Portierung der Software nach Java.",
+          "Die Implementierung der kompletten Software geschah zu der Zeit noch in PowerBuilder-Script(Version 7.0.3).",
+          "Hier entwickelte ich Teile der Oberfläche sowie der fachlichen Welt zur Abbildung der Schadendaten auf der Oberfläche. Des weiteren entwickelte und optimierte ich Teile des benutzten Frameworks zur Geschwindigkeitssteigerung der Anwendung. Zusätzlich implementierte ich die verschiedenen Schnittstellen für die Bereitstellung der Vertragsdaten sowie der Versorgung der Finanzbuchhaltungsschnittstelle (In/Exkasso).",
+          "Datenbankfrontend mit EJB (PEGASUS) Projektgröße: 20 Mitarbeiter Branche: Telekommunikation"
+        ]
+      },
+      {
+        "period": "05 1999 - 10 1999",
+        "company": "debis Systemhaus",
+        "title": "Entwicklung von Treibern für Geldautomaten unter Benutzung von J/ XFS in Java sowie Implementierung der Sicherheitsrichtlinien im Geldverkehr. Projektgröße: 10 Mitarbeiter Branche: Banken",
+        "activities": [
+          "Status: Selbstständig / Freiberuflich",
+          "IT-Umgebung: JBuilder 4, CVS, Ant, Oracle 8, Java 1.2, J2EE, BEA Weblogic",
+          "4.5.1, XML",
+          "Projektbeschreibung:",
+          "GUI- und Businesslogikentwicklung in Java für ein Datenbankfrontend mit EJB,",
+          "Einsatz des Applicationservers BEA Weblogic.",
+          "Datenbankfrontend zur Erfassung und Bearbeitung von Tarifen im Telekommunikationsbereich.",
+          "Hier entwickelte ich Teile der Oberfläche und der Oberflächenlogik sowie die serverseitige Implementierung zur Abbildung des Datenbankschemas in Entity- Beans und des Zugriffs auf diese über Session-Beans.",
+          "Benutzung von J/ XFS in Java sowie Implementierung der Sicherheitsrichtlinien im Geldverkehr. Projektgröße: 10 Mitarbeiter Branche: Banken"
+        ]
+      },
+      {
+        "period": "Firma/Institut: Lutz Wolf Unternehmensberatung",
+        "company": "Lutz Wolf Unternehmensberatung",
+        "activities": [
+          "Status: Festangestellt",
+          "IT-Umgebung: Java 1.1.8, Swing 1.1, VSS, J/XFS, Visual SlickEdit, JNI",
+          "Projektbeschreibung:",
+          "Entwicklung von Treibern für Geldautomaten unter Benutzung von J/XFS in Java sowie",
+          "J/XFS ist ein Kommunikationsprotokoll für die verschiedenen Endgeräte, die in einer Mit dieser Schnittstelle kann jedes Endgerät angesprochen werden, sobald es im",
+          "In diesem Projekt implementierte ich Teile der J/XFS-Schnittstelle um eine generische",
+          "Zusätzlich implementierte ich eine Testapplikation, mit der das Framework zur"
+        ]
+      }
+    ],
+    "industries": [
+      "Telekommunikation",
+      "Bank",
+      "Versicherungswesen",
+      "Automotive",
+      "Verteidigung",
+      "Gaming",
+      "Online-Gaming",
+      "Glückspiel",
+      "Handel",
+      "Großhandel"
+    ],
+    "focus_areas": [
+      "JAVA-Entwicklung und Architektur mit Schwerpunkt JEE und Web / Training/ Coaching in Java",
+      "Design / Liferay-Entwicklung und Schulung Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Engineering / IT-nahe Ingenieurdienstleistungen Entwicklung von Software in den folgenden Sprachen: JAVA / JEE C / C++ VisualBasic Objektorientiertes Design von Software mit entsprechenden Case-Tools.",
+      "Analyse und Geschäftsprozessmodellierung mit UML Computergestützte MSR-Anwendungen.",
+      "Model für Tabellen(JTable) und Bäume(JTree). Bearbeitung der JFC(Java Foundation Classes) für Oberflächengestaltung.",
+      "18.03. - 22.03.2002 SUN-Schulung SL-320(GUI Construction with Swing and JFC) 27.11. - 28.11.2003 JBOSS Administration und Entwicklung 27.03. - 31.03.2006 OOGPM - Objektorientierte Geschäftprozessmodellierung 26.06. - 30.06.2006 OOAD - Objektorientierte Analyse und Design mit der UML 05.05. - 06.05.2011 Objective-C für Java-Entwickler"
+    ],
+    "focus_experience": [
+      {
+        "name": "Docker",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "GitLab",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "IntelliJ",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Lets Encrypt",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Liferay",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Liferay-SDK",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Netdata",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Nexus",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Spring-Boot",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "traefik",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "J/XFS : Java eXtension for Financial Services",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "MS-Office",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Power++(Optima++) : C/C++-Entwicklungsumgebung von Sybase",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "PowerJ : JAVA-Entwicklungsumgebung von Sybase",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "PowerBuilder: Entwicklungsumgebung von Sybase",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Visual C++",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Visual Basic",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "JBuilder (ab Version 4)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Visual SlickEdit : Programmiereditor",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Filemaker",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "SQL Navigator",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "BEA Weblogic Application Server Version 4.5",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "5.1",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "JBOSS ab 3.0.4",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Apache",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "HOW",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "TogetherJ",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Enterprise Architekt",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "PoseidonUML: Case-Tools",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Objektorientierte Analyse",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Design",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Programmierung",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "n-Tier-Programmierung",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "C/S-Programmierung",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Websitedesign",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Websitegestaltung ((X)HTML",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "JAVA",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "JavaScript)",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "JAVA / JEE(Schwerpunk EJB und Datenbank)",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Struts",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Toplink",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "CruiseControl",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Hudson",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Archiva",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Continuum",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "jBPM",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "jPDL",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Drools",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "BPMN",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "15.03.2002 Prüfung zum Sun Certified Java Programmer (SCJP) abgelegt.",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "30.06.2006 Prüfung zum OMG Certified UML Professional (OCUP-I)",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "(Zertifizierungsnummer: OM0-101135)",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Frameworkaufbau und Erweiterung für Oberflächenframeworks und Abbildung der",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Businesslogik aus Datenbanken.",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Workflowabbildung für Geschäftsprozesse",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Tiefgehende Erfahrungen im Bereich der Versicherungen (Sach",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Haft",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Unfall",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "KFZ)",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "durch mehrere Projekte in der Zeit von 2000 - 2006 im Bereich der Versicherung",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "(Backoffice",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Frontoffice)",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Schadenbearbeitung",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Vertriebsunterstützende Agentursoftware",
+        "category": "product_standard",
+        "sort_order": 70
+      }
+    ],
+    "education": [
+      {
+        "degree": "C/C++-Programmierer für Windows",
+        "institution": "SGD Darmstadt",
+        "period": "04.98 - 09.99",
+        "education_type": "course"
+      },
+      {
+        "degree": "JAVA-Programmierer",
+        "institution": "SGD Darmstadt",
+        "period": "10.99 - 03.00",
+        "education_type": "course"
+      },
+      {
+        "degree": "JAVA-Serverprogrammierung",
+        "institution": "SGD",
+        "period": "01.05 - 06.06",
+        "education_type": "course"
+      },
+      {
+        "degree": "BEA Weblogic Application Server Development",
+        "institution": "",
+        "period": "17.07. - 21.07.2000",
+        "education_type": "course"
+      },
+      {
+        "degree": "Objektorientierte Analyse und Design mit UML",
+        "institution": "",
+        "period": "09.04. - 12.04.2001",
+        "education_type": "course"
+      },
+      {
+        "degree": "SWING. Anwendung des MVC-Konzepts. Model für Tabellen(JTable) und Bäume(JTree). Bearbeitung der JFC(Java Foundation Classes) für Oberflächengestaltung.",
+        "institution": "",
+        "period": "18.06. - 22.06.2001",
+        "education_type": "course"
+      },
+      {
+        "degree": "SUN-Schulung SL-320(GUI Construction with Swing and JFC)",
+        "institution": "",
+        "period": "18.03. - 22.03.2002",
+        "education_type": "course"
+      },
+      {
+        "degree": "JBOSS Administration und Entwicklung",
+        "institution": "",
+        "period": "27.11. - 28.11.2003",
+        "education_type": "course"
+      },
+      {
+        "degree": "OOGPM - Objektorientierte Geschäftprozessmodellierung",
+        "institution": "",
+        "period": "27.03. - 31.03.2006",
+        "education_type": "course"
+      },
+      {
+        "degree": "OOAD - Objektorientierte Analyse und Design mit der UML",
+        "institution": "",
+        "period": "26.06. - 30.06.2006",
+        "education_type": "course"
+      },
+      {
+        "degree": "Objective-C für Java-Entwickler",
+        "institution": "",
+        "period": "05.05. - 06.05.2011",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt CMS MCS und MCS-Portal, 04/09 - 07/09\nReferenz durch Abteilungsleiter, Handelsunternehmen, vom 11.08.09\n\"Der Consultant war für uns ein kompetenter und angenehmer Ansprechpartner\nmit\ngroßem Fachwissen, der die gestellten Herausforderungen 'in time' und mit\ngroßem Engagement umgesetzt hat. Wir wuerden uns freuen, wenn wir bald in\neinem\nProjekt wieder zusammenarbeiten könnten.\"\nProjekt TRAVIC-Port, 05/08 - 12/08\nReferenz durch Unit-Manager, PPI AG Informationstechnologie, vom 17.02.09\n\"[...] Nach einer angemessenen Einarbeitungszeit hat er sehr engagiert und\nselbstständig die ihm zugewiesenen Aufgaben erledigt. Hierbei konnte er seine\numfangreichen Erfahrungen im Bereich des J2EE-Stack und der Implementierung\nvon\nWebanwendungen allgemein einbringen, die er auch gerne an die Kollegen im\nProjekt weitergegeben hat. Der Consultant war dabei stets hilfsbereit und gab\nden Kollegen bei Bedarf die notwendige Unterstützung. Neben seiner fachlichen\nQualifikation ist besonderes sein Engagement hervorzuheben. Gerne sind wir\nbereit, in einem neuen Projekt wieder mit ihm zusammenzuarbeiten und\nbedanken\nuns an dieser Stelle noch einmal für seinen Einsatz. Anderen Projektanbietern\nkönnen wir seine Mitarbeit uneingeschränkt empfehlen.\"\nProjekt einer großen J2EE-Applikation, 07/07 - 04/08\nReferenz durch Gesamtprojektleiterin, T-Systems Enterprise Services GmbH, vom\n28.04.08\n\"[...] Nach erfolgreicher Sicherheitsüberprüfung wechselte der Consultant im\nNovember 2007 in die Integration [...] und unterstützte hier das Team bei der\nIntegration der J2EE-Applikation sowie überarbeitete und optimierte die\nbestehenden Prozesse, um die Wartbarkeit in der Integration sicherzustellen.\nHierbei profitierte er von seinen tiefgehenden Kenntnissen im Bereich der JAVA/\nJ2EE-Entwicklung sowie seiner Kenntnisse um die Funktionalität im Bereich\nApplication Server und JMS sowie Kenntnissen im Bereich der Oracle-\nDatenbanken.\nDie von ihm angefertigten Distributionen für die Integration und den Betrieb\nsowie die zugehörigen Anleitungen waren von hoher fachlicher und technischer\nQualität. Der Consultant verfügt über eine schnelle Auffassungsgabe auch\nkomplexer Themen, womit er das Team seit seinem Eintritt schnell unterstützen\nkonnte. Auch war er stets bereit, Kollegen fachlich und technisch zu\nunterstützen, um die Anwendung in Betrieb zu nehmen. Hierbei zeigte er ein\nüberdurchschnittliches Engagement, um dem Projekt zu einem Erfolg zu\nverhelfen.\nFür den Einsatz des Consultants im Projekt möchten wir uns bedanken und\nkönnen\nihn für andere Projekte nur empfehlen.\"\nAlle Referenzen sind durch GULP bestätigt.\nSonstige Anmerkungen:\nBesonderes Interesse habe ich an Projekten im Java-Umfeld. Mein Schwerpunkt\nliegt in der Implementierung von JEE-Konformen Anwendungen, dem Erstellen und\nWeiterentwickeln von Frameworks sowie Schulungen und Coaching in und für die\nJAVA-Entwicklung.\nDabei greife ich, sofern vorhanden, auf die Unterstützung von Case-Tools für\ndas Design sowie die Ana",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Kafka",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle für MSR-Zwecke",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232 für MSR-Zwecke",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EAGLE",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TARGET 3001!",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:36:32.608017",
+    "source_file": "",
+    "steps_completed": [
+      "OTHER",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "ZERTIFIKATE",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching'",
+        "ROLLE aus TITLE: 'Liferaykompaktschulung für Javaentwickler Branche: Training/Coaching'",
+        "ACT: 8→7 bei '20.08.2012 - 22.08.2012'",
+        "ACT: 9→8 bei '04 2011 - 12 2012'",
+        "ACT: 8→6 bei '01 2010 - 06 2013'",
+        "ACT: 8→7 bei '07 2009 - 12 2009.'",
+        "ACT: 9→8 bei '20.10.2008 - 24.10.2008'",
+        "ACT: 8→7 bei 'Firma/Institut: Lutz Wolf Unternehmensberatung'",
+        "EDV_SEIT: None→1999"
+      ],
+      "coverage_percent": 81.86141304347827,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

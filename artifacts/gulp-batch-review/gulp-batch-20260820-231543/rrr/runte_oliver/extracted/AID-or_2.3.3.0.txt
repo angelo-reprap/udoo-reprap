@@ -1,0 +1,209 @@
+AID: AID-or_2.3.3.0
+Name: Oliver Runte
+Headline: Anwendungs-/ Web-Entwicklung auf Basis von Java EE, Spring, Angular, Python und Django. JEE, EJB3. x, JSF, JPA, CDI, Hibernate, JMS, Spring, Spring Web
+Ort: D4 im Umkreis von: Dortmund (100 km)
+Wohnort: 442xx Dortmund, Deutschland
+Jahrgang: 1972
+Verfügbar: 09.01.20 zu 40%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2008
+Sprachen: Deutsch Muttersprache, Englisch Fließend, Französisch
+
+FACHBEREICHE:
+Anwendungs-/ Web-Entwicklung auf Basis von Java EE Spring Angular Python und Django. JEE EJB3. x JSF JPA CDI Hibernate JMS Spring Web Software-Entwicklung / Programmierung
+Beratung / Consulting
+Administration / Support
+Schulungen und Weiterbildung:
+1999
+EDV-Netzwerk-Techniker (IHK)
+1998
+EDV-Service-Techniker (IHK)
+
+BRANCHEN:
+EDV
+IT-Dienstleister
+Chemie
+Metallverarbeitung
+Automotive
+Banken
+Versicherungen
+Handel
+Flughafen/ Luftfahrt
+Behörden
+
+PROJEKTE:
+  01/2019 - 06/2020 | IHK GfI | Entwickler
+    - Aufgaben:
+    - Entwicklung des ERP-Systems der IHK mit Schwerpunkt
+    - ReWe und E-Rechnung
+  06/2018 - 12/2018 | DEVK | Entwickler
+    - Aufgaben:
+    - Entwicklung eines Intranetportals zur Bereitstellung virtueller Maschinen
+    - Tätigkeiten:
+    Techs: Python, Django, AMQP, Celery, Angular, Spring Boot, SUSE Linux Enterprise Server, LDAP, Java, Scrum
+  01/2018 - 06/2018 | NWB Verlag | Entwickler
+    - Aufgaben:
+    - Unterstützung des Teams in der Entwicklung, Anpassung und Erweiterung des JuveOS (CRM-System)
+    - Tätigkeiten:
+  01/2017 - 12/2017 | Lemonbeat GmbH | DevOps
+    - Aufgaben:
+    - Administration der lokalen Infrastruktur
+    - Tätigkeiten:
+    Techs: Windows), Einführung Single Sign-On Linux (Active Directory, Kerberos), Apache Webserver, CI/CD, Python, Ansible, Elixir, Phoenix-Framework, C/ C++
+  12/2016 - 12/2016 | Stadt Münster (citeq) | Beratung, Support
+    - Aufgaben:
+    - Update der Single Sign On – Lösung auf Basis von Jasig CAS und Kerberos für Intranet-Anwendungen.
+    - Tätigkeiten:
+    Techs: Apache Webserver, Windows Server, Ubuntu, Tomcat, Novell, e-Directory, Active
+  12/2014 - 01/2017 | DEVK | DevOps
+    - Aufgaben:
+    - Betreitstellung und Betrieb der Infrastruktur für Java-Anwendungen
+    - Tätigkeiten:
+    Techs: SUSE Linux Enterprise Server, Java EE, Spring Boot, Apache Webserver, CI/CD, Python, Ansible, Ruby, Tomcat, Foreman
+  10/2014 - 10/2014 | Stadt Münster (citeq) | Beratung/ Support/ Entwicklung
+    - Aufgaben:
+    - Einführung einer Single Sign On – Lösung auf Basis von Jasig CAS und Kerberos für Intranet-Anwendungen.
+    - Tätigkeiten:
+    Techs: Spring Security, Spring Webfow, Linux, Verzeichnisdienste, Kerberos, Java, Windows Server 2012 R2, Apache Webserver (mod_proxy_ajp), Apache Tomcat 7
+  10/2013 - 10/2014 | arvato Bertelsmann | Admin Unix/ Linux
+    - Aufgaben:
+    - Systemadministration Unix Server mit dem Schwerpunkt Linux und plattformübergreifende Weiterentwicklung der Unix Systemumgebung.
+    - Tätigkeiten: technische Projektberatung im Unix Umfeld
+    Techs: Linux Cluster, Unix, Virtualisierung, SUSE Linux, Enterprise Server, RedHat Enterprise Linux, AIX, Solaris, VMware
+  04/2013 - 09/2013 | Vodafone | Entwickler
+    - Aufgaben:
+    - Entwicklung eines Intranetportals und verschiedener Anwendungen zur Bereitstellung virtueller Maschinen (VMware)
+    - Tätigkeiten:
+    Techs: Linux, Virtualisierung, Java, Groovy, PHP, Tcl
+  12/2012 - 02/2013 | Sapa AB | Beratung, Support
+    - Aufgaben:
+    - Einführung einer Systemüberwachung auf Basis von Icinga
+    - Tätigkeiten:
+    Techs: Red Hat Enterprise Linux, Monitoring, Icinga
+  12/2012 - 12/2012 | Sapa AB | Entwickler
+    - Aufgaben:
+    - Entwicklung eines Web Service zur Invertierung von Matrizen
+    - Tomcat, Java, Spring, REST
+  10/2012 - 03/2013 | arvato Bertelsmann | Admin Unix/ Linux
+    - Aufgaben:
+    - Systemadministration Unix Server mit dem Schwerpunkt Linux und plattformübergreifende Weiterentwicklung der Unix Systemumgebung.
+    - Tätigkeiten: technische Projektberatung im Unix-Umfeld
+    Techs: SUSE Linux Enterprise, Unix, Virtualisierung, Red Hat, Enterprise Linux, AIX, Solaris, VMware, Xen
+  05/2012 - 12/2012 | Talanx Bancassurance | Systemadministration
+    - Aufgaben:
+    - Administration der hochverfügbaren Solaris-Systeme mit mehreren virtuellen
+    - Systemen (Zonen)
+  03/2012 - 03/2012 | Sapa AB | Beratung, Support
+    - Aufgaben:
+    - Einführung einer Single Sign-On-Lösung auf Basis von Jasig CAS.
+    - Tätigkeiten:
+  02/2012 - 09/2012 | DEVK | Systemadministration
+    - Aufgaben:
+    - Administration Jboss und Tomcat, sowie Einführung einer neuen Software zur Verwaltung von Lebensversicherungen
+    - Tätigkeiten:
+    Techs: Java, SUSE Linux Enterprise, JBoss EAP, Apache Tomcat, Server, COR&FJA Life Factory
+  10/2011 - 12/2011 | Metro Systems GmbH | Beratung, Support
+    - Aufgaben:
+    - Aufbau des Metro Cash & Carry Online-Shop auf Basis von Hybris
+    - Tätigkeiten:
+    Techs: Enterprise Linux, Webserver, Identity Management, Monitoring, RedHat, Oracle 10g, Tomcat, Hybris, OpenAM, Tivoli ITM
+  03/2011 - 07/2011 | GAD | Beratung, Support
+    - Aufgaben:
+    - Aufbau einer eBusiness-Plattform mit mehreren JEE-Anwendungen im Bankenumfeld.
+    - Tätigkeiten:
+    Techs: Linux, Webserver, LDAP, CMS, Unix, Solaris, Enterprise, Tomcat, Jasig CAS, Day CQ5
+  01/2010 - 06/2010 | GAD | Admin
+    - Aufgaben:
+    - Betrieb und Support von Anwendungen im Bereich Investment-Management.
+    - Tätigkeiten:
+    Techs: Unix, Windows Server, Java, Solaris, Tomcat, JBoss, AS, Charles River IMS
+  01/2009 - 12/2017 | Sapa AB | Entwicklung, Betrieb (DevOps)
+    - Aufgaben:
+    - Entwicklung eines Intranetportals mit den Anwendungen KPITS (Key Performance Indicator Tracking System),
+    - CT (Closing Tool),
+    Techs: Apache Tomcat, RedHat Enterprise Linux, Oracle 9i, DB2, MSSQL-Server, Active, Java, Spring, CI/CD, Oracle 10g
+  03/2008 - 12/2008 | Sapa AB | Beratung, Support
+    - Serverapplikationen
+    - Aufgaben:
+    - Die IT der beiden Unternehmen SAPA und ALCOA wurde verschmolzen. Die Aufgabe besteht darin als Techniker in einer internationalen Umgebung (USA, Ungarn,
+    Techs: Red Hat Enterprise Linux, HPUnix sowie um lokale, Windows, Java, CI/CD, Apache Webserver, Oracle 9i, Oracle 10g, Microsoft
+
+SKILLS:
+  database: MySQL, Oracle, PostgreSQL
+  operating_system: FreeBSD, Linux, macOS, NetWare, OpenBSD, RedHat Enterprise Linux, Solaris, SUSE Linux Enterprise Server, Windows
+  programming_languages: Angular, Groovy, Java JEE, Spring, Java EE, JavaScript Angular, Perl, PHP, Python Django, Ruby Rails, Shell, Tcl
+
+SKILL-ABLAGE:
+
+
+ZERTIFIKATE:
+10/06
+SCSA Sun Certified System Administrator for Solaris 10 OS
+LPIC-3 Linux Professional Institute Certified Level 3
+01/05
+CLE Certified Linux Engineer
+03/04
+LPIC-2 Linux Professional Institute Certified Level 2
+04/03
+CNE 6 Certified Novell Engineer (Netware 6)
+03/03
+MCP Windows XP Professional
+11/02
+LPIC-1 Linux Professional Institute Certified Level 1
+01/02
+CCNP Cisco Certified Network Professional
+12/00
+CCNA Cisco Certified Network Associate
+10/00
+MCNE Master Certified Novell Engineer
+09/00
+CNS Certified Novell Specialist (TCP/IP)
+CNS Certified Novell Specialist (Bordermanager)
+03/00
+CNE 5 Certified Novell Engineer (Netware 5)
+02/00
+MCSE Microsoft Certified Systems Engineer
+10/99
+CNE 4 Certified Novell Engineer (Netware 4)
+06/99
+MCP Microsoft Certified Professional (TCP/IP)
+03/99
+CNA Certified Novell Administrator
+
+FOCUS_EXP:
+  Active Directory  [product_standard]
+  Apache Tomcat  [product_standard]
+  Apache Webserver  [product_standard]
+  Cisco Router  [product_standard]
+  CMS  [product_standard]
+  Django  [product_standard]
+  Docker  [product_standard]
+  Drupal  [product_standard]
+  Eclipse  [product_standard]
+  EclipseLink  [product_standard]
+  Glassfish  [product_standard]
+  Hibernate  [product_standard]
+  Icinga  [product_standard]
+  Java Swing  [product_standard]
+  JBoss AS  [product_standard]
+  Jenkins  [product_standard]
+  Jetty  [product_standard]
+  JSF  [product_standard]
+  Kerberos  [product_standard]
+  LDAP  [product_standard]
+  Liferay Portal  [product_standard]
+  Lucene  [product_standard]
+  Nginx  [product_standard]
+  Novell e-Directory  [product_standard]
+  REST  [product_standard]
+  Scrum  [product_standard]
+  SOAP  [product_standard]
+  Spring  [product_standard]
+  Spring Security  [product_standard]
+  Spring WebFlow  [product_standard]
+  Spring-Framework  [product_standard]
+  Subversion  [product_standard]
+  Tomcat  [product_standard]
+  Verzeichnisdienste  [product_standard]
+  Virtualisierung  [product_standard]
+  VMware  [product_standard]
+  WebLogic  [product_standard]

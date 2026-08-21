@@ -1,0 +1,1297 @@
+{
+  "personal": {
+    "aid": "AID-jh_5.3.4.0",
+    "first_name": "Jacqueline",
+    "last_name": "Haefke",
+    "birth_year": 1988,
+    "location": "D4, D5",
+    "availability": "01.11.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2000,
+    "headline": "IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps, Voice(google/Alexa), Java/Spring, SOAP/REST, Wicket, Angular, JPA, AWS",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 6,
+    "skills": 127,
+    "certifications": 0,
+    "education": 4,
+    "experience": 21,
+    "industries": 7,
+    "focus_areas": 19,
+    "focus_experience": 153,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Russisch (Grundlagen)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch (gute Kenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Englisch gute Kenntnisse Wort und Schrift",
+      "level": ""
+    },
+    {
+      "name": "Esperanto (Grundlagen)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Mathematisch-technischen Assistent",
+      "institution": "Werkzeugmaschinenlabor der RWTH Aachen",
+      "period": "09/1996 - 08/1999",
+      "education_type": "course"
+    },
+    {
+      "degree": "Certified Scrum Master",
+      "institution": "Karlsruhe",
+      "period": "09/2006 - 09/2006",
+      "education_type": "course"
+    },
+    {
+      "degree": "Certified Scrum Product Owner",
+      "institution": "it-agile, Hamburg",
+      "period": "04/2016 - 04/2016",
+      "education_type": "course"
+    },
+    {
+      "degree": "iSAQB-CPSA-F Zertifikat",
+      "institution": "",
+      "period": "04/2017 - 04/2017",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Banken",
+    "Versicherungen",
+    "Forderungsmanagment",
+    "Telekommunikation",
+    "eCommerce",
+    "Handel",
+    "Medienagentur"
+  ],
+  "focus_areas": [
+    "IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps Voice(google/Alexa) Java/Spring SOAP/REST Wicket Angular JPA AWS Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "IT-Beratung",
+    "Architektur",
+    "Softwareentwicklung",
+    "Agile",
+    "DevOps",
+    "Voice (google/Alexa)",
+    "Java/Spring",
+    "SOAP/REST",
+    "Wicket",
+    "Angular",
+    "JPA",
+    "AWS",
+    "Software-Entwicklung / Programmierung",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Software-Architektur (MicroService)",
+    "Agile Coach",
+    "MicroService Architektur"
+  ],
+  "focus_experience": [
+    {
+      "name": "(AngluarJS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "(gradle)",
+      "category": "product_standard"
+    },
+    {
+      "name": "(GWT)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ActiveMQ",
+      "category": "product_standard"
+    },
+    {
+      "name": "Adonis",
+      "category": "product_standard"
+    },
+    {
+      "name": "AJAX",
+      "category": "product_standard"
+    },
+    {
+      "name": "ansible",
+      "category": "product_standard"
+    },
+    {
+      "name": "ANT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Camel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Solr",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Wicket",
+      "category": "product_standard"
+    },
+    {
+      "name": "arc42",
+      "category": "product_standard"
+    },
+    {
+      "name": "Archimate",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian Confluence",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA Agile",
+      "category": "product_standard"
+    },
+    {
+      "name": "Avantis Unisuite",
+      "category": "product_standard"
+    },
+    {
+      "name": "(JPA)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Avantis UnitSuite",
+      "category": "product_standard"
+    },
+    {
+      "name": "AWS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bea Weblogic",
+      "category": "product_standard"
+    },
+    {
+      "name": "BIRT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Borland Application Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Borland JBuilder",
+      "category": "product_standard"
+    },
+    {
+      "name": "C/C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Camunda",
+      "category": "product_standard"
+    },
+    {
+      "name": "CM Synergy 6.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Consul",
+      "category": "product_standard"
+    },
+    {
+      "name": "CQRS",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSI",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSS",
+      "category": "product_standard"
+    },
+    {
+      "name": "cvs",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 ( Administration und Entwicklung)",
+      "category": "product_standard"
+    },
+    {
+      "name": "DbVisualizer",
+      "category": "product_standard"
+    },
+    {
+      "name": "docker",
+      "category": "product_standard"
+    },
+    {
+      "name": "Drools",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "EDA",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "ELK",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erwin",
+      "category": "product_standard"
+    },
+    {
+      "name": "ESI",
+      "category": "product_standard"
+    },
+    {
+      "name": "etcd",
+      "category": "product_standard"
+    },
+    {
+      "name": "Event Sourcing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Event-Driven Architecture",
+      "category": "product_standard"
+    },
+    {
+      "name": "Faclets",
+      "category": "product_standard"
+    },
+    {
+      "name": "Feed",
+      "category": "product_standard"
+    },
+    {
+      "name": "git",
+      "category": "product_standard"
+    },
+    {
+      "name": "GitHub",
+      "category": "product_standard"
+    },
+    {
+      "name": "gitlab",
+      "category": "product_standard"
+    },
+    {
+      "name": "Goglang",
+      "category": "product_standard"
+    },
+    {
+      "name": "Grafana",
+      "category": "product_standard"
+    },
+    {
+      "name": "Groovy-Job-DSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "HATEOS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM VisualAge for Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Websphere",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ IDEA",
+      "category": "product_standard"
+    },
+    {
+      "name": "istio",
+      "category": "product_standard"
+    },
+    {
+      "name": "JasperReports(iReport)",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAX",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAXB",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss Fuse",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss Rules",
+      "category": "product_standard"
+    },
+    {
+      "name": "jBPM",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBuilder X",
+      "category": "product_standard"
+    },
+    {
+      "name": "JEE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins",
+      "category": "product_standard"
+    },
+    {
+      "name": "jQuery",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSF",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSON",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "JUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kafka",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kibana",
+      "category": "product_standard"
+    },
+    {
+      "name": "kubernetes",
+      "category": "product_standard"
+    },
+    {
+      "name": "lambda",
+      "category": "product_standard"
+    },
+    {
+      "name": "MagicDraw",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mercury WinRunner",
+      "category": "product_standard"
+    },
+    {
+      "name": "MID Innovator",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Access",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS SQL Server (Administration und Entwicklung)",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Visual Source Safe",
+      "category": "product_standard"
+    },
+    {
+      "name": "MyEclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "mySQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "nginx",
+      "category": "product_standard"
+    },
+    {
+      "name": "node.js",
+      "category": "product_standard"
+    },
+    {
+      "name": "openarchitectureware (OAW)",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenShift",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle (Entwicklung)",
+      "category": "product_standard"
+    },
+    {
+      "name": "OSGI",
+      "category": "product_standard"
+    },
+    {
+      "name": "pirobase PIM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Poseidon",
+      "category": "product_standard"
+    },
+    {
+      "name": "postgresSQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "PostMan",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prometheus",
+      "category": "product_standard"
+    },
+    {
+      "name": "PVCS",
+      "category": "product_standard"
+    },
+    {
+      "name": "RAD/RSAD/WSAD",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational ClearCase/UCM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Robot",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Rose",
+      "category": "product_standard"
+    },
+    {
+      "name": "REST",
+      "category": "product_standard"
+    },
+    {
+      "name": "RMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium",
+      "category": "product_standard"
+    },
+    {
+      "name": "Service Discovery",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sonar",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring 4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Batch",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Boot",
+      "category": "product_standard"
+    },
+    {
+      "name": "Struts",
+      "category": "product_standard"
+    },
+    {
+      "name": "svn (subversion)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Swing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teamcity",
+      "category": "product_standard"
+    },
+    {
+      "name": "Terraform",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tiles",
+      "category": "product_standard"
+    },
+    {
+      "name": "TOAD",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "TopLink/EclipseLink",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vaadin",
+      "category": "product_standard"
+    },
+    {
+      "name": "Varnish",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "XSLT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architekturberatung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Coaching",
+      "category": "product_standard"
+    },
+    {
+      "name": "Requirement Engineering",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum Master",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum Product Owner",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "MircoService Architektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "AngluarJS",
+      "category": "product_standard"
+    },
+    {
+      "name": "gradle",
+      "category": "product_standard"
+    },
+    {
+      "name": "GWT",
+      "category": "product_standard"
+    },
+    {
+      "name": "JPA",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2",
+      "category": "product_standard"
+    },
+    {
+      "name": "JasperReports",
+      "category": "product_standard"
+    },
+    {
+      "name": "iReport",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS SQL Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "openarchitectureware",
+      "category": "product_standard"
+    },
+    {
+      "name": "OAW",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle",
+      "category": "product_standard"
+    },
+    {
+      "name": "svn",
+      "category": "product_standard"
+    },
+    {
+      "name": "subversion",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "01/2019 - heute",
+      "company": "ERGO",
+      "role": "Senior IT Consutant / Architekt / Entwickler / DevOps /",
+      "title": "Migration Leben Klassik, Theo-Vorsorge, Voice, Phone, PK- Bonus, Düsseldorf",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "05/2017 - 12/2018",
+      "company": "DEVK",
+      "role": "Senior IT Consutant / Architekt / Entwickler / DevOps /",
+      "title": "VPU - Vertriebssoftware, Köln",
+      "activities": 7,
+      "technologies": 12
+    },
+    {
+      "period": "10/2016 - 04/2017",
+      "company": "Metro Systems GmbH",
+      "role": "Senior IT Consutant / Architekt / Entwickler / Coach",
+      "title": "One Platform Center, Düsseldorf",
+      "activities": 7,
+      "technologies": 16
+    },
+    {
+      "period": "05/2016 - 09/2016",
+      "company": "meinestadt.de",
+      "role": "IT Consutant / Scrum Coach",
+      "title": "Reengineering einer JobBörse, Köln",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "01/2016 - 03/2016",
+      "company": "DWP Bank",
+      "role": "Senior IT Consultant",
+      "title": "HVEK - Competence Center, Düsseldorf",
+      "activities": 8,
+      "technologies": 23
+    },
+    {
+      "period": "07/2015 - 12/2015",
+      "company": "ISBAN Grupo Santander",
+      "role": "Senior IT Consultant",
+      "title": "Kosyfa/Carcredit Webportale zur KFZ-Finanzierung für Händler, Mönchengladbach",
+      "activities": 7,
+      "technologies": 2
+    },
+    {
+      "period": "01/2015 - 06/2015",
+      "company": "Proximity Technology GmbH",
+      "role": "Senior IT Consultant",
+      "title": "Hansgrohe iSpecify Portal (Hybris eCommerce Plattform), Düsseldorf",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2014 - 12/2014",
+      "company": "Portigon Financial Service GmbH",
+      "role": "Senior IT Consultant",
+      "title": "eAntrag, TM, Docfactory, ZKM, WGW, Düsseldorf",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2012 - 05/2014",
+      "company": "Portigon AG",
+      "role": "Senior IT Consultant",
+      "title": "eAntrag, TM, PMS, Docfactroy, Düsseldorf",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2008 - 06/2012",
+      "company": "WestLB AG",
+      "role": "Senior IT Consultant",
+      "title": "eAntrag, TM, Docfactory, Düsseldorf",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "02/2008 - 03/2008",
+      "company": "HDI-Gerling",
+      "role": "IT Consultant",
+      "title": "OSGI-Anwendung für die Verwaltung von, Köln",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "09/2007 - 02/2008",
+      "company": "Nokia Siemens Network",
+      "role": "Senior-Architekt/Entwickler",
+      "title": "Architektur eines Web-Framework: WebScript 2.0, Düsseldorf",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "09/2006 - 08/2007",
+      "company": "Nokia",
+      "role": "Architekt- und Entwickler",
+      "title": "Portierung eines Operation Support System zur Administration, Düsseldorf",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2006 - 09/2006",
+      "company": "T-Systems",
+      "role": "Software-Entwickler",
+      "title": "Weiterentwicklung eines Angebotssystems für einen, Aachen",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/2006 - 06/2006",
+      "company": "Hewlett Packard, Sparkassen",
+      "role": "Softwareentwickler/Requirement-Analyse",
+      "title": "Weiterentwicklung eines Incentivierungssystems, Ratingen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2003 - 12/2005",
+      "company": "BG Phoenics GmbH",
+      "role": "Software-Entwickler",
+      "title": "Neuentwicklung aller IT-Anwendungen, Hannover/München",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2002 - 08/2002",
+      "company": "BHF Bank",
+      "role": "Software-Entwickler",
+      "title": "Konzeption und Entwicklung einer CRM-Lösung, Offenbach (Frankfurt am Main)",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "09/2001 - 12/2001",
+      "company": "Medienagentur für Wella",
+      "role": "Software-Entwickler",
+      "title": "Realisierung mehrerer Internetanwendungen, Köln",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2001 - 08/2001",
+      "company": "Medienagentur für Wella",
+      "role": "Software-Entwickler",
+      "title": "Erstellung eines Systems zur Datenmigration in ein CMS, Köln",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "04/2001 - 05/2001",
+      "company": "Yline eSolution GmbH",
+      "role": "Software-Entwickler",
+      "title": "BroadVision-Shops Vereinheitlichung der Backend-, Köln",
+      "activities": 6,
+      "technologies": 3
+    },
+    {
+      "period": "07/2000 - 03/2001",
+      "company": "ABIT AG",
+      "role": "Software-Entwickler",
+      "title": "ePOS, Meerbusch",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access in wenigen Projekten verwendet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache Cassandra",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2 in einigen Projekten verwendet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC in zahlreichen Projekten verwendet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MongoDB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server Programmierung und Administration möglich",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL Programmierung und Administration möglich",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC in einigen Projekten als Schnittstelle verwendet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle in einigen Projekten verwendet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgres in einigen Projekten verwendet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL perfekt",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CORBA",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "FDDI",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISO/OSI",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LAN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LAN Manager",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "NetBios",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "parallele Schnittstelle",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "PC-Anywhere",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RFC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RPC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RS232",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell Grundkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Angular",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "AngularJS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BPMN",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++ gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol etwas fortgeschrittene Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Emacs",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Fortran Grundlagen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Go gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "golang",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java perfekt",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript perfekt",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Mantis",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl perfekt",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP gut PHP 4",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Phython",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell normaler Umgang ist kein Problem",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Phone",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "Spring Boot",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.85
+    },
+    {
+      "name": "Java 8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.62
+    },
+    {
+      "name": "Jenkins",
+      "category_name": "CI/CD Tools",
+      "weight": 0.75
+    },
+    {
+      "name": "Grafana",
+      "category_name": "DevOps Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "Prometheus",
+      "category_name": "DevOps Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "Scrum",
+      "category_name": "Methoden",
+      "weight": 0.7
+    },
+    {
+      "name": "Spring",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.47
+    },
+    {
+      "name": "jQuery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "CSS",
+      "category_name": "Datenformate",
+      "weight": 0.47
+    },
+    {
+      "name": "JEE",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.6
+    },
+    {
+      "name": "Git",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "ansible",
+      "category_name": "DevOps Tools",
+      "weight": 0.47
+    },
+    {
+      "name": "SOAP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "REST",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.6
+    },
+    {
+      "name": "python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Docker",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Spring 4.1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "EDA",
+      "category_name": "Architekturmuster",
+      "weight": 0.38
+    },
+    {
+      "name": "Event-Driven Architecture",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    }
+  ]
+}

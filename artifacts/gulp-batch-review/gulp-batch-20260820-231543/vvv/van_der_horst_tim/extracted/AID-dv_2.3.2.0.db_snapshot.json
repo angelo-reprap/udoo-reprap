@@ -1,0 +1,740 @@
+{
+  "personal": {
+    "aid": "AID-dv_2.3.2.0",
+    "first_name": "Der Horst Tim",
+    "last_name": "Van",
+    "birth_year": 1969,
+    "location": "D4, D5 im Umkreis von: Düsseldorf (50 km) Ich möchte",
+    "availability": "01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1999,
+    "headline": "Microsoft Business Intelligence / SQL Server / .NET / C# / ASP.NET, Scrum Master (im Dev Team)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 164,
+    "certifications": 0,
+    "education": 6,
+    "experience": 17,
+    "industries": 0,
+    "focus_areas": 20,
+    "focus_experience": 21,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch (sehr gut)",
+      "level": ""
+    },
+    {
+      "name": "Englisch sehr gut",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Serie 3",
+      "institution": "National Association of Securities Dealers, Chicago",
+      "period": "08/96",
+      "education_type": "course"
+    },
+    {
+      "degree": "Grundstudium Informatik / BWL",
+      "institution": "Fernuniversität Hagen",
+      "period": "09/90-04/94",
+      "education_type": "course"
+    },
+    {
+      "degree": "Proof of Concept",
+      "institution": "Microsoft",
+      "period": "01/2005",
+      "education_type": "course"
+    },
+    {
+      "degree": ".Net Framework 2.0 Schulung",
+      "institution": "",
+      "period": "08/2005",
+      "education_type": "course"
+    },
+    {
+      "degree": "IT Führungskräfteseminar",
+      "institution": "Dr. Roland Henssler",
+      "period": "10/2005",
+      "education_type": "course"
+    },
+    {
+      "degree": "Magister Artium",
+      "institution": "Heinrich Heine Universität Düsseldorf",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "Microsoft Business Intelligence / SQL Server / .NET / C# / ASP.NET Scrum Master (im Dev Team) Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Microsoft .NET Microsoft Business Intelligence Architektur & Entwicklung Entwicklungsstelle, > 100.000 Euro p. a.",
+    "Heinrich Heine Universität Düsseldorf:",
+    "Informationswissenschaft, Medienwissenschaft, Philosophie (Abschluss Magister Artium) Kurse, Lehrgänge: 10/2005 IT Führungskräfteseminar bei Dr. Roland Henssler 08/2005 .Net Framework 2.0 Schulung 01/",
+    "Microsoft Business Intelligence",
+    "SQL Server",
+    ".NET",
+    "ASP.NET",
+    "Scrum Master",
+    "Software-Entwicklung",
+    "Programmierung",
+    "Beratung",
+    "Consulting",
+    "Projektmanagement",
+    "Projektleitung",
+    "Organisation",
+    "Koordination",
+    "Microsoft .NET",
+    "Architektur & Entwicklung"
+  ],
+  "focus_experience": [
+    {
+      "name": "ASP.Net Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bootstrap",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "Git",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML5",
+      "category": "product_standard"
+    },
+    {
+      "name": "Knockout.Js",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visual Studio",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum Master",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Team Foundation Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Telerik ASP.NET AJAX Controls",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Studio 2015",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Studio 2017",
+      "category": "product_standard"
+    },
+    {
+      "name": "WCF",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebServices",
+      "category": "product_standard"
+    },
+    {
+      "name": "Winforms",
+      "category": "product_standard"
+    },
+    {
+      "name": "WPF",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "06/2018 - 10/2020",
+      "company": "RWE Supply & Trading",
+      "role": "Software-Entwickler",
+      "title": "Entwicklung von Algo-Trading Software für die Energiebranche, Essen",
+      "activities": 6,
+      "technologies": 18
+    },
+    {
+      "period": "09/2017 - 05/2018",
+      "company": "Alsco GmbH",
+      "role": "Software-Entwickler, Scrum Master",
+      "title": "Entwicklung einer Auftragsverwaltung, Köln",
+      "activities": 7,
+      "technologies": 15
+    },
+    {
+      "period": "01/2016 - 08/2017",
+      "company": "ERGO Gruppe / Versicherungen",
+      "role": "",
+      "title": "Relaunch einer Webapplikation zur Agenturunterstützung",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "08/2014 - 12/2015",
+      "company": "groupm / Media",
+      "role": "",
+      "title": "Neuerstellung von DataMarts, Cubes und einer Reporting- Lösung",
+      "activities": 5,
+      "technologies": 12
+    },
+    {
+      "period": "03/2014 - 06/2014",
+      "company": "scholz.msconsulting GmbH / Software",
+      "role": "",
+      "title": "Neuerstellung eines mobilen Clients für ein CRM",
+      "activities": 5,
+      "technologies": 12
+    },
+    {
+      "period": "01/2014 - 02/2014",
+      "company": "VivaKi GmbH / Media",
+      "role": "",
+      "title": "Weiterentwicklung einer vorhandenen Applikation zur",
+      "activities": 6,
+      "technologies": 10
+    },
+    {
+      "period": "09/2013 - 12/2013",
+      "company": "Hudson Advisors Germany / Immobilien",
+      "role": "",
+      "title": "Neuerstellung eines Dokumentenverwaltungssystems",
+      "activities": 5,
+      "technologies": 9
+    },
+    {
+      "period": "08/2013 - 08/2013",
+      "company": "Vodafone Group / Telekommunikation",
+      "role": "",
+      "title": "Neuerstellung eines Händlerportals für otelo",
+      "activities": 4,
+      "technologies": 11
+    },
+    {
+      "period": "07/2013 - 07/2013",
+      "company": "Höft & Wessel AG / Technologie",
+      "role": "",
+      "title": ".NET Entwicklung für ein Embedded System",
+      "activities": 3,
+      "technologies": 8
+    },
+    {
+      "period": "04/2013 - 06/2013",
+      "company": "aivest.com / Finanzen",
+      "role": "",
+      "title": "Online Managementsystem für effiziente Aktienportfolios",
+      "activities": 5,
+      "technologies": 14
+    },
+    {
+      "period": "05/2012 - 03/2013",
+      "company": "ERGO Gruppe / Versicherungen",
+      "role": "",
+      "title": "ASP.NET Komponentenentwicklung",
+      "activities": 5,
+      "technologies": 12
+    },
+    {
+      "period": "09/2010 - 03/2012",
+      "company": "Metro Systems GmbH / Handel",
+      "role": "Business Intelligence (BI) Consultant",
+      "title": "Implementierung einer Microsoft BI-Lösung",
+      "activities": 6,
+      "technologies": 15
+    },
+    {
+      "period": "06/2010 - 08/2010",
+      "company": "circ IT GmbH / Medien",
+      "role": "",
+      "title": "Migration eines Informationssystems",
+      "activities": 4,
+      "technologies": 15
+    },
+    {
+      "period": "10/2009 - 06/2010",
+      "company": "Hoya Lens Deutschland GmbH / Medizintechnik",
+      "role": "",
+      "title": "Order Routing System",
+      "activities": 4,
+      "technologies": 15
+    },
+    {
+      "period": "06/2009 - 10/2009",
+      "company": "circ IT GmbH / Medien",
+      "role": "",
+      "title": "Weiterentwicklung des Börseninformationssystems für handelsblatt.com",
+      "activities": 6,
+      "technologies": 14
+    },
+    {
+      "period": "01/2001 - 05/2009",
+      "company": "Verlagsgruppe Handelsblatt GmbH / Medien (nach",
+      "role": "",
+      "title": "handelsblatt.com Finanzinformationsapplikationen (in",
+      "activities": 7,
+      "technologies": 25
+    },
+    {
+      "period": "08/1999 - 12/2000",
+      "company": "Verlagsgruppe Handelsblatt GmbH / Medien",
+      "role": "",
+      "title": "ABaDI (Amtliche Bekanntmachungen aus Digitalem Input)",
+      "activities": 8,
+      "technologies": 4
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Leitung einer Entwicklungsabteilung, 01/01 - 06/09\nReferenz durch IT-Leiter, Verlagshaus, (1.400 MA), vom 30.06.09\nProjekt im Rahmen einer Festanstellung durchgeführt\n\"[...] Der Consultant war ein äußerst engagierter und motivierter Mitarbeiter. Er ging die Aufgaben sehr systematisch und methodisch an und war dabei stets verantwortungsbewusst. Sein ausgeprägtes Fachwissen und seine kommunikative Stärke befähigten ihn bei sachbezogenen Fragen zu durchdachten und präzisen Entscheidungen. Er entschied und handelte - auch in Stresssituationen - besonnen und richtig. Seine Arbeitsweise war stets durch Umsicht geprägt. Zusammenfassend können wir bestätigen, dass der Consultant die ihm übertragenen Aufgaben jederzeit gewissenhaft und sehr zuverlässig stets zu unserer vollsten Zufriedenheit erledigte. Mit seinen Leistungen waren wir außerordentlich zufrieden. Aufgrund seiner teamorientierten Zusammenarbeit und seines kollegialen und aufgeschlossenen Verhaltens war er bei Vorgesetzten, Kollegen und externen Gesprächspartnern gleichermaßen sehr geschätzt und anerkannt. [...] Wir bedanken uns bei ihm für die bisherige sehr gute Zusammenarbeit und wünschen ihm für seinen weiteren beruflichen Lebensweg sowie auch persönlich weiterhin viel Erfolg und alles Gute.\"\nAlle Referenzen sind durch GULP bestätigt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Microsoft SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle/SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PostgreSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Domain-Driven-Design (DDD)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microservices",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PlantUML",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Pradigm",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Angular",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": ".NET",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TypeScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.95
+    },
+    {
+      "name": "C# (C Sharp)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL / T-SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++ / MFC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BI (Business Intelligence)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ETL / SSIS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SSAS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SSRS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BI Semantic Model (BISM) Tabular / Multidimensional",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Entwicklungsumgebungen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Studio",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL Server Management Studio",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL Server Data Tools",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Modellierung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visio",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Enterprise Architect",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Unified Modelling Language (UML)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Versionskontrolle",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Team Foundation Server (TFS)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Subversion (SVN)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Concurrent Versions System (CVS)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual SourceSafe",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ClearCase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Server",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Server (seit Version 6.5)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet Information Server (IIS)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Azure",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Websites",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cloud-Dienste",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL-Datenbanken",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Mobile Services",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Virtuelle Computer",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft .NET Framework",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ASP.NET Webforms",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ASP.NET MVC 5",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ASP.NET MVC Core",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Razor",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ADO.NET",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Entity Framework",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Communication Foundation (WCF)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SOAP Webservices",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ASP.NET WebAPI / REST",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "LINQ",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SilverLight",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Foundation Classes (MFC)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Weitere Bibliotheken / Controls",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Enterprise Library",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Dundas Charts / Gauge",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Telerik ASP.NET Controls",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Web Standards",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XSLT",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JQuery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JQuery Mobile",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Knockout.js",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Projektmanagement",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SCRUM",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Project",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Content Management (CMS)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DotNetNuke (DNN)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Visual Studio",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "WPF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "WCF",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.85
+    },
+    {
+      "name": "Winforms",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.47
+    },
+    {
+      "name": "ASP.NET Core",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Webservices",
+      "category_name": "Datenformate",
+      "weight": 0.68
+    }
+  ]
+}

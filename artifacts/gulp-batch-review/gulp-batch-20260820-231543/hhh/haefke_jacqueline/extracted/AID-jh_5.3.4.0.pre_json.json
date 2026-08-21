@@ -1,0 +1,1460 @@
+{
+  "metadata": {
+    "aid": "AID-jh_5.3.4.0",
+    "version": "5.3.4.0",
+    "consultant_dir": "haefke_jacqueline",
+    "first_name": "Jacqueline",
+    "last_name": "Haefke",
+    "headline": "IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps, Voice(google/Alexa), Java/Spring, SOAP/REST, Wicket, Angular, JPA, AWS",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:34:08.009295"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Jacqueline",
+      "last_name": "Haefke",
+      "birth_year": 1988,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch gute Kenntnisse Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (gute Kenntnisse)",
+          "level": ""
+        },
+        {
+          "name": "Esperanto (Grundlagen)",
+          "level": ""
+        },
+        {
+          "name": "Russisch (Grundlagen)",
+          "level": ""
+        }
+      ],
+      "availability": "01.11.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D4, D5",
+      "wohnort": "405xx Düsseldorf, Deutschland",
+      "headline": "IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps, Voice(google/Alexa), Java/Spring, SOAP/REST, Wicket, Angular, JPA, AWS",
+      "edv_experience_since": 2000
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access in wenigen Projekten verwendet",
+        "Apache Cassandra",
+        "DB2 in einigen Projekten verwendet",
+        "JDBC in zahlreichen Projekten verwendet",
+        "Lotus Notes",
+        "MongoDB",
+        "MS SQL Server Programmierung und Administration möglich",
+        "MySQL Programmierung und Administration möglich",
+        "ODBC in einigen Projekten als Schnittstelle verwendet",
+        "Oracle in einigen Projekten verwendet",
+        "Postgres in einigen Projekten verwendet",
+        "SQL perfekt"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "PC",
+        "CORBA",
+        "Ethernet",
+        "FDDI",
+        "Internet",
+        "Intranet",
+        "ISDN",
+        "ISO/OSI",
+        "LAN",
+        "LAN Manager",
+        "MQSeries",
+        "NetBios",
+        "Novell",
+        "parallele Schnittstelle",
+        "PC-Anywhere",
+        "RFC",
+        "RPC",
+        "RS232",
+        "SMTP",
+        "TCP/IP"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Mac OS gut",
+        "MS-DOS gut",
+        "Novell Grundkenntnisse",
+        "SUN OS",
+        "Solaris gut",
+        "Unix sehr gut",
+        "Windows sehr gut"
+      ],
+      "programming_languages": [
+        "Angular",
+        "AngularJS",
+        "Basic gut",
+        "BPMN",
+        "C gut",
+        "C++ gut",
+        "Cobol etwas fortgeschrittene Kenntnisse",
+        "Emacs",
+        "Fortran Grundlagen",
+        "Go gut",
+        "golang",
+        "Java perfekt",
+        "JavaScript perfekt",
+        "JPA",
+        "J2EE",
+        "Mantis",
+        "Perl perfekt",
+        "PHP gut PHP 4",
+        "Phython",
+        "PL/SQL sehr gut",
+        "Python",
+        "Shell normaler Umgang ist kein Problem"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "01/2019 - heute",
+        "company": "ERGO",
+        "title": "Migration Leben Klassik, Theo-Vorsorge, Voice, Phone, PK- Bonus, Düsseldorf",
+        "role": "Senior IT Consutant / Architekt / Entwickler / DevOps /",
+        "activities": [
+          "Aufgaben:",
+          "Architektur und Implementierung von Lösungen für Voice (Alexa, Google Actions, Phone)",
+          "Actions, Phone)",
+          "Umsetzen von fachlichen Anforderungen mit Angular 6/7, Spring Boot und Java 8",
+          "Aufsetzen/Anpassen/Erweitern Jenkins-Pipeline",
+          "Erarbeiten von Vorteilen für Infrastruktur as a Code",
+          "Verbesserung beim Monitoring (Grafana, Prometheus) und Logging (EFK)",
+          "Coach"
+        ],
+        "industry": "Versicherung",
+        "location": "Düsseldorf",
+        "technologies": [
+          "Alexa",
+          "Google Actions",
+          "Phone",
+          "Angular 6/7",
+          "Spring Boot",
+          "Java 8",
+          "Jenkins",
+          "Infrastruktur as a Code",
+          "Grafana",
+          "Prometheus",
+          "EFK"
+        ]
+      },
+      {
+        "period": "05/2017 - 12/2018",
+        "company": "DEVK",
+        "title": "VPU - Vertriebssoftware, Köln",
+        "role": "Senior IT Consutant / Architekt / Entwickler / DevOps /",
+        "technologies": [
+          "Scrum",
+          "Spring",
+          "jQuery",
+          "HTML",
+          "CSS",
+          "JEE",
+          "JPA",
+          "Git",
+          "ansible",
+          "Phython",
+          "SOAP",
+          "REST"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Architekturreview mit Verbesserung-Vorschlag zur SCS/MircoService",
+          "Performance-Analyse und Optimierung mit AppDynamics, Jprobe, jconsole, tcpdump, QueryAnalyzer, jconsole ...",
+          "Umsetzen von fachlichen Anforderungen mit Spring Boot und Java 8",
+          "Anpassen/Erweitern Ansible zur Provisionierung von VM und Jenkins- Pipeline",
+          "Optimieren von Jenkins-Jobs mit dem Jenkins Job Builder (testweise",
+          "JobDSL)"
+        ]
+      },
+      {
+        "period": "10/2016 - 04/2017",
+        "company": "Metro Systems GmbH",
+        "title": "One Platform Center, Düsseldorf",
+        "role": "Senior IT Consutant / Architekt / Entwickler / Coach",
+        "activities": [
+          "Aufgaben:",
+          "Entwerfen einer MircoService-PAAS-Architektur für die Umstellung der internen Infrastruktur auf automatisierte Prozesse",
+          "Erstellen von mehreren MircoService-Prototypen Spring Boot, go (golang), python erstes Aufsetzen der CI Umgebung mit Jenkins/JobDSL/Docker",
+          "Durchführen von community of practise zur Coaching-Zwecken",
+          "Scrum, Scrum Master, Spring 4.1, Spring Boot, MircoService Architektur,",
+          "Coaching, Service Discovery, EDA, Event-Driven Architecture, ELK, Feed, ESI,",
+          "Eingesetzte Produkte:"
+        ],
+        "location": "Düsseldorf",
+        "technologies": [
+          "Spring Boot",
+          "go (golang)",
+          "python",
+          "Jenkins",
+          "JobDSL",
+          "Docker",
+          "Scrum",
+          "Spring 4.1",
+          "MircoService Architektur",
+          "Service Discovery",
+          "EDA",
+          "Event-Driven Architecture",
+          "ELK",
+          "Feed",
+          "ESI",
+          "CSI"
+        ]
+      },
+      {
+        "period": "05/2016 - 09/2016",
+        "company": "meinestadt.de",
+        "title": "Reengineering einer JobBörse, Köln",
+        "role": "IT Consutant / Scrum Coach",
+        "activities": [
+          "Aufgaben:",
+          "Komplettes Redesign (microService Architektur mit Spring Boot und Angular 2) des Jobbörsen Portals",
+          "2) des Jobbörsen Portals",
+          "Entkoppelung des CMS Pirobase.",
+          "Ersetzen der Oracle DB durch SOLR/MongoDB.",
+          "Erstellung von UserStorie-Map, RoadMaps (Herunterbrechen von EPIC in UserStories)",
+          "Aufsetzen des Jenkins 2 mit Pipelines und JobDSL",
+          "Scrum, Scrum Master, Scrum Product Owner, Spring 4.1, Spring Boot, MircoService"
+        ],
+        "industry": "Internet",
+        "location": "Köln",
+        "technologies": [
+          "Spring Boot",
+          "Angular 2",
+          "Pirobase",
+          "SOLR",
+          "MongoDB",
+          "Jenkins 2",
+          "JobDSL",
+          "Scrum",
+          "Spring 4.1",
+          "MicroService"
+        ]
+      },
+      {
+        "period": "01/2016 - 03/2016",
+        "company": "DWP Bank",
+        "title": "HVEK - Competence Center, Düsseldorf",
+        "role": "Senior IT Consultant",
+        "activities": [
+          "Aufgaben:",
+          "Implementierung des dezentralen Piloten HVEK unter Verwendung Camunda",
+          "BPMN. Digitalisierung des Haupteintrittskartenbestellungs-Formulars Architekurverbessung durch Implementierung eines ESB-Connector. Ziel ist eine Laufzeitanpassung der Routen für den ESB Performanceoptimierung durch Anpassung der Routen nach Auslastung",
+          "OSGI, BPMN, JEE, Apache Camel, SOA, REST, JSON, JAXB, Pax Exam,",
+          "Integrationstest, JUnit, Drools, Maven, JPA, Hibernate, Sonar",
+          "Eingesetzte Produkte:",
+          "Eclipse, IntelliJ, Camunda BPMN, JBoss Fuse, git, Bitbucket, ActiveMQ, MQSeries ===================================================== ==========================",
+          "Architekturverbesserung durch Implementierung eines ESB-Connector"
+        ],
+        "industry": "Banken",
+        "location": "Düsseldorf",
+        "technologies": [
+          "OSGI",
+          "BPMN",
+          "JEE",
+          "Apache Camel",
+          "SOA",
+          "REST",
+          "JSON",
+          "JAXB",
+          "Pax Exam",
+          "Integrationstest",
+          "JUnit",
+          "Drools",
+          "Maven",
+          "JPA",
+          "Hibernate",
+          "Sonar",
+          "Eclipse",
+          "IntelliJ",
+          "Camunda BPMN",
+          "JBoss Fuse",
+          "git",
+          "Bitbucket",
+          "ActiveMQ",
+          "MQSeries"
+        ]
+      },
+      {
+        "period": "07/2015 - 12/2015",
+        "company": "ISBAN Grupo Santander",
+        "title": "Kosyfa/Carcredit Webportale zur KFZ-Finanzierung für Händler, Mönchengladbach",
+        "role": "Senior IT Consultant",
+        "activities": [
+          "Front-und Backendentwicklung für die Kosyfa/Carcredit- Web-Portale zur KFZ-Finanzierung für Händler und Consumer",
+          "Aufgaben:",
+          "Evaluierung FirstSpirit als CMS für Carcredit",
+          "Business Analyse der Kredit-Kalkulation für Carcredit",
+          "Anbindung von check24 zu carcredit",
+          "Business Analyse und Realisierung von der Anbindung Mazda für carcredit",
+          "Umsetzung von Print@Home für carcredit"
+        ],
+        "industry": "Banken",
+        "location": "Mönchengladbach",
+        "technologies": [
+          "FirstSpirit",
+          "check24"
+        ]
+      },
+      {
+        "period": "01/2015 - 06/2015",
+        "company": "Proximity Technology GmbH",
+        "title": "Hansgrohe iSpecify Portal (Hybris eCommerce Plattform), Düsseldorf",
+        "role": "Senior IT Consultant",
+        "activities": [
+          "Geschäftsstelle: Düsseldorf",
+          "Unternehmensgröße: 51-100",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben: hybris-Backend-Implementierung des Hansgrohes Duschkonfigurators",
+          "Anpassung an der hybris Management Console",
+          "Internationalisierung von iSpecify",
+          "Implementierung der Artikelsuche Scrum, Unit-Test (JUnit), AngularJS, jQuery, JEE, Java 7, JALO",
+          "Eingesetzte Produkte: hybris, eclipse, MS-SQL-Server, git, gitflow, Jenkins, Apache Solr, Spring"
+        ]
+      },
+      {
+        "period": "05/2014 - 12/2014",
+        "company": "Portigon Financial Service GmbH",
+        "title": "eAntrag, TM, Docfactory, ZKM, WGW, Düsseldorf",
+        "role": "Senior IT Consultant",
+        "activities": [
+          "Geschäftsstelle: Credit Services, Risk",
+          "Unternehmensgröße: 101-500",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Integration/Neuimplementierung von TM in Global Watchlist (Konsolisierung und Entwicklung von Frontend und Backend und Migration der Daten) Zusätzlich Wartung von 2 Anwendungen (ZKM, WGW) im Risko-Bereich",
+          "Planung und Realisierung der Abschaltung von 2 Anwendungen im Bereich",
+          "Kredit-Service (Docfactory, eAntrag); Migration der Daten Wartung von Webapplikationen zur Eingabe, Verwaltung und Monitoring von Kreditanträgen",
+          "Refactoring, Implementierung und Bugfixen im Front- und Backend (4"
+        ]
+      },
+      {
+        "period": "07/2012 - 05/2014",
+        "company": "Portigon AG",
+        "title": "eAntrag, TM, PMS, Docfactroy, Düsseldorf",
+        "role": "Senior IT Consultant",
+        "activities": [
+          "Geschäftsstelle: Credit Services",
+          "Unternehmensgröße: 501-1000",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Erstellung eines REST-Service (JSON) zur Migration der Daten von eAntrag in Transaction Monitoring",
+          "Migration von 3 webbasierten Anwendungen von Websphere 6.1 zu Websphere",
+          "7.0. Dabei mussten zahlreiche Framework auf neuere Versionen portiert werden.",
+          "Komplettes Redesign der Anwendung Portfolio Management System mit dem Framework Wicket"
+        ]
+      },
+      {
+        "period": "04/2008 - 06/2012",
+        "company": "WestLB AG",
+        "title": "eAntrag, TM, Docfactory, Düsseldorf",
+        "role": "Senior IT Consultant",
+        "activities": [
+          "Geschäftsstelle: Credit Risk Services",
+          "Unternehmensgröße: > 1000",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Komplettes Redesign und Weiterenwicklung (Mandantenfähigkeit) von vorhandenen Java (JDK 1.5) Webapplikationen zur Eingabe, Verwaltung und Monitoring von Kreditanträgen.",
+          "Erstellung von Batch und SOA Schnittstellen zu anderen Systemen der Bank (Rating, LoanIQ, BalanceSheet, CRM).",
+          "Erstellung und Anpassung von mehreren Berichten mit Hilfe von JasperReport/iReport..",
+          "Portierung von JDK 1.4.x auf JDK 1.5."
+        ]
+      },
+      {
+        "period": "02/2008 - 03/2008",
+        "company": "HDI-Gerling",
+        "title": "OSGI-Anwendung für die Verwaltung von, Köln",
+        "role": "IT Consultant",
+        "activities": [
+          "Weiterentwicklung einer vorhandenen JAVA 5 OSGI-Anwendung für die Verwaltung von Lebensversicherungsanträgen.",
+          "Unternehmensgröße: > 1000",
+          "Branche: Versicherungen",
+          "Aufgaben:",
+          "Implementierung, Refactoring und Bugfixen von Frontend- und Backendmodulen,",
+          "Requirementanalyse mit dem Fachbereich, (15 Personen)",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "09/2007 - 02/2008",
+        "company": "Nokia Siemens Network",
+        "title": "Architektur eines Web-Framework: WebScript 2.0, Düsseldorf",
+        "role": "Senior-Architekt/Entwickler",
+        "activities": [
+          "Unternehmensgröße: > 1000",
+          "Branche: Telekommunikation",
+          "Aufgaben:",
+          "Erstellung und Redesign/Weiterentwicklung eines internen Web-Framework zur vereinfachten Erstellung von Reports und WebUIs für Netzanbieter.",
+          "Implementierung von JSF Componenten",
+          "Aufsetzen einer neuen Entwicklungsumgebung mit Subversion und Maven",
+          "(urspünglich Rational Clearcase/ANT).",
+          "Design, Implementierung, Refactoring und Bugfixen von Frontend- und Backendmodulen (3 Personen)",
+          "Düsseldorf"
+        ]
+      },
+      {
+        "period": "09/2006 - 08/2007",
+        "company": "Nokia",
+        "title": "Portierung eines Operation Support System zur Administration, Düsseldorf",
+        "role": "Architekt- und Entwickler",
+        "activities": [
+          "Portierung und Weiterentwicklung des Operation Support System zur Administration von Messplänen auf Netzwerkelement für einen Mobilfunkanbieter auf der Basis der J2EE Architekturdesign und Implementierung von Frontend und Backend, Coaching der internen Mitarbeiter (5 Personen + 5 Personen Offshore)",
+          "Geschäftsstelle: Düsseldorf",
+          "Unternehmensgröße: > 1000",
+          "Branche: Telekommunikation",
+          "Aufgaben:",
+          "Scrum, Erstellung von Testkonzepten, Java, Unit-Test, Struts, J2EE, Ajax",
+          "Eingesetzte Produkte:",
+          "Administration, Düsseldorf"
+        ]
+      },
+      {
+        "period": "07/2006 - 09/2006",
+        "company": "T-Systems",
+        "title": "Weiterentwicklung eines Angebotssystems für einen, Aachen",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Weiterentwicklung eines Angebotssystems für einen Mobilfunkanbieter auf der Basis der J2EE Aufgaben",
+          "Unternehmensgröße: > 1000",
+          "Branche: Telekommunikation",
+          "Aufgaben:",
+          "Implementierung von Backend-Plugin, Webservices/SOA",
+          "Erstellung von Testkonzepten, Unit-Test, Webservices, J2EE, Java",
+          "Aachen"
+        ]
+      },
+      {
+        "period": "01/2006 - 06/2006",
+        "company": "Hewlett Packard, Sparkassen",
+        "title": "Weiterentwicklung eines Incentivierungssystems, Ratingen",
+        "role": "Softwareentwickler/Requirement-Analyse",
+        "activities": [
+          "Unternehmensgröße: > 1000",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Weiterentwicklung eines Incentivierungssystems von einem Verbund von Banken auf der Basis der J2EE und diverser OpenSource-Frameworks",
+          "Architekturdesign, fachliche Analyse,",
+          "Konzeption und Implementierung neuer Module im Backend und Frontend,",
+          "Design und Implementierung der Mandanten-, Partner- und Prämienverwaltung in einem Teilprojekt von ca. 4 Personen, Koordinierung/Durchführung der Qualitätsicherung Java, Unit-Test, Performance-Test, Performance-Analyse",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "01/2003 - 12/2005",
+        "company": "BG Phoenics GmbH",
+        "title": "Neuentwicklung aller IT-Anwendungen, Hannover/München",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Unternehmensgröße: > 1000",
+          "Branche: Versicherungen",
+          "Aufgaben:",
+          "Neuentwicklung aller IT-Anwendungen in einem Gemeinschaftsprojekt von neun gesetzlichen Unfallversicherern auf Basis der J2EE Aufgaben",
+          "Implementierung des Leistungswesens in einem Teilprojekt von ca. 25",
+          "Personen,",
+          "Unterstützung des Fachbereichs bei der Konsolidierung der Fachlichkeit, verantwortlich für die Koordinierung und Durchführung von Performance- Test innerhalb des Teams von ca. 25 Entwicklern",
+          "Fachliche Analyse, Konzeption, Entwicklung, Unit-Test,Wartung, OO- Modellierung nach UML"
+        ]
+      },
+      {
+        "period": "01/2002 - 08/2002",
+        "company": "BHF Bank",
+        "title": "Konzeption und Entwicklung einer CRM-Lösung, Offenbach (Frankfurt am Main)",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Unternehmensgröße: 501-1000",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Konzeption und Entwicklung einer CRM-Lösung auf Basis der J2EE und diverser Open-Source-Frameworks (u.a. Jakarta Struts) mit Websphere 3.5 als Application Server und IBM DB2",
+          "Konzeption und Implementierung des Aktionsmanagments, Implementierung der Partnerverwaltung in einem Team von 15 Personen",
+          "Fachliche Analyse, Konzeption, Entwicklung",
+          "UML, J2EE, HTML, JSP, JavaScript",
+          "Eingesetzte Produkte:",
+          "(Frankfurt am Main)"
+        ]
+      },
+      {
+        "period": "09/2001 - 12/2001",
+        "company": "Medienagentur für Wella",
+        "title": "Realisierung mehrerer Internetanwendungen, Köln",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Unternehmensgröße: < 50",
+          "Branche: Medien (Verlag, TV + Hörfunk)",
+          "Aufgaben:",
+          "Realisierung mehrerer Internetanwendungen technischer Ansprechpartner/Coach innerhalb eines Teams von 4 Entwicklern",
+          "Java, PHP, HTML, JSP, JavaScript, JDBC",
+          "Eingesetzte Produkte:",
+          "MySQL, Oracle, MySQL, Tomcat",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "07/2001 - 08/2001",
+        "company": "Medienagentur für Wella",
+        "title": "Erstellung eines Systems zur Datenmigration in ein CMS, Köln",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Unternehmensgröße: < 50",
+          "Branche: Medien (Verlag, TV + Hörfunk)",
+          "Aufgaben:",
+          "Konzeption und Realisierung eines Systems zur Datenmigration in ein CMS Java 2",
+          "Eingesetzte Produkte:",
+          "RMI, JDBC, MySQL, XML, XERCES",
+          "===================================================== =========================="
+        ],
+        "industry": "Medien (Verlag, TV + Hörfunk)",
+        "location": "Köln",
+        "technologies": [
+          "RMI",
+          "JDBC",
+          "MySQL",
+          "XML",
+          "XERCES"
+        ]
+      },
+      {
+        "period": "04/2001 - 05/2001",
+        "company": "Yline eSolution GmbH",
+        "title": "BroadVision-Shops Vereinheitlichung der Backend-, Köln",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Entwicklung und Vereinheitlichung einer Backend-Schnittstelle für zwei unterschiedliche Shopssysteme",
+          "Unternehmensgröße: < 50",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Eingesetzte Produkte:",
+          "BroadVision, Oracle"
+        ],
+        "industry": "IT-Dienstleistungen",
+        "location": "Köln",
+        "technologies": [
+          "Perl",
+          "BroadVision",
+          "Oracle"
+        ]
+      },
+      {
+        "period": "07/2000 - 03/2001",
+        "company": "ABIT AG",
+        "title": "ePOS, Meerbusch",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Unternehmensgröße: 101-500",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Entwicklung eines Internetportals mit Dienstleistungen und Informationen zum Thema Forderungsmanagement",
+          "Fachliche Analyse, Systemarchitektur, Konzeption, Realisierung, stellvertretende Teamleitung von 4 Entwicklern",
+          "C/C++, ASP, PHP, HTML, DHTML",
+          "Eingesetzte Produkte:",
+          "IIS, Apache, Visual Source Safe, FreeBSD, MySQL, MS SQL Server, XML, XSLT, SOAP"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Versicherungen",
+      "Forderungsmanagment",
+      "Telekommunikation",
+      "eCommerce",
+      "Handel",
+      "Medienagentur"
+    ],
+    "focus_areas": [
+      "IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps Voice(google/Alexa) Java/Spring SOAP/REST Wicket Angular JPA AWS Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "IT-Beratung",
+      "Architektur",
+      "Softwareentwicklung",
+      "Agile",
+      "DevOps",
+      "Voice (google/Alexa)",
+      "Java/Spring",
+      "SOAP/REST",
+      "Wicket",
+      "Angular",
+      "JPA",
+      "AWS",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Software-Architektur (MicroService)",
+      "Agile Coach",
+      "MicroService Architektur"
+    ],
+    "focus_experience": [
+      {
+        "name": "(AngluarJS)",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "(gradle)",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "(GWT)",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "ActiveMQ",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Adonis",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "AJAX",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "ansible",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Apache Camel",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Apache Solr",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Apache Wicket",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "arc42",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Archimate",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Atlassian Confluence",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Atlassian JIRA",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Atlassian JIRA Agile",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Avantis Unisuite",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "(JPA)",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Avantis UnitSuite",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "AWS",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Bea Weblogic",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "BIRT",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Borland Application Server",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Borland JBuilder",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "C/C++",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Camunda",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "CM Synergy 6.2",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Consul",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "CQRS",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "CSI",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "cvs",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "DB2 ( Administration und Entwicklung)",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "DbVisualizer",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "docker",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Drools",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "EDA",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "ELK",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Erwin",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "ESI",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "etcd",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Event Sourcing",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Event-Driven Architecture",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Faclets",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Feed",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "git",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "GitHub",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "gitlab",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Goglang",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Grafana",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Groovy-Job-DSL",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "HATEOS",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "IBM VisualAge for Java",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "IBM Websphere",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "IntelliJ",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "IntelliJ IDEA",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "istio",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "JasperReports(iReport)",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "JAX",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "JAXB",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "JBoss",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "JBoss Fuse",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "JBoss Rules",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "jBPM",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "JBuilder X",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "JEE",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "jQuery",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "JSON",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "JUnit",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Kafka",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Kanban",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Kibana",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "kubernetes",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "lambda",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "MagicDraw",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Mercury WinRunner",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "MID Innovator",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "MS Access",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "MS SQL Server (Administration und Entwicklung)",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "MS Visual Source Safe",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "MyEclipse",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "mySQL",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "nginx",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "node.js",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "openarchitectureware (OAW)",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "OpenShift",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "Oracle (Entwicklung)",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "OSGI",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "pirobase PIM",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Poseidon",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "postgresSQL",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "PostMan",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Prometheus",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "PVCS",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "RAD/RSAD/WSAD",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Rational ClearCase/UCM",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Rational Robot",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Rational Rose",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "RMI",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Selenium",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Service Discovery",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "SOA",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Sonar",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Spring 4.1",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Spring Batch",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "Spring Boot",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Struts",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "svn (subversion)",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "Teamcity",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "Terraform",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Tiles",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "TOAD",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "TopLink/EclipseLink",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Vaadin",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Varnish",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "Architekturberatung",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "Business Analyse",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "Coaching",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "Requirement Engineering",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "Scrum Master",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Scrum Product Owner",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "MircoService Architektur",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "AngluarJS",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "gradle",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "GWT",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "JPA",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "DB2",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "JasperReports",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "iReport",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "MS SQL Server",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "openarchitectureware",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "OAW",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "Oracle",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "svn",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "subversion",
+        "category": "product_standard",
+        "sort_order": 152
+      }
+    ],
+    "education": [
+      {
+        "degree": "iSAQB-CPSA-F Zertifikat",
+        "institution": "",
+        "period": "04/2017 - 04/2017",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Scrum Product Owner",
+        "institution": "it-agile, Hamburg",
+        "period": "04/2016 - 04/2016",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Scrum Master",
+        "institution": "Karlsruhe",
+        "period": "09/2006 - 09/2006",
+        "education_type": "course"
+      },
+      {
+        "degree": "Mathematisch-technischen Assistent",
+        "institution": "Werkzeugmaschinenlabor der RWTH Aachen",
+        "period": "09/1996 - 08/1999",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:34:08.009308",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2000"
+      ],
+      "coverage_percent": 93.0835734870317,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

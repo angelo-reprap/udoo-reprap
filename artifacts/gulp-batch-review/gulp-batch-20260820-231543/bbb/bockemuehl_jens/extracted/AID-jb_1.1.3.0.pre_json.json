@@ -1,0 +1,1050 @@
+{
+  "metadata": {
+    "aid": "AID-jb_1.1.3.0",
+    "version": "1.1.3.0",
+    "consultant_dir": "bockemuehl_jens",
+    "first_name": "Jens",
+    "last_name": "Bockemuehl",
+    "headline": "Projektmanager & Prozessoptimierer, Business Coach & Strategieberater, IT&TK Consultant",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:19:54.950732"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Jens",
+      "last_name": "Bockemuehl",
+      "birth_year": 1970,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch sehr gut in Schrift und Wort",
+          "level": ""
+        },
+        {
+          "name": "Latein",
+          "level": ""
+        },
+        {
+          "name": "Englisch (sehr gut in Schrift und Wort)",
+          "level": ""
+        }
+      ],
+      "availability": "01.03.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "633xx Dreieich, Deutschland",
+      "headline": "Projektmanager & Prozessoptimierer, Business Coach & Strategieberater, IT&TK Consultant",
+      "edv_experience_since": 2003
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BTrieve",
+        "Filemaker",
+        "ODBC",
+        "SQL"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "CD-Writer / Brenner",
+        "Drucker",
+        "Emulatoren",
+        "Hardware entwickelt",
+        "IBM RS6000",
+        "Intergraph",
+        "Iomega",
+        "Macintosh",
+        "Modem",
+        "PC",
+        "Plotter",
+        "Scanner",
+        "Siemens Großrechner",
+        "Siemens MX",
+        "SNI RM-Rechner",
+        "Soundkarten",
+        "Streamer"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Mac OS",
+        "MS-DOS",
+        "Novell",
+        "OS/2",
+        "Unix",
+        "Windows",
+        "Windows CE"
+      ],
+      "programming_languages": [
+        "Basic",
+        "C++",
+        "Cobol",
+        "dBase",
+        "Delphi",
+        "Java",
+        "JavaScript",
+        "Makrosprachen",
+        "Paradox",
+        "Powerbuilder",
+        "Rexx",
+        "Scriptsprachen",
+        "Shell"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2003 - heute",
+        "company": "Deutsche Bank S.p.A. Mailand/Italien",
+        "title": "Gründungs-/Unternehmensberatung",
+        "role": "Projektmanager beim Ausbau einer Privatbank im",
+        "activities": [
+          "Unternehmensberater mit BAFA,",
+          "KfW und IHK",
+          "===================================================== ==========================",
+          "1992 2018: Geschäftsgründung",
+          "Projektmanagement für IPC Trading & IMR (Verint) Voice Recording für IPC und Cisco BayernLB Sonstiges Referenzen: Projekt \"Projektleiter Voice und Netzwerk\", 04/01 - 06/02 Referenz durch Abteilungsleiter, Deutsche Bank AG FFM CIB, vom 24.06.02 \"Von April 2001 bis Juni 2002 war der Consultant als externer Mitarbeiter bei uns beschäftigt. In den Bereichen Voice & Netzwerk war der Consultant für das New-IBC Projekt der Deutschen Bank als Projektleiter zuständig. Das Budget für diesen Verantwortungsbereich betrug ca. 40 Mio Euro. Wir haben den Consultant als einen IT-Experten schätzen gelernt, der sich durch sein hervorragendes Wissen im gesamten Aufgabenbereich Voice & Netzwerk den uneingeschränkten Respekt aller Teamkollegen erworben hat. Der Consultant war bei Vertragsverhandlungen und bei der technischen Beratung des Projektes ein qualifizierter Fachmann und ein umsichtiger Manager, der es versteht, Ziele verständlich zu definieren und erfolgreich umzusetzen. Gerade im Projektmanagement liegen seine wertvollen Stärken. Seine sehr guten Englischkenntnisse haben es dem Consultant ermöglicht, mit allen weltweit beteiligten Projektverantwortlichen erfolgreich zu kommunizieren. Das oben erwähnte New-IBC Projekt wird von der Deutschen Bank nicht wie ursprünglich geplant zu Ende geführt. Wir bedauern sehr, dass wir daher den Beratervertrag mit dem Consultant nicht über den 1. Juli 2002 hinaus verlängern konnten. Für seinen weiteren beruflichen Werdegang wünschen wir dem Consultant alles Gute.\" Project Work unit leader for Voice trading systems, 02/00 - 03/01 Reference by Global Voice Architect, Commerzbank AG, as of 2002-06-22 \"The consultant was employed by Commerzbank between February 2000 and March 2001 in the capacity of Work Unit Leader, Telephone Trading Systems for our HDLZ relocation project. During this time he displayed many positive attributes and was well liked by all who dealt with him. What was particularly impressive was his ability to quickly grasp and understand new technologies and adapt to different working practices. The consultant displayed good man management and commercial skills as well has his wide ranging technical ability and experience to solve a number of disputes and technical issues during the project. His language skills are impressive, and I would certainly class him as fluent in both spoken and written English. During the project the consultant was responsible for a budget of DM 16,000,000 and always had current budget and project plans available, his work was through, concise and always delivered on time and within budget. During the project he dealt with multiple disciplines, differing technologies and a multitude of vendors and internal departments. I would have no hesitation in recommending the consultant for a similar position elsewhere and would certainly not hesitate to use him again should the opportunity arise.\" Projekt \"Jahr 2000-Fähigkeit der IT\"; \"Investmenthändlerumzug\", 07/99 - 02/00 Referenz durch Projektleiter Infrastruktur Commerzbank AG vom 15.07.02 \"Der Consultant war als externer Mitarbeiter in unserem Unternehmen in der Zeit von Juli 1999 bis Februar 2000 für mehrere unserer Projekte beschäftigt. Er unterstützte uns bei der Leitung von Infrastruktur-Projekten. Seine Aufgaben in dieser Zeit waren die folgenden:",
+          "Aufgaben:",
+          "Projektleiter unseres Projektes 'Jahr-2000-Fähigkeit der IT-Systeme im Trading-Floor'",
+          "Projektleitung für unseren Investmenthändlerumzug in Stuttgart",
+          "Allgemeine Infrastruktur-Beratung für das zentrale Geschäftsfeld Equities (ZGE) Sonstige Anmerkungen: Diverse Mitgliedschaften in Berufsverbänden ( Details gerne auf Anfrage) Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen",
+          "Ausbau einer Privatbank im Hypothekengeschäft",
+          "Gründungs-/Unternehmensberatung"
+        ],
+        "industry": "Banken",
+        "location": "Mailand/Italien"
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Investmentbanking",
+      "Finanzdienstleister",
+      "Industrie",
+      "Handel",
+      "IT Dienstleiter",
+      "Telekommunikation",
+      "Internet",
+      "Werbeagentur",
+      "Verlagshaus",
+      "Softwarehaus",
+      "Rechenzentrum"
+    ],
+    "focus_areas": [
+      "Projektmanager & Prozessoptimierer",
+      "Business Coach & Strategieberater",
+      "IT&TK Consultant",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination"
+    ],
+    "focus_experience": [
+      {
+        "name": "Ihr Projektmanager mit langjähriger Erfahrung in internationalen",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Projekten. Bestmögliche Erfolgsgarantie für Ihre Projekte durch die",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Anwendung vielseitiger und zertifizierter Management-Methoden.",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "* Immer getreu dem Motto: In Time",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "In Budget",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "In Quality",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Ihr Prozessoptimierer mit dem cleveren Auge um selbst bei komplexen",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Aufgaben eine verständliche KISS-Lösung Keep it simple and successful",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "zu finden.",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Als Business-Coach & Strategieberater immer innovativ und zielführend",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "unterstützend tätig",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "damit Sie Ihr Ziel auf dem besten Weg erreichen",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Zusatzkenntnisse Zusammensfassung",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Nachweisbare Qualifikation in den verschiedenen Projektmanagement-",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "bereichen mit der uneingeschränkten Fähigkeit auf allen Management-Ebenen",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "erfolgreich zu kommunizieren.",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Wertvolle Sales & Marketing Erfahrungen bei den verschiedensten",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "technischen Produkten und Dienstleistungen.",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Umfangreiches technisches Know-how im Bereich der Telekommunikation.",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Im Aufgabengebiet Netzwerk ein sehr gutes unternehmerisches",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Beurteilungsvermögen der Anbieter- und Marktsituation sowie das dazu",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "notwendige technische Grundwissen.",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Universelle und praxiserprobte Serversystemkenntnisse.",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Detailliertes Grundwissen bei börsenüblichen Marktdaten-Systemen.",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Umfangreiches und praktisches Know-how bei den gängigen EDV-",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Betriebssystemen.",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Mehrjährige Erfahrungen mit Programmiersprachen und Datenbanken.",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Breitgefächertes und sehr gutes Anwendungsvermögen der handelsüblichen",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "PC-Software.",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Praxisorientierte Grafik- & Designkenntnisse beim Umgang mit DTP-",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Anwendungen.",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Fundierte Kenntnisse der gängigen Hardwarekomponenten.",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Schulungserfahrung in der Ausbildung von Anwendern bei Standard Büro-",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Software.",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Umfangreiches Grundwissen über ISO 9000 ff.",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Sehr gute Englischkenntnisse in Wort und Schrift.",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Führerscheinklasse 3",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Projektmanagment",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Projekt- und Teamleitung",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "* Budget-",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Ressourcen- und Terminmanagement",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Managementpräsentationen und Entscheidungsfindung",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Vertragsverhandlungen mit internationalen Herstellern",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Analyse & Konzept-Dokumentation (IST- und SOLL-Zustand)",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Userpräsentationen und Benutzerumfragen",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Workflow- und SLA-Definition (Service Level Agreement)",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Erstellung und Auswertung von Ausschreibungen",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Produktevaluierungen und Systemdesign",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "2nd Level Support für NT und UNIX Server/Netzwerke",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "1st Level Support für Standard PC Anwendungen",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Telekommunikation",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "* Telefonmakleranlagen (IPC",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "BT/Syntegra",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Siemens Trading und Etrali)",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "* Telefonanlagen (Siemens Hicom/HiPath",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Nortel Meridian)",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "* Sprachaufzeichnung (Thales/Racal",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Nice",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Comverse/Verint und ASC Kreutler)",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "* Intercom (Speakerbus",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Purple Voice (VOIP)",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "IPC",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Stentafon/Zenitel)",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "* Video- und Audioconferencing (Avistar",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Speakerbus",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Nortel",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Siemens)",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "* Gebührenerfassung (Siemens",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "CTI Data & Focom)",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "CTI Integration und Anwendungen (Computer Telephony Integration)",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "* Voicemail und Unified Messaging (Siemens Xpression",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Nortel Call Pilot)",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "* Tele-/Homeworking Lösungen (Siemens & Nortel)",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "* Voice over IP (VOIP",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "QOS",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "VPN",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "In- und Outbound-Anbindungen sowie diverse Protokolle & Standards",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "(Standleitungen",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Hoot\"n\"Holler",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "QSIG",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "DPNSS",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "ISDN & Analoge",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "DSL",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Fax-",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "und Netzwerkprovider)",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "* Mobiltelefone",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Headsets & Wireless (Nokia",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "SonyEricsson",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Siemens",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "GSM",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Smartphone & PDA\"s",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "WAP",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "iMode",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "GPRS",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "HSCSD",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Bluetooth",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Plantronics",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Netcom",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "DECT",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Corporate GSM)",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "BCP Konzepte für Voice (PBX & Trading)",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Netzwerk",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "* Infrastruktur Verkabelung (Cat 5-7",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Stecker",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Kabelnormen und",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Messverfahren)",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Siemens Trading",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Etrali",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Siemens Hicom/HiPath",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Nortel Meridian",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Thales/Racal",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Comverse/Verint",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "ASC Kreutler",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Stentafon/Zenitel",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Avistar",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "CTI Data",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Focom",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Siemens Xpression",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Nortel Call Pilot",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "VOIP",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "ISDN",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Nokia",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "Smartphone",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "PDA",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "GN Netcom",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Corporate GSM",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Cat 5-7",
+        "category": "product_standard",
+        "sort_order": 128
+      }
+    ],
+    "education": [
+      {
+        "degree": "SCRUM Training",
+        "institution": "",
+        "period": "2016",
+        "education_type": "course"
+      },
+      {
+        "degree": "Zertifizierter IHK Business Coach",
+        "institution": "IHK München - Westerham",
+        "period": "2013",
+        "education_type": "course"
+      },
+      {
+        "degree": "Weiterbildung für erfolgreiches Internet Marketing",
+        "institution": "",
+        "period": "2011",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zum LernCoach",
+        "institution": "",
+        "period": "2011",
+        "education_type": "course"
+      },
+      {
+        "degree": "Zertifizierter SimulTrain®-Kursleiter (Projektmanagement LernSimulation)",
+        "institution": "",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "PRINCE2 Foundation",
+        "institution": "APMG",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "PRINCE2 Practitioner",
+        "institution": "APMG",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "Weiterbildung zum Coach",
+        "institution": "",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "Lean Six Sigma (Yellow Belt)",
+        "institution": "",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "5S and Visual Management certified",
+        "institution": "",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "Zertifizierter GdS Elterntrainer (GdS =Gesetze des Schulerfolges)",
+        "institution": "",
+        "period": "2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "OMG-Certified Expert in BPM (Business Process Modelling) & OCEB Certified Professional, Fundamental",
+        "institution": "",
+        "period": "2009",
+        "education_type": "course"
+      },
+      {
+        "degree": "ITIL V3 Foundation Examination in IT-Service Management",
+        "institution": "",
+        "period": "2009",
+        "education_type": "course"
+      },
+      {
+        "degree": "Schneller lesen Mehr behalten",
+        "institution": "",
+        "period": "2009",
+        "education_type": "course"
+      },
+      {
+        "degree": "ITIL V2 Foundation Certificate in IT-Service Management",
+        "institution": "",
+        "period": "2003",
+        "education_type": "course"
+      },
+      {
+        "degree": "Zertifizierung zum Projektmanagement Fachmann (GPM/IPMA)",
+        "institution": "",
+        "period": "2003",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zum EDV-Kaufmann",
+        "institution": "IHK",
+        "period": "1991 1993",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt \"Projektleiter Voice und Netzwerk\", 04/01 - 06/02\nReferenz durch Abteilungsleiter, Deutsche Bank AG FFM CIB, vom 24.06.02\n\"Von April 2001 bis Juni 2002 war der Consultant als externer Mitarbeiter bei uns beschäftigt. In den Bereichen Voice & Netzwerk war der Consultant für das New-IBC Projekt der Deutschen Bank als Projektleiter zuständig. Das Budget für diesen Verantwortungsbereich betrug ca. 40 Mio Euro. Wir haben den Consultant als einen IT-Experten schätzen gelernt, der sich durch sein hervorragendes Wissen im gesamten Aufgabenbereich Voice & Netzwerk den uneingeschränkten Respekt aller Teamkollegen erworben hat. Der Consultant war bei Vertragsverhandlungen und bei der technischen Beratung des Projektes ein qualifizierter Fachmann und ein umsichtiger Manager, der es versteht, Ziele verständlich zu definieren und erfolgreich umzusetzen. Gerade im Projektmanagement liegen seine wertvollen Stärken. Seine sehr guten Englischkenntnisse haben es dem Consultant ermöglicht, mit allen weltweit beteiligten Projektverantwortlichen erfolgreich zu kommunizieren. Das oben erwähnte New-IBC Projekt wird von der Deutschen Bank nicht wie ursprünglich geplant zu Ende geführt. Wir bedauern sehr, dass wir daher den Beratervertrag mit dem Consultant nicht über den 1. Juli 2002 hinaus verlängern konnten. Für seinen weiteren beruflichen Werdegang wünschen wir dem Consultant alles Gute.\"\nProject Work unit leader for Voice trading systems, 02/00 - 03/01\nReference by Global Voice Architect, Commerzbank AG, as of 2002-06-22\n\"The consultant was employed by Commerzbank between February 2000 and March 2001 in the capacity of Work Unit Leader, Telephone Trading Systems for our HDLZ relocation project. During this time he displayed many positive attributes and was well liked by all who dealt with him. What was particularly impressive was his ability to quickly grasp and understand new technologies and adapt to different working practices. The consultant displayed good man management and commercial skills as well has his wide ranging technical ability and experience to solve a number of disputes and technical issues during the project. His language skills are impressive, and I would certainly class him as fluent in both spoken and written English. During the project the consultant was responsible for a budget of DM 16,000,000 and always had current budget and project plans available, his work was through, concise and always delivered on time and within budget. During the project he dealt with multiple disciplines, differing technologies and a multitude of vendors and internal departments. I would have no hesitation in recommending the consultant for a similar position elsewhere and would certainly not hesitate to use him again should the opportunity arise.\"\nProjekt \"Jahr 2000-Fähigkeit der IT\"; \"Investmenthändlerumzug\", 07/99 - 02/00\nReferenz durch Projektleiter Infrastruktur Commerzbank AG vom 15.07.02\n\"Der Consultant war als externer Mitarbeiter in unserem Unternehmen in der Zeit von Juli 1999 bis Februar 2000 für mehrere unserer Projekte beschäftigt. Er unterstützte uns bei der Leitung von Infrastruktur-Projekten. Seine Aufgaben in dieser Zeit waren die folgenden:\n· Projektleiter unseres Projektes 'Jahr-2000-Fähigkeit der IT-Systeme im Trading-Floor'\n· Projektleitung für unseren Investmenthändlerumzug in Stuttgart\n· Allgemeine Infrastruktur-Beratung für das zentrale Geschäftsfeld Equities (ZGE)\n…\"\n\nSonstige Anmerkungen:\nDiverse Mitgliedschaften in Berufsverbänden ( Details gerne auf Anfrage)\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]\nEnglisch anzeigen",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "AppleTalk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ATM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CICS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OS/2 Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Voice",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:19:54.950746",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2003"
+      ],
+      "coverage_percent": 93.94409937888199,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,1191 @@
+{
+  "metadata": {
+    "aid": "AID-nl_5.1.4.0",
+    "version": "5.1.4.0",
+    "consultant_dir": "leidel_niko",
+    "first_name": "Niko",
+    "last_name": "Leidel",
+    "headline": "Projektkoordination, Scrum Master, Testmanagement, Consulting, Bussinenalyse mit Branchenkenntnissen Investmentbanking, Zahlungsverkehr, Wertpapier",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:44:57.244899"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Niko",
+      "last_name": "Leidel",
+      "birth_year": 1958,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch verhandlungssicher in Wort und",
+          "level": ""
+        }
+      ],
+      "availability": "19.10.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "603xx Frankfurt, Deutschland",
+      "headline": "Projektkoordination, Scrum Master, Testmanagement, Consulting, Bussinenalyse mit Branchenkenntnissen Investmentbanking, Zahlungsverkehr, Wertpapier",
+      "edv_experience_since": 2000
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "ADABAS SYBASE",
+        "Business Objects",
+        "DB2",
+        "IMS",
+        "IMS DB/DC",
+        "Informix",
+        "Ingres",
+        "Lotus Notes",
+        "MS SQL Server",
+        "ODBC",
+        "Oracle PL-SQL",
+        "TOAD",
+        "SQL*Plus",
+        "RDB",
+        "SQL",
+        "UNIFACE",
+        "VSAM"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "AS/400",
+        "Digital",
+        "IBM Großrechner",
+        "IBM RS6000",
+        "PC",
+        "PDP",
+        "Prozessrechner",
+        "Siemens Großrechner",
+        "SUN",
+        "UNISYS",
+        "VAX"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "BS2000",
+        "Dos",
+        "Echtzeitbetriebssysteme",
+        "IBM ISPF",
+        "MS-DOS",
+        "MVS",
+        "OS/390",
+        "OS/2",
+        "OS/400",
+        "Unix (SOLARIS",
+        "LINUX",
+        "AS 400)",
+        "VMS",
+        "Windows NT / 95"
+      ],
+      "programming_languages": [
+        "Assembler",
+        "Basic",
+        "C",
+        "C++",
+        "Cobol",
+        "DCL",
+        "Fortran",
+        "HTML und XML",
+        "Java",
+        "JavaScript",
+        "JCL",
+        "Lotus Notes Script",
+        "Pascal",
+        "PL/SQL",
+        "VISUAL BASIC",
+        "4th Dimension"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "10/2017 - heute",
+        "company": "Bethmannbank (ABN-AMRO)",
+        "title": "Support OBS (Basis, Acounting, Wertpapier, EAM)",
+        "role": "Businessanalyst und Qualitymanager im OBS",
+        "activities": [
+          "Aufgaben:",
+          "Businessanalyse, Pendenzenmanagment und Testdokumentation: o Businessanalyse o Testkonzeption o Testfallermittlung o Customizinmg OBS o Testdurchführung und Abnahmeunterstützung o Pendenzenmanagement",
+          "Fachlichen Schwerpunkte:",
+          "Wertpapier, Geld und Devisen, Kredit, MIFID, EMIR, FACTA",
+          "Eingesetzte Produkte:",
+          "UNIX, SWIFT, MS-Projekt, TOAD, PLSQL, FACTA, MIFID, EMIR, ORACLE, OBS ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "02/2017 - 09/2017",
+        "company": "Finanz Informatik Technologie Service",
+        "title": "TransIT",
+        "role": "Teilprojektleiter und Testmanager",
+        "technologies": [
+          "MS-Projekt",
+          "WP-Ticket",
+          "HP-Quality Center"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Aufgaben Teilprojektleitung:",
+          "Projektmanagement",
+          "Moderation Test Jour Fixe mit der dwpbank Abstimmung Maßnahmen bei Planabweichungen FI-TS intern und zwischen FI-TS und dwpbank",
+          "Abstimmung und Nachhalten von Planände",
+          "Aufgaben Testmanager:",
+          "Abstimmung von test- und abnahmerelevanten Themen sowie Freigaben/ Abnahmen FI-TS intern teilprojektübergreifend sowie mit der dwpbank TP4"
+        ]
+      },
+      {
+        "period": "01/2015 - 12/2016",
+        "company": "Bethmannbank (ABN-AMRO)",
+        "title": "Support OBS (Basis, Acounting, Wertpapier, EAM)",
+        "role": "Businessanalyst und Qualitymanager im OBS",
+        "activities": [
+          "Aufgaben:",
+          "Businessanalyse, Pendenzenmanagment und Testdokumentation: o Businessanalyse o Testkonzeption o Testfallermittlung o Customizinmg OBS o Testdurchführung und Abnahmeunterstützung o Pendenzenmanagement",
+          "Eingesetzte Produkte:",
+          "UNIX, SWIFT, MS-Projekt, TOAD, PLSQL, ORACLE, OBS ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2014 - 12/2014",
+        "company": "Bethmannbank (ABN-AMRO)",
+        "title": "Integration des Geschäftsfeldes \"Unabhängiger Asset Manager",
+        "role": "Businessanalyst, Testmanager",
+        "activities": [
+          "(IAM)\" in das Kernbankensystem OBS",
+          "Aufgaben:",
+          "Businessanalyse, Spezifikation, Schnittstellenkonzeption, Koordination externen Dienstleister und Projektpartner",
+          "Testkonzeption, Testmanagement und Testdokumentation: o Schnittstellenbeschreibung SWIFT (MT3xx, 5xx, 6xx, 9xx) o Spezifikation des Prozesses von OBS zur den IAM's # Stammdatenerweiterung OBS",
+          "# Konvertierung von SWIFT in die Formate SWIFT-IAM und CSV",
+          "# Splitting nach IAM's und Kunden der IAM's # Übertragungswege SWIFT und SFTP o Testkonzeption o Testfallermittlung und -beschreibung o Teststeuerung und Abnahmeunterstützung",
+          "Eingesetzte Produkte:",
+          "UNIX, SWIFT, MS-Projekt, ORACLE, OBS",
+          "Manager"
+        ]
+      },
+      {
+        "period": "05/2013 - 12/2013",
+        "company": "HELABA",
+        "title": "Spezifikation und Test SEPA (G1, GZ und G2) in der",
+        "role": "Analyst, Testkoordinator, Tester",
+        "activities": [
+          "Spezifikation, Testkonzeption, Testbeschreibung , Testfallermittlung und Testdurchführung als Mitarbeiter in der Fachabteilung Zahlungsverkehr",
+          "Aufgaben:",
+          "(Verfahrensentwicklung): o IBANONLY (SEPA) o Benachrichtigung an Kunden mittels PAIN002 (SEPA) o Protokolle der Embargofälle (SEPA) o Neue Lastschrift COR1 (SEPA) o Migration der G1 von ZVETS auf XCE (SEPA)",
+          "Eingesetzte Produkte:",
+          "MVS, CICS, HP Quality Center, DB/2, SQL, SEPA (PAIN001; PAIN008; PAIN002;",
+          "PACS008; PACS003; PACS002; PACS004; PACS007; CAMT055; CAMT056), ZVETS, XCE,"
+        ]
+      },
+      {
+        "period": "01/2011 - 12/2012",
+        "company": "Deutsche Bahn AG",
+        "title": "Releasemanagement im Fachbereich Fahrweg",
+        "activities": [
+          "Aufgaben:",
+          "Rollen: Releasemanager, Testmanager, Koordinator (insgesamt 6 Projekte mit insgesamt 20 Mitarbeitern, Budget ca. 1,5 Mio. EUR)",
+          "Releasemanagement: Definition erarbeiten, Release planen, Technische",
+          "Abnahme und Einführung planen, Release Entwicklung (Build2Run) konzipieren, Release Konfiguration zusammenstellen, technische Abnahme planen, koordinieren und durchführen, technische Einführung und Rollout planen und koordinieren",
+          "Übergabe der EndToEnd-Überwachung an die EndToEnd-Betriebsführung für das Verfahren PSS Granid 5",
+          "Migration des Gruppenlaufwerk SVL3 in das Knowledge Management System.",
+          "Athene (basiert auf Livelink Vers. 9.7.1)."
+        ]
+      },
+      {
+        "period": "09/2010 - 12/2010",
+        "company": "DekaBank",
+        "title": "RZ Umzug der Anwendungen TREMA, CORONA und MARTINI",
+        "role": "Testmanagement, Redakteur Betriebsdokumentation,",
+        "activities": [
+          "Koordinator",
+          "Aufgaben:",
+          "Fachliche Tests planen, koordinieren, durchführen und revisionssicher dokumentieren",
+          "Technische Tests und Einführung planen, zu koordinieren und revisionssicher zu dokumentieren.",
+          "Technische Einführung planen, koordinieren, durchführen und dokumentieren",
+          "Betriebsführungsdokumentation überarbeiten",
+          "Eingesetzte Produkte:",
+          "TREMA, CORONA, MARTINI, MS-Office, ORACLE, SQL, HP Quality Center (HP QC)"
+        ]
+      },
+      {
+        "period": "04/2008 - 04/2010",
+        "title": "Run for 100% SLA Compliance",
+        "role": "Projektleiter, Teilprojektleiter (10 Mitarbeiter)",
+        "activities": [
+          "Aufgaben:",
+          "Teilprojekte:",
+          "Überarbeitung der Templates und Ablage für die Betriebsführungsdokumentation Maßnahmenplan und Entscheidungsplan für Verfahren (im Störungsfall)",
+          "Verbesserungsplan für Monitoring Maßnahmen nach SLA Verletzung aufsetzen",
+          "Lieferantenmanagement für den Bereich TIV etablieren",
+          "Monitoring Cockpit Handlungsanweisungen zur Erhöhung der Erstlösungsquote Einführung eines Tools zur Leistungs- und Schwellwertüberwachung (LSÜ)",
+          "Reifegradmodell für Verfahren etablieren und weiterentwickeln",
+          "Restorezeiten Datenbanken der UKV ermitteln und in Leistungsschein verankern"
+        ]
+      },
+      {
+        "period": "07/2007 - 03/2008",
+        "company": "Deutsche Börse AG",
+        "title": "Central Billing mit SAP SD / FI",
+        "role": "Business Analyse, Berater",
+        "activities": [
+          "Aufgaben:",
+          "Spezifikation, Erstellung und die Dokumentation eines Tools mit dem sich die komplexen Produktstammdaten des EUREX (Produkthierarchien,",
+          "Materialien, Preise und Mappings) im SAP Format generieren und ins SAP SD hoch laden lassen. Das Tool basiert auf MS-EXCEL und MS-ACCESS.",
+          "Nachträgliche Dokumentation der bestehenden Wartungsaktivitäten der Produktstammdaten von SAP SD",
+          "Erstellung eines SEPA Konzeptes",
+          "Sonstiges:",
+          "Projektsprache Englisch, internationales Projektumfeld",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "08/2006 - 06/2007",
+        "company": "Deutsche Bank: DWS Investment GmbH",
+        "title": "Spezialist MARTINI (Wertpapierleihe und Repos)",
+        "role": "Business Analyse, Berater, Koordination",
+        "activities": [
+          "Aufgaben:",
+          "Spezifikation der technischen Schnittstellen von MARTINI zu den Systemen HELIOGRAPH (S.W.I.F.T. Anbindung, z.B. MT540 und MT 542 zur Depotbank),",
+          "CHARLES RIVER TRADING SYSTEM (Handelssystem für Aktien), Local Data Hub",
+          "(Dataware House der Bank, hier für Festverzinsliche Wertpapiere) und SIMCORP DIMENSION (Blocking Wertpapierbestand).",
+          "Erstellung einer Beschreibung der Schnittstellenprozesse zu erstellen sowie eines Field Mapping zwischen MARTINI und den Fremdsystemen durchzuführen.",
+          "Customizing von MARTINI",
+          "Klärung und Abstimmung von fachlichen Fragestellungen mit den Fachabteilungen Handel und Backoffice.",
+          "IT-technische Beschreibung des Ergebnisses der Anbindung und Kommunikation mit den Programmierern des Softwareherstellers. Sonstiges:"
+        ]
+      },
+      {
+        "period": "06/2006 - 07/2006",
+        "company": "Deutsche Post AG, IT Brief",
+        "title": "Spezialist Problemmanagement",
+        "role": "Business Analyse, Berater, Realisierer",
+        "technologies": [
+          "EXCEL",
+          "POWERPOINT) und",
+          "REMEDY"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Folgende Reports wurden realisiert:",
+          "Umsetzung und Dokumentation des Reportings auf Basis PL SQL (ORACLE,",
+          "Spezifikation der Anforderungen und Abstimmung mit der Fachabteilung. Ermittlung der Anforderungen an ein Reporting. o Report Rollout Überwachung o Management Report für das Senior Management o IT-Betriebsreport für die Betreiber (Deutsche Post, Postbank,",
+          "Partner) o Report für kritische Probleme o Report Ticket Wochenverlauf",
+          "Eingesetzte Produkte:",
+          "ARS REMEDY, TOAD, SQL, PL-SQL, VISUAL BASIC, MS-OFFICE, MS-ACCESS ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2005 - 03/2006",
+        "company": "ABN AMRO: Delbrück Bethmann Maffei AG",
+        "title": "Spezialist OBS",
+        "role": "Support, Koordination, Business Analyse, Realisierer,",
+        "activities": [
+          "Tester",
+          "Aufgaben:",
+          "Zahlreiche OBS Projekte in Zusammenarbeit mit den Fachabteilungen, der Produktionsüberwachung und dem Softwarehersteller mit folgenden Tasks:",
+          "Komplexe Auswertungen mittels SQL in Abstimmung mit den Fachabteilungen.",
+          "Performanceoptimierungen in der ORACLE Datenbank und den PL/SQL Programmen",
+          "Betreuung der OBS Schnittstellen zu MERIAN (Wertpapier) zum Controlling und zur Finanzbuchhaltung , welche auf der Basis PL-SQL (ORACLE) realisiert waren.",
+          "Second-Level-Support des OBS Systems insbesondere für die Module Kontokorrent, Geld und Devisen, Kredit, Wertpapier, Zahlungsverkehr,",
+          "Bankbilanz, Meldewesen (SAMBA) und Stammdaten. o Planung der Projekte und Überwachung des Projektfortschritts. o Fachliche Analyse zusammen mit Fachabteilungen und dem Softwarehersteller o Technische Analyse zusammen mit der Produktionsüberwachung o Erstellung und Abstimmung von Spezifikationen o Abstimmung der Prozessveränderungen mit den Fachabteilungen o Test und Abnahme von Lösungen o Produktionseinführung der Projekte Im weiteren Verlauf des Projekts wurde die IT in der Bank im Rahmen eines globalen Outsourcing Vertrages im Konzern an den indischen Consulter TCS",
+          "(Softwareentwicklung) sowie an die IBM (Produktion) übergeben. Deshalb mußten die Anwendungen und Prozesse zu ermittelt und dokumentiert werden."
+        ]
+      },
+      {
+        "period": "06/2004 - 03/2005",
+        "company": "Commerzbank AG",
+        "title": "Reconciliation Prozesse im Investmentbanking",
+        "role": "Business Analyse, Berater, Realisierer, Tester",
+        "activities": [
+          "Aufgaben:",
+          "Folgende Reconcilation Prozesse wurden automatisiert:",
+          "Analyse der Reconcillation Prozesse zu analysieren, die Filter der Datafeeds zu prüfen und ggf. anzupassen, die Datafeeds zu mappen und zu den Ist- und Soll-Zustand dokumentieren, um darauf aufbauend die Prozesse zu automatisieren. Dabei wurden mittels Filter aus den Front- bzw.",
+          "Backoffice Systemen ASCII Dateien generiert und diese mittels CONNECT",
+          "DIRECT auf den Zielserver geschickt. Die Textdateien wurden nach MS",
+          "ACCESS importiert um diese zu matchen. Die Breaks wurden in Form von standardisierten Breaksheets unter MS EXCEL reportet. o REC 51: Frontoffice SUMMIT vs. Backoffice OBS für FX,CCS (Cross",
+          "Currency Swaps), SD(Swap Depot) o REC 55: Frontoffice Wallstreet System (WSS) versus Backoffice OBS o REC 229: Frontoffice FIDESSA versus Backoffice GLOSS HV o REC 230: Frontoffice SUMMIT ZTD versus Backoffice IBS o REC 304: Frontoffice MUREX C+ CURRENCY versus Backoffice MUREX",
+          "EQUITY DERIVATIVES o REC 306: Frontoffice MUREX Mx+ DERIVATIVES vs. Backoffice MUREX Mx+"
+        ]
+      },
+      {
+        "period": "03/2002 - 03/2004",
+        "company": "Deutsche Bahn AG",
+        "title": "Technisches Management",
+        "activities": [
+          "Aufgaben:",
+          "Rollen: Testmanager und Releasemanager (insgesamt 5 Projekte mit insgesamt 25",
+          "Mitarbeitern, Budget ca. 2 Mio. EUR)",
+          "Koordination der technischen und fachlichen Abnahme und technische",
+          "Einführung. Gegenstand der Abnahme und Einführung waren komplexe Systeme aus dem Bereich Fahrweg der DB Netz in heterogenen Umgebungen (Client/ Server-, HOST-, WEB-, J2EE (JSP Java Server Pages, Servlets, Beans) und SAP-Anwendungen)",
+          "Erstellung von Angeboten für die fachliche und technische Abnahme"
+        ]
+      },
+      {
+        "period": "05/2000 - 10/2001",
+        "company": "Commerzbank AG",
+        "title": "GUT Dienstleistungsabrechnung / Auslandszahlungsverkehr",
+        "role": "Projektleiter (Budget 3 Mio. EUR mit 30 Mitarbeiter)",
+        "technologies": [
+          "MS-Office",
+          "MS-Projekt",
+          "MVS",
+          "DB/2",
+          "IMS DB/DC",
+          "UNIX",
+          "VMS",
+          "WINDOWS/NT",
+          "S.W.I.F.T/",
+          "ARS Remedy",
+          "S.W.I.F.T.-Messages MT 199",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekt Technisches Management (Deutsche Bahn AG)",
+          "03/02 - 03/04",
+          "Referenz durch Teamleiter DB SYSTEMS vom 10.05.04",
+          "Einführungsprojekte zu erstellen",
+          "Ziel",
+          "zu erarbeiten",
+          "seine zukünftigen beruflichen Aufgaben.\"",
+          "Projekten empfehlen.\"",
+          "04/99 10/01",
+          "Teilprojekte (Dienstleistungsabrechnung",
+          "Rekla",
+          "komplexer",
+          "Fachlichkeit",
+          "lösungsorientiert",
+          "Alle Referenzen sind durch GULP bestätigt"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Erzielung der Gewerkfähigkeit sowie der Abnahme der Anforderungen durch die Fachabteilung. Aussschreibung und Vergabe des Projekts an den Gewerknehmer einschließlich Bewertung der Angebote, Auswahl des Gewerknehmers und weiterer Teammitglieder, Verhandlung der Verträge und Abstimmung dieser mit dem Gewerknehmer, Gesamtprojektleitung und dem Einkauf der Bank. Fachliche Abstimmung mit den Auftraggebern (Marktabteilungen",
+          "Internationale Banken und Firmenkunden) und den technischen Abteilungen der Bank (DBA, Produktionsvorbereitung)",
+          "Fachliche Führung des Teams, d.h. Formulierung der Aufgaben, Review der fachlichen Ergebnisse einschließlich Moderation eines wöchentlichen",
+          "Teammeetings.",
+          "Bericht an Gesamtprojektleitung in Form eines Statusberichtes im wöchentlichem Projektleitermeeting.",
+          "Planung und Steuerung von Budget, Meilensteinen, Aktivitäten und CR's",
+          "Abstimmung und Analyse von Schnittstellen zu anderen Teilprojekten des GUT sowie bestehenden Systemen der Bank: o Buchung COREALK (Kontokorrent Inland) o Buchung IBS (Kontokorrent Auslandseinheiten) o GUT-SD Stammdaten Infomanagement o GUT-ZV-PKV Stammdaten Zahlungsverkehr o GUT-IM Leistungsdaten Infomanagement o GUT-KOFI Leistungsdaten Konverter Finanzinformationen o GUT-IM Entäußerung elektronische Formate wie S.W.I.F.T. o AFP-Druckstraße Entäußerung Papier Abrechnung",
+          "AVW Meldewesen Bundesbank o CODABAS Statistiksystem für Kundenspiegel o AUST/REZI Reziprogressivität mit anderen Banken o Schnittstelle zum SAS Rechner für ZFK und ZIB"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken:",
+      "Wertpapiere",
+      "Zahlungsverkehr",
+      "Devisenhandel",
+      "Derivate",
+      "Kredite",
+      "Telekommunikation:",
+      "Billing",
+      "Kundenadministration",
+      "Banken",
+      "Telekommunikation"
+    ],
+    "focus_areas": [
+      "Projektkoordination",
+      "Scrum Master",
+      "Testmanagement",
+      "Consulting",
+      "Bussinenalyse mit Branchenkenntnissen Investmentbanking Zahlungsverkehr Wertpapier",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Schwerpunkt Banken interessante Projektleitung.",
+      "1994 - 1996",
+      "Zertifizierter Börsenhändler EUREX",
+      "Releasemanagerschulung (IHK)",
+      "Training für Projekt Manager",
+      "Erstellung von ABAP/4 Reports (SAP)",
+      "Einführung in SAP FI Dialogfunktionen",
+      "Objektorientierte Analyse und Design",
+      "Objektorientierte Technologie-Konzepte",
+      "Betriebssystem ATMOS für Systemprogrammierer",
+      "RDB Datenbank Administration",
+      "VMS Systemarchitektu",
+      "Businessanalyse",
+      "Realisierung",
+      "Releasemanagement",
+      "Coaching",
+      "Schulung",
+      "Training",
+      "Projektmanagement",
+      "Organisation",
+      "Koordination"
+    ],
+    "focus_experience": [
+      {
+        "name": "RELEVANTE PROJEKTERFAHRUNG",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "15 Jahre Erfahrung in der Projektkoordination auch in Großprojekten und",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "als Multiprojektkoordinator",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "10 Jahre IT-Beratung und Businessanalyse bei Banken/Finanzdienstleistern",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "mit den fachlichen Schwerpunkten Wertpapier",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Zahlungsverkehr und",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Investmentbanking",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "5 Jahre praktische Erfahrung als Testspezialist für ein komplexes IT-",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Umfeld. Entwicklung von Teststrategien mit den Stoßrichtungen:",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Systemtest",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Abnahmetest",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Schnittstellentest",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "End-to-End Test",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Prüfung",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Betriebsführungs-handbücher",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Performancetest",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "fachlicher Test",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Regressionstest.",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "* Kernaufgaben: Testfälle erstellt",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Tests unter Einsatz von Test Tools",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "geplant",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "die Testorganisation aufgesetzt",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "das Defect-Management betreut",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "die fachlichen Tests durchgeführt und den Testfortschritt an das",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Management reportet.",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "10 Jahre Systementwicklung / -einführung / - weiterentwicklung",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "(Erstellung Fachkonzepte",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Realisierungsbegleitung",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "etc.)",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Mitarbeit in internationalen Projekten mit der Projektsprache Englisch",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "BERUFLICHER WERDEGANG",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "seit 1997",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "freiberuflich tätig mit den Schwerpunkten Consulting",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Projektkoordination",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Testmanagement und Releasemanagement",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "1996 - 1997",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Telekurs Finanz als Projektleiter",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "1995 - 1996",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Mummert + Partner als Berater",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "1987 - 1995",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "debis Systemhaus GEI als Softwareentwickler",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "IT-Architekturen",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "* Mainframe (IBM 390) mit IMS DB/DC und CICS",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "* Client-Server (PC",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "DEC",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "UNIX)",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "* Internet-Server (WEBSITE",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "APACHE)",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Entwurfsmethoden",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "OOA/OOD (Coad & Yourdon)",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "SA (PROMOD)",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Visio Professional",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Kommunikation",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Netscape Communicator",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Lotus Notes",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "MS-Office",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Lotus-Smartsuite",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Word Perfekt",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "MS-Project",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Applikationen",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "EUREX",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "DEVON 2.2.2",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Pavone Controlling Monitor",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "MONTRAN",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "FIVEST",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "FINXS",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "FIMS",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "OBS",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "MUREX",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "SUMMIT",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "TREMA (Wallstreet System)",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "FIDESSA",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "GLOSS",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "IBS",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "MERIAN",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "SAMBA",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "ARS REMEDY",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "MARTINI",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "HELIOGRAPH",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "SIMCORP DIMENSION",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "CHARLES RIVER TRADING SYSTEM",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "SAP SD",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "SAP FI",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "SAP BA (Bank Analyser)",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "CORONA",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "Standards",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "* S.W.I.F.T. im Zahlungsverkehr und im Wertpapiergeschäft bzgl. Analyse",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "Konzeption",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Realisierung und Test",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "CMMI",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "ISO 9000",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "SEPA",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Testtools",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Win Runner",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Load Runner",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "* HP Quality Center (Requirement Modul",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Testplan Modul",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Testlab Modul",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Defects Modul)",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Sonstige DEC Tools",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "DEC-Design",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "DEC-Forms",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "VAX-Document",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "ACMS",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "DEC-CMS",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "DCL",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Sonstige IBM Tools",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "IMS-DB/DC",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "ISPF",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "QMF",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "JCL",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Businessanalyse",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Consulting",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "Realisierung",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Releasemanagement",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Scrum Master",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Testmanagement",
+        "category": "product_standard",
+        "sort_order": 120
+      }
+    ],
+    "education": [],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Technisches Management (Deutsche Bahn AG), 03/02 - 03/04\nReferenz durch Teamleiter DB SYSTEMS vom 10.05.04\n\"Der Berater arbeitete als Multi-Projektleiter im Releasemanagement. Er koordinierte dabei technische und fachliche Abnahmen sowie die Einführungen komplexer Systeme aus dem Bereich Fahrweg der DB Netz AG in heterogenen Umgebungen [...]. Er war dafür verantwortlich Angebote für Abnahme- und Einführungsprojekte zu erstellen, die Abnahme und Einführung zu planen, vorzubereiten sowie die Durchführung zu steuern und zu überwachen mit dem Ziel termingerecht innerhalb des Budgets die Systeme produktiv zu setzen. Zu seinen Aufgaben gehörte zudem die Prozesse für die technische Abnahme und Einführung zu erarbeiten, abzustimmen und zu dokumentieren. Der Berater hat seine Aufgaben zu meiner vollsten Zufriedenenheit erledigt. Er war stark motiviert und kundenorientiert. Ich kann den Berater uneingeschränkt anderen Anbietern von Projekten empfehlen.\"\nProjekt GUT Auslandzahlungsverkehr & EU-Direktive (Commerzbank), 04/99 - 10/01\nReferenz durch Geschäftsführer SOLTRX (Commerzbank) vom 10.05.04\n\"Der Consultant war zunächst als Projektleiter EU Direktive im Auslandszahlungsverkehr und später als Teilprojektleiter / Coach des Großprojektes GUT (Auslandszahlungsverkehr der Commerzbank) für verschiedene Teilprojekte (Dienstleistungsabrechnung, Status und Referenzierung, Rekla Management) für Fachlichkeit, Termin und Budget verantwortlich. Trotz komplexer Fachlichkeit, enger Termine und knappen Budget hat der Consultant die Projektleitung zu meiner vollsten Zufriedenenheit erledigt. Zudem war er lösungsorientiert, hoch motiviert und stark belastbar. Deshalb empfehle ich den Consultant an andere Projektanbieter weiter und wünsche ihm alles Gute für seine zukünftigen beruflichen Aufgaben.\"\nAlle Referenzen sind durch GULP bestätigt.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Bus",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IBM LAN Server",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IMS/DC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISPF-DMS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LU6.2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:44:57.244912",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "TECH: 29→28 bei '05/2000 - 10/2001'",
+        "ACT: 8→7 bei '02/2017 - 09/2017'",
+        "ACT: 7→6 bei '03/2002 - 03/2004'",
+        "EDV_SEIT: None→2000"
+      ],
+      "coverage_percent": 86.96120689655173,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

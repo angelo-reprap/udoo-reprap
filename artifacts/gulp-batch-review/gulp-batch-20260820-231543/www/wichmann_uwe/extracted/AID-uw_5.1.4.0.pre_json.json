@@ -1,0 +1,1188 @@
+{
+  "metadata": {
+    "aid": "AID-uw_5.1.4.0",
+    "version": "5.1.4.0",
+    "consultant_dir": "wichmann_uwe",
+    "first_name": "Uwe",
+    "last_name": "Wichmann",
+    "headline": "Testanalyst/Tester/Testmanagement, Business-Analyst, Anwendungsentwickler Mainframe IBM",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:07:39.823491"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Uwe",
+      "last_name": "Wichmann",
+      "birth_year": 1953,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Wort und Schrift)",
+          "level": ""
+        }
+      ],
+      "availability": "15.06.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "934xx Blaibach, Deutschland",
+      "headline": "Testanalyst/Tester/Testmanagement, Business-Analyst, Anwendungsentwickler Mainframe IBM",
+      "edv_experience_since": 2008
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DB2",
+        "DL/1",
+        "Focus DB (Information Builders)",
+        "IMS",
+        "Lotus Notes 8.5",
+        "ODBC",
+        "Oracle-DB",
+        "SQL",
+        "VSAM"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Client-Server",
+        "IBM Großrechner",
+        "PC",
+        "Siemens Großrechner",
+        "Teradata"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "BS1000",
+        "BS2000",
+        "IBM ISPF",
+        "Linux",
+        "MS-DOS",
+        "MVS",
+        "OS/390",
+        "WANG",
+        "Resource",
+        "Windows",
+        "Windows Vista",
+        "Windows 7",
+        "Z/OS"
+      ],
+      "programming_languages": [
+        "AFP",
+        "Assembler",
+        "CA-EARL",
+        "CA-TELON",
+        "CList",
+        "Cobol Seit 1983",
+        "COBOL2",
+        "COBOL2002",
+        "Delta",
+        "DELTA-COBOL",
+        "Easytrieve Plus",
+        "FOCUS",
+        "FOCUS (Information Builders)",
+        "Java",
+        "JavaScript",
+        "JCL",
+        "QMF",
+        "Rexx",
+        "ROCHADE",
+        "SWT01"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "HP ALM 11",
+        "Anwendungsentwickler IBM Mainframe",
+        "CICS",
+        "IMS/DC",
+        "Internet",
+        "Intranet",
+        "SPUFI"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "07/2018 - 10/2019",
+        "company": "Bundesagentur für Arbeit",
+        "title": "E-Akte E-Justiz incl. Barrierefreiheit, Nürnberg",
+        "role": "Testingenieur",
+        "activities": [
+          "Aufgaben:",
+          "Testfallerstellung von manuellen Tests mit Silk Test",
+          "Testfallerstellung schlüsselwortbasiert mit TAMARA Tool unter Swet4",
+          "Schlüsselwortbasiertes Testen (automatische Tests)",
+          "Testen (automatische Tests)",
+          "Ausführen von BUG Hunts",
+          "Regressionstests",
+          "Testfallerstellung nach"
+        ],
+        "industry": "Öffentlicher Dienst",
+        "location": "Nürnberg",
+        "technologies": [
+          "Silk Test",
+          "TAMARA",
+          "Swet4"
+        ]
+      },
+      {
+        "period": "09/2017 - 06/2018",
+        "company": "FiduciaGad München",
+        "title": "Karten & Onlinezugänge Agree21, München",
+        "role": "Testanalyst / Tester",
+        "activities": [
+          "===================================================== =========================="
+        ],
+        "location": "München"
+      },
+      {
+        "period": "05/2016 - 08/2017",
+        "company": "Fiducia GAD",
+        "title": "Kunde Stammdaten, München",
+        "role": "Testanalyst / Tester / Business Analyst",
+        "technologies": [
+          "Visualizer",
+          "Testfall-DB",
+          "Bugs&Wishes",
+          "Word 2010",
+          "Excel 2010",
+          "SVN-Subversion",
+          "agree21",
+          "Java"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Analyse und Erstellen Fachkonzepte für die Bereiche Kundenberichte, Personenverwaltung, AnaCredit, MiFIDII nach vorliegenden Pflichtenheften und Requirements.",
+          "MiFIDII nach vorliegenden Pflichtenheften und Requirements.",
+          "Fachliche Klärung mit den verschiedenen Abteilungen.",
+          "Testfalldurchführung von diversen Bankprozessen im Bereich Kunde (Kernbankensystem agree21)",
+          "Kunde (Kernbankensystem agree21)",
+          "Schnittstellen zu diversen Anwendungen der Bank. Testen der Fachlichkeit, „anlegen Berechtigungen“ (RBF-Masken, Java) agree21",
+          "(RBF-Masken, Java) agree21"
+        ],
+        "industry": "Banken",
+        "location": "München"
+      },
+      {
+        "period": "12/2015 - 04/2016",
+        "company": "Fiducia GAD",
+        "title": "SB und Kassenumfeld Bank, München",
+        "role": "Testanalyst / Tester ISTQB",
+        "technologies": [
+          "Testfall-DB",
+          "Bugs&Wishes",
+          "Word 2010",
+          "Excel 2010",
+          "SVNSubversion",
+          "Online agree21"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Testen der Oberflächensteuerung von Geldautomaten und Cash-Recyclern.",
+          "Testen Migration von Seccos 6 nach Seccos7.",
+          "Testen Encryption TDES nach AES.",
+          "Testen der erstellen Applikationen/Software im agree21 SB Umfeld",
+          "Öffnen der Kassen. Ein und Auszahlungen am GAA.",
+          "Vorbereitete Ein und Auszahlungen am GAA.",
+          "Prüfen von PIN Eingaben."
+        ]
+      },
+      {
+        "period": "08/2015 - 11/2015",
+        "company": "FIDUCIA GAD",
+        "title": "CRS Auslandssteuer agiles Testing SCRUM, Karlsruhe München",
+        "role": "Testanalyst / Tester",
+        "technologies": [
+          "Visualizer",
+          "Testfall-DB",
+          "Bugs&Wishes",
+          "Word 2010",
+          "Excel 2010",
+          "SVN-Subversion"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "OECD, Austausch von steuerlichen Informationen von natürlichen und juristischen Personen meldepflichtiger Konten an BZST. ab 2016",
+          "Sprint Planing",
+          "Daily Scrum anhand des Taskboards (Kanban-Tafel)",
+          "Sprint Review",
+          "Product und Sprint Backlog",
+          "Impediments",
+          "Planungspoker",
+          "München"
+        ]
+      },
+      {
+        "period": "09/2014 - 02/2015",
+        "company": "Deutsche Bank",
+        "title": "Magellan Payments Core Zahlungsverkehr Inland (Postbank), Frankfurt",
+        "role": "Testanalyst / Tester HP-QC ALM 11 (ISTQB)",
+        "technologies": [
+          "HOST",
+          "NOS-FE",
+          "SAP-GUI",
+          "SAP-PS",
+          "SAP-DM",
+          "SAP-CML",
+          "SAP-BA",
+          "HP-ALM 11.52",
+          "Word",
+          "Excel",
+          "Snagit9",
+          "SAP Netweaver"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Migration HOST nach SAP",
+          "Im Rahmen des Magellan Programmes ist für die Retail Applikation der Deutschen Bank ein Wechsel der technischen Plattform von Mainframe auf SAP basiertes Umfeld vorgesehen.",
+          "Midrange Plattform SAP-PS, Mainframe Plattform ZVKK",
+          "Mittels Locator (ALS) Buchungsposten nach SAP oder ZVKK routen.",
+          "PGK Kontenmigration (SPAR, GIRO, Mandanten)",
+          "Erstellen Testfälle auf Basis von Requirements (PRD, DSRS)",
+          "Erstellen Testfallentwurf auf Basis von Entscheidungstabellen"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "01/2014 - 07/2014",
+        "company": "Commerzbank",
+        "title": "Modernisierung Meldewesen Bereiche SolvV GroMiKV LCR/NSFR, Frankfurt",
+        "role": "Testmanager / Defect Manager HP-QC ALM 11",
+        "technologies": [
+          "HP-ALM QC 11",
+          "MS-Office (Word",
+          "Excel",
+          "PowerPoint)",
+          "Outlook",
+          "SQL",
+          "SnagIT"
+        ],
+        "activities": [
+          "CoRep, FinRep, EK-DataMart, IFRS, CRD IV, ABACUS / DaVinci",
+          "Aufgaben:",
+          "Review der Testkonzepte, Teststeckbriefe, Testszenarien, Quality Gates und IKS Checklisten",
+          "Anlegen von User in HP ALM 11 QC (Userverwaltung)",
+          "Vergeben von Rollen in HP ALM 11 QC",
+          "Anlegen von Folder im Modul Test Plan und Test Lab",
+          "Anlegen von New Releases und New Cycle im Modul Management",
+          "Erstellen Analysis View und Dashboard View im Modul Dashboard."
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "10/2013 - 12/2013",
+        "company": "Commerzbank",
+        "title": "Riskmanager PD-Rating in verschiedenen Anwendungen, Frankfurt",
+        "role": "Testanalyst / Tester (ISTQB) HP-QC ALM 11",
+        "technologies": [
+          "Retests",
+          "HP-QC ALM 11",
+          "Oracle-DB",
+          "SQL-Developer-3.2",
+          "MS-Outlook",
+          "IRISServer",
+          "Middleware",
+          "MS-Sharepoint",
+          "RDMB",
+          "GDP Kundenbasisdaten",
+          "Excel",
+          "Word"
+        ],
+        "activities": [
+          "(Workflow)",
+          "Aufgaben:",
+          "Ermittlung / Beschreibung Testfälle auf Basis des Fachkonzepts. Erfassen der Testfälle in das Tool HP-QC ALM 11.",
+          "Klärung offener Fragen mit den Fachabteilungen. Erfassen Stammdaten, Finanzanalyse, Kontoverhalten,",
+          "Darlehensverhalten, Creditreform, Schufadaten und Assetdaten.",
+          "Anlegen von Analysen für juristische Personen, Gesellschaften, Firmen,",
+          "Länder und Banken. Ermitteln Bonitätsrating.",
+          "Erstellen Ratingbogen.",
+          "Frankfurt"
+        ]
+      },
+      {
+        "period": "04/2013 - 06/2013",
+        "company": "FMSA (Bundesanstalt für Finanzmarktstabilisierung)",
+        "title": "Bankenabgabe Restrukturierungsfonds",
+        "role": "Tester/Testdesigner (ISTQB)",
+        "technologies": [
+          "Lotus Notes 8.5",
+          "SAP Net Weaver",
+          "SAP GUI for Windows",
+          "ERP",
+          "SAP-SD",
+          "FI",
+          "Excel",
+          "Word"
+        ],
+        "activities": [
+          "Frankfurt (Deutsche Bundesbank)",
+          "Aufgaben:",
+          "Projekt BaRes Jahresbeitrag",
+          "Durchführung von funktionalen Tests einer SAP-ERP Anwendung (Online) nach vorgegebenen Geschäftsprozessen. Anlegen, ändern von Stammdaten für Kreditinstitute.",
+          "Erstellen von Meldungen mit Ausgabe von Bescheiden (Jahresbeitrag)",
+          "Die Berechnung der Bankenabgabe und deren Übergabe ins Rechnungswesen erfolgt über SAP-SD. Die Finanzbuchhaltung mit SAP-FI, offene Posten",
+          "Buchhaltung, Mahnungen mit Mahnbescheiden erstellen.(Batchläufe).",
+          "Bescheide ausdrucken und überprüfen."
+        ]
+      },
+      {
+        "period": "07/2012 - 11/2012",
+        "company": "GEZ (Gebühreneinzugszentrale) Köln",
+        "title": "Rundfunkbeitragsinformations-System (Rubin) Teilprojekt",
+        "role": "Tester (ISTQB)",
+        "technologies": [
+          "Lotus Notes 8.5",
+          "Serena",
+          "AQT-Tool",
+          "WinSCP",
+          "Putty. UseCases",
+          "Excel",
+          "XML",
+          "Linux",
+          "DV2005",
+          "DB2"
+        ],
+        "activities": [
+          "Rufi13 (neues Rundfunkbeitragsgesetz)",
+          "Aufgaben:",
+          "Testfälle aus (Use Cases) Testdurchführung, Dokumentation.",
+          "Durchführung von Tests und Abnahme von eigen entwickelter Software Online und Batch. Starten von Jobs mit Putty (Linux Server).",
+          "Erfassen von Testdaten mit DV2005 (Online-Erfassung).",
+          "Selektion von Testdaten aus dem Datenbestand und Anpassung der Daten. Dokumentation der Tests- und Abnahmedurchführung.",
+          "Dokumentation der Tests- und Abnahmedurchführung.",
+          "Testergebnisse prüfen mit AQT-Tool Abfragen diverser DB2-Tabellen.",
+          "Überprüfen XML-Files und Kontoauszüge."
+        ],
+        "industry": "Öffentlicher Dienst",
+        "location": "Köln"
+      },
+      {
+        "period": "06/2012 - 07/2012",
+        "company": "Baumarktdirekt (Otto-Group) Hamburg",
+        "title": "Erstellen Testfälle und Testschritte",
+        "role": "Tester (ISTQB) HP-Quality-Center",
+        "technologies": [
+          "MS-Excel",
+          "MS-Outlook",
+          "VMWare",
+          "Web Anwendung (OnlinePortal)",
+          "HP-Quality-Center",
+          "Server",
+          "Windows XP"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Baumarkt-Direkt Projekt Osaka Drittanbieter",
+          "Erstellen Testfälle und Testschritte im HP-Quality-Center nach fachlichen",
+          "Vorgaben. Testen der Online-Webanwendung Ent-to-End Tests mit verschiedenen Systemen (AMOS, NOA-CLS, WSI,",
+          "TERADATA). Bestellung, Lieferscheine, Rechnungen und Retouren.",
+          "Einstellen von Defects im HP-Quality-Center. Retest.",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "05/2009 - 12/2011",
+        "company": "Commerzbank - Frankfurt",
+        "title": "KP2.0 und Migration Personendaten (Stammdaten) Dresdner Bank",
+        "role": "Tester / Testanalyst (ISTQB) HP-QC Entwickler",
+        "technologies": [
+          "Testdaten erstellen",
+          "Cosmol - Repository",
+          "XPEDITER",
+          "ORACLE SQL-DEVELOPER",
+          "SPUFI",
+          "HP-Quality-Center",
+          "Sharepoint",
+          "PEV",
+          "RUMBA",
+          "XINFO",
+          "HP-SERVICE-CENTER. OFIM",
+          "XML",
+          "Excel",
+          "Word"
+        ],
+        "activities": [
+          "Entwicklung von Cobol, IMS, DB2 Programme für die Migration Dresdner-Bank zur Commerzbank. Schnittstellen Programm zum Permanentläufer.",
+          "Aufgaben:",
+          "Analyse bestehender Programme und erstellen Fachdesign",
+          "Verarbeiten XML-Dateien in Cobol Programm",
+          "Fragmentierte DB2 Tabellen",
+          "Testen der Programme mit XPEDITER",
+          "Entwicklung mit dem Tool PANVALET"
+        ]
+      },
+      {
+        "period": "05/2008 - 12/2008",
+        "company": "UniCredit Group / HypoVereinsbank München",
+        "title": "IRIS Integriertes Renten-Informations-System (Wertpapier- Emissionen)",
+        "role": "Tester / Testdesigner / Testmanager (HP-QC)",
+        "technologies": [
+          "HP-Quality-Center",
+          "MS-Outlook",
+          "MS-OFFICE 2007",
+          "TSO-ISPF",
+          "SDSF",
+          "DB2",
+          "IMS",
+          "TABEX"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Geschäftsprozesse zusammen mit den Fachabteilungen analysiert.",
+          "Aus der Analyse 800 Testfälle erstellt. (Host-Applikationen).",
+          "Erfassen Testfälle sowie Testsequenzen im HP-Quality-Center",
+          "Testinfrastruktur, Planung auf Aufbau",
+          "Definieren von Testzielen",
+          "Support bei Online-Tests, Auswertung der Ergebnisse, Listen, Dateien und DB2-Tabellen mit Tabex. Auswertung mit SPUFI-SQL",
+          "Emissionen)"
+        ]
+      },
+      {
+        "period": "01/2008 - 02/2008",
+        "company": "Hypo-Vereinsbank",
+        "title": "ALSTER Abgeltungssteuer Integrationstest Testmanagement",
+        "role": "Tester",
+        "technologies": [
+          "Mercury Quality-Center",
+          "MS-Outlook",
+          "MS-EXCEL",
+          "MS-WORD"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Analyse und Abstimmung mit den Fachbereichen Aufbau Quality-Center. Einstellen Anwendungssysteme und Testfälle sowie Testsequenzen",
+          "Testinfrastruktur , Planung auf Aufbau",
+          "Internationale Ausrichtung mit über 40 Systemen (Tributum, PEER usw.) den dazugehörigen Bestände, Programme und Jobs. HVB zur CACEIS Bank ===================================================== ==========================",
+          "Kunde:",
+          "Workshop SILK-TEST (Testautomation) Firma IMBUS AG",
+          "Testinfrastruktur, Planung auf Aufbau"
+        ],
+        "industry": "Banken"
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Genossenschaftliches IT-Umfeld",
+      "Börse (Wertpapiere)",
+      "Automobilindustrie",
+      "Telekom",
+      "Dienstleistungen",
+      "Börse",
+      "Handel",
+      "Behörden",
+      "ältere Projekte auf Anfrage",
+      "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]"
+    ],
+    "focus_areas": [
+      "Testanalyst/Tester/Testmanagement",
+      "Business-Analyst",
+      "Anwendungsentwickler Mainframe IBM",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Fehlermanagement",
+      "Applikationssupport",
+      "DBA Administration",
+      "Definieren von Testzielen, Testplanung und Testinfrastruktur",
+      "Migration",
+      "Qualitätssicherung",
+      "Software-Entwicklung auf IBM Host-Systemen (COBOL, DB2 und IMS)",
+      "Tester / Testanalyst / Testmanagement mit HP QC ALM 11 / HP-QC, Mercury Testdirector, Silk Test"
+    ],
+    "focus_experience": [
+      {
+        "name": "3270 Emulation",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "ABENDAID",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "AQT-Tool",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "BAP agree 21",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "BMC-CATALOG",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "BMC-TOOL",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Bugs & Wishes Defect Tool",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "CHANGE-MAN",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "CICS",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "CICS-CEDF",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "DB Visualizer DB2",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "DL/1",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Drittsysteme",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "ENDEVOR",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Excel",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "FILEAID / IMS",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "GDP Kundenbasisdaten",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "HOST",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "HP-ALM 11.52",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "HP-ALM QC 11",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "HP-Quality-Center ALM 11",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "IBM Notes 9",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "IMS-DB",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "IMS-DC",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "IMS-MFS (Masken)",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "IRIS-Server",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Java-Umfeld",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "MAESTRO2",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Mercury TESTDIRECTOR",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Middleware",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "MS-ACCESS",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "MS-Excel",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "MS-Office (Word",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "MS-Outlook",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "MS-POWERPOINT",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "MS-Sharepoint",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "MS-WORD",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "MSP-DATAMANAGER",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "NCR/TERADATA-SQL",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "NOS-FE",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "OFIM / IMS",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "OLIVER",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "ORB-DB",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Outlook",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "PANVALET",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "PLATINUM",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "PowerPoint)",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "PuTTY",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "WINSCP3",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Putty. UseCases",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "RDMB",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "SAP ERP",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "SAP GUI for Windows",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "SAP Netweaver",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "SAP-BA",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "SAP-CML",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "SAP-DM",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "SAP-ERP-FI",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "SAP-GUI",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "SAP-PS",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "SAP-SD",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "SCLM",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "SDSF",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Serena",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "SERENA Business Manager (Defect-Tool)",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Server",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Sharepoint",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "SILK-TEST (Testautomation) mit VM Lab-Manager",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "SnagIT",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Snagit9",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "SQL-Developer-3.2",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "SQS-TEST",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "TABEX",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Testfall DB",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "TSO-ISPF",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "UniServ",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "VIASOFT/SMARTEST",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "VMWare",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Webanwendung(Online-Portal)",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "WinSCP",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "Word",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "XMLSPY",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "XPEDITER",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Z/OS",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "ZSR Rechenkern",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Applikationssupport",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "Core-Banking-Système: agree21",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Magellan",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Eurosig",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "WP2 (WPServe",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "WPDirekt)",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "MBS",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "DBA Administration",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Definieren von Testzielen",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Testplanung und Testinfrastruktur",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Migration",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Qualitätssicherung",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Software-Entwicklung auf IBM Host-Systemen (COBOL",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "DB2 und IMS)",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Tester / Testanalyst / Testmanagement mit HP QC ALM 11 / HP-QC",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Mercury",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Testdirector",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Silk Test",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "PuTTY, WINSCP3",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Testfall DB,",
+        "category": "product_standard",
+        "sort_order": 107
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ausbildung zum Operator",
+        "institution": "Fachschule für Datenverarbeitung",
+        "period": "1972 - 1973",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zum Programmierer",
+        "institution": "Fachschule für Datenverarbeitung",
+        "period": "1976 - 1977",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung für IMS, CICS, DL1",
+        "institution": "Fachschule für Datenverarbeitung",
+        "period": "1986 - 1987",
+        "education_type": "course"
+      },
+      {
+        "degree": "Datenverarbeitungskaufmann IHK München",
+        "institution": "",
+        "period": "1989",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zum Datenbankadministrator DB2",
+        "institution": "",
+        "period": "1995",
+        "education_type": "course"
+      },
+      {
+        "degree": "DB2-Version 7 UDB for OS/390 and z/OS",
+        "institution": "",
+        "period": "2001",
+        "education_type": "course"
+      },
+      {
+        "degree": "ISTQB Certified Tester Foundation Level",
+        "institution": "",
+        "period": "2008",
+        "education_type": "course"
+      },
+      {
+        "degree": "Workshop SILK-Test",
+        "institution": "",
+        "period": "2012",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "svn-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "subversion",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "db2-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "sap-erp-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "active",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "office",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:07:39.823502",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2008",
+        "AUTO_SKILLS: +6 in skill_ablage"
+      ],
+      "coverage_percent": 93.14024390243902,
+      "auto_added_skills": 6,
+      "integrity_ok": true
+    }
+  }
+}

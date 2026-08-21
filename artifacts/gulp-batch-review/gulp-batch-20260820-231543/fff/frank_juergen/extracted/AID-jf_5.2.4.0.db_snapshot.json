@@ -1,0 +1,391 @@
+{
+  "personal": {
+    "aid": "AID-jf_5.2.4.0",
+    "first_name": "Juergen",
+    "last_name": "Frank",
+    "birth_year": 1965,
+    "location": "D8, Österreich, Schweiz, außerhalb D/A/CH im Umkreis von: München",
+    "availability": "01.10.19 zu 100%, Vor-Ort-Einsatz 80% möglich",
+    "edv_experience_since": null,
+    "headline": "Microwave-Plannning (PDH, SDH, IP), Fixed-Network-Planning, Parameter- Planning (IP), Project-Management Radio-Networks (GSM, UMTS, LTE)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 6,
+    "skills": 37,
+    "certifications": 0,
+    "education": 1,
+    "experience": 9,
+    "industries": 5,
+    "focus_areas": 10,
+    "focus_experience": 10,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Französisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Latein (Großes Latinum)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend (2 Jahre Tätigkeit in",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diplom-Ingenieur (Fachhochschule)",
+      "institution": "FH Frankfurt am Main",
+      "period": "1985-1989",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Autobranche",
+    "Versicherungen",
+    "Banken",
+    "Reisebranche",
+    "Netzbetreiber"
+  ],
+  "focus_areas": [
+    "Microwave-Plannning (PDH",
+    "Fixed-Network-Planning",
+    "Parameter- Planning (IP)",
+    "UMTS",
+    "LTE)",
+    "Beratung / Consulting",
+    "Microwave-Plannning (PDH, SDH, IP)",
+    "Parameter-Planning (IP, UMTS, LTE)",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Engineering / IT-nahe Ingenieurdienstleistungen"
+  ],
+  "focus_experience": [
+    {
+      "name": "ISO/OSI Schichtenmodell",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerk-Hardware",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISDN",
+      "category": "product_standard"
+    },
+    {
+      "name": "VSAT: Datenkommunikation über Satelliten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Richtfunkplanung mit IQ-Link (ComSearch)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Festnetzplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Planung komplexer IP-Netze (einschließlich Infrastruktur)",
+      "category": "product_standard"
+    },
+    {
+      "name": "VSAT",
+      "category": "product_standard"
+    },
+    {
+      "name": "IQ-Link (ComSearch)",
+      "category": "product_standard"
+    },
+    {
+      "name": "IP-Netze",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "12.95 - 5.96",
+      "company": "Großklinikum",
+      "role": "Projekt : Projektleitung",
+      "title": "Projekt : Projektleitung",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "3.96 - 4.96",
+      "company": "Messegesellschaft",
+      "role": "Projekt : Planung",
+      "title": "Projekt : Planung",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "5.96 - 11.96",
+      "company": "Energieversorgungsunternehmen",
+      "role": "Projekt : Unterstützung bei Produktauswahl und Netzkonzeption",
+      "title": "Projekt : Unterstützung bei Produktauswahl und Netzkonzeption",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "3.98",
+      "company": "Technischer Gebäudeausrüster",
+      "role": "Projekt : Planung aktive Netzwerkkomponenten",
+      "title": "Projekt : Planung aktive Netzwerkkomponenten",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "5.99 - 7.99",
+      "company": "Festnetzbetreiber",
+      "role": "Projekt : LWL-Trassenplanung, Koordinierung mit",
+      "title": "Projekt : LWL-Trassenplanung, Koordinierung mit Genehmigungsbehörden",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "2.00 - 09-00",
+      "company": "TETRA-Betreiber",
+      "role": "Projekt : Richtfunk- und Festnetzplanung",
+      "title": "Projekt : Richtfunk- und Festnetzplanung",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "10.00 - 11.01",
+      "company": "E-Plus Mobilfunk GmbH & Co. KG",
+      "role": "Planungsbüro Stuttgart",
+      "title": "Planungsbüro Stuttgart",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "05.03 - 02.17",
+      "company": "E-Plus Mobilfunk GmbH & Co. KG - Planungsbüro Stuttgart",
+      "role": "Alcatel-Lucent Network Services GmbH,",
+      "title": "Alcatel-Lucent Network Services GmbH,",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "02.17 - heute",
+      "company": "AS Bayern",
+      "role": "Projekt : Richtfunk- und Festnetzplanung für TETRA, LOS-Tests, IP-",
+      "title": "Projekt : Richtfunk- und Festnetzplanung für TETRA, LOS- Tests, IP- Tests, IP-",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Richtfunk und Festnetzplanung, von 10/00 - 11/01\nReferenz durch E-Plus Mobilfunk GmbH&Co. KG, regionale Netzplanung\n\"Richtfunkplanung PDH/SDH im 15-38 GHz Bereich, Kapazitätsplanungen, LOS-Tests, Standortbegehungen mit Infrastrukturplanungen, Dokumentation, Visualisierung von Richtfunkstrecken\"\nAlle Referenzen sind durch GULP bestätigt.\n\nSonstige Anmerkungen:\nAls Ingenieur bin ich sehr flexibel und kann mich kurzfristig in nahezu jeden Aufgabenbereich einarbeiten.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Filemaker Grundkenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ascii/X - Terminals VT-100",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "X-Windows",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "X-Darwin",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Dos MS-DOS 3.3",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "6.2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "DR-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS 6.0.5 bis OS-X (10.10.3)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell 2.12 - 4.01",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "PalmOS 3.0 bis 4.1",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix Sun OS (Solaris)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS X",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 3.11 bis 8.1",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Fortran Fortran 77 Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Maschinensprachen Z80 Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen AppleScript + FileMaker Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TeX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "LaTeX Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Berechnung/Simulation/Versuch/Validierung",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "ATM An Schulung am EANTC teilgenommen",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "AppleTalk jahrelanger Nutzer",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "obsolet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet IEEE 802.3",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FDDI X3T9.5",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISDN E-DSS1",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Novell Netware 2.12-4.01",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Packet-Radio lizensierter Funkamateur (Klasse 2)",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "APRS",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNMP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP ja",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "auch MPLS",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "VLANs etc",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Token Ring IEEE 802.5",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "EAGLE Grundkenntnisse",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TARGET 3001! Grundkenntnisse",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

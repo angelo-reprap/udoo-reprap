@@ -1,0 +1,376 @@
+{
+  "metadata": {
+    "aid": "AID-hs_1.1.3.0",
+    "version": "1.1.3.0",
+    "consultant_dir": "soppa_helmut",
+    "first_name": "Helmut",
+    "last_name": "Soppa",
+    "headline": "Netzwerk Administrator",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:00:48.945962"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Helmut",
+      "last_name": "Soppa",
+      "birth_year": 1967,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "Thai",
+          "level": ""
+        }
+      ],
+      "availability": "20.08.15 zu 0%, Vor-Ort-Einsatz 0% möglich",
+      "location": "844xx Dorfen, Deutschland",
+      "wohnort": "844xx Dorfen, Deutschland",
+      "edv_experience_since": 1985,
+      "headline": "Netzwerk Administrator"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "ODBC",
+        "Oracle"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Alpha",
+        "Bus",
+        "CD-Writer / Brenner",
+        "Digital",
+        "HP",
+        "IBM RS6000",
+        "Modem",
+        "PC",
+        "SUN",
+        "IBM-Comp. RS6000"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Unix - Administration (SUN Solaris,Novell-Suse)",
+        "title": "Unix - Administration (SUN Solaris,Novell-Suse)",
+        "activities": [
+          "2003-2005",
+          "+ free IT Network Security Consultant for Unix-and WLAN security",
+          "Clients: Gouvernment and private companies",
+          "Main IT aspects: Corporate security audits, WLAN - Networkaudits",
+          "Planning and setup secure networking solutions",
+          "IPSEC VPN Solutions, Firewallplanning",
+          "Opensource/Firewallbuilder(Checkpoint Firewall-1,",
+          "Astaro Security Linux, Fortigate)"
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "Netzwerk Administrator",
+      "Software-Entwicklung / Programmierung",
+      "bevorzugt",
+      "Autodidakt seit 1985. Hardware IBM Comp. SUN, RS6000, DEC..",
+      "MS-DOS",
+      "SUN OS, Solaris",
+      "Unix",
+      "Windows",
+      "ODBC",
+      "Oracle",
+      "Alpha",
+      "CD-Writer / Brenner",
+      "Digital",
+      "IBM RS6000",
+      "Modem",
+      "SUN, IBM-Comp. RS6000, Ethernet",
+      "Internet, Intranet",
+      "ISDN",
+      "LAN, LAN Manager",
+      "NetBeui",
+      "NetBios",
+      "Packet-Radio",
+      "Router",
+      "RS232",
+      "SMTP",
+      "SNMP",
+      "TCP/IP",
+      "Windows Netzwerk",
+      "allgemeine Internetprotokolle:",
+      "TCP/IP, HTTP, FTP, SMTP, SNMP, etc.",
+      "Firewalls: Checkpoint, Nokia IP330, IPChains, Linux generics..",
+      "Gauntlet",
+      "Emailsysteme: Netscape Enterprise, Linux generic..",
+      "OS: SUN, Linux, W2000, WIN-NT, IBM, Unix derivate.."
+    ],
+    "focus_experience": [
+      {
+        "name": "allgemeine Internetprotokolle:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "TCP/IP",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "HTTP",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "FTP",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "SMTP",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "SNMP",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "etc",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Firewalls: Checkpoint",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Nokia IP330",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "IPChains",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Linux generics",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Gauntlet",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Emailsysteme: Netscape Enterprise",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Linux generic",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "OS: SUN",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Linux",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "W2000",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "WIN-NT",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "IBM",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Unix derivate",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Checkpoint",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Netscape Enterprise",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "SUN",
+        "category": "product_standard",
+        "sort_order": 22
+      }
+    ],
+    "education": [
+      {
+        "degree": "Autodidakt",
+        "institution": "",
+        "period": "seit 1985",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Packet-Radio",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:00:48.945976",
+    "source_file": "",
+    "steps_completed": [
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 77.68595041322314,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

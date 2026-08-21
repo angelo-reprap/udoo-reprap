@@ -1,0 +1,819 @@
+{
+  "personal": {
+    "aid": "AID-ce_2.1.4.0",
+    "first_name": "Christian",
+    "last_name": "Engels",
+    "birth_year": 1984,
+    "location": "538xx Niederkassel, Deutschland",
+    "availability": "01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2001,
+    "headline": "Senior ORACLE Entwickler (DWH, Schnittstellen, Datenmigration / - konsistenzprüfung, Konzeption)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 59,
+    "certifications": 0,
+    "education": 1,
+    "experience": 13,
+    "industries": 6,
+    "focus_areas": 7,
+    "focus_experience": 84,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Grundkenntnisse",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Fachinformatiker Anwendungsentwicklung",
+      "institution": "Kuttig Computeranwendungen GmbH, Troisdorf",
+      "period": "07/2001 - 06/2004",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Automobilindustrie",
+    "Energieversorger",
+    "Telekommunikation",
+    "EDV",
+    "Bank",
+    "Transport / Logistik"
+  ],
+  "focus_areas": [
+    "Senior ORACLE Entwickler (DWH",
+    "Schnittstellen",
+    "Datenmigration / - konsistenzprüfung",
+    "Konzeption)",
+    "Software-Entwicklung / Programmierung",
+    "07/2001 - 06/2004: Fachinformatiker Anwendungsentwicklung Abschluss: Fachinformatiker Anwendungsentwicklung Institution: Kuttig Computeranwendungen GmbH, Troisdorf Schwerpunkt: Aufnahme von Kundenanfo",
+    "Senior ORACLE Entwickler (DWH, Schnittstellen, Datenmigration / -konsistenzprüfung, Konzeption)"
+  ],
+  "focus_experience": [
+    {
+      "name": "Bugzilla 2014",
+      "category": "product_standard"
+    },
+    {
+      "name": "Informatica",
+      "category": "product_standard"
+    },
+    {
+      "name": "PowerCenter 2008",
+      "category": "product_standard"
+    },
+    {
+      "name": "8.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "JIRA 2020",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft",
+      "category": "product_standard"
+    },
+    {
+      "name": "Excel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft XP (2001 2013)",
+      "category": "product_standard"
+    },
+    {
+      "name": "2003 (2005 2013)",
+      "category": "product_standard"
+    },
+    {
+      "name": "2010 (2013 heute)",
+      "category": "product_standard"
+    },
+    {
+      "name": "365 (2020 -",
+      "category": "product_standard"
+    },
+    {
+      "name": "Office heute)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft 2001 2004 / 2009 2012",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Word",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE 2005 2008",
+      "category": "product_standard"
+    },
+    {
+      "name": "Designer 9i",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE 3.2 (2003 2004)",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.1 (2005)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Discoverer",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE 4.5 (2001)",
+      "category": "product_standard"
+    },
+    {
+      "name": "6i (2001 2005)",
+      "category": "product_standard"
+    },
+    {
+      "name": "10g (2008)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Forms",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE 3.0 (2001)",
+      "category": "product_standard"
+    },
+    {
+      "name": "6i (2001 2004)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Reports",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Developer 2014",
+      "category": "product_standard"
+    },
+    {
+      "name": "Data",
+      "category": "product_standard"
+    },
+    {
+      "name": "Modeler 4",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE 2001 heute",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL*Plus",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quest",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software 3 (2001)",
+      "category": "product_standard"
+    },
+    {
+      "name": "4 (2001 2006)",
+      "category": "product_standard"
+    },
+    {
+      "name": "5 (2007 2008)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Navigator",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software 2012",
+      "category": "product_standard"
+    },
+    {
+      "name": "Toad Data",
+      "category": "product_standard"
+    },
+    {
+      "name": "Modeler 4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software 9 (2008 2012)",
+      "category": "product_standard"
+    },
+    {
+      "name": "11 (2012 2013 / 2015 - heute)",
+      "category": "product_standard"
+    },
+    {
+      "name": "12 (2013 2015",
+      "category": "product_standard"
+    },
+    {
+      "name": "2018 -",
+      "category": "product_standard"
+    },
+    {
+      "name": "Toad for heute)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational 2005 2012",
+      "category": "product_standard"
+    },
+    {
+      "name": "ClearCase",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational 2005 2008",
+      "category": "product_standard"
+    },
+    {
+      "name": "ClearQuest",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tortoise 2012 - 2015",
+      "category": "product_standard"
+    },
+    {
+      "name": "2017 - 2018",
+      "category": "product_standard"
+    },
+    {
+      "name": "2020 - heute",
+      "category": "product_standard"
+    },
+    {
+      "name": "SVN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Abstimmung mit der Fachabteilung Zwecks Konzept-/Designerstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Black- und Whiteboxtests Durchführung und Dokumentation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konzept-/Designerstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Entwicklung SQL und PL/SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bugzilla",
+      "category": "product_standard"
+    },
+    {
+      "name": "Informatica PowerCenter",
+      "category": "product_standard"
+    },
+    {
+      "name": "JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Excel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft XP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office 2003",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office 2010",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office 365",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Word",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Designer 9i",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Discoverer",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Forms",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Reports",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE SQL Developer",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE Data Modeler",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORACLE SQL*Plus",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quest Software SQL Navigator",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quest Software Toad Data Modeler",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quest Software Toad for ORACLE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational ClearCase",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational ClearQuest",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tortoise SVN",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2020 - 11/2020",
+      "company": "Oldenburgische Landesbank",
+      "role": "Senior ORACLE Entwickler",
+      "title": "SA-CCR, Oldenburg",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "05/2018 - 12/2018",
+      "company": "Oldenburgische Landesbank",
+      "role": "Senior ORACLE Entwickler",
+      "title": "ABS / BKB Refinanzierung, Oldenburg",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "05/2016 - 06/2017",
+      "company": "Oldenburgische Landesbank",
+      "role": "Senior ORACLE Entwickler",
+      "title": "TXS / Pfandbrief, Oldenburg",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "05/2015 - 05/2016",
+      "company": "Oldenburgische Landesbank",
+      "role": "Senior ORACLE Entwickler",
+      "title": "Übertragung wesentlicher individueller, Oldenburg",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "10/2014 - 05/2015",
+      "company": "Deutsche Post IT Services",
+      "role": "Senior ORACLE Entwickler",
+      "title": "Informationssysteme Brief Transport (ISBT), Bonn",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "04/2014 - 09/2014",
+      "company": "BWI Informationstechnik",
+      "role": "Senior ORACLE Entwickler",
+      "title": "BWI IT Reporting Warehouse (RWH4BWI IT), Meckenheim, Rheinbach",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "02/2012 - 12/2013",
+      "company": "Deutsche Post IT Services",
+      "role": "Senior ORACLE Entwickler",
+      "title": "Informationssysteme Brief Transport (ISBT), Bonn",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "02/2009 - 02/2012",
+      "company": "Deutsche Telekom",
+      "role": "Senior ORACLE Entwickler",
+      "title": "Datawarehouse Prozesse (DWHP), Darmstadt",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "03/2008 - 12/2008",
+      "company": "Commerzbank",
+      "role": "Senior ORACLE Entwickler",
+      "title": "Zentraler Internationaler AuswertungsBestand (ZIAB), Frankfurt",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "12/2005 - 03/2008",
+      "company": "T-Online",
+      "role": "Senior ORACLE Entwickler",
+      "title": "Produktreferenzsystem (PRS), Darmstadt",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "03/2005 - 07/2005",
+      "company": "T-Systems",
+      "role": "ORACLE Entwickler",
+      "title": "ETC Überwachung / Interne Überwachung (UEWS), Dortmund",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "12/2001 - 09/2004",
+      "company": "Energieversorger",
+      "role": "ORACLE Entwickler",
+      "title": "STWT, NEVI, Troisdorf",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "08/2001 - 12/2001",
+      "company": "Automobilindustrie",
+      "role": "ORACLE Entwickler",
+      "title": "Weiterentwicklung und Wartung, Köln",
+      "activities": 9,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Entwicklung eines Systems zur Verwaltung und Verteilung aller Produktrelevanten Daten 12/05 - 03/08\nReferenz durch Systemverantwortlichen, TK (weltweit > 50.000 MA), vom 14.03.08\n\"Der Consultant verfügt über ein profundes Wissen im Umgang mit der ORACLE Datenbank sowie den darin eingesetzten Sprachen SQL und PL/SQL. Er hat das Projekt von der Spezifikations- über die Entwicklungs- und Testphase bis hin zur Produktivsetzung und dem Übergang in den Wartungsbetrieb begleitet. Die von ihm übernommenen Aufgaben in den Bereichen Spezifikation, Entwicklung und Test hat der Consultant zeitgerecht und in der geforderten Qualität erledigt. Neben der fachlichen Qualifikation sind besonders sein Engagement und die strukturierte Arbeitsweise hervorzuheben. Wir bedanken uns für den Einsatz und wünschen dem Consultant für seine berufliche Zukunft alles Gute.\"\nProjekt ETC Überwachung, 03/05 - 06/05\nReferenz durch Projektleiter ETC (IT / TK, weltweit > 50.000 MA), vom 01.07.05\n\"Der Consultant verfügt über ein profundes Wissen im Umgang mit ORACLE Forms 6i, ORACLE Discoverer 4.1, PL/SQL und SQL. Er hat das Projekt von der Spezifikation über die Entwicklungs- bis hin zur Testphase begleitet. Die von ihm übernommenen Aufgaben in den Bereichen Spezifikation, Entwicklung und Test hat der Consultant zeitgerecht und in der geforderten Qualität erledigt. Neben seiner fachlichen Qualifikation ist besonders sein Engagement, sein vorausschauendes Denken bei der Spezifikation und die strukturierte Arbeitsweise hervorzuheben. Wir bedanken uns für den Einsatz und wünschen dem Consultant für seine berufliche Zukunft alles Gute.\"\nAlle Referenzen sind durch GULP bestätigt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Exadata 2018 - heute",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Access 2010 2018",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 10g 2008 2013",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 11g 2012 2017",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 12c 2018 - heute",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 7 2001",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 8i 2001 2005",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 9i 2005 2008",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenaufbereitung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenkonsistenzprüfung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenmigration",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenmodelle Erstellung und Erweiterung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ETL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Handbüchern und technischen Erstellung und Bearbeitung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Dokumentatione",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Konzept-/Designerstellung Aufnehmen von Kundenanforderungen sowie",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ORACLE Entwicklung SQL und PL/SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Schnittstellen Erstellung und Erweiterung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 3.x / 95 / 98 / ME / 2000 / XP / 7 / 10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL 2001 heute",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL 2001 heute",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tortoise SVN",
+      "category_name": "Sonstige Skills",
+      "weight": 0.9
+    },
+    {
+      "name": "Microsoft Excel",
+      "category_name": "Business Software",
+      "weight": 0.95
+    },
+    {
+      "name": "Excel",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Word",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "JIRA",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "Microsoft Word",
+      "category_name": "Programmiersprachen",
+      "weight": 0.95
+    },
+    {
+      "name": "Microsoft Access 2010",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ORACLE SQL*Plus",
+      "category_name": "Sonstige Skills",
+      "weight": 0.95
+    },
+    {
+      "name": "Win",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "CVS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "SourceSafe",
+      "category_name": "Versionsverwaltung",
+      "weight": 0.38
+    },
+    {
+      "name": "ORACLE 12",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Bugzilla",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Microsoft Visio",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.75
+    },
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Peregrine ServiceCenter",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "ServiceCenter",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ORACLE Designer 9i",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "ORACLE Forms 6i",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Quest Software Toad for ORACLE 12",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "ORACLE SQL Loader",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Quest Software Toad for ORACLE 11",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Request System (ARS / Remedy)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "ORACLE Forms 10g",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Quest Software Toad for ORACLE 9.x",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Quest Software SQL Navigator 4.x / 5.x",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Quest Software SQL Navigator 4.2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Win CVS 1.3.1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ORACLE Discoverer 4.1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Navigator 4.1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Navigator 4.2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    }
+  ]
+}

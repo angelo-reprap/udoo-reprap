@@ -1,0 +1,1040 @@
+{
+  "personal": {
+    "aid": "AID-mk_2.3.2.0",
+    "first_name": "Mirko",
+    "last_name": "Krause",
+    "birth_year": null,
+    "location": "D2",
+    "availability": "01.05.21 zu 100%, Vor-Ort-Einsatz 60% möglich",
+    "edv_experience_since": 1994,
+    "headline": "Erfahrener JAVA Full-Stack Entwickler, Anwendungsentwicklung Internet, Java, Datenbanken, Softwarearchitektur und Programmierung",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 205,
+    "certifications": 0,
+    "education": 0,
+    "experience": 42,
+    "industries": 12,
+    "focus_areas": 20,
+    "focus_experience": 53,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Projekterfahrung",
+      "level": ""
+    },
+    {
+      "name": "Vue.js",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Banken",
+    "Finanzdienstleistungsunternehmen",
+    "Versicherungen",
+    "Automotive / Leasingbranche",
+    "Softwarehersteller",
+    "Internet",
+    "Medien",
+    "Verlagswesen",
+    "Maschinenbau",
+    "Energieversorgung",
+    "Elektrizitätswirtschaft",
+    "Gastronomie, Einzelhandel"
+  ],
+  "focus_areas": [
+    "Erfahrener JAVA Full-Stack Entwickler",
+    "Anwendungsentwicklung Internet",
+    "Java",
+    "Softwarearchitektur und Programmierung",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Interessenschwerpunkte: Software-Entwicklung und -design (Fullstack), Java-Technologien, Datenbankentwicklung und -design, Web-Dienste und Serviceorientierte Architekturen, JavaScript Frameworks 1995-",
+    "Studiengang: Softwaretechnik",
+    "Abschluss: Diplom-Informatiker (Diplomarbeit mit Auszeichnung) 1992-1995 Studium an der Fachhochschule Lübeck",
+    "Fachrichtung: Elektrotechnik / Techn. Informatik",
+    "Abschluss: Diplom-Vorprüfung",
+    "Weiterbildungen:",
+    "CAST Enlighten Training",
+    "CVS / Eclipse Workshop",
+    "Tcl/Tk Schulung",
+    "XML Schulung",
+    "Oracle Training",
+    "Objektorientierte Analyse und Design",
+    "J2EE Training"
+  ],
+  "focus_experience": [
+    {
+      "name": "AppAgile (Telekom Cloud)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bitbucket",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Docker",
+      "category": "product_standard"
+    },
+    {
+      "name": "First Spirit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Grafana",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML5",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ IDEA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kibana",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microservice-Architektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Online Payment (PayPal)",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenShift",
+      "category": "product_standard"
+    },
+    {
+      "name": "OTC",
+      "category": "product_standard"
+    },
+    {
+      "name": "REST",
+      "category": "product_standard"
+    },
+    {
+      "name": "Soap",
+      "category": "product_standard"
+    },
+    {
+      "name": "SonarQube",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Boot",
+      "category": "product_standard"
+    },
+    {
+      "name": "Terraform",
+      "category": "product_standard"
+    },
+    {
+      "name": "Berufserfahrung:",
+      "category": "product_standard"
+    },
+    {
+      "name": "11/2000-heute",
+      "category": "product_standard"
+    },
+    {
+      "name": "freiberuflicher IT-Consultant",
+      "category": "product_standard"
+    },
+    {
+      "name": "1994-2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "Diverse Projekte im Rahmen des Studiums",
+      "category": "product_standard"
+    },
+    {
+      "name": "in selbstständiger Tätigkeit bzw. als",
+      "category": "product_standard"
+    },
+    {
+      "name": "Angestellter entwickelt.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkt JAVA-Technologien:",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Servlet-API",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Applet",
+      "category": "product_standard"
+    },
+    {
+      "name": "AWT",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "JNDI",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML/DOM",
+      "category": "product_standard"
+    },
+    {
+      "name": "* am Rande: RMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "CORBA/IDL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Interessenschwerpunkte:",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Softwareentwicklung (OOA / OOD / OOP",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "ERM",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Überführung fachlicher Prozesse und -Zusammenhänge in Daten- und Objekt-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Modelle (OO-Design und -Entwicklung in Multi-Tier-Architekturen)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbankentwicklung und -design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Content Management Systeme (CMS) / eBusiness / eCommerce",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anwendungsentwicklung Internet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "Continuous Delivery",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbank-Design und Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrener JAVA Full-Stack Entwickler",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwarearchitektur und Programmierung",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "07/2020 - 03/2021",
+      "company": "Hermes Germany GmbH, Hamburg (OTTO Group)",
+      "role": "Fullstack Java Entwicklung und Unterstützung als DevOps",
+      "title": "myhermes.de (Privatkunden) / business.myhermes.de, Hamburg",
+      "activities": 10,
+      "technologies": 0
+    },
+    {
+      "period": "01/2019 - 10/2019",
+      "company": "Health AG (EOS Health IT-Concept GmbH / Otto Group)",
+      "role": "",
+      "title": "Hea die webbasierte vernetzte Praxissteuerung, Hamburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2017 - 09/2018",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA OCSO II, Hamburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2016 - 10/2017",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA OCSO - Vertriebsunterstützungs- und CRM-System im, Hamburg",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "02/2016 - 07/2016",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA Helena Erweiterung für Privatkunden Leasing, Hamburg",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "05/2015 - 01/2016",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA - OSP (Optimize Sales Processing), Hamburg",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "07/2014 - 04/2015",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA Benutzer und Rollenkonzept, Hamburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2013 - 06/2014",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA DMS (Dealer Management System), Hamburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2013 - 03/2013",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA - Einarbeitung und Coaching, Hamburg",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "06/2012 - 12/2012",
+      "company": "ALD Automotive GmbH (IT Car Renting)",
+      "role": "",
+      "title": "ARMADA Subventionen, Hamburg",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "07/2010 - 05/2012",
+      "company": "ALD Automotive GmbH (Automobil / Leasing)",
+      "role": "",
+      "title": "ARMADA H2B Neues Händler Tool, Hamburg",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "10/2009 - 06/2010",
+      "company": "ALD Automotive GmbH (Automobil / Leasing)",
+      "role": "",
+      "title": "ARMADA PRO Kooperationen - Erweiterung der Anwendung um eine, Hamburg",
+      "activities": 9,
+      "technologies": 8
+    },
+    {
+      "period": "06/2009 - 09/2010",
+      "company": "ALD Automotive GmbH (Automobil / Leasing)",
+      "role": "",
+      "title": "ARMADA PRO Kooperationen Technologie Upgrades /, Hamburg",
+      "activities": 9,
+      "technologies": 9
+    },
+    {
+      "period": "01/2008 - 05/2009",
+      "company": "ALD Automotive GmbH (Automobil / Leasing)",
+      "role": "",
+      "title": "Pflege und Wartung des Online Frontoffice-Tools, Hamburg",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "06/2007 - 12/2007",
+      "company": "TxB Bank / dwpbank-Gruppe",
+      "role": "",
+      "title": "WPBilanz Eigenbestandsverwaltung, Hamburg (Düsseldorf, Frankfurt)",
+      "activities": 9,
+      "technologies": 7
+    },
+    {
+      "period": "11/2006 - 05/2007",
+      "company": "Hypo- und Vereinsbank AG (HVB Information Services GmbH)",
+      "role": "",
+      "title": "TripleA Wealth Management, Hamburg",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "02/2006 - 03/2007",
+      "company": "EDS / Continental Automotive Systems",
+      "role": "CORE-Applikation auf Basis Team Center Engineering (TCE)",
+      "title": "CORE-Applikation auf Basis Team Center Engineering (TCE)",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "12/2005 - 01/2006",
+      "company": "",
+      "role": "",
+      "title": "2. EBICS-Server",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2005 - 01/2006",
+      "company": "PPI Financial Systems",
+      "role": "",
+      "title": "SI-Rating und EBICS-Server",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "10/2005 - 12/2005",
+      "company": "",
+      "role": "",
+      "title": "1. SI-Rating",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "07/2005 - 09/2005",
+      "company": "Dresdner Kleinwort Wasserstein",
+      "role": "",
+      "title": "MISTRAL (MISTRAL-Datenbank",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "02/2004 - 07/2005",
+      "company": "Postbank Systems AG",
+      "role": "IOB (Internet Online Banking, Multikanal-Architektur/ Banking)",
+      "title": "IOB (Internet Online Banking, Multikanal-Architektur/ Banking)",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "01/2004 - 02/2004",
+      "company": "CAPCO / Dresdner Bank",
+      "role": "",
+      "title": "ORTOS (Operational Risk Management Toolsuite)",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "07/2003 - 12/2003",
+      "company": "CAPCO / Dresdner Bank",
+      "role": "",
+      "title": "ORTOS (Operational Risk Management Toolsuite)",
+      "activities": 7,
+      "technologies": 13
+    },
+    {
+      "period": "06/2003 - 07/2003",
+      "company": "Dresdner Bank",
+      "role": "",
+      "title": "ORTOS (Operational Risk Management Toolsuite)",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "05/2003 - 06/2003",
+      "company": "Dresdner Bank",
+      "role": "",
+      "title": "ORMIS (Operational Risk Management Information System)",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "03/2002 - 05/2003",
+      "company": "Dresdner Bank",
+      "role": "",
+      "title": "ORTOS (Operational Risk Management Toolsuite)",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "12/2001 - 03/2002",
+      "company": "Dresdner Bank",
+      "role": "",
+      "title": "GOLD (Global Operational Loss Database)",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "11/2001 - 12/2001",
+      "company": "Training / Weiterbildung",
+      "role": "",
+      "title": "Entwurfsstrategien Enterprise JavaBeans",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2001 - 11/2001",
+      "company": "Training / Weiterbildung",
+      "role": "",
+      "title": "WWW-Evaluierung in Java",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "03/2001 - 09/2001",
+      "company": "Körber PaperLink",
+      "role": "",
+      "title": "Content Management System (CMS) - Redaktionssystem",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "01/2001 - 03/2001",
+      "company": "Otto Versand / Otto Agenturpartner/-partnerin",
+      "role": "",
+      "title": "IBA 2000 - Integrierte Bestell-Abwicklungssoftware",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2000 - 01/2001",
+      "company": "ENERGIS-ISION",
+      "role": "",
+      "title": "Software Consulting",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "06/2000 - 11/2001",
+      "company": "Verlagsgruppe Handelsblatt",
+      "role": "",
+      "title": "CMS (Content Management System)",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2000 - 06/2000",
+      "company": "Wirtschaftsförderung Lübeck",
+      "role": "",
+      "title": "Standort Marketing System",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/1999 - 01/2000",
+      "company": "Diplomarbeit",
+      "role": "",
+      "title": "JPortal Server",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "04/1999 - 09/1999",
+      "company": "Wirtschaftsförderung Lübeck",
+      "role": "",
+      "title": "Web Portal",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "11/1998 - 04/1999",
+      "company": "ROM",
+      "role": "",
+      "title": "Online-Shop",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/1998 - 11/1998",
+      "company": "Kaben interactive design, Lübeck",
+      "role": "",
+      "title": "Online-Shop",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/1998 - 11/1998",
+      "company": "BRAINWARE / sitegeist media solutions",
+      "role": "",
+      "title": "Java Applets, CMS",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/1995 - 01/1998",
+      "company": "",
+      "role": "",
+      "title": "Diverse Projekte",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "01/1994 - 01/1995",
+      "company": "Parkhotel Seeblick",
+      "role": "",
+      "title": "PC-Kasse",
+      "activities": 24,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Konzeption, Realisierung (CMS-)Redaktionssystem auf VIP GAUSS, 03/01-\n09/01\nReferenz durch Project Manager, E-Business, Körber PaperLink GmbH, vom\n29.05.02\n\"Auch Referenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02,\nzusätzlich mit untenstehendem abschliessende Fazit.\n* Konzeption, Realisierung eines (CMS-)Redaktionssystems auf Basis von VIP\nGAUSS, JSP/Servlets (Tomcat\n3.2.3), MySQL, Linux.\n* Projektbeschreibung:\nDurch die Verwendung von Templates in einem Corporate Design des Kunden\nwird\ndie Einhaltung des Corporate Design für alle Inhalte der Site gewährleistet.\nDas VIP Redaktionssystem ist zusammen mit den für die Bereiche News, Messen\nund\nGebrauchtmaschinen zu programmierenden formularbasierten\nPflegemöglichkeiten\ndie einheitliche Redaktionsumgebung für alle Redakteure und Mitarbeiter der\nQualitätssicherung des Kunden. Das VIP Redaktionssystem hat einen zweistufigen\nredaktionellen Workflow integriert. Eine Personalisierung des Webauftritts wird\ndurch die Schaffung einer persönlichen Linkliste und die Einrichtung von\ngeschützten Bereichen für registrierte Webuser erreicht. Weitere\nhervorzuhebende Funktionen sind eine HTML-basierte Webuser-Verwaltung, ein\nForum sowie eine Volltextsuche über statische und dynamische Inhalte.\n* Projektaufgaben:\nErstellung IT-Konzept (in deutscher und englischer Version) und Konzeption\n(gesamt), Realisierung (Module: DB-basierte Webuser-Verwaltung, Forum,\nVolltextsuche über statische und dyn. Inhalte) und Einführung.\n* Realisiert unter:\nVIP GAUSS 5.x, Java (JSP, Taglibs, Servlets, Admin-GUI als Applikation/Applet\nin AWT/Swing, XML, HTML, CSS, JavaScript, PHP, mySQL, Tomcat 3.2.x, Apache\n1.3.x, Visual Age for Java/WebSphere, Jive-Forum, Linux SuSe/Redhat, HP-Unix,\nWindows 2000. * Fazit: konzeptionell und technologisch sehr überzeugend,\nerfolgreich und effizient.\"\nProjekt Geschäftsprozessmodellierung in UML, 01/01 - 03/01\nReferenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02\n\"Geschäftsprozessmodellierung in UML für eine 'Integrierte Bestell-\nAbwicklungssoftware'\n* Projektbeschreibung:\nOOA, OOD, OOP, UML, Datenbank-Design, Prototyping unter Visual Studio 6\n(Visual\nBasic), Rational Rose, MS-SQL-Server 7, MS-Access 2000\n* Projektaufgaben:\nTechnische Projektleitung, Konzeption, Modellierung (UML, ERM), Präsentation\ndes IT-Konzepts beim Kunden\n* Realisiert unter:\nUML-Tools (Rational Rose, VISIO 2000), MS Visual Studio, MS-Office\n* Fazit: konzeptionell und technologisch sehr überzeugend, erfolgreich und\neffizient. Sehr professionelle Schnittstelle zum Anwender/Kunden gebildet.\"\nProjekt IT-Consulting/Konzeption, Lasten-/Pflichtenhefterstellung, 11/00 - 01/\n01\nReferenz durch Direktor, IT-Service Provider mit 500 MA, vom 01.07.02\n\"IT-Consulting/Konzeption, Lasten-/Pflichtenhefterstellung\n* Projektbeschreibung:\nEvaluierung von CMS-Systemen, Lasten-/Pflichtenhefterstellung, Durchführung\nvon\nKundenworkshops\n* Projektaufgaben:\nErstellung von Angeboten und technischen Feinkonze",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access Gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC Sehr gute Kenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Object Store",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PostgresSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Prometheus",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Allgemein gute Kenntnisse im Relationalen Modell (ERM-Design",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC/ODBC)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PC Schwerpunkt",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SPS Ausbildung",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Projekterfahrung",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "OOA",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "OOP",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "OOD",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbank-Design (auf Basis UML bzw. ERM)",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Programmierungs- und Entwicklungswerkzeuge /",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Agile Softwareentwicklung",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Scrum",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Kanban",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuous Integration (Jenkins)",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Pair Programming",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "PRODUKTE / STANDARDS / ERFAHRUNGEN",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "DDD",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Programmiersprachen / Skriptsprachen /",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Schwerpunkt",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic VB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Access",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ASP (Active Server Pages)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C Im Rahmen des Studiums",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++ Im Rahmen des Studiums",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CORBA IDL Studium",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Weiterbildung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Delphi Im Rahmen des Studiums",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Fortran Ausschliesslich im Rahmen des Studiums",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Schwerpunkt",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript Schwerpunkt",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl Basiskenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP Basiskenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen ASP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tcl/Tk",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Smalltalk Ausschliesslich im Rahmen des Studiums",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Rational Application Developer V6 (RAD)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "IntelliJ IDEA",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM WebSphere",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Bea Weblogic",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Age for Java",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Borland JBuilder",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "HomeSite",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Dreamweaver",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "BugZilla",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CVS (Win-CVS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Tortoise-CVS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Mozilla",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Photoshop",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Fireworks",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Toad",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL plus",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "DB-Visualiser",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Quest SQL Navigator",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Andere Produkte",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache/Jakarta: HTTP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Tomcat",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Struts",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Taglibs",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Lucene",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "JMeter",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "(Commons",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Ant",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Log4J",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "...)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    }
+  ]
+}

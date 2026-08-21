@@ -1,0 +1,230 @@
+AID: AID-ak_2.3.3.0
+Name: Alexandre Koval
+Headline: Java EE (J2EE) Architektur, Design und Implementierung, Web- Anwendungen, WebServices
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,
+Wohnort: 863xx Königsbrunn, Deutschland
+Jahrgang: 1965
+Verfügbar: 06.09.21 zu 100%, Vor-Ort-Einsatz 10% möglich
+EDV seit: 2004
+Sprachen: Englisch fachspezifisch
+
+FACHBEREICHE:
+Java EE (J2EE) Architektur
+Design und Implementierung
+Web-Anwendungen
+WebServices
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+1996-1998
+Staatl. gepr. Elektrotechniker für Datenverarbeitung,
+Rudolf-Diesel-Technikum (Augsburg)
+1982-1988
+Diplom-Ingenieur
+Physik und Technologie an der Universität Dnepropetrowsk (SU).
+Schwerpunkt: Raumfahrttechnik. Automatische Steuerungssysteme.
+
+BRANCHEN:
+Banken
+Finanzdienstleistungen
+Versicherungen und öffentlicher Dienst
+Leasing
+Softwareentwicklung
+
+PROJEKTE:
+  10/2018 - 04/2019 | Bayerisches Staatsministerium für Gesundheit und Pflege | IT-Berater, Software-Entwickler
+    - Aufgaben:
+    - Migration und Weiterentwicklung einer Web-Applikation zur operativen
+    - Abwicklung eines Fachverfahrens des Landespflegegeldes in Bayern
+  04/2018 - 08/2018 | Consorsbank | Software-Entwickler
+    - Aufgaben:
+    - Entwicklung einer neuen REST-Schnittstelle API für eine bestehende Trading-Plattform der Consorsbank. In Scope the implementation was a new unified API-Management, which enables a state of the art banking service and more secure access for internal and external developers and partners. With this unified new API external partners will get an easy to use toolbox of our
+    - Consorsbank services. This project will help to lower time to market for adapting upcoming Fintechs and service consumers of any kind. In a mid term, the legacy Consorsbank APIs will be replaced by this new
+    Techs: SonarQube, Nexus, Groovy, Gradle, OpenShift, Microsoft, Windows, Linux
+  08/2017 - 03/2018 | ING-DiBa AG | Softwareentwickler / Externer IT-Berater
+    - Aufgaben:
+    - Weiterentwicklung der Middleware Services für die Zinsanpassungsabrechnung der Vertriebspartner. Java EE 1.7, Spring, Hibernate, Oracle, JUnit, Mockito, Git, BitBucket, Maven, ===================================================== ==========================
+    Techs: SQL, Sonar, PMD, Jira, Jenkins, CloudBee, Nexus, Confluence, Scrum
+  03/2015 - 07/2017 | Talanx AG | Softwareentwickler / Externer IT-Berater
+    - Aufgaben:
+    - Weiterentwicklung einer Teilapplikation für die Verwaltung, Pflege sowie Berechnung von KFZ-Versicherungslösungen für industrielle Großkunden
+    - („Flottenversicherung“)
+    Techs: Nexus, Confluence, MS SharePoint, Citrix, Windows
+  11/2014 - 02/2015 |  | Softwareentwickler
+    - Aufgaben:
+    - Architektur, Design und Realisierung einer Akquirierungsplatform mit integrierter online Projektsuchmaschine.
+    - Java EE 1.8, SOA, Spring Boot, Spring Data Solr, SolrJ, Spring MVC, JPA/ Hibernate, MySQL, MongoDB, WebServices (REST, Spring WS), Apache Solr,
+    Techs: Git, Docker, Shell, Apache, Tomcat, Jenkins, Windows, Linux, (Ubuntu), Amazon
+  01/2014 - 10/2014 | Swiss Life Deutschland Operations GmbH / tecis | Softwareentwickler / Externer IT-Berater
+    - Finanzdienstleistungen AG
+    - Aufgaben:
+    - Anpassung, Integration und Weiterentwicklung eines Profil Alexandre
+    Techs: JUnit, DbUnit, Mockito, Hudson, Eclipse, nSubversion, Jira, Windows, Java EE, PowerMock
+  08/2013 - 10/2013 | Adeos | Softwareentwickler
+    - Aufgaben:
+    - Konzeptionierung, Design und Neuentwicklung einer Web-Applikation für die Verwaltung von Übersetzungen
+    - Bearbeitung und Übersetzung der mandantenspezifischen Textbausteine für die Module der STARiXApplikation von ADEUS GmbH (Eigenentwicklung).
+    Techs: Bootstrap, Maven2, JUnit, Mockito, Git, Windows
+  11/2012 - 07/2013 | Allianz AMOS/ADEUS | Softwareentwickler / Externer IT-Berater
+    - Aufgaben:
+    - Portletbasierter Online-Service zur Aktienregisterführung.
+    - Eintrittskartenbestellung oder Bevollmächtigung des Stimmrechtsvertreters der Gesellschaft und Weisungsabgabe oder elektronische Abstimmung
+    Techs: Jenkins, Eclipse, Subversion, Jira, Windows, Linux, Vorgehensmodell: V-Modell
+  08/2007 - 09/2012 | IBM CH | Senior Software-Entwickler/-Architekt, Function Group Lead / Externer
+    - Aufgaben:
+    - IT-Berater
+    - Teilapplikation des Sozialversicherungssystems IGS Vista für 16 Kantone der Schweiz und Liechtenstein (IBM CH).
+    Techs: ClearCase, ClearQuest, Windows, Vorgehensmodell: RUP, VModell
+  05/2007 - 07/2007 | ASL Fleet Services GE Capital | Softwareentwickler
+    - Printengine Webservice
+    - Aufgaben:
+    - Architekturdesign und Realisierung einer Schnittstelle im OnlineFirmenWagenCenter zum Printengine.
+    Techs: Junit, OpenOffice 2.0, Linux, Windows, SVN, Informix
+  12/2006 - 04/2007 | ASL Fleet Services GE Capital | Softwareentwickler
+    - Aufgaben:
+    - Design und Entwicklung einer Online-Applikation für den Weiterverkauf von Leasingrückläufern eines Autoleasinganbieters.
+    - Java 1.5, Spring, JSF, myFaces, Tomahawk, Acegi, Hibernate, JBoss Seam, ===================================================== ==========================
+    Techs: MyEclipse, Maven2, Junit, Red Hat Linux, Windows, SVN, Informix
+  06/2006 - 07/2006 | ASL, Auto Service-Leasing GmbH | Softwareentwickler
+    - Aufgaben:
+    - Realisierung einer Schnittstelle für den Leasingdatenaustausch zwischen
+    - Geschäftspartnern.
+    Techs: Maven2, Junit, Linux, Windows, SVN
+  02/2006 - 05/2006 | ASL, Auto Service-Leasing GmbH | Softwareentwickler
+    - Aufgaben:
+    - Redesign des Frontends einer Online-Leasingapplikation.
+    - Einführung dynamischer Themen für bestehende Sourcen.
+    Techs: Linux, Windows, SVN
+  10/2005 - 01/2006 | ASL, Auto Service-Leasing GmbH | Softwareentwickler
+    - Aufgaben:
+    - Design und Realisierung eines Webservices für die Restwertermittlung von Fahrzeugen mittels Schwacke-Schnittstelle.
+    - ===================================================== ==========================
+    Techs: Java 1.4, WebServices (Axis), SOAP, WSDL, OJB, Informix, MyEclipse, Ant, Linux, Windows
+  02/2005 - 09/2005 | ASL, Auto Service-Leasing GmbH | Softwareentwickler
+    - Aufgaben:
+    - Design und Realisierung einer dynamischen Printengine auf Basis von OpenOffice 2.x für eine Backend-Leasingapplikation. Dadurch wurde es möglich die Druckformulare mittels OpenOffice durch Kunden erstellen zu lassen, was Ersparnisse auf Kunden- sowie der Leasingprovider Seite erzielte.
+    - Java 1.5, Spring, WebServices (Axis), SOAP, WSDL, OpenOffice, XML, OJB, SQL, ===================================================== ==========================
+    Techs: Informix, MyEclipse, Ant, JUnit, Linux, Windows, SVN
+  12/2004 - 01/2005 | ASL, Auto Service-Leasing GmbH | Softwareentwickler
+    - "Barlohngehaltsumwandlung"
+    - Aufgaben:
+    - Entwicklung eines Fachmoduls für eine Autoleasing Online-Applikation um den Kunden den Vergleich zwischen verschiedenen Leasingvarianten von Fahrzeugen anzubieten.
+    Techs: Linux, Windows, SVN
+  11/2004 - 01/2005 | Al.systems GmbH | Softwareentwickler
+    - Aufgaben:
+    - Entwicklung eines E-Shop-Systems für den firmeninternen Gebrauch.
+    - ===================================================== ==========================
+    Techs: Java 1.4, JSP, HTML, CSS, Javascript, JDBC, SQL, MyEclipse, Fibu, Linux
+
+SKILLS:
+  database: Access, CDI, DAO, DB2, Envers, Hibernate, HSQLDB, iBatis, Informix, JDBC, MongoDB, MS SQL Server, MySQL, ODBC, OJB, Oracle, Postgres, RDB, SQL, Sybase
+  hardware: PC, Internet, Intranet, RPC, TCP/IP
+  operating_system: Linux, Microsoft Windows, MS-DOS, Red Hat, Ubuntu, Unix, Windows
+  programming_languages: Basic, C, C++, Groovy, Java, Java EE 1.7, Java 1.8, Java 8, JavaScript, JAXB, JAXW, JPA/Hibernate, JQuery, JSON, JUnit, Maven2, Oracle/SQL, Perl, PHP, PL/SQL, Scriptsprachen Ant, Shell, Spring Boot, Spring Security, WireMock
+
+SKILL-ABLAGE:
+
+
+AUSBILDUNG:
+1996-1998 | Staatl. gepr. Elektrotechniker für Datenverarbeitung | Rudolf-Diesel-Technikum (Augsburg)  [course]
+1982-1988 | Diplom-Ingenieur | Universität Dnepropetrowsk (SU)  [course]
+
+FOCUS_EXP:
+  Apache  [product_standard]
+  Apache Solr  [product_standard]
+  Atlassian Confluence  [product_standard]
+  Bamboo  [product_standard]
+  BDD  [product_standard]
+  BitBucket  [product_standard]
+  Confluence  [product_standard]
+  CSS  [product_standard]
+  Cucumber  [product_standard]
+  Gherkin  [product_standard]
+  Git  [product_standard]
+  Gradle  [product_standard]
+  HATEOAS  [product_standard]
+  HTML  [product_standard]
+  Jenkins  [product_standard]
+  Jira  [product_standard]
+  JMeter  [product_standard]
+  JSF  [product_standard]
+  Lucene Hibernate Search  [product_standard]
+  Maven  [product_standard]
+  Micro Services  [product_standard]
+  Mockito  [product_standard]
+  Nexus  [product_standard]
+  OpenShift  [product_standard]
+  PMD  [product_standard]
+  PrimeFaces  [product_standard]
+  REST  [product_standard]
+  Scrum  [product_standard]
+  SOA  [product_standard]
+  SOAP  [product_standard]
+  Sonar  [product_standard]
+  SonarQube  [product_standard]
+  Spock  [product_standard]
+  Spring  [product_standard]
+  Spring 4.1  [product_standard]
+  Spring MVC  [product_standard]
+  Swagger  [product_standard]
+  TDD  [product_standard]
+  Tomcat  [product_standard]
+  Twitter Bootstrap  [product_standard]
+  WebService  [product_standard]
+  XML  [product_standard]
+  Methoden und Technologien  [product_standard]
+  IT-Erfahrung seit 1988  [product_standard]
+  Java/J2EE/JEE seit 2001  [product_standard]
+  * Entwicklung von Web-Applikationen mit Servlets  [product_standard]
+  JSP  [product_standard]
+  Wicket  [product_standard]
+  MVC  [product_standard]
+  PHP (Yii  [product_standard]
+  Modx  [product_standard]
+  Joomla  [product_standard]
+  Drupal)  [product_standard]
+  Ruby  [product_standard]
+  * Entwicklung von WebServices (SOAP  [product_standard]
+  WSDL  [product_standard]
+  Axis  [product_standard]
+  XFire  [product_standard]
+  Spring/JAXWS  [product_standard]
+  REST)  [product_standard]
+  * Entwicklung von Rich-Client-Anwendungen (Eclipse RCP  [product_standard]
+  SWT  [product_standard]
+  Swing)  [product_standard]
+  * Entwicklung von verteilten Systemen (EJB  [product_standard]
+  RMI  [product_standard]
+  SOAP)  [product_standard]
+  * Relationale Datenbanksysteme mit object-relational mapping (SQL  [product_standard]
+  JPA  [product_standard]
+  Hibernate  [product_standard]
+  OJB  [product_standard]
+  iBatis)  [product_standard]
+  * SOA  [product_standard]
+  Design-Patterns und Modellierung mit UML  [product_standard]
+  Testverfahren und Tools  [product_standard]
+  Junit  [product_standard]
+  DbUnit  [product_standard]
+  Selenium  [product_standard]
+  HtmlUnit  [product_standard]
+  EasyMock  [product_standard]
+  Web-Mining/Big-Data-Technologien  [product_standard]
+  Jsoup  [product_standard]
+  PhantomJS  [product_standard]
+  Apache Lucene  [product_standard]
+  MongoDB  [product_standard]
+  Apache Hadoop  [product_standard]
+  ElasticSearch  [product_standard]
+  Java  [product_standard]
+  J2EE  [product_standard]
+  JEE  [product_standard]
+  Servlets  [product_standard]
+  PHP  [product_standard]
+  Yii  [product_standard]
+  Drupal  [product_standard]
+  Eclipse RCP  [product_standard]
+  Swing  [product_standard]
+  EJB  [product_standard]
+  SQL  [product_standard]
+  iBatis  [product_standard]
+  UML  [product_standard]

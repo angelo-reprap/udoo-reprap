@@ -1,0 +1,1320 @@
+{
+  "metadata": {
+    "aid": "AID-gg_2.1.3.0",
+    "version": "2.1.3.0",
+    "consultant_dir": "gottfried_guenter",
+    "first_name": "Guenter",
+    "last_name": "Gottfried",
+    "headline": "Anwendungsentwickler z/OS 390, MVS, RTC, Cobol, DB2, IMS, DC/DB, Bank, Versicherung, Automotive, gerne auch Teilzeit oder kurzfristige Aufträge",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:31:57.588442"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Guenter",
+      "last_name": "Gottfried",
+      "birth_year": 1957,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "Spanisch",
+          "level": ""
+        }
+      ],
+      "availability": "14.06.21 zu 65%, Vor-Ort-Einsatz 25% möglich",
+      "wohnort": "635xx Hainburg, Deutschland",
+      "location": "635xx Hainburg, Deutschland",
+      "headline": "Anwendungsentwickler z/OS 390, MVS, RTC, Cobol, DB2, IMS, DC/DB, Bank, Versicherung, Automotive, gerne auch Teilzeit oder kurzfristige Aufträge",
+      "edv_experience_since": 1999
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "ADABAS",
+        "DB2",
+        "IMS-DB",
+        "ORACLE",
+        "SQL",
+        "VSAM"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "IBM-HOST",
+        "PCs u. Kompatible",
+        "SIEMENS-HOST",
+        "Z/OS / 390 MVS"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "AS400",
+        "BS2000",
+        "DOS/VSE",
+        "MS-DOS",
+        "MVS/XA",
+        "OS/390",
+        "UNIX",
+        "VSE/ESA",
+        "WINDOWS NT/XP",
+        "XPED"
+      ],
+      "programming_languages": [
+        "ASSEMBLER",
+        "C ++",
+        "COBOL",
+        "FORTRAN",
+        "JAVA",
+        "JCL",
+        "Natural",
+        "PL/1",
+        "RPG",
+        "SAP",
+        "Visual Basic"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2018-03 - 2018-10",
+        "company": "Basler Versicherung",
+        "title": "Partner-Rollen-Verwaltung, Bad Homburg",
+        "technologies": [
+          "RTC",
+          "COBOL",
+          "DB2",
+          "JCL",
+          "TSO",
+          "VM",
+          "ISPF",
+          "SQL",
+          "SPUFI Z/OS/390",
+          "(MVS) OPC"
+        ],
+        "activities": [
+          "Cobol PGM’s erstellen",
+          "Test mit Dokumentation",
+          "(TWS), Control-M, XPED, Projekta, Jira, Confluence"
+        ]
+      },
+      {
+        "period": "2017-10 - 2018-02",
+        "company": "Commerzbank FrankfurtV",
+        "title": "Migration, Frankfurt",
+        "technologies": [
+          "DB2-DB. RTC",
+          "COBOL",
+          "JCL",
+          "TSO",
+          "ISPF",
+          "SQL",
+          "SPUFI",
+          "Z/OS/390 (MVS)"
+        ],
+        "activities": [
+          "Cobol PGM’s anpassen",
+          "Test mit Dokumentation",
+          "Jobs DB-Admin erstellen/starten",
+          "Cobol PGM’s ertstellen",
+          "OPC(TWS), Control-M, XPED",
+          "Migration"
+        ]
+      },
+      {
+        "period": "2016-10 - 2017-07",
+        "company": "DB SYSTEL",
+        "title": "Migration DB2-DB, Frankfurt",
+        "activities": [
+          "Jobs DB-Admin erstellen/starten",
+          "Cobol PGM’s anpassen",
+          "Test mit Dokumentation",
+          "Eingesetzte Produkte: COBOL, BETA92, DB2, JCL, TSO, ISPF, SQL, SPUFI, Z/OS/390 (MVS) OPC",
+          "(TWS), Control-M, XPED"
+        ]
+      },
+      {
+        "period": "2016-04 - 2016-09",
+        "company": "UNION IT",
+        "title": "Weiterentwicklung Riesterprodukte, Frankfurt",
+        "role": "Software- Tester/Entwickler",
+        "activities": [
+          "Testkonzept erstellen",
+          "Cobol PGM’s anpassen",
+          "Test mit Dokumentation",
+          "Eingesetzte Produkte: COBOL, EASYTRIEVE, DB2, JCL, TSO, ISPF, SQL, SPUFI, Z/OS/390 (MVS)",
+          "OPC(TWS), BMC, Control-M, XPED, Ultra-Edit, TOAD für DB2, Lotus Notes"
+        ]
+      },
+      {
+        "period": "2015-02 - 2016-02",
+        "company": "VW AG Wolfsburg",
+        "title": "Ablösen IMS-DB und IMS-Dialoge an neue DB2-DB 1 Monat anschließen., Wolfsburg",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Fahrzeug Konfigurator,",
+          "Testkonzept-Erstellung",
+          "Eingesetzte Produkte: COBOL, EASYTRIEVE, DB2, IMS, JCL, TSO, ISPF, Proba, Stored",
+          "Procedures, Z/OS/390 (MVS) OPC(TWS), BMC, Control-M, ISPF",
+          "anschließen., Wolfsburg"
+        ]
+      },
+      {
+        "period": "2014-02 - 2014-12",
+        "company": "DB- Systel",
+        "title": "IMS-Release-Wechsel für LH Hamburg von V11 nach V13, Frankfurt",
+        "role": "Consult",
+        "activities": [
+          "Ausführliche fachliche Regressions-Tests (Diversifizierenden). Hier wurde ein Testsystem der DB SYSTEL für die verschiedenen Testfälle verwendet.",
+          "Cobol Sourcen wurden angepasst.",
+          "Frankfurt"
+        ]
+      },
+      {
+        "period": "2011-05 - 2014-01",
+        "company": "SANTANDER BANK",
+        "title": "Ausführliche fachliche Regressions-Tests 9 Monate, Mönchengladbach",
+        "technologies": [
+          "DB2",
+          "IMS-DB",
+          "COBOL / Assembler / Easytrieve",
+          "JAVA",
+          "IMS-DC",
+          "IBM-HOST",
+          "Z/OS / 390 (MVS)",
+          "AS400",
+          "PCs u. Kompatible",
+          "MVS/XA",
+          "WINDOWS NT/XP"
+        ],
+        "activities": [
+          "MS-DOS, PANVALET, BMC Remedy",
+          "Mönchengladbach",
+          "Ausführliche fachliche Regressions-Tests(Diversifizierenden) bei den wöchentlichen Updates der verschiedenen Systeme. Hier wurde ein eigenes Testsystem der COBA für die verschiedenen Testfälle verwendet."
+        ]
+      },
+      {
+        "period": "2009-04 - 2011-04",
+        "company": "Commerzbank",
+        "title": "diverse Projekte 1 Monat, Frankfurt",
+        "role": "Software-Entwickler/Tester",
+        "technologies": [
+          "CODABAS",
+          "OPC-Steuerung",
+          "JCL",
+          "BIO",
+          "JEV",
+          "JES",
+          "Test",
+          "AV",
+          "Cobol",
+          "PL1",
+          "(MVS)",
+          "PCs u. Kompatible",
+          "MVS/XA",
+          "WINDOWS NT/XP",
+          "MS-DOS"
+        ],
+        "activities": [
+          "Integrierung Dreba, Kundendaten, Depotstammdaten, Wertpapier,",
+          "Ausführliche fachliche Regressionstests",
+          "Projekt Konzern Person",
+          "Stockregister_neu",
+          "Stockregister migrieren nach DB2",
+          "Kundennummernsystematik",
+          "Projekt TIM (Test Infrastruktur Management)"
+        ]
+      },
+      {
+        "period": "2008-11 - 2009-04",
+        "company": "Fiducia Karlsruhe",
+        "title": "Lebensversicherung, Sach/ Komposit/ Unfall, Altersversorgung, Riester",
+        "role": "Software-Entwickler, Datawarehouse, SEPA, Zahlungsverkehr",
+        "technologies": [
+          "DB2",
+          "IMS-DB",
+          "Cobol",
+          "Assembler",
+          "JAVA",
+          "IMS-DC",
+          "IBM-HOST",
+          "PCs",
+          "Kompatible",
+          "MVS/XA",
+          "WINDOWS XP",
+          "MS-DOS",
+          "Change Man",
+          "ENDEVOR"
+        ],
+        "activities": [
+          "(PUU/NDVP), Batch JCL, Altersvorsorge, Riester, Lebensversicherung / Personen / Sach-, Composit-Versicherungen, SEPA",
+          "Altersversorgung, Riester"
+        ]
+      },
+      {
+        "period": "2007-05 - 2008-11",
+        "company": "BHF Bank",
+        "title": "Entwicklung eines Class-Action-System als Online- 7 Monate Anwendung, Offenbach",
+        "role": "Software-Entwickler, Depotstammdaten, Abgeltungssteuer,",
+        "technologies": [
+          "DB2",
+          "IMS-DB",
+          "PL1",
+          "Cobol",
+          "Assembler",
+          "SAS",
+          "IMS-DC",
+          "CICS",
+          "IBMHOST",
+          "PCs",
+          "u. Kompatible",
+          "OS/390",
+          "Z/OS",
+          "TSO",
+          "MVS/XA",
+          "WINDOWS XP",
+          "MS-DOS"
+        ],
+        "activities": [
+          "DB2 Stammdaten historisieren.",
+          "Online-Eingabe-System mit IMS realisieren.",
+          "Zugriffe mit Anfragen über 2 (aktuelle und historische)",
+          "DB-Tables mit Join.",
+          "Summierung der Ergebnisse und Ausgabe an die Poststraße zum Kundenversand",
+          "G+V, Rechnungswesen",
+          "Dialog- und Batch-Anwendungen",
+          "Anwendung, Offenbach",
+          "Entwicklung eines Class-Action-System als Online-Anwendung."
+        ]
+      },
+      {
+        "period": "2006-03 - 2007-04",
+        "company": "Deutsche Börse AG",
+        "title": "Für Telekurs eine Anbindung analog Reuters, (das 2 Monate bestehende IMS-Dialog-System) realisiert, Frankfurt",
+        "role": "Software-Entwickler, Kursdienste, WP-Stammdaten, Reuters,",
+        "technologies": [
+          "DB2",
+          "IMS-DB",
+          "Cobol",
+          "SWT01",
+          "EDB",
+          "IMS-DC",
+          "IBM-HOST",
+          "PCs u",
+          "Kompatible",
+          "OS/390",
+          "Z/OS",
+          "TSO",
+          "MVS/XA",
+          "WINDOWS XP",
+          "MS-DOS",
+          "WSS"
+        ],
+        "activities": [
+          "WP-Stammdaten",
+          "Bestandsverwaltung",
+          "Neues Testkonzept erarbeitet",
+          "Maintenance",
+          "Dialog- und Batch-Anwendung",
+          "bestehende IMS-Dialog-System) realisiert, Frankfurt"
+        ]
+      },
+      {
+        "period": "2005-08 - 2006-02",
+        "company": "Credit Suisse",
+        "title": "diverses, Zürich",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "DB2",
+          "IMS-DB",
+          "PL/1",
+          "JAVA",
+          "CORBA-Service",
+          "IMS-DC",
+          "IBM-HOST",
+          "PCs u",
+          "Kompatible",
+          "OS/390",
+          "Z/OS",
+          "TSO",
+          "MVS/XA",
+          "WINDOWS XP",
+          "MS-DOS"
+        ],
+        "activities": [
+          "Portfolio Management System",
+          "Portfolio Rebalancing Trading Tool",
+          "Problemanalyse, Konzepterarbeitung",
+          "Erstellen der Architektur mit Programmierung der Steuermodule Programmieren des Anwendungsdialoges mit Cobol / PL1 / Corba",
+          "Durchführung Einzeltest/Regressionstest",
+          "Übergabe an Fachabteilung und Einführung in Produktion",
+          "Dialog- und Batch-Anwendung"
+        ]
+      },
+      {
+        "period": "2000-2005",
+        "company": "Commerzbank Frankfurt",
+        "title": "Wertpapier-Effektivgeschäft, Euro-Konvertierung, WP- Stammdaten, Konvertierung WKN",
+        "role": "Software-Entwickler/ Projektleiter Wertpapier-Effektivgeschäft,",
+        "activities": [
+          "Wertpapier-Effektivgeschäft, Euro-Konvertierung, WP-Stammdaten, Konvertierung WKN>ISIN, CASCADE, Projektleiter der Commerzbank war [Name auf Anfrage].",
+          "Aufgaben:",
+          "Für dieses Projekt wurde ich von [Name auf Anfrage], IT-Direktor der Commerzbank, ausgewählt. Er kannte mich und meine gute Arbeit aus vorherigen Projekten, die ich in der Commerzbank abgewickelt hatte.",
+          "Die Anwendung „Effekten-Kasse“ war eine sehr alte Nixdorf-Kienzle-Anwendung, die abgelöst werden musste, da keine Wartung mehr zur Verfügung stand.",
+          "Auch wurden zur Erhaltung und Verbesserung der bestehenden Funktionalität noch weitere neu Funktionen in das System einfließen lassen.",
+          "Ich begann hier mit einer klassischen Studie in der Fachabteilung und einer IST-Aufnahme.",
+          "IST-Aufnahme."
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "CASCADE",
+          "WKN",
+          "ISIN",
+          "Nixdorf-Kienzle"
+        ]
+      },
+      {
+        "period": "1999-2000",
+        "company": "Deutsche Bank Eschborn",
+        "title": "WPHG-9, Erträgnisaufstellung, Zerlegungsgesetz",
+        "role": "Software-Entwickler, Projektleiter der Deutschen Bank war [Name",
+        "activities": [
+          "Aufgaben:",
+          "In diesem Projekt war ich als Cobol-Entwickler eingesetzt. Die Weiter- und Neu-Entwicklungen der Cobol-Programme wurden hier mit FILE-AID für DB2 und SPUFI und QMF durchgeführt.",
+          "WPHG-9",
+          "Erträgnisaufstellung",
+          "Zerlegungsgesetz"
+        ]
+      },
+      {
+        "period": "1999 - 1999",
+        "company": "Warburg Dillon Read Frankfurt",
+        "title": "Hier konnten wir schon die Erfahrungen der R+V einfließen lassen und das Projekt war",
+        "role": "Software-Entwickler/Projektleiter, Projektleiter, Jahr2000-Solution",
+        "activities": [
+          "auch ein Erfolg für den Kunden Director, Projektleiter WDR war [Name auf Anfrage]",
+          "Weitere Projekte gerne auf Anfrage.",
+          "lassen und das Projekt war"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Versicherung / Personen",
+      "Automobilindustrie"
+    ],
+    "focus_areas": [
+      "Anwendungsentwickler z/OS 390",
+      "Cobol",
+      "DC/DB",
+      "Bank",
+      "Versicherung",
+      "Automotive",
+      "gerne auch Teilzeit oder kurzfristige Aufträge Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Administration / Support",
+      "Gerne auch in wiederkehrender Teilzeit oder kurzfristige Aufträge",
+      "EDV-Software-Entwickler",
+      "Programmierer",
+      "EDV-Organisator",
+      "IT-Berater",
+      "Abschluss: Mittlere Reife",
+      "Institution: Fachoberschule Offenbach",
+      "Abschluss: Industriekaufmann",
+      "Abschluss: Betriebswirt FH",
+      "Institution: Bundesfachschule für Datenverarbeitung Fulda Abschluss: Fachhochschulreife Abschluss: Programmierer Abschluss: DV-Organisator Abschluss: Systemanalytiker",
+      "MVS",
+      "RTC",
+      "DB2",
+      "IMS",
+      "Software-Entwicklung / Programmierung"
+    ],
+    "focus_experience": [
+      {
+        "name": "BETA92",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Control-M",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "ISPF",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "TSO",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Z/OS/390 (MVS) OPC(TWS)",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Standardsoftware:",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "PANVALET",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "LIBRARIAN",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "ENDEVOR",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "SCLM",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "SWT-01",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "ABEND-AID",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "* SQL",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "SPUFI",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "QMF",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "File-AID (IMS u. DB2)",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "TPX / XML",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "BMC Remedy",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "* TSO/ISPF",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "XPF",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "* BTS",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Stored Procedures",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "HTLM",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "* XPEDITER",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "SDF2",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "* CLIST",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "REXX",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "* BETA 91",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "SEPA",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "WORD / EXCEL",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "* POWERPOINT",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "VISIO",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Smart-Edit",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "* JCL",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "TWS/JCL",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "MS-Access",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Bank Sphere",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "* OPC",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "JEV. ConnectDirect",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "* Ultra-Edit",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "TOAD",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Lotus Notes 8.5",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "RTC für Host-Entwicklung",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Projekt-Erfahrung:",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "* Pflichtenheft",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Spezifikationen",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Anwendungs-Design",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Ist-Analyse",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Programmierung",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Projektleitung",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Systemeinführung",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Systementwicklung",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Test",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Wartung und Pflege",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Methoden/Techniken:",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Funktion Point Analyse",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "EVA-Diagramm",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Nassi Schneidermann",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Pseudo-Code",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "* Strukturierte Programmierung",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Strukturierte Analyse",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "SWT01",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Testverfahren:",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Regressionstest",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Eliminationsmethode",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Bottom-Up-Methode",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Top-Down-Methode",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Beratungserfahrung:",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "* Abgeltungssteuer",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Riester-Produkte",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Lebensversicherung / Personen",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "* Sach/Komposit",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Unfallversicherung",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Touristik Online-Buchung",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Kapitalerhöhung",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Effektenhandel",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Depotbuchung",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Wertpapierhandel",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "SWIFT MT940",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Transaktions-Banking",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "* Börsenhandel",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "DWZ",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "EURO-Einführung",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "ISIN-Convertierung",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Datawarehouse",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Fertigungsorganisation",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "* Logistik",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Stücklisten",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "Schulung und Training",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Middleware:",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "MQ Series",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "WebSphere MQ",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Profil:",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "* Meine Tätigkeiten als IT-Berater der Commerzbank",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Credit Suisse",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Deutsche",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Bank",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "UBS",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "BHF-Bank",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Deutsche Börse und SANTANDER",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "UNION Invest",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "zeichneten sich dadurch aus",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "daß die jeweiligen Tätigkeiten innerhalb der",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Projekte von mir als Entwickler auch koordiniert/organisiert",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "erfolgreich",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "realisiert und getestet wurden.",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "* Dies war ebenso der Fall bei klassischen Online-Dialog-Projekten",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "sowie",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "auch bei BATCH-Anwendungen.",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Als bekennender Team-Player war ich mit den jeweiligen Mitarbeitern",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "aufgrund meines Teamgeistes als Gemeinschaft sehr erfolgreich.",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Kurz-Lebenslauf:",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Mittlere Reife",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Fachoberschule",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Abendgymnasium",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Industriekaufmann",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "Betriebswirtschaft",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Programmierer",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "DV-Organisator",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Systemanalytiker",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "RTC",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "COBOL",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "DB2",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "JCL",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "SQL",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "Z/OS/390 (MVS)",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "OPC(TWS)",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "XPED",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "Projekta",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "File-AID",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "TPX",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "BTS",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "XPEDITER",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "CLIST",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "BETA 91",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "WORD",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "EXCEL",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "POWERPOINT",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "OPC",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "JEV",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "ConnectDirect",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "Ultra-Edit",
+        "category": "product_standard",
+        "sort_order": 144
+      }
+    ],
+    "education": [
+      {
+        "degree": "Mittlere Reife",
+        "institution": "Fachoberschule Offenbach",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Industriekaufmann",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Betriebswirt FH",
+        "institution": "Bundesfachschule für Datenverarbeitung Fulda",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Fachhochschulreife",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Programmierer",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "DV-Organisator",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Systemanalytiker",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Weitere Projekte gerne auf Anfrage.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "CICS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CORBA-Service",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDB",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IDMS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IMS-DC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MFS Masken",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SDF2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SPUFI",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:31:57.588455",
+    "source_file": "",
+    "steps_completed": [
+      "OTHER",
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 3→2 bei '2008-11 - 2009-04'",
+        "EDV_SEIT: None→1999"
+      ],
+      "coverage_percent": 83.12611012433393,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,2112 @@
+{
+  "metadata": {
+    "aid": "AID-mh_5.2.4.0",
+    "version": "5.2.4.0",
+    "consultant_dir": "hanif_mohammed",
+    "first_name": "Mohammed",
+    "last_name": "Hanif",
+    "headline": "IT Cyber Security, SIEM, ISMS, ISO27001, Telematics Autosar, OBDII, CAN LIN. Cryptography Signature, encryption, SoC, CyptoCell, Hypervisor VMM",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:34:41.298794"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Mohammed",
+      "last_name": "Hanif",
+      "birth_year": 1956,
+      "languages": [
+        {
+          "name": "Deutsch Ein wenig",
+          "level": ""
+        },
+        {
+          "name": "Englisch Fluent",
+          "level": ""
+        },
+        {
+          "name": "Finnisch",
+          "level": ""
+        },
+        {
+          "name": "Urdu",
+          "level": ""
+        },
+        {
+          "name": "Hindi",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Ein wenig)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Fluent)",
+          "level": ""
+        },
+        {
+          "name": "Urdu/Hindi",
+          "level": ""
+        }
+      ],
+      "availability": "30.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, außerhalb D/A/CH",
+      "wohnort": "762xx Karlsruhe, Deutschland",
+      "headline": "IT Cyber Security, SIEM, ISMS, ISO27001, Telematics Autosar, OBDII, CAN LIN. Cryptography Signature, encryption, SoC, CyptoCell, Hypervisor VMM",
+      "edv_experience_since": 1977
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Firewall concept",
+        "CheckPoint",
+        "Firewall",
+        "balancing and F5",
+        "system is based on Cisco",
+        "Cisco ASA",
+        "Junipers Firewall SRX 240",
+        "(Juniper)",
+        "I Configured setup with Juniper",
+        "administration and configuring Cisco",
+        "Juniper ME/EX Junos",
+        "Cisco Firewalls",
+        "Routers SRX-240H",
+        "Gateways and Infiniband fabrics over F5 Load",
+        "Juniper MX/EX",
+        "Cisco router with optimized Clusters for Load balancing",
+        "Juniper 4500",
+        "Cisco IOS",
+        "Cisco Switching/",
+        "Routing Catalyst",
+        "Juniper",
+        "and Checkpoint. Protocols used during",
+        "CheckPoint (Network",
+        "Security) Cisco HighEnd Router",
+        "Other Cisco network devices were Routers &",
+        "based on Cisco",
+        "on Cisco Call Manager",
+        "participated in Juniper",
+        "Juniper Junos",
+        "Cisco Load balancers",
+        "Cisco"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [
+        "VPN"
+      ],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "employing blocks such Zone Models",
+        "Intrusion",
+        "Linux",
+        "INTEGRITY) were running on SoC",
+        "ARM Trusted Firmware",
+        "Execution",
+        "Centres",
+        "with all related routers and switches",
+        "load",
+        "in Cloud Foundry compliance toolset",
+        "Blade",
+        "using Virtualization VMware Hypervisor",
+        "HP",
+        "Microsoft",
+        "and EX series for",
+        "Reverse Proxy",
+        "Remote Access",
+        "DHCP",
+        "DNS",
+        "IP addressing",
+        "APN",
+        "API development",
+        "Integration REST/SOAP",
+        "MIL",
+        "Android",
+        "QNX",
+        "firewalls (Netscreen)",
+        "NET",
+        "Junipers routers. I",
+        "provided 2nd",
+        "AAA",
+        "AD",
+        "Switches &",
+        "Balancer",
+        "ACE",
+        "Layer 2: 802.1x",
+        "Layer 3. ASA",
+        "PIX",
+        "FW",
+        "ACS",
+        "for all",
+        "coming",
+        "from NSN",
+        "Ericsson",
+        "Alcatel Lucent",
+        "CAT6k5",
+        "processes: Linux",
+        "C+",
+        "Clearcase",
+        "CME",
+        "CM Synegy",
+        "Eclipse",
+        "GIT",
+        "DebugMux",
+        "Python",
+        "Tcl",
+        "Perl",
+        "Lauterbach",
+        "Windows Mobile",
+        "ClearQuest",
+        "concentrators",
+        "Catalysts",
+        "eg configurations",
+        "trouble",
+        "shooting and 1st level",
+        "at CCNA",
+        "CCIE",
+        "CCSP",
+        "CCSE",
+        "CCNP levels. I also",
+        "Rhapsody",
+        "C++",
+        "Eclipse IDE",
+        "on",
+        "Windows/Solaris",
+        "and Omnitracker tool",
+        "Solaris",
+        "IIS",
+        "Windows NT 4",
+        "LAN/WAN Network Environment"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "08/2015 - heute",
+        "company": "Visteon Electrons",
+        "title": "Cyber Security SW Architecture Consultant, Karlsruhe Germany",
+        "technologies": [
+          "employing blocks such Zone Models",
+          "Firewall concept",
+          "Intrusion",
+          "Linux",
+          "INTEGRITY) were running on SoC",
+          "ARM Trusted Firmware",
+          "Execution"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "I am Cyber Security SW Architecture Consultant, responsible for all aspects of Threat Vulnerabilities Analysis solution and planning. I define security Architecture concepts, implementations support, and resolution of issues for Connected Secure Car.",
+          "Responsible for complete development of Network Security measures, performing discovery, detection, and disruption activities, reporting, and providing analysis of all threat landscape and hardening of security concepts using various tool for vulnerability priority. Provide processes for embedded real time Automotive System Security architecture design technical lead, on VIP, SoC system architectures with sub-systems protection, as cryptographic engines Root of Trust using security and cryptographic standards, and systems implementation using (NIST, PKCS,",
+          "FIPS-140, ISO).",
+          "I defined PKI based services, Certificate, Encryption and implemented",
+          "PKI Certificate Policies for End-2-End security for clients to establish a Root Of Trust in development and production, including General Data",
+          "Protection Requirements(GDPR).",
+          "Focused on security architecture model Optimization in context of",
+          "Germany"
+        ],
+        "role": "Cyber Security SW Architecture Consultant, Karlsruhe Germany"
+      },
+      {
+        "period": "11/2013 - 08/2015",
+        "company": "Delphi - Europe Germany",
+        "title": "Data Centre hosting environment",
+        "technologies": [
+          "Centres",
+          "with all related routers and switches",
+          "CheckPoint Firewall",
+          "Junipers Firewall SRX 240",
+          "load",
+          "balancing and F5",
+          "in Cloud Foundry compliance toolset",
+          "Blade",
+          "system is based on Cisco",
+          "using Virtualization VMware Hypervisor",
+          "HP Cloud System Matrix",
+          "Microsoft",
+          "Cisco ASA",
+          "and EX series for",
+          "(Juniper)",
+          "Reverse Proxy",
+          "Remote Access",
+          "DHCP",
+          "DNS",
+          "IP addressing",
+          "VPN",
+          "APN",
+          "API development",
+          "Integration REST/SOAP",
+          "MIL",
+          "Linux",
+          "Android",
+          "QNX",
+          "I Configured setup with Juniper",
+          "firewalls (Netscreen)",
+          "administration and configuring Cisco",
+          "Junipers routers. I",
+          "provided 2nd",
+          "vSphere",
+          "VCloud",
+          "EMC",
+          "MS Azure",
+          "AWS",
+          "NetAPP",
+          "MongoDB",
+          "Juniper SRX 240",
+          "Juniper EX series",
+          "Juniper Netscreen",
+          "Cisco routers",
+          "Juniper routers"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "I am Network System Security Architect Lead. Responsible for defining",
+          "Responsible for defining Cloud Platform backend Infrastructure Security, availability, with full Network Security solutions, Data Centre hosting environment Servers based on vSphere, VCloud, EMC, HP Cloud System Matrix, MS Azure and Amazon Cloud backend AWS Servers.",
+          "Network Security solutions, Data Centre hosting environment Servers based on vSphere, VCloud, EMC, HP Cloud System Matrix, MS Azure and",
+          "Amazon Cloud backend AWS Servers. Provisioning of Data Storage managed by NetAPP Data Migration and Virtualisation of OTA Cloud hosting environments, IaaS, PaaS, and SaaS. I setup and configure Data",
+          "I participate in migration WAN/LAN Troubleshooting, Root Cause Analysis, management, availability, Load balancing, and capacity planning . The",
+          "VLAN Routing Switching of all IP traffic.",
+          "I specified and reviewed Amazon backend Cloud web services(AWS), MongoDB,",
+          "Setup and configure Data Centre hosting environment.",
+          "Configured setup with Juniper firewalls (Netscreen), NET, administration and configuring Cisco, Junipers routers.",
+          "Provided 2nd"
+        ],
+        "role": "Network System Security Architect Lead"
+      },
+      {
+        "period": "08/2010 - 11/2012",
+        "company": "Intel Mobile Communications Munich Germany",
+        "title": "Cloud Data Centre",
+        "technologies": [
+          "AAA",
+          "DHCP",
+          "DNS",
+          "Gateways and Infiniband fabrics over F5 Load",
+          "VPN",
+          "Juniper ME/EX Junos",
+          "Cisco Firewalls",
+          "Switches &",
+          "Routers SRX-240H",
+          "F5 Load Balancer",
+          "Juniper MX/EX",
+          "Cisco router with optimized Clusters for Load balancing",
+          "ACE",
+          "Juniper 4500",
+          "Layer 2: 802.1x",
+          "Layer 3. ASA",
+          "PIX",
+          "FW",
+          "ACS",
+          "for all",
+          "coming",
+          "from NSN",
+          "Ericsson",
+          "Alcatel Lucent",
+          "Cisco IOS",
+          "Cisco Switching/",
+          "Routing Catalyst CAT6k5",
+          "CAT6k5",
+          "and Checkpoint. Protocols used during",
+          "processes: Linux",
+          "C+",
+          "Clearcase",
+          "CME",
+          "CM Synegy",
+          "Eclipse",
+          "GIT",
+          "DebugMux",
+          "Python",
+          "Tcl",
+          "Perl",
+          "Lauterbach",
+          "Windows Mobile",
+          "ClearQuest",
+          "concentrators",
+          "CheckPoint (Network",
+          "Security) Cisco HighEnd Router",
+          "Other Cisco network devices were Routers &",
+          "Catalysts",
+          "based on Cisco",
+          "on Cisco Call Manager",
+          "eg configurations",
+          "trouble",
+          "shooting and 1st level",
+          "at CCNA",
+          "CCIE",
+          "CCSP",
+          "CCSE",
+          "CCNP levels. I also",
+          "participated in Juniper",
+          "VMWare",
+          "vRealize Suite",
+          "vSphere EXSi",
+          "VCloud",
+          "VMs",
+          "EMC",
+          "HP",
+          "CloudSystem Matrix",
+          "NetAPP",
+          "Data ONTAP",
+          "BGP",
+          "EIGRP",
+          "OSPF",
+          "MPLS",
+          "IP Multicast",
+          "TCP/IP",
+          "UDP",
+          "HTTP",
+          "FTP",
+          "STP"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Network solutions in Virtualization of Cloud Data Centre Servers based on VMWare, vRealize Suite, vSphere EXSi, VCloud, VMs, EMC, HP",
+          "CloudSystem Matrix provisioning . Data Storage was managed by NetAPP",
+          "Data ONTAP Virtualisation Cloud environment. I support all design , deployment , configuration and implementation tasks. I Specified and documented the Secure Network Iaas, PaaS, Cloud based System",
+          "Architecture specification, development and deployment.",
+          "The Network design which I proposed used IP routing protocols BGP, EIGRP, OSPF, MPLS and IP Multicast, while Network protocols used TCP/IP UDP, HTTP, FTP. Afterwards, I configured and customised Network nodes for STP",
+          "OSPF, MPLS and IP Multicast, while Network protocols used TCP/IP UDP,",
+          "HTTP, FTP. Afterwards, I configured and customised Network nodes for STP"
+        ],
+        "industry": "Telekommunikation",
+        "location": "München"
+      },
+      {
+        "period": "08/2008 - 08/2010",
+        "company": "Belgacom Brussels Belgium",
+        "title": "Routers & Catalysts, Belgium",
+        "technologies": [
+          "CheckPoint",
+          "Cisco IOS",
+          "Juniper Junos",
+          "Cisco Load balancers",
+          "CUCM",
+          "CUBE",
+          "CCM 7",
+          "VLAN",
+          "IPSec",
+          "DCN",
+          "NGN",
+          "SBC",
+          "DNS",
+          "SIP",
+          "Bluecoat Proxy",
+          "Agile SCRUM",
+          "PSTN",
+          "E1/T1",
+          "SS7",
+          "QSIG",
+          "IP-PABX",
+          "IMS",
+          "CSCF",
+          "HSS",
+          "MGCF/SGF",
+          "2G/3G"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "I was responsible for Cloud Hosting Virtualization solution in a Data",
+          "Routers & Catalysts, Call Manger CUCM, CUBE, CCM 7, VLAN, IPSec Security and DCN were deployed towards NGN , SBC, DNS, SIP Bluecoat Proxy servers.",
+          "Design and implementation was done using Agile SCRUM methodology for this project.",
+          "I Coordinate all technical issues during certifications of PSTN, E1/T1, SS7, QSIG, IP-PABX to all Vendors during implementation migration NGN to IMS phase for Mobile and NGN, and IMS System Acceptance testing.",
+          "SS7, QSIG, IP-PABX to all Vendors during implementation migration NGN to IMS phase for Mobile and NGN, and IMS System Acceptance testing.",
+          "With the IMS core setup I have involvement Acme SBC, CSCF Function HSS, MGCF/SGF for PSTN,and 2G/3G core networks.",
+          "MGCF/SGF for PSTN,and 2G/3G core networks."
+        ],
+        "industry": "Telekommunikation",
+        "location": "Brussels, Belgium"
+      },
+      {
+        "period": "10/2006 - 08/2008",
+        "company": "Ericsson Nuremberg Germany",
+        "title": "Ericsson",
+        "technologies": [
+          "Rhapsody",
+          "C++",
+          "Eclipse IDE",
+          "Lauterbach",
+          "Clearcase",
+          "Linux",
+          "on",
+          "Windows/Solaris",
+          "and Omnitracker tool",
+          "3GPP",
+          "ETSI",
+          "WCDMA",
+          "IMS",
+          "VoIP",
+          "WiMAX",
+          "LTE",
+          "NGN"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Defining SW Architecture and Information Model for Mobile 3G NMS, NOC, OSS, WCDMA, IMS, VoIP and WiMAX SW and Platform solutions.",
+          "Model for Mobile 3G NMS, NOC,OSS, WCDMA, IMS, VoIP and WiMAX SW and Platform solutions. My tasks include defining System Requirement specifications, Architecture and software Solution for implementations of the Non Access Stratum on Ericsson Next Generation Networks(NGN) for",
+          "3G and 4G(LTE).",
+          "I participate in end to end solutions together with other technical aspects of the project implementation teams, product lines and 3rd party suppliers. In case of issues evolving , I proceed to “arbitrage” of the issues by determining the responsible (IP-PABX or Network VoIP platform Vendor) in order to come to a resolution for the problems",
+          "I worked with a team to define Network Management Design , and System",
+          "Working with a team to define Network Management Design and System Architecture for WCDMA, IMS, VoIP, WiMAX NMS Node B and FlexiBTS.",
+          "These were documented using 3GPP, ETSI other internal Nokia standards. I developed Information Models for Network Configuration",
+          "Participating in end to end solutions together with other technical aspects of the project implementation teams, product lines and 3rd party suppliers.",
+          "Arbitrage of issues by determining the responsible (IP-PABX or Network VoIP platform Vendor) in order to come to a resolution for the problems.",
+          "Documenting using 3GPP, ETSI other internal Nokia standards.",
+          "Developing Information Models for Network Configuration."
+        ],
+        "industry": "Telekommunikation",
+        "location": "Nuremberg"
+      },
+      {
+        "period": "05/2005 - 10/2006",
+        "company": "Nokia Siemens Networks",
+        "title": "Integration Manager, Ulm, Germany",
+        "role": "Project Test Manager",
+        "activities": [
+          "Aufgaben:",
+          "Project Test Manager on Network Server division as Test and Integration",
+          "Manager for J2EE Portal. My daily project management tasks include: develop and maintain project plans and schedules. Identify interdependencies across projects and propose how they should be managed. To manage project resources. issue resolution, risk mitigation, and escalation. Project forecast and tracking. Proposed a Strategy for efficient usage of performance loading tools like QA load, LoadRunner. Together with Enterprise application performance tuning involving BEA WebLogic tuning, JMS Tuning, MQ and Oracle database tuning. I wrote the necessary LoadRunner scripts and Java code to realize the proposal recommendation.",
+          "===================================================== ==========================",
+          "Manage project resources, issue resolution, risk mitigation, and escalation"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Ulm, Germany",
+        "technologies": [
+          "J2EE",
+          "QA load",
+          "LoadRunner",
+          "BEA WebLogic",
+          "JMS",
+          "MQ",
+          "Oracle",
+          "Java"
+        ]
+      },
+      {
+        "period": "01/2002 - 01/2005",
+        "company": "Integration Manager",
+        "title": "responsible to manage SW development, Helsink, Finland",
+        "role": "Test Project manager",
+        "technologies": [
+          "Solaris",
+          "IIS",
+          "Windows NT 4",
+          "LAN/WAN Network Environment"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Test Project manager responsible to manage SW development team, and to ensure assigned project plans are mantained and priority/visibility are delivered on-time, in line with the scope definition and according to budget. Other daily tasks include participating in J2EE SW Design,",
+          "Develop, Test and Integrataton. SW. This SW was a browser based client applications using J2EE BEA WebLogic application Servers in a J2EE/ Oracle/Solaris environment. The application were design using Rational",
+          "Rose, UML, XML, and RUP. Application were developed using Java, JDBC,",
+          "JMS, Servlets, JSP, ANT, JUnit, Spring Framework, Hibernate, HTML and",
+          "JavaScript, LDAP, SQL, and Oracle",
+          "The testing included all Portal Functional testing, J2EE BEA Weblogic based Performance testing, and Content Validation testing. The automatic testing which was used on this project utilized the following tools and utilities(QA Load, QA Runner, LoadRunner(scripting), WinRunner, Test"
+        ]
+      },
+      {
+        "period": "07/2001 - 01/2002",
+        "company": "Ericsson Eurolab",
+        "title": "Senior Test and Integration Engineer",
+        "activities": [
+          "Aufgaben:",
+          "I am a Senior Test and Integration Engineer on a project based on GSM/ GPRS, UMTS 3G, Mobile Internet Applications for Node and Handset Portal devices. My responsibility was to Develop, Test, and Integrate GPRS",
+          "Protocol/Application and SW. A Module was developed to handle Link",
+          "Status Connection, for all Connected Mobile Applications. This SW was distributed on the GPRS Nodes.",
+          "I was responsible for producing Technical Feasibility specification,",
+          "Design and Implementation of Mobile Internet Portal SW applications based on Java 2 Micro Edition (J2ME), CLDC MIDP Platform. The MIDP",
+          "MIDlet client was developed to provide both ‘push’ and ‘pull’ services, over Internet Web Servers including a server based on J2EE platform. The"
+        ],
+        "role": "Senior Test and Integration Engineer"
+      },
+      {
+        "period": "05/2000 - 07/2001",
+        "company": "Tellabs, Oy",
+        "title": "Senior Software Engineer",
+        "activities": [
+          "Aufgaben:",
+          "I was Senior Software Engineer with responsibility for the Architecture specification for UMTS 3G , Mobile IP , ATM/IP NMS FCAPS and Internet",
+          "Verantwortlich für die Architekturspezifikation für UMTS 3G, Mobile IP, ATM/IP NMS FCAPS und Internet Applications",
+          "I supported the Software Configuration Management - SCM process development activities for the Node program, and administration of tools. I wrote the SCM and Software Process Improvement process,",
+          "Methods and Guidelines. This was was part of QA.",
+          "I specified and designed the components necessary for generic",
+          "Application Platform (SNMP Proxy Agent/Server, CLI), which support IP",
+          "Protocols (Signalling, Routing). This project is part of 3G UMTS Core",
+          "Unterstützung der Software Configuration Management (SCM) Prozessentwicklungsaktivitäten für das Node-Programm und Administration der Tools",
+          "Erstellung der SCM- und Software Process Improvement-Prozesse, Methoden und Richtlinien als Teil der Qualitätssicherung",
+          "Spezifikation und Design der Komponenten für eine generische Anwendungsplattform (SNMP Proxy Agent/Server, CLI), die IP-Protokolle (Signalling, Routing) unterstützt"
+        ],
+        "industry": "Telekommunikation",
+        "role": "Senior Software Engineer",
+        "technologies": [
+          "UMTS 3G",
+          "Mobile IP",
+          "ATM/IP",
+          "NMS",
+          "FCAPS",
+          "SNMP Proxy Agent/Server",
+          "CLI",
+          "IP",
+          "Signalling",
+          "Routing"
+        ]
+      },
+      {
+        "period": "08/1996 - 05/2000",
+        "company": "NOKIA -Telecommunications",
+        "title": "System Concepts groups",
+        "activities": [
+          "Aufgaben:",
+          "I have been working in the System Concepts groups for the Nokia",
+          "Telecommunications (NTC). My role has been to define the system concepts for the Mobile and Fixed Access Applications, using some of the",
+          "ITU, and Nokia specific standards. The technical specifications were used to determine the architecture choice(s) for the Access Node with",
+          "Multiservice applications.",
+          "I supported development of test tools/ utilities and scripts using",
+          "(Perl, Tcl,awk, Unix Shell) on these projects. Clearcase with",
+          "Multisite environment were used for SCM. ClearQuest tool was used for the bug report Generations/Tracking of appropriate Action Requests. The quality of the SW was produced according to the CCM, and internal"
+        ]
+      },
+      {
+        "period": "10/1990 - 08/1996",
+        "company": "ALCATEL",
+        "title": "Management and Telecommunication",
+        "activities": [
+          "Aufgaben:",
+          "Alcatel SEL - Stuttgart, Germany, October 1990 to March 1993. I was",
+          "Software Engineer on SDH, PDH Cross Connect project whose applications were, both Network Management and Telecommunication (4/3/1 cross connects). My role was to provide SW services for Cross-Connection, using the Termination Points. These were represented as Managed Objects, according to the CM-Information Model, as specified by the Deutsche",
+          "Bundespost Telekom.",
+          "For the Network Management, I was involved with: TMN, ROSE, CMISE, ASN.1,",
+          "GDMO related Applications, Alarm Management, Performance Management,",
+          "Configuration Management, and Cross Connect Management. The design was produced using the OOD, OOP, with and GNU C++. All the documentation was produced using the CCITT (ITU),IEEE, ETSI, ISO international Standards.",
+          "Alcatel Telecommunication Systems -ATS, Den Haag (Jan 95 to August 96)."
+        ]
+      },
+      {
+        "period": "11/1988 - 10/1990",
+        "company": "ICL Bracknell",
+        "title": "design and implement",
+        "activities": [
+          "Aufgaben:",
+          "My role with ICL was to design and implement Secure Office Systems, over",
+          "Distributed Networks. A network was developed to ensure that Trusted",
+          "Communication is achieved.",
+          "The design took a form of a Security Protocol Layer(SPL). The Secure",
+          "Protocol software receives messages from a LAN or a WAN, with an ENCRYPTION Seal.",
+          "Latter, is regenerated using a MOD approved algorithms.",
+          "The DAC and MAC are established by use of multidimensional arrays. The function of the Security Protocol Layer was to Authenticate, Identify,",
+          "Mediate, and Relay messages between Peers."
+        ]
+      },
+      {
+        "period": "09/1986 - 11/1988",
+        "company": "BRITISH AEROSPACE PLC",
+        "title": "design and implementation",
+        "activities": [
+          "Aufgaben:",
+          "Majority of work in which I was involved with was a design and implementation of Real Time Applications software for the Ministry of",
+          "Defence (MOD). The software was developed using z8001/z8003 microprocessors as the target, with Tektronix 8560 as host and 8540 in Circuit Emulators. The Mascot and JSP methods were used in the software design.",
+          "The developed software used an in-house Mascot Executive to perform",
+          "Scheduling and to support the Mascot Inter Communication data areas, implemented as real-time embedded software.",
+          "Writing a compiler for specifying software to generate tables required by the database access software and z8001 assembler .The generated code was written in C using UNIX System Interfaces.",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "02/1984 - 09/1986",
+        "company": "BONAR BRENTFORD ELECTRIC LTD",
+        "title": "integrate a 3 Phase Full Bridge Rectifier",
+        "activities": [
+          "Aufgaben:",
+          "CAD package of non-linear circuit to integrate a 3 Phase Full Bridge",
+          "Rectifier, Inverter, and a Transformer for a non-linear power circuit.",
+          "Pascal and C were used with some assembly routines. This SW developed further to measure Transient Conditions, by use Inverse Matrix Furrier",
+          "Analysis and Newton Raphson mathematical techniques .",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "07/1977 - 09/1979",
+        "company": "BAUGHANS LTD",
+        "title": "production/ automation",
+        "activities": [
+          "Aufgaben:",
+          "Programmer analyst for in house SW production/ automation projects.",
+          "===================================================== ==========================",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+          "Englisch anzeigen"
+        ]
+      }
+    ],
+    "industries": [
+      "Telecommunication - for 25 Years:",
+      "Alcatel",
+      "Nokia",
+      "Siemens",
+      "Ericsson and Intel.",
+      "Project Management",
+      "PMI",
+      "ISTQB",
+      "CCMI",
+      "Prince II",
+      "Agile",
+      "SCRUM",
+      "ITIL",
+      "Microsoft Lvnc",
+      "Exchange",
+      "Active Directory",
+      "Cisco Enterprise",
+      "SW System Specification",
+      "Test Specifications",
+      "ISEB",
+      "Software Architecture",
+      "System/Functional Testing",
+      "Integration",
+      "Test Executions",
+      "and Acceptance",
+      "Quality Centre",
+      "Trouble-Ticketing Systems",
+      "SLA",
+      "OLA",
+      "SOW",
+      "KPI",
+      "BGF ACME SBC",
+      "CSCF",
+      "HSS",
+      "MGCF/SGF",
+      "PSTN",
+      "2G/3G Mobile",
+      "QALoad",
+      "QARunner",
+      "LoadRunner",
+      "WinRunner",
+      "Test Director(TD)",
+      "Cisco Call Manager V7.x",
+      "V8.x",
+      "CUBE",
+      "Routers",
+      "Gateways Firewalls",
+      "Avaya CM 5.x",
+      "Alcatel F700 R7.x",
+      "F750 R9.x",
+      "Cisco Voip PABX",
+      "CUME",
+      "CheckPoint & ISG Juniper Firewalls",
+      "Cisco Secure Manager NetScreen Security Manager",
+      "BGP",
+      "OSPF",
+      "EIGRP",
+      "QoS",
+      "VoIP",
+      "VPN (SSL",
+      "IPSec)",
+      "Firewalling",
+      ".NET Platform",
+      "Jenkins",
+      "GIT",
+      "Linux",
+      "Jira",
+      "Juniper Firewalls SRX240",
+      "EX3200",
+      "EX4200",
+      "Junos",
+      "JNCIP/JNCIE/JNCIS Level",
+      "Android",
+      "WinCE",
+      "Google APP",
+      "Sun Solaris",
+      "Unix",
+      "C++",
+      "Unix Shell Programming",
+      "J2SE",
+      "J2EE",
+      "J2ME",
+      "CLDC MIDP",
+      "Java",
+      "XML",
+      "HTML",
+      "HTTP JavaScript",
+      "GSM",
+      "GPRS(L2/L3: RLC/MAC",
+      "MM/GMM)",
+      "3G UMTS (Protocols)",
+      "BEA WebLogic",
+      "JSP",
+      "Servlet",
+      "JDBC",
+      "RMI",
+      "Java Web Server",
+      "3GPP R5",
+      "IMS",
+      "SIP",
+      "RNC",
+      "PS Core Networks",
+      "Object Oriented (OO) Analysis and Design",
+      "ASN.1",
+      "GDMO.....",
+      "BroadBand IP",
+      "Routing/Signalling Protocols",
+      "BGP-4",
+      "IS-IS",
+      "RIP",
+      "IPv4",
+      "IPv6",
+      "VPN",
+      "UMTS",
+      "MPLS",
+      "DiffServ",
+      "SDH, ATM, IP , ISDN, PSTN, DSL, xDSL",
+      "Telecommunications",
+      "PDH",
+      "SDH",
+      "ITU",
+      "ISO",
+      "TMN",
+      "POTS",
+      "ISDN",
+      "V5.2 ..",
+      "Software Process Improvement (SPI)",
+      "ISO9001",
+      "IEEE",
+      "CMM ....",
+      "TTCN/Telelogic, Rational",
+      "RequisitePro",
+      "Rumbaugh",
+      "Shlaer-Meler",
+      "Booch Rational Rose/C++",
+      "QAC++",
+      "OODBMS ....",
+      "HP UX",
+      "APIs",
+      "XMP/XOM",
+      "CMOT",
+      "CMISE",
+      "UML",
+      "Rational Rose",
+      "SDL/SDT",
+      "Structured Analysis/Design",
+      "Formal Methods: Z",
+      "Yourdon(real time)",
+      "SSADM",
+      "OSF Motif",
+      "Windows",
+      "HPopenView 6.x",
+      "HPQC",
+      "HP ALM test suite",
+      "Oracle Database (RDBM)",
+      "V8.0",
+      "SQL*Plus",
+      "PL/SQL",
+      "ProC ......",
+      "Test tools",
+      "Test bed",
+      "Generic Test Harness",
+      "PowerPilot",
+      "TestNet",
+      "MS Office 98",
+      "Windows NT 4.0 Microsoft Project",
+      "ClearCase Multisite",
+      "MS Excel",
+      "Unix/Sun Solaris",
+      "OS Symbian 7.0",
+      "Series 60",
+      "Series 90",
+      "EPOC C++",
+      "MMS",
+      "Metrowerks CodeWarrior, CM Synergy PVCS",
+      "OmniTracker",
+      "Catapult",
+      "and Pegasus",
+      "DOORS",
+      "SOAP",
+      "Rational Suite: RUP",
+      "Rational Rose(UML)",
+      "Robot",
+      "ClearCase",
+      "ClearQuest",
+      "Security Safety standards ISO26262",
+      "ISO27001",
+      "IEC61508",
+      "CAN, OBU, OBD-II, AUTOSAR, CATIA V5,",
+      "Infotainment",
+      "CAN LIN",
+      "OBD; API",
+      "AUTOSAR",
+      "CANoe",
+      "CANalyzer",
+      "GNU Tool chain",
+      "Eclipse IDE",
+      "Lauterbach",
+      "Win CE",
+      "Cygwin",
+      "Moses",
+      "SDE",
+      "SDK",
+      "SDP",
+      "RTP",
+      "CME",
+      "Windows Mobile OS",
+      "Cisco CCM 7.1",
+      "Avaya CM",
+      "IP-PABX",
+      "NGN",
+      "VoIP SIP Trunking",
+      "SS7",
+      "Agilent Signaling analyzer",
+      "Rhode Schwarz",
+      "LLDM LTE MA Trace Analysis, QXD , WinCE,",
+      "IRAT IOT",
+      "Artemis",
+      "Mobile Analysier (2G 3G LTE Stack Analysis)",
+      "Telecommunication",
+      "Telematics Automotive and Automotive security"
+    ],
+    "focus_areas": [
+      "IT Cyber Security",
+      "SIEM",
+      "ISMS",
+      "ISO27001",
+      "Telematics Autosar",
+      "OBDII",
+      "CAN LIN. Cryptography Signature",
+      "encryption",
+      "CyptoCell",
+      "Hypervisor VMM",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Hardware-Entwicklung Engineering / IT-nahe Ingenieurdienstleistungen",
+      "System Software Design/Architecture and Development",
+      "Networking",
+      "Cloud",
+      "Telecom and Automotive",
+      "CAN LIN",
+      "Cryptography Signature",
+      "SoC",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Dokumentation / DTP",
+      "Hardware-Entwicklung",
+      "Engineering / IT-nahe Ingenieurdienstleistungen"
+    ],
+    "focus_experience": [
+      {
+        "name": "SOFTWARE AND HARDWARE EXPERIENCE",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "* Project Management",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "PMI",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "ISTQB",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "CCMI",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Prince II",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Agile",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "SCRUM",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "* Microsoft Lvnc",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Exchange",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Active Directory",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Cisco Enterprise",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "* SW System Specification",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Test Specifications",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "ISEB",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Software",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Architecture",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "* System/Functional Testing",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Integration",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Test Executions",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "and Acceptance",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "* Quality Centre",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Trouble-Ticketing Systems",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "SLA",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "OLA",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "SOW",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "KPI",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "* BGF ACME SBC",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "CSCF",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "HSS",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "MGCF/SGF",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "PSTN",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "2G/3G Mobile",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "* QALoad",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "QARunner",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "LoadRunner",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "WinRunner",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Test Director(TD)",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "* Cisco Call Manager V7.x",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "V8.x",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "CUBE",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Routers",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Gateways Firewalls",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "* Avaya CM 5.x",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Alcatel F700 R7.x",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "F750 R9.x",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "* Cisco Voip PABX",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "CUME",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "CheckPoint & ISG Juniper Firewalls",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Cisco Secure Manager NetScreen Security Manager",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "* BGP",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "OSPF",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "EIGRP",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "QoS",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "VoIP",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "VPN (SSL",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "IPSec)",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Firewalling",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "* .NET Platform",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "GIT",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Linux",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "* Juniper Firewalls SRX240",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "EX3200",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "EX4200",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Junos",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "* JNCIP/JNCIE/JNCIS Level",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Android",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "WinCE",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Google APP",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "* Sun Solaris",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Unix",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "C++",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Unix Shell Programming",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "* J2SE",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "J2ME",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "CLDC MIDP",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "HTTP JavaScript",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "* GSM",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "GPRS(L2/L3: RLC/MAC",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "MM/GMM)",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "3G UMTS (Protocols)",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "* BEA WebLogic",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Servlet",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "RMI",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Java Web Server",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "* 3G",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "3GPP R5",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "IMS",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "SIP",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "RNC",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "PS Core Networks",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "* Object Oriented (OO) Analysis and Design",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "ASN.1",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "GDMO",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "* BroadBand IP",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Routing/Signalling Protocols",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "BGP-4",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "IS-IS",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "RIP",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "* IPv4",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "IPv6",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "VPN",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "UMTS",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "MPLS",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "DiffServ",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "* SDH",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "ATM",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "ISDN",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "DSL",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "xDSL",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "* Telecommunications",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "PDH",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "SDH",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "ITU",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "ISO",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "TMN",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "POTS",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "V5.2",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "* Software Process Improvement (SPI)",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "ISO9001",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "IEEE",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "CMM",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "* TTCN/Telelogic",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "Rational",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "RequisitePro",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "* Rumbaugh",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "Shlaer-Meler",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "Booch Rational Rose/C++",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "QAC++",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "OODBMS",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "* HP UX",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "APIs",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "XMP/XOM",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "CMOT",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "CMISE",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "Rational Rose",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "SDL/SDT",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "* Structured Analysis/Design",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "Formal Methods: Z",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "Yourdon(real time)",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "SSADM",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "* OSF Motif",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "Windows",
+        "category": "product_standard",
+        "sort_order": 152
+      },
+      {
+        "name": "HPopenView 6.x",
+        "category": "product_standard",
+        "sort_order": 153
+      },
+      {
+        "name": "HPQC",
+        "category": "product_standard",
+        "sort_order": 154
+      },
+      {
+        "name": "HP ALM test suite",
+        "category": "product_standard",
+        "sort_order": 155
+      },
+      {
+        "name": "* Oracle Database (RDBM)",
+        "category": "product_standard",
+        "sort_order": 156
+      },
+      {
+        "name": "V8.0",
+        "category": "product_standard",
+        "sort_order": 157
+      },
+      {
+        "name": "SQL*Plus",
+        "category": "product_standard",
+        "sort_order": 158
+      },
+      {
+        "name": "PL/SQL",
+        "category": "product_standard",
+        "sort_order": 159
+      },
+      {
+        "name": "ProC",
+        "category": "product_standard",
+        "sort_order": 160
+      },
+      {
+        "name": "* Test tools",
+        "category": "product_standard",
+        "sort_order": 161
+      },
+      {
+        "name": "Test bed",
+        "category": "product_standard",
+        "sort_order": 162
+      },
+      {
+        "name": "Generic Test Harness",
+        "category": "product_standard",
+        "sort_order": 163
+      },
+      {
+        "name": "PowerPilot",
+        "category": "product_standard",
+        "sort_order": 164
+      },
+      {
+        "name": "TestNet",
+        "category": "product_standard",
+        "sort_order": 165
+      },
+      {
+        "name": "* MS Office 98",
+        "category": "product_standard",
+        "sort_order": 166
+      },
+      {
+        "name": "Windows NT 4.0 Microsoft Project",
+        "category": "product_standard",
+        "sort_order": 167
+      },
+      {
+        "name": "* ClearCase Multisite",
+        "category": "product_standard",
+        "sort_order": 168
+      },
+      {
+        "name": "MS Excel",
+        "category": "product_standard",
+        "sort_order": 169
+      },
+      {
+        "name": "Unix/Sun Solaris",
+        "category": "product_standard",
+        "sort_order": 170
+      },
+      {
+        "name": "* OS Symbian 7.0",
+        "category": "product_standard",
+        "sort_order": 171
+      },
+      {
+        "name": "Series 60",
+        "category": "product_standard",
+        "sort_order": 172
+      },
+      {
+        "name": "Series 90",
+        "category": "product_standard",
+        "sort_order": 173
+      },
+      {
+        "name": "EPOC C++",
+        "category": "product_standard",
+        "sort_order": 174
+      },
+      {
+        "name": "MMS",
+        "category": "product_standard",
+        "sort_order": 175
+      },
+      {
+        "name": "* Metrowerks CodeWarrior",
+        "category": "product_standard",
+        "sort_order": 176
+      },
+      {
+        "name": "CM Synergy PVCS",
+        "category": "product_standard",
+        "sort_order": 177
+      },
+      {
+        "name": "* Linux",
+        "category": "product_standard",
+        "sort_order": 178
+      },
+      {
+        "name": "OmniTracker",
+        "category": "product_standard",
+        "sort_order": 179
+      },
+      {
+        "name": "Catapult",
+        "category": "product_standard",
+        "sort_order": 180
+      },
+      {
+        "name": "and Pegasus",
+        "category": "product_standard",
+        "sort_order": 181
+      },
+      {
+        "name": "DOORS",
+        "category": "product_standard",
+        "sort_order": 182
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 183
+      },
+      {
+        "name": "* Rational Suite: RUP",
+        "category": "product_standard",
+        "sort_order": 184
+      },
+      {
+        "name": "Rational Rose(UML)",
+        "category": "product_standard",
+        "sort_order": 185
+      },
+      {
+        "name": "Robot",
+        "category": "product_standard",
+        "sort_order": 186
+      },
+      {
+        "name": "ClearCase",
+        "category": "product_standard",
+        "sort_order": 187
+      },
+      {
+        "name": "ClearQuest",
+        "category": "product_standard",
+        "sort_order": 188
+      },
+      {
+        "name": "* Security Safety standards ISO26262",
+        "category": "product_standard",
+        "sort_order": 189
+      },
+      {
+        "name": "ISO27001",
+        "category": "product_standard",
+        "sort_order": 190
+      },
+      {
+        "name": "IEC61508",
+        "category": "product_standard",
+        "sort_order": 191
+      },
+      {
+        "name": "* CAN",
+        "category": "product_standard",
+        "sort_order": 192
+      },
+      {
+        "name": "OBU",
+        "category": "product_standard",
+        "sort_order": 193
+      },
+      {
+        "name": "OBD-II",
+        "category": "product_standard",
+        "sort_order": 194
+      },
+      {
+        "name": "AUTOSAR",
+        "category": "product_standard",
+        "sort_order": 195
+      },
+      {
+        "name": "CATIA V5",
+        "category": "product_standard",
+        "sort_order": 196
+      },
+      {
+        "name": "* Infotainment",
+        "category": "product_standard",
+        "sort_order": 197
+      },
+      {
+        "name": "CAN LIN",
+        "category": "product_standard",
+        "sort_order": 198
+      },
+      {
+        "name": "OBD; API",
+        "category": "product_standard",
+        "sort_order": 199
+      },
+      {
+        "name": "CANoe",
+        "category": "product_standard",
+        "sort_order": 200
+      },
+      {
+        "name": "CANalyzer",
+        "category": "product_standard",
+        "sort_order": 201
+      },
+      {
+        "name": "* GNU Tool chain",
+        "category": "product_standard",
+        "sort_order": 202
+      },
+      {
+        "name": "Eclipse IDE",
+        "category": "product_standard",
+        "sort_order": 203
+      },
+      {
+        "name": "Lauterbach",
+        "category": "product_standard",
+        "sort_order": 204
+      },
+      {
+        "name": "Win CE",
+        "category": "product_standard",
+        "sort_order": 205
+      },
+      {
+        "name": "* Cygwin",
+        "category": "product_standard",
+        "sort_order": 206
+      },
+      {
+        "name": "Moses",
+        "category": "product_standard",
+        "sort_order": 207
+      },
+      {
+        "name": "SDE",
+        "category": "product_standard",
+        "sort_order": 208
+      },
+      {
+        "name": "SDK",
+        "category": "product_standard",
+        "sort_order": 209
+      },
+      {
+        "name": "SDP",
+        "category": "product_standard",
+        "sort_order": 210
+      },
+      {
+        "name": "RTP",
+        "category": "product_standard",
+        "sort_order": 211
+      },
+      {
+        "name": "CME",
+        "category": "product_standard",
+        "sort_order": 212
+      },
+      {
+        "name": "Windows Mobile OS",
+        "category": "product_standard",
+        "sort_order": 213
+      },
+      {
+        "name": "* Cisco CCM 7.1",
+        "category": "product_standard",
+        "sort_order": 214
+      },
+      {
+        "name": "Avaya CM",
+        "category": "product_standard",
+        "sort_order": 215
+      },
+      {
+        "name": "IP-PABX",
+        "category": "product_standard",
+        "sort_order": 216
+      },
+      {
+        "name": "NGN",
+        "category": "product_standard",
+        "sort_order": 217
+      },
+      {
+        "name": "VoIP SIP Trunking",
+        "category": "product_standard",
+        "sort_order": 218
+      },
+      {
+        "name": "SS7",
+        "category": "product_standard",
+        "sort_order": 219
+      },
+      {
+        "name": "* Agilent Signaling analyzer",
+        "category": "product_standard",
+        "sort_order": 220
+      },
+      {
+        "name": "Rhode Schwarz",
+        "category": "product_standard",
+        "sort_order": 221
+      },
+      {
+        "name": "* LLDM LTE MA Trace Analysis",
+        "category": "product_standard",
+        "sort_order": 222
+      },
+      {
+        "name": "QXD",
+        "category": "product_standard",
+        "sort_order": 223
+      },
+      {
+        "name": "* IRAT IOT",
+        "category": "product_standard",
+        "sort_order": 224
+      },
+      {
+        "name": "Artemis",
+        "category": "product_standard",
+        "sort_order": 225
+      },
+      {
+        "name": "Mobile Analysier (2G 3G LTE Stack Analysis)",
+        "category": "product_standard",
+        "sort_order": 226
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. (part time) in Software Engineering",
+        "institution": "Oxford University, England",
+        "period": "09/1996 - 09/1998",
+        "education_type": "course"
+      },
+      {
+        "degree": "B.Sc. (Hon) Applied Science with Computing",
+        "institution": "Kingston University, England",
+        "period": "09/1979 - 07/1982",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:34:41.298808",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'Cyber Security SW Architecture Consultant, Karlsruhe Germany'",
+        "ROLLE aus TITLE: 'Senior Test and Integration Engineer'",
+        "ACT: 8→7 bei '01/2002 - 01/2005'",
+        "ACT: 8→7 bei '07/2001 - 01/2002'",
+        "EDV_SEIT: None→1977"
+      ],
+      "coverage_percent": 96.18556701030928,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

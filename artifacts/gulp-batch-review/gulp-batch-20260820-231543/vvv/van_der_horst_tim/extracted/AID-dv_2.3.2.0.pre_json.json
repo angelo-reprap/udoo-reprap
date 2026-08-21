@@ -1,0 +1,869 @@
+{
+  "metadata": {
+    "aid": "AID-dv_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "van_der_horst_tim",
+    "first_name": "Der Horst Tim",
+    "last_name": "Van",
+    "headline": "Microsoft Business Intelligence / SQL Server / .NET / C# / ASP.NET, Scrum Master (im Dev Team)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:04:07.262316"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Der Horst Tim",
+      "last_name": "Van",
+      "birth_year": 1969,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch sehr gut",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (sehr gut)",
+          "level": ""
+        }
+      ],
+      "availability": "01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D4, D5 im Umkreis von: Düsseldorf (50 km) Ich möchte",
+      "wohnort": "404xx Düsseldorf, Deutschland",
+      "headline": "Microsoft Business Intelligence / SQL Server / .NET / C# / ASP.NET, Scrum Master (im Dev Team)",
+      "edv_experience_since": 1999
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Microsoft SQL Server",
+        "MySQL",
+        "Oracle/SQL",
+        "PostgreSQL",
+        "Design/Entwicklung/Konstruktion",
+        "Domain-Driven-Design (DDD)",
+        "Microservices",
+        "PlantUML",
+        "Visual Pradigm"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [
+        "Angular",
+        "C#",
+        "JavaScript",
+        ".NET",
+        "TypeScript",
+        "UML",
+        "C# (C Sharp)",
+        "SQL / T-SQL",
+        "HTML",
+        "C++ / MFC",
+        "XAML",
+        "Visual Basic",
+        "BI (Business Intelligence)",
+        "ETL / SSIS",
+        "SSAS",
+        "SSRS",
+        "BI Semantic Model (BISM) Tabular / Multidimensional",
+        "Entwicklungsumgebungen",
+        "Visual Studio",
+        "SQL Server Management Studio",
+        "SQL Server Data Tools",
+        "Modellierung",
+        "Visio",
+        "Enterprise Architect",
+        "Unified Modelling Language (UML)",
+        "Versionskontrolle",
+        "Team Foundation Server (TFS)",
+        "Subversion (SVN)",
+        "Concurrent Versions System (CVS)",
+        "Visual SourceSafe",
+        "ClearCase",
+        "Git",
+        "Server",
+        "Microsoft SQL Server (seit Version 6.5)",
+        "SharePoint",
+        "Internet Information Server (IIS)",
+        "Microsoft Azure",
+        "Websites",
+        "Cloud-Dienste",
+        "SQL-Datenbanken",
+        "Mobile Services",
+        "Virtuelle Computer",
+        "Microsoft .NET Framework",
+        "ASP.NET Webforms",
+        "ASP.NET MVC 5",
+        "ASP.NET MVC Core",
+        "Razor",
+        "ADO.NET",
+        "Entity Framework",
+        "Windows Presentation Foundation (WPF)",
+        "Windows Forms",
+        "Windows Communication Foundation (WCF)",
+        "SOAP Webservices",
+        "ASP.NET WebAPI / REST",
+        "LINQ",
+        "SilverLight",
+        "Microsoft Foundation Classes (MFC)",
+        "Weitere Bibliotheken / Controls",
+        "Microsoft Enterprise Library",
+        "Dundas Charts / Gauge",
+        "Telerik ASP.NET Controls",
+        "Web Standards",
+        "CSS",
+        "XML",
+        "XSLT",
+        "JQuery",
+        "JQuery Mobile",
+        "Knockout.js",
+        "Projektmanagement",
+        "SCRUM",
+        "Microsoft Project",
+        "Gemini Project Management",
+        "Content Management (CMS)",
+        "DotNetNuke (DNN)"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "06/2018 - 10/2020",
+        "company": "RWE Supply & Trading",
+        "title": "Entwicklung von Algo-Trading Software für die Energiebranche, Essen",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Anforderungsanalyse, Architektur, Entwicklung",
+          "Domain-Driven-Design (DDD), WPF, WCF, Winforms, ASP.NET Core, HTML, JavaScript, TypeScript, Microservices, Webservices, Git, Scrum, C#, .NET",
+          "TypeScript, Microservices, Webservices, Git, Scrum, C#, .NET",
+          "Eingesetzte Produkte:",
+          "PlantUML, Angular, Oracle/SQL, PostgreSQL, Git, Microsoft Visual Studio ===================================================== =========================="
+        ],
+        "industry": "Energie",
+        "location": "Essen",
+        "technologies": [
+          "PlantUML",
+          "Angular",
+          "Oracle/SQL",
+          "PostgreSQL",
+          "Git",
+          "Microsoft Visual Studio",
+          "WPF",
+          "WCF",
+          "Winforms",
+          "ASP.NET Core",
+          "HTML",
+          "JavaScript",
+          "TypeScript",
+          "Microservices",
+          "Webservices",
+          "Scrum",
+          "C#",
+          ".NET"
+        ]
+      },
+      {
+        "period": "09/2017 - 05/2018",
+        "company": "Alsco GmbH",
+        "title": "Entwicklung einer Auftragsverwaltung, Köln",
+        "role": "Software-Entwickler, Scrum Master",
+        "activities": [
+          "Aufgaben:",
+          "SCRUM Master, Anforderungsanalyse, Architektur, Webentwicklung",
+          "Scrum Master, C#, HTML, JavaScript, TypeScript, Webservices, Git, OOA, OOD, UML",
+          "Eingesetzte Produkte:",
+          "Visual Studio 2017, Visual Pradigm, MySQL, Bootstrap, Knockout.Js, Angular,",
+          "ASP.Net Core",
+          "===================================================== =========================="
+        ],
+        "location": "Köln",
+        "technologies": [
+          "Visual Studio 2017",
+          "Visual Pradigm",
+          "MySQL",
+          "Bootstrap",
+          "Knockout.Js",
+          "Angular",
+          "ASP.Net Core",
+          "C#",
+          "HTML",
+          "JavaScript",
+          "TypeScript",
+          "Webservices",
+          "Git",
+          "OOA",
+          "OOD",
+          "UML"
+        ]
+      },
+      {
+        "period": "01/2016 - 08/2017",
+        "company": "ERGO Gruppe / Versicherungen",
+        "title": "Relaunch einer Webapplikation zur Agenturunterstützung",
+        "activities": [
+          "Aufgaben:",
+          "Anforderungsanalyse, Architektur, .NET Entwicklung",
+          "Visual Studio 2015, HTML5, JavaScript, C#, WebServices, SOAP",
+          "Eingesetzte Produkte:",
+          "Microsoft SQL Server, Telerik ASP.NET AJAX Controls, Team Foundation Server,",
+          "Enterprise Architect",
+          "===================================================== =========================="
+        ],
+        "industry": "Versicherungen",
+        "technologies": [
+          "Visual Studio 2015",
+          "HTML5",
+          "JavaScript",
+          "C#",
+          "WebServices",
+          "SOAP",
+          "Microsoft SQL Server",
+          "Telerik ASP.NET AJAX Controls",
+          "Team Foundation Server",
+          "Enterprise Architect"
+        ]
+      },
+      {
+        "period": "08/2014 - 12/2015",
+        "company": "groupm / Media",
+        "title": "Neuerstellung von DataMarts, Cubes und einer Reporting- Lösung",
+        "technologies": [
+          "Visual Studio 2013",
+          "Azure",
+          "SQL Server 2012",
+          "SSIS",
+          "SSAS",
+          "SSRS",
+          "C#",
+          "Excel",
+          "Services",
+          "SharePoint 2013",
+          "TFS",
+          "Git"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Services, SharePoint 2013, TFS, Git",
+          "Konzeption, Architektur, BI Entwicklung, .NET Entwicklung ===================================================== ==========================",
+          "Neuerstellung von DataMarts, Cubes und einer Reporting-Lösung"
+        ],
+        "industry": "Media"
+      },
+      {
+        "period": "03/2014 - 06/2014",
+        "company": "scholz.msconsulting GmbH / Software",
+        "title": "Neuerstellung eines mobilen Clients für ein CRM",
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2013, Azure Web Services, HTML 5, JavaScript, Knockout JS,",
+          "Require JS, jQuery, jQuery Mobile, ASP.NET, VB, SQL Server, TFS",
+          "Konzeption, Architektur, HTML5 Entwicklung ===================================================== =========================="
+        ],
+        "industry": "Software",
+        "technologies": [
+          "Visual Studio 2013",
+          "Azure Web Services",
+          "HTML 5",
+          "JavaScript",
+          "Knockout JS",
+          "Require JS",
+          "jQuery",
+          "jQuery Mobile",
+          "ASP.NET",
+          "VB",
+          "SQL Server",
+          "TFS"
+        ]
+      },
+      {
+        "period": "01/2014 - 02/2014",
+        "company": "VivaKi GmbH / Media",
+        "title": "Weiterentwicklung einer vorhandenen Applikation zur",
+        "activities": [
+          "Weiterentwicklung einer vorhandenen Applikation zur Werbeplanung",
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2013, ASP.NET MVC, C#, SQL Server, HTML 5, JavaScript, Knockout",
+          "JS, jQuery, Highcharts JS, Git",
+          "Architektur, C# Entwicklung, Datenbankentwicklung, Intranet Webentwicklung ===================================================== =========================="
+        ],
+        "industry": "Media",
+        "technologies": [
+          "Visual Studio 2013",
+          "ASP.NET MVC",
+          "C#",
+          "SQL Server",
+          "HTML 5",
+          "JavaScript",
+          "Knockout JS",
+          "jQuery",
+          "Highcharts JS",
+          "Git"
+        ]
+      },
+      {
+        "period": "09/2013 - 12/2013",
+        "company": "Hudson Advisors Germany / Immobilien",
+        "title": "Neuerstellung eines Dokumentenverwaltungssystems",
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2012, .NET Framework 4.0, SQL Server 2012, Filestream, C#,",
+          "ASP.NET MVC, REST Webservice, SSIS, Team Foundation Server (TFS)",
+          "Architektur, C# Entwicklung, Datenbankentwicklung, Intranet Webentwicklung ===================================================== =========================="
+        ],
+        "industry": "Immobilien",
+        "technologies": [
+          "Visual Studio 2012",
+          ".NET Framework 4.0",
+          "SQL Server 2012",
+          "Filestream",
+          "C#",
+          "ASP.NET MVC",
+          "REST Webservice",
+          "SSIS",
+          "Team Foundation Server (TFS)"
+        ]
+      },
+      {
+        "period": "08/2013 - 08/2013",
+        "company": "Vodafone Group / Telekommunikation",
+        "title": "Neuerstellung eines Händlerportals für otelo",
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2012, Azure PaaS, .NET Framework 4.0, C#, ASP.NET MVC, WS-Federation (SSO), SSIS, SSAS, SSRS, Umbraco CMS, Team Foundation Server (TFS)",
+          "Architektur, BI Entwicklung, C# Entwicklung, Datenbankentwicklung ===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "technologies": [
+          "Visual Studio 2012",
+          "Azure PaaS",
+          ".NET Framework 4.0",
+          "C#",
+          "ASP.NET MVC",
+          "WS-Federation (SSO)",
+          "SSIS",
+          "SSAS",
+          "SSRS",
+          "Umbraco CMS",
+          "Team Foundation Server (TFS)"
+        ]
+      },
+      {
+        "period": "07/2013 - 07/2013",
+        "company": "Höft & Wessel AG / Technologie",
+        "title": ".NET Entwicklung für ein Embedded System",
+        "technologies": [
+          "Visual Studio 2010",
+          "Windows Embedded",
+          "NET Framework 4.0",
+          "C#",
+          "Windows Installer",
+          "XML (WIX)",
+          "Windows Forms",
+          "Team Foundation Server (TFS)"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Softwarearchitektur, C# Entwicklung, Bereitstellung eines Installers ===================================================== =========================="
+        ],
+        "industry": "Technologie"
+      },
+      {
+        "period": "04/2013 - 06/2013",
+        "company": "aivest.com / Finanzen",
+        "title": "Online Managementsystem für effiziente Aktienportfolios",
+        "technologies": [
+          "Microsoft Azure",
+          "DotNetNuke (DNN)",
+          "NET Framework 4.5",
+          "Windows Forms",
+          "C#",
+          "Visual Studio 2012",
+          "SQL Server 2012",
+          "ASP.NET MVC",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "JQuery",
+          "Knockout.js",
+          "Team Foundation Server (TFS)"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2012, SQL Server 2012, Microsoft Azure, SQL Server 2012,",
+          "ASP.NET MVC, HTML, CSS, JavaScript, JQuery, Knockout.js, Team Foundation Server",
+          "Architektur, Datenbankentwicklung, C# Entwicklung, Webentwicklung ===================================================== =========================="
+        ],
+        "industry": "Finanzen"
+      },
+      {
+        "period": "05/2012 - 03/2013",
+        "company": "ERGO Gruppe / Versicherungen",
+        "title": "ASP.NET Komponentenentwicklung",
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2010, .NET Framework 3.5, C#, ASP.NET, HTML, CSS, UIP,",
+          "JavaScript, JQuery, Telerik ASP.NET Controls, ClearCase, ClearQuest",
+          "Erstellung von ASP.NET Controls und Seiten, Performancetuning, Fehlerbehebung ===================================================== =========================="
+        ],
+        "industry": "Versicherungen",
+        "technologies": [
+          "Visual Studio 2010",
+          ".NET Framework 3.5",
+          "C#",
+          "ASP.NET",
+          "HTML",
+          "CSS",
+          "UIP",
+          "JavaScript",
+          "JQuery",
+          "Telerik ASP.NET Controls",
+          "ClearCase",
+          "ClearQuest"
+        ]
+      },
+      {
+        "period": "09/2010 - 03/2012",
+        "company": "Metro Systems GmbH / Handel",
+        "title": "Implementierung einer Microsoft BI-Lösung",
+        "technologies": [
+          "SQL Server 2008 R2",
+          "Windows Server 2008 R2",
+          "Windows Forms",
+          "Windows Presentation",
+          "Visual Studio 2010",
+          "SSIS",
+          "SSAS",
+          "SSRS",
+          ".NET Framework 4.0",
+          "C#",
+          "Silverlight 4",
+          "Foundation (WPF)",
+          "XAML",
+          "Subversion (Tortoise SVN)",
+          "SharePoint"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2010, SSIS, SSAS, SSRS, .NET Framework 4.0, C#, Silverlight 4,",
+          "Foundation (WPF), XAML, Subversion (Tortoise SVN), SharePoint",
+          "Business Intelligence (BI) Consultant, Bi Architektur, BI-Entwicklung,",
+          "Softwareentwicklung, Datenbankentwicklung ===================================================== =========================="
+        ],
+        "industry": "Handel",
+        "role": "Business Intelligence (BI) Consultant"
+      },
+      {
+        "period": "06/2010 - 08/2010",
+        "company": "circ IT GmbH / Medien",
+        "title": "Migration eines Informationssystems",
+        "technologies": [
+          "Visual Studio 2008",
+          "NET Framework 3.5",
+          "C#",
+          "SQL Server 2008",
+          "Windows Server",
+          "2008 R2",
+          "Windows Forms",
+          "Windows Presentation Foundation (WPF)",
+          "(WPF)",
+          "XAML",
+          "Source Safe",
+          "SharePoint",
+          "Visio 2008",
+          "SOAP",
+          "Gemini Project Management"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Source Safe, SharePoint, Visio 2008, SOAP, Gemini Project Management",
+          "Architektur, Datenbankentwicklung, Softwareentwicklung ===================================================== =========================="
+        ],
+        "industry": "Medien"
+      },
+      {
+        "period": "10/2009 - 06/2010",
+        "company": "Hoya Lens Deutschland GmbH / Medizintechnik",
+        "title": "Order Routing System",
+        "technologies": [
+          "Windows Server 2008 R2",
+          "Windows Forms",
+          "Windows Presentation Foundation (WPF)",
+          "Foundation (WPF)",
+          "XAML",
+          "Visio 2008",
+          "Liquid XML Studio",
+          "CVS",
+          "Visual Studio 2008",
+          ".NET Framework 3.5",
+          "C#",
+          "Entity Framework",
+          "WCF",
+          "IIS",
+          "SQL"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2008, .NET Framework 3.5, C#, Entity Framework, WCF, IIS, SQL",
+          "Architektur, Datenbankentwicklung, Softwareentwicklung ===================================================== =========================="
+        ],
+        "industry": "Medizintechnik"
+      },
+      {
+        "period": "06/2009 - 10/2009",
+        "company": "circ IT GmbH / Medien",
+        "title": "Weiterentwicklung des Börseninformationssystems für handelsblatt.com",
+        "technologies": [
+          "Windows Server 2008 R2",
+          "Visual Source Safe",
+          "SharePoint",
+          "Visio",
+          "Dundas Gauge",
+          "Visual Studio 2008",
+          "ASP.NET",
+          ".NET Framework 3.5",
+          "C#",
+          "WCF",
+          "IIS",
+          "SQL Server 2008",
+          "Chart",
+          "Gemini Project Management"
+        ],
+        "activities": [
+          "handelsblatt.com",
+          "Aufgaben:",
+          "Technologien:",
+          "Visual Studio 2008, ASP.NET, .NET Framework 3.5, C#, WCF, IIS, SQL Server 2008,",
+          "Chart, Dundas Gauge, Gemini Project Management",
+          "Architektur, Datenbankentwicklung, Softwareentwicklung ===================================================== =========================="
+        ],
+        "industry": "Medien"
+      },
+      {
+        "period": "01/2001 - 05/2009",
+        "company": "Verlagsgruppe Handelsblatt GmbH / Medien (nach",
+        "title": "handelsblatt.com Finanzinformationsapplikationen (in",
+        "technologies": [
+          "Microsoft SQL Server",
+          "Visual Studio",
+          "Windows Server",
+          "Windows Services",
+          "SQLXML",
+          "Windows Forms",
+          "Windows Presentation Foundation (WPF)",
+          "XAML",
+          "Tcl",
+          "Internet Information Server (IIS)",
+          "ASP.NET",
+          ".NET Framework",
+          "C#",
+          "C++",
+          "WCF",
+          "Visual Source Safe",
+          "SharePoint",
+          "Visio",
+          "Dundas Chart",
+          "Dundas Gauge",
+          "Microsoft Enterprise Library",
+          "Gemini Project Management",
+          "JavaScript",
+          "CSS",
+          "HTML"
+        ],
+        "activities": [
+          "Anstellung)",
+          "Betriebsübergang 2007: circ IT GmbH)",
+          "Aufgaben:",
+          "Technologien:",
+          "Internet Information Server (IIS), ASP.NET, .NET Framework, C#, C++, WCF, IIS,",
+          "Visual Source Safe, SharePoint, Visio, Dundas Chart, Dundas Gauge, Microsoft",
+          "Enterprise Library, Gemini Project Management, JavaScript, CSS, HTML, XML,"
+        ],
+        "industry": "Medien"
+      },
+      {
+        "period": "08/1999 - 12/2000",
+        "company": "Verlagsgruppe Handelsblatt GmbH / Medien",
+        "title": "ABaDI (Amtliche Bekanntmachungen aus Digitalem Input)",
+        "activities": [
+          "Aufgaben:",
+          "Technologien:",
+          "Microsoft SQL Server 7.0, Visual Basic, Visual C++, XML",
+          "Architektur, Datenbankentwicklung, Softwareentwicklung ===================================================== ========================== Sonstiges Referenzen: Projekt Leitung einer Entwicklungsabteilung, 01/01 - 06/09 Referenz durch IT-Leiter, Verlagshaus, (1.400 MA), vom 30.06.09 Projekt im Rahmen einer Festanstellung durchgeführt \"[...] Der Consultant war ein äußerst engagierter und motivierter Mitarbeiter.",
+          "Er ging die Aufgaben sehr systematisch und methodisch an und war dabei stets verantwortungsbewusst. Sein ausgeprägtes Fachwissen und seine kommunikative Stärke befähigten ihn bei sachbezogenen Fragen zu durchdachten und präzisen Entscheidungen. Er entschied und handelte - auch in Stresssituationen besonnen und richtig. Seine Arbeitsweise war stets durch Umsicht geprägt.",
+          "Zusammenfassend können wir bestätigen, dass der Consultant die ihm übertragenen Aufgaben jederzeit gewissenhaft und sehr zuverlässig stets zu unserer vollsten Zufriedenheit erledigte. Mit seinen Leistungen waren wir außerordentlich zufrieden. Aufgrund seiner teamorientierten Zusammenarbeit und seines kollegialen und aufgeschlossenen Verhaltens war er bei Vorgesetzten, Kollegen und externen Gesprächspartnern gleichermaßen sehr geschätzt und anerkannt.",
+          "[...] Wir bedanken uns bei ihm für die bisherige sehr gute Zusammenarbeit und wünschen ihm für seinen weiteren beruflichen Lebensweg sowie auch persönlich weiterhin viel Erfolg und alles Gute.\" Alle Referenzen sind durch GULP bestätigt.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen"
+        ],
+        "industry": "Medien",
+        "technologies": [
+          "Microsoft SQL Server 7.0",
+          "Visual Basic",
+          "Visual C++",
+          "XML"
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "Microsoft Business Intelligence / SQL Server / .NET / C# / ASP.NET Scrum Master (im Dev Team) Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Microsoft .NET Microsoft Business Intelligence Architektur & Entwicklung Entwicklungsstelle, > 100.000 Euro p. a.",
+      "Heinrich Heine Universität Düsseldorf:",
+      "Informationswissenschaft, Medienwissenschaft, Philosophie (Abschluss Magister Artium) Kurse, Lehrgänge: 10/2005 IT Führungskräfteseminar bei Dr. Roland Henssler 08/2005 .Net Framework 2.0 Schulung 01/2005 Proof of Concept bei Microsoft in Unterschleißheim (10 Tage) 09/90-04/94 Fernuniversität Hagen: Grundstudium Informatik / BWL 08/96 National Association of Securities Dealers, Chicago, Serie 3",
+      "Microsoft Business Intelligence",
+      "SQL Server",
+      ".NET",
+      "ASP.NET",
+      "Scrum Master",
+      "Software-Entwicklung",
+      "Programmierung",
+      "Beratung",
+      "Consulting",
+      "Projektmanagement",
+      "Projektleitung",
+      "Organisation",
+      "Koordination",
+      "Microsoft .NET",
+      "Architektur & Entwicklung"
+    ],
+    "focus_experience": [
+      {
+        "name": "ASP.Net Core",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Bootstrap",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Enterprise Architect",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "HTML5",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Knockout.Js",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Microsoft Visual Studio",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "OOA",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Scrum Master",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Team Foundation Server",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Telerik ASP.NET AJAX Controls",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Visual Studio 2015",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Visual Studio 2017",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "WCF",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "WebServices",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Winforms",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "WPF",
+        "category": "product_standard",
+        "sort_order": 20
+      }
+    ],
+    "education": [
+      {
+        "degree": "Magister Artium",
+        "institution": "Heinrich Heine Universität Düsseldorf",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "IT Führungskräfteseminar",
+        "institution": "Dr. Roland Henssler",
+        "period": "10/2005",
+        "education_type": "course"
+      },
+      {
+        "degree": ".Net Framework 2.0 Schulung",
+        "institution": "",
+        "period": "08/2005",
+        "education_type": "course"
+      },
+      {
+        "degree": "Proof of Concept",
+        "institution": "Microsoft",
+        "period": "01/2005",
+        "education_type": "course"
+      },
+      {
+        "degree": "Grundstudium Informatik / BWL",
+        "institution": "Fernuniversität Hagen",
+        "period": "09/90-04/94",
+        "education_type": "course"
+      },
+      {
+        "degree": "Serie 3",
+        "institution": "National Association of Securities Dealers, Chicago",
+        "period": "08/96",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Leitung einer Entwicklungsabteilung, 01/01 - 06/09\nReferenz durch IT-Leiter, Verlagshaus, (1.400 MA), vom 30.06.09\nProjekt im Rahmen einer Festanstellung durchgeführt\n\"[...] Der Consultant war ein äußerst engagierter und motivierter Mitarbeiter. Er ging die Aufgaben sehr systematisch und methodisch an und war dabei stets verantwortungsbewusst. Sein ausgeprägtes Fachwissen und seine kommunikative Stärke befähigten ihn bei sachbezogenen Fragen zu durchdachten und präzisen Entscheidungen. Er entschied und handelte - auch in Stresssituationen - besonnen und richtig. Seine Arbeitsweise war stets durch Umsicht geprägt. Zusammenfassend können wir bestätigen, dass der Consultant die ihm übertragenen Aufgaben jederzeit gewissenhaft und sehr zuverlässig stets zu unserer vollsten Zufriedenheit erledigte. Mit seinen Leistungen waren wir außerordentlich zufrieden. Aufgrund seiner teamorientierten Zusammenarbeit und seines kollegialen und aufgeschlossenen Verhaltens war er bei Vorgesetzten, Kollegen und externen Gesprächspartnern gleichermaßen sehr geschätzt und anerkannt. [...] Wir bedanken uns bei ihm für die bisherige sehr gute Zusammenarbeit und wünschen ihm für seinen weiteren beruflichen Lebensweg sowie auch persönlich weiterhin viel Erfolg und alles Gute.\"\nAlle Referenzen sind durch GULP bestätigt.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:04:07.262330",
+    "source_file": "",
+    "steps_completed": [
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1999"
+      ],
+      "coverage_percent": 92.3076923076923,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

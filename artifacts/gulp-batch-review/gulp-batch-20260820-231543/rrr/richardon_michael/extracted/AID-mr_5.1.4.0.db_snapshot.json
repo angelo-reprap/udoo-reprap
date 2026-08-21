@@ -1,0 +1,609 @@
+{
+  "personal": {
+    "aid": "AID-mr_5.1.4.0",
+    "first_name": "Michael",
+    "last_name": "Richardon",
+    "birth_year": 1959,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "25.05.20 zu 20%, Vor-Ort-Einsatz 50% möglich",
+    "edv_experience_since": 2009,
+    "headline": "IT-Manager, Projektleiter, Servicemanager (ITIL, CMMI), Trainer, Systemingenieur, Bank, TK, Logistik, Energie. Wertpapiere, Billing, CRM, eBusiness, Pre Sales, Analyse, Build, Test, Run",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 259,
+    "certifications": 0,
+    "education": 0,
+    "experience": 8,
+    "industries": 11,
+    "focus_areas": 22,
+    "focus_experience": 14,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Banken: Elektronischer Handel. Positionsführung",
+    "Abwicklung",
+    "Clearing",
+    "Wertpapiere",
+    "Marktdaten.",
+    "Automatisierungstechnik: ProfiBus",
+    "Interbus",
+    "Programmierung",
+    "Schulung.",
+    "Energieversorgung: Tarifdatenerfassung",
+    "Verarbeitung und Auswertung."
+  ],
+  "focus_areas": [
+    "IT-Manager",
+    "Projektleiter",
+    "Servicemanager (ITIL",
+    "CMMI)",
+    "Trainer",
+    "Systemingenieur",
+    "Bank",
+    "Logistik",
+    "Energie. Wertpapiere",
+    "Billing",
+    "eBusiness",
+    "Pre Sales",
+    "Analyse",
+    "Build",
+    "Test",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen Schwerpunkt liegt auf Projektleitung und der ",
+    "mir eine meinen bisherigen Erfahrungen adäquate Position mit entsprechenden Entwicklungsmöglichkeiten geboten wird.",
+    "Diplom Ingenieur Elektrotechnik an der TH Karlsruhe.",
+    "seit 1986 freiberuflich als: Consultant, SW-Entwickler, IT-Projektleiter, Projektmanager, Business Analyst, Servicemanager tätig"
+  ],
+  "focus_experience": [
+    {
+      "name": "AMBA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Angebotserstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ausserbörslicher Wertpapierhandel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beschwerdemanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bildverarbeitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Budgetverantwortung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Builder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++Builder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Changemanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Client Programmierung: GUI",
+      "category": "product_standard"
+    },
+    {
+      "name": "schnelle Konvertierungsprogramme: Pascal",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAVA",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "11/2015 - 04/2016",
+      "company": "Raiffeisen Schweiz, St. Gallen",
+      "role": "Testmanager Projekt Rainbow",
+      "title": "Testmanager Projekt Rainbow",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2014 - 11/2015",
+      "company": "Postfinance AG, Bern",
+      "role": "Projektmanager Zahlungsverkehr CBT",
+      "title": "Projektmanager Zahlungsverkehr CBT",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "02/2014 - 08/2014",
+      "company": "Postfinance AG, Bern",
+      "role": "Business Analyst Test Strategie Zahlungsverkehr CBT",
+      "title": "Business Analyst Test Strategie Zahlungsverkehr CBT",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "12/2013 - 02/2014",
+      "company": "Deutsche Börse Group, Eschborn Group Compliance",
+      "role": "Business Analyst, STOP Restruct 2014",
+      "title": "Business Analyst, STOP Restruct 2014",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "08/2013 - 12/2013",
+      "company": "Boerse Stuttgart AG, Stuttgart",
+      "role": "",
+      "title": "Stellv. Gesamtprojektleiter",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "12/2012 - 07/2013",
+      "company": "Deutsche Börse Group, Indexium AG Zürich",
+      "role": "Testmanager IPS",
+      "title": "Testmanager IPS",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "11/2010 - 11/2012",
+      "company": "Deutsche Börse Group, STOXX Ltd. Zürich & Eschborn",
+      "role": "Teilprojektleiter und Business Analyst, Index Kalkulation",
+      "title": "Teilprojektleiter und Business Analyst, Index Kalkulation",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2009 - 11/2010",
+      "company": "Deutsche Bank AG, Frankfurt",
+      "role": "Projektmanager OTC Online Wertpapierhandel",
+      "title": "Projektmanager OTC Online Wertpapierhandel",
+      "activities": 8,
+      "technologies": 54
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nBevorzugte Einsatzgebiete:\n* Projekt- und Servicemanagement\n* Projektleitung im IT Bankenumfeld\n* Businessanalyse\n* Angebotserstellung\n* Technischer Vertrieb\n* Hardwarenahe Softwareentwicklung im technischen Bereich für\nkundenspezifische\nHardware sowie die Plattformen Windows 3.1, Windows 95, Win NT, UNIX, OS/2,\nOS/\n9 ...\n* Einsatz von visuellen Entwicklungs-Tools (C++, BC++, Visual Basic. (Die\nEntwicklungsumgebung spielt keine Rolle.)\n* Einsatz von Visualisierungssystemen wie FRAME, INTOUCH\nFactory Link\n* Konzeption und Entwicklung von Client/Server-Applikationen\n* Datenbanken (dBase, Access, Oracle)\n* Installation und Vernetzung von Computersystemen.\nEntwicklung, Schulung und Support im Bereich der industriellen Feldbus\nKommunikationstechnik. (PROFIBUS, INTERBUS-S)\n* EDV-Organisation, Schulungen (auch im Ausland), Consulting.\n* Win3.11 API (SDK), Win NT4.0 API\n* Bildverarbeitung\n* Projektleitung im Umfeld elektronischer Transaktionssysteme u. Internet\nTrading\nEinsetzbar:\nFulltime, längerfristig\nEinsatzorte:\nÜberall in ganz Deutschland, gerne auch weltweit.\nbev. Einsatzorte:\nSonstiges:\nKarlsruhe u.U., weltweit\nWeiterbildung in Projektmanagement Seminaren.\nFachliche Schwerpunkte im Studium und in Projekten:\n* Entwicklung von komplexen Softwareprogrammen unter DOS, Windows 3.11, NT\n4.0\nund UNIX\n* Entwicklung von Client/Server-Anwendungen für unterschiedliche Branchen.\n* Entwurf und Programmierung von grafischen Bedienoberflächen\n* Verwendung von visuellen Entwicklungstools (Borland C++, Visual Basic,\nFRAME,\nIntouch, Factory Link)\n* Professioneller Einsatz von klassischen Programmiersprachen wie Borland C,\nMicrosoft C++ u. MFC, Assembler ASM 86 zur Entwicklung von\nKundenapplikationen.\n* Verwendung von In Circuit Emulatoren, sowie komplexen Cross\nEntwicklungstools.\n* Problemanalyse, Projektplanung und EDV-Koordination\n* Konfiguration und Vernetzung von Computersystemen, Installation von\nStandardsoftware\n* Automatisierung. Dezentrale Automatisierungsstrukturen im Zusammenhang\nmit\nobjektorientierter Feldbus Kommunikationstechnik.\n* Regelungs- und Steuerungstechnik\n* Mikrocontroller und Multi-Mikrocomputersysteme.\n* Prozeßmodellierung und -visualisierung. Bedienen und Beobachten.\n* Dozent für Schulungen im Bereich Multi-Mikrocomputer, Netzmanagement,\nAutomatisierungstechnik.\n* Lehrbeauftragter (BA) für Prozeßdatenkommunikation (PROFIBUS)\n* Ordentliches Mitglied der PROFIBUS Nutzerorganisation.\n* Administrator Kenntnisse(Zertifikat) im Bereich Windows NT Workstation /\nServer 4.0\n* Support und Programmierung der Tandem Remote Service Calls (RSC)\n* Projektleiterfunktion im Bankenumfeld.\n* Projektleitung: Einführung und Support des Optionscheinhandelssystems XEOS\n* Projektleitung: Historische Zeitreihen Datenbank FAME.\n* Projektleitung: Positionsführungssystem X-Ted.\n* Projektleitung: Pricing- und Calculation Server X-Con.\n* Projektleitung: Optionsscheinhandel über XETRA mittels X-Quote.\n* Projektleitung: Einführung eBrokerage im Ber",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "TANDEM NONSTOP SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 8i",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PL-SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Designer",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Forms",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Report",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenverteilung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Englische Sprache",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ereignisgesteuerte Programmierung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung Revisionsgerechter Dokumentationen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung von Fachkonzepten",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung von Projektplänen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung von Präsentationsunterlagen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung von Schulungsunterlagen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung von Spezifikationen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erstellung von Testkonzepten",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Front Arena",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Hardwarenahe Programmierung: C",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/M86",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "HP Qualitycenter",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Incidentmanagement",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Internetbasierte Handelssysteme",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISO/OSI Schichtenmodell",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JBuilder",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Kommunikationsanbindungen: Frame Relay",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Kommunikationsfähig",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Kondor+",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Koordination von Drittanbietern",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Kundenservice",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Marktdaten: REUTERS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "VWD",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Bloomberg",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DataScope",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MFC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration von Wertpapierinstrumenten",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration von Wertpapiertransaktionsdaten",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Portierung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Moderation",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Office",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Project",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-SDK",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Optionsschein-Handelssystem: XEOS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "TradeLink",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Powerpoint",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Problemmanagement",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Projektcontrolling",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Projektleitung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Projektmanagement: V-Modell",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CMMI",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SCRUM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Präsentation",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Risikomanagement",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Risikomanagement Systemmigrationen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Schnittstellenprogrammierung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Schulung: Lehrauftrag an der Berufsakademie",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erwachsenenbildung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Schwachstellenanalyse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Servicelevel Agreement: SLA",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Servicemanagement: ITIL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sophis Risque",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Statusverfolgung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Telekommunikation",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Testmanagement",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Vertragsverhandlungen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Vertragsverhandlungen mit Drittanbietern",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Visio",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual C++",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Wertpapiere",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Bus PROFIBUS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CAN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IEC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Datapumps",
+      "category_name": "Hardware",
+      "weight": 0.8
+    }
+  ]
+}

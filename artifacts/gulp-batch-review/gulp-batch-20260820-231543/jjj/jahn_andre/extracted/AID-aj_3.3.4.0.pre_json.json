@@ -1,0 +1,1265 @@
+{
+  "metadata": {
+    "aid": "AID-aj_3.3.4.0",
+    "version": "3.3.4.0",
+    "consultant_dir": "jahn_andre",
+    "first_name": "Andre",
+    "last_name": "Jahn",
+    "headline": "Senior Software-Architekt, Senior Java Entwickler, Product Owner , Senior Businessanalyst",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:37:41.844114"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Andre",
+      "last_name": "Jahn",
+      "birth_year": 1966,
+      "languages": [
+        {
+          "name": "Englisch verhandlungssicher",
+          "level": ""
+        }
+      ],
+      "availability": "01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "612xx Bad Nauheim, Deutschland",
+      "location": "612xx Bad Nauheim, Deutschland",
+      "headline": "Senior Software-Architekt, Senior Java Entwickler, Product Owner , Senior Businessanalyst",
+      "edv_experience_since": 2010
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "Adabas Grundkenntnisse",
+        "Apache Cassandra",
+        "Application Partner der Firma Caché Datenbank",
+        "InterSystems",
+        "BDE",
+        "DAO",
+        "DB2",
+        "Informix",
+        "Lotus Notes Workflowkenntnisse",
+        "Web Programmierung",
+        "unter Domino",
+        "MongoDB",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle Version 7.3-9i",
+        "DBA-Schulung und DBA-",
+        "Erfahrung",
+        "PL/SQL-Programmierung",
+        "Oracle 11g",
+        "Quest",
+        "SQL Erfahrung in der Erstellung komplexer und",
+        "zeitoptimierter SQL-Statements"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Lynx",
+        "MS-DOS",
+        "Novell",
+        "OS-X",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Windows",
+        "Linux (bes. RedHat)"
+      ],
+      "programming_languages": [
+        "Basic",
+        "BPMN",
+        "C",
+        "C++",
+        "dBase",
+        "EJB",
+        "Gupta",
+        "Centura",
+        "Imake",
+        "GNU-Make",
+        "Make-Maker etc",
+        "Java Swing",
+        "J2EE",
+        "Servlets",
+        "JDBC",
+        "Java 7",
+        "JavaScript Swing",
+        "JEE 6",
+        "jQuery",
+        "Lotus Notes Script",
+        "Makrosprachen bash",
+        "Modicon",
+        "Paradox",
+        "Perl",
+        "PHP",
+        "PL/SQL",
+        "Scriptsprachen Bash",
+        "Shell",
+        "Siemens S5",
+        "TeX",
+        "LaTeX Grundkenntnisse",
+        "UML 2.0"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "06/2018 - 04/2019",
+        "company": "Porsche AG",
+        "title": "Connected Car Entertainment System Entwicklung",
+        "role": "Product-Owner, Projektleiter, Architekt, Scrum-Master",
+        "activities": [
+          "Aufgaben:",
+          "Als Product-Owner Proxy war ich verantwortlich für die Konzeption und Entwicklung des Car-Entertainment Backend- Systems für das erste vollelektrische Fahrzeug der Firma Porsche.",
+          "Meine Aufgaben lagen in der Konzeption (inkl. Fachkonzept und User-Experience),",
+          "Architektur und Umsetzung der Anforderungen. Dazu gehörte die Leitung eines Entwickler-Teams (3 Entwickler, 1 Architekt, Qualitätssicherung) aus Kuba",
+          "(remote und on-site), die Leitung der Scrum Meetings (Grooming-, Review-,",
+          "Stand-Up- , Retro-Meetings, intern und mit Kunden), die Koordination mit anderen Lieferanten und Teams, die Entwicklung von Prototypen. Ferner die Erstellung der User-Stories und der Sprintplanung (inkl. der Estimations). Ich war ebenfalls für die Einhaltung der zeitlichen und finanziellen Budgets verantwortlich).",
+          "Ferner die Einführung von Jira / Confluence / Bitbucket und die Optimierung der internen Entwicklungsprozesse."
+        ]
+      },
+      {
+        "period": "02/2018 - 06/2018",
+        "title": "VendoSoftware-Entwicklung DB Vendo",
+        "role": "Software-Architekt und Java Lead-Entwickler",
+        "technologies": [
+          "CD",
+          "Artifactory",
+          "Java",
+          "Ansible",
+          "OpenShift",
+          "Docker",
+          "Vagrant",
+          "Spring Boot",
+          "Amazon"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Ziel des Projektes Vendo (ca. 400 Entwickler) ist es, die bestehende IT",
+          "Infrastruktur im Vertrieb zu erneuern. Hierfür wurde komplett auf die Entwicklung von Microservices gesetzt, welche in die Amazon AWS Cloud deployed wurden.",
+          "Erstellung einer Software-Architektur mit Prototyp für Fahrkarten-Abonnements",
+          "(ca. 600.000 User), inkl. Batchläufe für Abrechnung und Konzept für zukünftige",
+          "Produkte und der Anbindung beliebiger Verbundpartner.",
+          "Java-Entwicklung",
+          "Architekturberatung"
+        ]
+      },
+      {
+        "period": "11/2017 - 02/2018",
+        "title": "Architekturberatung Microservices",
+        "role": "Architekturberater",
+        "activities": [
+          "Aufgaben:",
+          "Beratungsprojekt zur Umwandlung einer monolithischen Anwendung in einer Microservice-Infrastruktur für ein führendes Web-Portal für Buchungen für Geschäftsreisen.",
+          "Analyse der bestehenden Anwendung und Infrastruktur, Erstellung von Prototypen und Erstellung eines Migrationskonzeptes.",
+          "Das Projekt war ein reines Beratungsprojekt mit begrenzter Laufzeit.",
+          "Eingesetzte Produkte:",
+          "Spring Boot, Microservices",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/2017 - 11/2017",
+        "title": "System-Architektur Abgeltungssteuer-Projekt",
+        "role": "Systemarchitekt, Java-Entwickler, Projektmanagement",
+        "activities": [
+          "Aufgaben:",
+          "Als System-Architekt unterstützte ich einen Providerwechsel für eine komplexe Software ( >800.000 Zeilen Quellcode) zur Berechnung der Abgeltungssteuer im Bereich Investmentbanking einer Bank in Frankfurt.",
+          "Aufgabe war es eine Strategie zu entwickeln, das Projekt zurück in den Zeitplan zu bringen.",
+          "Dazu gehörte der Aufbau eine Build-Infrastruktur für die mehr als 80",
+          "Unterprojekte, die Beschleunigung der Sourcecode-Analyse, sowie eine bessere Koordination mit den Business-Analysten zu realisieren.",
+          "Innerhalb von zwei Wochen wurde die Build-Umgebung mit Git, Bitbucket, Jira,",
+          "Confluence, Artifactory und TeamCity realisiert (private Cloud-Umgebung).",
+          "Konzeption, Proof-of-Concept und Design eines Analysetools für komplexe XML"
+        ]
+      },
+      {
+        "period": "07/2017 - 09/2017",
+        "title": "Businessanalyse Internet Payment Gateway",
+        "role": "Businessanalyst und Projektkoordinator",
+        "activities": [
+          "Aufgaben:",
+          "Analyse von Anforderungen beim Aufbau eines Internet Payment Gateways in Argentinien.",
+          "Koordinatior und Problemlöser beim Aufbau der Infrastruktur und im Bereich der Software-Entwicklung Projektmanagement",
+          "Businessanalyse",
+          "Finanzindustrie",
+          "Kreditkarten",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "01/2017 - 07/2017",
+        "company": "Deutsche Verrechnungsstelle",
+        "title": "Entwicklung von Microservices, Frankfurt / Main",
+        "role": "Entwickler für Frontend- und Backendservices",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung der Webservices für www.deutsche-verrechnungsstelle.de, einem",
+          "SAAS für Rechnungsmanagement und Factoring.",
+          "Entwicklung von Microservices und Frontend-Komponentent. REST",
+          "Kommunikation, Anbindung an externe Services via REST und SOAP. o Single Page o WebApp o Microservices",
+          "Scrum, Java, Microservices, MongoDB, OAuth2, AngularJs 1, Spring-Boot,",
+          "SpringFramework, REST, Kanban",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "08/2016 - 12/2016",
+        "title": "MIFIR Reporting, Frankfurt / Main",
+        "role": "JEE 6 Lead Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Den gesetzlichen Vorgaben entsprechend müssen Wertpapier-Tradings innerhalb von 24 Stunden berichtet werden. Im Bereich des MiFIR Reportings müssen Daten erfasst (manuell, automatisch über REST Schnittstellen) und in Berichtform an die entsprechende Institution berichtet werden.",
+          "Investment",
+          "Regulatorische Reporte",
+          "Scrum, BPMN, UML 2.0, XML, Vaadin, REST, Camunda, Apache Camel, EAI",
+          "Eingesetzte Produkte:",
+          "Camunda, IntelliJ, JBoss Application Server, Java 7, JEE 6, Oracle 11g, Apache",
+          "Service Mix, Vaadin, SoapUI"
+        ]
+      },
+      {
+        "period": "01/2016 - 05/2016",
+        "title": "WebService",
+        "role": "Architekt und Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Da bei Kundenprojekten, zuletzt bei myAudi, immer wieder Test-User-Accounts angelegt werden müssen, für die immer neue E-Mail Adressen benötigt werden, habe ich einen WebService entwickelt, der diese Funktionalität bereitstellt.",
+          "Wird bei einer Registrierung eine E-Mail Adresse benötigt, gibt man eine beliebige E-Mail Adresse ein, z.B. testuser@testmailix.io.",
+          "Der Service empfängt alle E-Mails der Domain testmailix.io. Der Anwender kann über ein Web-Interface auf die Mails zugreifen.",
+          "Die E-Mails können an einen beliebigen Account weitergeleitet werden.",
+          "Über einen Java-Web-Token (JWT) können auch Testsysteme (z.B. SoapUI) automatisiert auf E-Mails zugreifen.",
+          "Die empfangenen Mails werden nach 3 Wochen automatisch gelöscht. Der Service wird bei Amazon (Elastic Beanstalk) gehostet."
+        ]
+      },
+      {
+        "period": "07/2015 - heute",
+        "title": "myAudi connect",
+        "role": "diverse",
+        "technologies": [
+          "Java 7",
+          "Apache Tomcat",
+          "Microsoft Excel",
+          "Microsoft Project",
+          "SoapUI",
+          "Jira"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Erstellung von Konzepten für das myAudi connect (my.audi.de). Koordinierung externer Firmen, Erstellung von Rollout-Konzepten für internationale Märkte",
+          "(China, Frankreich). Erstellung von Konzepten zur Verbesserung der Stabilität und Performance. Umstellung der internen Schnittstellen von SOAP auf REST.",
+          "Umstellung der myAudi connect Komponenten auf ein neues Design im Rahmen des myAudi Strukturprojektes.",
+          "Businessanalyse",
+          "Projektmanagement",
+          "Rolle im Projekt",
+          "Senior Project Manager, Senior Software-Architekt, Senior Business Analyst,"
+        ]
+      },
+      {
+        "period": "07/2015 - 07/2016",
+        "company": "Audi AG",
+        "title": "Portal, Ingolstadt",
+        "role": "Projektleiter Architekt",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung von Konzepten für das myAudi connect (my.audi.de)",
+          "Koordinierung externer Firmen, Erstellung von Rollout-Konzepten für internationale Märkte (China, Frankreich).",
+          "Erstellung von Konzepten zur Verbesserung der Stabilität und Performance",
+          "Umstellung der internen Schnittstellen von SOAP auf REST.",
+          "Umstellung der myAudi connect Komponenten auf ein neues Design im Rahmen des myAudi Strukturprojektes.",
+          "Adobe CQ5, agiles Projektmanagement, Multiprojektmanagement, Projektmanagement,",
+          "Architekturmanagement, Testkoordination, Testkonzeption, Scrum"
+        ]
+      },
+      {
+        "period": "04/2015 - 07/2015",
+        "company": "Telefonica O2",
+        "title": "Planung und Koordination",
+        "technologies": [
+          "Java 7",
+          "Apache Tomcat",
+          "Microsoft Excel"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Planung und Koordination externer Firmen, Erstellung von Konzepten für Internetportal für Businesskunden. Aus persönlichen Gründen habe ich den Vertrag nach 3 Monaten nicht verlängert.",
+          "Businessanalyse",
+          "Projektmanagement",
+          "Rolle im Projekt",
+          "Senior Project Manager, Senior Software-Architekt, Senior Business Analyst,",
+          "Support",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "05/2014 - 04/2015",
+        "title": "Order-To-Cash Projekt",
+        "role": "diverse",
+        "activities": [
+          "Aufgaben:",
+          "Das Projekt hatte zum Ziel, die Prozesskette von der Anfrage zur Bestellung",
+          "(Request-to-Offer), das Ordermanagement und die Rechnungserstellung eines Providers für IT-Dienstleistungen und Services zu erfassen, zu optimieren und in eine webbasierte Software umzusetzen. Über das System wurden in der ersten Phase jährliche Umsätze im Wert von fast 500 Mio. EUR abgerechnet.",
+          "Tätigkeit zunächst als Senior Business-Analyst für einen Request-to-Offer Prozess.",
+          "Aufholen des bestehenden Terminverzuges",
+          "Coaching der Junior Business-Analysten.",
+          "Dokumentation der bestehenden Prozesse und Modellierung in BPMN."
+        ]
+      },
+      {
+        "period": "08/2012 - 05/2014",
+        "title": "Analyse Bankprozesse",
+        "role": "Senior Business-Anaylst, Software-Designer",
+        "activities": [
+          "Aufgaben:",
+          "Einführung eines neuen Front-Office Systems in der größten Deutschen",
+          "Privatbank. In diesem Zusammenhang wurden auch bankinterne Prozesse (Client-Onboarding, CAAML-Prozess, Beratungsprozess) dokumentiert und optimiert. Der Beratungsprozess sollte komplett neu gestaltet werden und einen hohen Automationsgrad bei der Vorbereitung und Dokumentation des Beratungsgesprächs aufweisen.",
+          "Tätigkeit als Senior Business-Analyst für den Beratungsprozess. Unterstützend tätig bei dem Client-Onboarding- und CAAML-Prozess.",
+          "Durchführung von Interviews und Workshops.",
+          "Prozessdokumentation und Optimierung der Prozesse. Analyse von Schnittstellen und Schnittstellendokumentation.",
+          "Entwicklung eines Software-Konzeptes.",
+          "Abstimmung der Ergebnisse mit den einzelnen Fachabteilungen (u.a."
+        ]
+      },
+      {
+        "period": "05/2012 - 08/2012",
+        "title": "Datenmigration CRM",
+        "role": "Senior Software Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Im Rahmen einer Bankenfusion mussten die CRM Daten der akquirierten Bank migriert werden.",
+          "Neben einer Datenbereinigung und einem Doubletten check der Alt-Daten musste ein Doubletten check und Datenabgleich mit dem Datenbestand des Zielsystems durchgeführt werden.",
+          "Ferner erfolgten zahlreiche Querprüfungen der Daten und eine Vereinheitlichung der Schreibweise von Straßennamen.",
+          "Neben den CRM Daten wurden auch Daten aus anderen Quellen (z.B.",
+          "Beratungsprotokolle, Kundenratings, etc.) migriert.",
+          "Analyse der Datenstrukturen von Alt- und Neusystem.",
+          "Entwicklung der Migrations-Software. Prüfung der Datenqualität auf dem Zielsystem.",
+          "Die Umsetzung des Projektes war nicht so anspruchsvoll, da es keine performance oder zeitkritischen Komponenten gab. Eine Herausforderung war der Datenabgleich über unterschiedliche Datenquellen (Doublettencheck), welches sich mit Hilfe von Regulären Ausdrücken gut lösen ließ."
+        ]
+      },
+      {
+        "period": "03/2012 - 05/2012",
+        "title": "Prototype für IT Service-Catalog",
+        "role": "Senior Software-Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Im Rahmen eines Proof-of-Concepts erstellte ich für den Kunden einen Service-Catalog für die Bestellung und Lieferung von IT Services und Produkten (Server,",
+          "Rechenzentren, Software, Netzwerktechnik, etc).",
+          "Das Proof-of-Concept wurde auf Basis einer vorhergehenden Businessanalyse durchgeführt.",
+          "Analyse der bestehenden Service-Infrastruktur",
+          "Analyse der Produkte und Services",
+          "Abstimmung der Anforderungen im den (international verteilten)",
+          "Stakeholdern"
+        ]
+      },
+      {
+        "period": "05/2011 - 02/2012",
+        "title": "IT Servicemanagement",
+        "role": "Senior Business-Analyst, Service Demand Manager",
+        "activities": [
+          "Aufgaben:",
+          "Ziel des Projektes war die Integration des Rechenzentrums der Deutschen Card",
+          "Services, eines von der DeuBa erworbenen Providers für die Abrechnung von Kreditkartenzahlungen, in das Rechenzentrum der Deutschen Bank.",
+          "In meiner Rolle als Business-Analyst / Service Demand Manager war ich verantwortlich für die Durchführung der Umzugsplanung. Katalogisierung der vorhandenen Software-Infrastruktur.",
+          "Analyse des geforderten System-Zeitverhaltens (u.a. Antwortzeiten unter",
+          "Lastbedingungen).",
+          "Überprüfung der vorhandenen Infrastruktur mit den Vorgaben des Rechenzentrums.",
+          "Prüfung der Lösungsvorschläge auf PCI Compliance."
+        ]
+      },
+      {
+        "period": "11/2010 - 04/2011",
+        "title": "Inbetriebnahme Telekom-Infrastruktur",
+        "role": "Projektkoordinator",
+        "technologies": [
+          "UML",
+          "SSH",
+          "Linux",
+          "Apache FOP",
+          "Internet Explorer",
+          "JDBC",
+          "J2EE",
+          "Access",
+          "ANT",
+          "HTML",
+          "So stehen Schnittstellen zu Excel",
+          "(Dateiexport) zur Verfügung",
+          "Oracle",
+          "Servlets",
+          "Host",
+          "Java 1.3",
+          "XML",
+          "Perl",
+          "XSL",
+          "Sun",
+          "Solaris",
+          "JSP",
+          "ASP",
+          "Windows NT",
+          "CSS",
+          "FirstCall",
+          "SQL",
+          "Sonstiges",
+          "Sonstige Anmerkungen:",
+          "Suchard",
+          "Umbau und",
+          "Steuerungsprogrammen",
+          "Anwendungen",
+          "Centura",
+          "5 Mio. EUR)",
+          "technischen und",
+          "in vielen",
+          "langjährigen",
+          "Umgebungen einzuarbeiten",
+          "Softwarearchitektur",
+          "Handeln der",
+          "Beteiligten",
+          "Softwaredesign",
+          "(OOA",
+          "Architekturen",
+          "Testauswertung gehören ebenfalls dazu",
+          "habe ich",
+          "gerne ein",
+          "Softwareentwicklung (RUP",
+          "Vorgaben",
+          "meiner Kunden",
+          "Arbeitsstil",
+          "Englisch anzeigen"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Aufgabe war es die installierte Telekom-Infrastruktur zusammen mit einer Software-Lösung in Betrieb zu nehmen.",
+          "Aufgrund des Ausfalls eines internen Mitarbeiters habe ich die Abnahme des installierten Systems in der Rolle eines Hands-on Projekt-Koordinators übernommen.",
+          "Der Einsatz erfolgte in Asien. Die Abnahme erfolgte z.T. mit hohen Firmen- und Regierungsvertretern. Die Kommunikation erfolgte ausschließlich auf Englisch.",
+          "Test der Softwarekomponenten und Dokumentation der Fehler Abgleich der Fehler und Anforderungen mit den Entwicklern. Vorbereitung der Abnahmetests Vor-Ort beim Endkunden.",
+          "Durchführung der Abnahmetests zusammen mit dem Endkunden. Dokumentation der Ergebnisse. Der Einsatz erfolgte in einem schwierigen politischen und kulturellen Umfeld.",
+          "Die Gespräche erfolgten direkt mit sehr hochrangigen Mitgliedern des Endkunden und auch mit politischen Vertretern."
+        ]
+      }
+    ],
+    "industries": [
+      "Nahrungs- und Genußmittel",
+      "Automobilindustrie",
+      "Umwelttechnik",
+      "Pharmazie",
+      "Banken",
+      "Versicherungen",
+      "Medizin",
+      "Telekommunikation"
+    ],
+    "focus_areas": [
+      "Senior Software-Architekt",
+      "Senior Java Entwickler",
+      "Product Owner",
+      "Senior Businessanalyst",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen >30 Jahre Berufserfahrung in der Software-Entwicklung, als Software-Architekt, Java-Entwickler und Projektmanager, Scrum Master und Product Owner.",
+      "Sehr gut in direktem Kundenkontakt.",
+      "Ich bin in der Lage aus vagen Anforderungen komplette Produktkonzepte zu entwickeln, mit dem Kunden abzustimmen und umzusetzen.",
+      "Entwicklung von GUI / UI und Bedienkonzepten.",
+      "Ich übernehme auch Komplettaufträge (Anforderungen / Design und Realisierung).",
+      "Mittlere Reife",
+      "Ausbildung zum Elektroniker",
+      "Ich bin ein klassischer Quereinsteiger manchmal muss man Umwege in Kauf nehmen.",
+      "Nach dem Realschulabschluss machte ich eine 3,5 jährige Ausbildung zum Energieanlagen-Elektroniker.",
+      "Mein erster Arbeitgeber, die Firma Kraft Jacobs Suchard, begann kurz nach meinem Eintritt 1989 dort mit der Automatisierung des Röstkaffee-Werkes in Berlin.",
+      "Ich nutzte diese Chance und begann dort mit der Programmierung von Prozess-Leitsystemen in C, sowie mit der Programmierung von Produktionsanlagen in Modicon und Simatik S5.",
+      "In unserem Team war jeder für seine Arbeit selbst verantwortlich, eine Qualitätskontrolle gab es damals nicht und eine falsch programmierte Anlage konnte schnell hohen Sachschaden verursachen oder gar Menschenleben kosten.",
+      "Die Anforderungen wurden schnell anspruchsvoller und neben der",
+      "Programmierung",
+      "leitete ich auch den Umbau von Produktionsanlagen.",
+      "Im Alter 20 Jahren habe ich bereits große Modernisierungsprojekte mit mehr als zehn Mitarbeitern geleitet.",
+      "Neben der Programmierung von Prozess-Leitsystemen programmierte ich später mehr betriebswirtschaftliche Software dann in Turbo Pascal, Turbo C++ und später dann in Java.",
+      "Nach zehn Jahren Berufserfahrung in der Software-Entwicklung und im Projektmanagement wagte ich den Schritt in die Selbstständigkeit."
+    ],
+    "focus_experience": [
+      {
+        "name": "Adobe CQ5",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "AngularJs 1",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Apache Camel",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Apache Kafka",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Apache Service Mix",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Apache Tomcat",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Applikationsarchitektur",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Architekturmanagement",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Atlassian Confluence",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Atlassian JIRA",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Atlassian JIRA Agile",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Camunda",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "CQ5",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "EAI",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "IntelliJ",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "JBoss Application Server",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Kanban",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Microservices",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Netflix Eureka",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Netflix Zuul",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "OAuth2",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "SoapUI",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Spring-Boot",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "SpringFramework",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Vaadin",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Webapplication",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "* UML",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "OOA",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "* InTouch",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Factory Suite 2000",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Sybase Data Architect",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Borland C++ Builder",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Symantec Visual Cafe",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Doc To Help",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Intersolv PVCS",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Oracle 7.2/9i",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "MS SQL Server",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "DB2",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "MS Office",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "RMI",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Struts",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Java Plugins",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Jonas",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "TogetherJ",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "XML/XSL",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "SQL",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "PL/SQL",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Servlets",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "SSH (Secure Shell)",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "CVS",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "TeamSite",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Magic Draw",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Reuters",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "WSAD",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "LDAP",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Wertpapiere (WP)",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Moderationstechniken",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Bedarfsanalyse / Requirementengineering",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Konzepterstellung",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Projektleitung / Projektkoordination",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Teambildung",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Teammotivierung",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Riskmanagement (Software)",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Functionpoint Analysis (in Anfängen)",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Konfliktmanagement",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Softwarearchitektur",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Homesite",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Rational Rose",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Content Management Systeme (CMS)",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "Aris-Methode (Grundkenntnisse)",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "MQ Series (Websphere MQ)",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Websphere",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "C.A.R.E (Computer Aided Software Engineering)",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Diverse Open Source Produkte",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Photoshop CS",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "InDesign CS",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Adobe Illustrator",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "GoLive",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Ein paar Informationen über mich:",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Seit mehr als 25 Jahren mit großer Hingabe in der Software-Branche tätig",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "- auf jeden Fall mehr Berufung",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "als Beruf",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "* Ich arbeite erfolgsorientiert",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "nicht nur als \"externer im Projekt\"",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Ich mag einfache (aber keine primitiven) Lösungen.",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Arbeite gerne mit guten Leuten zusammen.",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Ausgeprägte Hands-on Mentalität.",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Sehr gute analytische Fähigkeiten.",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "* Kreativ",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "mit guten",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "umsetzbaren Ideen",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "* Eher Gestalter",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "als Verwalter",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Schnelle Auffassungsgabe.",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "* Lösungs- und Anwenderorientiert",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "nicht technikzentriert",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Sehr gute Kenntnisse und Fähigkeiten in der Moderation von Workshops und",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Meetings.",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Komme gut in einem politisch schwierigen Umfeld gut zurecht.",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Sehr gute Englischkenntnisse in Wort und Schrift (verhandlungssicher).",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Belastbar.",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "* Ein Auftreten",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "das auch für Präsentationen und Meetings im gehobenen",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Management geeignet ist.",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "* Bin in der Lage",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "Druck vom Team fernzuhalten oder auch nicht",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Sehr gute Kenntnisse um betriebswirtschaftliche Abläufe.",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Suche keine Projekte als PMO oder im Controlling.",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Alle angegebenen Erfahrungen repräsentieren mindestens ein fundiertes",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "Projekten einsetzbares Grundwissen. Für eventuell fehlende Kenntnisse kann ggf.",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "ein Preisnachlas über einen Zeitraum vereinbart werden.",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "agiles Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "Produktdesign",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "Produktentwicklung",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Software-Architekturen",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Software-Entwicklung",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "Product Owner",
+        "category": "product_standard",
+        "sort_order": 130
+      }
+    ],
+    "education": [],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nIch bin seit 1989 in der Softwareentwicklung tätig.\nAls \"Quereinsteiger\" war ich im Berliner Röstkaffeewerk der Firma Kraft Jacobs\nSuchard\nmit der Realisierung von Investitionsprojekten beschäftigt. Dazu gehörte der\nUmbau und\ndie Optimierung von Produktionsanlagen sowie die Entwicklung von\nSteuerungsprogrammen, Prozessleitsystemen und betriebswirtschaftlicher\nAnwendungen\nunter C und C++, Centura, Modicon und Step 5.\nSpäter übernahm ich die eine großen Teil der Planung und die Projektleitung für\nSoftware- und Automatisierungsprojekte (max. Budget 2,5 Mio. EUR).\nAufgrund meiner Erfolge in diesen Bereichen wurde ich verstärkt mit der\ntechnischen und\nfachlichen Leitung komplexer und risikobehafteter Projekte beauftragt.\nDurch den frühen Einstieg in die IT und durch ständige Weiterbildung habe ich\nin vielen\nBereichen ein sehr umfangreiches Fachwissen aufgebaut. Dank meiner\nlangjährigen\nErfahrungen bin ich in der Lage mich schnell in neue Situationen und neue\ntechnische\nUmgebungen einzuarbeiten.\nSeit 1998 arbeite ich als selbständiger Softwareentwickler. Meine fachlichen\nSchwerpunkte liegen in der Softwareentwicklung unter Java speziell in der\nEntwicklung\nvon Intranet- und EAI-Applikationen.\nWeitere Schwerpunkte liegen im Projektmanagement und im Softwaredesign bzw.\nin\nder\nSoftwarearchitektur.\nBedingt durch meine frühere Tätigkeit verfüge ich über die Fähigkeit Projekte\ntermingerecht und erfolgreich abzuschließen.\nZu diesen Fähigkeiten gehören neben der Projektplanung und der Koordination\nmit\nLieferanten und Fachabteilungen auch die Zusammenstellung und Motivation von\nProjektteams. Hierbei fördere und unterstütze ich das eigenverantwortliche\nHandeln der\nTeam-Mitglieder und unterstütze eine offene Kommunikation zwischen allen\nBeteiligten.\nGerne befasse ich mich auch mit den Themen Softwarearchitektur und\nSoftwaredesign\n(OOA, OOD). Neben den Kenntnissen der UML und dem Aufbau effektiver\nArchitekturen\ngehören dazu auch die \"Vorarbeiten\", wie das Anforderungsmanagement, die\nDurchführung Workshops und Interviews.\nDie Definition von Modul-, Integrations- und Abnahmetests und die Testleitung\nund die\nTestauswertung gehören ebenfalls dazu.\nIn verschiedenen Kursen habe ich mich in den Bereichen der Moderationstechnik\nund in\nder Planung und Durchführung von Schulungen weitergebildet. Diese Kenntnisse\nhabe ich\nin vielen Projekten mit praktischer Erfahrung weiterentwickelt und setze sie\ngerne ein.\nIch besitze umfangreiche Kenntnisse über die Vorgehensmodelle der\nSoftwareentwicklung (RUP,XP, etc.) und kann sie umsetzen. Ich bin jedoch kein\nVerfechter eines bestimmten Modells sondern ich orientiere mich an den\nVorgaben\nmeiner Kunden.\nIch arbeite gerne im Team und habe eigenverantwortlichen und selbständigen\nArbeitsstil.\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]\nEnglisch anzeigen",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Apache ServiceMix",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Bus",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CORBA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet XML / XSL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing MQ Series",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Modbus+",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RMI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Siemens H1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:37:41.844129",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "OTHER",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '06/2018 - 04/2019'",
+        "ACT: 8→7 bei '11/2017 - 02/2018'",
+        "ACT: 8→7 bei '05/2014 - 04/2015'",
+        "ACT: 8→7 bei '11/2010 - 04/2011'",
+        "EDV_SEIT: None→2010"
+      ],
+      "coverage_percent": 86.67883211678831,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

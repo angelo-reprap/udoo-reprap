@@ -1,0 +1,553 @@
+{
+  "metadata": {
+    "aid": "AID-sk_5.1.3.0",
+    "version": "5.1.3.0",
+    "consultant_dir": "klein_stefan",
+    "first_name": "Stefan",
+    "last_name": "Klein",
+    "headline": "IT-Management Consulting, Outsourcing, RZ Migration, Cloud Migration, Contract Management, Program Management, Interims Management",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:39:32.968852"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Stefan",
+      "last_name": "Klein",
+      "birth_year": 1967,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch verhandlungssicher in Wort und Schrift",
+          "level": ""
+        }
+      ],
+      "availability": "01.03.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9 im Umkreis von: Hamburg (300",
+      "wohnort": "220xx Hamburg, Deutschland",
+      "headline": "IT-Management Consulting, Outsourcing, RZ Migration, Cloud Migration, Contract Management, Program Management, Interims Management",
+      "edv_experience_since": 1999
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Scriptsprachen Powershell 3.0"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "11/2015 - heute",
+        "company": "Munster Stadtverwaltung",
+        "title": "Ausschreibung RZ Infrastruktur, Munster",
+        "role": "Berater",
+        "activities": [
+          "Branche: Behörden & öffentliche Einrichtungen",
+          "Aufgaben:",
+          "Erstellung der Ausschreibungsunterlagen Beratung Ausschreibungsformalien",
+          "Erstellung Bewertungsmatrix",
+          "Auswertung der Angebote IT Ausschreibungen ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/2015 - heute",
+        "company": "e.dat",
+        "title": "Application Hosting für Energiewirtschaft, Schwerin",
+        "role": "Berater",
+        "activities": [
+          "Branche: Energieversorgung",
+          "Aufgaben:",
+          "Produktdefinition für Application Hosting",
+          "Erstellung von Angeboten",
+          "Auswahl Rechenzentrums-Provider für Cloud Computing",
+          "Koordination der Beteiligten: Applikationsbetrieb",
+          "Rechenzentrumsbetrieb",
+          "Service Desk"
+        ]
+      },
+      {
+        "period": "11/2014 - heute",
+        "company": "Drägerwerk AG",
+        "title": "Einführung SharePoint, Lübeck",
+        "role": "Projektleiter",
+        "activities": [
+          "Geschäftsstelle: Dräger Medical",
+          "Aufgaben:",
+          "Projektleitung Business",
+          "Konzept zur Nutzung der neuen Kommunikationsmöglichkeiten",
+          "Etablieren einer geeigneten Key User Struktur",
+          "Schulungskonzept für Key User und Anwender",
+          "Migration des Content von LiveLink (Open Text) zu SharePoint",
+          "Erstellung des Berechtigungskonzepts Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "10/2013 - 04/2015",
+        "company": "Drägerwerk AG",
+        "title": "Einführung SAP Treasury, Lübeck",
+        "role": "Projektleiter IT",
+        "activities": [
+          "Aufgaben:",
+          "Einführung des SAP Treasury inkl. Cash Management",
+          "Einführung von SAP Bank Communication Management (BCM)",
+          "Migration der Altdaten aus Sungard Globes zu SAP Treasury",
+          "Migration der Altdaten aus Multicash zu SAP BCM",
+          "Implementierung des elektronischen Kontoauszugs",
+          "Implementierung der Swift Anbindung",
+          "Steuerung der beteiligten Implementierungs-Dienstleister"
+        ]
+      },
+      {
+        "period": "01/2013 - 12/2013",
+        "company": "Drägerwerk AG",
+        "title": "SAP Migration und Upgrade, Lübeck",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "SEPA Umstellung in verschiedenen SAP Instanzen",
+          "Koordination der Aktivitäten bei 30 Landesgesellschaften im Euroraum",
+          "Planung und Koordination der technischen und fachlichen Tests",
+          "Steuerung der Aktivitäten Kommunikation zum Management",
+          "Banking",
+          "Eingesetzte Produkte:",
+          "SAP FI",
+          "Migration verschiedener SAP Instanzen von Windows auf Linux",
+          "Upgrade der SAP Instanzen von SAP R/3 4.6 auf SAP R/3 6.0",
+          "Migration der Middleware von Oracle OAI auf SAP PI",
+          "SAP Basis, SAP PI",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "06/2012 - 12/2012",
+        "company": "Drägerwerk AG",
+        "title": "Active Directory Domain Konsolidierung, Lübeck",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Konsolidierung der weltweiten Active Directory Domänenstruktur",
+          "Migration der individuellen lokalen AD Domains in die zentrale Domain",
+          "Entwurf eines Cookbook für ein industrialisiertes Verfahren für die einzelnen Migrationen",
+          "Konzeption und Durchführung der Pilot-Migrationen Rollout in die betroffenen Landesgesellschaften internationale Erfahrung",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2011 - 06/2012",
+        "company": "Drägerwerk AG",
+        "title": "Providerwechsel, Lübeck",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Verantwortung für den reibungslosen Umzug definierter Anwendungen (SAP und andere Anwendungen)",
+          "Erstellung, Abstimmung und Überwachung von Projektplänen",
+          "Steuerung des neuen und des bestehenden Providers sowie weiterer",
+          "Dienstleister",
+          "Abstimmung revisionsrelevanter Migrationsverfahren mit Revision und QA-Verantwortlichen",
+          "Vorbereitung der Migrationswochenenden, Aufsetzen der Governanceorganisation Management der Migrationswochenenden (Governancefunktion)",
+          "Übergabe der migrierten Anwendungen an den IT-Betrieb Projektcontrolling, Managementkommunikation"
+        ]
+      },
+      {
+        "period": "04/2010 - 12/2010",
+        "company": "Deutsche Bank",
+        "title": "Stability Improvement Programme, Eschborn",
+        "role": "Programm Manager",
+        "activities": [
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Leitung des Steering Committee (Top Management)",
+          "Koordination und Steuerung von acht Workstreams, u.a.:",
+          "Incident/ Problem Management",
+          "Release/ Change Management",
+          "Capacity Management",
+          "Testing"
+        ]
+      },
+      {
+        "period": "08/2009 - 03/2010",
+        "company": "HSH Nordbank",
+        "title": "SLA Management, Luxemburg",
+        "role": "Projektleiter",
+        "activities": [
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Optimierung der Struktur des Vertragswerkes Überarbeitung des Rahmenvertrags Konzeption und Etablieren von Standardinhalten der SLAs Erstellung diverser SLAs für IT und alle Banking Business Prozesse",
+          "Koordination der bankinternen Abstimmungsprozesse",
+          "Banking, SLA Management, ITIL Service Management ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2009 - 09/2009",
+        "company": "gematik",
+        "title": "Betriebsleitzentrale für die elektronische Gesundheitskarte, Berlin",
+        "role": "Berater IT Betrieb",
+        "activities": [
+          "Branche: Behörden & öffentliche Einrichtungen",
+          "Aufgaben:",
+          "Im Rahmen der Implementierung der Telematikinfrastruktur für die elektronische Gesundheitskarte (eGK) ist eine Betriebsleitzentrale Konzeption der Betriebsleitzentrale (BLZ)",
+          "Vorbereitung der Inbetriebnahme der BLZ für die zentralen Dienste",
+          "Design der übergreifenden Service Management Prozesse auf Basis ITIL v3",
+          "Erstellung und Abstimmung des Governance Modells",
+          "Erstellung und Abstimmung eines globalen Betriebskonzepts",
+          "Auswahl einer Toolumgebung zur Unterstützung der Prozesse Konzeption einer vereinfachten Interim-Betriebsleitzentrale",
+          "Berlin"
+        ]
+      },
+      {
+        "period": "09/2008 - 03/2009",
+        "company": "Drägerwerk AG",
+        "title": "Aufbau neues Rechenzentrum, Lübeck",
+        "role": "Programm Manager",
+        "activities": [
+          "Aufgaben:",
+          "Ein neues Rechenzentrum und eine umfassende IT Infrastruktur sind auszuwählen und zu implementieren.",
+          "Auswahl eines Housing Providers",
+          "Design der High Level Architektur der RZ-Infrastruktur: Server/ Virtualisierung",
+          "SAN/ Storage/ Backup",
+          "LAN/ WAN",
+          "Evaluierung aktueller Technologien in den o.g. Bereichen",
+          "Auswahl einer Netzwerk- und System Management Toolumgebung"
+        ]
+      },
+      {
+        "period": "07/2007 - 12/2008",
+        "company": "Helaba (Landesbank Hessen Thüringen",
+        "title": "Outsourcing Management, Frankfurt",
+        "role": "Berater",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung und Verhandlung neuer SLAs",
+          "Prüfung und Überarbeitung bestehender SLAs",
+          "Koordination der internen und externen Abstimmung",
+          "Beratung der Anwendungsverantwortlichen in der Bank Analyse von Revisionsberichten, Ableitung von Maßnahmen",
+          "SLA Management, Provider Management, ITIL Service Management ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "07/2006 - 06/2007",
+        "company": "Barclaycard",
+        "title": "SLA Management, Hamburg",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung und Abstimmung eines Service Katalogs",
+          "Konzeption einer geeigneten Vertragsstruktur",
+          "Erstellung und Verhandlung der höchst priorisierten SLAs",
+          "Implementierung eines Systems für Service Level Reporting",
+          "Erstellung und Pflege des SLA Reportings",
+          "Ableitung von Service Improvement Progammes",
+          "Etablierung der Rolle des Service Performance Managers"
+        ]
+      },
+      {
+        "period": "07/2005 - 06/2006",
+        "company": "Helaba (Landesbank Hessen Thüringen)",
+        "title": "Outsourcing Management, Frankfurt",
+        "role": "Berater",
+        "activities": [
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Konzeption einer optimierten Struktur des Vertragswerkes Erstellung eines neuen Muster- SLA",
+          "Konzeption und Etablieren von Standardinhalten in SLAs",
+          "Erstellung und Verhandlung neuer SLAs",
+          "Prüfung und Überarbeitung bestehender SLAs",
+          "Koordination der internen und externen Abstimmung",
+          "Analyse von Revisionsberichten, Ableitung von Maßnahmen"
+        ]
+      },
+      {
+        "period": "04/2005 - 07/2005",
+        "company": "Deutsche Bank",
+        "title": "Governance & Control, Eschborn",
+        "role": "Teilprojektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Abstimmung mit den Anwendungsverantwortlichen der Deutschen Bank",
+          "Abstimmung mit dem Outsourcing Provider",
+          "Review der Vorbereitungen bei der Deutschen Bank und dem Provider Identifizierung von Risiken der Migrationen und Risikovermeidung",
+          "Festlegung von Milestones und Synchpoints",
+          "Management von Migration Weekends",
+          "Überwachung der Testphase Erstellung des Management Reporting",
+          "Optimierung der vereinbarten Prozesse"
+        ]
+      },
+      {
+        "period": "09/2004 - 02/2005",
+        "company": "O2 (Germany)",
+        "title": "ITIL Service Management, München",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Projektsteuerung und Koordination des ITIL-Projekts Implementierung/ Optimierung aller ITIL-Prozesse und Tracking der Maßnahmen Coaching der Process Owner der ITIL Prozesse",
+          "Leitung des Process Owner Boards u. des ITIL-Steering Boards",
+          "Definition von KPIs und Abgleich mit der Balanced Scorecard (BSC)",
+          "Implementierung des KPI Management Cockpits",
+          "ITIL Service Management",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "06/2003 - 09/2004",
+        "company": "Infineon AG",
+        "title": "Contract & Vendor Management, München",
+        "role": "Teilprojektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Vertragserstellung für globales Outsourcing der IT-Infrastruktur: Erstellung der Leistungsbeschreibungen (SLAs)",
+          "Design des globalen Service Management auf Basis von ITIL",
+          "Erarbeitung des Service Level Konzepts",
+          "Erarbeitung des Financial Management Konzepts",
+          "Verhandlung mit Service Providern",
+          "Erstellung und Verhandlung von Rahmenverträgen und Leistungsscheinen (SLAs)",
+          "Erstellung und Betreuung von verschiedenen Ausschreibungen"
+        ]
+      },
+      {
+        "period": "10/2002 - 05/2003",
+        "company": "Lufthansa Cargo AG",
+        "title": "SLA Management, Frankfurt",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Erarbeitung des ASP-Modells: Zusammenfassung von Anwendungs- u.",
+          "Infrastrukturbetrieb",
+          "Vorgehensmodell für Softwareerstellung",
+          "Standard Service Level für den Betrieb Flexibles Abrechnungsmodell",
+          "Erstellen des ASP-Rahmenvertrags Beschreibung der Grundlagen des ASP-Modells Abstimmung mit Legal und Finance im Konzern",
+          "Erstellen des Service Katalogs",
+          "Erstellen des Business Case",
+          "Anpassung der IT-Betriebsprozesse an SLA-Bedingungen nach ITIL"
+        ]
+      },
+      {
+        "period": "05/2001 - 06/2002",
+        "title": "EINSTEINet in Hamburg",
+        "activities": [
+          "Leiter Data Center:",
+          "Planung und Aufbau des SLA-orientierten IT-Betriebs",
+          "Betrieb von Office-Applikationen im ASP-Modus",
+          "Betrieb von SAP-Umgebungen für (Groß-) Kunden",
+          "Implementierung des Operation Centers",
+          "Aufbau folgender Teams und Optimieren der Prozesse nach ITIL:",
+          "Operation Center (Netzwerk, Systeme)",
+          "Customer Care"
+        ]
+      },
+      {
+        "period": "07/1999 - 04/2001",
+        "title": "Info AG in Hamburg",
+        "activities": [
+          "Bereichsleiter Operations:",
+          "Gewährleistung des sicheren Betriebs der Anwendungsinfrastruktur für ca.",
+          "Anwender bei Reemtsma Deutschland und International",
+          "Reporting und Verantwortung der erbrachten Service Level",
+          "Projektmanagement:",
+          "Zertifizierung nach DIN ISO 9000",
+          "Plattformmigration von OS390 zu UNIX"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken, Versicherungen",
+      "High Tech",
+      "Luftfahrt, Logistik",
+      "Telekommunikation",
+      "IT Service Provider",
+      "Medizintechnik",
+      "Energieversorger"
+    ],
+    "focus_areas": [
+      "IT-Management Consulting",
+      "Outsourcing",
+      "RZ Migration",
+      "Cloud Migration",
+      "Contract Management",
+      "Program Management",
+      "Interims Management",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Studium: Informatik und Unternehmensführung an der TU Braunschweig Abschluss: Dipl. Informatiker"
+    ],
+    "focus_experience": [
+      {
+        "name": "- Service Management",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "ITIL (zertifiziert)",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "IT-Prozesse",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "-Optimierung",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Zertifizierung nach ISO 9000",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "- Financial Management",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "IT-Controlling",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Projekt Management",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Personalführung",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Umfassende Outsourcingerfahrungen",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Application Hosting",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "ASP (Application Service Provider)",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Mission Critical Applications",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "SEPA",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Swift",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "ISO 9000",
+        "category": "product_standard",
+        "sort_order": 16
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:39:32.968866",
+    "source_file": "",
+    "steps_completed": [
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1999"
+      ],
+      "coverage_percent": 93.44978165938865,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

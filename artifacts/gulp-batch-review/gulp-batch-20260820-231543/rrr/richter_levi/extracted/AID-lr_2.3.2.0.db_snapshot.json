@@ -1,0 +1,1501 @@
+{
+  "personal": {
+    "aid": "AID-lr_2.3.2.0",
+    "first_name": "Levi",
+    "last_name": "Richter",
+    "birth_year": 1970,
+    "location": "604xx Frankfurt am Main, Deutschland",
+    "availability": "23.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1988,
+    "headline": "Java J(2)EE Entwickler",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 189,
+    "certifications": 0,
+    "education": 0,
+    "experience": 19,
+    "industries": 8,
+    "focus_areas": 15,
+    "focus_experience": 218,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Arabisch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "apache-maven-3.6.1",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Fließend in",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Software",
+    "Finanz/Banking",
+    "Automotive",
+    "Telekommunikation",
+    "Versicherungen",
+    "Handel & Einkauf",
+    "Output Management",
+    "Dokumentenmanagementsystem (DMS)"
+  ],
+  "focus_areas": [
+    "Java J(2)EE Entwickler",
+    "Software-Entwicklung / Programmierung",
+    "Engineering / IT-nahe Ingenieurdienstleistungen 09/1997 11/2004 Institution: Johann-Wolfgang-Goethe Universität Frankfurt am Main, Fachrichtung: Informatik mit Nebenfach Physik.",
+    "Abschluss: Diplom-Informatiker.",
+    "Weiterbildungen",
+    "09/2009 10/2009: SAP Kurs; alfatraining",
+    "Development Consultant SAP NetWeaver 2004 Applikcation Development Focus ABAP SAP® ERP 6.0. Focus ABAP Form 2007 mit folgenden Modulen:",
+    "SAPTEC: Grundlagen des SAP Web AS.",
+    "BC 400: ABAP Workbench Grundlagen.",
+    "BC 430: ABAP Dictionary.",
+    "ADM 940: Einführung in das Berechtigungskonzept mit SAP.",
+    "BC 410: Entwicklung und Benutzerdialoge.",
+    "Skills: SAP NetWeaver 2004, ABAP, SAP TEC, BC.",
+    "07/2009 09/2009",
+    "Java Kurs (J2SE 1.6, J2EE 1.5, Servlets, RMI, JNLP, Eclipse 3.5, Windows XP) 09/1996 07/1997 Deutsch Sprachkurs, Studienkolleg an der Uni-Leipzig, Abschluss: Zeugnis über die Deutsche Sprachprüfung mi"
+  ],
+  "focus_experience": [
+    {
+      "name": "Ant 1.8.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.8.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "LDAP-Browser",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat 6.0.20",
+      "category": "product_standard"
+    },
+    {
+      "name": "ant 1.8.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache ant 1.9.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven 3.0.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven 3.2.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven 3.3.9",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian Confluence 3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wiki 4.2.11",
+      "category": "product_standard"
+    },
+    {
+      "name": "BeanShell bsh-2.0b4",
+      "category": "product_standard"
+    },
+    {
+      "name": "CDI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Citrix Receiver Version 4.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "Clairty",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 Datenbank",
+      "category": "product_standard"
+    },
+    {
+      "name": "Deployment-Tool: Hudson",
+      "category": "product_standard"
+    },
+    {
+      "name": "Derby Datenbank",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design Patterns",
+      "category": "product_standard"
+    },
+    {
+      "name": "DoKuStar Design Studio 4.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "dom4j",
+      "category": "product_standard"
+    },
+    {
+      "name": "EasyMock 3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.5",
+      "category": "product_standard"
+    },
+    {
+      "name": "Helios",
+      "category": "product_standard"
+    },
+    {
+      "name": "Helios Build",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Rational",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Architect (RSA) Version",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse 8.0.4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kepler",
+      "category": "product_standard"
+    },
+    {
+      "name": "Luna",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mars Version",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.5.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mars.1 Release (4.5.1)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Neon",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.7.2-Indigo-SR2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Link 2.4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse4.13",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB 2.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise Architect 8.0 UML-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "Version 12",
+      "category": "product_standard"
+    },
+    {
+      "name": "Full",
+      "category": "product_standard"
+    },
+    {
+      "name": "10.00.1009.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entity-Beans",
+      "category": "product_standard"
+    },
+    {
+      "name": "ER/Studio Data Architect Version 16.0.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "GIT Version 2.4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "2.8.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "GlassFish-3.1.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Groovy 2.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "GSON-2.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.3.7.Final",
+      "category": "product_standard"
+    },
+    {
+      "name": "commons-annotations",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate 4.0.2.Final",
+      "category": "product_standard"
+    },
+    {
+      "name": "core 4.2.21",
+      "category": "product_standard"
+    },
+    {
+      "name": "entitymanager",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.2.21",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.1.1.Final",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP ALM - Quality Center 12.01",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM MQ",
+      "category": "product_standard"
+    },
+    {
+      "name": "J(2)EE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java 1.8.0_11",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.7",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.6.0_35",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.2.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "5.1.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "7.1.1 Application Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss Version 8.0.0.5",
+      "category": "product_standard"
+    },
+    {
+      "name": "6.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "7.1.1.Final",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.5.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC-Connector",
+      "category": "product_standard"
+    },
+    {
+      "name": "jEdit 5.1.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins (Hudson) 1.478",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.609.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "ver. 1.651.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jira (Backtracking) 4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "5.1.6",
+      "category": "product_standard"
+    },
+    {
+      "name": "JMeter 2.11",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSF 2.1.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beans",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "2.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "2.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "JUnit 3.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.11",
+      "category": "product_standard"
+    },
+    {
+      "name": "JUnitTest 3.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.12",
+      "category": "product_standard"
+    },
+    {
+      "name": "LDAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux Red Hat 6",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ubuntu 9.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "log4j 1.2.12",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.2.16",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.2.17",
+      "category": "product_standard"
+    },
+    {
+      "name": "MagicDraw 16.5 (UML-Tool)",
+      "category": "product_standard"
+    },
+    {
+      "name": "17.0.1 (UML-Tool)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mantis 1.1.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven 2.2.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.0.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Outlook",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office Professional Plus 2016",
+      "category": "product_standard"
+    },
+    {
+      "name": "mockito-all Version 1.10.19",
+      "category": "product_standard"
+    },
+    {
+      "name": "MySQL Jdbc-Connector 5.1.7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Server 5.0.77",
+      "category": "product_standard"
+    },
+    {
+      "name": "Notepad++ v6.1.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "v6.3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "v6.5.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "v6.9.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "v6.9.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Notepad++ v6.8.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Office Communicator Version 3.5.69",
+      "category": "product_standard"
+    },
+    {
+      "name": "Open Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenSSO Enterprise Edition 8.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenText Capture Document Reader",
+      "category": "product_standard"
+    },
+    {
+      "name": "(DOKuStar Professional) 3.6",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle 10g Datenbank",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle SQL Developer V4.0.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Version 3.1.07",
+      "category": "product_standard"
+    },
+    {
+      "name": "Version",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.1.3.20",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle VM Jenkins (Hudson) 1.504",
+      "category": "product_standard"
+    },
+    {
+      "name": "PLSQL und SQLyog - Datenbank-Browser",
+      "category": "product_standard"
+    },
+    {
+      "name": "PLSQL-Datenbank-Browser-v7.15",
+      "category": "product_standard"
+    },
+    {
+      "name": "Polarion Build: 3.9.1.20150623-2040",
+      "category": "product_standard"
+    },
+    {
+      "name": "Policy Agent 3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "PrimeFaces 3.3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "3.4.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "PSPad",
+      "category": "product_standard"
+    },
+    {
+      "name": "Putty",
+      "category": "product_standard"
+    },
+    {
+      "name": "PuTTY Release 0.7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quantum Datenbank-Browser",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Team Concert (RTC) Version 4.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "RecoStar Design Studio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Remedy",
+      "category": "product_standard"
+    },
+    {
+      "name": "REST",
+      "category": "product_standard"
+    },
+    {
+      "name": "RESTful Services (JAX-RS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "RichFaces 3.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "RSA-Modelling-UML-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP NetWeaver 2004",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP TEC",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCRUM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium 2.45.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Servlets",
+      "category": "product_standard"
+    },
+    {
+      "name": "slf4j Version 1.7.13",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "soapUI 3.6.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "5.0.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "5.3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "SoapUI 5.3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "SourceTree Version 1.8.3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Version 4.1.1.RELEASE (spring-aop)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring 2.5.6",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Version 3.1.1 RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.0.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.1.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-aop 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-aspects",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-beans 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-context 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "support",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-core 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-expression",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-jdbc 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-jms 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-ldap-core 21.0.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-orm 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-test",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-tx 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-web 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "spring-webmvc 4.2.2.RELEASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL Workbench Build 116",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQuirreL SQL Client Version 3.5.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Squirrel-SQL-v3.4.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Subversion (SVN) Version 3.0.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Directory Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Virtual Box",
+      "category": "product_standard"
+    },
+    {
+      "name": "SVN Repository",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sybase ASE 15.03",
+      "category": "product_standard"
+    },
+    {
+      "name": "TeamViewer Version 11.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "TestNG 6.9.12",
+      "category": "product_standard"
+    },
+    {
+      "name": "6.0.29",
+      "category": "product_standard"
+    },
+    {
+      "name": "Version 7.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tortoise",
+      "category": "product_standard"
+    },
+    {
+      "name": "TortoiseSVN 1.6.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "1.7.14",
+      "category": "product_standard"
+    },
+    {
+      "name": "v1.6.17",
+      "category": "product_standard"
+    },
+    {
+      "name": "UltraEdit-v17.30.0.1002",
+      "category": "product_standard"
+    },
+    {
+      "name": "v7.15",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vaadin Version 3.0.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Version 3.0.53.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtual Client (VC)",
+      "category": "product_standard"
+    },
+    {
+      "name": "VitrualBox 4.2.12",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web TimeSheet 6.7",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebEx Konferenz",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebLogic 9.2 MP3",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebServices (cxf-java2ws-plugin)",
+      "category": "product_standard"
+    },
+    {
+      "name": "jaxb 2.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAXB",
+      "category": "product_standard"
+    },
+    {
+      "name": "2.2.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebSphere Application Server Liberty Profile",
+      "category": "product_standard"
+    },
+    {
+      "name": "Version 8.0.0.5",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 10 Enterprise 2016 LTSB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 8.1 Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows Server 2008 R2 Standard",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows Vista",
+      "category": "product_standard"
+    },
+    {
+      "name": "WindowsXP",
+      "category": "product_standard"
+    },
+    {
+      "name": "WinSCP Version 5.5.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian Jira v7.13.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Citrix Receiver für Web 2019",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITSM-Framework WebSelfService Version 3.4",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fachlicher Java-Entwickler",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "2020-01 - 2020-12",
+      "company": "Statistisches Bundesamt",
+      "role": "JEE-Entwickler",
+      "title": "Zensus2021, Wiesbaden",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "2019-07 - 2019-12",
+      "company": "ITZBund (Informationstechnikzentrum Bund)",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Projekt (GemFA), Bonn",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "2018-06 - 2019-06",
+      "company": "VR-Smart-Finanz (eh. VR-Leasing)",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Diverse Projekte 1 Monat, Eschborn",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "2017-07 - 2018-06",
+      "company": "Bundeskriminalamt",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Projekt Verfahrenskontrolle-Applikation, Wiesbaden",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "2016-12 - 2017-06",
+      "company": "W&W Informatik GmbH",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Projekt Web-Applikation, Ludwigsburg",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "2016-06 - 2016-09",
+      "company": "Siemens AG",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Projekt Web-Applikation, Erlangen",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "2016-04 - 2016-08",
+      "company": "Deutsche Bank",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Projekt Web-Applikation, Frankfurt am Main",
+      "activities": 6,
+      "technologies": 9
+    },
+    {
+      "period": "2014-05 - 2016-04",
+      "company": "Telekom (T-Systems) International GmbH",
+      "role": "EE-Architekt & JEE-Entwickler",
+      "title": "Teilnahme an mehreren Projekten, Erfurt",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "2014-01 - 2014-04",
+      "company": "Weiterbildung",
+      "role": "JEE-Architekt & JEE-Entwickler",
+      "title": "Familienphase und Weiterbildung, Frankfurt am Main",
+      "activities": 7,
+      "technologies": 10
+    },
+    {
+      "period": "2013-05 - 2013-12",
+      "company": "IBM",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Projekt \"SEPA\", Chemnitz",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "2013-01 - 2013-04",
+      "company": "Eigenes Projekt",
+      "role": "JEE-Architekt & JEE-Entwickler",
+      "title": "Web-Applikation, Frankfurt am Main",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "2012-10 - 2012-12",
+      "company": "Fa. Daimler",
+      "role": "Entwickler",
+      "title": "Web-Applikationen",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "2012-09 - 2012-10",
+      "company": "Fa. Dürr",
+      "role": "Entwickler (freiberuflich)",
+      "title": "Web-Applikation",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "2012-04 - 2012-09",
+      "company": "Eigenes Projekt",
+      "role": "JEE-Architekt & JEE-Entwickler",
+      "title": "Web-Applikation, Frankfurt am Main",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "2011-02 - 2012-03",
+      "company": "Fa. Siemens",
+      "role": "Entwickler",
+      "title": "Diverse Projekte 2 Monate",
+      "activities": 6,
+      "technologies": 7
+    },
+    {
+      "period": "2010-05 - 2010-10",
+      "company": "McCann",
+      "role": "JEE-Entwickler (freiberuflich)",
+      "title": "Web-Applikation, Frankfurt am Main",
+      "activities": 8,
+      "technologies": 12
+    },
+    {
+      "period": "2010-03 - 2010-05",
+      "company": "Fa. SoftMethod",
+      "role": "Entwickler",
+      "title": "Web-Applikationen Entwicklung",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "2009-10 - 2010-02",
+      "company": "Fa. DSS",
+      "role": "Entwickler",
+      "title": "Entwicklung Web",
+      "activities": 6,
+      "technologies": 11
+    },
+    {
+      "period": "2009-09 - 2009-10",
+      "company": "",
+      "role": "alfatraining",
+      "title": "SAP Kurs",
+      "activities": 8,
+      "technologies": 4
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAO",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Datenbank",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 10g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "11g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Database 10g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbank 11g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Database 12c Enterprise Edition",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Release 12.1.0.2.0 - 64bit Production",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle SQl Developer Version 17.4.0.355",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker HP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Plotter",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Dos",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux Redhat",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Xubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ABAP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ABAP4",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ajax",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CSS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Design Patterns",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EDIFACT",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB3.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Hibernate",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2SE(2",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java-Swing",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Vaadin",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Server Faces (JSF)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RichFaces",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PrimeFaces",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Server Pages (JSP)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSF-Beans",
+      "category_name": "Programmiersprachen",
+      "weight": 0.9
+    },
+    {
+      "name": "EjB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java7/8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAX-RS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JEE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JQuery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSF 2.2.17",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSON",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JUnit 4.12",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J(2)EE 6.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "log4j-2.3",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "mockito-all Version 2.0.2-beta",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Struts",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "WSDL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "(X)HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XSLT",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "GitLab",
+      "category_name": "Versionsverwaltung",
+      "weight": 0.47
+    },
+    {
+      "name": "Windows 10 Pro",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Windows 7 Professional",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "OmniFaces",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Microsoft",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "JAXRS",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Design",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Sun Virtual Box",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Linux Red Hat",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "modelio",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "eclipselink",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "version 14.3.0",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "GIT version 2.26.0.windows.1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Community Edition",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Notepad++ v6.3.1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    }
+  ]
+}

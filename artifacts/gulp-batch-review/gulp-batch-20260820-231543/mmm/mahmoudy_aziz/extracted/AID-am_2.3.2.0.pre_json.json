@@ -1,0 +1,391 @@
+{
+  "metadata": {
+    "aid": "AID-am_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "mahmoudy_aziz",
+    "first_name": "Aziz",
+    "last_name": "Mahmoudy",
+    "headline": "Java, C#, Python, Javascript, Selenium, Docker, VirtualBox, Hyper-V, Linux, Windows, Data Analytics, Ansible, SoapUI, Jmeter, Gatling",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:47:00.897744"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Aziz",
+      "last_name": "Mahmoudy",
+      "birth_year": 1976,
+      "languages": [
+        {
+          "name": "English Understanding",
+          "level": ""
+        },
+        {
+          "name": "Speaking",
+          "level": ""
+        },
+        {
+          "name": "Writing: Proficient",
+          "level": ""
+        },
+        {
+          "name": "French Mother",
+          "level": ""
+        }
+      ],
+      "availability": "03.12.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "816xx München, Deutschland",
+      "headline": "Java, C#, Python, Javascript, Selenium, Docker, VirtualBox, Hyper-V, Linux, Windows, Data Analytics, Ansible, SoapUI, Jmeter, Gatling",
+      "edv_experience_since": 2012
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [
+        "C#",
+        "CSS",
+        "HTML",
+        "Java",
+        "Javascript",
+        "Python",
+        "Scala",
+        "Typescript"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "03/2020 - 07/2020",
+        "company": "Allianz",
+        "title": "Build Tools Development, München",
+        "role": "Software Developer",
+        "technologies": [
+          "Java",
+          "Ansible",
+          "Terraform",
+          "AWS",
+          "Amazon EC2"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Artifacts Source Code Versioning/Releasing Tools implementation",
+          "AWS provisioning and deployment for DB2 based applications",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2019 - 12/2019",
+        "company": "Kapsch",
+        "title": "Integration testing, Austria",
+        "role": "Integration tester",
+        "activities": [
+          "Aufgaben:",
+          "Test automation for Web applications, SOAP APIs and REST APIs",
+          "Selenium Grid/Nodes configuration",
+          "Web UI test implementation with Python / Robot Framework",
+          "Web API test implementation with SOAPUI and Groovy scripts",
+          "Test Framework containers implementation with Docker",
+          "Network traffic analysis with Wireshark",
+          "Performance test"
+        ]
+      },
+      {
+        "period": "05/2018 - 02/2019",
+        "company": "Siemens, Germany",
+        "title": "Test Automation and Data Analytics",
+        "role": "Contractor",
+        "activities": [
+          "Aufgaben:",
+          "Test automation framework for Web application and REST API",
+          "Selenium Grid/Nodes configuration",
+          "Web UI test implementation with Typescript / Protractor / Cucumber-JS",
+          "Web UI & API test implementation with Python / Robot Framework",
+          "Test Framework containers implementation with Docker",
+          "Eclipse"
+        ]
+      },
+      {
+        "period": "11/2017 - 04/2018",
+        "company": "Cubic Telecom",
+        "title": "Software Development in Test, Dublin, Ireland",
+        "role": "Contractor, Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Test automation framework for Web application and REST API",
+          "Selenium Grid/nodes configuration",
+          "Web UI test implementation with C# / Nunit",
+          "Jira Zephir API client implementation for automated Jira test case results management",
+          "Visual Studio",
+          "Nuget packages implementation and management",
+          "Nuget package utilities implementation"
+        ]
+      },
+      {
+        "period": "05/2017 - 10/2017",
+        "company": "Intel",
+        "title": "Software Development in Test, Munich, Germany",
+        "role": "Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Implementation of a Java / Selenium test automation framework for Web application",
+          "Selenium Grid and Selenium nodes configuration",
+          "UI test implementation",
+          "RESTful API test implementation",
+          "Eclipse"
+        ]
+      },
+      {
+        "period": "01/2017 - 02/2017",
+        "company": "Amido",
+        "title": "Software Development in Test, London, UK",
+        "role": "Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Java / Selenium test automation framework for Web application:",
+          "Eclipse",
+          "Java security test automation for authentication protocols:",
+          "Forgerock OpenAM",
+          "OpenID Connect"
+        ]
+      },
+      {
+        "period": "09/2015 - 10/2016",
+        "company": "Callsign",
+        "title": "Software Development in Test, London, UK",
+        "role": "Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Documentations (on Confluence) and bug tracking in the bug management system",
+          "(on Jira)",
+          "Java / Selenium test automation framework for Web application:",
+          "CouchbaseDB client",
+          "Selenium HQ",
+          "JUnit 4",
+          "Eclipse"
+        ]
+      },
+      {
+        "period": "02/2015 - 08/2015",
+        "company": "Xanadu",
+        "title": "Software Development in Test, Cork, Ireland",
+        "role": "Contractor, Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Documentations (on Confluence) and bug tracking in the bug management system",
+          "(on Jira)",
+          "Java Web application development of a messaging rules configuration system:",
+          "Spring MVC",
+          "AngularJS",
+          "Bootstrap"
+        ]
+      },
+      {
+        "period": "05/2014 - 12/2014",
+        "company": "Fidelity Investment",
+        "title": "Software Development in Test, Galway, Ireland",
+        "role": "Contractor, Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Review of test specifications and test coverage on HP Quality Center",
+          "Documentations (on Ribbit) and bug tracking in the bug management system",
+          "(on Jira)",
+          "Java test automation framework for financial and trading applications:",
+          "Maven 3 projects",
+          "TestNG",
+          "Selenium WebDriver (Web browser UI testing)"
+        ]
+      },
+      {
+        "period": "09/2013 - 12/2013",
+        "company": "Houghton Mifflin Harcourt",
+        "title": "Software Development in Test, Dublin, Ireland",
+        "role": "Contractor, Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Java / Selenium test automation framework for Web application:",
+          "JBoss Arquillian Graphene",
+          "Selenium HQ",
+          "Eclipse",
+          "Jenkins continuous integration server jobs plan design:",
+          "Tasks scripts implementation"
+        ]
+      },
+      {
+        "period": "04/2012 - 08/2013",
+        "company": "Groupon",
+        "title": "Software Development in Test, Berlin, Germany",
+        "role": "Contractor, Software Development Engineer in Test",
+        "activities": [
+          "Aufgaben:",
+          "Review of test specifications and test coverage (on Testlink)",
+          "Documentations (on Confluence) and tracking errors in the error management system (on Jira)",
+          "Java / Selenium test automation framework for Web applications:",
+          "Selenium HQ",
+          "JBehave for the BDD stack",
+          "JUnit 4",
+          "Salesforce API client application"
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "Java",
+      "Python",
+      "Javascript",
+      "Selenium",
+      "Docker",
+      "VirtualBox",
+      "Hyper-V",
+      "Linux",
+      "Windows",
+      "Data Analytics",
+      "Ansible",
+      "SoapUI",
+      "Jmeter",
+      "Gatling",
+      "Bachelor in Network Service Administration, University of Limoges, France",
+      "Associate's degree in Economy, Management and Accountancy, University of Strasbourg, France",
+      "High school diploma in Information System, High School Schooch, Strasbourg, France"
+    ],
+    "focus_experience": [
+      {
+        "name": ".Net core",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Akka Scala",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Amazon EC2",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Angular",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Ansible",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "AWS",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Django",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Gitlab",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Microsoft Azure",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Selenium WebDriver",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "SpringBoot",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Terraform",
+        "category": "product_standard",
+        "sort_order": 12
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:47:00.897755",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2012"
+      ],
+      "coverage_percent": 83.11688311688312,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

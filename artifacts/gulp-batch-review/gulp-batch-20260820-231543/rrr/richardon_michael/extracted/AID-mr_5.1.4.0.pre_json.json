@@ -1,0 +1,674 @@
+{
+  "metadata": {
+    "aid": "AID-mr_5.1.4.0",
+    "version": "5.1.4.0",
+    "consultant_dir": "richardon_michael",
+    "first_name": "Michael",
+    "last_name": "Richardon",
+    "headline": "IT-Manager, Projektleiter, Servicemanager (ITIL, CMMI), Trainer, Systemingenieur, Bank, TK, Logistik, Energie. Wertpapiere, Billing, CRM, eBusiness, Pre Sales, Analyse, Build, Test, Run",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:54:18.554358"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Michael",
+      "last_name": "Richardon",
+      "birth_year": 1959,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend",
+          "level": ""
+        }
+      ],
+      "availability": "25.05.20 zu 20%, Vor-Ort-Einsatz 50% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "767xx Jockgrim, Deutschland",
+      "headline": "IT-Manager, Projektleiter, Servicemanager (ITIL, CMMI), Trainer, Systemingenieur, Bank, TK, Logistik, Energie. Wertpapiere, Billing, CRM, eBusiness, Pre Sales, Analyse, Build, Test, Run",
+      "edv_experience_since": 2009
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "ODBC",
+        "Oracle",
+        "SQL",
+        "Sybase",
+        "TANDEM NONSTOP SQL",
+        "xBase",
+        "Oracle 8i",
+        "PL-SQL",
+        "Oracle Designer",
+        "Oracle Forms",
+        "Oracle Report",
+        "Datenverteilung",
+        "Englische Sprache",
+        "Ereignisgesteuerte Programmierung",
+        "Erstellung Revisionsgerechter Dokumentationen",
+        "Erstellung von Fachkonzepten",
+        "Erstellung von Projektplänen",
+        "Erstellung von Präsentationsunterlagen",
+        "Erstellung von Schulungsunterlagen",
+        "Erstellung von Spezifikationen",
+        "Erstellung von Testkonzepten",
+        "Front Arena",
+        "Hardwarenahe Programmierung: C",
+        "PL/M86",
+        "HP Qualitycenter",
+        "Incidentmanagement",
+        "Internetbasierte Handelssysteme",
+        "ISO/OSI Schichtenmodell",
+        "JBuilder",
+        "Kommunikationsanbindungen: Frame Relay",
+        "Kommunikationsfähig",
+        "Kondor+",
+        "Koordination von Drittanbietern",
+        "Kundenservice",
+        "Marktdaten: REUTERS",
+        "VWD",
+        "Bloomberg",
+        "DataScope",
+        "MFC",
+        "Migration von Wertpapierinstrumenten",
+        "Migration von Wertpapiertransaktionsdaten",
+        "Migration",
+        "Portierung",
+        "Moderation",
+        "MS-Office",
+        "MS-Project",
+        "MS-SDK",
+        "Optionsschein-Handelssystem: XEOS",
+        "TradeLink",
+        "Powerpoint",
+        "Problemmanagement",
+        "Projektcontrolling",
+        "Projektleitung",
+        "Projektmanagement: V-Modell",
+        "CMMI",
+        "SCRUM",
+        "Präsentation",
+        "Risikomanagement",
+        "Risikomanagement Systemmigrationen",
+        "Schnittstellenprogrammierung",
+        "Schulung: Lehrauftrag an der Berufsakademie",
+        "Erwachsenenbildung",
+        "Schwachstellenanalyse",
+        "Servicelevel Agreement: SLA",
+        "Servicemanagement: ITIL",
+        "Sophis Risque",
+        "Statusverfolgung",
+        "Telekommunikation",
+        "Testmanagement",
+        "Vertragsverhandlungen",
+        "Vertragsverhandlungen mit Drittanbietern",
+        "Visio",
+        "Visual C++",
+        "Wertpapiere"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Bus PROFIBUS",
+        "CAN",
+        "IEC",
+        "Datapumps",
+        "Datenerfassungsterminals",
+        "Drucker",
+        "Echtzeitsysteme RMOS",
+        "embedded Systeme BD216",
+        "MMC216",
+        "Emulatoren IICE",
+        "HP",
+        "IBM RS6000",
+        "Industrie-Roboter",
+        "Macintosh",
+        "Messgeräte",
+        "Mikrocontroller",
+        "Modem",
+        "Motorola",
+        "PC",
+        "Proprietäre HW Funktionsrechner",
+        "Multi Microcomputer",
+        "Prozessrechner",
+        "Sensoren",
+        "Siemens-SPS STEP x S5",
+        "SPS Bosch",
+        "Klöckner-Möller",
+        "Allen Bradley",
+        "Siemens S5",
+        "Steuer und Regelsysteme",
+        "Texas Instruments Cool: Gen"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "CP/M",
+        "Echtzeitbetriebssysteme RMOS",
+        "HPUX",
+        "Mac OS",
+        "MS-DOS",
+        "OS/2",
+        "OS/9",
+        "Psion Series 3",
+        "RMOS",
+        "RTOS (Real Time OS)",
+        "SUN OS",
+        "Solaris",
+        "Tandem",
+        "Unix",
+        "Windows",
+        "Windows 3.11",
+        "Windows 95",
+        "98",
+        "Windows NT",
+        "UNIX (HP-UX)",
+        "RTOS",
+        "Netzwerke / Protokolle",
+        "FTP",
+        "HTTP",
+        "RSC",
+        "GOPHER (WWW)",
+        "PROFIBUS",
+        "Interbus-S",
+        "Standardsoftware",
+        "MS-Office (Winword",
+        "Excel",
+        "Access)",
+        "diverse Grafikprogramme",
+        "NC sowie andere",
+        "gebräuchliche Windows-Programme)",
+        "MacDraw",
+        "Designer",
+        "Corel Draw",
+        ".Telnet",
+        "Computer",
+        "IBM-PC",
+        "diverse Einplatinenrechner (Z80",
+        "68000)",
+        "VME-Bus-System",
+        "RS/6000",
+        "SUN",
+        "Peripherie",
+        "Modems und Akustikkoppler",
+        "ISDN",
+        "CD-ROMS",
+        "Bandlaufwerke",
+        "SCSI Controller",
+        "RS232"
+      ],
+      "programming_languages": [
+        "Assembler",
+        "Basic",
+        "C",
+        "C++",
+        "Cobol",
+        "dBase",
+        "Delphi",
+        "Fortran",
+        "Java",
+        "JavaScript",
+        "LabView",
+        "Makrosprachen",
+        "Maschinensprachen",
+        "Pascal",
+        "Perl",
+        "PLM",
+        "PL/SQL",
+        "Psion OPL",
+        "Python",
+        "Qt",
+        "Scriptsprachen",
+        "Shell",
+        "Tcl/Tk",
+        "Mehrjährige Programmiererfahrung: C++/C (Microsoft C++",
+        "Borland C++)",
+        "Assembler (80x86)",
+        "PL/M",
+        "Turbo Basic",
+        "STEP-5",
+        "Grundkenntnisse: Java",
+        "Rexx",
+        "Assembler Z80",
+        "Datenbanken und Client/Server-"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "Mehrjährige Programmiererfahrung: Turbo Access",
+        "Grundkenntnisse: VB",
+        "Unix-Shells: ksh",
+        "Unix-Sprachen",
+        "Editoren: vi",
+        "aedit",
+        "GUI: OpenWindows",
+        "MS-Windows",
+        "Libraries: OWL",
+        "Andere: Tandem RSC",
+        "RSC over Piccolo"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "11/2015 - 04/2016",
+        "company": "Raiffeisen Schweiz, St. Gallen",
+        "title": "Testmanager Projekt Rainbow",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung Planung und Testkonzept.",
+          "Definition Testmethodik für den Test von ca. 300 internen wie externen",
+          "Schnittstellen.",
+          "Testkoordination",
+          "===================================================== =========================="
+        ],
+        "role": "Testmanager Projekt Rainbow"
+      },
+      {
+        "period": "09/2014 - 11/2015",
+        "company": "Postfinance AG, Bern",
+        "title": "Projektmanager Zahlungsverkehr CBT",
+        "activities": [
+          "Aufgaben:",
+          "Umsetzung des in der Teststrategie festgelegten Vorgehens",
+          "Definition und Einführung Change Prozess",
+          "Einführung Testmanagement Tool (TOSCA, HPQC) und Methodik",
+          "Planung von Schulungen",
+          "Budgetkontrolle",
+          "Planung und Umsetzung eines komplexen Fortschrittsreportings in den Phasen Testdesign und Testspezifikation ===================================================== =========================="
+        ],
+        "role": "Projektmanager Zahlungsverkehr CBT"
+      },
+      {
+        "period": "02/2014 - 08/2014",
+        "company": "Postfinance AG, Bern",
+        "title": "Business Analyst Test Strategie Zahlungsverkehr CBT",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung einer Teststrategie für die Factory IBT (Integration und Test) im Großprojekt Zahlungsverkehr CBT",
+          "Die Teststrategie berücksichtigt die komplette Wertschöpfungskette aus",
+          "Sicht IBT in den Phasen Requirements Analyse, Test Case Design,",
+          "Optimierung der Aktivitäten durch Methoden und Tools",
+          "Das Projekt wird sowohl Off-Shore als auch In-House entwickelt.",
+          "Projektsprache Englisch",
+          "===================================================== =========================="
+        ],
+        "role": "Business Analyst Test Strategie Zahlungsverkehr CBT"
+      },
+      {
+        "period": "12/2013 - 02/2014",
+        "company": "Deutsche Börse Group, Eschborn Group Compliance",
+        "title": "Business Analyst, STOP Restruct 2014",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung eines Entitäten Konzeptes zur strukturierten Klassifizierung der Deutsche Börse Group Beteiligungen hinsichtlich der Notwendigkeit diese in ein Sanktions Screening aufzunehmen",
+          "Erstellung einer Klassifizierungsstrategie unter den Gesichtspunkten der Vorgaben der internationalen Regulationsbehörden, sowie der Deutsche Börse Group definierten Compliance Risiken und unter Berücksichtigung der Beteiligungsgrösse Abgestimmtes Anschreiben der weltweiten Compliance Verantwortlichen mit der Aufgabe diese einen nach den obigen Gesichtspunkten erstellten",
+          "Fragebogen ausfüllen zu lssen",
+          "Tracking und Support des Prozesses Automatisierte Auswertung der beantworteten Fragebögen und Berechnung eines Confidence Levels zur Entscheidung ob die Entität in das Screening aufgenommen werden soll, oder out of scope ist",
+          "Alle nicht eindeutig klassifizierbaren Beteiligungen wurden mit der Deutsche Börse Group Compliance in einer Expertise manuell klassifiziert ===================================================== =========================="
+        ],
+        "role": "Business Analyst, STOP Restruct 2014"
+      },
+      {
+        "period": "08/2013 - 12/2013",
+        "company": "Boerse Stuttgart AG, Stuttgart",
+        "title": "Stellv. Gesamtprojektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Stellv. Gesamtprojektleiter / Technical AssuranceDas Großprojekt Xitaro hat die Aufgabe für die Boerse Stuttgart AG das Genium-INET-System des New Yorker Börsenbetreibers Nasdaq OMX aufzubauen",
+          "Unterstützung des PL in allen Projektmanagement Aufgabe. Erstellung und Teilnahme an allen Steering Committee Sitzungen",
+          "Planung und Steuerung des Stream Cutover mit dem Ziel die Handelsteilnehmer auf die neue Plattform Xitaro im Jahre 2015 zu migrieren",
+          "Interimistische Leitung des Streams Test & Acceptance bis Ende 2013",
+          "Projektsprache Englisch",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2012 - 07/2013",
+        "company": "Deutsche Börse Group, Indexium AG Zürich",
+        "title": "Testmanager IPS",
+        "activities": [
+          "Aufgaben:",
+          "Testmanager im Großprojekt IPS das die Grundlage für einen modernen skalierbaren Index Kalkulations Service erbringt",
+          "Planung und Steuerung aller Testaktivitäten in den Phasen System Test,",
+          "System Integration Test, Operational Acceptance Test, Business Acceptance",
+          "===================================================== =========================="
+        ],
+        "role": "Testmanager IPS"
+      },
+      {
+        "period": "11/2010 - 11/2012",
+        "company": "Deutsche Börse Group, STOXX Ltd. Zürich & Eschborn",
+        "title": "Teilprojektleiter und Business Analyst, Index Kalkulation",
+        "activities": [
+          "Aufgaben:",
+          "Business Stream Leader im Großprojekt IPS das die Grundlage für einen modernen skalierbaren Index Kalkulations Service erbringt.",
+          "Koordination der Business Aktivitäten",
+          "Zentrale Ansprechstelle für den Offshore Dienstleister",
+          "Review von Funktionalen Spezifikationsdokumenten",
+          "Review der technischen Spezifikationsdokumente",
+          "Mitarbeit bei der Projektplanung Status- und Projektreporting",
+          "Anbindung der Realtime Marktdaten zur Indexberechnung"
+        ],
+        "role": "Teilprojektleiter und Business Analyst, Index Kalkulation"
+      },
+      {
+        "period": "09/2009 - 11/2010",
+        "company": "Deutsche Bank AG, Frankfurt",
+        "title": "Projektmanager OTC Online Wertpapierhandel",
+        "technologies": [
+          "Betriebskomponenten (Datenbankserver",
+          "Router",
+          "Switches",
+          "Firewall",
+          "Sonstiges",
+          "Sonstige Anmerkungen:",
+          "Bevorzugte Einsatzgebiete:",
+          "* Projektleitung im IT Bankenumfeld",
+          "* Businessanalyse",
+          "* Angebotserstellung",
+          "* Technischer Vertrieb",
+          "kundenspezifische",
+          "Windows 95",
+          "Win NT4.0 API",
+          "UNIX",
+          "OS/2",
+          "BC++",
+          "INTOUCH",
+          "Factory Link",
+          "* Datenbanken (dBase",
+          "Access",
+          "Oracle)",
+          "Kommunikationstechnik. (PROFIBUS",
+          "INTERBUS-S)",
+          "* EDV-Organisation",
+          "Schulungen (auch im Ausland)",
+          "Consulting",
+          "* Win3.11 API (SDK)",
+          "* Bildverarbeitung",
+          "Trading",
+          "Einsetzbar:",
+          "Fulltime",
+          "längerfristig",
+          "Einsatzorte:",
+          "Überall in ganz Deutschland",
+          "gerne auch weltweit",
+          "Karlsruhe u.U",
+          "Weiterbildung in Projektmanagement Seminaren",
+          "Windows 3.11",
+          "Visual Basic",
+          "FRAME",
+          "Microsoft C++ u. MFC",
+          "Kundenapplikationen",
+          "sowie komplexen Cross",
+          "* Problemanalyse",
+          "Installation von",
+          "Standardsoftware",
+          "objektorientierter Feldbus Kommunikationstechnik",
+          "Netzmanagement",
+          "Automatisierungstechnik",
+          "Server 4.0",
+          "* Projektleiterfunktion im Bankenumfeld",
+          "* Projektleitung: Historische Zeitreihen Datenbank FAME",
+          "* Projektleitung: Positionsführungssystem X-Ted"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektmanager Direct Trade für den außerbörslichen Online Wertpapierhandel für die Deutsche Bank AG",
+          "Leitung eines internationalen Projektteams (5 Teilprojektleiter und externe",
+          "Vendoren aus Deutschland, Indien, Spanien) für das Internet basierte Online",
+          "Kunden Handelssystem maxblue Direct Trade",
+          "Projektmanagement (CMMI)",
+          "Budgetkontrolle (ca. 10 Mio. €)",
+          "Ressourcenplanung"
+        ],
+        "role": "Projektmanager OTC Online Wertpapierhandel"
+      }
+    ],
+    "industries": [
+      "Banken: Elektronischer Handel. Positionsführung",
+      "Abwicklung",
+      "Clearing",
+      "Wertpapiere",
+      "Marktdaten.",
+      "Automatisierungstechnik: ProfiBus",
+      "Interbus",
+      "Programmierung",
+      "Schulung.",
+      "Energieversorgung: Tarifdatenerfassung",
+      "Verarbeitung und Auswertung."
+    ],
+    "focus_areas": [
+      "IT-Manager",
+      "Projektleiter",
+      "Servicemanager (ITIL",
+      "CMMI)",
+      "Trainer",
+      "Systemingenieur",
+      "Bank",
+      "Logistik",
+      "Energie. Wertpapiere",
+      "Billing",
+      "eBusiness",
+      "Pre Sales",
+      "Analyse",
+      "Build",
+      "Test",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen Schwerpunkt liegt auf Projektleitung und der Business Analyse im Bereich Investment Banking, sowie im Projektmanagement im agilen Umfeld.",
+      "mir eine meinen bisherigen Erfahrungen adäquate Position mit entsprechenden Entwicklungsmöglichkeiten geboten wird.",
+      "Diplom Ingenieur Elektrotechnik an der TH Karlsruhe.",
+      "seit 1986 freiberuflich als: Consultant, SW-Entwickler, IT-Projektleiter, Projektmanager, Business Analyst, Servicemanager tätig"
+    ],
+    "focus_experience": [
+      {
+        "name": "AMBA",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Angebotserstellung",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Ausserbörslicher Wertpapierhandel",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Beschwerdemanagement",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Bildverarbeitung",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Budgetverantwortung",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Builder",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Business Analyse",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "C++Builder",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Changemanagement",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Client Programmierung: GUI",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "schnelle Konvertierungsprogramme: Pascal",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "C++",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "JAVA",
+        "category": "product_standard",
+        "sort_order": 13
+      }
+    ],
+    "education": [],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nBevorzugte Einsatzgebiete:\n* Projekt- und Servicemanagement\n* Projektleitung im IT Bankenumfeld\n* Businessanalyse\n* Angebotserstellung\n* Technischer Vertrieb\n* Hardwarenahe Softwareentwicklung im technischen Bereich für\nkundenspezifische\nHardware sowie die Plattformen Windows 3.1, Windows 95, Win NT, UNIX, OS/2,\nOS/\n9 ...\n* Einsatz von visuellen Entwicklungs-Tools (C++, BC++, Visual Basic. (Die\nEntwicklungsumgebung spielt keine Rolle.)\n* Einsatz von Visualisierungssystemen wie FRAME, INTOUCH\nFactory Link\n* Konzeption und Entwicklung von Client/Server-Applikationen\n* Datenbanken (dBase, Access, Oracle)\n* Installation und Vernetzung von Computersystemen.\nEntwicklung, Schulung und Support im Bereich der industriellen Feldbus\nKommunikationstechnik. (PROFIBUS, INTERBUS-S)\n* EDV-Organisation, Schulungen (auch im Ausland), Consulting.\n* Win3.11 API (SDK), Win NT4.0 API\n* Bildverarbeitung\n* Projektleitung im Umfeld elektronischer Transaktionssysteme u. Internet\nTrading\nEinsetzbar:\nFulltime, längerfristig\nEinsatzorte:\nÜberall in ganz Deutschland, gerne auch weltweit.\nbev. Einsatzorte:\nSonstiges:\nKarlsruhe u.U., weltweit\nWeiterbildung in Projektmanagement Seminaren.\nFachliche Schwerpunkte im Studium und in Projekten:\n* Entwicklung von komplexen Softwareprogrammen unter DOS, Windows 3.11, NT\n4.0\nund UNIX\n* Entwicklung von Client/Server-Anwendungen für unterschiedliche Branchen.\n* Entwurf und Programmierung von grafischen Bedienoberflächen\n* Verwendung von visuellen Entwicklungstools (Borland C++, Visual Basic,\nFRAME,\nIntouch, Factory Link)\n* Professioneller Einsatz von klassischen Programmiersprachen wie Borland C,\nMicrosoft C++ u. MFC, Assembler ASM 86 zur Entwicklung von\nKundenapplikationen.\n* Verwendung von In Circuit Emulatoren, sowie komplexen Cross\nEntwicklungstools.\n* Problemanalyse, Projektplanung und EDV-Koordination\n* Konfiguration und Vernetzung von Computersystemen, Installation von\nStandardsoftware\n* Automatisierung. Dezentrale Automatisierungsstrukturen im Zusammenhang\nmit\nobjektorientierter Feldbus Kommunikationstechnik.\n* Regelungs- und Steuerungstechnik\n* Mikrocontroller und Multi-Mikrocomputersysteme.\n* Prozeßmodellierung und -visualisierung. Bedienen und Beobachten.\n* Dozent für Schulungen im Bereich Multi-Mikrocomputer, Netzmanagement,\nAutomatisierungstechnik.\n* Lehrbeauftragter (BA) für Prozeßdatenkommunikation (PROFIBUS)\n* Ordentliches Mitglied der PROFIBUS Nutzerorganisation.\n* Administrator Kenntnisse(Zertifikat) im Bereich Windows NT Workstation /\nServer 4.0\n* Support und Programmierung der Tandem Remote Service Calls (RSC)\n* Projektleiterfunktion im Bankenumfeld.\n* Projektleitung: Einführung und Support des Optionscheinhandelssystems XEOS\n* Projektleitung: Historische Zeitreihen Datenbank FAME.\n* Projektleitung: Positionsführungssystem X-Ted.\n* Projektleitung: Pricing- und Calculation Server X-Con.\n* Projektleitung: Optionsscheinhandel über XETRA mittels X-Quote.\n* Projektleitung: Einführung eBrokerage im Ber",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proprietäre Protokolle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:54:18.554371",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FOCUS_EXP",
+      "OTHER",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'Testmanager Projekt Rainbow'",
+        "ROLLE aus TITLE: 'Projektmanager Zahlungsverkehr CBT'",
+        "ROLLE aus TITLE: 'Business Analyst Test Strategie Zahlungsverkehr CBT'",
+        "ROLLE aus TITLE: 'Business Analyst, STOP Restruct 2014'",
+        "ROLLE aus TITLE: 'Testmanager IPS'",
+        "ROLLE aus TITLE: 'Teilprojektleiter und Business Analyst, Index Kalkulation'",
+        "ROLLE aus TITLE: 'Projektmanager OTC Online Wertpapierhandel'",
+        "EDV_SEIT: None→2009"
+      ],
+      "coverage_percent": 81.25854993160054,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

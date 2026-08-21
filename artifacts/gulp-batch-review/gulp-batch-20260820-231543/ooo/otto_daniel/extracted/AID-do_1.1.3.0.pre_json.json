@@ -1,0 +1,706 @@
+{
+  "metadata": {
+    "aid": "AID-do_1.1.3.0",
+    "version": "1.1.3.0",
+    "consultant_dir": "otto_daniel",
+    "first_name": "Daniel",
+    "last_name": "Otto",
+    "headline": "Administration, Erweiterung, Migration, Qualitätssicherung, Support, Test und Wartung von Linux- und Windows-Systemen sowie Infrastrukturen mit Informations- und Kommunikationstechnik (IKT)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:51:01.871784"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Daniel",
+      "last_name": "Otto",
+      "birth_year": 1974,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "17.12.14 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "135xx Berlin, Deutschland",
+      "headline": "Administration, Erweiterung, Migration, Qualitätssicherung, Support, Test und Wartung von Linux- und Windows-Systemen sowie Infrastrukturen mit Informations- und Kommunikationstechnik (IKT)",
+      "edv_experience_since": 2000
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Linux (CentOS",
+        "Debian",
+        "RedHat",
+        "OpenSuSE",
+        "SLES",
+        "Ubuntu)",
+        "UNIX (Solaris)",
+        "Windows (Windows 7",
+        "Windows Server 2008/2008 R2/2012)"
+      ],
+      "programming_languages": [
+        "Bash",
+        "Perl",
+        "Batch",
+        "Powershell",
+        "MYSQL",
+        "Oracle",
+        "HSQL",
+        "DELL (Poweredge)",
+        "HP (ProLiant)",
+        "IBM (eSeries",
+        "pSeries)",
+        "Router",
+        "(Cisco)",
+        "Firewall"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "07/2007 - 03/2011",
+        "title": "Systemhaus (Ludwigshafen)",
+        "technologies": [
+          "DV-Umgebung: SuSE Linux Enterprise Server (SLES) 8-11",
+          "Cluster (HP",
+          "Solaris 2.x"
+        ],
+        "activities": [
+          "Administration (Betrieb, Wartung, Test, Migration, Inbetriebnahme,",
+          "Außerbetriebnahme) von ca. 600 SLES-Servern (HP Proliant, Dell",
+          "Poweredge, IBM eSeriespSeries, Cluster mit HP Serviceguard)",
+          "Administration von ca. 50 Solaris-Servern (SUN)",
+          "Usermangement (NIS, LDAP, local)",
+          "Email- und Datenbank-Servern mit lokalen und externen Storage mit Hilfe von Autoyast)",
+          "Anbindung der Server mit Fibre Channel (Multipath) an SAN-Storage",
+          "(LUNs)"
+        ]
+      },
+      {
+        "period": "08/2005 - 01/2006",
+        "title": "Internationaler Telekomunikationskonzern",
+        "activities": [
+          "(Nürnberg)",
+          "02/2004 - 02/2005",
+          "10/2001 - 11/2002",
+          "Bundesweite Tätigkeit",
+          "Neuinbetriebnahme und Erweiterung von Schmalband-Knoten (Uk0,",
+          "Telefon)",
+          "Terminkoordination der geplanten Baustellen"
+        ]
+      },
+      {
+        "period": "04/2005 - 06/2005",
+        "title": "Systemhaus (Frankfurt)",
+        "technologies": [
+          "DV-Umgebung: SuSE Linux Enterprise Server (SLES) 8",
+          "Broadcom",
+          "Netzwerkhardware",
+          "Cisco LAN Switching Komponenten",
+          "Veritas",
+          "Volume"
+        ],
+        "activities": [
+          "Konzeption hochverfügbare Netzwerkanbindungen und deren Test",
+          "Konfiguration Veritas Volume Manager und Filesystem auf SLES 8",
+          "Servern",
+          "SAN Konfiguration und Debugging",
+          "Troubleshooting SAN Alternate Pathing",
+          "Testen der Basisfunktionalität der Server (LAN Anbindung, SAN",
+          "Performance)",
+          "Konfiguration Cisco Switches"
+        ]
+      },
+      {
+        "period": "10/2003 - 04/2004",
+        "title": "Systemhaus (Berlin)",
+        "technologies": [
+          "DV-Umgebung: SuSE Linux Enterprise Server (SLES) 8",
+          "Samba",
+          "LDAP"
+        ],
+        "activities": [
+          "Migration von Windows NT-Server auf SuSE Linux Enterprise Server 8",
+          "Samba 3.0",
+          "LDAP (Email-System)",
+          "Testen an Testumgebungen",
+          "Migration von Windows NT4 Workstation auf Windows XP"
+        ]
+      },
+      {
+        "period": "08/2000 - 12/2000",
+        "title": "Systemhaus (Stuttgart)",
+        "technologies": [
+          "DV-Umgebung: SuSE Linux",
+          "Redhat Linux"
+        ],
+        "activities": [
+          "diverse Kleinaufträge selbständig durchgeführt (Bundesweite",
+          "Tätigkeit) z.B. Installation von Linuxservern (Erfurt)"
+        ]
+      },
+      {
+        "period": "07/2000 - 08/2000",
+        "title": "Jugenddorf (auf der EXPO 2000, Hannover)",
+        "technologies": [
+          "Linux",
+          "Routers",
+          "DV-Umgebung: Windows 98",
+          "Proxyserver",
+          "Router",
+          "45 Server z.B. SUN",
+          "FSC (Linux",
+          "Solaris",
+          "98 und",
+          "NT 4.0",
+          "Exchange)",
+          "Fileserver (Netware",
+          "DNS",
+          "Firewall",
+          "NT4",
+          "2000",
+          "ARCserver",
+          "Veritas Netbackup",
+          "Oracle",
+          "MySQL",
+          "Emailserver",
+          "Exchange"
+        ],
+        "activities": [
+          "Aufbau und Leitung eines Internet-Cafes.",
+          "Einrichtung und Administration der Clientrechner unter Windows 98 und 07/1999 06/2000 Systemhaus (Berlin)",
+          "Windows NT4 und 2000)",
+          "NT4 Workstation)",
+          "Einrichtung und Wartung:",
+          "Webserver (Linux: Apache und Windows: IIS)",
+          "Datenbankenserver (Oracle)",
+          "Backup von Oracle-Datenbanken, File-, Email-, MS Exchange-Server"
+        ]
+      }
+    ],
+    "industries": [
+      "Dienstleister",
+      "EDV",
+      "Rechenzentrum",
+      "Softwarehersteller",
+      "Systemhaus",
+      "Telekommunikation"
+    ],
+    "focus_areas": [
+      "Administration",
+      "Erweiterung",
+      "Migration",
+      "Qualitätssicherung",
+      "Support"
+    ],
+    "focus_experience": [
+      {
+        "name": "Produkte:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Antivirus (ClamAV)",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Application Server (Tomcat)",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Archivierung / Backup (ARCserve",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "rsync)",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Automatisierung/Monitoring (Puppet",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Nagios",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Webmin)",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Changeroot-Umgebungen (debootstrap",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "bei sftp)",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "DMS Server (document management system",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "openKM",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "logicalDOC)",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Fernwartung (Remote Desktop",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Powershell",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Teamviewer",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "HP ILO",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Dell",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "RACADM)",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Linux-HA (Pacemaker",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Corosync)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Textverarbeitung (Microsoft Office",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Openoffice",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Libreoffice)",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Version Control (git)",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Virtualisierung (KVM",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Hyper-V",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Oracle Virtualbox",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "VMware vSphere",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "XEN)",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Webserver (Apache",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "nginx",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Microsoft IIs)",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Erfahrunge in den Bereichen:",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Betrieb",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Diagnose",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Dokumentation",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Inbetriebnahme",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Installation",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Migration",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Test",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Support",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Troubleshooting",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Wartung",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Standards:",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "ITIL (CMDB",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Change Request und Incident Management",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Prozesse)",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "ClamAV",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "ARCserve",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "rsync",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Puppet",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Webmin",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "debootstrap",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "logicalDOC",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Remote Desktop",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Dell RACADM",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Pacemaker",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Corosync",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Microsoft Office",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Libreoffice",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "git",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "KVM",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "XEN",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Apache",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Microsoft IIs",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 67
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "DNS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "DSL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Firewall (iptables)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTP/SFTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IMAP/POP3/SMTP (Sendmail",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Postfix)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LDAP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NFS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NIS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NIC Bonding",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Multipath",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proxy (squid)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Routing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Samba",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSH/SSL (DHE",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ECDH)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Verschlüsselung (luks",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "pgp",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "truecrypt)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VOIP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VPN",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:51:01.871796",
+    "source_file": "",
+    "steps_completed": [
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2000"
+      ],
+      "coverage_percent": 81.41891891891892,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

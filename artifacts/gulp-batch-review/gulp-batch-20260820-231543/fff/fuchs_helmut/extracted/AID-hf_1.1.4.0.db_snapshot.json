@@ -1,0 +1,728 @@
+{
+  "personal": {
+    "aid": "AID-hf_1.1.4.0",
+    "first_name": "Helmut",
+    "last_name": "Fuchs",
+    "birth_year": 1959,
+    "location": "D6, D7, D8, D9, Österreich, Schweiz im Umkreis von: München (300",
+    "availability": "01.05.21 zu 80%, Vor-Ort-Einsatz 80% möglich",
+    "edv_experience_since": null,
+    "headline": "Senior Projekt-Manager IPMA, Senior Consultant / Trainer / Coach zu Datenschutz, IT-Security, IT-Compliance und Risiko-Management",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 5,
+    "skills": 93,
+    "certifications": 19,
+    "education": 2,
+    "experience": 1,
+    "industries": 19,
+    "focus_areas": 22,
+    "focus_experience": 27,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (gut)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch gut",
+      "level": ""
+    },
+    {
+      "name": "Projekterfahren",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Staatl. geprüfter Elektrotechniker mit Schwerpunkt Informatik",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Ing. Nachrichtentechnik Schwerpunkt Informatik (FHS)",
+      "institution": "Fachhochschule München",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Projekt-Manager IPMA (International Project Management Association) als",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Certified Senior PM",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ITIL-Servicemanager (ITIL V2, SM I&II)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Auditor Norm ISO/IEC 19011",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ISO/IEC 19011 Auditor",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Compliance-Auditor",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Lead Datenschutz-Auditor",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Lead ISO/IEC 27001 Auditor (CISA)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Information-Security-Officer (CISO)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "IT-Sicherheits-Beauftragter (ITSiBe)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Risiko-Manager und Risiko-Auditor",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Cisco Sales & Presales (CCNA und CCDA) Qualifikation",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Mitglied und aktive Mitarbeit im",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Experten Netzwerk Security",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Verband für Sicherheit in der Wirtschaft e.V.",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "BSI - Bundesamt für Sicherheit in der Informationstechnik",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "BvD - Bundesverband der Datenschutzbeauftragten",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "itSMF - IT Service Management Forum® Deutschland e.V.",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Projekt-Manager IPMA (International Project Management Association) als Certified Senior PM",
+      "date_obtained": "",
+      "issuer": "IPMA"
+    }
+  ],
+  "industries": [
+    "Finance",
+    "Banken",
+    "Insurance",
+    "Versicherungen Telekommunikation",
+    "Carrier Health Care",
+    "Gesundheitswesen",
+    "Industrie",
+    "Automotive",
+    "Handel",
+    "Forschung & Lehre Öffentliche Verwaltungen",
+    "Behörden Government und System-Partner",
+    "Versicherungen",
+    "Telekommunikation",
+    "Carrier",
+    "Health Care",
+    "Forschung & Lehre",
+    "Öffentliche Verwaltungen",
+    "Behörden",
+    "Government und System-Partner"
+  ],
+  "focus_areas": [
+    "Senior Projekt-Manager IPMA",
+    "Senior Consultant / Trainer / Coach zu Datenschutz IT-Security IT-Compliance und Risiko-Management",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen Berufserfahrung: Sen",
+    "IT-Erfahrung: seit 1978",
+    "Freiberuflich: seit 1991",
+    "Zertifizierter Projektmanager IPMA-C, Senior Consultant",
+    "Zertifizierter Lead-Auditor ISO 27001, ISMS, TISAX, KRITIS, IT-SiG, BSI-Grundschutz, ISIS12, Chief Information Security Officer (CISO), BISO",
+    "Zertifizierter Auditor Datenschutz, DSGVO, BDSG, LDSG, KDS, DSG Österreich und Schweiz",
+    "Zertifizierter Auditor Compliance, Compl.-Risiko, ISO 19600 / 37001 / 37301, TR CMS 101, ISAE 3402",
+    "Risiko-Management: ISO/IEC 31000 / 27005 / 29134, BSI Standard 200-3",
+    "Business Continuity Management: ISO/IEC 22300 / 22301 / 22313, BSI 200-4",
+    "Durchführung von Audits auf Basis ISO/IEC 19011 ================================================= ============================== siehe auch unter \" Ing. Nachrichtentechnik Schwerpunkt Informatik (FHS)",
+    "Staatl. geprüfter Elektrotechniker mit Schwerpunkt Informatik",
+    "Senior Consultant / Trainer / Coach zu Datenschutz",
+    "IT-Security",
+    "IT-Compliance und Risiko-Management",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Engineering / IT-nahe Ingenieurdienstleistungen"
+  ],
+  "focus_experience": [
+    {
+      "name": "=================================================",
+      "category": "product_standard"
+    },
+    {
+      "name": "==============================",
+      "category": "product_standard"
+    },
+    {
+      "name": "Festanstellung kommt in Betracht",
+      "category": "product_standard"
+    },
+    {
+      "name": "aber freiberufliche Mitarbeit bevorzugt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Voraussetzung für Festanstellung: Interessante und auch zukunftsorientierte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenstellung.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Festanstellung im Raum München",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managementerfahrung in Unternehmen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Compliance Auditor",
+      "category": "product_standard"
+    },
+    {
+      "name": "Compliance Officer TÜV Cert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenschutz-Auditor",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenschutz-Beauftragter TÜV Cert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Information Security-Officer (CISO)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Information TÜV Cert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Security Officer (BISO)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO/IEC 27001Auditor TÜV Cert",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL-Beauftragter/ITIL-V2-SM2; TÜV Cert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagement und Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Development",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rollout- IPMA-Zertifiziert",
+      "category": "product_standard"
+    },
+    {
+      "name": "und Outsourcing-Projekte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozessmodellierung / Systemanalyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risiko-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Service-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitäts- und Prozess-Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rollout- und Outsourcing-",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Fachgruppen (im Projekt mit bis zu 23 Fachgruppen) und Leitung Betrieb.",
+      "company": "",
+      "role": "",
+      "title": "Fachgruppen (im Projekt mit bis zu 23 Fachgruppen) und Leitung Betrieb.",
+      "activities": 2,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Conzept 16",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Paradox",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ascii/X - Terminals",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenerfassungsterminals",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Hardware entwickelt",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet FireWall Checkpoint",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Barracuda",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Genua",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Proprietäre HW",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Rational",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Telekommunikationssysteme (Siemens von EMD bis Hicom 300",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Alcatel)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BS2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SAP-Appl. (IMMO",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "CO)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Chill",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Clipper",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ereignisgesteuerte",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "Berechnung/Simulation/Versuch/Validierung",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "die Informationstechnik die Unternehmens-Strategie und -Ziele unterstützen",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Software Anwendungsentwicklung; UML - Objektorientiert; OOA",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ARCHER",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ARONTO",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Datenbank-Service CHAKRA",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ORANGE",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Cyclone",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISO/OSI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN Manager",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "MPLS",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Netzwerke ATM",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FDDI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Token Ring",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "PC-Anywhere",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Proactive Network Service (eHealth",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "BMC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SuperAgent)",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Proprietäre Protokolle",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Public Networks",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNA",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNMP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Netzwerk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Software-",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Development-",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "GRC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Compliance-",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Risiko-Analyse-Tool",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Qualität- &",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Performance-Tool",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Strategisches IT-Governance und Innovation Management",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Prozess-Management",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

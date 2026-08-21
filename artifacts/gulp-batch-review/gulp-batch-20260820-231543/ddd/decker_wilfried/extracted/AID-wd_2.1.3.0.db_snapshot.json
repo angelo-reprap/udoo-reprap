@@ -1,0 +1,522 @@
+{
+  "personal": {
+    "aid": "AID-wd_2.1.3.0",
+    "first_name": "Wilfried",
+    "last_name": "Decker",
+    "birth_year": 1969,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "31.01.16 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2000,
+    "headline": "Beratung / Consulting",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 1,
+    "skills": 53,
+    "certifications": 8,
+    "education": 3,
+    "experience": 12,
+    "industries": 5,
+    "focus_areas": 2,
+    "focus_experience": 12,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Physikalisch-Technischer Assistent",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Diplom-Ingenieur (FH) für Physikalische Technik",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Executive Master of Business Administration in Information Management",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Cognos: Impromptu 4.0 und PowerPlay 5.2",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Informatica PowerCenter: Certified Developer V 8.x, Certified",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Administrator V 8.x",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Sprachen:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Deutsch (Muttersprache),",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Englisch",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Informatica PowerCenter: Certified Developer V 8.x",
+      "date_obtained": "",
+      "issuer": "Informatica"
+    },
+    {
+      "name": "Informatica PowerCenter: Certified Administrator V 8.x",
+      "date_obtained": "",
+      "issuer": "Informatica"
+    }
+  ],
+  "industries": [
+    "Chemie/Pharma",
+    "Versicherungen",
+    "Retail/Handel",
+    "Automotive/Automobilindustrie",
+    "Flottenmanagement/Fleet"
+  ],
+  "focus_areas": [
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination"
+  ],
+  "focus_experience": [
+    {
+      "name": "Aktuelle",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Leitung von IT-Projekten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Senior-Consultant und Developer für ETL-",
+      "category": "product_standard"
+    },
+    {
+      "name": "und Data Warehouse-Lösungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Intelligence",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business",
+      "category": "product_standard"
+    },
+    {
+      "name": "Integration und Dataquality einschließlich Konzepterstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "ETL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Data Warehouse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Integration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dataquality",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: EN ISO 9001:2000 bei einem Beschaffungsdienstleister",
+      "company": "",
+      "role": "",
+      "title": "EN ISO 9001:2000 bei einem Beschaffungsdienstleister",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Flottenmanagement-Unternehmen",
+      "company": "",
+      "role": "",
+      "title": "Flottenmanagement-Unternehmen",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Plattform PowerCenter 8.6 bei einem deutschen Retailer",
+      "company": "deutscher Retailer",
+      "role": "",
+      "title": "Plattform PowerCenter 8.6 bei einem deutschen Retailer",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "Projektbeschreibung: CRM-Lösung (CRM-Data Warehouse) eines deutschen",
+      "company": "",
+      "role": "",
+      "title": "CRM-Lösung (CRM-Data Warehouse) eines deutschen Fahrzeugherstellers",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwickler und Berater bei der Erstellung einer Data",
+      "company": "",
+      "role": "Entwickler und Berater bei der Erstellung einer Data Warehouse-Lösung",
+      "title": "Entwickler und Berater bei der Erstellung einer Data Warehouse-Lösung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Projektleitung beim Releasewechsel der ERP-Lösung MS",
+      "company": "",
+      "role": "",
+      "title": "Projektleitung beim Releasewechsel der ERP-Lösung MS Navision bei",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Projektleitung zur Realisierung einer Data-Mart-Lösung mit",
+      "company": "",
+      "role": "",
+      "title": "Projektleitung zur Realisierung einer Data-Mart-Lösung mit",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Online-Zugriff bei einem Flottenmanagement-Unternehmen",
+      "company": "",
+      "role": "",
+      "title": "Online-Zugriff bei einem Flottenmanagement-Unternehmen",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "Projektbeschreibung: Projektleitung bei der Entwicklung der webbasierten",
+      "company": "",
+      "role": "Projektleitung",
+      "title": "Projektleitung bei der Entwicklung der webbasierten Applikation",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "Projektbeschreibung: Lösung bei einem deutschen Chemie/Pharam-Konzern",
+      "company": "",
+      "role": "",
+      "title": "Lösung bei einem deutschen Chemie/Pharam-Konzern",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Berater und Entwickler im Data Warehouse Projekt bei",
+      "company": "",
+      "role": "Berater und Entwickler",
+      "title": "Berater und Entwickler im Data Warehouse Projekt bei einem deutschen",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "Projektbeschreibung: Projektleitung in einem Data Warehouse-Projekt bei einem",
+      "company": "Kreditkarten-Unternehmen",
+      "role": "Projektleitung",
+      "title": "Projektleitung in einem Data Warehouse-Projekt bei einem",
+      "activities": 3,
+      "technologies": 5
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Prozessmodellierung nach Aris",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "OO-Analyse und OO-Entwurf mit UML",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "ER-Datenmodellierung",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "DWH-Datenmodellierung",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX (AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbanksysteme",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM DB2 8",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "PostgreSQL",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Teradata",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Modellierungswerkzeuge",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ERwin",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Designer 2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ARIS Toolset",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ERP-Systeme",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SAP R/3 (MM)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Navision Financials",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Data Warehouse-Werkzeuge",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ETL",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "PowerCenter/PowerMart (Informatica)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Borland-Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BusinessObjects",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Informatica PowerMart",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "ORACLE",
+      "category_name": "Datenbanken",
+      "weight": 0.6
+    },
+    {
+      "name": "MS Navision",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Informatica PowerMart 5.1",
+      "category_name": "Datenmanagement",
+      "weight": 0.38
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "IBM-Websphere",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Rational XDE",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.38
+    },
+    {
+      "name": "UML",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "OS 390",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Cognos PowerPlay",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Impromptu",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "IBM AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "DB2/400",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Cognos Impromptu",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "PowerCenter 8.6",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

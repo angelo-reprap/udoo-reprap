@@ -1,0 +1,1221 @@
+{
+  "metadata": {
+    "aid": "AID-ok_4.1.4.0",
+    "version": "4.1.4.0",
+    "consultant_dir": "knauer_olaf",
+    "first_name": "Olaf",
+    "last_name": "Knauer",
+    "headline": "Internationales Projektmanagement, mit Erfolgsgarantie",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:40:07.508721"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Olaf",
+      "last_name": "Knauer",
+      "birth_year": 1967,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Schweiz, außerhalb D/A/CH im",
+      "wohnort": "228xx Norderstedt, Deutschland",
+      "headline": "Internationales Projektmanagement, mit Erfolgsgarantie",
+      "edv_experience_since": 1997
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DB2",
+        "Informix",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "SQL",
+        "Sybase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Appel",
+        "HP",
+        "Intel",
+        "SUN"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Apple",
+        "Derivate",
+        "Servervirtualisiserung VMWare",
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Assembler",
+        "Basic",
+        "C",
+        "C++",
+        "Cobol",
+        "dBase",
+        "Java",
+        "JavaScript",
+        "PHP",
+        "PL/SQL"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "06/2020 - 10/2020",
+        "company": "Olympus",
+        "title": "WAN Migration SD-WAN, Hamburg",
+        "role": "Projektleiter",
+        "technologies": [
+          "Cisco",
+          "Solarwind",
+          "AD",
+          "ServiceNow"
+        ],
+        "activities": [
+          "Branche: Pharma",
+          "Aufgaben:",
+          "Installation eines WAN-Overlay-Netz unter Nutzung der SD-WAN-Technologie auf dem bestehenden physischen Netz.",
+          "Aufbau der Projektstruktur für den EMEAR-Projektablauf und Koordination mit sowie Berichterstattung an die globale Projektleitung",
+          "Systematisches Stakeholder- und Kommunikationsmanagement in einem Multi-Vendor-Umfeld",
+          "Planung und Management von Datenleitungsübergängen vom lokalen WAN- Anbieter zum Outsourcing-Partner",
+          "Koordination der Zugriffsrechte und Zeitschlitze für die Installation neuer Gateway-Appliances an allen Standorten",
+          "Beaufsichtigung der Stilllegung der derzeitigen WAN-Management- Infrastruktur der EMEA ITSM-Serviceprozess zwischen Olympus IT, TCS und WIPRO einrichten"
+        ]
+      },
+      {
+        "period": "01/2018 - 02/2020",
+        "company": "Panasonic",
+        "title": "Senior Programm Manager, Hamburg",
+        "role": "Programm Manager",
+        "technologies": [
+          "SAP",
+          "Teams",
+          "Microsoft Exchange",
+          "Cisco",
+          "Condeco",
+          "Citrix",
+          "Netscaler"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "SAP S4/Hanna",
+          "Cloud Umstellung der Web- und Netzwerk-Security",
+          "Cloud VoIP Einführung mit Teams Integration / Use Case Analyse",
+          "SAP Data Center Move",
+          "Office & Data Center Move Schweden",
+          "SAP/Webshop-Entwicklung",
+          "Cloud Europaweites Raumbuchungssystem"
+        ]
+      },
+      {
+        "period": "06/2016 - 10/2020",
+        "company": "Signal Iduna",
+        "title": "Multi-Projektleiter Infrastrukturprojekte, Hamburg",
+        "role": "Projektleiter",
+        "technologies": [
+          "SAP",
+          "Teams",
+          "Microsoft Exchange",
+          "Cisco",
+          "Condeco",
+          "Citrix",
+          "Netscaler"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projektleiter – Neubau WLAN / LAN Deutschlandweit",
+          "Neubau der passiven und aktiven LAN & WLAN Infrastruktur an den Hauptstandorten Dortmund und Hamburg. Abstimmung mit Konzernbetriebsräten und Arbeitssicherheitskreisen. Umsetzung der Datenschutz- und Datensicherheitsrichtlinien.",
+          "Projektleiter – Einführung Remote Access System & WAF",
+          "Einführung eines Remote Access System &WAF bei der Signal Iduna. Beschaffung",
+          "(RfI, RfP, Proof of Concept, Testkonzeption) der Lösung sowie deren Anbieter.",
+          "Implementierung und Integration der Plattform in die bestehende. Integration der Lösung in alle Organisations-Prozesse. Erstellung neuer Betriebs- und Supportprozesse in Anlehnung an ITIL®. Koordination und Organisation aller beteiligten Stellen.",
+          "Überwachung und Kontrolle der Kosten und Aktivitäten.",
+          "Projektleiter – Neubau Infrastruktur Kapstadtring 5"
+        ]
+      },
+      {
+        "period": "01/2014 - 07/2016",
+        "company": "Öffentliche Verwaltung",
+        "title": "Programm Management Cloud Computing",
+        "role": "Programmleitung",
+        "activities": [
+          "Aufgaben:",
+          "Einführung einer Private Cloud beim Schweizer BUND.",
+          "Beschaffung der Cloud Lösung sowie deren Anbieter (inklusive Vertrag).",
+          "Implementierung und Integration der Cloud-Plattform in die bestehende Umgebung (u.a. SAP-Anbindung mit automatischer Verrechnungsintegration).",
+          "Integration der Lösung in alle Organisations-Prozesse.",
+          "Etablierung einer angepassten Cloud-IT-Organisation.",
+          "Festlegung neuer Rollen und Aufgaben.",
+          "Erstellung neuer Betriebs- und Supportprozesse in Anlehnung an ITIL."
+        ]
+      },
+      {
+        "period": "11/2012 - 09/2013",
+        "company": "Elektronik",
+        "title": "Internationales VoIP Panasonic Europe",
+        "role": "Senior Projektleitung",
+        "technologies": [
+          "Cisco CallManager",
+          "HP-Server",
+          "VG224",
+          "Active Directory",
+          "LDAP",
+          "Cisco Enterprise",
+          "IPCC",
+          "Siemens Hipath",
+          "QSIG",
+          "SIP",
+          "Cisco Unified Contact Center",
+          "Sharepoint"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Einführung Unified Communication (UCC) – Voice over IP (VoIP) einschließlich aller fixed and mobile Services in allen europäischen Standorten mit einem",
+          "Cloud-Service von Vodafone. Neuplanung/Erweiterung der WAN&LAN-Infrastruktur.",
+          "Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang, Zeitplan,",
+          "Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management,",
+          "Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management,",
+          "Kommunikations-Planung.",
+          "VoIP Integration in Lotus Notes, Email und Voice-Mailboxfunktionen",
+          "Einführung von Instant Messaging in Lotus Notes,"
+        ]
+      },
+      {
+        "period": "03/2012 - 10/2012",
+        "company": "Telekommunikation",
+        "title": "Projekt Management Projektleitung Einführung neues Service- Service-",
+        "role": "Projektleitung",
+        "technologies": [
+          "Archivierungssystemen",
+          "Firewall)"
+        ],
+        "activities": [
+          "Management-Applikations-Portfolio bei Sunrise Communications AG",
+          "Aufgaben:",
+          "Verantwortlich für die Einführung eines neuen Service-Management Applikations",
+          "Portfolios und Ablösung der alten Legacy Systeme. Ersetzung des kompletten Bereichs der Sales Tools, des Order Capturing, des Customer / Clean Ordering und des Service-Data Stores sowie des Fulfilment Prozesses und des SLA- Reportings.",
+          "Angepasste Softwarelösung für die Unterstützung des Service Managements für die Business Kunden",
+          "Standardisierter Produktkatalog als Basis für modulare, kundenspezifische",
+          "Angebote",
+          "Aufbau von Service Impact Modellen"
+        ]
+      },
+      {
+        "period": "01/2012 - 03/2012",
+        "company": "Elektronik",
+        "title": "Interim Management Projektleitung VoIP Panasonic Europe",
+        "role": "Projektleitung",
+        "technologies": [
+          "Cisco CallManager",
+          "HP-Server",
+          "VG224",
+          "Active Directory",
+          "LDAP",
+          "Cisco Enterprise",
+          "IPCC",
+          "Siemens Hipath",
+          "QSIG",
+          "SIP",
+          "Cisco Unified Contact Center",
+          "PMI",
+          "GPM/IPMA"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Unified Communication (UCC) – Voice over IP (VoIP) einschließlich aller fixed and mobile Services in allen europäischen Standorten umzusetzen.",
+          "Neuplanung/Erweiterung der WAN&LAN-Infrastruktur. Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang,",
+          "Zeitplan, Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management, Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management, Kommunikations-Planung.",
+          "ITIL, Div. Audit und Review Methoden",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "07/2010 - 08/2011",
+        "company": "Banken",
+        "title": "Projektleitung VoIP T-Systems/Deka-Bank",
+        "role": "Projektleitung; Multiprojekt-Management",
+        "technologies": [
+          "Unix-Cluster",
+          "SAN-Netzwerk",
+          "Cisco-Firewall)",
+          "CallManager",
+          "Cisco 6500",
+          "Cisco 2801",
+          "Cisco 3750",
+          "Cisco 3560",
+          "Cisco 2821",
+          "HPServer",
+          "HP OpenView",
+          "VG224",
+          "Cisco IPPhone",
+          "Cycos-ACD",
+          "Cycos-CTI/",
+          "UMS",
+          "Andtek",
+          "Aurenz",
+          "ASC",
+          "Microsoft-Cluster",
+          "HBS SAN",
+          "Rechenzentrum",
+          "Cisco Unified",
+          "IP Endpoint",
+          "Active Directory",
+          "LDAP",
+          "Cisco Enterprise IPCC",
+          "XCAPI",
+          "Anbindung SAPConnect",
+          "Firewallprogrammierung Cisco ASA 5xxx"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Neuplanung und –Bau einer deutschlandweiten VoIP-Anlage mit internationalen",
+          "Standorten. Inklusive einer neuen CTI/UMS-Lösung, neuem Call Center/ CRM",
+          "Lösung, Sprachdatenerfassung und Gebührenauswertung. Neuaufbau des Rechenzentrums. Durchführung der Service Transition. Neuplanung/Erweiterung der LAN&WAN-Infrastruktur. Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang, Zeitplan,",
+          "Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management,",
+          "Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management,",
+          "Kommunikations-Planung.",
+          "Aufbau georedundantes Hochverfügbarkeits-TK-Rechenzentrum"
+        ]
+      },
+      {
+        "period": "07/2009 - 06/2010",
+        "company": "Print, Medien, Verlag, Behörde, Bildung, Finanz/",
+        "title": "Multi-Projektmanagement: mehrere parallele IT/TK- Infrastruktur-Projekte",
+        "role": "Multi-Projektmanagement",
+        "technologies": [
+          "WAN",
+          "UMS und",
+          "Call-Center)",
+          "Alcatel OXE",
+          "CallManager Cisco",
+          "MyIC",
+          "MyTeamwork",
+          "UC",
+          "LotusNotes",
+          "GroupWise",
+          "Sametime",
+          "Ferrari-Fax",
+          "Nokia",
+          "IPhone"
+        ],
+        "activities": [
+          "Versicherung, Logistik/Versand",
+          "Aufgaben:",
+          "Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang, Zeitplan,",
+          "Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management,",
+          "Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management,",
+          "Kommunikations-Planung.",
+          "VoIP: Migration und Rollout (TK, Call-Center) bei EulerHermes Deutschland",
+          "Infrastruktur-Projekte"
+        ]
+      },
+      {
+        "period": "06/2009 - 06/2010",
+        "company": "Print, Medien, Verlag",
+        "title": "Projektleitung VoIP NOZ (Neue Osnabrücker Zeitung)",
+        "role": "Projektleitung",
+        "technologies": [
+          "Fax",
+          "Nokia",
+          "IPhone",
+          "Cisco 6509",
+          "Cisco 6504",
+          "MPLS-Netz",
+          "GPM",
+          "IPMA"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Neuplanung und –Bau eines VoIP-TK-Anlagenverbundes mit Integration von 14",
+          "Standorten.",
+          "Inklusive MyIC, Ferrari-Fax-Installation; Nokia und IPhone-Integration;",
+          "EstosTAP-Server für SAP.",
+          "Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang,",
+          "Zeitplan, Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management, Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management, Kommunikations-Planung.",
+          "Alcatel OXE, Callserver, MyIC, MyTeamwork, UC, OTUC, SAP-Integration, Ferrari===================================================== =========================="
+        ]
+      },
+      {
+        "period": "07/2008 - 06/2009",
+        "company": "Gesundheit, Health Care",
+        "title": "Programmleitung: Aufbau VoIP; WLAN; WAN; LAN Infrastruktur",
+        "role": "Programmleitung",
+        "technologies": [
+          "Planung",
+          "Konzeption",
+          "Aufbau",
+          "Cisco CallManager",
+          "Cisco 6500",
+          "Cisco 1252/1020",
+          "Cisco 2960/2940",
+          "Cisco 3560",
+          "HP-Server",
+          "HP OpenView",
+          "VG224",
+          "Cisco 2811",
+          "Cisco IPPhone",
+          "Behnke",
+          "Cycos-ACD"
+        ],
+        "activities": [
+          "im UKE in Hamburg",
+          "Aufgaben:",
+          "Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang, Zeitplan,",
+          "Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management,",
+          "Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management,",
+          "Kommunikations-Planung.",
+          "10.000 Ports",
+          "Konzeption, Aufbau, Test der kompletten WLAN-Infrastruktur mit 2000"
+        ]
+      },
+      {
+        "period": "12/2006 - 06/2007",
+        "company": "Telekommunikation",
+        "title": "Projektleitung Next Generation STP bei o2",
+        "role": "Projektleitung",
+        "technologies": [
+          "Siemens STP",
+          "Nortel STP",
+          "Cisco",
+          "HP OpenView",
+          "Billing",
+          "Arbor",
+          "OM",
+          "MDS",
+          "AMD",
+          "SPAS/",
+          "PMI",
+          "GPM/IPMA"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Austausch der bestehenden STP-Plattform",
+          "Steuerung, Planung und Überwachung der Migrationsschritte Deinstallation des Alt-Systems OM, SAS, Corba GW, PMI, GPM/IPMA ===================================================== ==========================",
+          "Austausch der bestehenden MPLS-Plattform"
+        ]
+      },
+      {
+        "period": "01/2006 - 12/2006",
+        "company": "Telekommunikation",
+        "title": "Projektleitung IMEI / ADC (automatische Handykonfiguration)",
+        "role": "Projektleitung Infrastruktur und Softwareentwicklung",
+        "activities": [
+          "bei o2",
+          "Aufgaben:",
+          "Aufbau der o2-ADC-Plattform (automatische Handykonfiguration) für alle 10",
+          "Millionen Kunden von o2",
+          "Detailierte Erhebung und Untersuchung des IMEI2 Service für Multicard und Voice VPN Service",
+          "Softwareentwicklung und Test der IMEI-spezifischen Funktionalitäten",
+          "Aufbau SUN-Server und Implementierung Oracle Datenbank mit customized",
+          "Applikationsumgebung, mit Apache Server, SOAP-Interface und Gateways"
+        ]
+      },
+      {
+        "period": "04/2005 - 06/2008",
+        "company": "Telekommunikation",
+        "title": "Projektleitung: europaweit größtes Kunden- Migrationsprojekt",
+        "role": "Projektleitung Infrastruktur und Softwareentwicklung",
+        "technologies": [
+          "NOKIA HLR",
+          "NOKIA One-NDS",
+          "Cisco",
+          "HP OpenView",
+          "Billing",
+          "Arbor OM",
+          "eCRM",
+          "SPAS/OM"
+        ],
+        "activities": [
+          "bei o2",
+          "Aufgaben:",
+          "Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang, Zeitplan,",
+          "Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management,",
+          "Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management,",
+          "Kommunikations-Planung.",
+          "Evaluierung, Machbarkeitssstudie, Planung, Design, Test, Implementierung,",
+          "Integration und Rollout eines Next Generation HLR",
+          "Migrationsprojekt"
+        ]
+      },
+      {
+        "period": "04/2005 - 06/2008",
+        "company": "Telekommunikation",
+        "title": "Projektleitung Neuentwicklung und Migration Multicard bei o2",
+        "role": "Projektleitung Infrastruktur und Softwareentwicklung",
+        "technologies": [
+          "Alcatel IN",
+          "ngHLR",
+          "Siemens SCP",
+          "NOKIA GMSC",
+          "Nortel GMSC",
+          "NOKIA VMSC",
+          "NOKIA HLR",
+          "NOKIA One-NDS",
+          "Cisco",
+          "HP OpenView",
+          "Billing",
+          "Arbor OM",
+          "MDS"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Verantwortlich für die Projektabwicklung, Risikomanagement, Umfang, Zeitplan,",
+          "Ressourcen, Kosten-, Change Management, Verhandlungs- und Kunden-Management,",
+          "Projekt-Teamführung, Scope Management, 3rd-Party- und Schedule-Management,",
+          "Kommunikations-Planung.",
+          "Evaluierung, Machbarkeitssstudie, Planung, Design, Test, Implementierung,",
+          "Integration und Rollout einer neuen Multicard Produkt-Lösung",
+          "Migration der kompletten Kunden von der bestehenden Multicard-Lösung auf die neue Multicard-Lösung"
+        ]
+      },
+      {
+        "period": "06/2003 - 04/2005",
+        "company": "Telekommunikation",
+        "title": "Managing Consultant Schwachstellenanalyse bei o2",
+        "role": "Managing Consultant/ Systemanalyse",
+        "technologies": [
+          "Unix",
+          "Sun",
+          "Win2K",
+          "HLR",
+          "SCP",
+          "MSC",
+          "Cisco",
+          "HP OpenView",
+          "Billing",
+          "Arbor OM"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Schwachstellenanalyse zwischen IT und Mobilfunk-Netzelementumgebung",
+          "(Mediation Device -> HLR, IN, etc.)",
+          "Schwachstellenanalyse in der IT-Produktionsumgebung mit 600 Servern(Unix,",
+          "Sun, Win2K) und 21 Applikationen.",
+          "Erarbeitung von Lösungsvorschlägen mit Umsetzung, Risiko und Kostenabschätzung",
+          "Analysieren, Identifizieren und Dokumentieren neuer Technologien sowie Erarbeiten von Empfehlungen in Bezug auf deren interne Einsetzbarkeit",
+          "Darstellung der Ende-zu-Ende Infrastruktur und entsprechende Service- Prozeß-Abbildung"
+        ]
+      },
+      {
+        "period": "06/2000 - 12/2003",
+        "company": "Arcor",
+        "title": "Operations/Service (1st & 2nd Level Support) & Customer, München",
+        "role": "Head of Department",
+        "activities": [
+          "Projects",
+          "Aufgaben:",
+          "Überwachung der KPIs intern und externen (1st & 2nd Level Support)",
+          "Vorbereitung/Input zu in der Planung befindlichen Projekten",
+          "Monitoring und Steuerung von Providern und Partnern",
+          "Austausch mit globalen Stakeholdern",
+          "Prozessanalyse und Optimierungsvorschläge",
+          "Begleitung von Projekten in enger Zusammenarbeit mit lokalen/globalen",
+          "München"
+        ]
+      },
+      {
+        "period": "01/1999 - 06/2000",
+        "company": "GTS",
+        "title": "Operations & Großprojekte, Frankfurt am Main",
+        "role": "Operations Director",
+        "activities": [
+          "Aufgaben:",
+          "Überwachung der KPIs (1st & 2nd Level Support)",
+          "Vorbereitung/Input zu in der Planung befindlichen Projekten",
+          "Monitoring und Steuerung von Providern und Partnern",
+          "Austausch mit globalen Stakeholdern",
+          "Umsetzung diverser internationaler Großprojekte im Bereich Interactive",
+          "Voice Response, City-Netze, Billing Migrationen und Calling Cards.",
+          "Sicherstellung der Projektmeilensteine und der Lieferergebnisse über die gesamten Projektlaufzeiten vom Scope über Durchführung bis zum Go-Life."
+        ]
+      },
+      {
+        "period": "06/1997 - 05/1999",
+        "company": "o2",
+        "title": "Engineering, München",
+        "role": "Head of Department",
+        "activities": [
+          "Aufgaben:",
+          "Verantwortung von nationalen und internationalen Groß-Projekten (Germany- Wide structure common Dial-in Network, IP Backbone, Internet Server Farm,",
+          "Admin-Router Network for SDH, FR-, X.25-, ATM-Network).",
+          "Development eines innovativen Konzeptes für Projektabwicklung fokussiert auf Kostenreduktion und schnellem Aufbau.",
+          "Management der Core-Projekt-Aktivitäten einschließlich Planung, Budget,",
+          "Management der Lieferanten, Hersteller und internen Ressourcen.",
+          "Überwachen der Implementierung der Lösungen und Sicherstellung der Akzeptanz und die Einführung in den Betrieb. Führung eines Teams von 30 Mitarbeitern.",
+          "===================================================== ========================== weitere Projekte auf Anfrage Sonstiges Referenzen: Projekt Projektleitung VoIP, 07/10 - 08/11 Referenz durch großen, deutschen IT-Dienstleister vom 29.02.12 \"Der Consultant war ein aufgeschlossener und sehr versierter Projektleiter, der aufgrund seiner vielseitigen Berufserfahrung mit seinem Arbeitsbereich bestens vertraut war. Trotz stärkster Beanspruchung hat der Consultant die zeitlichen Vorgaben stets eingehalten. Seine Arbeitsweise erfüllte stets höchste Ansprüche. Der Consultant zeichnete sich stets durch eine vorbildliche Arbeitsauffassung aus und zeigte stets sehr großen persönlichen Einsatz und eine exzellente Leistungsmotivation. Der Consultant war ein angenehmer und fairer Projektleiter. Er hat seine Projekt-Mitarbeiter zu einem effizienten und harmonischen Team zusammengeführt, wodurch die Arbeitsproduktivität gesteigert werden konnte. Seine Projekt-Mitarbeiter führte der Consultant als fachlich kompetentes Vorbild durch seine natürliche Autorität und die Fähigkeit der Delegation auch in schwierigen Situationen zu guten Ergebnissen. Er verstand es hervorragend, die Mitarbeiter zu überzeugen und ihre Zusammenarbeit aktiv zu fördern. Er informierte sein Team stets umfassend. Sein Kommunikationsverhalten war immer zeitgerecht und offen und für alle Teammitglieder motivierend. Sein gewinnendes Auftreten und seine sachlich-konstruktive Gesprächs- und Verhandlungsführung ermöglichte es dem Consultant, unser Unternehmen gegenüber dem Kunden stets vorbildlich zu vertreten. Es ist uns ein besonderes Anliegen, dem Consultant für sein äußerst wertvolles Wirken an verantwortlicher Stelle zu danken. Wir wünschen diesem engagierten und tüchtigen Consultant auf seinem weiteren Berufs- und Lebensweg alles Gute und weiterhin viel Erfolg.\" Projekt Programmleitung: Aufbau VoIP und WLAN Infrastruktur im UKE in Hamburg, 07/08 - 06/09 Referenz durch NextiraOne vom 14.10.11 \"Der Consultant hat das Programm erfolgreich abgeschlossen. Neben seiner fachlichen Qualifikation ist sein besonderes Engagement hervorzuheben. Ein besonderes Lob gilt seinen exzellenten Führungsqualitäten: Selbst in kritischen Phasen konnte er sein Team zu Höchstleistungen motivieren. Wir danken dem Consultant für die stets produktive und äußerst erfolgreiche Zusammenarbeit und möchten an dieser Stelle den Consultant anderen Projektanbietern weiterempfehlen.\" Projekt Next Generation HLR, 04/05 - 06/08 Referenz durch Abteilungsleiter Mobilfunkoperator, Telefonica o2 GmbH, vom 04.06.08 \"Der Consultant hat das Projekt in allen Phasen von der Spezifikation über die Entwicklungs- und Testphase bis hin zur Inbetriebnahme begleitet. Anschließend hat er dafür gesorgt, dass einer der europaweit größten Kundenmigration in der Telekommunikation ohne Probleme durchgeführt wurde. Neben seiner fachlichen Qualifikation ist sein besonderes Engagement, das weit über die normale Arbeitszeit hinaus ging, hervorzuheben. Seine Aufgaben erledigte er stets selbstständig mit großer Sorgfalt und Genauigkeit. Gegenüber unseren internen und externen Geschäftspratnern trat er jederzeit sicher und gewandt auf, unser Unternehmen wurde von ihm immer vorbildlich repräsentiert. Die Projektleitung wurde stets zu unserer vollsten Zufriedenheit durchgeführt. Wir danken dem Consultant für die stets produktive und äußerst erfolgreiche Zusammenarbeit und möchten an dieser Stelle den Consultant anderen Projektanbietern weiterempfehlen.\" Alle Referenzen sind durch GULP bestätigt.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen"
+        ]
+      }
+    ],
+    "industries": [
+      "Öffentliche Verwaltung",
+      "Banken",
+      "Telekommunikation",
+      "Medizinische Dienste",
+      "Gesundheit",
+      "Behörden",
+      "Verlag",
+      "Medien/Printmedien",
+      "Health Care",
+      "Versicherung",
+      "Finanzen",
+      "Bildung",
+      "Logistik-/Versandhandel"
+    ],
+    "focus_areas": [
+      "1994",
+      "Studium der angewandten Informatik und Mathematik mit Abschluss zum Diplom-Informatiker"
+    ],
+    "focus_experience": [
+      {
+        "name": "Ariba",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Atlassian JIRA",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Ausschreibungsmanagement",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Cisco",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Citrix",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Condeco",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Div. Audit und Review Methoden",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "dormakarba",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "ITIL®",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Marktanalyse",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Microsoft Exchange",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Netscaler",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "SAP",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "ServiceNow",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Solarwind",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Vendor Management",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Verhandlung",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Werte-Versprechen:",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "* Ein zukunftsorientierter Führer",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "motiviert mit der Zielsetzung optimale",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Lösungen zu verwirklichen",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "die Rentabilität in den Betrieb bringen. Ein",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "innovationsorientierter Management-Profi mit einer nachgewiesenen",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Erfolgsbilanz bei der Entwicklung wirksamer Prozesse und Verfahren",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "der",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Rationalisierung des Betriebs und der Verbesserung der Umsatzentwicklung.",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Führungsmerkmal:",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Ein Synergist mit starker Weitsicht und Verhandlungsfähigkeiten und",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "tiefgreifender Erfahrung im Coaching und Mentoring von Mitarbeitern auf",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "allen Ebenen und Bereichen. Ein ergebnisorientierter Profi angetrieben",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "durch Liebe zum Detail. Ein vollendeter Technologieführer mit",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "kompromissloser Integrität.",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Entscheidende Stärken",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Strategic Planning & Implementation",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Project Management",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Change Management",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Staff/ Client Mentoring & Coaching",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Quality Control",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Workflow Process Analysis",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "* Efficiency",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Operations & Cost-Benefit Analysis",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Systems Development",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Risk Management",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Relationship Management",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Negotiation",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Resource Management",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Budget Management & Budgetary Compliance",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Creative Problem Solving",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Team Builder",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Quality Assurance",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Critical Thinking",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "IPMA",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "PMI",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "POC",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Proof of Concept",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Ressourcenmanagement",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Servicemanagement",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Teams",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "GPM/IPMA",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Hermes",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Prince-2",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "RfI",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "RfI RfP",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "RfP",
+        "category": "product_standard",
+        "sort_order": 67
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diplom-Informatiker",
+        "institution": "",
+        "period": "1994",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Projektleitung VoIP, 07/10 - 08/11\nReferenz durch großen, deutschen IT-Dienstleister vom 29.02.12\n\"Der Consultant war ein aufgeschlossener und sehr versierter Projektleiter, der\naufgrund seiner vielseitigen Berufserfahrung mit seinem Arbeitsbereich bestens\nvertraut war. Trotz stärkster Beanspruchung hat der Consultant die zeitlichen\nVorgaben stets eingehalten. Seine Arbeitsweise erfüllte stets höchste\nAnsprüche. Der Consultant zeichnete sich stets durch eine vorbildliche\nArbeitsauffassung aus und zeigte stets sehr großen persönlichen Einsatz und\neine exzellente Leistungsmotivation. Der Consultant war ein angenehmer und\nfairer Projektleiter. Er hat seine Projekt-Mitarbeiter zu einem effizienten und\nharmonischen Team zusammengeführt, wodurch die Arbeitsproduktivität\ngesteigert\nwerden konnte. Seine Projekt-Mitarbeiter führte der Consultant als fachlich\nkompetentes Vorbild durch seine natürliche Autorität und die Fähigkeit der\nDelegation auch in schwierigen Situationen zu guten Ergebnissen. Er verstand es\nhervorragend, die Mitarbeiter zu überzeugen und ihre Zusammenarbeit aktiv zu\nfördern. Er informierte sein Team stets umfassend. Sein\nKommunikationsverhalten\nwar immer zeitgerecht und offen und für alle Teammitglieder motivierend. Sein\ngewinnendes Auftreten und seine sachlich-konstruktive Gesprächs- und\nVerhandlungsführung ermöglichte es dem Consultant, unser Unternehmen\ngegenüber\ndem Kunden stets vorbildlich zu vertreten. Es ist uns ein besonderes Anliegen,\ndem Consultant für sein äußerst wertvolles Wirken an verantwortlicher Stelle zu\ndanken. Wir wünschen diesem engagierten und tüchtigen Consultant auf seinem\nweiteren Berufs- und Lebensweg alles Gute und weiterhin viel Erfolg.\"\nProjekt Programmleitung: Aufbau VoIP und WLAN Infrastruktur im UKE in\nHamburg,\n07/08 - 06/09\nReferenz durch NextiraOne vom 14.10.11\n\"Der Consultant hat das Programm erfolgreich abgeschlossen. Neben seiner\nfachlichen Qualifikation ist sein besonderes Engagement hervorzuheben. Ein\nbesonderes Lob gilt seinen exzellenten Führungsqualitäten: Selbst in kritischen\nPhasen konnte er sein Team zu Höchstleistungen motivieren. Wir danken dem\nConsultant für die stets produktive und äußerst erfolgreiche Zusammenarbeit und\nmöchten an dieser Stelle den Consultant anderen Projektanbietern\nweiterempfehlen.\"\nProjekt Next Generation HLR, 04/05 - 06/08\nReferenz durch Abteilungsleiter Mobilfunkoperator, Telefonica o2 GmbH, vom\n04.06.08\n\"Der Consultant hat das Projekt in allen Phasen von der Spezifikation über die\nEntwicklungs- und Testphase bis hin zur Inbetriebnahme begleitet. Anschließend\nhat er dafür gesorgt, dass einer der europaweit größten Kundenmigration in der\nTelekommunikation ohne Probleme durchgeführt wurde. Neben seiner fachlichen\nQualifikation ist sein besonderes Engagement, das weit über die normale\nArbeitszeit hinaus ging, hervorzuheben. Seine Aufgaben erledigte er stets\nselbstständig mit großer Sorgfalt und Genauigkeit. Gegenüber unseren internen\nund externen",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Alcatel OXE",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ATM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Avaya",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Cisco CallManager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "GSM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "GSM-R",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HDLC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HDSL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "H.323",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IPNG",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "JAIN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "konvergente Sprach-Daten-Video-Netze",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MPLS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NGN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Parlay/OSA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Public Networks",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Radius",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RFC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RTCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SIP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UMTS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UUCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Voice",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VoIP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Use Case Analyse",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:40:07.508733",
+    "source_file": "",
+    "steps_completed": [
+      "OTHER",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1997"
+      ],
+      "coverage_percent": 92.19858156028369,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

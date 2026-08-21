@@ -1,0 +1,234 @@
+{
+  "metadata": {
+    "aid": "AID-jl_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "lew_joerg",
+    "first_name": "Joerg",
+    "last_name": "Lew",
+    "headline": "VMware vSphere Plattform, besonders VMware vCenter Orchestrator",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:45:36.098055"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Joerg",
+      "last_name": "Lew",
+      "birth_year": 1981,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.10.15 zu 100%, Vor-Ort-Einsatz 100% möglich nebenberuflich tätig",
+      "location": "Deutschland: D0, D1, D2, D4, D5, D6, D7, D8,",
+      "wohnort": "875xx Burgberg im Allgäu, Deutschland",
+      "edv_experience_since": 1997,
+      "headline": "VMware vSphere Plattform, besonders VMware vCenter Orchestrator"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "DB2",
+        "JDBC",
+        "MySQL",
+        "Postgres",
+        "SQL"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Windows",
+        "VMware vSphere Plattform VMware ESX"
+      ],
+      "programming_languages": [
+        "C",
+        "C++",
+        "Delphi",
+        "Java",
+        "JavaScript",
+        "Occam",
+        "Grundkenntnisse",
+        "Pascal",
+        "Perl",
+        "PHP",
+        "Tcl/Tk",
+        "TeX",
+        "LaTeX"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Bisherige Projekte im Schulungsumfeld",
+        "title": "Bisherige Projekte im Schulungsumfeld",
+        "activities": [
+          "über 100 offizielle VMware-Trainings, vom Standard-Administratorenkurs hin zu den Advanced\"-Trainings zum vSphere-Design und zur Orchestrator-Entwicklung bei den VMware-Trainingscentern HP, Fastlane, Azlan, ArrowECS und Magirus.",
+          "Zahlreiche angepasste Workshops im VMware-Umfeld, auch zu spezielleren Themen wie Lab Manager, API-Programmierung und für 3rd-Party-Produkte wie Platespin."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Bisherige Projekte in Konzeption und Implementierung",
+        "title": "Bisherige Projekte in Konzeption und Implementierung",
+        "activities": [
+          "Zahlreiche Projekte, bei denen ich für Endkunden und VMware-Partner die Planung einer VMware-Infrastruktur erstellt und die zukünftigen Administratoren bei der Umsetzung on-the-job geschult habe.",
+          "Zahlreiche Review-, Healthcheck- und Upgradeprojekte, bei denen sich im Produktivbetrieb befindliche VMware-Server überprüft,",
+          "Optimierungspotenzial im Design aufgedeckt und die Plattform auf den neuesten Stand gebracht wurden.",
+          "Bei Bedarf gebe ich gerne detailliertere Referenzen zu bestimmten",
+          "Themen."
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "VMware vSphere Plattform",
+      "besonders VMware vCenter Orchestrator",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Administration / Support",
+      "Diplom-Informatiker (FH) VMware Certified Instructor VMware VCAP-DCA VMware VCAP-DCD VMware VCP2/3/4/5 VMware VCP-DT5 Windows VMware vSphere Plattform VMware ESX"
+    ],
+    "focus_experience": [
+      {
+        "name": "VMware vSphere Plattform",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "vCenter Orchestrator",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "inkl. Workflow-Programmierung VMware LabManager",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "vCloud Director API Programmierung vSphere SDK PowerCLI VI Toolkit for",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Perl",
+        "category": "product_standard",
+        "sort_order": 4
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:45:36.098070",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 77.05882352941177,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

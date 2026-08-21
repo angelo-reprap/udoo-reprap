@@ -1,0 +1,325 @@
+AID: AID-aj_3.3.4.0
+Name: Andre Jahn
+Headline: Senior Software-Architekt, Senior Java Entwickler, Product Owner , Senior Businessanalyst
+Ort: 612xx Bad Nauheim, Deutschland
+Wohnort: 612xx Bad Nauheim, Deutschland
+Jahrgang: 1966
+Verfügbar: 01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2010
+Sprachen: Englisch verhandlungssicher
+
+FACHBEREICHE:
+Senior Software-Architekt
+Senior Java Entwickler
+Product Owner
+Senior Businessanalyst
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen >30 Jahre Berufserfahrung in der Software-Entwicklung, als Software-Architekt, Java-Entwickler und Projektmanager, Scrum Master und Product Owner.
+Sehr gut in direktem Kundenkontakt.
+Ich bin in der Lage aus vagen Anforderungen komplette Produktkonzepte zu entwickeln, mit dem Kunden abzustimmen und umzusetzen.
+Entwicklung von GUI / UI und Bedienkonzepten.
+Ich übernehme auch Komplettaufträge (Anforderungen / Design und Realisierung).
+Mittlere Reife
+Ausbildung zum Elektroniker
+Ich bin ein klassischer Quereinsteiger manchmal muss man Umwege in Kauf nehmen.
+Nach dem Realschulabschluss machte ich eine 3,5 jährige Ausbildung zum Energieanlagen-Elektroniker.
+Mein erster Arbeitgeber, die Firma Kraft Jacobs Suchard, begann kurz nach meinem Eintritt 1989 dort mit der Automatisierung des Röstkaffee-Werkes in Berlin.
+Ich nutzte diese Chance und begann dort mit der Programmierung von Prozess-Leitsystemen in C, sowie mit der Programmierung von Produktionsanlagen in Modicon und Simatik S5.
+In unserem Team war jeder für seine Arbeit selbst verantwortlich, eine Qualitätskontrolle gab es damals nicht und eine falsch programmierte Anlage konnte schnell hohen Sachschaden verursachen oder gar Menschenleben kosten.
+Die Anforderungen wurden schnell anspruchsvoller und neben der
+Programmierung
+leitete ich auch den Umbau von Produktionsanlagen.
+Im Alter 20 Jahren habe ich bereits große Modernisierungsprojekte mit mehr als zehn Mitarbeitern geleitet.
+Neben der Programmierung von Prozess-Leitsystemen programmierte ich später mehr betriebswirtschaftliche Software dann in Turbo Pascal, Turbo C++ und später dann in Java.
+Nach zehn Jahren Berufserfahrung in der Software-Entwicklung und im Projektmanagement wagte ich den Schritt in die Selbstständigkeit.
+
+BRANCHEN:
+Nahrungs- und Genußmittel
+Automobilindustrie
+Umwelttechnik
+Pharmazie
+Banken
+Versicherungen
+Medizin
+Telekommunikation
+
+PROJEKTE:
+  06/2018 - 04/2019 | Porsche AG | Product-Owner, Projektleiter, Architekt, Scrum-Master
+    - Aufgaben:
+    - Als Product-Owner Proxy war ich verantwortlich für die Konzeption und Entwicklung des Car-Entertainment Backend- Systems für das erste vollelektrische Fahrzeug der Firma Porsche.
+    - Meine Aufgaben lagen in der Konzeption (inkl. Fachkonzept und User-Experience),
+  02/2018 - 06/2018 |  | Software-Architekt und Java Lead-Entwickler
+    - Aufgaben:
+    - Ziel des Projektes Vendo (ca. 400 Entwickler) ist es, die bestehende IT
+    - Infrastruktur im Vertrieb zu erneuern. Hierfür wurde komplett auf die Entwicklung von Microservices gesetzt, welche in die Amazon AWS Cloud deployed wurden.
+    Techs: CD, Artifactory, Java, Ansible, OpenShift, Docker, Vagrant, Spring Boot, Amazon
+  11/2017 - 02/2018 |  | Architekturberater
+    - Aufgaben:
+    - Beratungsprojekt zur Umwandlung einer monolithischen Anwendung in einer Microservice-Infrastruktur für ein führendes Web-Portal für Buchungen für Geschäftsreisen.
+    - Analyse der bestehenden Anwendung und Infrastruktur, Erstellung von Prototypen und Erstellung eines Migrationskonzeptes.
+  09/2017 - 11/2017 |  | Systemarchitekt, Java-Entwickler, Projektmanagement
+    - Aufgaben:
+    - Als System-Architekt unterstützte ich einen Providerwechsel für eine komplexe Software ( >800.000 Zeilen Quellcode) zur Berechnung der Abgeltungssteuer im Bereich Investmentbanking einer Bank in Frankfurt.
+    - Aufgabe war es eine Strategie zu entwickeln, das Projekt zurück in den Zeitplan zu bringen.
+  07/2017 - 09/2017 |  | Businessanalyst und Projektkoordinator
+    - Aufgaben:
+    - Analyse von Anforderungen beim Aufbau eines Internet Payment Gateways in Argentinien.
+    - Koordinatior und Problemlöser beim Aufbau der Infrastruktur und im Bereich der Software-Entwicklung Projektmanagement
+  01/2017 - 07/2017 | Deutsche Verrechnungsstelle | Entwickler für Frontend- und Backendservices
+    - Aufgaben:
+    - Entwicklung der Webservices für www.deutsche-verrechnungsstelle.de, einem
+    - SAAS für Rechnungsmanagement und Factoring.
+  08/2016 - 12/2016 |  | JEE 6 Lead Entwickler
+    - Aufgaben:
+    - Den gesetzlichen Vorgaben entsprechend müssen Wertpapier-Tradings innerhalb von 24 Stunden berichtet werden. Im Bereich des MiFIR Reportings müssen Daten erfasst (manuell, automatisch über REST Schnittstellen) und in Berichtform an die entsprechende Institution berichtet werden.
+    - Investment
+  01/2016 - 05/2016 |  | Architekt und Entwickler
+    - Aufgaben:
+    - Da bei Kundenprojekten, zuletzt bei myAudi, immer wieder Test-User-Accounts angelegt werden müssen, für die immer neue E-Mail Adressen benötigt werden, habe ich einen WebService entwickelt, der diese Funktionalität bereitstellt.
+    - Wird bei einer Registrierung eine E-Mail Adresse benötigt, gibt man eine beliebige E-Mail Adresse ein, z.B. testuser@testmailix.io.
+  07/2015 - heute |  | diverse
+    - Aufgaben:
+    - Erstellung von Konzepten für das myAudi connect (my.audi.de). Koordinierung externer Firmen, Erstellung von Rollout-Konzepten für internationale Märkte
+    - (China, Frankreich). Erstellung von Konzepten zur Verbesserung der Stabilität und Performance. Umstellung der internen Schnittstellen von SOAP auf REST.
+    Techs: Java 7, Apache Tomcat, Microsoft Excel, Microsoft Project, SoapUI, Jira
+  07/2015 - 07/2016 | Audi AG | Projektleiter Architekt
+    - Aufgaben:
+    - Erstellung von Konzepten für das myAudi connect (my.audi.de)
+    - Koordinierung externer Firmen, Erstellung von Rollout-Konzepten für internationale Märkte (China, Frankreich).
+  04/2015 - 07/2015 | Telefonica O2 | Planung und Koordination
+    - Aufgaben:
+    - Planung und Koordination externer Firmen, Erstellung von Konzepten für Internetportal für Businesskunden. Aus persönlichen Gründen habe ich den Vertrag nach 3 Monaten nicht verlängert.
+    - Businessanalyse
+    Techs: Java 7, Apache Tomcat, Microsoft Excel
+  05/2014 - 04/2015 |  | diverse
+    - Aufgaben:
+    - Das Projekt hatte zum Ziel, die Prozesskette von der Anfrage zur Bestellung
+    - (Request-to-Offer), das Ordermanagement und die Rechnungserstellung eines Providers für IT-Dienstleistungen und Services zu erfassen, zu optimieren und in eine webbasierte Software umzusetzen. Über das System wurden in der ersten Phase jährliche Umsätze im Wert von fast 500 Mio. EUR abgerechnet.
+  08/2012 - 05/2014 |  | Senior Business-Anaylst, Software-Designer
+    - Aufgaben:
+    - Einführung eines neuen Front-Office Systems in der größten Deutschen
+    - Privatbank. In diesem Zusammenhang wurden auch bankinterne Prozesse (Client-Onboarding, CAAML-Prozess, Beratungsprozess) dokumentiert und optimiert. Der Beratungsprozess sollte komplett neu gestaltet werden und einen hohen Automationsgrad bei der Vorbereitung und Dokumentation des Beratungsgesprächs aufweisen.
+  05/2012 - 08/2012 |  | Senior Software Entwickler
+    - Aufgaben:
+    - Im Rahmen einer Bankenfusion mussten die CRM Daten der akquirierten Bank migriert werden.
+    - Neben einer Datenbereinigung und einem Doubletten check der Alt-Daten musste ein Doubletten check und Datenabgleich mit dem Datenbestand des Zielsystems durchgeführt werden.
+  03/2012 - 05/2012 |  | Senior Software-Entwickler
+    - Aufgaben:
+    - Im Rahmen eines Proof-of-Concepts erstellte ich für den Kunden einen Service-Catalog für die Bestellung und Lieferung von IT Services und Produkten (Server,
+    - Rechenzentren, Software, Netzwerktechnik, etc).
+  05/2011 - 02/2012 |  | Senior Business-Analyst, Service Demand Manager
+    - Aufgaben:
+    - Ziel des Projektes war die Integration des Rechenzentrums der Deutschen Card
+    - Services, eines von der DeuBa erworbenen Providers für die Abrechnung von Kreditkartenzahlungen, in das Rechenzentrum der Deutschen Bank.
+  11/2010 - 04/2011 |  | Projektkoordinator
+    - Aufgaben:
+    - Aufgabe war es die installierte Telekom-Infrastruktur zusammen mit einer Software-Lösung in Betrieb zu nehmen.
+    - Aufgrund des Ausfalls eines internen Mitarbeiters habe ich die Abnahme des installierten Systems in der Rolle eines Hands-on Projekt-Koordinators übernommen.
+    Techs: UML, SSH, Linux, Apache FOP, Internet Explorer, JDBC, J2EE, Access, ANT, HTML
+
+SKILLS:
+  database: Access, Adabas Grundkenntnisse, Apache Cassandra, Application Partner der Firma Caché Datenbank, InterSystems, BDE, DAO, DB2, Informix, Lotus Notes Workflowkenntnisse, Web Programmierung, unter Domino, MongoDB, MS SQL Server, MySQL, ODBC, Oracle Version 7.3-9i, DBA-Schulung und DBA-, Erfahrung, PL/SQL-Programmierung, Oracle 11g, Quest, SQL Erfahrung in der Erstellung komplexer und, zeitoptimierter SQL-Statements
+  operating_system: Lynx, MS-DOS, Novell, OS-X, SUN OS, Solaris, Unix, Windows, Linux (bes. RedHat)
+  programming_languages: Basic, BPMN, C, C++, dBase, EJB, Gupta, Centura, Imake, GNU-Make, Make-Maker etc, Java Swing, J2EE, Servlets, JDBC, Java 7, JavaScript Swing, JEE 6, jQuery, Lotus Notes Script, Makrosprachen bash, Modicon, Paradox, Perl, PHP, PL/SQL, Scriptsprachen Bash, Shell, Siemens S5, TeX, LaTeX Grundkenntnisse, UML 2.0
+
+SKILL-ABLAGE:
+Apache ServiceMix, Bus, CORBA, Ethernet, Internet, Intranet XML / XSL, Message Queuing MQ Series, Modbus+, RMI, Siemens H1, TCP/IP, Windows Netzwerk
+
+FOCUS_EXP:
+  Adobe CQ5  [product_standard]
+  AngularJs 1  [product_standard]
+  Apache Camel  [product_standard]
+  Apache Kafka  [product_standard]
+  Apache Service Mix  [product_standard]
+  Apache Tomcat  [product_standard]
+  Applikationsarchitektur  [product_standard]
+  Architekturmanagement  [product_standard]
+  Atlassian Confluence  [product_standard]
+  Atlassian JIRA  [product_standard]
+  Atlassian JIRA Agile  [product_standard]
+  Camunda  [product_standard]
+  CQ5  [product_standard]
+  EAI  [product_standard]
+  IntelliJ  [product_standard]
+  JBoss Application Server  [product_standard]
+  Kanban  [product_standard]
+  Microservices  [product_standard]
+  Netflix Eureka  [product_standard]
+  Netflix Zuul  [product_standard]
+  OAuth2  [product_standard]
+  REST  [product_standard]
+  Scrum  [product_standard]
+  SoapUI  [product_standard]
+  Spring-Boot  [product_standard]
+  SpringFramework  [product_standard]
+  Vaadin  [product_standard]
+  Webapplication  [product_standard]
+  XML  [product_standard]
+  * UML  [product_standard]
+  OOD  [product_standard]
+  OOA  [product_standard]
+  * InTouch  [product_standard]
+  Factory Suite 2000  [product_standard]
+  Sybase Data Architect  [product_standard]
+  Borland C++ Builder  [product_standard]
+  Symantec Visual Cafe  [product_standard]
+  Doc To Help  [product_standard]
+  Intersolv PVCS  [product_standard]
+  Oracle 7.2/9i  [product_standard]
+  MS SQL Server  [product_standard]
+  DB2  [product_standard]
+  MS Office  [product_standard]
+  EJB  [product_standard]
+  RMI  [product_standard]
+  Struts  [product_standard]
+  Java Plugins  [product_standard]
+  Jonas  [product_standard]
+  TogetherJ  [product_standard]
+  XML/XSL  [product_standard]
+  JDBC  [product_standard]
+  SQL  [product_standard]
+  PL/SQL  [product_standard]
+  Servlets  [product_standard]
+  ANT  [product_standard]
+  SSH (Secure Shell)  [product_standard]
+  CVS  [product_standard]
+  Tomcat  [product_standard]
+  CSS  [product_standard]
+  JSP  [product_standard]
+  TeamSite  [product_standard]
+  Magic Draw  [product_standard]
+  Reuters  [product_standard]
+  WSAD  [product_standard]
+  Eclipse  [product_standard]
+  LDAP  [product_standard]
+  Wertpapiere (WP)  [product_standard]
+  Moderationstechniken  [product_standard]
+  Bedarfsanalyse / Requirementengineering  [product_standard]
+  Konzepterstellung  [product_standard]
+  Projektleitung / Projektkoordination  [product_standard]
+  Teambildung  [product_standard]
+  Teammotivierung  [product_standard]
+  Riskmanagement (Software)  [product_standard]
+  Functionpoint Analysis (in Anfängen)  [product_standard]
+  Konfliktmanagement  [product_standard]
+  Softwarearchitektur  [product_standard]
+  HTML  [product_standard]
+  Homesite  [product_standard]
+  Rational Rose  [product_standard]
+  Content Management Systeme (CMS)  [product_standard]
+  Aris-Methode (Grundkenntnisse)  [product_standard]
+  MQ Series (Websphere MQ)  [product_standard]
+  Websphere  [product_standard]
+  C.A.R.E (Computer Aided Software Engineering)  [product_standard]
+  Diverse Open Source Produkte  [product_standard]
+  Photoshop CS  [product_standard]
+  InDesign CS  [product_standard]
+  Adobe Illustrator  [product_standard]
+  GoLive  [product_standard]
+  Ein paar Informationen über mich:  [product_standard]
+  Seit mehr als 25 Jahren mit großer Hingabe in der Software-Branche tätig  [product_standard]
+  - auf jeden Fall mehr Berufung  [product_standard]
+  als Beruf  [product_standard]
+  * Ich arbeite erfolgsorientiert  [product_standard]
+  nicht nur als "externer im Projekt"  [product_standard]
+  Ich mag einfache (aber keine primitiven) Lösungen.  [product_standard]
+  Arbeite gerne mit guten Leuten zusammen.  [product_standard]
+  Ausgeprägte Hands-on Mentalität.  [product_standard]
+  Sehr gute analytische Fähigkeiten.  [product_standard]
+  * Kreativ  [product_standard]
+  mit guten  [product_standard]
+  umsetzbaren Ideen  [product_standard]
+  * Eher Gestalter  [product_standard]
+  als Verwalter  [product_standard]
+  Schnelle Auffassungsgabe.  [product_standard]
+  * Lösungs- und Anwenderorientiert  [product_standard]
+  nicht technikzentriert  [product_standard]
+  Sehr gute Kenntnisse und Fähigkeiten in der Moderation von Workshops und  [product_standard]
+  Meetings.  [product_standard]
+  Komme gut in einem politisch schwierigen Umfeld gut zurecht.  [product_standard]
+  Sehr gute Englischkenntnisse in Wort und Schrift (verhandlungssicher).  [product_standard]
+  Belastbar.  [product_standard]
+  * Ein Auftreten  [product_standard]
+  das auch für Präsentationen und Meetings im gehobenen  [product_standard]
+  Management geeignet ist.  [product_standard]
+  * Bin in der Lage  [product_standard]
+  Druck vom Team fernzuhalten oder auch nicht  [product_standard]
+  Sehr gute Kenntnisse um betriebswirtschaftliche Abläufe.  [product_standard]
+  Suche keine Projekte als PMO oder im Controlling.  [product_standard]
+  Alle angegebenen Erfahrungen repräsentieren mindestens ein fundiertes  [product_standard]
+  Projekten einsetzbares Grundwissen. Für eventuell fehlende Kenntnisse kann ggf.  [product_standard]
+  ein Preisnachlas über einen Zeitraum vereinbart werden.  [product_standard]
+  Aufgabenbereiche  [product_standard]
+  agiles Projektmanagement  [product_standard]
+  Produktdesign  [product_standard]
+  Produktentwicklung  [product_standard]
+  Software-Architekturen  [product_standard]
+  Software-Entwicklung  [product_standard]
+  Managementerfahrung in Unternehmen:  [product_standard]
+  Product Owner  [product_standard]
+
+SONSTIGES:
+Sonstige Anmerkungen:
+Ich bin seit 1989 in der Softwareentwicklung tätig.
+Als "Quereinsteiger" war ich im Berliner Röstkaffeewerk der Firma Kraft Jacobs
+Suchard
+mit der Realisierung von Investitionsprojekten beschäftigt. Dazu gehörte der
+Umbau und
+die Optimierung von Produktionsanlagen sowie die Entwicklung von
+Steuerungsprogrammen, Prozessleitsystemen und betriebswirtschaftlicher
+Anwendungen
+unter C und C++, Centura, Modicon und Step 5.
+Später übernahm ich die eine großen Teil der Planung und die Projektleitung für
+Software- und Automatisierungsprojekte (max. Budget 2,5 Mio. EUR).
+Aufgrund meiner Erfolge in diesen Bereichen wurde ich verstärkt mit der
+technischen und
+fachlichen Leitung komplexer und risikobehafteter Projekte beauftragt.
+Durch den frühen Einstieg in die IT und durch ständige Weiterbildung habe ich
+in vielen
+Bereichen ein sehr umfangreiches Fachwissen aufgebaut. Dank meiner
+langjährigen
+Erfahrungen bin ich in der Lage mich schnell in neue Situationen und neue
+technische
+Umgebungen einzuarbeiten.
+Seit 1998 arbeite ich als selbständiger Softwareentwickler. Meine fachlichen
+Schwerpunkte liegen in der Softwareentwicklung unter Java speziell in der
+Entwicklung
+von Intranet- und EAI-Applikationen.
+Weitere Schwerpunkte liegen im Projektmanagement und im Softwaredesign bzw.
+in
+der
+Softwarearchitektur.
+Bedingt durch meine frühere Tätigkeit verfüge ich über die Fähigkeit Projekte
+termingerecht und erfolgreich abzuschließen.
+Zu diesen Fähigkeiten gehören neben der Projektplanung und der Koordination
+mit
+Lieferanten und Fachabteilungen auch die Zusammenstellung und Motivation von
+Projektteams. Hierbei fördere und unterstütze ich das eigenverantwortliche
+Handeln der
+Team-Mitglieder und unterstütze eine offene Kommunikation zwischen allen
+Beteiligten.
+Gerne befasse ich mich auch mit den Themen Softwarearchitektur und
+Softwaredesign
+(OOA, OOD). Neben den Kenntnissen der UML und dem Aufbau effektiver
+Architekturen
+gehören dazu auch die "Vorarbeiten", wie das Anforderungsmanagement, die
+Durchführung Workshops und Interviews.
+Die Definition von Modul-, Integrations- und Abnahmetests und die Testleitung
+und die
+Testauswertung gehören ebenfalls dazu.
+In verschiedenen Kursen habe ich mich in den Bereichen der Moderationstechnik
+und in
+der Planung und Durchführung von Schulungen weitergebildet. Diese Kenntnisse
+habe ich
+in vielen Projekten mit praktischer Erfahrung weiterentwickelt und setze sie
+gerne ein.
+Ich besitze umfangreiche Kenntnisse über die Vorgehensmodelle der
+Softwareentwicklung (RUP,XP, etc.) und kann sie umsetzen. Ich bin jedoch kein
+Verfechter eines bestimmten Modells sondern ich orientiere mich an den
+Vorgaben
+meiner Kunden.
+Ich arbeite gerne im Team und habe eigenverantwortlichen und selbständigen
+Arbeitsstil.
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+Englisch anzeigen

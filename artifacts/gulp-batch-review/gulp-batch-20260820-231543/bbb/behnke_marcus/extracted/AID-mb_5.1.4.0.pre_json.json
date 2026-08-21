@@ -1,0 +1,1871 @@
+{
+  "metadata": {
+    "aid": "AID-mb_5.1.4.0",
+    "version": "5.1.4.0",
+    "consultant_dir": "behnke_marcus",
+    "first_name": "Marcus",
+    "last_name": "Behnke",
+    "headline": "Erfahrener Projektleiter/Admin/Entwickler UNIX (Solaris/HP-UX/AIX/Linux), Datenbanken (Oracle, Sybase ASE/IQ, DB2) für Banksysteme und Datawarehouse",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:16:17.799704"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Marcus",
+      "last_name": "Behnke",
+      "birth_year": 1967,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch Sehr gute Kenntnisse",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Sehr gute Kenntnisse)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (Grundkenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "außerhalb D/A/CH im Umkreis von: Frankfurt am Main (200 km)",
+      "wohnort": "611xx Florstadt, Deutschland",
+      "headline": "Erfahrener Projektleiter/Admin/Entwickler UNIX (Solaris/HP-UX/AIX/Linux), Datenbanken (Oracle, Sybase ASE/IQ, DB2) für Banksysteme und Datawarehouse",
+      "edv_experience_since": 2004
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "BTrieve",
+        "DB2 DB2EE 7.x",
+        "DB2EE 7.x",
+        "Filemaker",
+        "Informix 7.x",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle 6.x",
+        "7.x",
+        "8.x",
+        "8i",
+        "9i",
+        "10g",
+        "Parallel Server",
+        "data-mining",
+        "workflow",
+        "Oracle 11g",
+        "Oracle 12",
+        "Postgres",
+        "SQL",
+        "SQL Developer",
+        "Sybase ASE und IQ bis 16.x",
+        "XAP"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Alpha",
+        "Ascii/X - Terminals",
+        "Bus",
+        "CD-Writer / Brenner",
+        "Data General",
+        "Digital",
+        "Drucker",
+        "Emulatoren",
+        "HP",
+        "IBM RS6000",
+        "Iomega",
+        "Macintosh",
+        "Modem",
+        "Motorola",
+        "PC",
+        "Plotter",
+        "Scanner",
+        "Soundkarten",
+        "Streamer",
+        "SUN",
+        "US Robotics Pilot",
+        "VAX",
+        "Video Capture Karte"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "AIX",
+        "DG/UX",
+        "HP/UX",
+        "HPUX",
+        "Linux",
+        "Linux RedHat",
+        "Mac OS",
+        "Mac OSX",
+        "MPE Basiswissen",
+        "MS-DOS",
+        "NEXTSTEP / OPENSTEP",
+        "Novell",
+        "OSF/Motif",
+        "OS/2",
+        "OS/9 Basiswissen",
+        "PalmOS",
+        "Psion Series 3",
+        "RedHat",
+        "RHEL 7",
+        "Solaris",
+        "SUN OS",
+        "Terraform",
+        "Tru64",
+        "Ultrix",
+        "Unix z.B. RedHat",
+        "Suse",
+        "FreeBSD",
+        "OSX",
+        "UNIX",
+        "Windows",
+        "Windows CE",
+        "Windows NT/95/98/Me/2000/XP/2003/2003SBS/2003",
+        "Exchange",
+        "Windows Server 2008"
+      ],
+      "programming_languages": [
+        "Ansible",
+        "awk",
+        "bash",
+        "Basic Grundkenntnisse",
+        "C",
+        "C++",
+        "ColdFusion",
+        "csh",
+        "dBase",
+        "Emacs",
+        "Go Basiskenntnisse",
+        "HTML",
+        "Jason",
+        "Java",
+        "JavaScript",
+        "ksh",
+        "Makrosprachen",
+        "Oracle/SQL",
+        "Pascal",
+        "Perl",
+        "PHP",
+        "PL/SQL",
+        "Python",
+        "Scriptsprachen",
+        "sed",
+        "sh",
+        "Shell",
+        "Terraform HCL",
+        "XML"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "01/2021 - heute",
+        "company": "DG Verlag",
+        "title": "SysAdmin, DevOps, Cloud-Consulting, Weiterentwicklung, Wiesbaden",
+        "role": "Senior Consultant",
+        "technologies": [
+          "Linux RedHat",
+          "Oracle",
+          "mySQL",
+          "Satellite",
+          "Ansible",
+          "PostGres",
+          "CheckMK"
+        ],
+        "activities": [
+          "Innovation Lab",
+          "Aufgaben:",
+          "Systemadministration RHEL 6.x, 7.x. 8.x",
+          "Satellite Integration und automatisiertes Patching",
+          "Security Improvement",
+          "Performance-Optimierung",
+          "Ansible-Einführung und -Entwicklung",
+          "Storage-Migration von NetApp auf Huawei"
+        ],
+        "industry": "Verlag",
+        "location": "Wiesbaden"
+      },
+      {
+        "period": "01/2021 - heute",
+        "company": "Union Investment",
+        "title": "Technische Weiterentwicklung Innovation Lab, Frankfurt am Main",
+        "role": "Senior Consultant",
+        "technologies": [
+          "Linux (RedHat",
+          "CentOS",
+          "Ubuntu",
+          "Debian)",
+          "Azure DevOps",
+          "AWS",
+          "Google Cloud",
+          "Windows Server"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Evaluierung und Implementierung Zukunftstechnologien",
+          "Cloud (Azure, AWS, Google)",
+          "Azure DevOps",
+          "Windows Server",
+          "VR-Systeme",
+          "Automatisierung",
+          "Robotics"
+        ],
+        "industry": "Finanzdienstleistungen",
+        "location": "Frankfurt am Main"
+      },
+      {
+        "period": "03/2020 - 12/2020",
+        "company": "EnBW",
+        "title": "Service-Manager / DevOPS / Senior Consultant / Architekt, Karlsruhe",
+        "role": "Service-Manager / Senior Consultant / Architekt",
+        "technologies": [
+          "RedHat",
+          "SuSe",
+          "Windows Server",
+          "Oracle",
+          "Cloud",
+          "AWS",
+          "Azure DevOps",
+          "Seven2One",
+          "Snowflake",
+          "Ansible",
+          "Jira",
+          "Confluence",
+          "GIT"
+        ],
+        "activities": [
+          "Unterstützung als IT Service Manager und Product Owner im MESAP Projekt mit folgenden Hauptaufgaben:",
+          "Betrieb und Betreuung einer Marktdatenlösungen on premise und zukünftig auch in der Cloud Migrationsvorbereitung zu neuem Vendorsystem",
+          "Implementation ZE ZEMA",
+          "Einführung Snowflake",
+          "Unterstützung bei der Lösung von Datenproblemen, sowie bei Erarbeitung von Verbesserungsvorschlägen für das Datenmanagement",
+          "Anbindung unterschiedlichster Datenquellen",
+          "Automatisierung von Überwachung und Betrieb der heterogenen Marktdatenlösung im Energiehandel"
+        ],
+        "industry": "Energie",
+        "location": "Karlsruhe"
+      },
+      {
+        "period": "03/2019 - 03/2020",
+        "company": "Airplus GmbH / CGI",
+        "title": "SENIOR CONSULTING RHEL7, TERRAFORM, ANSIBLE, AZURE, Neu-Isenburg",
+        "role": "Senior Admin / Senior Architect",
+        "technologies": [
+          "DevOPs",
+          "CloudOps",
+          "Ansible Tower",
+          "Azure",
+          "Satellite 6",
+          "Shell",
+          "Git",
+          "Bitbucket",
+          "Jira",
+          "Confluence",
+          "bash",
+          "python",
+          "jason",
+          "Scrum",
+          "Kanban",
+          "RHEL Administration",
+          "Terraform",
+          "Redhat Satellite",
+          "RHEL7",
+          "Hashicorp Vault"
+        ],
+        "activities": [
+          "Terraform. Aufgaben:",
+          "Installation, Konfiguration, Test, Wartung, Problemanalyse, Update- und Patchmanagement von Red Hat Enterprise Linux",
+          "Einführung Hashicorp Terraform scripted infrastructure/Enterprise Server,",
+          "Hashicorp Vault",
+          "Playbooks.",
+          "Neuaufbau des gesamten Rechenzentrum in der Microsoft Azure Cloud.",
+          "Aufbau Ansible Tower HA-Cluster"
+        ],
+        "location": "Neu-Isenburg"
+      },
+      {
+        "period": "08/2018 - 03/2019",
+        "company": "Finanzdienstleister",
+        "title": "CONSULTING, TECHN. PROJEKTLEITUNG, ADMINISTRATION,, Wiesbaden",
+        "role": "Senior-Consultant",
+        "technologies": [
+          "Ansible",
+          "Docker",
+          "Openshift",
+          "Scrum",
+          "Kanban",
+          "ITIL",
+          "Oracle",
+          "RHEL",
+          "RedHat Enterprise Linux Administration",
+          "Administration",
+          "Puppet",
+          "bash",
+          "Unix Shell Scripting",
+          "Ruby",
+          "Python",
+          "CentOS",
+          "Solaris",
+          "DB2",
+          "PostgreSQL",
+          "Weblogic"
+        ],
+        "activities": [
+          "DEVELOPMENT",
+          "Aufgaben:",
+          "Administration/DevOps RedHat, CentOS, Solaris, Oracle, DB2, PostgreSQL, Weblogic",
+          "Weblogic",
+          "Einführung von Anti-Fraud Systemen",
+          "Einführung micro focus Identity/Access. Anpassung",
+          "Betreuung von Anwendungen bezüglich Konfiguration, Administration, Wartung und Überwachung",
+          "Wartung und Überwachung"
+        ],
+        "industry": "Finanzdienstleister",
+        "location": "Wiesbaden"
+      },
+      {
+        "period": "03/2018 - 07/2018",
+        "company": "DB Energie",
+        "title": "CONSULTING, ENTWICKLUNG, MIGRATION, DATAWAREHOUSE, Frankfurt",
+        "role": "Senior Software Developer, Senior Consultant",
+        "technologies": [
+          "Senior Consultant",
+          "Senior Developer",
+          "DV-Konzeption",
+          "Administration Linux",
+          "Somentec XAP",
+          "Wilken",
+          "Oracle 11g",
+          "Oracle 12g",
+          "PL/SQL",
+          "bash",
+          "python"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Migration Somentec XAP nach Wilken",
+          "ETL-Entwicklung unter Oracle 11g/12g",
+          "Datenaufbereitung",
+          "Datawarehouse",
+          "Leitung von Workshops",
+          "PL/SQL Entwicklung",
+          "Scripting bash, python"
+        ],
+        "industry": "Energie",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "01/2016 - 03/2018",
+        "company": "Commerzbank AG",
+        "title": "DESIGN, ARCHITEKTUR, ENTWICKLUNG DATAWAREHOUSE /, Frankfurt",
+        "role": "SENIOR CONSULTANT",
+        "activities": [
+          "Design und Entwicklung Datawarehouse/ETL-Schicht, Sybase ASE, Sybase IQ, Oracle, ETL für den Bereich Kontrahentenrisiko Investmentbanking",
+          "Aufgaben:",
+          "Einführung Kanban",
+          "Einführung Continuous delivery (Gitlan, jenkins pipline)",
+          "Sybase/SybaseIQ 16.x, RedHat, Oracle 12.x, Bash, Perl. Shell, Murex, Summit,",
+          "Bloomberg, Martini, Kondor, Calypso, Imagine, Swordfish, Loantrak, UC4/Automic,"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "Sybase ASE",
+          "Sybase IQ",
+          "SybaseIQ 16.x",
+          "Oracle",
+          "Oracle 12.x",
+          "RedHat",
+          "Bash",
+          "Perl",
+          "Shell",
+          "Murex",
+          "Summit",
+          "Bloomberg",
+          "Martini",
+          "Kondor",
+          "Calypso",
+          "Imagine",
+          "Swordfish",
+          "Loantrak",
+          "UC4/Automic",
+          "Gitlan",
+          "jenkins pipline"
+        ]
+      },
+      {
+        "period": "02/2015 - 12/2015",
+        "title": "CONSULTING, ARCHITEKTUR, ADMINISTRATION, Eschborn",
+        "role": "Senior Consultant",
+        "technologies": [
+          "Anbindung externe Lokationen",
+          "Cisco Router/",
+          "Linux Red Head EE 5.x",
+          "Windows Server 2012",
+          "Amazon AWS",
+          "Switches",
+          "CheckMK",
+          "Tacacs",
+          "Radius",
+          "MacMon",
+          "LinOPT",
+          "FreeOTP",
+          "Cisco Meraki",
+          "MSSQL",
+          "TSM",
+          "Bluecoat",
+          "Checkpoint",
+          "ASA",
+          "MS/SQL",
+          "Oracle 11/12",
+          "Java",
+          "vmWare ESXi",
+          "VSphere",
+          "Workstation",
+          "veeam",
+          "Sawmill",
+          "Nagios",
+          "Icinga",
+          "Mac OSX",
+          "Linux Red Hat EE 5.x",
+          "Netapp",
+          "Dell Equallogic"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Standardisierung, Implementierung neue Prozessketten.",
+          "Anbindung an Amazon AWS Cloud",
+          "Switches, CheckMK, Tacacs, Radius, MacMon.",
+          "Einführung LinOPT/FreeOTP",
+          "Einführung Cisco Meraki-WLAN für Zentrale und Niederlassungen",
+          "MSSQL, TSM, Bluecoat, Checkpoint/ASA, MS/SQL, Oracle 11/12, Java, LinOPT, vmWare ESXi/VSphere/Workstation, veeam, Sawmill, Nagios, Icinga, Mac OSX ===================================================== =========================="
+        ],
+        "location": "Eschborn"
+      },
+      {
+        "period": "09/2013 - 02/2015",
+        "company": "Commerzbank AG",
+        "title": "CONSULTING, ARCHITEKTUR, ENTWICKLUNG BEREICH SEPA, Eschborn und Frankfurt",
+        "role": "Senior Consultant",
+        "technologies": [
+          "Linux Red Head EE 5.x",
+          "Sun Solaris",
+          "IBM Websphere",
+          "(Application/Process Server/",
+          "MQ 8/8.5",
+          "Oracle 11.2g/12.x",
+          "R-Man",
+          "Clear2Pay OPF",
+          "Connect:Direct",
+          "UC4",
+          "JIRA",
+          "App Dynamics",
+          "JAVA",
+          "MQSeries",
+          "Connect:Direkt",
+          "Toad",
+          "SQL-Developer",
+          "Eclipse"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Einführung Clear2Pay OPF, Projekt SEPA für Lastschriften/Daueraufträge/Eil-Zahlungsverkehr und Einführung einer neuen Gesamtzahlungsplattform",
+          "Eil-Zahlungsverkehr und Einführung einer neuen Gesamtzahlungsplattform",
+          "Entwicklung, Programmierung, Design, Architektur, Support, Beratung,",
+          "Datenbank-Implementierung und –Entwicklung",
+          "Aufbau der Support-Struktur und deren Transfer in den Betrieb Projekt SEPA, ZVneu",
+          "MQ) 8/8.5, Oracle 11.2g/12.x, R-Man, Clear2Pay OPF, Connect:Direct, UC4, JIRA,",
+          "App Dynamics, JAVA, MQSeries, Connect:Direkt, Toad, SQL-Developer, Eclipse,"
+        ],
+        "industry": "Banken",
+        "location": "Eschborn und Frankfurt"
+      },
+      {
+        "period": "05/2012 - 08/2013",
+        "company": "eventus3 GmbH",
+        "title": "CONSULTING, ARCHITEKTUR, ENTWICKLUNG, SOCIAL MEDIA, Startup-, Mainz",
+        "role": "Gesamtprojektleitung",
+        "technologies": [
+          "Developer",
+          "Windows Server 2008",
+          "MSSQL",
+          "Exchange Server",
+          "Microsoft Azure",
+          "Linux",
+          "Apple OSX",
+          "Java",
+          "Bash",
+          "PL/SQL",
+          "Python",
+          "PHP",
+          "Perl",
+          "Oracle 11g",
+          "MySQL",
+          "MQ-Series",
+          "Connect:Direct",
+          "Toad"
+        ],
+        "activities": [
+          "Company",
+          "Aufgaben:",
+          "Aufbau und Erweiterung einer Social Media Plattform (>500.000 Nutzer) im Bereich Luxus und Lifestyle und einem Datawarehouse zur Analyse der Nutzerverhaltens.",
+          "Aufbau eine Linux / Apple OSX RZs",
+          "Aufbau einer heterogenen Linux/OSX Infrastruktur",
+          "Entwicklung java, bash, PL/SQL, SQL, python",
+          "PHP, Perl, PL/SQL, Oracle 11g, mySQL, MQ-Series, Connect:Direct, Toad, SQL ===================================================== =========================="
+        ],
+        "industry": "Social Media / Startup",
+        "location": "Mainz"
+      },
+      {
+        "period": "01/2012 - 05/2012",
+        "company": "Sybase365 / SAP",
+        "title": "CONSULTING, ARCHITEKTUR, ADMINISTRATION, TELKO, MOBILE, Raunheim",
+        "activities": [
+          "Planung, Installation, Administration, Optimierung und kundenspezifische Anpassung von Mobile Commerce Lösung. Maßgeblich für den Kunden Telefonica in Südamerika und Vimpelcom in Russland.",
+          "Aufgaben:",
+          "Design, Installation und Betrieb komplexer Kommunikationssystem auf Basis von Linux und Sun Solaris im Hochverfügbarkeitsumfeld.",
+          "Datenbankplattform: Oracle 11g RAC Cluster, SybaseIQ (Datawarehouse/BI), Oracle RAC, Oracle Dataguard, Java, Weblogic, Tomcat. Anpassung der Software auf die individuellen Gegebenheiten beim Endkunden.",
+          "Oracle RAC, Oracle Dataguard, Java, Weblogic, Tomcat. Anpassung der Software auf die individuellen Gegebenheiten beim Endkunden.",
+          "Troubleshooting."
+        ],
+        "industry": "Telekommunikation",
+        "location": "Raunheim",
+        "technologies": [
+          "Linux",
+          "Sun Solaris",
+          "Oracle 11g RAC Cluster",
+          "SybaseIQ",
+          "Oracle RAC",
+          "Oracle Dataguard",
+          "Java",
+          "Weblogic",
+          "Tomcat"
+        ]
+      },
+      {
+        "period": "10/2011 - 12/2011",
+        "company": "1&1",
+        "title": "DATAWAREHOUSE, BUSINESS INTELLIGENCE DEVELOPMENT, Karlsruhe",
+        "activities": [
+          "Aufgaben:",
+          "Weiterentwicklung, Optimierung und teilweise Neuentwicklung eines Datawarehouse unter Sybase IQ",
+          "Datawarehouse unter Sybase IQ. Programmierung neuer ETL.",
+          "SOAP, XML",
+          "===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "location": "Karlsruhe",
+        "technologies": [
+          "Sybase IQ",
+          "ETL",
+          "SOAP",
+          "XML"
+        ]
+      },
+      {
+        "period": "09/2010 - 10/2011",
+        "company": "IBM",
+        "title": "OUTSOURCING, MIGRATION, TRANSFORMATION AIX, HP/UX, Düsseldorf",
+        "technologies": [
+          "Linux",
+          "Windows)",
+          "TWS 8.4",
+          "Oracle 10.x/11.x RAC",
+          "Dataguard",
+          "RMAN",
+          "PL/SQL",
+          "HP/UX",
+          "Safeguard",
+          "AIX",
+          "HACMP",
+          "TSM",
+          "MQ Series",
+          "Connect:Direct",
+          "Shellscripting",
+          "Perl",
+          "SOAP",
+          "SCRUM",
+          "XML",
+          "Python"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Migration/Transformation Oracle RAC Datenbanken inkl. Migration von HP/UX unter Serviceguard auf AIX HACMP im Rahmen eines Outsourcing-Projektes.",
+          "Konsolidierung, Standardisierung, PostgreSQL",
+          "Ziel: AIX, TWS, Aufsplittung der Scripte und logische Verknüpfung in TWS und Anbindung an das Ergebnis-orientierte Monitoring.",
+          "Einbindung OSX",
+          "TWS 8.4, Oracle 10.x/11.x RAC, Dataguard, RMAN, PL/SQL, HP/UX, Safeguard, AIX,",
+          "HACMP, TSM, MQ Series, Connect:Direct, Shellscripting, Perl, SOAP, SCRUM, XML,",
+          "Python"
+        ],
+        "industry": "IT-Dienstleistungen",
+        "location": "Düsseldorf"
+      },
+      {
+        "period": "05/2010 - 08/2010",
+        "company": "Commerzbank",
+        "title": "ENTWICKLUNG, ADMINISTRATION, ORGANISATION DATAWAREHOUSE/, Frankfurt",
+        "activities": [
+          "DATAMART FÜR BASEL II/SolvV Solvatibilitätsanalyse",
+          "Aufgaben:",
+          "Design und Entwicklung eines Datawarehouse und Datamarts für den Bereich Basel II / SolvV",
+          "Entwicklung des Datenbankmodell Programmierung aller Stored Procedures/Functions",
+          "Einbindung ist die Kommunikationsstrukturen Enwicklung der Schnittstellen (klassisch, ETL)",
+          "Sybase, SybaseIQ, Sun Solaris, AIX TSQL, Watcom SQL, Oracle 10, PL/SQL, WMWare,",
+          "Embarcadero ER/Studio, Shell-Scripting, Perl, Cognos, Summit ===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "Sybase",
+          "SybaseIQ",
+          "Sun Solaris",
+          "AIX",
+          "TSQL",
+          "Watcom SQL",
+          "Oracle 10",
+          "PL/SQL",
+          "WMWare",
+          "Embarcadero ER/Studio",
+          "Shell-Scripting",
+          "Perl",
+          "Cognos",
+          "Summit"
+        ]
+      },
+      {
+        "period": "03/2010 - 05/2010",
+        "company": "Xchanging Transaction Bank",
+        "title": "ADMINSTRATION, KOORDINATION, CHANGE-MANAGEMENT, PROJEKT, Frankfurt",
+        "activities": [
+          "ABGELTUNGSSTEUER VORBEREITUNGEN OUTSOURCING/OFFSHORING, HANDOVER",
+          "Aufgaben:",
+          "Technische/fachliche Unterstützung",
+          "Oracle WebLogic Application Server, Oracle 10g/11g RAC, Sun Solaris 10, AIX",
+          "6.x, Websphere MQ, Tributum, Maestro, Koordination der internen Teams und extener Provider, funktionale Tests, Troubleshooting, Problemanalyse,",
+          "Subversion, ARS Remedy, Toad, SQL Developer ===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "Oracle WebLogic Application Server",
+          "Oracle 10g",
+          "Oracle 11g RAC",
+          "Sun Solaris 10",
+          "AIX 6.x",
+          "Websphere MQ",
+          "Tributum",
+          "Maestro",
+          "Subversion",
+          "ARS Remedy",
+          "Toad",
+          "SQL Developer"
+        ]
+      },
+      {
+        "period": "09/2009 - 02/2010",
+        "company": "Fiducia",
+        "title": "PROVIDERMIGRATION BANK-SYSTEME - SUN SOLARIS, ORACLE,, Karlsruhe",
+        "technologies": [
+          "Windows Server2003/2008(R2)",
+          "BANKAPPLIKATIONEN",
+          "Sun Solaris 10",
+          "AIX",
+          "HP/UX",
+          "Red Hat Linux",
+          "Oracle",
+          "Windows Server 2003/2008 (R2)",
+          "Algorythmics",
+          "FIRST",
+          "NAVCon",
+          "Multifonds"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Konzeption, Planung, Architektur, Umsetzung einer Migration der Gesamt-IT einer Investmentbank zu einem neuen Outsourcing Provider.",
+          "Verantwortliche Migrationsplanung nach ITIL, Migration Managed Services,",
+          "Test-Konzeption",
+          "Managed Services Gesamtmigration, Konzeptionierung Jobsteuerung,",
+          "Konzeptionierung und Entwicklung Bare-metal Restore, verantwortlich für die Service-Requests und Provider-Kommunikation, Projektplanung für den Bereich Managed Services, Migration Managed Services. Algorythmics,",
+          "FIRST, NAVCon, Multifonds",
+          "Systemoptimierung und - konsolidierung.",
+          "Systemoptimierung und -konsolidierung."
+        ],
+        "industry": "Banken",
+        "location": "Karlsruhe"
+      },
+      {
+        "period": "04/2009 - 08/2009",
+        "company": "BCT / EWE AG",
+        "title": "SYSTEMADMINISTRATION SUN SOLARIS, SAN, LINUX, BACKUP, Oldenburg",
+        "technologies": [
+          "Veritas Cluster",
+          "Powerpath",
+          "Nagios",
+          "Linux (Red Hat 5 (incl",
+          "Cluster)",
+          "OpenSuse",
+          "Sun Solaris 10",
+          "EMC SAN",
+          "Oracle 10",
+          "Grid Control",
+          "Jumpstart",
+          "MQSeries",
+          "Netapp 6000",
+          "Netapp 3000",
+          "VMware storage",
+          "vSphere",
+          "Clarity",
+          "HP Openview",
+          "Subversion"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Konzeption, Aufbau, Adminstration komplexer Sun Solaris-Systeme+",
+          "Sun Solaris 10, EMC SAN, Oracle 10 (mit RAC; Grid Control), Veritas, Jumpstart,",
+          "), MQSeries, Netapp (6000/3000), VMware, VMware storage, vSphere, Clarity, HP",
+          "Openview, Subversion",
+          "===================================================== =========================="
+        ],
+        "industry": "Energieversorgung",
+        "location": "Oldenburg"
+      },
+      {
+        "period": "06/2007 - 04/2009",
+        "company": "Commerzbank",
+        "title": "SYSTEMADMINISTRATION UND OPTIMIERUNG PROFIT/LOSS- SYSTEM FÜR, Frankfurt",
+        "role": "PRODUKT- UND PROJEKTVERANTWORTUNG",
+        "technologies": [
+          "Sybase Central",
+          "Linux (RedHat 5",
+          "Windows Server 2003",
+          "VMware Storage",
+          "Performance-Tuning",
+          "Systemnahe",
+          "Oracle 9.x/10.x/RAC",
+          "TSQL",
+          "PL/SQL",
+          "Sybase Powerdesigner",
+          "Toad",
+          "Veritas",
+          "Perl",
+          "Java",
+          "Sun Solaris 8/9/10",
+          "SunFire",
+          "Sybase 12.5.x ASE",
+          "Sybase IQ 12.6"
+        ],
+        "activities": [
+          "INVESTVENTBANK- BEREICH EINER INTERNATIONALEN GROSSBANK",
+          "Aufgaben:",
+          "Administration der Systemumgebung aus Sun Solaris, SybaseIQ, Oracle,",
+          "Entwicklung eines SybaseIQ- und Sybase-basierenden Systems zur automatischen Abstimmung und Reconciliation diverse Datenquellen auf Frontoffice, Backoffice und Ledger-Seite.",
+          "Produkt- und Projektverantwortung für das vorhandene und zu entwickelnde System",
+          "System.",
+          "Deployment System- und Applikationsreleases, Summit",
+          "Sun Solaris 8/9/10, SunFire, Sybase 12.5.x ASE, Sybase IQ 12.6, Oracle 9.x/"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "12/2006 - 05/2007",
+        "company": "Dresdner-Kleinwort",
+        "title": "ADMINISTRATION, OPTIMIERUNG UND WEITERENTWICKLUNG EINES CRM-, Frankfurt",
+        "technologies": [
+          "Sun Solaris 8/9",
+          "SunFire",
+          "AIX",
+          "EMC",
+          "Netapp",
+          "Red Hat Enterprise Linux AS",
+          "Linux AS",
+          "Sybase",
+          "Sunopsis"
+        ],
+        "activities": [
+          "UND DATAWAREHOUSE- SYSTEMS",
+          "Aufgaben:",
+          "Systemadministration, Weiterentwicklung und Optimierung eines großen Datawarehouse- und CRM-Systems einer internationalen Investmentbank unter Sybase, SybaseIQ, SUN Solaris.",
+          "Datawarehouse- und CRM-Systems einer internationalen Investmentbank unter",
+          "Sybase, SybaseIQ, SUN Solaris.",
+          "Implementierung Corporate Banking in das vorhandene System. Data- und Databasereconciliation bei der Konsolidierung unterschiedlicher",
+          "Datenquellen, Einführung ETL-Tool Sunopsis und ETL-Migrationnach",
+          "Sunopsis."
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt"
+      },
+      {
+        "period": "01/2005 - 11/2006",
+        "company": "UBS",
+        "title": "SYSTEM-ADMIN, 2ND/3RD-LEVEL, IMPLEMENTATION, DEVELOPMENT, Frankfurt/London",
+        "activities": [
+          "HANDELSAPPLIKATIONEN SOLARIS, ORACLE, SYBASE",
+          "Aufgaben:",
+          "Systemadministration Unix, Oracle, Sybase. Lokalisierung Orderflow/- routing und Handelsapplikation, Einführung und Lokalisierung HiInvest,",
+          "HiPerformance, HiReporting",
+          "Anbindung an Orderflow und Orderrouting, Data-Reconciliation,",
+          "Systementwicklung und Programmierung unter Informatica Powercenter, PL/SQL, Perl, Shellscript unter Sun Solaris, HP/UX, Oracle, Sybase, Informix, PostgreSQL, Bea WebLogic",
+          "SQL, Perl,Shellscript unter Sun Solaris, HP/UX, Oracle, Sybase,",
+          "Informix,PostgreSQL, Bea WebLogic, Administration, Optimierung,",
+          "Lokalisierung Orderflow/-routing und Handelsapplikation"
+        ],
+        "industry": "Banken",
+        "role": "System-Admin",
+        "location": "Frankfurt/London",
+        "technologies": [
+          "Solaris",
+          "Oracle",
+          "Sybase",
+          "Informatica Powercenter",
+          "PL/SQL",
+          "Perl",
+          "Shellscript",
+          "Sun Solaris",
+          "HP/UX",
+          "Informix",
+          "PostgreSQL",
+          "Bea WebLogic"
+        ]
+      },
+      {
+        "period": "07/2004 - 12/2004",
+        "company": "HSH-Nordbank",
+        "title": "TECHN. PROJEKTLEITUNG/REENGENEERING & IMPLEMENTATION/SUN, Kiel",
+        "technologies": [
+          "SUN Solaris 9",
+          "Oracle 9.i",
+          "Windows 2003 Server",
+          "Sophis Risque 4.5.x",
+          "4.5.x",
+          "Sonstiges",
+          "Sonstige Anmerkungen:",
+          "Weitere Merkmale / \"Softskills\":",
+          "Teamfähigkeit",
+          "soziale Kompetenz",
+          "Engagement",
+          "Flexibilität",
+          "Professionalität",
+          "zielgerichtetes Arbeiten",
+          "kundenorientiertes Arbeiten",
+          "Englisch anzeigen",
+          "DRT-Server 1.4.x",
+          "Sophis Calculation Server-Cluster",
+          "Contribution Server",
+          "Toad",
+          "Corba",
+          "Exceed",
+          "Veritas",
+          "Oracle Designer",
+          "Oracle Developer"
+        ],
+        "activities": [
+          "SOLARIS/ORACLE",
+          "Aufgaben:",
+          "Implementierung Oracle-Datenbanksystem für derivativen Börsenhandel / Sophis Risque 4.5.x, Riskmanagement/Derivativer Wertpapierhandel;",
+          "Bereinigung, Tuning, Integration, Planung, Aufbau techn. Supporteam,",
+          "Schulung.",
+          "DRT-Server 1.4.x, Sophis Calculation Server-Cluster, Contribution Server, Toad,",
+          "Corba, Exceed, Veritas, Oracle Designer, Oracle Developer"
+        ],
+        "industry": "Banken",
+        "role": "Technische Projektleitung",
+        "location": "Kiel"
+      }
+    ],
+    "industries": [
+      "Beratung/Consulting",
+      "Finanzdienstleister",
+      "Wertpapierhandel/Kapitalanlage",
+      "Industrie",
+      "Dienstleistungsunternehmen",
+      "Luftfahrt",
+      "EDV",
+      "Kfz-/Automobilbranche",
+      "Werbung/Medien/Internet",
+      "Marketing",
+      "Bank (Privat/Institutionell/Börse/Terminbörse/Investmentbank/Wealth Management)",
+      "Großbanken",
+      "Versicherung",
+      "Telekommunikation"
+    ],
+    "focus_areas": [
+      "Erfahrener Projektleiter/Admin/Entwickler UNIX (Solaris/HP-UX/AIX/Linux) Datenbanken (Oracle Sybase ASE/IQ DB2) für Banksysteme und Datawarehouse Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support 1994 - heute Selbständigkeit / zunächst parallel zur Festanstellung Zwei Jahre Anstellung als EDV-Leiter bei Werbe-/Mediaagentur",
+      "Abteilungsleitung (5 MA)",
+      "Stratagieplanung national und international",
+      "Geschäftsprozeßanalyse und Workflow-Optimierung",
+      "Kundengewinnung und -beratung im Bereich interaktiver Medien",
+      "Systemadministration Novell (Netware 3.x, 4.x) und",
+      "Unix (Hewlett Packard HP/UX)",
+      "Screendesign und Programmierung von Internet- und Intranet-Sites",
+      "Neustrukturierung der EDV-Abteilung",
+      "Einkauf",
+      "Zwei Jahre Anstellung an EDV-Leiter bei einem Unternehmen im Bereich IT-/ Datenbank-Marketing",
+      "Abteilungsleitung (3 MA)",
+      "Design/Entwicklung/Programmierung relationaler Datenbanksysteme (Oracle, MS Access)",
+      "Design und Programmierung von WWW-Sites",
+      "Systemadministration UNIX (DG/UX), Novell Netware, Oracle",
+      "EDV-technischer Aufbau der Tocherfirmen in München und Dresden",
+      "Kundenpräsentationen (Themen: Datenbankmarketing, Internet)",
+      "Schulung",
+      "Anschließend für drei Jahre Systemanalytiker bei einer Großbank in Frankfurt mit Arbeitsschwerpunkten in den Bereichen",
+      "Novell Netware-Planung und -administration (2.x, 3.1x, 4.x)",
+      "Datenbankadministration und -entwicklung Oracle Version 6 und 7",
+      "Planung und Umsetzung von heterogenen Netzwerken",
+      "Systemadministration UNIX (DEC Ultrix, OSF1, AIX) Nach dem Zivildienst Ausbildung zum Industriekaufmann",
+      "UNIX Administration (Solaris/HP-UX/AIX/Linux)",
+      "Datenbanken (Oracle, Sybase ASE/IQ, DB2) für Banksysteme und Datawarehouse",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support"
+    ],
+    "focus_experience": [
+      {
+        "name": "Administration Linux",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Agile Entwicklung",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Ansbile / Ansible Tower",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Azure",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "CloudOps",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Connect: Direct",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Continuous Integration",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "DevOps",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "DV-Konzeption",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Exchange Server",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Kanban",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Microsoft Azure",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Oracle APEX",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "PL/SQL-Entwicklung",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Rapid7",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Redhat Satellite",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "RHEL Administration",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Senior Consultant",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Senior Developer",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Terraform",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Toad",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Toad for Oracle",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Ultraedit",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "1991 - heute",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Professionelle Praxiserfahrung durchgehend",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Grundsätzliche breit gefächtertes Wissen und Erfahrung im Umfeld",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "dezentraler Systeme.",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "UNIX:",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "SUN Solaris",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "RHEL",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "CentOS",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Ubuntu",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Kali",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Debian",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "HP/UX",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "AIX",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Linux",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "DG/UX",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Ultrix",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "OSF/1",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "OSX",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Windows Server",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "* Novell (3",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "alle Standard-Applikationen",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Mac:",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Alle OS bis 9.x",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Mac OS X (Server/Client/Cluster) balle Standard-Applikationen",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Kommunikation:",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "RIM Blackberry BES 3.x/4.x",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Groupwise",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "* Sendmail",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Twig",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Squirrelmail",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Monitoring:",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "HP OpenView",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Tivoli",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Netview",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Patrol",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "BMC ARS Remedy",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "ZIS",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Backup:",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "TSM (ADSM)",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Omniback",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "* RMAN",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "etc",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Handel:",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Sophis Risque/VaR",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "HiInvest",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Olympic",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Osmosys",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Foton",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Fix Coppelia",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Multifonds",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "FIRST",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "NAVCon",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Middleware:",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Oracle Weblogic",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "IBM Websphere",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Oracle Advanced Queing",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "Informatica",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Sunopsis",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "MQ Series",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Weiteres:",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "SAP-DB-Admin",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "CSS(Compliance)",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "VEGA (KAG)",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Clarify",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "ClearCase",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "ClearQuest",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "SQL Navigator",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "PL/SQL-Developer",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Exceed",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "BugZilla",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "* CVS (Win-CVS",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Tortoise-CVS",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Eclipse) Blockchain",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Cryptowährungen",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Bitcoin",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Internet/Intranet:",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Apache",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "iPlanet",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "IIS",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "nginx",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "* Projekte und Entwicklung in HTML/Java/Screendesign",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "ColdFusion",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Multimedia:",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Photoshop",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Premiere",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "After Effects",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Final Cut Pro X",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "DVD Studio Pro",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Flash",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Consulting/Beratung:",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "IT-Planung",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Personal",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "Investition",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Outsourcing",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Projektmanagement/-leitung",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Administration",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "Organisation",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "Customer Relation Management (CRM)",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "* Projektleitungserfahrung",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "Mitarbeiterführung",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "* Cloud (Azure",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "AWS)",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Ansible",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Ansible Tower",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "PL/SQL",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "Novell",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "Mac OS X",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "RIM Blackberry BES",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "Sendmail",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "TSM",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "ADSM",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "RMAN",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "SAP-DB",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "VEGA",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "CVS",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "Win-CVS",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "Blockchain",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "AWS",
+        "category": "product_standard",
+        "sort_order": 146
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ausbildung zum Industriekaufmann",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nWeitere Merkmale / \"Softskills\":\nTeamfähigkeit\nsoziale Kompetenz\nEngagement\nFlexibilität\nProfessionalität\nzielgerichtetes Arbeiten\nkundenorientiertes Arbeiten",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "AppleTalk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ATM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HDLC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HDSL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MQ-Series",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UUCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Voice",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:16:17.799718",
+    "source_file": "",
+    "steps_completed": [
+      "SCHULUNGEN",
+      "OTHER",
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 7→6 bei '01/2016 - 03/2018'",
+        "ACT: 7→6 bei '01/2012 - 05/2012'",
+        "ACT: 8→7 bei '07/2004 - 12/2004'",
+        "EDV_SEIT: None→2004"
+      ],
+      "coverage_percent": 93.63839285714286,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

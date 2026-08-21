@@ -1,0 +1,599 @@
+{
+  "metadata": {
+    "aid": "AID-fe_1.1.2.0",
+    "version": "1.1.2.0",
+    "consultant_dir": "erhardt_frank",
+    "first_name": "Frank",
+    "last_name": "Erhardt",
+    "headline": "Windows2000/2003/XP, NetInstall, Vmware ESX/GSX, Rollouts und Migration, Automatische Installationen und Client Design, VBScript und Active Directory, OWA und Exchange2003, MS BackOffice",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:26:48.840926"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Frank",
+      "last_name": "Erhardt",
+      "birth_year": 1971,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "fließend",
+          "level": ""
+        },
+        {
+          "name": "1 jähriges Studium",
+          "level": ""
+        },
+        {
+          "name": "Japanisch",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Japanisch (Grundkenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "01.05.11 zu 50%, Vor-Ort-Einsatz 10% möglich",
+      "wohnort": "245xx Bad Bramstedt, Deutschland",
+      "location": "245xx Bad Bramstedt, Deutschland",
+      "edv_experience_since": 1996,
+      "headline": "Windows2000/2003/XP, NetInstall, Vmware ESX/GSX, Rollouts und Migration, Automatische Installationen und Client Design, VBScript und Active Directory, OWA und Exchange2003, MS BackOffice"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "MS SQL Server",
+        "Grundkenntnisse Administration"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Amiga",
+        "Grundlagen",
+        "CD-Writer / Brenner",
+        "Drucker",
+        "Druckboxen",
+        "Emulatoren",
+        "HP",
+        "Desktop und Server Systeme",
+        "Iomega",
+        "Modem",
+        "PC",
+        "Scanner",
+        "Soundkarten",
+        "Streamer",
+        "DLT Laufwerke und Robotersysteme",
+        "Video Capture Karte",
+        "Sehr gute Erfahrung mit Compaq Server und Client Hardware",
+        "IBM and HP Server",
+        "Rack Installationen"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS",
+        "Novell",
+        "Netware 4.11 Grundkenntnisse",
+        "Unix",
+        "Windows",
+        "Windows NT4 Server",
+        "Win9x Installationsverfahren",
+        "Win2000 Server",
+        "Win2000 Professional",
+        "Windows2003 Server",
+        "MS Longhorn",
+        "Windows CE",
+        "Sehr gute Kenntnisse im Bereich NT4 Server und Konfiguration von",
+        "Windows NT Netzwerken",
+        "Sehr gute Windows2000 und Windows2003 Kenntnisse. Kentnisse und",
+        "Entwicklung von Windows Client Installationsverfahren. Kenntnisse über",
+        "Windows2000 und Windows 2003 Server und Konfiguration",
+        "Sehr gute WindowsXP Kenntnisse im Bereich Administration",
+        "Installation und Schulung",
+        "Sehr gute Kentnisse VMware ESX Server 2.x",
+        "VMware Server 1.0",
+        "VMware",
+        "P2V",
+        "VMware Infrastructure 3"
+      ],
+      "programming_languages": [
+        "Basic",
+        "VB Script",
+        "Fortran",
+        "Grundkenntnisse",
+        "Java",
+        "JavaScript",
+        "Perl",
+        "Grundkenntnisse (Suchmaschine für Intranet)",
+        "Sehr gute Kenntnisse in der HTML Programmierung sowie im Bereich der",
+        "Webseiten Gestalltung"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "09/2007-12/2007",
+        "title": "Internationaler IT Konzern, Frankfurt",
+        "activities": [
+          "Vmware VI3 Infrastruktur Betrieb für verschiedene Kunden des Dienstleisters.",
+          "Erarbeitung eines Sicherheits- und Berechtigungskonzepts für die virtuelle Infrastruktur.",
+          "Second und Third Level Support für die Umgebung. Verwendete Produkte:",
+          "VMware ESX 3.x",
+          "VMware Virtual Center 2.x",
+          "IBM Serverhardware",
+          "04/2007 Internationaler Versicherungskonzern",
+          "WINTEL Administration der Active Directory Umgebung. überwachung der Hardware (HP SIM), Benutzerverwaltung und änderungen in der Infrastruktur. Administration und Pflege der VMware ESX Serverumgebung. Third Level",
+          "Support Serverbetriebssysteme.",
+          "Betrieb der VMware VI3 Infrastruktur für verschiedene Kunden des Dienstleisters"
+        ],
+        "company": "Internationaler IT Konzern",
+        "industry": "IT-Dienstleistungen",
+        "location": "Frankfurt",
+        "technologies": [
+          "VMware VI3",
+          "VMware ESX 3.x",
+          "VMware Virtual Center 2.x",
+          "IBM Serverhardware"
+        ]
+      },
+      {
+        "period": "07/2006 -09/2006",
+        "title": "Info AG, Hamburg",
+        "technologies": [
+          "Allgemeine Benutzeradministration",
+          "sowie Problembehebung",
+          "im Windows",
+          "MS",
+          "Automatisierung",
+          "Sonstiges",
+          "Referenzen:",
+          "10/99",
+          "- 07/00",
+          "Referenz durch Projektleiter",
+          "Sportartikelhersteller (>15.000 MA",
+          "global)",
+          "vom 12.06.03",
+          "Unix",
+          "NT-Systemen",
+          "OS390 mittels eines Job Schedulers",
+          "eingebunden. Eine Hauptaufgabe war es",
+          "vorhandene Scripte",
+          "welche auf",
+          "so umzuschreiben",
+          "damit sie im Job",
+          "sehr fachkompetent",
+          "zeigte er",
+          "aufgrund seiner Fachkompetenz",
+          "dass er",
+          "gesamte Team eingeführt hat.\"",
+          "Inst.-Verfahren",
+          "15.05.03",
+          "Testscenarien erstellt werden mußten",
+          "Troubleshooting",
+          "(Images",
+          "Hands-Free",
+          "CD",
+          "Unternehmen.\"",
+          "HP Serverhardware",
+          "Vmware ESX Server 2.5.2",
+          "Vmware P2V 2.x"
+        ],
+        "activities": [
+          "Unterstützung bei der Virtualisierung physikalischer Server auf Vmware ESX Server 2.5.2 mit Hilfe von Images und P2V.",
+          "Konfiguration der umgestellten Server.",
+          "Verwendete Produkte:",
+          "HP Serverhardware",
+          "Vmware P2V 2.x",
+          "06/2006 - 7/2006 Dataport, Hamburg",
+          "Installation und Konfiguration von FSC Serverhardware für den Rollout. Beratung im Bereich Vmware ESX Server."
+        ],
+        "company": "Info AG",
+        "location": "Hamburg"
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Sport- und Bekleidungsindustrie",
+      "Mineralölindustrie",
+      "Energieversorger",
+      "Stahlindustrie",
+      "Versicherungen",
+      "Automobilhäuser",
+      "Presse",
+      "Chemie",
+      "Rüstungsindustrie",
+      "Pharma und Healthcare",
+      "Schiffahrt/Reederei"
+    ],
+    "focus_areas": [
+      "Windows2000/2003/XP",
+      "NetInstall",
+      "Vmware ESX/GSX",
+      "Rollouts und Migration",
+      "Automatische Installationen und Client Design VBScript und Active Directory MS BackOffice",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Dokumentation / DTP Ausbildung zum Landwirtschaftlich-Technischen Assistenten mit Schwerpunkt Getreidechemie.",
+      "Vordiplom Physik",
+      "Automatische Installationen und Client Design",
+      "VBScript und Active Directory",
+      "MS BackOffice",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Dokumentation / DTP"
+    ],
+    "focus_experience": [
+      {
+        "name": "Windows 7 Beta",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "MS SCOM 2007",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "MOSS 2007",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "SQL 2005",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "VMware Infrastructure 3",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Gute Kenntnisse im Bereich IIS4/Proxy Server2.0",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Sehr gute Kenntnisse IIS5 / IIS6",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "MS Exchange Server 5.5/2000/2003/2007 und Outlook Web Access",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "SMS Grundkenntnisse",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "MS SQL Server Grundkenntnisse im Bereich Administration",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "MS ISA Server 2000",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "MS ISA Server 2004",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "ISA Server 2006",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "VMware Workstation3.2",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "4.0",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "und 5.x",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "VMware GSX2.x Server",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "VMware GSX3.x Server",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "NetInstall5.x",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Vmware ESX Server 2.x",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "3.x",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "VMware P2V",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Converter",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "MS SUS Server",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "MS WSUS Server",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "IIS4",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Proxy Server 2.0",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "IIS5",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "IIS6",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "MS Exchange Server 5.5",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "MS Exchange Server 2000",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "MS Exchange Server 2003",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "MS Exchange Server 2007",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Outlook Web Access",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "SMS",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "MS SQL Server",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "VMware Workstation 3.2",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "VMware Workstation 4.0",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "VMware Workstation 5.x",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "VMware GSX 2.x Server",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "VMware GSX 3.x Server",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "NetInstall 5.x",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "VMware ESX Server 3.x",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "VMware Converter",
+        "category": "product_standard",
+        "sort_order": 43
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ausbildung zum Landwirtschaftlich-Technischen Assistenten mit Schwerpunkt Getreidechemie",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Vordiplom Physik",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Automatisierung des Datenflusses von Produktionsdaten, 10/99 - 07/00\nReferenz durch Projektleiter, Sportartikelhersteller (>15.000 MA global), vom 12.06.03\n\"Im Projekt wurden verschiedene Datenbewegungen zwischen Novell 4.11, Unix, NT-Systemen, Datenbanken, OS390 mittels eines Job Schedulers automatisiert (JSO - Argent Software). Für die Automatisierung wurden mehrere neue NT4 Server aufgebaut und in die bestehende Umgebung eingebunden. Eine Hauptaufgabe war es, vorhandene Scripte, welche auf den Novell und Unix Servern liefen, so umzuschreiben, damit sie im Job Sceduler eingesetzt werden konnten und aussagekräftige Fehlercodes zurücklieferten. Es musste ein Handbuch verfasst werden für die Administratoren des automatisierten Datenflusses. Für die einzelnen Anwendungen wurde jeweils die Absprache, Koordination und Umsetzung mit den einzelnen Fachabteilungen und Entwicklern incl. übergabe an die Administration durchgeführt. Der Consultant hat sehr engagiert im Projekt mitgearbeitet und die Automatisierung der Teilaufgaben selbständig vorangetrieben und erfolgreich abgeschlossen.\"\nProjekt Mannesmann Demag Metallurgy Server Operation von 03/99 - 11/99\nReferenz durch Deutscher IT Dienstleister mit 2500 Mitarbeitern, vom\n\"Der Consultant hatte in dem Projekt die Mitverantwortung für den Betrieb eines Windows NT Netzwerkes mit über 40 Servern und ca. 1500 Clienten. Dabei hatte er vor allem den Betrieb sicher zu stellen, das Windows Netzwerk zu überwachen und Konfigurationsanpassungen vorzunehmen. Im Rahmen dieser Aufgabe zeigte sich der Consultant als sehr fachkompetent, verantwortungsbewusst und vor allem teamfähig. Er führte die Aufgaben, die im gegeben wurden schnell und korrekt aus. Auch bei der Durchführung komplizierterer und komplexer Aufgaben zeigte er, aufgrund seiner Fachkompetenz, eine sehr gute Leistung und konnte diese Aufgaben vollständig und gut lösen. Der Consultant kam damals als neuer Mitarbeiter in ein bereits bestehendes und eingespieltes Team. Er hatte jedoch keine Probleme sich direkt in dieses Team einzugliedern und wurde dementsprechend schnell von allen Teammitgliedern akzeptiert. Zusammenfassend lässt sich sagen, dass er insgesamt eine sehr gute Leistung gebracht hat und sich gut in das gesamte Team eingeführt hat.\"\nProjekt Entwicklung/Anpassung von Microsoft unattended Inst.-Verfahren\nReferenz durch IT-Projektleiter internat. Unternehmen (850 MA) vom 15.05.03\n\"Hauptaufgabe in diesem Projekt ist es die vorhandene Win9x Installation weiter zu automatisieren und anzupassen. Schwerpunkt lag hierbei auch bei Einbindung neuer Hard- und Software, für die jeweils Testscenarien erstellt werden mußten, sowie die Absprache mit einem Desktopmanagement-Team für die Verteilung dieser SW-Packete. Zusätzlich wurden einige Einsätze vor Ort im Bereich Server Troubleshooting, sowie Koordination der Techniker bei Installationsaufträgen verlangt. Im Laufe des Projekts ergab sich die Aufgabe das bevorstehende WinXP Rollout zu konzeptionieren. Hierbei wurden die verschiedenen Möglichkeiten der Installation getestet (Images, Hands-Free, CD Installationen) und die Einbindung in die dann existierende AD-Struktur geplant. Der Consultant hat alle betrauten Aufgaben zu unserer vollen Zufriedenheit ausgeführt und kompetent und eigenständig Probleme zusammen mit dem Team gelöst. Der Consultant verlässt uns im Zuge der organisatorischen Umstellung der Betreuung des XP Umfeldes im Unternehmen.\"",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:26:48.840940",
+    "source_file": "",
+    "steps_completed": [
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 53.58744394618834,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

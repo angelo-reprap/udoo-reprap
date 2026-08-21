@@ -1,0 +1,463 @@
+AID: AID-jb_2.5.2.0
+Name: Juergen Biwer
+Headline: Business Software Entwickler, Web-Entwickler, Testautomatisierung, JavaFX, EAI
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb
+Wohnort: 544xx Gusenburg, Deutschland
+Jahrgang: 1966
+Verfügbar: 03.09.18 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2014
+Sprachen: Englisch
+
+FACHBEREICHE:
+Business Software Entwickler
+Web-Entwickler
+Testautomatisierung
+JavaFX
+Business Software Entwicklung / Web-Entwicklung
+Konzeption und Aufbau von agiler Testautomation
+Qualitätssicherung / Test / Testautomation / Selenium / JBehave
+Engineering / IT-nahe Ingenieurdienstleistungen
+Enterprise Application Integration (EAI) Lebenslauf chronologisch in Kurzform
+Realschule
+Ausbildung zum Kommunikationselektroniker (3,5 Jahre)
+Fachhochschulreife (1 Jahr)
+Elektroniker (2 Jahre)
+Technischer Betriebsassistent ZDF-Mainz (1 Jahr)
+Studium zum Dipl. Ing. (FH) Technische Informatik (4 Jahre) - Seit 1994 Software Entwicklung und IT-Beratung als Angestellter und freiberuflich - Seit 2010 Geschäftsführung IT-Beratungsunternehmen
+Business Software Entwicklung
+Web-Entwicklung
+Qualitätssicherung
+Test
+Testautomation
+Selenium
+JBehave
+Engineering
+IT-nahe Ingenieurdienstleistungen
+Enterprise Application Integration (EAI)
+
+BRANCHEN:
+Handel
+Marketing/Werbung
+Handwerk
+Industrie: Elektronik, Holzwerkstofftechnik, Automotive, Diskrete Fertigungsindustrie
+Energieversorger
+Telekommunikation, IT
+Touristik, Reise
+
+PROJEKTE:
+  10/2017 - heute | DB AG | Software-Entwickler
+    - DB-Reisendeninformation
+    - Aufgaben:
+    - Aufgabe: Redesign des Fahrzeugservers (Backendkomponente zur Weitergabe der Reisendeninforamation an die Fahrzeugflotte der DB AG) zwecks Ablösung der Legacy-Lösung und Integration in neues
+    Techs: Scrum, Java, Velocity, Gradle, GIT, TestNG, IntelliJ IDEA
+  05/2017 - 09/2017 | DB AG | Konzeption und Entwicklung einer Web Anwendung zur, Frankfurt
+    - Aufgabe: Konzeption und Entwicklung einer Web Anwendung zur Visualisierung von Reisendeninformation. Die von einem Simulator gelieferten Bildschirmausgaben werden über diese Anwendung einem breiteren Publikum zur Verfügung gestellt.
+    - Aufgaben:
+    - TypeScript, Java8, REST, JAX-RS, HTML5, Bootstrap, jQuery
+    Techs: TypeScript, Java8, REST, JAX-RS, HTML5, Bootstrap, jQuery, IntelliJ IDEA, Knockout.js, Grizzly
+  01/2017 - 04/2017 | DB AG | Software-Entwickler
+    - Aufgaben:
+    - Konzeption und Entwicklung eines Testframeworks zur Abbildung sämtlicher Testfälle in Gherkin-Syntax und Integration der Lösung in das CI/CD der Deutschen Bahn Reisendeninformation.
+    - Java8, JBehave, Gherkin, Jenkins, Maven
+    Techs: Java8, JBehave, Gherkin, Jenkins, Maven, IntelliJ, TestNG, GIT
+  10/2015 - 12/2016 | DB Mobility Logistics AG | Externer Berater, Software-Entwickler, Testautomatisierer
+    - Entwicklung einer Benutzeroberfläche für den DB-Zugsimulator Reisendeninformation
+    - Aufgaben:
+    - Neuentwicklung einer Graphischen Benutzeroberfläche für eine Simulations-Software (Zugsimulator) zur Darstellung der Reisendeninformation im Zug. Mit dieser Software können sämtliche
+    Techs: Model View Presenter (MVP), Databinding, DI
+  07/2014 - 04/2015 | Großer deutscher Reiseveranstalter | Software Entwicklung, Testautomatisierung, Agile Tester
+    - Applikation, Agile Tester
+    - Unternehmensgröße: > 1000
+    - Branche: Touristik
+    Techs: Java7, TestNG, Selenium II
+  07/13 - 06/14 |  | Dauer : 12 Monate
+    - Projektumgebung : Eclipse, Java 1.7/1.8, JavaFX 2.2/8.0, Git, XML,
+    - Verantwortung : Eigenverantwortlich
+    - Branche : IT-Dienstleistung
+    Techs: Scene Builder 1.1, Linux, Windows
+  07/12 - 06/13 |  | Dauer : 12 Monate
+    - Projektumgebung : SCRUM, Eclipse
+    - Java 1.6, 1.7, JUnit, Tomcat, ANT,
+    - Selenium II (WebDriver, PageObject-Pattern),
+  11/10 - 11/11 |  | Dauer : 12 Monate
+    - Projektumgebung : SCRUM, Eclipse
+    - Java, JEE, JUnit, JBoss, Tomcat,
+    - REST Service Protokoll, Apache-CXF, cURL,
+    Techs: Linux, SSH, Putty, SVN
+  08/10 - 10/10 |  | Dauer : 3 Monate
+    - Projektumgebung : Eclipse, Eclipse RCP
+    - Java, JEE, JUnit, JBoss, Tomcat,
+    - REST Service Protokoll, Apache-CXF, cURL,
+    Techs: Linux, SSH, Putty, SVN, Tortoise
+  10/09 - 12/09 |  | Dauer : 3 Monate
+    - Projektumgebung : Eclipse, Google GWT 1.7, Java, HTML, XML,
+    - JavaScript, JSON
+    - Lexware faktura+auftrag, Perversive.SQL,
+  07/09 - 10/09 |  | Dauer : 4 Monate
+    - Pocket PC, .NET Compact Framework 2.0, SOAP,
+    - WebServices
+    - CVS(WinCVS), SVN(VisualSVN + SmartSVN)
+    Techs: Projektumgebung : Visual Studio 2005/2008, NET, C#, Windows CE 5.x
+  04/09 - 06/09 |  | Dauer : 3 Monate
+    - Projektumgebung : Eclipse, Java, Servlets, JSP, HTML/CSS,
+    - JavaScript, XML
+    - Firebug, Browser (Firefox, IE, Safari, Opera,
+  08/08 - 03/09 |  | Dauer : 8 Monate
+    - Projektumgebung : Eclipse, Java 1.4.2 bis 1.6.0_13, Applets, HTML,
+    - CSS, XML,
+    - Bildverarbeitung, Firebug,
+  05/08 - 06/08 |  | Dauer : 2 Monate
+    - Verantwortung : Teamarbeit
+    - Branche : IT-Beratung
+    - Arbeitgeber : ILC-PROSTEP GmbH, Bexbach [www.ilc-prostep.de]
+  03/08 - 04/08 | Continental Teves AG & Co. oHG | Dauer : 2 Monate
+    - SAP cProjects, XML, JDom, MKS Integrity Manager
+    - Verantwortung : Teamarbeit
+    - Branche : IT-Beratung
+    Techs: Projektumgebung : Windows 2000/XP, Java, eclipse, SAP-RFC
+  12/07 - 02/08 |  | Dauer : 3 Monate
+    - SAP-JCo
+    - XML, JDom, EPLAN, MKS Source Integrity
+    - Verantwortung : Teamarbeit
+    Techs: Projektumgebung : Windows 2000/XP, Java jdk1.5, eclipse, SAP-RFC
+  08/07 - 11/07 |  | Dauer : 4 Monate
+    - Microsoft Developer Studio 2003, C++, SAP-RFC,
+    - SAP-JCo
+    - XML, WebServices, EPLAN, MKS Source Integrity
+    Techs: Projektumgebung : Windows 2000/XP, Java jdk1.5, eclipse, JNI
+  05/07 - 07/07 | Continental Teves AG & Co. oHG | Dauer : 3 Monate
+    - Projektumgebung : SAP Web Application Server 7.0, ABAP-OO, SAP-RM,
+    - SAP-RM Service Provider Framework, SAP WebService
+    - Proxies,
+  01/05 - 04/07 |  | Dauer : 27 Monate
+    - Java jdk1.4/jdk1.5, eclipse, SAP NetWeaver
+    - Developer Studio,
+    - Microsoft Developer Studio 2003, .NET, C#,
+    Techs: Projektumgebung : Windows 2000/XP, SAP NetWeaver WAS, 6.30/6.40
+  11/04 | ILC-PROSTEP GmbH, Bexbach | Dauer : 1 Monat
+    - eclipse,
+    - Borland JBuilder, SAP NetWeaver Developer Studio,
+    - WebServices, SOAP, EJB/Servlet
+    Techs: Projektumgebung : Windows 2000/XP, SAP WAS 6.30, Java, jdk1.4
+  02/04 - 10/04 |  | Dauer : 9 Monate
+    - Java jdk1.4, JBuilder 9, JDOM, JDBC, Jaxen,
+    - Castor,
+    - WebServices, SOAP, Tomcat 5.0, Axis,
+    Techs: Projektumgebung : Windows 2000/XP, Suse Linux, sage Classic, Line
+  11/03 - 12/03 | Unilog für RWE System Applikation, Essen | Dauer : 2 Monate
+    - CVS, XML/XSLT, RWE-iTool
+    - Datenbank : Oracle 9i
+    - Verantwortung : Freiberufler in eigenverantwortlicher Umsetzung
+    Techs: Projektumgebung : Windows NT, Java (JBuilder 9), UML, SOAP, Tomcat
+  07/03 - 10/03 | Unilog für RWE System Applikation, Essen | Dauer : 4 Monate
+    - Cheops,
+    - CVS, XML/XSLT, RWE-iTool
+    - Datenbank : Oracle 9i
+    Techs: Projektumgebung : Windows NT, Java (JBuilder 7), UML, Framework
+  03/03 - 06/03 | Unilog für RWE System Applikation, Essen | Dauer : 3 Monate
+    - Cheops,
+    - CVS, XML/XSLT, RWE-iTool
+    - Datenbank : Oracle 8i
+    Techs: Projektumgebung : Windows NT, Java (JBuilder 5), UML, Framework
+  10/02 - 02/03 | Unilog Integrata für RWE System Applikation, Essen | Dauer : 5 Monate
+    - Datenbank : Oracle 8i
+    - Verantwortung : Freiberufler in eigenverantwortlicher Umsetzung
+    - Branche : Energieversorger
+    Techs: Projektumgebung : Windows NT, Framework Cheops, CVS, RWE iTool
+  04/02 - 09/02 | Unilog für RWE System Applikation, Essen | Dauer : 6 Monate
+    - Framework Cheops, CORBA, CVS,
+    - Datenbank : Oracle 8i, Access
+    - Verantwortung : Freiberufler in Teamarbeit
+    Techs: Projektumgebung : Windows NT, Java (JBuilder 4), UML, OOD
+  02/02 - 03/02 | Bistum Trier (BGV), Trier [www.bistum-trier.de] | Dauer : 1 Monat
+    - Beschreibung : Analyse IT-Infrastruktur,
+    - Beratung Softwareentwicklungs-Strategie,
+    - Auswahl eines Contentmanagement-System (CMS)
+  01/02 - 02/02 | Bitburger Brauerei Th. Simon GmbH, Bitburg | Dauer : 1 Monat
+    - Beschreibung : Analyse Ist-Zustands der IT (Strategien/Architekturen/Organisation),
+    - Definition des Soll-Zustandes, Aufwands-/Nutzenbetrachtung,
+    - Verteilte Anwendungen, .NET vs J2EE, C#, EJB mit In-Q-My Applikation-Server (SAP)
+  10/01 p; : 10/01 - 12/01 | Deutsche Post AG, Darmstadt [http://www.dpwn.de] | Dauer : 2 Monate
+    - Verantwortung : Teamarbeit
+    - Branche : Logistic Dienstleister
+    - Arbeitgeber : Unilog Trier/Frankfurt [http://www.logica.de]
+    Techs: Projektumgebung : Windows NT/2000, C++, UML, together, Reengineering
+  08/00 - 09/01 |  | Dauer : 13 Monate
+    - Enterprise),
+    - Java (Jbuilder 4) SUN netbeans,
+    - XML(Interoperabilität und Persistence), XML-Spy,
+    Techs: Projektumgebung : Windows 98/NT, Object Pascal (Delphi 5.0
+  08/99 - 07/00 |  | Dauer : 12 Monate
+    - OOA/OOD, MS Source Save, Borland C++ Builder,
+    - Datenbank : INFORMIX OnLine (Trigger, Stored Procedures/SPL)
+    - Verantwortung : Teamarbeit
+    Techs: Projektumgebung : Windows NT, UNIX/SINIX, C++ (Visual, Studio 6.0)
+  01/99 - 07/99 |  | Dauer : 7 Monate
+    - 1.0/3.0),
+    - SQL, Datenbank: INFORMIX OnLine (Trigger/Stored
+    - Procedures)
+    Techs: Projektumgebung : Windows NT, UNIX/SINIX, Object Pascal, (Delphi
+  08/98 - 12/98 |  | Dauer : 5 Monate
+    - Object Pascal (Delphi 1.0/3.0), Paradox/BDE
+    - Verantwortung : Projektverantwortlich
+    - Branche : Industrie (Fensterbau)
+    Techs: Projektumgebung : Windows 3.x/95/98/NT, InstallShield 3.0/5.0
+  02/97 - 07/98 |  | Dauer : 18 Monate
+    - GUI-Entwurf,
+    - List & Label
+    - Datenbank : Paradox/BDE
+    Techs: Projektumgebung : Windows 3.x/95/98/NT, Object Pascal, (Delphi 3.0), SQL, Ereignisgesteuerte Windows Anwendung
+  07/96 - 01/97 |  | Dauer : 7 Monate
+    - Datenbank : Paradox/BDE
+    - Verantwortung : Projektverantwortlich
+    - Branche : Industrie (Fensterbau)
+    Techs: Projektumgebung : Windows 3.x/95, Object Pascal (Delphi 1.0), OOD, Ereignisgesteuerte Windows Anwendung, GUI-Entwurf
+  12/94 - 06/96 |  | Dauer : 19 Monate
+    - Projektumgebung : MS-DOS, Pascal (Turbo Pascal 7.0),
+    - Maskengenerator,
+    - Strukturierte Programmierung
+  07/93 - 01/94 |  | Dauer : 6 Monate
+    - Projektumgebung : MS-DOS, Pascal, Object Pascal, Strukturierte
+    - Programmierung
+    - Beschreibung : Software-Qualitätssicherung,
+
+SKILLS:
+  database: Access, BDE, Borland DB Engine, BTrieve, veraltet, H2, Informix, Interbase, MySQL, ODBC, Oracle, 8i, 9i, 10g, 11g, Proprietäre DB, Pervasive.SQL, SQL, PL/SQL (Grundkenntnisse)
+  hardware: Mikrocontroller, Atmel AVR Grundkenntnisse, PC
+  operating_system: MS-DOS, Unix, Linux, Windows, Windows CE
+  programming_languages: C, C#, C++, Delphi, umfangreich, FXML, Java, umfangreich: Java SE von 1.3 bis 1.8, JavaFX, JEE (Applet, Servlet, JSP, JPA, JDBC, JNI, ...), Java FX 8, Java 8, Funktionale Programmierung, Streams, JavaScript, Java8, jQuery, JSON, Paradox, Pascal, Scriptsprachen, BSH, XSLT, Spring, TestNG, TypeScript, + knockout.js, Scala (basics), ABAP-00 (basics), Kotlin (basics), Dart (basics)
+
+SKILL-ABLAGE:
+FTP, SSH, SMTP, HTTP, SSL WebServices, SOAP Ethernet, Intranet, Internet REST SAP RFC, SAP Java Connector (JCo) GWT-RPC RS232, Parallele Schnittstelle TCP/IP, Winsock
+
+AUSBILDUNG:
+Realschule  [course]
+3,5 Jahre | Ausbildung zum Kommunikationselektroniker  [course]
+1 Jahr | Fachhochschulreife  [course]
+2 Jahre | Elektroniker  [course]
+1 Jahr | Technischer Betriebsassistent ZDF-Mainz  [course]
+4 Jahre | Studium zum Dipl. Ing. (FH) Technische Informatik  [course]
+
+FOCUS_EXP:
+  Bootstrap  [product_standard]
+  Eclipse  [product_standard]
+  Gherkin  [product_standard]
+  Git  [product_standard]
+  Gradle  [product_standard]
+  Grizzly  [product_standard]
+  HTML5  [product_standard]
+  IntelliJ 15  [product_standard]
+  IntelliJ IDEA  [product_standard]
+  JAX-RS  [product_standard]
+  jBehave  [product_standard]
+  Jenkins  [product_standard]
+  Knockout.js  [product_standard]
+  Maven  [product_standard]
+  MVP-Pattern  [product_standard]
+  REST  [product_standard]
+  Scene Builder 8.0  [product_standard]
+  Scrum  [product_standard]
+  TestFX  [product_standard]
+  Velocity  [product_standard]
+  Entwicklungsumgebungen  [product_standard]
+  Eclipse (alle Versionen bis 2015)  [product_standard]
+  Intellij (seit 2015)  [product_standard]
+  XML Spy  [product_standard]
+  SAP Developer Studio  [product_standard]
+  Oracle SQL Developer  [product_standard]
+  Microsoft: Visual Studio .NET 2003/2005/2008  [product_standard]
+  - Borland: C++ Builder  [product_standard]
+  Delphi  [product_standard]
+  JBuilder  [product_standard]
+  - Firebug  [product_standard]
+  Firefinder  [product_standard]
+  Fiddler  [product_standard]
+  Software Lifecycle  [product_standard]
+  ANT  [product_standard]
+  JIRA  [product_standard]
+  SVN  [product_standard]
+  Gradle (basics)  [product_standard]
+  - MKS Source Integrity  [product_standard]
+  MKS Requirements Management  [product_standard]
+  Microsoft Visual Source Save (VSS)  [product_standard]
+  Ticket System BMC Remedy (MARS)  [product_standard]
+  Frameworks und Komponentenmodelle  [product_standard]
+  - JEE  [product_standard]
+  Servlets/JSP  [product_standard]
+  - Spring Core  [product_standard]
+  Spring Batch  [product_standard]
+  GWT (Google Web Toolkit) 1.7  [product_standard]
+  AngularJS (basics)  [product_standard]
+  .NET  [product_standard]
+  SAP NetWeaver  [product_standard]
+  Persitence Technologien  [product_standard]
+  - SQL  [product_standard]
+  JDBC  [product_standard]
+  - JPA  [product_standard]
+  openJPA  [product_standard]
+  eclipseLink  [product_standard]
+  myBatis  [product_standard]
+  Oracle  [product_standard]
+  MySQL  [product_standard]
+  Application Server  [product_standard]
+  Tomcat  [product_standard]
+  JBoss  [product_standard]
+  Web Technologien  [product_standard]
+  TCP/IP  [product_standard]
+  - HTTP  [product_standard]
+  - HTML  [product_standard]
+  CSS  [product_standard]
+  - SOAP  [product_standard]
+  Webservices  [product_standard]
+  - Selenium II  [product_standard]
+  WebDriver  [product_standard]
+  PageObjects-Pattern (Experte)  [product_standard]
+  JavaScript  [product_standard]
+  AJAX  [product_standard]
+  Apache AXIS  [product_standard]
+  Apache CXF (basics)  [product_standard]
+  Google GWT-RPC (basics)  [product_standard]
+  RDF (Resource Description Framework)(basics)  [product_standard]
+  SAP  [product_standard]
+  JCo (SAP Java Connector) (Experte)  [product_standard]
+  SAP BAPI (Business Application Programming Interface)  [product_standard]
+  SAP RFC (SAP Remote Function Call)  [product_standard]
+  SAP XI (basics)  [product_standard]
+  SAP RM (basics)  [product_standard]
+  Standards  [product_standard]
+  UML  [product_standard]
+  - OOA  [product_standard]
+  OOD  [product_standard]
+  - XML  [product_standard]
+  XML-Schema  [product_standard]
+  XSLT  [product_standard]
+  XPath  [product_standard]
+  openTRANS  [product_standard]
+  ERFAHRUNGEN  [product_standard]
+  Prozedurale Softwareentwicklung  [product_standard]
+  - Pascal  [product_standard]
+  Funktionale Softwareentwicklung  [product_standard]
+  - Java8 Lambda  [product_standard]
+  Pascal Functions  [product_standard]
+  Scala (basics)  [product_standard]
+  Objektorientierte Softwareentwicklung  [product_standard]
+  Java (umfangreich)  [product_standard]
+  - Object Pascal  [product_standard]
+  Delphi (umfangreich)  [product_standard]
+  C++  [product_standard]
+  ABAP-OO (basics)  [product_standard]
+  Rapid Analyse & Design (RAD)  [product_standard]
+  Iterativ-Inkrementelle Entwicklung  [product_standard]
+  Exploratives/Experimentelles Prototyping  [product_standard]
+  Relationale Datenbanken und OR-Mapping  [product_standard]
+  - ER-Modellierung  [product_standard]
+  Normalisierung  [product_standard]
+  - Objekt-Relationale Abbildung: JPA  [product_standard]
+  JDBC/ODBC  [product_standard]
+  - Oracle  [product_standard]
+  HSQLDB  [product_standard]
+  - BDE  [product_standard]
+  Paradox  [product_standard]
+  - INFORMIX  [product_standard]
+  Access  [product_standard]
+  Interbase  [product_standard]
+  Pervasive.SQL  [product_standard]
+  hsqldb (alle  [product_standard]
+  basics)  [product_standard]
+  PL/SQL (basics)  [product_standard]
+  Mehrschichtarchitekturen und Verteilte Anwendungen  [product_standard]
+  Java Enterprise Edition (JEE)  [product_standard]
+  Google GWT (basics)  [product_standard]
+  Spring Core  [product_standard]
+  - Servlets  [product_standard]
+  JSP  [product_standard]
+  Applikation Server:  [product_standard]
+  SAP JEE-Engine(basics)  [product_standard]
+  JBoss(basics)  [product_standard]
+  - WebServices  [product_standard]
+  SOAP  [product_standard]
+  Axis  [product_standard]
+  Microsoft .NET  [product_standard]
+  SAP Entwicklungen  [product_standard]
+  NetWeaver SAP WAS 6.30/6.40/7.0  [product_standard]
+  - BAPI  [product_standard]
+  RFC (Remote Function Calls)  [product_standard]
+  JCO Java Connector (umfangreich)  [product_standard]
+  ABAP-OO(basics)  [product_standard]
+  - SAP RM (Recordsmanagement  [product_standard]
+  Service Provider Framework)(basics)  [product_standard]
+  SAP DVS(basics)  [product_standard]
+  SAP cProject(basics)  [product_standard]
+  SAP XI(basics)  [product_standard]
+  Entwicklungen von Schnittstellen und Connectoren  [product_standard]
+  RPC  [product_standard]
+  - Austauschformate: openTRANS  [product_standard]
+  STEP(basics)  [product_standard]
+  Ereignisgesteuerte GUI Anwendungen  [product_standard]
+  JavaFX  [product_standard]
+  - Microsoft Windows Anwendungen (Delphi  [product_standard]
+  Borland VCL  [product_standard]
+  Microsoft  [product_standard]
+  .NET)  [product_standard]
+  Web Anwendungen (Google GWT)  [product_standard]
+  Testautomation Web Anwendungen  [product_standard]
+  PageObjects (in allem Experte)  [product_standard]
+  Automated Visual Regression/Validation Tests  [product_standard]
+  - HtmlUnit  [product_standard]
+  ApacheHttpClient  [product_standard]
+  - Ant  [product_standard]
+  JUnit/TestNG  [product_standard]
+  TeamCity(basics)  [product_standard]
+  HPQC(basics)  [product_standard]
+  Visual Studio .NET 2003/2005/2008  [product_standard]
+  C++ Builder  [product_standard]
+  Firebug  [product_standard]
+  MKS Source Integrity  [product_standard]
+  JEE  [product_standard]
+  AngularJS  [product_standard]
+  SQL  [product_standard]
+  JPA  [product_standard]
+  HTTP  [product_standard]
+  HTML  [product_standard]
+  Selenium II  [product_standard]
+  PageObjects-Pattern  [product_standard]
+  Apache CXF  [product_standard]
+  Google GWT-RPC  [product_standard]
+  RDF (Resource Description Framework)  [product_standard]
+  JCo (SAP Java Connector)  [product_standard]
+  SAP XI  [product_standard]
+  SAP RM  [product_standard]
+  OOA  [product_standard]
+  XML  [product_standard]
+  Pascal  [product_standard]
+  Java8 Lambda  [product_standard]
+  Scala  [product_standard]
+  Java  [product_standard]
+  Object Pascal  [product_standard]
+  ABAP-OO  [product_standard]
+  ER-Modellierung  [product_standard]
+  BDE  [product_standard]
+  INFORMIX  [product_standard]
+  PL/SQL  [product_standard]
+  Google GWT  [product_standard]
+  Servlets  [product_standard]
+  SAP JEE-Engine  [product_standard]
+  BAPI  [product_standard]
+  JCO Java Connector  [product_standard]
+  SAP RM (Recordsmanagement, Service Provider Framework)  [product_standard]
+  SAP DVS  [product_standard]
+  SAP cProject  [product_standard]
+  STEP  [product_standard]
+  Microsoft Windows Anwendungen (Delphi, Borland VCL, Microsoft .NET)  [product_standard]
+  HtmlUnit  [product_standard]
+  TeamCity  [product_standard]
+  HPQC  [product_standard]
+
+SONSTIGES:
+Referenzen:
+Projekt Testautomatisierung, Agile-Tester, Web Entwicklung, 07/14 - 04/15
+Referenz durch Architecture & Service Management, großes deutsches Touristikunternehmen, vom 23.04.15
+"[...] Der Consultant hat diese Aufgaben stets zu unserer vollsten Zufriedenheit erfüllt. Er besitzt sehr gute Team-Kompetenzen. Die Integration und die Arbeit im Team funktionierten bestens. Das Team und die Projektverantwortlichen bedauern den Ausstieg des Consultants aus dem Projekt sehr, denn er hat die Produktentwicklung und insbesondere den Bereich Testautomation mit seinem Know-how und seinem Expertenwissen auf diesem Gebiet weit vorangebracht. Er war ein verantwortungsvoll arbeitender und stets zuverlässiger Kollege, den wir sehr zu schätzen gelernt haben. Wir wünschen dem Consultant auf seinem weiteren beruflichen und persönlichen Werdegang alles Gute und weiterhin viel Erfolg."
+Alle Referenzen sind durch GULP bestätigt. Sonstige Anmerkungen:
+- tabellarischer Lebenslauf
+- Referenzen/Zeugnisse auf Anfrage.

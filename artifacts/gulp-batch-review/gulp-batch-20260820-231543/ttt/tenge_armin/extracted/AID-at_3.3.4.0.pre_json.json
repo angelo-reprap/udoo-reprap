@@ -1,0 +1,1450 @@
+{
+  "metadata": {
+    "aid": "AID-at_3.3.4.0",
+    "version": "3.3.4.0",
+    "consultant_dir": "tenge_armin",
+    "first_name": "Armin",
+    "last_name": "Tenge",
+    "headline": "TOGAF Architekt (Solution/Infrastructure), Projektleiter und Berater für Azure, Office 365 und Power BI",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:02:21.081059"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Armin",
+      "last_name": "Tenge",
+      "birth_year": 1972,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend in wort und schrift",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (fließend)",
+          "level": ""
+        }
+      ],
+      "availability": "01.08.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "305xx Hannover, Deutschland",
+      "location": "305xx Hannover, Deutschland",
+      "headline": "TOGAF Architekt (Solution/Infrastructure), Projektleiter und Berater für Azure, Office 365 und Power BI",
+      "edv_experience_since": 1998
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Lotus Notes 8.5",
+        "Microsoft Access 2013 Entwicklerkenntnisse",
+        "MS SQL Server Analysis Services Entwicklerkenntnisse",
+        "MS SQL Server Integration Services Entwicklerkenntnisse",
+        "MS SQL Server Management Studio Entwicklerkenntnisse",
+        "MS SQL Server Reporting Services Entwicklerkenntnisse",
+        "MS SQL Server 2008 R2 Entwickler- und Administrationskenntnisse",
+        "MS SQL Server 2012 Entwickler- und Administrationskenntnisse",
+        "MS SQL Server 2014 Entwickler- und Administrationskenntnisse",
+        "MS SQL Server 2016 Entwickler-Administrationskenntnisse",
+        "T-SQL Entwicklerkenntnisse",
+        "Der Fokus bei Microsoft SQL Server liegt sowohl auf der BI Entwicklung als auch",
+        "der Administration im Kontext von SharePoint 2013 und 2010 Server sowie",
+        "BizTalk",
+        "Server 2013"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Macintosh Operating System X Experte",
+        "Windows Server 2003 Administrationskenntnisse",
+        "Windows Server 2008 Administrationskenntnisse",
+        "Windows Server 2012 Administrationskenntnisse",
+        "Windows Server 2016 Experte",
+        "Windows 10 Experte",
+        "Die Kenntnisse in Windows Server beziehen sich sich auf die Installation und",
+        "Betrieb von Active Directory",
+        "DNS; Active Directory Federation Services sowie",
+        "SharePoint 2010 und SharePoint 2013 Server"
+      ],
+      "programming_languages": [
+        "Angular 2 Experte",
+        "ASP.NET Experte",
+        "C# Experte",
+        "JavaScript Experte",
+        "Lotus Notes Script Grundkenntnisse",
+        "PL/SQL Experte",
+        "Powershell Experte",
+        "Typescript Experte",
+        "Ich habe mich auf die Entwicklung von individuellen Anwendungen für SharePoint",
+        "2013 und 2013 Server sowie Office 365 spezialisiert. Dabei liegt ein besonderer",
+        "Fokus auf die Entwicklung für Apps für Office 365 und SharePoint 2013",
+        "Weiterer Schwerpunkt Office 365 API"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2018-10 - 2023-03",
+        "title": "Einführung von Office 365/ Azure 6 Monate, Duisburg",
+        "role": "Architekt, Teilprojektleitung, Second Level Support",
+        "technologies": [
+          "PMP",
+          "SCRUM",
+          "Office 365",
+          "ADFS",
+          "AAD Connect",
+          "Microsoft",
+          "Teams",
+          "Exchange"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Erstellung von Projektplänen, Koordination von Ressourcen, Erstellung von Konzepten , Umsetzung von Prototypen,",
+          "Riskmanagement, Reporting, Erarbeitung Architekturkonzept, Security",
+          "Assessment, Network Assessment , Erarbeitung Governance, Support,",
+          "Mailbox Migration, technische Projektleitung (Exchange Online/Hybrid,",
+          "SharePoint Online/Hybrid, Microsoft Teams mit PSTN, Project Online,",
+          "Stream, Apps for the Enterprise, Visio, Stream, Power Apps, Power",
+          "Automate, Power BI , Bookings, OneDrive for Business, Microsoft Endpoint",
+          "Manager ), Prototypen, SharePoint Hybrid, Konzeption Aufbau Intranet"
+        ]
+      },
+      {
+        "period": "2016-11 - 2018-06",
+        "title": "Einführung von Office 365 mit SharePoint 2016 und 8 Monate Dynamics 365 Hybrid, Deutschland",
+        "role": "Cloud Architekt",
+        "technologies": [
+          "TOGAF",
+          "UML",
+          "SCRUM",
+          "Demand-Management"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Erstellung Projektplan, Erarbeitung",
+          "Konzept, Evaluierung Einführung O365 und Hybrid, Erarbeitung von POCs,",
+          "Erarbeitung von Change Management Konzepten , Aufnahme von Anforderungen, Konzeption von Solutions für O365",
+          "Management",
+          "Eingesetzte Produkte: Visual Studio 2017, Project 2016, Office 365 Professional Plus, Visio 2016,",
+          "Exchange 2016, SharePoint 2016, Office 365, Exchange Online, SharePoint",
+          "Online, Skype for Business Online, Planner, Staffhub, ADFS, AD Connect,",
+          "Azure Active Diretory, Azure Information Protection"
+        ]
+      },
+      {
+        "period": "2016-01 - 2016-07",
+        "title": "Office 365 Einführung bei unterschiedlichen Kunden, Unterschleißheim",
+        "role": "FastTrack Manager",
+        "technologies": [
+          "agiles Projektmanagement",
+          "Exchange Online",
+          "MultiProjektsteuerung"
+        ],
+        "activities": [
+          "Kundenbeziehungsmanagement, Projektsteuerung , Migrationen insbesondere von Lotus Domino nach Exchange Online, Durchleiten bei der Aktivierung der vorhandenen Workloads (\"change management\") ,",
+          "Multi-Projektsteuerung",
+          "SharePoint Online, Exchange Hybrid, Change Management, Project Online,",
+          "Yammer, Skype for Business Online, Office 365 Professional Plus",
+          "Eingesetzte Produkte: Office 365, Office 2013, Office 2016"
+        ]
+      },
+      {
+        "period": "2015-09 - 2015-12",
+        "company": "Logistikdienstleister",
+        "title": "Evalualierung Office 365 i. V. mit SharePoint 2013, Frankfurt",
+        "role": "Architekt",
+        "technologies": [
+          "Scrum Master"
+        ],
+        "activities": [
+          "Evaluierung verschiedener technischer Fragestellungen",
+          "Eingesetzte Produkte: Microsoft Sharepoint 2013, Office 365, Visual Studio 2015, Office 2013"
+        ]
+      },
+      {
+        "period": "2015-05 - 2015-09",
+        "title": "Office 365 Add-Ins , Konzeption und Implementierung, Deutschland",
+        "role": "Berater, Entwickler , Architekt",
+        "technologies": [
+          "SCRUM",
+          "UML",
+          "Office Add-Ins",
+          "SharePoint Provider-Hosted AddIns"
+        ],
+        "activities": [
+          "Aufnahme von Anforderungen, Durchführung von Workshops, Konzeption,",
+          "Implementierung , Testen , Bereitstellung",
+          "SharePoint Hosted Add-Ins",
+          "Eingesetzte Produkte: Office 365, SharePoint 2013 Online, Exchange 2013 Online, Visual Studio",
+          "2015, Skype for Business Online, Visio 2013 Professional, Office 365",
+          "Professional Plus"
+        ]
+      },
+      {
+        "period": "2014-11 - 2015-03",
+        "title": "Einführung von Office 365 + CRM Online, Deutschland",
+        "role": "Projektleiter, Berater, Entwickler",
+        "technologies": [
+          "Scrum",
+          "Prince II",
+          "SharePoint 2013",
+          "Office 365",
+          "Azure",
+          "Visual",
+          "Studio 2013",
+          "Project 2013",
+          "Excel 2013",
+          "Power Point 2013",
+          "Microsoft Office 2013",
+          "SAP",
+          "Windows Server 2012",
+          "AWS"
+        ],
+        "activities": [
+          "Evaluierung und Kategorisierung bestehender Inhalte, Konsolidierung des Nutzerbestandes und in Folge Datenbestandes, Budgetplanung und Budgetkontrolle, Risikomanagement, Projektplanung und Fortschrittsüberwachung, Stakeholder Management, Erstellung von Berichten, Aufnahme von Anforderungen , Konzeption von technischen",
+          "Lösungen auf der Zielplattform, Durchführung von Workshops,",
+          "Konsolidierung Datenbestand, Konzeption Datenmigration, Durchführung",
+          "Migration , Entwicklung von Prototypen, Implementierung von Apps,",
+          "Steuerung von Nearshore Ressourcen",
+          "Eingesetzte Produkte: Lotus Notes 8.5, Visual Studio 2013, SharePoint 2013 Server, Word 2013,",
+          "ECC, Exchange Server 2010, Office 365, Lync Server 2013, Team",
+          "Foundation Server 2013, DovAve Migrator, MS SQL Server 2012, Azure,"
+        ]
+      },
+      {
+        "period": "2013-11 - 2014-09",
+        "title": "Migration von Lotus nach SP 2013 Server/Online + CRM, Deutschland",
+        "role": "Projektleiter, Berater",
+        "technologies": [
+          "Scrum",
+          "Prince II",
+          "SharePoint 2013",
+          "Office 365",
+          "Azure",
+          "Visual",
+          "Studio 2013",
+          "Project 2013",
+          "Excel 2013",
+          "Power Point 2013",
+          "Microsoft Office 2013",
+          "SAP",
+          "Foundation Server 2013",
+          "DovAve Migrator",
+          "MS SQL Server 2012",
+          "Windows"
+        ],
+        "activities": [
+          "Evaluierung und Kategorisierung bestehender Lotus Domino Datenbanken,",
+          "Konsolidierung des Nutzerbestandes und in Folge Datenbestandes,",
+          "Budgetplanung und Budgetkontrolle, Risikomanagement, Projektplanung und Fortschrittsüberwachung, Stakeholder Management, Erstellung von Berichten, Aufnahme von Anforderungen , Konzeption von technischen",
+          "Lösungen auf der Zielplattform, Durchführung von Workshops,",
+          "Konsolidierung Datenbestand, Konzeption Datenmigration, Konzeption von Prototypen, Implementierung von SharePoint-Hosted und Provider-Hosted",
+          "Apps, Steuerung von Near- und Offshore Ressourcen",
+          "Eingesetzte Produkte: Lotus Notes 8.5, Visual Studio 2013, SharePoint 2013 Server, Word 2013,",
+          "ECC, Exchange Server 2010, Office 365, Lync Server 2013, Team"
+        ]
+      },
+      {
+        "period": "2012-10 - 2013-08",
+        "title": "CRM 2011 Einführung + Partnerportal auf Basis SP 2013, Deutschland",
+        "role": "Architekt, Berater, Projektleiter",
+        "technologies": [
+          "Scrum",
+          "Prince II",
+          "SharePoint 2013 Server",
+          "Office 365",
+          "Microsoft",
+          "CRM 2011",
+          "4.0",
+          "MS SQL Server 2012",
+          "Windows Server 2012"
+        ],
+        "activities": [
+          "Aufnahme von Anforderungen, Dokumentation der Anforderungen, Erstellung Konzeption , Konzeption und Durchführung von Workshops,",
+          "Steuerung von Lieferanten, Evaluierung von Arbeitsergebnissen von Lieferanten, Abstimmung von Projektplänen aus technischer Sicht ,",
+          "Koordination unterschiedlicher Leistungsbereiche in der IT, Steuerung von Nearshore-Ressourcen",
+          "Eingesetzte Produkte: Team Foundation Server 2010, Team Foundation Server 2013, SharePoint",
+          "2010 Server, SharePoint 2013 Server, Project 2010, Visual Studio 2012,",
+          "Office 365, Microsoft Office 2010, Microsoft Office 2013, Microsoft CRM",
+          "Azure, AWS"
+        ]
+      },
+      {
+        "period": "2012-04 - 2012-08",
+        "title": "Evaluierung von Office 365, Deutschland",
+        "role": "Projektleiter, Architekt, Entwickler",
+        "technologies": [
+          "SCRUM",
+          "Javascript",
+          "2013",
+          "Active",
+          "Windows Server 2012",
+          "Azure"
+        ],
+        "activities": [
+          "Konzeption und Implementierung von Prototypen, Aufsetzen der Entwicklungsumgebung, Koordination der Entwickler im Technical Early",
+          "Adopter Program , Bereitstellung von Prototypen, Erstellung Projektplan,",
+          "Überwachung der Aktivitäten , Verteilung von Aufgaben an die Mitglieder des Entwicklerteams Directory Federation Services",
+          "Eingesetzte Produkte: Visual Studio 2012, Project 2010, Team Foundation Server 2010, Microsoft",
+          "Office 2013, MS SQL Server 2012, SharePoint 2013 Server, Office 365,"
+        ]
+      },
+      {
+        "period": "2010-10 - 2011-12",
+        "title": "Konsolidierung ECM Umfeld 3 Monate, Hannover",
+        "role": "Architekt, Teilprojektleiter",
+        "technologies": [
+          "Scrum",
+          "UML",
+          "agiles Projektmanagement",
+          "Microsoft Sharepoint",
+          "Replikation",
+          "MS Office 2010",
+          "Windows Server 2008",
+          "MS SQL Server 2008 R2",
+          "Internet",
+          "Explorer",
+          "Windows 7",
+          "C#",
+          "ASP.NET",
+          "Objektorientierung",
+          "JavaScript"
+        ],
+        "activities": [
+          "Konsolidierung bestehender ECM Infrastruktur , insbesondere der Lösung;",
+          "Zielplattform SharePoint 2010 Server, Analyse bestehender Lösung auf Basis von MOSS 2007 , Migration von Inhalten von MOSS 2007 auf SharePoint 2010",
+          "Informationsarchitektur, Hochverfügbarkeitsarchitekturen, Replikation",
+          "Eingesetzte Produkte: Microsoft Sharepoint 2010, Microsoft Sharepoint 2007, Visual Studio 2010, jQuery, Livelink Open Text, AvePoint"
+        ]
+      },
+      {
+        "period": "2010-01 - 2010-09",
+        "title": "Outsourcing einer SharePoint Umgebung, Eindhoven, Niederlande",
+        "role": "Architekt, Teilprojektleiter",
+        "technologies": [
+          "Scrum",
+          "agiles Projektmanagement",
+          "Informationsarchitektur",
+          "Sharepoint Designer",
+          "Visual Studio 2010",
+          "Windows Server 2008",
+          "SQL"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Buget-Controlling, Überwachung der Projekts hinsichtlich Abweichungen, Steuerung des Transitionsteams, Konzeption der Zielarchitektur und der Vorgehensweise bei der Migration, Auswahl des Tools für die Migration, Analyse von bestehenden SharePoint",
+          "Solutions im Hinblick auf anstehende Migration und Abgabe von Empfehlungen, Steuerung von Entwicklern, Konzeption Testing und Abnahme, Definition SharePoint Governance, Entwicklung Testkonzept,",
+          "Steuerung von Near- und Offshore Ressourcen",
+          "Hochverfügbarkeitsarchitekturen, Archivierung, Agiles Testen, Replikation,",
+          "Solution Architect, Applikationsarchitektur",
+          "Eingesetzte Produkte: Microsoft Sharepoint 2007, Microsoft Sharepoint 2010, Microsoft",
+          "Server 2008"
+        ]
+      },
+      {
+        "period": "2009-09 - 2009-12",
+        "title": "Evaluation von SharePoint in der Sachversicherung, München",
+        "role": "Architekt",
+        "technologies": [
+          "Anforderungsanalyse",
+          "Eingesetzte Produkte: Microsoft Sharepoint 2007",
+          "MS SQL Server 2005",
+          "Windows",
+          "Server 2003",
+          "Windows Server 2008",
+          "Visual Studio",
+          "BizTalk",
+          "Microsoft Sharepoint 2007"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation von Anforderungen, Proofof-concept"
+        ]
+      },
+      {
+        "period": "2008-03 - 2009-08",
+        "title": "Outsourcing von verschiedenen SharePoint Umgebungen 6 Monate, Bonn, Kiel, Darmstadt, Den Haag",
+        "role": "Architekt, Teilpojektleiter",
+        "technologies": [
+          "Projektmanagement",
+          "Informationsarchitektur",
+          "Applikationsarchitektur"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Buget-Controlling, Überwachung der Projekts hinsichtlich Abweichungen, Steuerung des Transitionsteams, Konzeption der Zielarchitektur und der Vorgehensweise bei der Migration, Auswahl des Tools für die Migration, Analyse von bestehenden SharePoint",
+          "Solutions im Hinblick auf anstehende Migration und Abgabe von Empfehlungen, Steuerung von Entwicklern, Konzeption Testing und Abnahme, Definition SharePoint Governance, Entwicklung Testkonzept,",
+          "Teilnahme am SharePoint Technical Early Adopter Program für SharePoint",
+          "2010, Steuerung von off- und nearshore Ressourcen",
+          "Hochverfügbarkeitsarchitekturen, UML",
+          "Eingesetzte Produkte: Microsoft Sharepoint Designer, Microsoft Sharepoint 2010, Microsoft",
+          "Sharepoint 2013, MS Office 2010, Microsoft Office 2007, Microsoft Project",
+          "2007, Microsoft Visio"
+        ]
+      },
+      {
+        "period": "2007-09 - 2008-02",
+        "title": "Konzept./Implementation einer SOA Architektur, Deutschland",
+        "role": "Architekt, Softwareentwickler",
+        "technologies": [
+          "UML",
+          "Eingesetzte Produkte:",
+          "BizTalk Server 2006 R2",
+          "Windows Server 2003",
+          "MS SQL Server 2005"
+        ],
+        "activities": [
+          "Aufnahme der Anforderungen, Erstellung von UML Diagrammen auf der Basis der Anforderungen, Entwicklung von Prototypen"
+        ]
+      },
+      {
+        "period": "2007-01 - 2007-08",
+        "title": "Konzeption/Implementierung Intranet, Deutschland",
+        "role": "Solution Architect, Softwareentwickler",
+        "technologies": [
+          "Konzepte erstellen",
+          "UML",
+          "Diagramme"
+        ],
+        "activities": [
+          "Durchführung von Workshops Aufnahme von Anforderungen, Erstellung von Konzepten, Erstellung von UML Diagrammen, Implementierung von Prototypen , Entwicklung von Lösungen, Testing, Bereitstellung",
+          "(\"Deployment\") erstellen",
+          "Eingesetzte Produkte: BizTalk Server 2006 R2, SharePoint Portal Server 2003, Aris 6.2,",
+          "Performance Point Server 2007, SAP ECC 6.0, Filenet 8.0, SQL Server",
+          "2005, Microsoft Office 2007, Analysis Services, MS SQL Server Reporting",
+          "Services, Visual Studio, Visio"
+        ]
+      },
+      {
+        "period": "2006-01 - 2006-12",
+        "title": "Einführung von SAP ECC 6.0 im Handel, Hanau",
+        "role": "Projektleiter",
+        "technologies": [
+          "Projektmanagement",
+          "Budgetkontrolle",
+          "Anforderungsanalyse",
+          "Spezifikation"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation von Anforderungen , Erarbeitung von Konzepten, Erstellung von Projektplan ,",
+          "Überwachung der Projektaktivitäten, Ermittlung von Abweichungen ,",
+          "Durchführung jour fixe , Budgetüberwachung, Steuerung von nearshore",
+          "Ressourcen von Testfällen, Testspezifikation, Spezifikation von Anforderungen",
+          "Eingesetzte Produkte: SAP ECC 6.0, Project 2003, Microsoft Office 2003, Aris"
+        ]
+      },
+      {
+        "period": "2005-01 - 2005-12",
+        "title": "Konzeption/Implementierung Intranet mit Backend- Anb., Deutschland",
+        "role": "Solution Architect , Softwareentwickler",
+        "technologies": [
+          "UML",
+          "Diagramme"
+        ],
+        "activities": [
+          "Durchführung von Workshops Aufnahme von Anforderungen, Erstellung von Konzepten und UML Diagrammen, Implementierung von Prototypen,",
+          "Implementieren, Testen und Bereitstellen von Lösungen erstellen, Protoytpen implementieren, C# Programmierung, Testing,",
+          "Lösungen entwickeln",
+          "Eingesetzte Produkte: Itemfield Content Master, SharePoint Portal Server 2003, Rational XDE,",
+          "MS Project 2003, Visual Studio, ASP.NET, Microsoft Office 2003, SAP R/3,",
+          "BizTalk Server 2004"
+        ]
+      },
+      {
+        "period": "2004-06 - 2004-12",
+        "title": "Konzeption/Implementierung Intranet, Deutschland",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "UML",
+          "Eingesetzte Produkte: SharePoint Portal Server 2003",
+          "Frontpage",
+          "SQL Server",
+          "Windows Server",
+          "SharePoint Portal Server 2003"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme von Anforderungen, Erstellung von Konzepten , Implementierung Prototyp, Implementierung , Testing und Bereitstellung Lösung",
+          "Diagramme, C# Programmierung, Testing, Deployment",
+          "Visual Studio, ASP.NET"
+        ]
+      },
+      {
+        "period": "2003-06 - 2004-04",
+        "title": "Entwicklung einer Collaboration Lösung, bei Stuttgart",
+        "role": "Entwickler",
+        "technologies": [
+          "Anforderungsanalyse",
+          "Spezifikation von",
+          "Eingesetzte Produkte: SharePoint Portal Server 2003",
+          "SQL",
+          "Server",
+          "Windows Server 2000",
+          "Visual"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation von Anforderungen , Konzepterstellung, Implementierung, Testen",
+          "Testfällen, Testspezifikation, Berechtigungskonzept,",
+          "Datensicherungskonzept, Fachkonzept, Feinkonzept, Grobkonzept,",
+          "Migrationskonzept",
+          "Studio 2003, Frontpage, ASP.NET, C#, .NET Framework"
+        ]
+      },
+      {
+        "period": "2003-04 - 2003-11",
+        "title": "Entwicklung einer EAI Lösung, Niederlande",
+        "role": "Entwickler",
+        "technologies": [
+          "Anforderungsanalyse"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation von Anforderung, Konzepterstellung, Implementierung, Testen , Bereitstellung",
+          "Berechtigungskonzept, Fachkonzept, Grobkonzept, Feinkonzept,",
+          "Spezifikation von Testfällen, Testspezifikation",
+          "Eingesetzte Produkte: Microsoft Office, Visual Studio 2003, Project 2003, Aris, Itemfield",
+          "Contentmaster, MS Frontpage, Rational XDE, BizTalk, SharePoint Portal",
+          "Server 2003"
+        ]
+      },
+      {
+        "period": "2002-08 - 2003-02",
+        "title": "Rechnungen + Entsorgungsnachweis mit Signatur, Berlin",
+        "role": "Architekt, Projektleiter",
+        "technologies": [
+          "Anforderungsanalyse",
+          "Spezifikation von"
+        ],
+        "activities": [
+          "Durchführung von Workshops und jour fixe, Erarbeitung Projektplan,",
+          "Überwachung des Projektplans, Ermittlung von Abweichungen,",
+          "Budgetüberwachung, Aufnahme und Spezifikation von Anforderungen,",
+          "Erstellung unterschiedlicher Konzeption, Implementierung Proof of Concept",
+          "Testfällen, Berechtigungskonzept, Datensicherungskonzept, Feinkonzept,",
+          "Grobkonzept, Fachkonzept, Konzepterstellung, Betriebskonzept",
+          "Eingesetzte Produkte: Microsoft Office, Microsoft Project"
+        ]
+      },
+      {
+        "period": "2002-04 - 2002-07",
+        "title": "Einführung Bordcomputer für Entsorgungsfahrzeuge, Berlin",
+        "role": "Berater , Architekt",
+        "technologies": [
+          "Anforderungsanalyse",
+          "Ausschreibung"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation von Anforderungen, Erstellung von Ausschreibungsunterlagen",
+          "Applikationsarchitektur, Informationsarchitektur",
+          "Eingesetzte Produkte: Microsoft Office"
+        ]
+      },
+      {
+        "period": "2001-11 - 2002-03",
+        "title": "Geschäftsprozessoptimierung Krankenhaus, Berlin",
+        "role": "Berater",
+        "technologies": [
+          "Anforderungsanalyse"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme von IST-Prozessen mit Hilfe",
+          "Ereignisgesteuerter Prozessketten (EPK), Analyse bestehender",
+          "Geschäftsprozesse hinsichtlich Schwachstellen und Beschleunigungspotentiale , Definition von Soll-Prozessen , Begleitung der Einführung von SOLL-Prozessen (Change-Management)",
+          "Eingesetzte Produkte: Aris, Microsoft Office"
+        ]
+      },
+      {
+        "period": "2001-04 - 2001-10",
+        "title": "Sicheres Zahlungsverfahren im Internet, Bonn",
+        "role": "Architekt, Teilprojektleiter (Angestellter)",
+        "technologies": [
+          "Anforderungsanalyse",
+          "Fachkonzept"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation von Anforderungen, Erstellung verschiedener Konzepte",
+          "Berechtigungskonzept, Feinkonzept, Betriebskonzept, Grobkonzept,",
+          "Informationsarchitektur, Applikationsarchitektur",
+          "Eingesetzte Produkte: Microsoft Office, Project 2000"
+        ]
+      },
+      {
+        "period": "2000-02 - 2001-02",
+        "title": "Geschäftsprozessoptimierung im Krankenhaus 1 Monat, Hannover",
+        "role": "Berater, Diplomand",
+        "technologies": [
+          "Anforderungsanalyse",
+          "Geschäftsprozess"
+        ],
+        "activities": [
+          "Durchführung von Workshops , Aufnahme von IST Geschäftsprozessen,",
+          "Untersuchung von IST-Prozessen im Hinblick auf Schwachstellen,",
+          "Definition von Soll-Prozessen, Einführung von Soll-Prozessen, Change- Management",
+          "Geschäftsprozessanalyse, Geschäftsprozessmodellierung,",
+          "Geschäftsprozessoptimierung",
+          "Eingesetzte Produkte: Microsoft Office, Aris, SAP R/3"
+        ]
+      },
+      {
+        "period": "1999-08 - 2000-01",
+        "title": "Aufbau von Geschenk24.de, Berlin",
+        "role": "Architekt",
+        "technologies": [
+          "Anforderungsanalyse"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Aufnahme und Spezifikation der Anforderungen, Erstellung Konzeption , Präsentation Ergebnisse",
+          "Informationsarchitektur, Applikationsarchitektur, Testkonzeption",
+          "Eingesetzte Produkte: SAP R/3, Intershop, Microsoft Office, Borland Java"
+        ]
+      },
+      {
+        "period": "1998-11 - 1999-06",
+        "title": "Entwicklung Fussgängernavigation, Ilmenau",
+        "role": "Entwickler",
+        "technologies": [
+          "Navigation",
+          "GPS",
+          "Mobile Endgeräte",
+          "Mobilfunk",
+          "Mobile Apps"
+        ],
+        "activities": [
+          "Entwicklung eines Taschencomputers für die integrierte Kommunikation und Navigation (niedergelegt in einer Offenlegungsschrift beim Deutschen",
+          "Patentamt), Aufnahme von Anforderung, Entwicklung, Testen",
+          "Eingesetzte Produkte: Microsoft Office, Java, C++"
+        ]
+      },
+      {
+        "period": "1998-04 - 1998-09",
+        "title": "Erarbeitung einer Relaunching Strategie für Bones Satlab, San Francisco, CA, USA",
+        "role": "Unternehmensberater",
+        "technologies": [
+          "Marketingkonzept",
+          "Direktmarketing",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekte im .NET Umfeld",
+          "10/2001 - 07/2002",
+          "Maß an",
+          "Mitarbeitern",
+          "umzugehen",
+          "war",
+          "bestimmt durch Aufgeschlossenheit",
+          "unsere Mitarbeiter",
+          "motivieren",
+          "Vorgesetzten",
+          "Projektbedingungen",
+          "unsere Anforderungen",
+          "Anerkennung",
+          "verdienten",
+          "werden wir ihn",
+          "sobald sich ein Bedarf abzeichnet",
+          "wieder ein Mandat",
+          "als Projektleiter",
+          "5/01 - 09/01",
+          "30.09.01",
+          "großter Umsicht",
+          "Zusammenhänge erfaßte er",
+          "höchstem Maße souverän",
+          "Arbeitsweise erzielte er",
+          "kontinuierlich ein hohes Maß",
+          "an Leistungsbereitschaft",
+          "er",
+          "haben ihn als",
+          "gelernt",
+          "umfassende und",
+          "fundierte Fachkenntnisse",
+          "Aufgaben sehr",
+          "verbunden mit",
+          "kritischem",
+          "Arbeitsabläufe in",
+          "realisierte diese",
+          "vollste Anerkennung",
+          "vorbildlich. Seine Art",
+          "Menschen umzugehen",
+          "war bestimmt durch Aufgeschlossenheit",
+          "Sachlichkeit und",
+          "Freundlichkeit. Er",
+          "Verhalten gegenüber unseren Mitarbeitern",
+          "war bestimmt durch",
+          "Aufgeschlossenheit",
+          "Mitarbeiter motivieren",
+          "unsern Mitarbeitern",
+          "Leistungen",
+          "Berater erteilen.\"",
+          "5/"
+        ],
+        "activities": [
+          "Durchführung von Workshops, Erstellen einer Marketingkonzeoption,",
+          "Begleitung eines go to markets",
+          "Eingesetzte Produkte: Microsoft Office, Microsoft Visio, Bones Satlab"
+        ]
+      }
+    ],
+    "industries": [
+      "Energie",
+      "Banken",
+      "Mineralöl",
+      "Energieversorgung",
+      "Logistik",
+      "Kommunalwesen",
+      "Versicherung",
+      "Verlagswesen",
+      "Maschinenbau"
+    ],
+    "focus_areas": [
+      "TOGAF Architekt (Solution/Infrastructure) Projektleiter und Berater für Azure Office 365 und Power BI Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test I accompany international customers, especially in Office 365 and SharePoint projects, from kick-off to go-live in various roles if needed.",
+      "Allgemeine Hochschulreife (Abitur)",
+      "Dipl. Wirtsch. Inf. (TU) Jan 2001, TU Ilmenau (Thüringen)",
+      "TOGAF 9 Certified Enterprise Architect",
+      "Microsoft Certified Solution Associate (MCSA): Office 365",
+      "Microsoft Certified System Engineer (MCSE) SharePoint: Solution Expert (70-331,70-332) -> SharePoint 2013",
+      "Microsoft Certified Solution Developer (MCSD): SharePoint Applications (70-488,70-489)-> SharePoint 2013",
+      "Microsoft Certified Professional Developer für SharePoint 2010 (70-576)",
+      "Microsoft Certified Technology Specialist für SharePoint 2010 Application Development (70-573)",
+      "Microsoft Certified Technology Specialist für SharePoint 2010 Config (70-667)",
+      "Microsoft Certified IT Professional: SharePoint 2010 Administrator (70-668)",
+      "Microsoft Certified Trainer (MCTS)",
+      "TOGAF Architekt (Solution/Infrastructure)",
+      "Projektleiter und Berater für Azure",
+      "Office 365 und Power BI",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Qualitätsmanagement / Qualitätssicherung / Test"
+    ],
+    "focus_experience": [
+      {
+        "name": "AAD Connect",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Apps für Office Experte",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Apps für SharePoint Experte",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Azure",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Azure MFA",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "BizTalk Server 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Excel 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Exchange 2016",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Exchange Online Architektur",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Administration und",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Entwicklung",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Exchange Server 2010",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Microsoft Azure Information Protection",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Microsoft Intune",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Microsoft Office 2013",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Microsoft OneDrive for Business",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Microsoft Sharepoint 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Microsoft Teams",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "MS Project",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "ODATA",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "OAUTH Experte",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Office 365 Architektur",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Office 365 API Fortgeschritten bis Experte",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "OneDrive for Business",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Outlook 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "PMP",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "PowerPoint 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Project 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Projektmanagement Experte",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "SAP ECC",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "SAP R/3 Fortgeschritten",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "SharePoint 2013",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "SharePoint 2013 Server Architektur",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "SharePoint 2016",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "SharePoint Hybrid",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "SharePoint Online Architektur",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Skype for Business Online Architektur",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Team Foundation Server 2010",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Team Foundation Server 2013",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "TOGAF",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Visio 2016",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Visual Studio 2012",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Visual Studio 2013",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Visual Studio 2017 Experte",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Word 2016 Experte",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Ich bin auch mit den älteren Versionen von Microsoft Office vertraut",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "was ich",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "nicht mehr mit aufgeführt habe",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "um das Profil übersichtlicher zu gestalten",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Prince II",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "AD Connect",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "ADFS",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Apps for the Enterprise",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Azure Active Diretory",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Azure Information Protection",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Change Management",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Change-Management",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Demand-Management",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Exchange Hybrid",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Exchange Online",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Microsoft Information Protection",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Microsoft Sharepoint 2013",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Microsoft Sharepoint 2016",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Migrationsplanung",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Multi-Projektsteuerung",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Office 2013",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Office 2016",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Office 365 Professional Plus",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Planner",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Power Apps",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Power Automate",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Project Online",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "PSTN",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "React",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Scrum Master",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "SharePoint Entwicklung",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "SharePoint Framework",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "SharePoint Online",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "Skype for Business Online",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Staffhub",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Visual Studio Code",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Visual Studio 2015",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Visual Studio 2017",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "Yammer",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "agiles Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Product Owner",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Office 365",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "BizTalk Server 2016",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Excel 2016",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "Office 365 API",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Outlook 2016",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "PowerPoint 2016",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Project 2016",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "SAP R/3",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "SharePoint 2013 Server",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Word 2016",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Azure Active Directory",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Demand Management",
+        "category": "product_standard",
+        "sort_order": 102
+      }
+    ],
+    "education": [
+      {
+        "degree": "Allgemeine Hochschulreife (Abitur)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Dipl. Wirtsch. Inf. (TU)",
+        "institution": "TU Ilmenau",
+        "period": "Jan 2001",
+        "education_type": "course"
+      },
+      {
+        "degree": "TOGAF 9 Certified Enterprise Architect",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified Solution Associate (MCSA): Office 365",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified System Engineer (MCSE) SharePoint: Solution Expert (70-331,70-332) -> SharePoint 2013",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified Solution Developer (MCSD): SharePoint Applications (70-488,70-489)-> SharePoint 2013",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified Professional Developer für SharePoint 2010 (70-576)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified Technology Specialist für SharePoint 2010 Application Development (70-573)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified Technology Specialist für SharePoint 2010 Config (70-667)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified IT Professional: SharePoint 2010 Administrator (70-668)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified Trainer (MCTS)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekte im .NET Umfeld, 10/2001 - 07/2002\nReferenz durch Leiter IT eines der größten Deutschen Logistiker vom 30.11.01\n\"Während des gesamten Projektes zeigte er eine außerordentliche Belastbarkeit und einen unermüdlichen Arbeitseinsatz und bewies stets auch ein außergewöhnlich hohes Maß an Leistungsbereitschaft und Eigeninitiative. Das Verhalten gegenüber unseren Mitarbeitern, Vorgesetzten und externen Partnern war stets vorbildlich. Seine Art mit Menschn umzugehen, war bestimmt durch Aufgeschlossenheit, Sachlichkeit und Freundlichkeit. Er konnte unsere Mitarbeiter motivieren, richtig einschätzen und zu sehr guten Leistungen führen. Er genoss das Vertrauen unser Mitarbeiter und Vorgesetzten. Er war bei unsern Mitarbeitern, Vorgesetzten und externen Partnern allerseits gleichermaßen geschätzt und beliebt. Unter den schwierigen Projektbedingungen hat er das Projekt noch im gesetzten Zeit- und Budgetrahmen äußerst erfolgreich und fachlich einwandfrei zur Produktivschaltung geführt. Aufgrund seiner Leistungen, die unsere Anforderungen in höchstem Maße übertrafen und in jeder Hinsicht ohne Einschränkung unsere Anerkennung verdienten, werden wir ihn, sobald sich ein Bedarf abzeichnet, wieder ein Mandat als Projektleiter und Berater erteilen.\"\nProjekt im .NET Umfeld bei einer Bank, 5/01 - 09/01\nReferenz durch 1 der 10 größten Deutschen Unternehmensberatungen vom 30.09.01\n\"Er hat sich in die neue Materie erfolgreich eingearbeitet. Alle Aufgaben erledigte er mit sehr großter Umsicht, Gewissenhaftigkeit und Genauigkeit. Komplizierte Zusammenhänge erfaßte er schnell und zutreffend und zeigte sich auch in schwierigen Situationen in höchstem Maße souverän, umsichtig und flexibel. Durch seine zielstrebige, selbständige und effiziente Arbeitsweise erzielte er jederzeit sehr gute Ergebnisse. Während der Zusammenarbeit hat er kontinuierlich ein hohes Maß an Leistungsbereitschaft, Eigeninitiative und Belastbarkeit gezeigt. Zudem bewies er überdurchschnittliches Engagement auch über die normale Arbeitszeit hinaus. Wir haben ihn als einen außerordentlich pflichtbewussten und zuverlässigen Mitarbeiter kennen gelernt, der vertrauenswürdig und verantwortungsbewusst ist. Er verfügt über äußerst umfassende und fundierte Fachkenntnisse, die er auch bei der Lösung komplexer und schwieriger Aufgaben sehr sicher einsetzte. Er zeichnete sich durch eine konstruktive Haltung, verbunden mit kritischem Sachverstand und sehr guten analytischen Fähigkeiten aus. Hinsichtlich der Arbeitsabläufe in unserem Unternehmen machte er sehr viele gut durchdachte Anregungen und realisierte diese auch. Die Leistungen fand in jeder Hinsicht bei unseren Kunden und uns die vollste Anerkennung. Das Verhalten gegenüber Kunden, Vorgesetzten und Kollegen war stets vorbildlich. Seine Art, mit Menschen umzugehen, war bestimmt durch Aufgeschlossenheit, Sachlichkeit und Freundlichkeit. Er war daher allseits gleichermaßen geschätzt und beliebt.\"\n\nReferenzen:\nProjekte im .NET Umfeld, 10/2001 - 07/2002\nReferenz durch Leiter IT eines der größten Deutschen Logistiker vom 30.11.01\n\"Während des gesamten Projektes zeigte er eine außerordentliche Belastbarkeit und einen unermüdlichen Arbeitseinsatz und bewies stets auch ein außergewöhnlich hohes Maß an Leistungsbereitschaft und Eigeninitiative. Das Verhalten gegenüber unseren Mitarbeitern, Vorgesetzten und externen Partnern war stets vorbildlich. Seine Art mit Menschn umzugehen, war bestimmt durch Aufgeschlossenheit, Sachlichkeit und Freundlichkeit. Er konnte unsere Mitarbeiter motivieren, richtig einschätzen und zu sehr guten Leistungen führen. Er genoss das Vertrauen unser Mitarbeiter und Vorgesetzten. Er war bei unsern Mitarbeitern, Vorgesetzten und externen Partnern allerseits gleichermaßen geschätzt und beliebt. Unter den schwierigen Projektbedingungen hat er das Projekt noch im gesetzten Zeit- und Budgetrahmen äußerst erfolgreich und fachlich einwandfrei zur Produktivschaltung geführt. Aufgrund seiner Leistungen, die unsere Anforderungen in höchstem Maße übertrafen und in jeder Hinsicht ohne Einschränkung unsere Anerkennung verdienten, werden wir ihn, sobald sich ein Bedarf abzeichnet, wieder ein Mandat als Projektleiter und Berater erteilen.\"\nProjekt im .NET Umfeld bei einer Bank, 5/",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Business Connectivity Services Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT Vertiefte Entwicklerkenntnisse auf Basis BizTalk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Server",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax Integration in Lync Server 2013",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI Theoretische Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios Administrative Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OAUTH Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ODATA Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RFC Entwicklerkentnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP Administrative Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UUCP Entwicklerkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk Administratorkenntnisse",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:02:21.081072",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1998"
+      ],
+      "coverage_percent": 78.94021739130434,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

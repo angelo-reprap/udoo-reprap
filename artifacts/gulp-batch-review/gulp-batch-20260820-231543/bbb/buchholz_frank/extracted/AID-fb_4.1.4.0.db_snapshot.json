@@ -1,0 +1,752 @@
+{
+  "personal": {
+    "aid": "AID-fb_4.1.4.0",
+    "first_name": "Frank",
+    "last_name": "Buchholz",
+    "birth_year": 1977,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+    "availability": "31.12.18 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1991,
+    "headline": "Projektleiter, Teil-Projektleiter, Projekt-Assistanz, PMO-Leiter, Teamleiter",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 9,
+    "skills": 171,
+    "certifications": 0,
+    "education": 8,
+    "experience": 24,
+    "industries": 9,
+    "focus_areas": 19,
+    "focus_experience": 0,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Französisch",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Französisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (gut)",
+      "level": ""
+    },
+    {
+      "name": "Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "gut",
+      "level": ""
+    },
+    {
+      "name": "Grundkenntnisse",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Price2",
+      "institution": "",
+      "period": "Q3 2012",
+      "education_type": "course"
+    },
+    {
+      "degree": "Six Sigma",
+      "institution": "",
+      "period": "Q3 2012",
+      "education_type": "course"
+    },
+    {
+      "degree": "CMMI (Capability Maturity Model Integration)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "ITIL Zertifizierung",
+      "institution": "",
+      "period": "Q3 2012",
+      "education_type": "course"
+    },
+    {
+      "degree": "Projektmanagement IPMA-Zertifizierung Level-B",
+      "institution": "",
+      "period": "Q1 2012",
+      "education_type": "course"
+    },
+    {
+      "degree": "Project Management Professional (PMP - PMI)",
+      "institution": "",
+      "period": "2011",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified System Engineer Security 2003 (MCSE)",
+      "institution": "",
+      "period": "2005",
+      "education_type": "course"
+    },
+    {
+      "degree": "Informatiker, Kaufmann",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Arbeitnehmerüberlassung und -vermittlung",
+    "Multimedia- und Internetdienstleistungen",
+    "Consulting",
+    "Telekommunikation",
+    "Luft- und Raumfahrt",
+    "Finanzdienstleister",
+    "EDV-Dienstleister",
+    "Banken",
+    "Distribution"
+  ],
+  "focus_areas": [
+    "Projektleiter",
+    "Teil-Projektleiter",
+    "Projekt-Assistanz",
+    "PMO-Leiter",
+    "Teamleiter",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "Projektcontrolling",
+    "Qualitätssicherung",
+    "Projektassistenz",
+    "Projektadministration",
+    "PMO",
+    "Projekt Büro",
+    "Projekt Management Office"
+  ],
+  "focus_experience": [],
+  "experience": [
+    {
+      "period": "06/2013 - 06/2015",
+      "company": "Volkswagen AG",
+      "role": "Tech. Product Owner (TPM) im DBS Platform, DCC",
+      "title": "DBS Digital Business Strategie - New Generation, Wolfsburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "März 2011 bis November 2011",
+      "company": "Finanzinstitut",
+      "role": "Projekt : Maintenance Lifecycle Model (MLCM) IT Projektleiter im",
+      "title": "Projekt : Maintenance Lifecycle Model (MLCM) IT Projektleiter im",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "Januar 2010 bis Februar 2011",
+      "company": "Finanzinstitut",
+      "role": "Projekt : Projektmanager im internationalen Software Deployment",
+      "title": "Projekt : Projektmanager im internationalen Software Deployment",
+      "activities": 6,
+      "technologies": 4
+    },
+    {
+      "period": "Mai 2009 - Dezember 2009",
+      "company": "Finanzinstitut",
+      "role": "Projekt : Projektmanager im Netzwerkumfeld",
+      "title": "Projekt : Projektmanager im Netzwerkumfeld",
+      "activities": 6,
+      "technologies": 4
+    },
+    {
+      "period": "Dezember 2008 - Mai 2009",
+      "company": "Chemieunternehmen",
+      "role": "Projekt : PMO im internationalen Ausschreibungsprojekt",
+      "title": "Projekt : PMO im internationalen Ausschreibungsprojekt",
+      "activities": 3,
+      "technologies": 4
+    },
+    {
+      "period": "April 2008 - Juli 2008",
+      "company": "Bank",
+      "role": "Projekt : Projektmanager im internationalen CoE Deployment",
+      "title": "Projekt : Projektmanager im internationalen CoE Deployment Project",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "August 2007 - Dezember 2007 (50%)",
+      "company": "Bank",
+      "role": "Projekt : Teil-Projekt (PMO) Mitarbeiter im IT Service Desk,",
+      "title": "Projekt : Teil-Projekt (PMO) Mitarbeiter im IT Service Desk, Beratung",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "Februar 2007 - Dezember 2007 (davon ab August 2007 50%)",
+      "company": "Bank",
+      "role": "Projekt : PMO Mitarbeiter und Assistent der Programmleitung",
+      "title": "Projekt : PMO Mitarbeiter und Assistent der Programmleitung Platinum",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "August 2006 - Januar 2007",
+      "company": "Bank",
+      "role": "Projekt : Assistent Sektorleiter \"Projektmanagement\",",
+      "title": "Projekt : Assistent Sektorleiter \"Projektmanagement\", Management",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "Januar 2004 bis 2008",
+      "company": "IT-Dienstleister",
+      "role": "Projekt : freiberuflicher IT-Consultant, Geschäftsführer der",
+      "title": "Projekt : freiberuflicher IT-Consultant, Geschäftsführer der XXXXXX AG",
+      "activities": 7,
+      "technologies": 11
+    },
+    {
+      "period": "Juli 2003 bis Dezember 2003",
+      "company": "IT-Dienstleister",
+      "role": "Projekt : Verkaufsberater",
+      "title": "Projekt : Verkaufsberater",
+      "activities": 1,
+      "technologies": 3
+    },
+    {
+      "period": "Oktober 2002 bis Juni 2003",
+      "company": "IT-Distributor (VAD)",
+      "role": "Projekt : Business Development Manager",
+      "title": "Projekt : Business Development Manager",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "Dezember 2001 bis April 2002",
+      "company": "Versicherung",
+      "role": "Projekt : Call Agent/Secound Level Support im User Helpdesk",
+      "title": "Projekt : Call Agent/Secound Level Support im User Helpdesk",
+      "activities": 4,
+      "technologies": 8
+    },
+    {
+      "period": "August 2001 bis Juli 2002",
+      "company": "Internet Service Provider",
+      "role": "Projekt : Geschäftsführer, Projektleiter Rechenzentrum",
+      "title": "Projekt : Geschäftsführer, Projektleiter Rechenzentrum",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "August 2001 (1 Monat)",
+      "company": "Finanzdienstleister",
+      "role": "Projekt : Projektmitarbeiter",
+      "title": "Projekt : Projektmitarbeiter",
+      "activities": 4,
+      "technologies": 3
+    },
+    {
+      "period": "März 2001 bis August 2001",
+      "company": "Bank",
+      "role": "Projekt : PMO Mitarbeiter für Beratung und Coaching bezüglich",
+      "title": "Projekt : PMO Mitarbeiter für Beratung und Coaching bezüglich",
+      "activities": 3,
+      "technologies": 3
+    },
+    {
+      "period": "Feburar 2001 bis März 2001",
+      "company": "Bank",
+      "role": "Projekt : Mitarbeiter im Projektoffice (PMO) E-Commerce",
+      "title": "Projekt : Mitarbeiter im Projektoffice (PMO) E-Commerce",
+      "activities": 3,
+      "technologies": 5
+    },
+    {
+      "period": "April 2000 bis Januar 2001",
+      "company": "Luft und Raumfahrt",
+      "role": "Projekt Management Office / Change Request Management für",
+      "title": "Projekt Management Office / Change Request Management für Projekt",
+      "activities": 6,
+      "technologies": 5
+    },
+    {
+      "period": "Juni 1999 bis März 2000",
+      "company": "Luft und Raumfahrt",
+      "role": "Projekt : IT-Inventarisierung und Prüfung auf Jahr-2000-Fähigkeit,",
+      "title": "Projekt : IT-Inventarisierung und Prüfung auf Jahr-2000- Fähigkeit,",
+      "activities": 4,
+      "technologies": 3
+    },
+    {
+      "period": "Januar 1999 bis Mai 1999",
+      "company": "Bank",
+      "role": "Projekt : Roll-Out von OS/2 basierenden Bankrechnern für die",
+      "title": "Projekt : Roll-Out von OS/2 basierenden Bankrechnern für die",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "November 1998 bis Juli 2002",
+      "company": "IT-Dienstleister",
+      "role": "Projekt : Gründung der XXXX GmbH & Co.KG und bis Juli 2002",
+      "title": "Projekt : Gründung der XXXX GmbH & Co.KG und bis Juli 2002",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Januar 1998 bis Juni 1998",
+      "company": "Telekommunikation",
+      "role": "Projekt : Umstellung Windows NT von 3.51 auf 4.0, User Helpdesk,",
+      "title": "Projekt : Umstellung Windows NT von 3.51 auf 4.0, User Helpdesk,",
+      "activities": 4,
+      "technologies": 5
+    },
+    {
+      "period": "Januar 1998 bis Juni 1998",
+      "company": "Personaldienstleiter",
+      "role": "Projekt : LAN- und WAN-Netz-Neuplanung",
+      "title": "Projekt : LAN- und WAN-Netz-Neuplanung",
+      "activities": 5,
+      "technologies": 2
+    },
+    {
+      "period": "Januar 1994 bis Juni 1996",
+      "company": "IT-Dienstleister",
+      "role": "Projekt : Netzwerkservice",
+      "title": "Projekt : Netzwerkservice",
+      "activities": 7,
+      "technologies": 33
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Einsatz Service Desk (Migrationsprojekt), 08/07 - 12/07\nReferenz durch Unit Head ICT, Schweizer Privatbank (ca. 1.800 Ma), vom 05.03.08\n\"Der Experte hat sich sehr rasch in die komplexe Thematik im Bereich User Access Management eingearbeitet und stark kundenorientiert Lösungen definiert und realisiert. Dank seiner schnelle Aufassungsgabe und seinem grossen Engagement konnte er das Team während der anspruchsvollen Transition Phase substantiell entlasten.\"\nProjekt Migration Program, 02/07 - 12/07\nReferenz durch Dpt. Head, Director, Privatbank (rund 1.600 MA), vom 20.02.08\n\"Der Consultant verfügt über sehr gute organisatorische Fähigkeiten und versteht es, mit allen stakeholdern effizient zu kommunizieren. Seine offene Art der Kommunikation wie auch seine Fähigkeit, sich schnell ein ausgezeichnetes Beziehungsnetz aufzubauen, stellt sicher, dass er effizient und effektiv an die verlangten Informationen herankommt. Zudem ist er sehr gewandt in allen administrativen Belangen. Er ist jederzeit freundlich, korrekt im Umgang mit Vorgesetzten und Mitarbeitern, hilfsbereit und lösungsorientiert.\"\nProjekt Projektmanagement Securities Infrastructure, 08/06 - 02/07\nReferenz durch Sektorleiter, Privatbank (ca. 16.000 MA), vom 26.02.08\n\"Der Consultant verfügt über sehr gute organisatorische Fähigkeiten und agiert äusserst geschickt mit den involvierten Stakeholder. Er ist sehr lernfähig und in der Lage, auch in artfremden Bereichen sehr schnell einen eigenen Verantwortungsbereich zu übernehmen. Dies führt dazu, dass er über seine Kommunikationsfähigkeit in der Lage ist, ein verzweigtes Beziehungsnetz aufzubauen welches ihm verhilft, die gesteckten Ziele effizient zu erreichen. Er ist korrekt im Umgang, sehr hilfsbereit und seine überzeugenden Stärke ist die pragmatische Lösungsfindung bei anstehenden Problemen.\"\nAlle Referenzen sind durch GULP bestätigt. Sonstige Anmerkungen:\nEDV-Erfahrung seit: 1991",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Interbase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "AS/400",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "In Terminaluser Umgebung",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "div. Produkte",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LEXMARK",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Brother",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Emulatoren",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Server Workstation and Notebooks",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM RS6000",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Iomega",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Nixdorf",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Plotter",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Proprietäre HW",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CISCO Switch",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CCME Voip (C2801",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "C2821)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundkarten",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Tandem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "UNISYS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "US Robotics Pilot",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "6.x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Warp",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris 10 x64/x86",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "div",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 98 -> Windows 7 x64/x86",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Server 2008",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.95
+    },
+    {
+      "name": "Microsoft Office XP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.9
+    },
+    {
+      "name": "MS Project Server",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Clearquest",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.6
+    },
+    {
+      "name": "Aris",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.6
+    },
+    {
+      "name": "7.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Clients",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Firewall",
+      "category_name": "Security Tools",
+      "weight": 0.55
+    },
+    {
+      "name": "Durchführung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Windows 2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.55
+    },
+    {
+      "name": "Microsoft Office 2003",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "MAC",
+      "category_name": "Betriebssysteme",
+      "weight": 0.55
+    },
+    {
+      "name": "CISCO IOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.55
+    },
+    {
+      "name": "Windows 2000 Professional",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Microsoft Office 2000",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Cobra",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows NT",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "BS2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "MS Access",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Remedy",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "Cisco ACS",
+      "category_name": "Identity Management",
+      "weight": 0.38
+    },
+    {
+      "name": "Cisco 7206",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

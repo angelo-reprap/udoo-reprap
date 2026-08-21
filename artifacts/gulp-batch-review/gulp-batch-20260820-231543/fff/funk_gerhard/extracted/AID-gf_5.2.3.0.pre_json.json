@@ -1,0 +1,1680 @@
+{
+  "metadata": {
+    "aid": "AID-gf_5.2.3.0",
+    "version": "5.2.3.0",
+    "consultant_dir": "funk_gerhard",
+    "first_name": "Gerhard",
+    "last_name": "Funk",
+    "headline": "Cyber Security Management, Informationssicherheit, IT- Governance, IT- Compliance, IT-Audit - ISO 27001, COBIT, CISA, CISM",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:30:33.641575"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Gerhard",
+      "last_name": "Funk",
+      "birth_year": 1960,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch gut",
+          "level": ""
+        },
+        {
+          "name": "TOEIC 915 (gold",
+          "level": ""
+        },
+        {
+          "name": "2",
+          "level": ""
+        },
+        {
+          "name": "2013)",
+          "level": ""
+        },
+        {
+          "name": "English CV is available",
+          "level": ""
+        },
+        {
+          "name": "Englisch (gut, TOEIC 915)",
+          "level": ""
+        }
+      ],
+      "availability": "03.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "288xx Ottersberg, Deutschland",
+      "headline": "Cyber Security Management, Informationssicherheit, IT- Governance, IT- Compliance, IT-Audit - ISO 27001, COBIT, CISA, CISM",
+      "edv_experience_since": 1985
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Lotus Notes",
+        "MS SQL Server",
+        "Oracle",
+        "Oracle RDBMS",
+        "Secure Configuration",
+        "Hardening",
+        "Installation",
+        "Betrieb",
+        "IT Sicherheitsarchitektur",
+        "Ermittlung",
+        "Planung",
+        "Einführung und Betrieb technischer und",
+        "organisatorischer IT-Sicherheitsmaßnahmen in komplexen IT-",
+        "Infrastrukturen",
+        "Architekturframeworks TOGAF und SABSA"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Linux",
+        "Solaris",
+        "SUN OS",
+        "Windows",
+        "Windows Server",
+        "iOS",
+        "Android",
+        "RHEL",
+        "HP UX",
+        "Windows 2008 R2 Server"
+      ],
+      "programming_languages": [
+        "Fortran",
+        "Pascal"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "CISA Certified Information Systems Auditor der ISACA",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CISM Certified Information Security Manager der ISACA",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "IT-Compliance Manager Frankfurt School of Banking and Finance / ISACA",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "COBIT 5 Foundation Zertifikat der ISACA zu COBIT 5",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CISA Certified Information Systems Auditor",
+        "issuer": "ISACA",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "CISM Certified Information Security Manager",
+        "issuer": "ISACA",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "IT-Compliance Manager",
+        "issuer": "Frankfurt School of Banking and Finance / ISACA",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "COBIT 5 Foundation Zertifikat",
+        "issuer": "ISACA",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "09/2020 - 12/2020",
+        "company": "Bank",
+        "title": "SOx- und Key Control Tests in der 1st Line of Defence (1LoD), Frankfurt am Main",
+        "role": "IT Tester / IT Auditor",
+        "technologies": [
+          "SQL-Datenbanken",
+          "SAP",
+          "AD",
+          "OpenLDAP",
+          "ServiceNow",
+          "Jira",
+          "Confluence",
+          "Excel",
+          "Word",
+          "Linux",
+          "Solaris",
+          "Oracle",
+          "RDBMS",
+          "Windows Server",
+          "HANA",
+          "MS SQL"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Die Durchführung der internen SOx- und Key Control Tests in der 1st Line of Defence (1LoD) für das Identity und Access Management ist hier meine primäre Aufgabe.",
+          "Defence (1LoD) für das Identity und Access Management ist hier meine primäre",
+          "Die Key Controls sind die konzernweit verbindlich umzusetzenden Security-Controls mit denen die Compliance gemessen wird.",
+          "Die Key Controls umfassen Bereiche wie Operational Resilience, Platform Security, Cyber Resilience, Identity and Access Management, Security Monitoring mit Compliance Monitoring, Foundation",
+          "Operational Resilience, Platform Security, Cyber Resilience, Identity and",
+          "Access Management, Security Monitoring mit Compliance Monitoring, Foundation"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt am Main"
+      },
+      {
+        "period": "07/2018 - 06/2020",
+        "title": "Vorbereitung und Durchführung von internen Key Control Tests, München",
+        "role": "SOx-Tester, IT Auditor, Security Consultant",
+        "technologies": [
+          "Oracle",
+          "Tomcat",
+          "Apache",
+          "Jenkins",
+          "Puppet",
+          "MS Office",
+          "Skype",
+          "CISCO Network",
+          "SOx",
+          "ITIL",
+          "COBIT",
+          "NIST CSF",
+          "Linux",
+          "Windows",
+          "MS SQL"
+        ],
+        "activities": [
+          "(mit SOx-Kontrollen)",
+          "Aufgaben:",
+          "Vorbereitung und Durchführung der internen Key Control Tests (mit SOx) in der 1st Line of Defence (1LoD). Die Key Controls sind eine Sammlung konzernweit verbindlich umzusetzender Security-Controls. Dabei teste ich eigenständig die vollständigen Key Controls. Zu diesen gehören insbesondere Operational",
+          "Resilience mit Availability, Platform Security mit Server und Endpoint",
+          "Testen der vollständigen Key Controls, einschließlich Operational Resilience, Platform Security mit Server und Endpoint Security, Cyber Resilience, Identity and Access Management, Security Monitoring mit Compliance Monitoring, Foundation Controls mit Configuration Management, Change Management für agiles und nicht-agile Vorgehensweisen",
+          "Change Management für agiles und nicht-agile Vorgehensweisen. Good Practices vorwiegend aus ITIL, COBIT und NIST CSF.",
+          "Selbstentwickelte Software und auch Standardsoftware wird von der IT des Unternehmens weiterentwickelt und betrieben.",
+          "Die hochverfügbare IT Infrastruktur ist redundant auf zwei Rechenzentren",
+          "Anwendung von Good Practices vorwiegend aus ITIL, COBIT und NIST CSF"
+        ],
+        "location": "München"
+      },
+      {
+        "period": "03/2017 - 06/2018",
+        "company": "Bank, Frankfurt/Eschborn",
+        "title": "Projekt- und Prozessmanagement zur Einführung einer Daten (Dateien) im Bereich Chief Information Security Office",
+        "technologies": [
+          "Komplexe",
+          "Windows Server",
+          "Linux",
+          "WebEx",
+          "Access",
+          "Vormetric",
+          "MS SQL TDE",
+          "Oracle TDE",
+          "OKV",
+          "COBIT",
+          "ITIL",
+          "RSA",
+          "CITRIX",
+          "MS Office",
+          "Word",
+          "PowerPoint",
+          "MS Excel"
+        ],
+        "activities": [
+          "(CISO) einer Bank.",
+          "Aufgaben:",
+          "Projekt- und Prozessmanagement in Architektur und globalem Roll-out einer Key Management Lösung (Vormetric) zur Verschlüsselung von Datenbanken.",
+          "Management Lösung (Vormetric) zur Verschlüsselung von Datenbanken.",
+          "Dateiverschlüsselung, MS SQL TDE, Oracle TDE, OKV. Requirement-Analysen und -Management für funktionale und nicht-funktionale Anforderungen auf Basis von zugelieferten Business Requirements für die Architektur und Konfiguration der Lösung und auch aller relevanten Governance- (COBIT), Servicemanagement- (ITIL) und Betriebsprozesse. Prüfung, Ergänzung und Neuerstellung von Guides zum Key",
+          "Management, zur Administration und weitere Dokumentationen für den operativen Betrieb, das Servicemanagement und für DR Tests. Abstimmung mit Stakeholdern im Programm und mit anderen Projekten. Komplexes, heterogenes und internationales",
+          "Umfeld mit mehreren externen IT Dienstleistern. Changemanagement in internationalen Umfeld. Dokumente ausschließlich in Englisch. Kommunikation im Projekt in Englisch und Deutsch."
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt/Eschborn"
+      },
+      {
+        "period": "09/2014 - 12/2016",
+        "title": "Business Requirement Analysen IT-Security & Cyber Security, Frankfurt",
+        "role": "Business Analyst IT Security",
+        "technologies": [
+          "Komplexe",
+          "SharePoint",
+          "MS SQL Server",
+          "Access",
+          "PowerPoint und",
+          "MS Excel inkl. Pivot",
+          "COBIT",
+          "MaRisk",
+          "UNIX",
+          "LINUX",
+          "Projektmanagement"
+        ],
+        "activities": [
+          "Business Requirement Analysen IT-Security & Cyber Security Services",
+          "Unternehmensgröße: > 1000",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Bereich Chief Information Security Office (CISO) einer Bank. Spezifikation und Erstellung von KPIs / KCIs und anderer Reports. Projektmanagementaufgaben in Implementierung und Betrieb eines Security Services. Sicherstellung der Compliance zu internen Policies und regulatorischen Anforderungen. Erstellung und Pflege der Projektdokumentationen und Präsentationen. Abstimmung mit Stakeholdern und anderen Projekten im übergeordneten Programm. Komplexes, heterogenes und internationales Umfeld mit mehreren externen IT Dienstleistern.",
+          "Changemanagement in internationalem Umfeld.",
+          "Dokumente ausschließlich in Englisch. Kommunikation im Projekt in Englisch und Deutsch.",
+          "Security, Frankfurt"
+        ]
+      },
+      {
+        "period": "01/2014 - 03/2014",
+        "company": "Transportation Systems",
+        "title": "IT Sicherheitsarchitektur für IT-Systeme, Berlin",
+        "technologies": [
+          "Windows Terminal Services",
+          "Betriebssystemen"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "IT Sicherheitsarchitektur für IT-Systeme, IT-Infrastrukturen und IT Prozesse in einer Umgebung mit Virtual Desktops Services und der Nutzung von Cloud",
+          "Services.",
+          "Anwendung von Rahmenwerken und Standards wie TOGAF, COBIT, ISO 27002, SANS 20,",
+          "CIS und anderen. U.a. Erstellung einer IT-Sicherheitskonzeption zur Nutzung von Cloud-Services wie Office365 und Google Cloud zur Unterstützung des Auswahlprozesses. Dokumente ausnahmslos in Englisch. Mündliche und schriftliche Kommuni-kation vorwiegend in Englisch.",
+          "Umgebung:",
+          "Komplexe, heterogene und internationale IT Umgebung. Virtual Desktops mit Webbrowsern und anderen Anwendungen, technische und organisatorische IT-Sicherheitsmaßnahmen für die IT-Infrastrukturen im BackOffice ===================================================== =========================="
+        ],
+        "role": "IT Sicherheitsarchitektur für IT-Systeme, Berlin"
+      },
+      {
+        "period": "01/2014 03/2014",
+        "title": "Industrie: Transportation Systems, Berlin",
+        "role": "Industrie: Transportation Systems, Berlin",
+        "activities": [
+          "Projekt: IT Sicherheitsarchitektur für IT-Systeme, IT-Infrastrukturen und IT",
+          "Prozesse in einer Umgebung mit Virtual Desktops Services und der Nutzung von Cloud Services.",
+          "Anwendung von Rahmenwerken und Standards wie TOGAF, COBIT, ISO 27002, SANS 20,",
+          "CIS und anderen. Requirement-Analyse für funktionale und nicht-funktionale",
+          "Anforderungen als Basis für IT Risikobewertungen. Durchführung vollständiger IT",
+          "Risikobewertungen mit Indentifikation von Risiken, Risikobewertung, Definition von IT Sicherheitsmaßnahmen und der Bewertung von Restrisiken. Authentisierung on-premise und federated.",
+          "Dokumente werden ausnahmslos in englischer Sprache erstellt. Die sprachliche und schriftliche Kommunikation findet nahezu ausnahmslos in englischer Sprache statt.",
+          "Environment: Komplexe, heterogene und internationale IT Umgebung."
+        ]
+      },
+      {
+        "period": "12/2013 - 12/2013",
+        "company": "Logistik und Kommunikation",
+        "title": "IT Risikomanagement für IT-Systeme, IT-Infrastrukturen und, Bonn",
+        "activities": [
+          "IT Risikomanagement für IT-Systeme, IT-Infrastrukturen und IT-Prozesse",
+          "Aufgaben:",
+          "IT Risikobewertungen auf Basis der Microsoft STRIDE Vorgehensweise.",
+          "Erstellung der Dokumente ausschließlich in Englisch.",
+          "Umgebung:",
+          "Komplexe, heterogene und internationale IT Umgebung. Fokus auf Microsoft Management."
+        ]
+      },
+      {
+        "period": "12/2013",
+        "title": "Industrie: Logistik und Kommunikation, Bonn",
+        "role": "Industrie: Logistik und Kommunikation, Bonn",
+        "activities": [
+          "Projekt: IT Risikomanagement für IT-Systeme, IT-Infrastrukturen und IT- Prozesse",
+          "Erstellung von IT Risikobewertungen auf Basis der Microsoft STRIDE",
+          "Vorgehensweise. Vollständige IT Risikobewertungen einschließlich",
+          "Indentifikation von Risiken, Risikobewertung, Definition von IT",
+          "Sicherheitsmaßnahmen und der Bewertung von Restrisiken.",
+          "Alle Dokumente wurden in englischer Sprache erstellt.",
+          "Umgebung: Komplexe, heterogene und internationale IT Umgebung. Fokus auf Microsoft BitLocker Verschlüsselung, Virtual Desktop, Schutz vor Schadsoftware und Software Management."
+        ]
+      },
+      {
+        "period": "03/2013 bis 11/2013 in Vollzeit",
+        "company": "Automobilbau",
+        "title": "Vollzeit IT-Sicherheitsarchitektur, IT-, Bremen und Stuttgart",
+        "activities": [
+          "Projekt: IT-Sicherheitsarchitektur, IT-Sicherheitsmanagement, Feinkonzeption und Steuerung der Umsetzung von IT-Sicherheitsmaßnahmen.",
+          "Aufgaben:",
+          "Tätigkeiten in Stichworten: Secure Configuration, Hardening, Vulnerability",
+          "Projektplanung, Entscheidungsvorlagen, Feinplanungen für IT- Sicherheitsmaßnahmen in Abstimmung auf die IT-Sicherheitsarchitektur und den IT-Betrieb in komplexen internationalen IT-Umgebungen, Steuerung der Umsetzung der IT-Sicherheitsmaßnahmen. Anwendung interner und internationaler Richtlinien, Standards und Frameworks wie ISO 2700x, IT-Grundschutz, ITIL, COBIT und auch die Empfehlungen der Hersteller sowie unabhängiger kompetenter Stellen für die Planung und Etablierung von technischen und organisatorischen IT-Sicherheitsmaßnahmen.",
+          "LINUX und Windows Server und Berechtigungs-management für administrative und technische Accounts (Privileged Ac-counts). Abstimmung auf die IT-Sicherheitsarchitektur und den IT-Betrieb in komplexen internationalen IT- Umgebungen.",
+          "Erstellung von Schulungs-unterlagen für Administratoren. Erhebung von Anforderungen und Abstim-mung von Sachständen innerhalb von Workshops.",
+          "Anwendung interner und internationaler Richtlinien, Standards und Frame-works wie ISO 2700x, IT-Grundschutz, ITIL, COBIT und auch den Empfeh-lungen der Hersteller sowie unabhängiger kompetenter Stellen für die Planung und Etablierung technischer und organisatorischer IT-Sicherheitsmaßnahmen.",
+          "Präsentationen, Moderationen und Co-Moderationen in Workshops zur Anforderungsanalyse und zur Abstimmung von Ergebnissen in der Konzeption.",
+          "Dokumentationen, Präsentationen und Konzepte werden von mir fast ausschließlich in englischer Sprache erstellt. Die mündliche und schriftliche Kommunikation erfolgt teilweise in englischer Sprache.",
+          "Management, Management von Administrator-Accounts (privileged Accounts),",
+          "Maßnahmen zur Reduzierung der Risiken aus Credential Theft.",
+          "Umgebung: Komplexe heterogene und internationale IT-Infrastruktur mit verschiedenen UNIX- und LINUX-Produkten und Versionen. Windows 2008 R2 Server.",
+          "Weiterhin: Active Directory, Oracle Datenbanken, Kryptografie, Keymanagement,"
+        ],
+        "role": "Branche: Automobilbau, Deutschland"
+      },
+      {
+        "period": "03/2013 bis 11/2013 in Vollzeit",
+        "title": "Branche: Automobilbau, Deutschland",
+        "role": "Branche: Automobilbau, Deutschland",
+        "activities": [
+          "Projekt: IT-Sicherheitsarchitektur, IT-Sicherheitsmanagement, Feinkonzeption und Steuerung der Umsetzung von IT-Sicherheitsmaßnahmen.",
+          "Tätigkeiten in Stichworten: Secure Configuration, Hardening, Vulnerability",
+          "Management, Management von Administrator-Accounts (privileged Accounts),",
+          "Maßnahmen zur Reduzierung der Risiken aus Credential Theft.",
+          "Projektplanung, Entscheidungsvorlagen, Feinplanungen für IT- Sicherheitsmaßnahmen in Abstimmung auf die IT-Sicherheitsarchitektur und den IT-Betrieb in komplexen internationalen IT-Umgebungen, Steuerung der Umsetzung der IT-Sicherheitsmaßnahmen. Anwendung interner und internationaler Richtlinien, Standards und Frameworks wie ISO 2700x, IT-Grundschutz, ITIL, COBIT und auch die Empfehlungen der Hersteller sowie unabhängiger kompetenter Stellen für die Planung und Etablierung von technischen und organisatorischen IT-Sicherheitsmaßnahmen.",
+          "Dokumentationen, Präsentationen und Konzepte werden von mir fast ausschließlich in englischer Sprache erstellt. Die mündliche und schriftliche Kommunikation erfolgt teilweise in englischer Sprache.",
+          "Umgebung: Komplexe heterogene und internationale IT-Infrastruktur mit verschiedenen UNIX- und LINUX-Produkten und Versionen. Windows 2008 R2 Server.",
+          "Weiterhin: Active Directory, Oracle Datenbanken, Kryptografie, Keymanagement,"
+        ]
+      },
+      {
+        "period": "03/2008 - 02/2013",
+        "company": "Automobilbau",
+        "title": "IT-Sicherheitsarchitektur, Sicherheits- und, Wolfsburg",
+        "technologies": [
+          "Mobile Devices wie",
+          "iPad",
+          "Web",
+          "UNIX",
+          "LINUX",
+          "Windows",
+          "iPhone (iOS)",
+          "Android"
+        ],
+        "activities": [
+          "IT-Sicherheitsarchitektur, Sicherheits- und Risikobewertungen, IT-Compliance, IT-Architektur, Basisarchitektur",
+          "Aufgaben:",
+          "IT-Architektur, Basisarchitektur",
+          "Erstellung von Risikobewertungen für Mobile Devices (iOS und Android), Web 2.0, Internetportale und andere heterogene IT-Systeme in komplexen Umgebungen. Dabei wurde jeweils die Ermittlung geeigneter Maßnahmen zur Risikobehandlung für die angemessene Gewährleistung von Vertraulichkeit, Integrität, Nachvollziehbarkeit und IT-Systeme, 4 Netze und 5 Anwendungen.",
+          "Internetportale und andere heterogene IT-Systeme in komplexen Umgebungen. Dabei wurde jeweils die Ermittlung geeigneter Maßnahmen zur Risikobehandlung für die angemessene Gewährleistung von Vertraulichkeit, Integrität, Nachvollziehbarkeit und IT-Systeme, 4 Netze und 5 Anwendungen. Erstellung von Dokumentationen und Präsentationen zur Darstellung der IT-Systemarchitektur und der darauf wirkenden Risiken, geeigneter Maßnahmen und verbleibender Risiken zur Verwendung in der Entscheidungsfindung. IT-Sicherheitsarchitektur und IT-Architektur für internationale Projekte mit hochverfügbaren IT-Systemen einschließlich Applikationssicherheit.",
+          "IT-Architektur für High-Performance Storage, CAx-Workstations, Logistik Anwendung und Remote Access.",
+          "Anwendung und Remote Access. Berücksichtigung der hohen Sicherheitsanforderungen in verschiedenen Teilprojekten."
+        ],
+        "industry": "Automobilbau",
+        "location": "Wolfsburg"
+      },
+      {
+        "period": "03/2008 bis 9/2008 und ab 10/2009 bis 12/2012 in Vollzeit,",
+        "title": "IT-Sicherheitsarchitektur, Sicherheits- und Risikobewertungen, IT-Compliance, IT-Architektur, Basisarchitektur",
+        "role": "01/2011 bis 04/2011 in Teilzeit (50%)",
+        "technologies": [
+          "mobile Devices wie",
+          "iPad",
+          "UNIX",
+          "LINUX",
+          "Windows",
+          "iPhone",
+          "iOS",
+          "ISO 2700x",
+          "TOGAF",
+          "IT-Grundschutz",
+          "ITIL",
+          "COBIT"
+        ],
+        "activities": [
+          "Branche: Automobilbau, Deutschland",
+          "Projekt: IT-Sicherheitsarchitektur, Sicherheits- und Risikobewertungen, IT- Compliance, IT-Architektur, Basisarchitektur",
+          "Erstellung von Risikobewertungen für mobile Devices, Web 2.0, Internetportale und andere heterogene IT-Systeme in komplexen Umgebungen. Dabei wurde jeweils die Ermittlung geeigneter Maßnahmen zur Risikobehandlung für die angemessene Gewährleistung von Vertraulichkeit, Integrität, Nachvollziehbarkeit und Verfügbarkeit durchgeführt.",
+          "IT-Sicherheitsarchitektur mit Erstellung und Bewertung von Handlungsalternativen sowie der Prüfung von Architekturanträgen.",
+          "Sicherheitsarchitektur und IT-Architektur für internationale Projekte mit hochverfügbaren IT-Systemen einschließlich Applikationssicherheit.",
+          "IT-Architektur für High-Performance Storage, CAx-Workstations, Logistik Anwendung und Remote Access.",
+          "Anwendung und Remote Access.",
+          "Erstellung von Richtlinienvorschlägen für Migrationen, Standortwahl und Architektur im internationalen Umfeld mit dem Schwerpunkt USA, FRCP, eDiscovery.",
+          "Anwendung interner und internationaler Richtlinien, Standards und Frameworks wie ISO 2700x, TOGAF, IT-Grundschutz, ITIL und COBIT für Sicherheits- und Organisationskonzepte sowie Risikobewertungen geplanter und bestehender IT-Architekturen. Bezüglich Verfügbarkeit wurden geeignete und wirksame Notfallvorsorgemaßnahmen ermittelt und vorgegeben. Konzeption und Kommunikation teilweise in englischer Sprache."
+        ],
+        "industry": "Automobilbau",
+        "location": "Deutschland"
+      },
+      {
+        "period": "06/2006 - 04/2011",
+        "company": "Öffentlicher Dienst",
+        "title": "Vorbereitung und Begleitung von Audits analog Audits zur, Stuttgart",
+        "technologies": [
+          "komplexe Firewalls"
+        ],
+        "activities": [
+          "Zertifizierung gemäß ISO 27001 auf Basis IT-Grundschutz als Berater, Coach, interner IT-Sicherheitsrevisor",
+          "Aufgaben:",
+          "Vorbereitung und Begleitung von Audits analog Audits zur Zertifizierung gemäß",
+          "Mehrere IT-gestützte Fachverfahren wurden von mir auf jährliche Audits analog zu Audits gemäß ISO 27001 auf Basis IT-Grundschutz vorbereitet. Zusätzlich wurde von mir auch die interne IT-Sicherheitsrevision durchge-führt.",
+          "Dokumentation mit GSTOOL. Die Mitarbeiter wurden von mir auf die Audits vorbereitet und während der Audits begleitet.",
+          "Anwendung der IT-Grundschutz-Kataloge für alle Schichten. Modellierung des gesamten komplexen IT-Verbundes einschließlich aller für den Betrieb benötigter",
+          "IT-Systeme und Stellen einschließlich des Datenschutzes. Erstel-lung der Referenzdokumente zur Übergabe an die externen Auditoren. Er-gänzend dazu wurden alle im Audit zusätzlich erforderlichen Dokumente, wie Notfallhandbücher und IT-Sicherheitskonzepte gesammelt und bei Bedarf erstellt, vervollständigt und aktualisiert.",
+          "Anwendung der BSI-Standards „100-1 Managementsysteme für Informationssicherheit“, „100-2 IT-Grundschutz-Vorgehensweise“, „100- 3 Risikoanalyse auf der Basis von IT-Grundschutz“ und „100- 4 Notfallmanagement“.",
+          "Stuttgart"
+        ]
+      },
+      {
+        "period": "06/2006 – 02/2008, 10/2008 – 09/2009, 01/2011 – 04/2011",
+        "title": "01/2011 bis 04/2011 in Teilzeit (50%)",
+        "role": "Berater, Coach, interner IT-Sicherheitsrevisior",
+        "technologies": [
+          "Windows 2008 R2",
+          "GSTOOL",
+          "UNIX",
+          "Windows 2003"
+        ],
+        "activities": [
+          "Branche: Öffentlicher Dienst , Stuttgart",
+          "Projekt: Vorbereitung und Begleitung von Audits analog Audits zur Zertifizierung gemäß ISO 27001 auf Basis IT-Grundschutz.",
+          "Rolle im Projekt: Berater, Coach, interner IT-Sicherheitsrevisior",
+          "Mehrere IT-gestützte Fachverfahren wurden von mir auf jährliche Audits analog zu Audits gemäß ISO 27001 auf Basis IT-Grundschutz vorbereitet.",
+          "Audits analog zu Audits gemäß ISO 27001 auf Basis IT-Grundschutz vorbereitet.",
+          "Dabei wurden von mir auch die interne IT-Sicherheitsrevision durchgeführt. Die Dokumentation erfolgte im GSTOOL des BSI. Die Mitarbeiter der verschiedenen Fachbereiche wurden von mir auf die Audits vorbereitet und während der Audits begleitet.",
+          "Erstellung der Referenzdokumente zur Übergabe an die externen Auditoren.",
+          "Ergänzend dazu wurden alle im Audit zusätzlich erforderlichen Dokumente, wie Systemumgebung: Infrastruktur an zwei Standorten mit UNIX-, Windows 2003 und Windows 2008 R2"
+        ],
+        "industry": "Öffentlicher Dienst",
+        "location": "Stuttgart"
+      },
+      {
+        "period": "02/2005 - 12/2005",
+        "company": "Versicherung",
+        "title": "Vorbereitung auf ein Audit zum IT-Grundschutz-Zertifikat des, Oberursel",
+        "activities": [
+          "Aufgaben:",
+          "Vorbereitung auf ein Audit zum IT-Grundschutz-Zertifikat des BSI. Durchführung aller vorbereitenden Maßnahmen und Begleitung des Audits. Anwendung der IT-Grundschutz-Kataloge für alle Schichten. Durchführung der Basis-Sicherheitschecks. Erstellung und Zusammenstellung aller erfor-derlichen",
+          "Informationen, der Referenzdokumente (IT-Strukturanalyse,",
+          "Ich bereitete die Prüfung vor. Dazu stellte ich die erforderlichen Informationen, wie Referenzdokumente (IT-Strukturanalyse, Schutzbedarfsfeststellung, Modellierung des IT-Verbunds, Ergebnisse des Basis-Sicherheitschecks) und IT-Sicherheitskonzepte, zusammen und organisierte alle",
+          "Umgebung:",
+          "Komplexe heterogene IT-Infrastruktur für über 10000 Endanwender mit branchenüblichen Anwendungen und IT-Servicemanagement gemäß ITIL. IT-Grundschutzhandbuch des BSI ===================================================== ==========================",
+          "des, Oberursel",
+          "Für einen Fachbereich wurde das IT-Grundschutz-Zertifikat des BSI angestrebt.",
+          "Für die zukünftig angestrebte Zertifizierung gemäß ISO 27001 auf Basis IT-Grundschutz habe ich die zusätzlich zu erstellenden Referenzdokumente 'Ergänzende Sicherheitsanalyse' und 'Risikoanalyse' im ersten Entwurf erstellt.",
+          "Dem hohen Schutzbedarf entsprechend erstellte ich zusätzlich zu den zuvor genannten Tätigkeiten im Rahmen der kontinuierlichen Aufrechterhaltung und Verbesserung der IT-Sicherheitsmaßnahmen, spezielle IT-Sicherheitskonzepte für verschiedene Bereiche der IT. Grundlage waren vollständige Risikobetrachtungen auf deren Basis geeignete Maßnahmen geplant und implementiert sowie bereits umgesetzte Maßnahmen wirksam erhalten werden. Eingeflossen sind hier auch die aus dem Projekt KRITIS gewonnenen Ergebnisse und Vorschläge."
+        ],
+        "industry": "Versicherung",
+        "role": "Berater, Coach"
+      },
+      {
+        "period": "02/2005 - 12/2005",
+        "title": "Branche: Versicherung - Vorbereitung auf das Audit zum IT- Grundschutz- Grundschutz-",
+        "role": "Branche: Versicherung - Vorbereitung auf das Audit zum IT- Grundschutz- Grundschutz-",
+        "activities": [
+          "Zertifikat des BSI Rolle im Projekt: Berater, Coach",
+          "Tätigkeiten:",
+          "Für einen Fachbereich wurde das IT-Grundschutz-Zertifikat des BSI angestrebt.",
+          "Ich bereitete die Prüfung vor. Dazu stellte ich die erforderlichen Informationen, wie Referenzdokumente (IT-Strukturanalyse,",
+          "Schutzbedarfsfeststellung, Modellierung des IT-Verbunds, Ergebnisse des Basis-Sicherheitschecks) und IT-Sicherheitskonzepte, zusammen und organisierte alle",
+          "Für die zukünftig angestrebte Zertifizierung gemäß ISO 27001 auf Basis IT-Grundschutz habe ich die zusätzlich zu erstellenden Referenzdokumente",
+          "¿Ergänzende Sicherheitsanalyse¿ und \"Risikoanalyse\" im ersten Entwurf erstellt.",
+          "Dem hohen Schutzbedarf entsprechend erstellte ich zusätzlich zu den zuvor genannten Tätigkeiten im Rahmen der kontinuierlichen Aufrechterhaltung und Verbesserung der IT-Sicherheitsmaßnahmen, spezielle IT-Sicherheitskonzepte für verschiedene Bereiche der IT. Grundlage waren vollständige Risikobetrachtungen auf deren Basis geeignete Maßnahmen geplant und implementiert sowie bereits umgesetzte Maßnahmen wirksam erhalten werden. Eingeflossen sind hier auch die aus dem Projekt KRITIS gewonnenen Ergebnisse und Vorschläge."
+        ]
+      },
+      {
+        "period": "06/2003 - 07/2003",
+        "title": "Branche: Öffentlicher Dienst / Rechenzentrum - Serverkonfiguration,",
+        "role": "Branche: Öffentlicher Dienst / Rechenzentrum - Serverkonfiguration,",
+        "technologies": [
+          "Windows 2000 Advanced Server",
+          "Oracle 8i Datenbankserver",
+          "CMS RedDot 5",
+          "Ipsec",
+          "Internet Information Server (IIS) 5.0",
+          "FTP-Server"
+        ],
+        "activities": [
+          "Konzeption, IT-Sicherheit",
+          "Rolle im Projekt: Berater",
+          "Tätigkeiten:",
+          "Planung, Installation und Konfiguration der Serverbetriebssysteme und Planung und Einrichtung von IPsec-Verbindungen.",
+          "Sichere Konfiguration der Server nach den Empfehlungen des BSI (Bundesamt für Sicherheit in der Informationsverarbeitung). Erstellung der Dokumentation. Erstellung eines Migrationskonzepts zur Migration der bestehenden Internetpräsenz auf Basis von Windows NT 4.0 auf Windows 2000 und IIS 5.0.",
+          "Projektumgebung:",
+          "Internet Information Server (IIS) 5.0, FTP-Server, Installation der Server in Internet, DMZ und Intranet"
+        ],
+        "industry": "Öffentlicher Dienst / Rechenzentrum"
+      },
+      {
+        "period": "02/2002 - 03/2002",
+        "title": "Dienstleistungsrechenzentrum - Anwendungsmanagement",
+        "activities": [
+          "Rolle im Projekt:",
+          "Applicationsservice Manager",
+          "Tätigkeiten:",
+          "Betreuung mehrerer B2B-Marktplätze: Hard- und softwaretechnische Administration",
+          "Projektumgebung:",
+          "B2B-Marktplatzsoftware von CommerceOne",
+          "Betriebssyteme von Microsoft (NT / 2000)",
+          "LDAP-Directory-Server (Novell)"
+        ],
+        "role": "Applicationsservice Manager",
+        "technologies": [
+          "CommerceOne",
+          "Microsoft NT",
+          "Microsoft 2000",
+          "Novell LDAP-Directory-Server"
+        ]
+      },
+      {
+        "period": "10/2000 - 09/2001",
+        "company": "Krankenkasse",
+        "title": "Netzmanagement WAN, Hamburg",
+        "technologies": [
+          "Token-Ring LAN",
+          "Cisco Router",
+          "Netzmanagement",
+          "TCP/IP",
+          "DHCP",
+          "DNS",
+          "NT/2000-Server"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Netzmanagement WAN,",
+          "Tätigkeiten:",
+          "Konzeptionen, Auftragsvergaben, Umsetzungssteuerung, Qualitätskontrollen,",
+          "Störungsmanagement, IT-Sicherheitsmanagement. Konzeptionelle und beratende",
+          "Mitarbeit bei der Planung zur unternehmensweiten Einführung von Windows 2000",
+          "Clients und Servern",
+          "Umgebung:"
+        ]
+      },
+      {
+        "period": "10/2000 - 09/2001",
+        "title": "Branche: Krankenkasse - Netzwerkmanagement WAN",
+        "role": "Branche: Krankenkasse - Netzwerkmanagement WAN",
+        "technologies": [
+          "Token-Ring LAN",
+          "Cisco Router",
+          "Netzwerkmanagement-Software",
+          "TCP/IP",
+          "DHCP",
+          "DNS",
+          "Windows NT/2000-Server",
+          "WAN",
+          "Frame-Relay",
+          "Novell",
+          "Windows 95",
+          "Windows 2000",
+          "SNA"
+        ],
+        "activities": [
+          "Rolle im Projekt: Optimierung und Qualitätssicherung des unternehmensweiten Netzwerkes",
+          "Tätigkeiten:",
+          "Konzeptionen, Auftragsvergaben, Umsetzungsüberwachung und -steuerung",
+          "Sicherstellung optimaler Verfügbarkeit durch Qualitätskontrollen,",
+          "Störungsmanagement, IT-Sicherheitsmanagement (Prüfungen, Koordination) konzeptionelle und beratende Mitarbeit bei der Planung zur unternehmensweiten",
+          "Einführung von Windows 2000 Professional und Windows 2000 Server",
+          "Projektumgebung:",
+          "Clients, SNA"
+        ],
+        "industry": "Krankenkasse"
+      },
+      {
+        "period": "02/2000 - 02/2008",
+        "company": "Maschinenbau",
+        "title": "Netz- und Servermanagement, IT-Sicherheit, Bremen",
+        "technologies": [
+          "MS Exchange Server",
+          "SQL Server",
+          "Windows 2000",
+          "Professional",
+          "Windows 98",
+          "NAI Total Virus Defense",
+          "Legato Networker",
+          "CISCO",
+          "Router",
+          "Internet",
+          "Watchguard Firewall",
+          "TCP/IP",
+          "DHCP",
+          "DNS",
+          "WINS",
+          "Netz: Ethernet"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Netz- und Servermanagement, IT-Sicherheit.",
+          "Rolle im Projekt:",
+          "Projektmanager, Coach für Systemadministratoren.",
+          "Tätigkeiten:",
+          "Coaching der internen IT-Mitarbeiter; Konzepterstellung; Planung von Erweiterungen im Bereich Netze und Server sowie Projektma-nagement bei der Realisierung;",
+          "Sicherheitsüberprüfung von Servern und Netzen;",
+          "Sicherheitsüberprüfungen u.a. mit Microsoft MBSA und Portscan-nern",
+          "Umgebung: mit 3Com- und Cisco-Komponenten."
+        ]
+      },
+      {
+        "period": "02/2000 - 06/2000",
+        "company": "Unternehmensberatung",
+        "title": "Datenschutz- und IT-Sicherheitskonzept, Bremen",
+        "activities": [
+          "Aufgaben:",
+          "Datenschutz- und IT-Sicherheitskonzept für eine komplexe Anwendung mit sehr hohen Sicherheitsanforderungen als Plattform zur Abwicklung von Vorgängen zwischen öffentlicher Verwaltung und Bürgern. Vollständiges Konzept mit den Teilen Sicherheitsleitlinie, Datenschutzkonzept, IT-Sicherheitskonzept,",
+          "Betriebskonzept, Schulungskonzept sowie mehrere Anlagen mit über 600 individuellen Einzelmaßnahmen erstellt.",
+          "Umgebung:",
+          "Signaturgesetz, Internet-Recht, nationale Datenschutz-Gesetzgebung, IT-Grundschutzkataloge des BSI ===================================================== =========================="
+        ],
+        "industry": "Unternehmensberatung",
+        "location": "Bremen",
+        "technologies": [
+          "Signaturgesetz",
+          "Internet-Recht",
+          "nationale Datenschutz-Gesetzgebung",
+          "IT-Grundschutzkataloge des BSI"
+        ]
+      },
+      {
+        "period": "02/2000 - 05/2006",
+        "title": "Branche: Maschinenbau - Netzwerk- und Servermanagement, IT-Sicherheit",
+        "role": "Branche: Maschinenbau - Netzwerk- und Servermanagement, IT- Sicherheit",
+        "technologies": [
+          "MS Exchange Server",
+          "SQL Server",
+          "Windows 2000 Server",
+          "Windows 2000 Professional",
+          "Windows 98",
+          "NAI Total Virus Defense",
+          "Legato Networker",
+          "CISCO Router",
+          "Router",
+          "Internet",
+          "Watchguard Firewall",
+          "TCP/IP",
+          "DHCP",
+          "DNS",
+          "WINS",
+          "Ethernet",
+          "3Com",
+          "Windows NT 4.0",
+          "Microsoft MBSA",
+          "Portscanner"
+        ],
+        "activities": [
+          "Rolle im Projekt:",
+          "Projektmanager, Coach für Systemadministratoren (Einsatz wechselnd 10-30%)",
+          "Tätigkeiten:",
+          "Coaching der internen IT-Mitarbeiter; Konzepterstellung; Planung von Erweiterungen und Optimierungen im Bereich Netzwerke und Server sowie Projektmanagement bei der Realisisierung; Wartung mit laufender",
+          "Wartung mit laufender Sicherheitsüberprüfung von DV-Anlagen und Netzwerk",
+          "Sicherheitsüberprüfungen u.a. mit Microsoft MBSA und Portscannern",
+          "Projektumgebung:",
+          "Netzwerk: Ethernet mit 3Com- und Cisco-Komponenten"
+        ],
+        "industry": "Maschinenbau"
+      },
+      {
+        "period": "01/1999 - 01/2000",
+        "title": "Industrie - Projektmanagement Jahr 2000",
+        "activities": [
+          "Rolle im Projekt:",
+          "Projektmanager, Auditor",
+          "Tätigkeiten:",
+          "Projektmanagement im Jahr 2000 - Projekt, Qualitätsmanagement, Prüfungen, Zertifizierungen, Koordination",
+          "Zertifizierungen, Koordination",
+          "Erstellung des IT-Notfallkonzepts für das gesamte Unternehmen",
+          "Projektumgebung: alle IT-gestützten Unternehmensprozesse inkl. Produktion, Verwaltung und IT"
+        ],
+        "industry": "Industrie",
+        "role": "Projektmanager, Auditor"
+      },
+      {
+        "period": "09/1985 - 10/1997",
+        "company": "Industrie / Schiffbau",
+        "title": "Spezialist, Projektmanager (Festanstellung), Bremen",
+        "technologies": [
+          "Oracle",
+          "MS SharePoint",
+          "Office",
+          "Skype",
+          "CISCO Network",
+          "Palo Alto Firewalls",
+          "Jira",
+          "Confluence und",
+          "Umgebung: Komplexe",
+          "Windows Server",
+          "div. Linux/Unix",
+          "WebEx",
+          "Access",
+          "Excel inkl. Pivot",
+          "Netapp",
+          "CITRIX"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Spezialist, Projektmanager (Festanstellung)",
+          "Erstellung und Umsetzung von Netzkonzepten in heterogener Umgebung.",
+          "Administration von Netzen unterschiedlichster Größenordnungen an mehre-ren Sicherheit und Datenschutz, Verfügbarkeit, Strategieentwicklung,",
+          "Projektmanagement, Betreuung und Weiterentwicklung technischer",
+          "Anwendungsprogramme, Systemintegration, Anwenderschulungen.",
+          "Umgebung:",
+          "Administration von Netzwerken unterschiedlichster Größenordnungen (3 bis 700 Anwender) an mehreren Standorten",
+          "Planung, Steuerung und Durchführung von Maßnahmen im Bereich IT-Sicherheit und Datenschutz"
+        ],
+        "industry": "Industrie / Schiffbau",
+        "role": "Spezialist, Projektmanager"
+      },
+      {
+        "period": "09/1985 - 10/1997",
+        "title": "Branche: Industrie / Schiffbau - Spezialist, Projektmanager",
+        "role": "Branche: Industrie / Schiffbau - Spezialist, Projektmanager",
+        "activities": [
+          "(Festanstellung)",
+          "Tätigkeiten:",
+          "Erstellung und Umsetzung von Netzwerkkonzepten in heterogener Umgebung",
+          "Administration von Netzwerken unterschiedlichster Größenordnungen (3 bis 700",
+          "Anwender) an mehreren Standorten Planung, Steuerung und Durchführung von Maßnahmen im Bereich IT-Sicherheit und Datenschutz, Strategieentwicklung,",
+          "Projektmanagement",
+          "Betreuung und Weiterentwicklung technischer Anwendungsprogramme"
+        ]
+      }
+    ],
+    "industries": [
+      "Automobilbau (IT-Sicherheitsarchitektur",
+      "Sicherheits- und Risikobewertungen",
+      "IT-Compliance",
+      "IT-Architektur)",
+      "Secure Configuration",
+      "Privilege Management",
+      "Öffentlicher Dienst (IT-Security",
+      "Standards und IT-Grundschutz-Kataloge des BSI",
+      "ISO 27001",
+      "GSTOOL",
+      "Audit)",
+      "Lebensversicherung (IT-Security",
+      "Standards und IT-Grundschutzhandbuch des BSI",
+      "Maschinenbau (Anwendungs-",
+      "System- und Netzwerkadministration",
+      "IT-Security",
+      "Projektmgmt.)",
+      "Schiffbau (Anwendungs-",
+      "IT-",
+      "Lebensmittelverarbeitung (Jahr2000-Audit",
+      "Notfallkonzept",
+      "Migration",
+      "Projektmanagement)",
+      "Krankenkassen (IT-Security",
+      "Qualitätssicherung",
+      "Netzwerkmanagement",
+      "Unternehmensberatungen (Datenschutz",
+      "IT-Grundschutzhandbuch des BSI",
+      "Qualitätssicherung)",
+      "Dienstleistungsrechenzentren (Dokumentation",
+      "Wohnungswirtschaft (Netzwerkmanagement",
+      "Coaching von Administratoren)",
+      "Medizintechnik (Netzwerkmanagement",
+      "Automobilbau",
+      "Öffentlicher Dienst",
+      "Lebensversicherung",
+      "Maschinenbau",
+      "Schiffbau",
+      "Lebensmittelverarbeitung",
+      "Krankenkassen",
+      "Unternehmensberatungen",
+      "Dienstleistungsrechenzentren",
+      "Wohnungswirtschaft",
+      "Medizintechnik"
+    ],
+    "focus_areas": [
+      "Cyber Security Management",
+      "Informationssicherheit",
+      "IT-Governance",
+      "IT-Audit - ISO 27001",
+      "COBIT",
+      "CISA",
+      "CISM",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Engineering / IT-nahe Ingenieurdienstleistungen Mögliche Einsatzbereiche sind beispielsweise:",
+      "Erstellung, Aktualisierung und Umsetzung von Sicherheitskonzepten und Risikobewertungen unter Einbeziehung des Datenschutzes und anderer IT-Compliance Anforderungen",
+      "Einführung und Verbesserung von Security Services wie z.B.",
+      "Verschlüsselungslösungen für Dateien und Datenbanken, Zertifikatsmanagement, Härtung von Endpoints, Schwachstellenmanagement",
+      "Planung, Einführung oder Verbesserung bedarfsgerechten IT-Sicherheitsmanagements mit Schnittstellen zu allen relevanten Governance-, Architektur-, Service- und Betriebsprozessen",
+      "IT-Sicherheitsarchitektur und IT-Architektur auf Basis von Architekturframeworks wie TOGAF und SABSA mit Planung und Einführung von IT-Security Services wie Firewalls, IDS, Virenschutz, Authentisierung, Keymanagement, Identifikation, VPN, Monitoring, Logging u.a.m. mit Integration in vorhandene oder in Planung befindlicher IT-Infrastrukturen",
+      "Vorbereitung und Begleitung von Audits zur Zertifizierung gemäß ISO 27001 oder gemäß ISO 27001 auf Basis von IT-Grundschutz mit Durchführung der internen IT-Sicherheitsrevision. Interne Audits / Tests in der 1st LoD auch für SOx. Alles mit Erstellung oder Aktualisierung aller erforderlichen Dokumentationen",
+      "Planung, Einführung und Betrieb von Business Continuity Management (BCM), Availability Management, Continutity Management und Security Management gemäß ITIL",
+      "Durchführung von IT-Sicherheitsaudits mit Schwerpunkten wie Cyber Security, Prozessqualität, Verfügbarkeit, Restrisikobeurteilung",
+      "Durchführung von IT-Audits auf Basis von Cobit 5 / Cobit 2019 oder auch die Prüfung von Vollständigkeit und Eignung funktionaler und nicht-Hamburg, Bremen, Oldenburg oder Osnabrück wobei ich keine Branche bevorzuge.",
+      "Sehr gerne Projekt-, Team- oder Bereichsverantwortung mit Schwerpunkten in den Bereichen IT-Security, IT-Risikomanagement oder IT-Governance.",
+      "Abschluss: Dipl.-Ing.(FH)",
+      "Schwerpunkt: technische Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Dokumentation / DTP",
+      "Engineering / IT-nahe Ingenieurdienstleistungen",
+      "IT-Sicherheitsarchitektur",
+      "IT-Architektur",
+      "Business Continuity Management (BCM)",
+      "Availability Management",
+      "Continuity Management",
+      "Security Management gemäß ITIL",
+      "IT-Risikomanagement"
+    ],
+    "focus_experience": [
+      {
+        "name": "ArcSight",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Berechtigungsmanagement",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Business Requirement Analysen",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Change Management",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Continuous Integration",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Cyber Security",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Excel",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Identity & Access Management",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "IT Audit",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "COBIT",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "MaRisk",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "UNIX",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "LINUX",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Windows Server",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "MA Sharepoint",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "MS Office",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "MS SQL TDE",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "OKV",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "OpenLDAP",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Operational Resilience",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Oracle TDE",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Platform Security",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "SAP BA",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "SAP HANA",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "SAP ZBV",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Service Management",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "ServiceNow",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Thales HSM",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Vormetric DSM",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Vulnerability Management",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Word",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "IT-Qualifikationen",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "IT-Compliance:",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "IT-Compliance Manager - Frankfurt School of Banking and Finance / ISACA",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "IT-Sicherheitsmanagement:",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Certified Information Security Manager - CISM",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "IT-Security Audits- und Assurance:",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Certified Infor-mation Systems Auditor - CISA",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "IT-Governance:",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "COBIT mit Zertifizierung zum COBIT Practitioner",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "IT-Security:",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "IT-Grundschutz des BSI mit Datenschutz",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Cyber Security Fundamentals ISACA",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "IT-",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Risikomanagement",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "ISO/IEC 27001/2",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "ISO/IEC 22301",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Notfallmanagement",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Applikationssicherheit",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Schwachstel-lenmanagement",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "IT-Sicherheitsarchitektur",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "IT-Servicemanagement:",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Changemanagement in inter-nationalen Unternehmen",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "ITIL Foundation",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Zertifikat",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Projektmanagement:",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Requirements Management und PMO in internationalen Unternehmen",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "PM-",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Schulung mit",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Abschluss als Zertifizierter Projektorganisator - IPMI Bremen",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "IT Sicherheitsmanagement",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "IT Compliance",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "IT Grundschutz",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "* IT Sicherheitsmanagement und Risikomanagement gemäß ISO/IEC 27001",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "27002",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "27005 und IT Grundschutz",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "* IT Risikoanalysen",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "IT Risikobewertungen",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "IT Sicherheitsrichtlinien und Policies",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "* IT Sicherheitskonzepte",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Notfallhandbücher/BCM",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Datenschutzkonzepte",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Integration des IT-Sicherheitsmanagements mit IT Servicemanagement und IT",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Architektur",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "* Planung",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Einführung und Betrieb von Sicherheitslösungen inkl",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Dokumentation",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Betriebsanweisungen und Changemanagement",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "* Nationale und internationale IT Compliance einschließlich Datenschutz",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "EU-GDPR/DS-GVO und eDiscovery",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "und Bausteine",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Standards 100-1 bis 100-4)",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Technische Richtlinien",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Datenschutz",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "Verinice",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "* SANS 20",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "NIST SP 800-53",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "NIST SP 800-57",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "* Cyber Security / Schwachstellenmangement u.a. mit Qualys",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "Nessus",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "StealthAUDIT",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "McAfee",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Privileged Accounts; CyberArk",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "* Verschlüsselung für Data in Use",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Data in Motion und Data at Rest inkl",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "ISO27001/2",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Requirements Management",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "SOx",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Zertifikatsmanagement (X.509/SSL/SSH)",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "Agile",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "IAM Prozesse",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "JIRA Agile",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Tenable",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Waterfall",
+        "category": "product_standard",
+        "sort_order": 110
+      }
+    ],
+    "education": [
+      {
+        "degree": "Dipl.-Ing.(FH)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Zertifizierter Projektorganisator",
+        "institution": "IPMI Bremen",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LU6.2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RFC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "WLAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "WEP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "WPA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PKI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Zertifikate",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Kryptografie",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSL/TLS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "mutual Authentication",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NTLM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Kerberos",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Vermeidung unsicherer Protokolle wie: SNMPv1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMPv2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Telnet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TFTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HTTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LPR/LPD",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "rlogin",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "rsh",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VNC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ICMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FINGER",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "BOOTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CDP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSH1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSH2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IT Architektur",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IT Security Architecture",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TOGAF und SABSA Architektur Frameworks",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:30:33.641589",
+    "source_file": "",
+    "steps_completed": [
+      "ZERTIFIKATE",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'IT Sicherheitsarchitektur für IT-Systeme, Berlin'",
+        "ACT: 8→7 bei '06/2003 - 07/2003'",
+        "EDV_SEIT: None→1985"
+      ],
+      "coverage_percent": 90.90047393364928,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,807 @@
+{
+  "personal": {
+    "aid": "AID-ok_4.2.3.0",
+    "first_name": "Oleg",
+    "last_name": "Kritchevski",
+    "birth_year": 1967,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "01.04.20 zu 100%, Vor-Ort-Einsatz 90% möglich",
+    "edv_experience_since": 1991,
+    "headline": "Projektmanagement PRINCE2 ITIL LAN WAN Cisco",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 58,
+    "certifications": 45,
+    "education": 0,
+    "experience": 14,
+    "industries": 1,
+    "focus_areas": 16,
+    "focus_experience": 27,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Russisch Muttersprache",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [
+    {
+      "name": "ITIL v3 2011 Expert in IT Service Management",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Foundation",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Service Strategy",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Service Design",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Service Transition",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Service Operation",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Continual Service Improvement",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Managing Across the Lifecycle",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "PRINCE2",
+      "date_obtained": "",
+      "issuer": "AXELOS"
+    },
+    {
+      "name": "Practitioner",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Cisco:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CCNA",
+      "date_obtained": "",
+      "issuer": "Cisco"
+    },
+    {
+      "name": "Microsoft:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MCSE NT4.0 Certification",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "APC:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Authorised APC Reliability Provider",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ICND Part 1 & 2",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ICRC",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ACRC",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Lucent Technoilogies:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Brick Firewall",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "AnyMedia Access System",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MAX TNT",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Stinger",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "PSAX Familie",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "AP1000",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "PipeLine und CellPipe Familie",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Windows2000",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Microsoft Exchange 5.5",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Microsoft Windows 2000",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Windows 2000 Active Directory",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "AMP",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Installing and Connectorizing LAN Cabling Systems ( IS 11801 & EN 50173 )",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Certifying and Troubleshooting LAN Cabling Systems ( IS 11801 & EN 50173",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Red Hat",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Linux 9 RHCT",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Weitere Schulungen:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Project Management",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Consulting Skills I & II",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MPLS",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "IPSec",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Introduction to VPN",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Introduction to Security Basics/Internetworking Security",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ATM Basics",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "LAN Verbund ( Internetworking Technology )",
+      "date_obtained": "",
+      "issuer": ""
+    }
+  ],
+  "industries": [
+    "Alle"
+  ],
+  "focus_areas": [
+    "Projektmanagement PRINCE2 ITIL LAN WAN Cisco Projektmanagement / -leitung / Organisation / Koordination 75.000 Euro p. a.",
+    "02 - 04/2015",
+    "Weiterbildung bei New Horinzons zum ITIL v3 Expert und PRINCE2 Practitioner 02 - 11/1996 Fortbildung im Training Center Siemens-Nixdorf, Frankfurt zum Applikations-Entwickler UNIX/Netze/Datenbanken 19",
+    "Hauptfächer des Studiums: Verstärkeranlagen, Übertragungsleitung, Mehrkanalübertragungssysteme, Mehrkanalsysteme des Fernmeldewesens.",
+    "Abschluss:",
+    "Elektrofernmeldewesen Ingenieur, vom Hess. Ministerium für Wissenschaft und Kunst anerkannt als Diplom- Ingenieur (FH/GUS). Vergleichbar mit der Bezeichnung Ingenieur für Nachrichtentechnik.",
+    "09 - 11/1995",
+    "Praktikant, Siemens AG, Frankfurt.",
+    "Abteilung Anlagentechnik, Technische Dienste, Öffentliche Kommunikationsnetze.",
+    "08 - 09/1995",
+    "Praktikant, Deutsche Telekom AG, Frankfurt.",
+    "Abteilungen Planung, Technischer Betrieb im Bereich Vermittlungstechnik.",
+    "07 - 08/1990",
+    "Techniker, Betriebsvereinigung \" Sojustechenergo \", Energieministerium, Moskau.",
+    "Abteilung Nachrichtentechnik.",
+    "Installation von Geräten und Schaltanlagen, Einmessung und Fehlerbeseitigung in Kommunikationskanälen."
+  ],
+  "focus_experience": [
+    {
+      "name": "Protokolle:",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP",
+      "category": "product_standard"
+    },
+    {
+      "name": "OSPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "EIGRP",
+      "category": "product_standard"
+    },
+    {
+      "name": "RIP",
+      "category": "product_standard"
+    },
+    {
+      "name": "RIPv2",
+      "category": "product_standard"
+    },
+    {
+      "name": "BGP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Topologien:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ethernet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Token Ring",
+      "category": "product_standard"
+    },
+    {
+      "name": "FDDI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technologien:",
+      "category": "product_standard"
+    },
+    {
+      "name": "DSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "ATM",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISDN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Frame Relay",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDH",
+      "category": "product_standard"
+    },
+    {
+      "name": "DWDM",
+      "category": "product_standard"
+    },
+    {
+      "name": "10/100/1000BaseX",
+      "category": "product_standard"
+    },
+    {
+      "name": "MPLS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hardware Plattformen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco and Lucent Router and Switch",
+      "category": "product_standard"
+    },
+    {
+      "name": "Access Komponenten",
+      "category": "product_standard"
+    },
+    {
+      "name": "PCs",
+      "category": "product_standard"
+    },
+    {
+      "name": "Laptops",
+      "category": "product_standard"
+    },
+    {
+      "name": "APC",
+      "category": "product_standard"
+    },
+    {
+      "name": "InfraStrukXure",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2018 - 06/2019",
+      "company": "Unitymedia",
+      "role": "Projektkoordinator",
+      "title": "Technische Projektkoordination - Austausch der Core-Netz, Kerpen, Home Office",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2017 - 07/2018",
+      "company": "ZTE / Netbuilt Rollout Services GmbH",
+      "role": "Projektmanager",
+      "title": "Planung des Infrastruktur-Umbaus, Neu Isenburg",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "11/2016 - 10/2017",
+      "company": "Xantaro Deutschland GmbH",
+      "role": "Projektmanager",
+      "title": "Roll-Out der Kunden-Netzwerken, Frankfurt",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "10/2016 - 10/2016",
+      "company": "Computacenter AG & Co. oHG",
+      "role": "IT-Projektmanager",
+      "title": "Roll-Out Projekt",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "11/2015 - 08/2016",
+      "company": "Huawei Deutschland GmbH",
+      "role": "Projektmanager",
+      "title": "Roll-Out Planung und Implementierung",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "05/2015 - 10/2015",
+      "company": "Vodafone Group Services GmbH",
+      "role": "DC Operations Engineer",
+      "title": "Netzwerk und Infrastruktur Support",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "10/2008 - 01/2015",
+      "company": "NTT Europe Ltd. Germany",
+      "role": "Senior Network Engineer / Project Manager",
+      "title": "Abteilung Network Delivery and Provisioning",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2004 - 09/2008",
+      "company": "BT Germany",
+      "role": "Technical Support Consultant",
+      "title": "1 st und 2 nd Level Support",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2003 - 10/2004",
+      "company": "Telekommunikationsunternehmen",
+      "role": "Technical Support Consultant",
+      "title": "Selbständige Tätigkeit in Bereich EDV-Beratung",
+      "activities": 4,
+      "technologies": 2
+    },
+    {
+      "period": "05/1999 - 04/2003",
+      "company": "INS / Lucent Technologies GmbH",
+      "role": "Network Systems Engineer/Training Coordinator",
+      "title": "Professional Services",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "09/1998 - 04/1999",
+      "company": "Controlware GmbH",
+      "role": "System-Ingenieur",
+      "title": "System Support, Geschäftsstelle Mitte, Dietzenbach",
+      "activities": 7,
+      "technologies": 2
+    },
+    {
+      "period": "05/1997 - 08/1998",
+      "company": "AMP Deutschland GmbH",
+      "role": "Applikation Ingenieur",
+      "title": "PCLSS, Langen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/1992 - 04/1993",
+      "company": "Fa. \" Technowols \", Telekommunikationsministerium",
+      "role": "Ingenieur",
+      "title": "Planung von Glasfaserkommunikationsnetzen, Moskau",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "09/1991 - 04/1992",
+      "company": "Fa. \" ORGRES \"\", Energieministerium",
+      "role": "Ingenieur",
+      "title": "Nachrichtentechnik, Moskau",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Cisco IOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Windows9x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Red Hat Linux 9",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows MCSE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE PocketPC",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows NT/2000/XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Access",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HPOV",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "NAM (Navis AnyMedia)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Netcool",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Remedy",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Clarify Applikationen: MS Word",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Excel",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Powerpoint",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Visio",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Test equipment",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Yokogawa Ethernet tester",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "OTDR",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Fluke LinkRunner",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "ShinewayTech Fiber Optic",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Red Hat",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Linux)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Switch",
+      "category_name": "Hardware",
+      "weight": 0.55
+    },
+    {
+      "name": "Netzwerkkomponenten(Router",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Access Technik)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Installation –und",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "USA Today - Installation",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Router der",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Fehlerbeseitigung in",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "auf Cisco Router 2xxx-",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ATM",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Bus",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Fax",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FDDI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "HDLC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "HDSL",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISO/OSI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN Manager",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBeui",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBios",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Proprietäre Protokolle",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RFC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Router",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNA",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNMP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Token Ring",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Netzwerk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

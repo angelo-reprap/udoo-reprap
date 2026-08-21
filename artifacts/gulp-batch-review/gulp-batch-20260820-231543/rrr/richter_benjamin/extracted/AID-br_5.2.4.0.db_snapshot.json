@@ -1,0 +1,521 @@
+{
+  "personal": {
+    "aid": "AID-br_5.2.4.0",
+    "first_name": "Benjamin",
+    "last_name": "Richter",
+    "birth_year": 1985,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+    "availability": "04.01.21 zu 50%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2007,
+    "headline": "Berater und Trainer DSGVO & ISMS. Datenschutz- und IT-Security Auditor (TüV)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 17,
+    "certifications": 0,
+    "education": 0,
+    "experience": 5,
+    "industries": 50,
+    "focus_areas": 6,
+    "focus_experience": 71,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Fließend in Wort und Schrift",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "eCommerce",
+    "Compliance Unternehmen",
+    "Online Agenturen",
+    "Werbe Agenturen",
+    "Tools",
+    "Moderationsfähigkeit (fortgeschritten)",
+    "Kreativitätstechniken (fortgeschritten)",
+    "Lean UX (gut)",
+    "Scrum (gut)",
+    "Softwarekenntnisse:",
+    "Microsoft Windows 10 (exzellent)",
+    "Microsoft Office",
+    "Visio",
+    "Project 2016 (fortgeschritten)",
+    "MindJet Mindmanager 16 (fortgeschritten)",
+    "BCS Projektron (fortgeschritten)",
+    "Beruflicher Werdegang:",
+    "2018 - heute:",
+    "Kunde: TüV Rheinland",
+    "ISO27001",
+    "Microsoft Office 365",
+    "Microsoft Powerpoint",
+    "Microsoft Visio",
+    "MindManager",
+    "Projektron",
+    "Management-Aufgabenbereiche",
+    "agiles Projektmanagement",
+    "BDSG",
+    "BSI Grundschutz",
+    "DSGVO",
+    "Trainings",
+    "Managementerfahrung in Unternehmen:",
+    "ISMS",
+    "ITIL V3",
+    "Personalverantwortung:",
+    "Scrum Master",
+    "Schwerpunkte",
+    "Unternehmensführung",
+    "Betriebswirtschaft",
+    "Wissensmanagement",
+    "09/2009 - 05/2011:",
+    "Projektmanagement",
+    "Teamführung & Ausbildereignung nach AEVO",
+    "Kommunikationsmodelle",
+    "08/2004 - 07/2007:",
+    "Netzwerktechnik",
+    "Software Engineering",
+    "Business Englisch",
+    "Weiterbildungen:",
+    "12/2020:"
+  ],
+  "focus_areas": [
+    "Berater und Trainer DSGVO & ISMS. Datenschutz- und IT-Security Auditor (TüV)",
+    "Berater und Trainer für Datenschutz & ISMS",
+    "Auditor für Datenschutz und Datensicherheit (TüV geprüft)",
+    "Projektleiter für die Einführung von Managementsystemen",
+    "IT Compliance Experte im Bereich Rheinland, Westfalen und Frankfurt Digitale Transformation Abschluss: Master of Business Administration 08/2014 - 02/2016: Institution: Management Qualifizierung e.K.",
+    "Abschluss: Technischer Betriebswirt (Master-Level)"
+  ],
+  "focus_experience": [
+    {
+      "name": "ISO27001",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office 365",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Powerpoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "MindManager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektron",
+      "category": "product_standard"
+    },
+    {
+      "name": "Management-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "agiles Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "BDSG",
+      "category": "product_standard"
+    },
+    {
+      "name": "BSI Grundschutz",
+      "category": "product_standard"
+    },
+    {
+      "name": "DSGVO",
+      "category": "product_standard"
+    },
+    {
+      "name": "Trainings",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managementerfahrung in Unternehmen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL V3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalverantwortung:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum Master",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unternehmensführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betriebswirtschaft",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wissensmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "09/2009 - 05/2011:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Institution: Bildungsinstitut IHK Hellweg Sauerland",
+      "category": "product_standard"
+    },
+    {
+      "name": "Abschluss: Geprüfter IT-Projektleiter (Bachelor-Level)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teamführung & Ausbildereignung nach AEVO",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kommunikationsmodelle",
+      "category": "product_standard"
+    },
+    {
+      "name": "08/2004 - 07/2007:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Institution: Stadt Schmallenberg",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schmallenberg",
+      "category": "product_standard"
+    },
+    {
+      "name": "Abschluss: Fachinformatiker für Systemintegration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerktechnik",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Engineering",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Englisch",
+      "category": "product_standard"
+    },
+    {
+      "name": "Weiterbildungen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "12/2020:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lead Auditor ISO 27001",
+      "category": "product_standard"
+    },
+    {
+      "name": "is-its",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bochum",
+      "category": "product_standard"
+    },
+    {
+      "name": "5-tägige Schulung zum Lead Auditor",
+      "category": "product_standard"
+    },
+    {
+      "name": "09/2016 - 12/2016:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Train the Trainer (IHK)",
+      "category": "product_standard"
+    },
+    {
+      "name": "duesseldorf.ihk",
+      "category": "product_standard"
+    },
+    {
+      "name": "Düsseldorf",
+      "category": "product_standard"
+    },
+    {
+      "name": "Methoden von",
+      "category": "product_standard"
+    },
+    {
+      "name": "Trainingsmaßnahmen & Workshops",
+      "category": "product_standard"
+    },
+    {
+      "name": "Interaktion mit Gruppen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Didaktik und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Methodik",
+      "category": "product_standard"
+    },
+    {
+      "name": "07/2014:",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL® 2011 Foundation V3",
+      "category": "product_standard"
+    },
+    {
+      "name": "maxpert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Frankfurt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Praxismodelle des IT Service",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managements",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rollen und Funktionen des ITIL-Modells",
+      "category": "product_standard"
+    },
+    {
+      "name": "05/2014:",
+      "category": "product_standard"
+    },
+    {
+      "name": "NLP-Advanced Master (Führungskräfte)",
+      "category": "product_standard"
+    },
+    {
+      "name": "nlp-impulse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Münsterm Rolle und innere",
+      "category": "product_standard"
+    },
+    {
+      "name": "Haltung einer Führungskraft",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfliktlösung & Stressmanagement im",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unternehmen",
+      "category": "product_standard"
+    },
+    {
+      "name": "2010 - 2013:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenschutzauditor/ IT-Security Auditor",
+      "category": "product_standard"
+    },
+    {
+      "name": "akademie.tuv",
+      "category": "product_standard"
+    },
+    {
+      "name": "Berlin",
+      "category": "product_standard"
+    },
+    {
+      "name": "Besuch von",
+      "category": "product_standard"
+    },
+    {
+      "name": "sämtlichen Lehrgängen für die Bereiche Datenschutz und IT-Sicherheit (TüV",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rheinland)",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "11/2017 - 09/2019",
+      "company": "Goodwheel GmbH",
+      "role": "Chief Information Security Officer; Datenschutzbeauftragter",
+      "title": "Einführung DSGVO, Soest, Westfalen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2015 - heute",
+      "company": "",
+      "role": "Berater, Auditor, Trainer",
+      "title": "Beratung zur Einführung DSGVO, Schmallenberg",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2014 - 10/2015",
+      "company": "Conze Informatik",
+      "role": "Senior Projektmanager",
+      "title": "Fachliche Leitung, Lennestadt",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "08/2010 - 08/2014",
+      "company": "AM-GmbH",
+      "role": "IT-Projektleiter",
+      "title": "Projektleitung zur ISMS Einführung, Meschede",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "08/2007 - 05/2010",
+      "company": "Stadt Schmallenberg",
+      "role": "IT-Administrator",
+      "title": "Betreuung der Serverarchitektur, Schmallenberg",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nEngagements gerne auf Anfrage.\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Moderationsfähigkeit (fortgeschritten)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Kreativitätstechniken (fortgeschritten)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Lean UX (gut)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Scrum (gut)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Softwarekenntnisse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Windows 10 (exzellent)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Office",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Visio",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Project 2016 (fortgeschritten)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "MindJet Mindmanager 16 (fortgeschritten)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "BCS Projektron (fortgeschritten)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Beruflicher Werdegang",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "2018 - heute",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Kunde: TüV Rheinland",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Rolle: Trainer für die Ausbildung der Datenschutzbeauftragten",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "2016 - heute",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Kunde: BCW Weiterbildung Eine Tochter der FOM Hochschule",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    }
+  ]
+}

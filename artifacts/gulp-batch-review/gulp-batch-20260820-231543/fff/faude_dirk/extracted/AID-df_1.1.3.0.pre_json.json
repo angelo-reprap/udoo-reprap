@@ -1,0 +1,1738 @@
+{
+  "metadata": {
+    "aid": "AID-df_1.1.3.0",
+    "version": "1.1.3.0",
+    "consultant_dir": "faude_dirk",
+    "first_name": "Dirk",
+    "last_name": "Faude",
+    "headline": "MSI-Paketierung / Softwarepaketierung / SW-Deployment / SW- Verteilung / SW- Rollout / System- / Desktop- / Server- / Clientmanagement / Clientengineering / Clientdesign / Qualitätssicherung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:28:10.316872"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Dirk",
+      "last_name": "Faude",
+      "birth_year": 1969,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        }
+      ],
+      "availability": "02.01.21 zu 80%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz",
+      "wohnort": "704xx Stuttgart, Deutschland",
+      "headline": "MSI-Paketierung / Softwarepaketierung / SW-Deployment / SW- Verteilung / SW- Rollout / System- / Desktop- / Server- / Clientmanagement / Clientengineering / Clientdesign / Qualitätssicherung",
+      "edv_experience_since": 2000
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "JDBC",
+        "MySQL",
+        "ODBC",
+        "Oracle",
+        "SQL",
+        "Da sich die Datenbanksysteme ähneln",
+        "können Kenntnisse über andere DB-",
+        "Systeme",
+        "binnen kurzer Zeit angeeignet werden"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Bus Profibus",
+        "CAN",
+        "CD-Writer /",
+        "Brenner",
+        "Drucker",
+        "HP",
+        "Industrie- Güdel",
+        "Roboter",
+        "Iomega",
+        "Modem",
+        "NEC Flat Sorting Machine",
+        "Compaq",
+        "IBM",
+        "Dell",
+        "Fujitsu Siemens",
+        "Siemens Panel",
+        "Siemens Rack",
+        "PC Toshiba",
+        "Hörbiger Prüfcomputer (ISTK",
+        "Porty 2000",
+        "FS97)",
+        "K2L PC",
+        "Kunze PC",
+        "Mohr PC",
+        "Plotter",
+        "Scanner",
+        "Soundkarten",
+        "SPS",
+        "Steuer und Siemens",
+        "Regelsysteme",
+        "BIO HDD",
+        "SCSI",
+        "IDE",
+        "USB",
+        "SATA",
+        "Siemens Letter Sorting Machine",
+        "Siemens Fördertechnik",
+        "Gilgen Fördertechnik",
+        "Rohde & Schwarz SMU 200A Vector Signal Generator",
+        "Rohde & Schwarz CMU 200 Universal Radio Communication Tester",
+        "CANboard XL",
+        "Cäsar (PartA",
+        "PartC)",
+        "MOXA",
+        "Hammerfall",
+        "IBM Kassensysteme",
+        "Hardwarekenntnisse nur als Profi Anwender und der Paketierung"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "DOS / MS-DOS",
+        "Windows (3.x",
+        "95",
+        "NT",
+        "2000",
+        "XP",
+        "Vista",
+        "7(64bit)):",
+        "Sehr tiefgreifende Kenntnisse (Installation",
+        "Konfiguration",
+        "Unattended",
+        "Patchintegration",
+        "Systemadministration",
+        "Registry",
+        "Treiberintegration",
+        "Imaging ..)",
+        "Windows NT / 2000 / 2003 / 2008 / 2K8R2 Server",
+        "Tiefgreifende Kenntnisse (Installation",
+        "Verwaltung )",
+        "Novell Client",
+        "Grundkenntnisse Linux"
+      ],
+      "programming_languages": [
+        "Basic VBA",
+        "VBS",
+        "C Grundkenntnisse",
+        "C++ Grundkenntnisse",
+        "Java Grundkenntnisse",
+        "JavaScript Grundkenntnisse",
+        "Makrosprachen Symantec CCM Paketerstellung für autom. Softwareverteilung",
+        "MSI-Packaging",
+        "Snapshot",
+        "Silent",
+        "Scripting",
+        "PHP Grundkenntnisse",
+        "PL/SQL Grundkenntnisse",
+        "Scriptsprachen Batchprogrammierung unter Windows",
+        "Symantec LiveState",
+        "Skriptierung",
+        "JavaScript",
+        "VBScript",
+        "MSI-Script",
+        "Wise-Script",
+        "SQL: MySQL",
+        "MS SQL",
+        "MS Access",
+        "Da sich die Paketierung bei den meisten Tools stark ähnelt",
+        "stellt ein",
+        "Versionssprung",
+        "oder das Aneignen von anderen Paketierungstools absolut kein",
+        "Problem dar und erfolgt innerhalb sehr kurzer Zeit"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "ITIL V2 Foundation",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Wise Package Studio",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Oracle 9i Spezial",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Visual Basic",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "VB-",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Script",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "VBA",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "XML",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "MySQL/SQL",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Java",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "JDBC",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Linux",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "PHP",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "JavaScript",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CCM Softwareintegration",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CCM Administration",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "ZENworks Desktops",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "AdminStudio Advanced",
+        "issuer": "",
+        "date_obtained": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "Oktober 2011 laufend",
+        "title": "Branche: Energiedienstleistungen (EnBW AG), Karlsruhe / Stuttgart",
+        "role": "Branche: Energiedienstleistungen (EnBW AG)",
+        "technologies": [
+          "Paketen nach Windows 7(64Bit)",
+          "sowie Windows 2003 Paketen",
+          "nach Windows",
+          "InstallShield",
+          "InstEd",
+          "BeyondCompare",
+          "Windows XP (32Bit)",
+          "Windows 7",
+          "(64Bit)",
+          "Windows 2003",
+          "Windows 2003 (64Bit)",
+          "Windows 2008",
+          "Windows"
+        ],
+        "activities": [
+          "Beschreibung:",
+          "Analyse, Beratung, Spezifikation und Aufwandsabschätzung der zu erstellenden Pakete (Client und Server) anhand von Referenzinstallationen in Zusammenarbeit mit den Verantwortlichen / dem Team Implementierung (Proof of Concept) von komplexen Serversystemen (z.B.",
+          "Finanzsoftware, CAD, Document Management Systeme, 3-Tier Umgebungen,",
+          "Datenbankanbindungen, SAP-Schnittstellen, Citrix-Systeme, vSphere, IIS,",
+          "Sharepoint ) sowie Paketierung / Automatisierung der Applikationen / Komponenten / Konfigurationen",
+          "Abstimmung / Sicherstellung der Installationsvoraussetzungen (Server,",
+          "Storage, Vernetzung, Zugang, Security, Datenbanken )"
+        ]
+      },
+      {
+        "period": "November 2010 Oktober 2011",
+        "title": "Branche: Informationstechnologie & -dienste (Siemens AG, IT Solution und, Erlangen",
+        "role": "Branche: Informationstechnologie & -dienste (Siemens AG, IT",
+        "technologies": [
+          "VBSEdit",
+          "Windows 7 (64bit)",
+          "Windows XP Proffesional",
+          "MS",
+          "Office 2010"
+        ],
+        "activities": [
+          "Services)",
+          "Beschreibung:",
+          "Selbständige Analyse und Abschätzung von Paketierungsaufwand anhand von Fragekatalogen.",
+          "Evaluierung von Applikationen, Erstellung und Prüfung von Installations- und Testplänen.",
+          "Überprüfung der Freigabe der gelieferten Dokumente / Spezifikationen und Sourcen (Validation).",
+          "Erstellung / Repackaging von Softwarepaketen (MSI) nach Anforderungen bzw.",
+          "Guidlines / Spezifikationen in einer Multimandanten Umgebung für den weltweiten Einsatz.",
+          "Paketierung und Implementierung von Patches, Customizing und MergeModulen mit den üblichen Tools nach vorgegebenen Prozessen und Richtlinien.",
+          "Analyse, Definition sowie Realisierung von Configurations-Settings der Applikationen mittels CustomActions, Wise Script, VBScript bzw. MSI- Technologie."
+        ]
+      },
+      {
+        "period": "Dezember 2009 Oktober 2010 (60%)",
+        "title": "Branche: Großhandel, (Magazine zum Globus AG, Informatik), Zürich",
+        "role": "Branche: Großhandel, (Magazine zum Globus AG, Informatik)",
+        "technologies": [
+          "Scripting",
+          "Windows XP Professional",
+          "VBScript",
+          "WinInstall",
+          "VMWare",
+          "versch",
+          "Wise Package Studio",
+          "WinDiff"
+        ],
+        "activities": [
+          "Beschreibung:",
+          "Paketierung von Softwareverteilungspaketen für Clients und Kassensysteme",
+          "(TCPOS) in einer hochkomplexen IT-Umgebung (über 100 Deploymentserver in CH, AU sowie 25000 Clients).",
+          "Teils nach Vorgabe, sowie durch selbständige Analyse der SW und Installationsroutinen, und Gesprächen mit den Applikationsverantwortlichen. Einbinden von Problemlösungen in die Pakete. Sicherstellung der Funktionalität, Fehlerfreiheit, Installierbarkeit und Vollständigkeit der SW-Pakete, sowie Qualitätstests und -sicherung, in Absprache mit den zuständigen Personen und Verantwortlichen.",
+          "Durchführung und Abnahme von Pilotinstallationen in Absprache mit internen Kunden.",
+          "Problemanalyse und eigenständige Kontaktaufnahme von Herstellerfirmen zur Lösung der Problemfälle. Planung und Umzug von versch. Deployment-Servern (PreOs-Server, TFTP- Server, Konfig-Server, Depotserver )in ein anderes Netzsegment.",
+          "Replikation der abgenommenen Softwarepakete auf die über 100",
+          "Softwareverteilungsserver.",
+          "Dokumentation, sowie durch selbständige Analyse der SW und Installationsroutinen.",
+          "Integration von Patches, Hotfixes und Service Packs in OS/Applikationen.",
+          "Ergänzen vorhandener Pakete um Patches, Hotfixes, Service Packs und Konfigurationen.",
+          "Planen, Erstellen, Konfigurieren, Testen, Dokumentieren neuer",
+          "Applikationen bzw. Softwarepakete in Zusammenarbeit mit den Abteilungen / externen Firmen."
+        ]
+      },
+      {
+        "period": "September 2008 Mai 2009",
+        "title": "Branche: Automobilbranche, (Daimler AG, MOS/EE Prüftechnik), Stuttgart Sindelfingen",
+        "role": "Branche: Automobilbranche, (Daimler AG, MOS/EE Prüftechnik)",
+        "technologies": [
+          "MS Windows XP Professional",
+          "NISP",
+          "KonfigMaster II",
+          "VNC",
+          "Daimler Update"
+        ],
+        "activities": [
+          "Beschreibung:",
+          "Tests von SW-Komponenten / MSI-Paketen (Funktion, Installierbarkeit,",
+          "Anforderungen, Qualifizierung, Fehler).",
+          "Freigabe der zur Verfügung gestellten MSI-Pakete / Images.",
+          "Tests von Betriebssysteminstallationen / Images (Funktion,",
+          "Installierbarkeit, Anforderungen, Fehler).",
+          "Erstellen von Scripten (VBS, CMD) zur Automatisierung immer wiederkehrender Prozesse.",
+          "Vereinheitlichung von SW-Umgebungen, Ausarbeitung von Anforderungen an die IT.",
+          "Abstimmung, Einführung und Koordination der erforderlichen Maßnahmen."
+        ]
+      },
+      {
+        "period": "Januar 2008 April 2008",
+        "title": "Branche: Informationstechnologie & -dienste (Siemens AG, IT Solution and, München",
+        "role": "Branche: Informationstechnologie & -dienste (Siemens AG, IT",
+        "technologies": [
+          "Wise Package Studio",
+          "MSI",
+          "MS Windows XP Professional",
+          "MS",
+          "Word",
+          "HTML",
+          "CSS"
+        ],
+        "activities": [
+          "Services)",
+          "Beschreibung:",
+          "Paketieren / Erstellen von MSI-Paketen, anhand von Vorgaben.",
+          "Durchführen von Qualitytests der Pakete auf Installierbarkeit,",
+          "Vollständigkeit, Funktionalität und Ausführbarkeit.",
+          "Fehleranalyse bei fehlerhafter Installation.",
+          "Integration von Treibern neuer Hardwaretypen in das Base-Image (WIM).",
+          "Überarbeitung der Intranetseite Workplace Service Basic Package."
+        ]
+      },
+      {
+        "period": "April 2007 Dezember 2007; April 2008 September 2008",
+        "title": "Branche: Automatisierung (Siemens AG) / Post (Schweizerische Post), Zürich, Basel",
+        "role": "Branche: Automatisierung (Siemens AG) / Post (Schweizerische",
+        "technologies": [
+          "Center",
+          "Perfect Tracker",
+          "PLS (Prozeß Leit System)",
+          "Oracle 10g",
+          "MS Windows",
+          "2000 Professional",
+          "MS Windows 2000 Server",
+          "MS PowerPoint",
+          "MS",
+          "Access"
+        ],
+        "activities": [
+          "Beschreibung:",
+          "Erstellen und Modifizieren von Testkonzepten und plänen für Schnittstellen-, Integrations- und Regressionstests.",
+          "Organisieren und Durchführen von Funktions-, Abnahme- und Qualitätstests mit dem Kunden. Koordination von Testteams.",
+          "Dokumentation von Testergebnissen.",
+          "Mitwirken und Beraten des Endkunden bei der Systemintegration der unterschiedlichen Hard- und Softwarekomponenten in einer hochkomplexen",
+          "Projektumgebung.",
+          "Erstellen von Workarounds.",
+          "Strukturierte Fehleranalyse, Auswertung und Dokumentation der Ergebnisse anhand verschieden verteilter Informationsquellen."
+        ]
+      },
+      {
+        "period": "November 2006 April 2007",
+        "title": "Branche: IT-Dienstleistung (Unisys GmbH) / Pharmazie (BSNmedical) /, Frankfurt/Hamburg/Zürich",
+        "role": "Branche: IT-Dienstleistung (Unisys GmbH) / Pharmazie",
+        "technologies": [
+          "Aufbau",
+          "Clients",
+          "Windows 2003 Server)",
+          "VBS",
+          "MSI Script",
+          "Windows XP Professional",
+          "Windows 2003",
+          "AutoIt",
+          "WinDiff"
+        ],
+        "activities": [
+          "Justiz",
+          "(Bayerische Justiz)",
+          "Beschreibung:",
+          "Paketierung von Softwareverteilungspaketen für den Einsatz auf 13000",
+          "Clients.",
+          "Repackaging von Applikationen bzw. deren Setups mit dem Wise Package",
+          "Studio. Teils nach Vorgabe, teils durch selbstständige Analyse der SW und Installationsroutinen.",
+          "Lösung von Soft- und Hardwareproblemen in Härtefällen sowie Einbinden der Problemlösungen in die Pakete. Integration von Patches / Treiber in Applikationen / Windows XP /"
+        ]
+      },
+      {
+        "period": "August 2006 - November 2006",
+        "title": "Branche: Gewerkschaft im Auftrag eines Kunden (syscovery AG), Deutschlandweit",
+        "role": "Branche: Gewerkschaft im Auftrag eines Kunden (syscovery AG)",
+        "technologies": [
+          "Empirum",
+          "Windows XP Professional",
+          "Windows 2003",
+          "SafeBoot",
+          "MS Office"
+        ],
+        "activities": [
+          "Beschreibung:",
+          "Deutschlandweiter HW- und SW-Rollout. Teamleitung von Rolloutteams von bis zu 6 Technikern.",
+          "Selbstständige Vorbereitung, Organisation, Koordination und Planung der Standorte.",
+          "Eigenverantwortliche Kommunikation mit den Systemverwaltern von Standorten zur Abwicklung des Rollout. Unter anderem größtes",
+          "Bildungszentrum in Europa.",
+          "Anstoßen und Überwachen von automatischen SW-Installationen mit Empirum von Matrix42.",
+          "Kontrolle und Qualitätssicherung der installierten SW und Hardware (Dell",
+          "Notebooks, FujitsuSiemens PC's, Drucker, Scanner, Blackberry, Palm, PDA,",
+          "MDA, Telefonanlage, Handy, Multifunktionsgeräte...)."
+        ]
+      },
+      {
+        "period": "Juni 2003 August 2006",
+        "title": "Branche: Forschung und Entwicklung (Fraunhofer TEG), Stuttgart",
+        "role": "Branche: Forschung und Entwicklung (Fraunhofer TEG)",
+        "technologies": [
+          "Server/Client",
+          "Oracle 9i Server/Client",
+          "Windows 2003 Server",
+          "MS Visio",
+          "OnCommand CCM 4.6/5.4",
+          "CCM iCommand 3.0",
+          "Windows NT/2000/2003",
+          "Server",
+          "Windows NT/2000/XP Clients",
+          "OnCommand Remote",
+          "CCM DevStudio",
+          "Package",
+          "Windows NT/2000/XP",
+          "SolidWorks 2003/2004/",
+          "Visual Basic",
+          "Mathematica",
+          "Cornelson",
+          "MS Terminal Client",
+          "Cisco VPN-"
+        ],
+        "activities": [
+          "Projekt: Überarbeitung/Migration/Erweiterung einer firmeninternen Oracle- Access-Datenbank zur betriebswirtschaftlichen Verwaltung / Schnittstellenprogrammierung CRM",
+          "Beschreibung:",
+          "Analyse des Fachkonzepts, Datenmodells und Datenbestands in einer Oracle",
+          "7-MS Access XP Umgebung.",
+          "Erweiterung, Überarbeitung und Optimierung von betriebswirtschaftlichen",
+          "Funktionen und Berechnungen mittels VBA, PL/SQL und SQL.",
+          "Konzeptionierung und Migration des gesamten Datenbanksystems von Oracle 7 nach Oracle 9i."
+        ]
+      },
+      {
+        "period": "Mai 2001 - Mai 2003",
+        "title": "Projekt: Entwicklung Tool \"Anforderungsvergleich, Stuttgart / Neckarsulm / Mannheim / Salzburg",
+        "role": "Projekt: Entwicklung Tool \"Anforderungsvergleich",
+        "technologies": [
+          "Benchmark",
+          "MS Access 2000",
+          "MS Excel 2000",
+          "VBA",
+          "SQL",
+          "Windows 2000 Prof",
+          "Windows XP Prof)",
+          "OnCommand CCM 5.1",
+          "CCM DevStudio",
+          "PackageImportTool 2.0",
+          "Windows NT",
+          "versch",
+          "CommandCenter 2.0",
+          "Windows NT/2000 Professional",
+          "versch. Applikationen",
+          "4.0/2000 Server",
+          "Windows NT/2000/XP Clients",
+          "MSI",
+          "WinInstall",
+          "eine",
+          "2.0",
+          "Windows",
+          "XP Professional",
+          "versch. Anwendungen"
+        ],
+        "activities": [
+          "Branche: IT Dienstleistung (deron GmbH)",
+          "Beschreibung:",
+          "Konzeption und Realisierung einer zweisprachigen Applikation zum Erstellen von Benchmarks.",
+          "Entwickeln einer GUI in VBA zur Eingabe von Anforderungen und Bewertung dieser Anforderungen.",
+          "Erstellen einer Datenbank zur Speicherung der Anforderungen und Bewertungen.",
+          "Automatische Auswertung der Ergebnisse mittels SQL und VBA, sowie Analyse",
+          "Darstellung (Diagramme) mittels programmierter Schnittstelle (VBA, SQL) zwischen den MS-Applikationen. Dokumentation.",
+          "Einsatz SW:"
+        ]
+      },
+      {
+        "period": "Juli 2000 - April 2001",
+        "title": "Branche: Forschung und Entwicklung (Fraunhofer TEG), Stuttgart",
+        "role": "Branche: Forschung und Entwicklung (Fraunhofer TEG)",
+        "activities": [
+          "Projekt: Implementierung Web-Dienst \"Verfügbarkeitsmanagement",
+          "Beschreibung:",
+          "Aufbau einer Testumgebung mit den Applikationen TomCat, Apache.CORBA und Java.",
+          "Implementation des Webdienstes nach Vorgabe in Java und Corba.",
+          "Upload und Verarbeitung von standardisierten Textdateien.",
+          "Weitergabe der Ergebnisse mittels vorhandener Java-CORBA-Schnittstellen",
+          "(Middlelen (Middleware) per E-Mail, SMS und David.",
+          "Einsatz SW:"
+        ]
+      }
+    ],
+    "industries": [
+      "Forschung und Entwicklung",
+      "Systemhaus",
+      "IT Dienstleistung",
+      "Immobilien",
+      "Automotive",
+      "Versicherung",
+      "Internet-Dienstleistung",
+      "Gewerkschaft",
+      "Justiz",
+      "Pharmazie",
+      "Post",
+      "Automatisierung",
+      "Automobilbranche",
+      "Bank",
+      "Großhandel",
+      "Informationstechnologie & -dienste",
+      "Feinmechanisch-optische Industrie",
+      "Energieversorgung"
+    ],
+    "focus_areas": [
+      "MSI-Paketierung / Softwarepaketierung / SW-Deployment / SW-Verteilung / SW-Rollout / System- / Desktop- / Server- / Clientmanagement / Clientengineering / Clientdesign / Qualitätssicherung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Abschluß Sommer 2000.",
+      "MSI-Paketierung",
+      "Softwarepaketierung",
+      "SW-Deployment",
+      "SW-Verteilung",
+      "SW-Rollout",
+      "Systemmanagement",
+      "Desktopmanagement",
+      "Servermanagement",
+      "Clientmanagement",
+      "Clientengineering",
+      "Clientdesign",
+      "Qualitätssicherung",
+      "Beratung",
+      "Consulting",
+      "Coaching",
+      "Schulung",
+      "Training",
+      "Qualitätsmanagement",
+      "Test",
+      "Software Deployment",
+      "Softwareverteilung",
+      "Integrationstest",
+      "Funktionstest",
+      "Troubleshooting",
+      "System- und Qualitätstest",
+      "Fehleranalyse",
+      "Fehlerbehebung",
+      "Administration",
+      "2nd und 3rd Level Support",
+      "Softwarerollout",
+      "Softwaremanagement",
+      "Site-Administration",
+      "Erstellung von Installations-Paketen",
+      "Scripting",
+      "Inventarisierung",
+      "Remotemanagement",
+      "Snapshot",
+      "MSI",
+      "Silent",
+      "original Setup",
+      "Unattended",
+      "Imaging",
+      "Repackaging",
+      "Patchintegration",
+      "Testing",
+      "Analyse"
+    ],
+    "focus_experience": [
+      {
+        "name": "Erfahrungen in:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "o Paketerstellung von original Setup",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Silent",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Snapshot",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Unattended",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "MSI-Paketierung",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Repackaging",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Imaging",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Response",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "ISS",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Wise",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "MSI",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Script",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Custom Action",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Services",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "ODBC",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Antwortdateien",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "MST",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "MSP",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Rollouts / Softwareverteilung / Software Deployment / Migrationen",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "von W95/W98/NT/W2K/WXP Systeme auf W2K/WXP/W7 Systeme /",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Pilotsysteme",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Planung und Aufbau Clientmanagementsysteme /",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Softwaremanagementsysteme / Testszenarien und Testsysteme / Piloten",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Systemintegration / Systemmanagement / Desktopmanagement /",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Engineering",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Durchführung von Troubleshooting / System- und Qualitätstest /",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Fehleranalyse / Fehlerbehebung",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "o Organisation",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Koordination und Ausführung von Qualitäts-",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Funktions-",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Anwendungs- und Schnittstellentests",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Batchprogrammierung / Windows-Scripting / VB-Scripting",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Technische Dokumentation / Konzeption / Planung",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Webprogrammierung / Webserver",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Datenbankschnittstellen / Datenbankprogrammierung",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Aufbau Datenbanksysteme / Datenbankmanagement / Datenbankdesign",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Erfahrungen mit folgenden Produkten:",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "o Wise Package Studio",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "InstallShield",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "AdminStudio",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "ORCA",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "OfficeResourceKit",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Adobe Customization Wizard",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "WinInstall LE",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "SecEdit",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Salamander",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "ICE",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "RegMon",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Regedit",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "FileMon",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "WinDiff",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "AutoIt",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "PackageManager",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "DevStudio",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "CommandCenter",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "MSI Logfile",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Viewer",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Process Monitor",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "BeyondCompare (Paketierung)",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "o Softwareverteilung",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "OnCommand CCM",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "iCommand CCM",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Symantec LiveState",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Delivery",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Empirum Matrix42",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "LANDesk",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "SDMC",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "LOBA (Software",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Deployment)",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "o ONCommand Remote",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "PCAnywhere",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "NetOp",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Netmeeting",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Remote Desktop",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "VNC",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Live Meeting",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Live Messenger (Remote)",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "o Centennial Discovery",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Symantec Discovery",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "PC-Info",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "(Inventarisierung)",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "o Norton Ghost",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Acronis True Image (Imaging)",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "o Vmware",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "vSphere",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Citrix",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "Xen (Virtualisierung)",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "o WinPE",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "BartPE",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "o Word",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Excel",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "Access",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "PowerPoint",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "VBA",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "MS Office",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Project",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Visio",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "SAP",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "o MS Visual Studio",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "MS Visual Basic",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "PHP-Editoren",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "HTML-Editoren",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "JBuilder",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "UltraEdit",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "SystemScripter",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "VBS Edit",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "o Oracle-Server",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "-Clients",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Oracle-Tools",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "MySQL",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "o ODBC",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "o Crystal Reports",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "SAS",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "EMiner",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Cognos TM1",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "o Apache WebServer",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "TomCat",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Terminal Server Clients",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Citrix Metaframe",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "o McAfee VirusScan Enterprise",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "McAfee Agent",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "McAfee Anti-Spyware",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "Enterprise",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "AntiVir",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "o MS IE",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Netscape Communicator",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Firefox",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "Maxthon",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "o MS Outlook",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "Lotus Notes",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "Eudora",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "Novell Netware Client",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "o AutoCAD",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "Autodesk Inventor",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "Pro/ENGINEER",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Rhinoceros",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "SolidWorks",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "Origin",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "o AD",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "GPO",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "o Sanctuary",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "Centennial DeviceWall",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "Vital Agent",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "o Mercury TestDirector",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "Mercury Quality Center",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "HelpLine",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "Echolon",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "o NISP",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "KPS",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "X-Line",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "K-Line (Prüfsoftware Daimler)",
+        "category": "product_standard",
+        "sort_order": 152
+      },
+      {
+        "name": "o SDMC",
+        "category": "product_standard",
+        "sort_order": 153
+      },
+      {
+        "name": "LOBA",
+        "category": "product_standard",
+        "sort_order": 154
+      },
+      {
+        "name": "CATSetup",
+        "category": "product_standard",
+        "sort_order": 155
+      },
+      {
+        "name": "CAT-Client",
+        "category": "product_standard",
+        "sort_order": 156
+      },
+      {
+        "name": "USM (Individual SW Siemens)",
+        "category": "product_standard",
+        "sort_order": 157
+      },
+      {
+        "name": "AutoCAD",
+        "category": "product_standard",
+        "sort_order": 158
+      },
+      {
+        "name": "eM-Plant",
+        "category": "product_standard",
+        "sort_order": 159
+      },
+      {
+        "name": "em-Workplace",
+        "category": "product_standard",
+        "sort_order": 160
+      },
+      {
+        "name": "RobCAD",
+        "category": "product_standard",
+        "sort_order": 161
+      },
+      {
+        "name": "Wise Package Studio",
+        "category": "product_standard",
+        "sort_order": 162
+      },
+      {
+        "name": "MSI Logfile Viewer",
+        "category": "product_standard",
+        "sort_order": 163
+      },
+      {
+        "name": "BeyondCompare",
+        "category": "product_standard",
+        "sort_order": 164
+      },
+      {
+        "name": "Symantec LiveState Delivery",
+        "category": "product_standard",
+        "sort_order": 165
+      },
+      {
+        "name": "ONCommand Remote",
+        "category": "product_standard",
+        "sort_order": 166
+      },
+      {
+        "name": "Live Messenger",
+        "category": "product_standard",
+        "sort_order": 167
+      },
+      {
+        "name": "Centennial Discovery",
+        "category": "product_standard",
+        "sort_order": 168
+      },
+      {
+        "name": "Norton Ghost",
+        "category": "product_standard",
+        "sort_order": 169
+      },
+      {
+        "name": "Acronis True Image",
+        "category": "product_standard",
+        "sort_order": 170
+      },
+      {
+        "name": "Vmware",
+        "category": "product_standard",
+        "sort_order": 171
+      },
+      {
+        "name": "Xen",
+        "category": "product_standard",
+        "sort_order": 172
+      },
+      {
+        "name": "WinPE",
+        "category": "product_standard",
+        "sort_order": 173
+      },
+      {
+        "name": "Word",
+        "category": "product_standard",
+        "sort_order": 174
+      },
+      {
+        "name": "MS Visual Studio",
+        "category": "product_standard",
+        "sort_order": 175
+      },
+      {
+        "name": "Oracle-Server",
+        "category": "product_standard",
+        "sort_order": 176
+      },
+      {
+        "name": "Oracle-Clients",
+        "category": "product_standard",
+        "sort_order": 177
+      },
+      {
+        "name": "Crystal Reports",
+        "category": "product_standard",
+        "sort_order": 178
+      },
+      {
+        "name": "Apache WebServer",
+        "category": "product_standard",
+        "sort_order": 179
+      },
+      {
+        "name": "McAfee VirusScan Enterprise",
+        "category": "product_standard",
+        "sort_order": 180
+      },
+      {
+        "name": "McAfee Anti-Spyware Enterprise",
+        "category": "product_standard",
+        "sort_order": 181
+      },
+      {
+        "name": "MS IE",
+        "category": "product_standard",
+        "sort_order": 182
+      },
+      {
+        "name": "MS Outlook",
+        "category": "product_standard",
+        "sort_order": 183
+      },
+      {
+        "name": "Sanctuary",
+        "category": "product_standard",
+        "sort_order": 184
+      },
+      {
+        "name": "Mercury TestDirector",
+        "category": "product_standard",
+        "sort_order": 185
+      },
+      {
+        "name": "NISP",
+        "category": "product_standard",
+        "sort_order": 186
+      },
+      {
+        "name": "K-Line",
+        "category": "product_standard",
+        "sort_order": 187
+      },
+      {
+        "name": "USM",
+        "category": "product_standard",
+        "sort_order": 188
+      }
+    ],
+    "education": [
+      {
+        "degree": "Fachinformatiker Fachrichtung Anwendungsentwicklung",
+        "institution": "",
+        "period": "bis Sommer 2000",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "WLAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetOp",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OnCommandRemote",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VNC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Netmeeting",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Datenkommunikation nur als Profi Anwender",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Bisher keine Erfahrungen in der Datenkommunikationsprogrammierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:28:10.316886",
+    "source_file": "",
+    "steps_completed": [
+      "ZERTIFIKATE",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei 'Oktober 2011 laufend'",
+        "ACT: 8→7 bei 'Juni 2003 August 2006'",
+        "EDV_SEIT: None→2000"
+      ],
+      "coverage_percent": 93.5632183908046,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,967 @@
+{
+  "personal": {
+    "aid": "AID-mh_1.1.3.0",
+    "first_name": "Michael",
+    "last_name": "Huettermann",
+    "birth_year": 1972,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+    "availability": "01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": null,
+    "headline": "Continuous Delivery; DevOps; Build-/Release Engineer; Konfig-, Build-, Deploy-, Release-, Deploy-Management; SCM; ALM",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 169,
+    "certifications": 32,
+    "education": 2,
+    "experience": 1,
+    "industries": 10,
+    "focus_areas": 3,
+    "focus_experience": 79,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Fließend in Wort und Schrift",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diplom Wirtschaftsinformatik",
+      "institution": "Universität Paderborn",
+      "period": "2001",
+      "education_type": "course"
+    },
+    {
+      "degree": "Ausbildung zum DV-Kaufmann",
+      "institution": "3M, Borken",
+      "period": "1994",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Sun Certified Programmer for the Java Platform SCJP",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Sun Certified Java Developer for the Java Platform SCJD",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Sun Certified Java Associate for the Java Platform SCJA",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Sun Certified Web Component Developer SCWCD",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "ITIL V3 Foundation",
+      "date_obtained": "",
+      "issuer": "AXELOS"
+    },
+    {
+      "name": "Konferenzen",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Vortragender und regelmäßiger Besucher auf international führenden",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "z. B. Devoxx 2008",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "JavaOne San Francisco 2007",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "JavaOne San Francisco 2009",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Jazoon 2009",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "GeeCON",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Software & Systems Quality Conference",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "JavaOne Shanghai",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "2013",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Speaker auf Java User Group Veranstaltungen in Hamburg und Karlsruhe",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Buchlesung in Hamburg",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "...",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Bücher",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "1. [Titel auf Anfrage]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "2. [Titel auf Anfrage]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "3. [Titel auf Anfrage]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "4. [Titel auf Anfrage]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Artikel (Auswahl)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "[Liste auf Anfrage]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Wikipedia Artikel",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "\"Extreme Programming\", http: //de.wikipedia.org/wiki/Extreme_Programming",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "\"Anti-Pattern\", http: //de.wikipedia.org/wiki/Anti-pattern",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "[URL auf Anfrage] (aktuelle Vorträgsthemen)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "siehe [URL auf Anfrage]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Englisch anzeigen",
+      "date_obtained": "",
+      "issuer": ""
+    }
+  ],
+  "industries": [
+    "Handel",
+    "Chemie",
+    "Banken",
+    "Finanz",
+    "Industrie",
+    "Logistik",
+    "Stahl",
+    "Dienstleistung",
+    "Versicherung",
+    "DIY"
+  ],
+  "focus_areas": [
+    "Continuous Delivery; DevOps; Build-/Release Engineer; Konfig-Build-Deploy-Release-Deploy-Management; SCM; ALM Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training"
+  ],
+  "focus_experience": [
+    {
+      "name": "Langjährige Praxiserfahrung im Bereich Build-/Deploy von komponentenbasierten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anwendungen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Große Erfahrung in Architektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design und Entwicklung von hoch-komplexen",
+      "category": "product_standard"
+    },
+    {
+      "name": "mehrschichtigen",
+      "category": "product_standard"
+    },
+    {
+      "name": "datenbank-getriebenen Systemen auf unterschiedlichen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Plattformen wie JEE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft .NET und Host",
+      "category": "product_standard"
+    },
+    {
+      "name": "Exzellentes Wissen in heterogenen Applikationens- und Middleware-Landschaften",
+      "category": "product_standard"
+    },
+    {
+      "name": "und dessen Integration (EAI",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOA)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Außerordentlich gutes Wissen in allen relevanten Java/JEE Best-Of-Breed",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technologien (Web",
+      "category": "product_standard"
+    },
+    {
+      "name": "Client)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Frameworks (JDO",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate",
+      "category": "product_standard"
+    },
+    {
+      "name": "Struts",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tapestry...)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbanken (Oracle u.a.)",
+      "category": "product_standard"
+    },
+    {
+      "name": "IDEs",
+      "category": "product_standard"
+    },
+    {
+      "name": "Werkzeugen und Best-Practices",
+      "category": "product_standard"
+    },
+    {
+      "name": "Expertenwissen im Bereich Rich UI Anwendungen (Eigene Erstellung von Swing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Frameworks und Swing Java Patching/Enhancement",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSF Frameworks",
+      "category": "product_standard"
+    },
+    {
+      "name": "u.a.)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr gutes Wissen über Architekturen von verteilten",
+      "category": "product_standard"
+    },
+    {
+      "name": "geschichteten Systemen mit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architektur-Patterns",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design-Patterns und Idioms",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfangreiche Software-Life-Cycle Kenntnisse und Verantwortung inklusive",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anforderungsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Modellierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spezifikation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Coding",
+      "category": "product_standard"
+    },
+    {
+      "name": "Testing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dokumentation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rollout",
+      "category": "product_standard"
+    },
+    {
+      "name": "User Support",
+      "category": "product_standard"
+    },
+    {
+      "name": "Große praktische Erfahrung sowohl in mittelständichen Unternehmen als auch in",
+      "category": "product_standard"
+    },
+    {
+      "name": "Großkonzernen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ausübung verschiedener Rollen vom Chefarchitekt bis zum Entwickler mit der",
+      "category": "product_standard"
+    },
+    {
+      "name": "Einstellung der agilen Entwicklung \"Auch der Architekt muss mitentwickeln\".",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hemdsärmelig.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Langjährige Erfahrung als Festangestellter in verschiedenen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unternehmensformen",
+      "category": "product_standard"
+    },
+    {
+      "name": "und somit Erfahrungen über interne Abläufe und \"Besonderheiten\"",
+      "category": "product_standard"
+    },
+    {
+      "name": "eindeutiges",
+      "category": "product_standard"
+    },
+    {
+      "name": "Plus im Vergleich zu jemandem",
+      "category": "product_standard"
+    },
+    {
+      "name": "der ausschließlich als Freelancer gearbeitet hat",
+      "category": "product_standard"
+    },
+    {
+      "name": "(und nur in verhältnismässig kurzen Intervallen das Leben einer Unternehmung",
+      "category": "product_standard"
+    },
+    {
+      "name": "begleitet hat",
+      "category": "product_standard"
+    },
+    {
+      "name": "aber nie wirklich 100%-Bestandteil war)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Herausragende Prozess Management/Projekt Management Fähigkeiten unter",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anwendung",
+      "category": "product_standard"
+    },
+    {
+      "name": "von agilen Methodiken und traditionellen Vorgehensmodellen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Durch interdisziplinäre Ausbildung und Projekte außergewöhnlich gute",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fähigkeiten mich in die Fachbereiche/Interessen der Anwender/Nutzer",
+      "category": "product_standard"
+    },
+    {
+      "name": "hineinzuversetzen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Große Service-Orientiertheit mit hervorragenden sozialen Skills (Coaching",
+      "category": "product_standard"
+    },
+    {
+      "name": "Leadership).",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr gutes Zeit-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "organisatorische und Problemlösungs-Fähigkeiten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Herausragende Fähigkeiten mich in neue Abläufe und Umgebungen in kürzesten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zeiten hineinzuarbeiten.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Coach und Tutor für Java Themen und Agile Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "mit zahlreichen",
+      "category": "product_standard"
+    },
+    {
+      "name": "internationalen Kontakten und der Möglichkeit mich als \"Sun Java Champion\"",
+      "category": "product_standard"
+    },
+    {
+      "name": "aktiv an der strategischen Weiterentwicklung der Java-Plattform zu beteiligen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Configuration Management (inkl. Build-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfigurations-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Deployment-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Release-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Integrations-Management)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Testautomation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Effektivität & Effizienz",
+      "category": "product_standard"
+    },
+    {
+      "name": "Application Lifecycle Management ALM.",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Rolle / Position: Aufbau und operative Durchführung Prozess-, Build-, Release-,",
+      "company": "",
+      "role": "Aufbau und operative Durchführung Prozess-, Build-, Release-,",
+      "title": "Bereitstellung einer Integrationsplattform auf einer Vielzahl von Umsystemen / Geschäftsprozessoptimierung Technologien: Eclipse, Eclipse Runtime, OSGi, Eclipse Plugin-Entwicklung Spring, Hibernate, E",
+      "activities": 8,
+      "technologies": 75
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nSchulungen, die ich gebe:\nJava Tooling Bootcamp\nAgile ALM\nAutomatisiertes Testen von Webanwendungen mit Selenium und WebTest\nAutomatisiertes Testen von Java Swing Anwendungen\nMaven 3\nSubversion - Versionskontrolle\nContinuous Delivery\nDevOps\nTermine nach Absprache, Infos hier: [URL auf Anfrage]\nTraining/Seminar\n06.05 Aufbaukurs Projekt Management\n05.04 Seminar Grundlagen der Gesprächsführung\n01.04 Seminar Präsentationen\n10.03 Seminar EJB (Evaluierung der Schulung für Entwickler der Projekte)\n10.03 Augeo Projektmanagement-Tool (Teach the Teacher- Seminar)\n07.03 Seminar WebSphere Application Developer WSAD (Evaluierung der\nSchulung\nfür Entwickler der Projekte)\n05.03 Seminar Java JFC, Swing (Evaluierung der Schulung für Entwickler der\nProjekte)\n10.02 Software Quality Management / Software Testing\n03.01 Seminar PHP 4.0\nMitgliedschaften\n[Name auf Anfrage] User Group, seit 2005: [URL auf Anfrage]\n[Name auf Anfrage] Gründer und Organisator, seit 2002: [URL auf Anfrage]\n\"Agile Alliance\", seit 2006: http://agilealliance.org\n\"Mitglied des Sun Java Champion Programmes\", seit 2006 (aufgrund besonderer\nLeistung nominiert und gewählt worden, einer von weltweit 96): https://java-\nchampions.dev.java.net\n\"[Name auf Anfrage] Community Manager\", seit 2007: [URL auf Anfrage]",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Progress",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "AS/400",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/400",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix Viele Derivate",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CL/400",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Conzept 16",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JCL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Prolog",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rexx",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RPG",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2EE / Java EE: JSF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Hibernate",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JDO",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Servlets",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Struts",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Web-Services",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XDoclet",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JMS & MQSeries",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2SE: GUI (Swing",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "AWT)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaBeans",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Class-Loader",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Threading",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Groovy",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scala",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "(J)Ruby",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Jython/Python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML: XML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XSL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XSLT",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XPath",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DTD",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Schema",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Testing: JUnit",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TestNG",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Selenium",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "WebTest",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "FEST",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DBUnit",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Performance-Tests",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuous Integration (Cruise Control",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Hudson/Jenkins",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TeamCity",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Maven",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ant",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Gradle)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuous Delivery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DevOps (Docker",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Puppet",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    }
+  ]
+}

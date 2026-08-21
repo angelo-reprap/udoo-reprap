@@ -1,0 +1,1047 @@
+{
+  "metadata": {
+    "aid": "AID-jw_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "wolters_juergen",
+    "first_name": "Juergen",
+    "last_name": "Wolters",
+    "headline": "Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL, C++, VB.Net, ASP.Net, Java",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:10:06.918441"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Juergen",
+      "last_name": "Wolters",
+      "birth_year": 1956,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch gut in Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (gut in Wort und Schrift)",
+          "level": ""
+        }
+      ],
+      "availability": "01.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D9",
+      "wohnort": "382xx Salzgitter, Deutschland",
+      "headline": "Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL, C++, VB.Net, ASP.Net, Java",
+      "edv_experience_since": 2008
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Oracle u. a. ; Web-Applikationen",
+        "Technische Projektleitung",
+        "Informix",
+        "ISAM",
+        "MS-Access",
+        "MySQL",
+        "ODBC",
+        "Oracle 8.1.x",
+        "8i",
+        "9i",
+        "10g",
+        "11g",
+        "12c",
+        "Oracle 10g",
+        "Oracle 12c",
+        "SQL",
+        "SQL-Developer",
+        "SQLite3",
+        "SQL*Plus",
+        "TOAD"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Blade-Center",
+        "Fujitsu-Siemens Primergy",
+        "Modems",
+        "Personal Computer",
+        "RM600",
+        "Siemens MX"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [
+        "Objektorientierte Programmierung",
+        "OOAnalyse / OODesign mit UML",
+        "SCRUM",
+        "Ereignisgesteuerte",
+        "visuelle",
+        "strukturierte Programmierung",
+        "Datenbank Design",
+        "Microsoft Standards",
+        "SDK (16/32 bit)",
+        "MFC",
+        "MS-Office",
+        "MS-Visual InterDev"
+      ],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS",
+        "MS-Windows Server 2008 R2",
+        "2000",
+        "NT4",
+        "UNIX Solaris 9",
+        "Linux",
+        "AIX",
+        "SINIX",
+        "Interactive Unix",
+        "SUN OS 386",
+        "Windows ?10",
+        "Vista",
+        "XP",
+        "Windows 10",
+        "Windows 7"
+      ],
+      "programming_languages": [
+        "ASP",
+        "ASP.Net",
+        "AWK",
+        "C#",
+        "C++ MS-VC 6.0",
+        "MS-Visual .NET 2010",
+        "MS-eMbedded Visual",
+        "C++ 4.1",
+        "HTML",
+        "JavaScript",
+        "Java2",
+        "JNI",
+        "ORACLE",
+        "PHP5",
+        "PL/SQL",
+        "UNIX System V Programming",
+        "UNIX-Shell Programmierung",
+        "VB.NET",
+        "VB-Script",
+        "VB6",
+        "Visual Basic 2006 VB.Net",
+        "XML / XSL"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [
+        "Internet WebServer Aufbau",
+        "Design",
+        "Programmierung",
+        "DB-Anbindung",
+        "Wartung",
+        "(HTML",
+        "VBScript",
+        "TCP/IP",
+        "FTP)",
+        "Infrarot-Datentechnik",
+        "Wertpapiere",
+        "Beruflicher Werdegang",
+        "1979 1984",
+        "EDV-Servicetechniker",
+        "1984 1987",
+        "Studium",
+        "Dipl.-Ing. Nachrichtentechnik (FH Wolfenbüttel)",
+        "1987 1996",
+        "Angestellter Systemsoftwareentwickler / Projektleiter",
+        "seit 1996",
+        "Freiberuflich",
+        "Objektorientierte Analyse und Design",
+        "UML",
+        "OOA",
+        "OOD",
+        "Web-Server",
+        "Internet Information Service (IIS)",
+        "Apache"
+      ],
+      "special_skill": [
+        "ClearCase",
+        "Innovator",
+        "CVS",
+        "Subversion",
+        "SWIG",
+        "List&Label",
+        "Crystal Reports",
+        "Proprietäre HW",
+        "MIOS Infrarot - Mobil - Datenerfassungsgeräte",
+        "Datenerfassungsterminals Siemens ES1xx",
+        "MIOS Infrarottechnik"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "06/2019 - heute",
+        "company": "Energie",
+        "title": "Migration Software Windows 10 und Oracle 12c, Jülich",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "Windows 7",
+          "Windows 10",
+          "VB.Net",
+          "C#",
+          "Oracle 10g",
+          "Oracle 12c",
+          "PL/SQL",
+          "TOAD",
+          "Combit",
+          "List&Label",
+          "MS-Visual Studio 2008",
+          "MS-Visual Studio 2015"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Migration existierender Software für den Einsatz Windows 10 von Windows 7.",
+          "Softwareumstellung für Datenbankeinsatz Oracle 12c von Oracle 10g.",
+          "Einsatz Microsoft Visual Studio 2015 anstatt Visual Studio 200",
+          "Eingesetzte Produkte:",
+          "List&Label, MS-Visual Studio 2008, MS-Visual Studio 2015 ===================================================== =========================="
+        ],
+        "industry": "Energie",
+        "location": "Jülich"
+      },
+      {
+        "period": "03/2018 - 05/2019",
+        "company": "Energie, Jülich",
+        "title": "Neuentwicklung Laborsoftware",
+        "technologies": [
+          "Windows 7",
+          "ASP.Net",
+          "MS-Visual Studio 2008",
+          "JavaScript",
+          "VB6",
+          "Oracle 10g",
+          "PL/SQL",
+          "TOAD",
+          "Windows Server 2008 R2",
+          "Combit List&Label",
+          "Visual Basic 2006",
+          "VB.NET"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Fachliche Vorgaben nach Altsystem. Softwaredesign, Datenbankdesign Oracle und Implementierung",
+          "Eingesetzte Produkte:",
+          "===================================================== ==========================",
+          "Scrum"
+        ],
+        "industry": "Energie",
+        "location": "Jülich"
+      },
+      {
+        "period": "03/2017 - 02/2018",
+        "company": "Energie, Jülich",
+        "title": "Datenbankdesign und Implementierung",
+        "technologies": [
+          "Windows 7",
+          "ASP.Net",
+          "MS-Visual Studio 2008",
+          "JavaScript",
+          "VB6",
+          "Oracle 10g",
+          "PL/SQL",
+          "TOAD",
+          "Windows Server 2008 R2",
+          "Combit List&Label",
+          "Visual Basic 2006",
+          "VB.NET"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Fertigungsinformationssystem, Schichtbuch Erstellung Softwaredesign,",
+          "Datenbankdesign und Implementierung",
+          "Eingesetzte Produkte:",
+          "===================================================== ==========================",
+          "Scrum"
+        ],
+        "industry": "Energie",
+        "location": "Jülich"
+      },
+      {
+        "period": "10/2016 - 12/2016",
+        "title": "Weiterbildung (siehe Aus und Weiterbildung)",
+        "activities": [
+          "===================================================== =========================="
+        ],
+        "company": "Weiterbildung"
+      },
+      {
+        "period": "07/2016 - 10/2016",
+        "company": "Bank, Dresden",
+        "title": "BSI - IT-Grundschutzprüfung",
+        "technologies": [
+          "Windows 7",
+          "Oracle-Datenbanken"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "BSI - IT-Grundschutzprüfung (Bundesamt für Sicherheit in der Informationstechnik) einer Bank gemäß BSI - IT-Grundschutzkatalog.",
+          "Analyse und Bewertung der bisherigen IT-Grundschutzmaßnahmen",
+          "Erstellung Richtlinien für Datenbankzugriffe",
+          "Richtlinien für die Sicherheit bei Datenbankzugriffen privilegierter Benutzer",
+          "Benutzer",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Dresden"
+      },
+      {
+        "period": "01/2016 - 04/2016",
+        "company": "Finanzdienstleistungen, Bank, Braunschweig",
+        "title": "Design und Implementierung",
+        "technologies": [
+          "Windows 7",
+          "Oracle 11g",
+          "PL/SQL",
+          "SQL-Developer",
+          "SCRUM",
+          "HP Application Lifecycle",
+          "Application Lifecycle"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Rezertifizierung der Mitarbeiter-Funktionsberechtigungen von Landesgesellschaften einer Bank gemäß Vorgaben der BaFin. Umsetzung von Prüfverfahren in PL/SQL. Berichtsgenerierung in ORACLE-Datenbanktabellen.",
+          "Berichtsgenerierung in ORACLE-Datenbanktabellen.",
+          "Design und Implementierung in PL/SQL Laufzeitoptimierung komplexer ORACLE-SQL-Abfragen",
+          "Eingesetzte Produkte:",
+          "Management (ALM)",
+          "===================================================== =========================="
+        ],
+        "industry": "Finanzdienstleistungen, Bank",
+        "location": "Braunschweig"
+      },
+      {
+        "period": "10/2015 - 01/2016",
+        "company": "Finanzdienstleistungen, Bank, Braunschweig",
+        "title": "Design und Implementierung",
+        "technologies": [
+          "Windows 7",
+          "Oracle 11g",
+          "PL/SQL",
+          "SQL-Developer",
+          "XML",
+          "XSD",
+          "SCRUM"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Erstellung einer Schnittstelle zum ORACLE OIA / OIM (Oracle Identity Analytics",
+          "/ Oracle Identity Manager) Funktionsmatrix in XML gemäß XSD generieren Design und Implementierung in PL/SQL Laufzeitoptimierung komplexer ORACLE-SQL-Abfragen",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/2013 - 05/2015",
+        "company": "Energie, Jülich",
+        "title": "Fertigungsinformationssystem",
+        "technologies": [
+          "Windows XP",
+          "ASP.Net",
+          "MS-Visual Studio 2008",
+          "VB.Net",
+          "JavaScript",
+          "Oracle 10g",
+          "PL/",
+          "SQL",
+          "TOAD",
+          "Windows Server 2008 R2",
+          "Combit List&Label",
+          "List&Label",
+          "Crystal Reports",
+          "SCRUM"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Fertigungsinformationssystem als Web-Service SOA-Realisierung (Benutzerrollen, Mehrsprachigkeit, usw.)",
+          "Mehrsprachigkeit, usw.), Datenbankdesign und Implementierung",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ],
+        "industry": "Energie",
+        "location": "Jülich"
+      },
+      {
+        "period": "05/2013 - 08/2013",
+        "company": "Energie, Jülich",
+        "title": "Datenbankdesign und Implementierung",
+        "technologies": [
+          "Windows XP",
+          "ASP.Net",
+          "MS-Visual Studio 2008",
+          "VB.Net",
+          "JavaScript",
+          "Oracle 10g",
+          "PL/"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Fertigungsinformationssystem als Web-Service SOA-Konzept (Benutzerrollen,",
+          "Mehrsprachigkeit, usw.), Datenbankdesign und Implementierung",
+          "Eingesetzte Produkte:",
+          "SQL, TOAD",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2012 - 04/2013",
+        "company": "Energie, Jülich",
+        "title": "Neugestaltung und Implementierung",
+        "technologies": [
+          "Windows XP",
+          "ASP.Net",
+          "MS-Visual Studio 2008",
+          "VB.Net",
+          "JavaScript",
+          "Oracle 10g",
+          "PL/"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Datenimport aus unterschiedlichen Datenquellen nach Oracle-DB Neugestaltung und Implementierung, Datenbankdesign",
+          "Eingesetzte Produkte:",
+          "SQL, TOAD",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "06/2012 - 11/2012",
+        "company": "Energie, Jülich",
+        "title": "Neugestaltung und Implementierung",
+        "technologies": [
+          "Windows XP",
+          "VB.Net",
+          "MS-Visual Studio 2008",
+          "Oracle 10g",
+          "PL/SQL",
+          "TOAD"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Erfassung von Planungs- und Produktionsdaten. Neugestaltung und Implementierung der Bediensoftware Eingesetzte Produkte:",
+          "SourceSafe Combit List&Label16 Layout-Designer ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "02/2012 - 05/2012",
+        "company": "Energie, Jülich",
+        "title": "Neugestaltung und Implementierung",
+        "technologies": [
+          "Windows XP",
+          "ASP.Net",
+          "MS-Visual Studio 2008",
+          "VB.Net",
+          "JavaScript",
+          "Oracle 10g",
+          "PL/"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Datenimport aus unterschiedlichen Datenquellen nach Oracle-DB Neugestaltung und Implementierung, Datenbankdesign",
+          "Eingesetzte Produkte:",
+          "SQL, TOAD",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2011 - 01/2012",
+        "title": "Weiterbildung (siehe Aus und Weiterbildung)",
+        "activities": [
+          "===================================================== =========================="
+        ],
+        "company": "Weiterbildung"
+      },
+      {
+        "period": "11/2009 - 02/2010",
+        "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+        "title": "Neugestaltung und Implementierung",
+        "technologies": [
+          "Windows 2000",
+          "C++",
+          "STL",
+          "MS-Visual Studio 6.0",
+          "Java 2 V.1.6",
+          "JNI",
+          "Eclipse 3.5"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Neugestaltung und Implementierung der Bediensoftware für Fahrkartenautomat.",
+          "(Windows NT/XP)",
+          "Eingesetzte Produkte:",
+          "XML, XMI, Enterprise Architect, Subversion, Tortoise ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2009 - 10/2009",
+        "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+        "title": "Softwareübernahme",
+        "technologies": [
+          "Windows 2000",
+          "WinCE",
+          "MSeMbedded Visual C++",
+          "STL",
+          "MS-Visual Studio 6.0"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Softwareübernahme von Host; Softwarepflege für Fahrkartenautomat (Windows NT/ XP) sowie Mobiles Terminal (eMbedded-System)",
+          "Eingesetzte Produkte:",
+          "4.1, Perl, Subversion, Tortoise",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2009 - 02/2009",
+        "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M",
+        "title": "Softwareentwicklung",
+        "technologies": [
+          "Windows 2000",
+          "C++",
+          "MS-Visual Studio 6.0",
+          "Java 2 V.1.5",
+          "JNI",
+          "Eclipse 3.1"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Softwareentwicklung Zugriffsmodule aus JAVA-GUI auf Legacy Software in C.",
+          "Konzept und Implementierung",
+          "Eingesetzte Produkte:",
+          "XML, Subversion, Tortoise",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "10/2008 - 12/2008",
+        "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+        "title": "Softwareentwicklung",
+        "technologies": [
+          "Windows 2000",
+          "C++",
+          "MS-Visual Studio 6.0",
+          "Java 2 V.1.5",
+          "JNI",
+          "Eclipse 3.1"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Softwareentwicklung Datenbankkonverter von MS-ACCESS in ein proprietäres Datenbankformat. Control durch XML-Datei",
+          "Eingesetzte Produkte:",
+          "ACCESS, SWIG, XML, Subversion, Tortoise",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2008 - 09/2008",
+        "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+        "title": "Systemanalyse",
+        "technologies": [
+          "Windows 2000",
+          "MS-Visual C++ 6.0",
+          "SQL-Navigator",
+          "MS-Visual Studio 6.0",
+          "Subversion",
+          "Tortoise",
+          "MS-Visual SourceSafe 6.0",
+          "Windows XP",
+          "Java 2",
+          "v.1.5.x",
+          "Eclipse",
+          "FUJITSU-SIEMENS Prime-Center",
+          "Solaris 9",
+          "Windows Server 2003",
+          "JDBC",
+          "XML",
+          "MS-Access",
+          "MS-Visual .NET",
+          "ASANet-Gateway",
+          "SUN Solaris",
+          "Linux",
+          "Imake",
+          "Siemens Softbus",
+          "Oracle 9iRel.2",
+          "7.23",
+          "WINDOWS NT",
+          "CVS",
+          "ORACLE 8i",
+          "TOAD",
+          "ORACLE Designer",
+          "SQL*PLus",
+          "PL/",
+          "MFC",
+          "ClearCase",
+          "Robohelp",
+          "DDTS",
+          "WINDOWS 95 / NT",
+          "MS-Visual InterDev",
+          "MS-FrontPage",
+          "IIS (Internet-",
+          "(Internet-Information-",
+          "MS-Visual C++ 4.0",
+          "Projektorganisation",
+          "Softwareverteilungsverfahren",
+          "Netzwerke",
+          "Projektmanagement",
+          "ISDN",
+          "ODBC",
+          "TCP/IP",
+          "WINDOWS 3.x",
+          "PC",
+          "SQLite3",
+          "MySQL",
+          "HSQLDB"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung von Systemanfragen für der intereuropäischen Fahrkartenverkauf an Ticketautomaten",
+          "Eingesetzte Produkte:",
+          "===================================================== ==========================",
+          "12/2006 - 03/2008",
+          "Softwaremigration Server-Software auf eMbedded-System",
+          "Datenbankumstellung auf SQLite3",
+          "Laufzeitoptimierung Software und Datenbank"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken (gute Wertpapierkenntnisse)",
+      "Bahn",
+      "Telekommunikation",
+      "Systemhaus",
+      "Softwareentwicklung",
+      "Dienstleistung",
+      "Automobil",
+      "Energie",
+      "Banken"
+    ],
+    "focus_areas": [
+      "Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL C++ VB.Net ASP.Net Java Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Softwaredesign/entwicklung",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Engineering / IT-nahe Ingenieurdienstleistungen",
+      "VB.Net",
+      "ASP.Net",
+      "PL/SQL",
+      "C++",
+      "Java",
+      "JavaScript",
+      "Oracle",
+      "SQL",
+      "Oracle SQL-Tuning",
+      "UNIX",
+      "Windows XP/NT/Vista/7/8/10",
+      "Web Applications",
+      "ABAP4 (Grundkenntnisse)",
+      "Assembler",
+      "Clipper",
+      "Cobol (Grundkenntnisse)",
+      "ESQL/C",
+      "Perl",
+      "embedded Perl",
+      "Script-Sprachen",
+      "yacc /lex"
+    ],
+    "focus_experience": [
+      {
+        "name": "Combit List&Label",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Visual Basic 2006",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Erfahrungen im Bereich",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Anwendungs- und Systemprogrammierung",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "* Software-Design",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Programmierung",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Test",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Erstellung von Online Hilfe",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Rollout",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Unattended Windows-NT Installation",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Betriebsdatenerfassung",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Administration",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Koordination",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Organisation",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Projektleitung",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Qualitätssicherung",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Softwaredesign",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Support",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Systemanalyse",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "* VB.Net",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "ASP.Net",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "PL/SQL",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "C++",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "* Oracle",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "SQL",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Oracle SQL-Tuning",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "weitere Datenbanken",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "* UNIX",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Windows XP/NT/Vista/7/8/10",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Web Applications",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "ABAP4 (Grundkenntnisse)",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Assembler",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Clipper",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Cobol (Grundkenntnisse)",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "ESQL/C",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "* Perl",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "embedded Perl",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Script-Sprachen",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "yacc /lex",
+        "category": "product_standard",
+        "sort_order": 44
+      }
+    ],
+    "education": [
+      {
+        "degree": "Eigene Weiterbildung in C# (C Sharp)",
+        "institution": "",
+        "period": "10/2016 12/2016",
+        "education_type": "course"
+      },
+      {
+        "degree": "Eigene Weiterbildung",
+        "institution": "",
+        "period": "12/2011 01/2012",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proprietäre Protokolle3964R",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MS-Visual Studio 2008",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MS-Visual Studio 2015",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "active",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "express",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "oo-programmierung",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "oracle-sql-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "http",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "dms-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "abfragen",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "programmiersprachen",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:10:06.918453",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 6→5 bei '03/2009 - 10/2009'",
+        "EDV_SEIT: None→2008",
+        "AUTO_SKILLS: +8 in skill_ablage"
+      ],
+      "coverage_percent": 88.80407124681933,
+      "auto_added_skills": 8,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "personal": {
+    "aid": "AID-sz_2.1.3.0",
+    "first_name": "Steffen",
+    "last_name": "Zimmermann",
+    "birth_year": null,
+    "location": "außerhalb D/A/CH",
+    "availability": "01.05.21 zu 100%, Vor-Ort-Einsatz 15% möglich",
+    "edv_experience_since": null,
+    "headline": "Anforderungsanalyse (zertifizierter Requirements Engineer), Architektur, Design, Projektleitung, Senior Developer (Java, C++, C#), zertifizierter UML- Spezialist, OOA, OOD, MDD, MDSD, Billing, Oracle",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 197,
+    "certifications": 0,
+    "education": 0,
+    "experience": 1,
+    "industries": 0,
+    "focus_areas": 21,
+    "focus_experience": 67,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Englisch gut",
+      "level": ""
+    },
+    {
+      "name": "FranzösischGrundkenntnisse",
+      "level": ""
+    },
+    {
+      "name": "Russisch Grundkenntnisse",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "Anforderungsanalyse (zertifizierter Requirements Engineer) Architektur",
+    "Design",
+    "Projektleitung",
+    "Senior Developer (Java",
+    "zertifizierter UML- Spezialist",
+    "MDSD",
+    "Billing",
+    "Oracle",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen 1984 - 1989 Studium Informationstechnik (Abschluß: Dipl.-Ing. für Informationstechnik (TH))",
+    "Anforderungsanalyse",
+    "Architektur",
+    "Senior Developer",
+    "UML",
+    "OOA",
+    "OOD",
+    "MDD",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Engineering / IT-nahe Ingenieurdienstleistungen"
+  ],
+  "focus_experience": [
+    {
+      "name": "Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anforderungsanalyse:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zertifizierung: IREB Certified Professional for Requirements Engineering (RE)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Geschäftsprozessmodellierung:",
+      "category": "product_standard"
+    },
+    {
+      "name": "BPMN + UML + Zertifizierung: OMG-Certified Expert in BPM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwarearchitektur:",
+      "category": "product_standard"
+    },
+    {
+      "name": "iSAQB Certified Professional for Software Architecture",
+      "category": "product_standard"
+    },
+    {
+      "name": "Objektorientierte Anaylse (OOA)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Objektorientiertes Design (OOD)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Objektorientierte Programmierung (OOP)",
+      "category": "product_standard"
+    },
+    {
+      "name": "DesignPattern:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Douglas Schmidt et al",
+      "category": "product_standard"
+    },
+    {
+      "name": "GoF (Gamma",
+      "category": "product_standard"
+    },
+    {
+      "name": "Helm",
+      "category": "product_standard"
+    },
+    {
+      "name": "Johnson",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vlissides)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Buschmann et al.",
+      "category": "product_standard"
+    },
+    {
+      "name": "- OO-Notationen: UML1.X",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML2.X",
+      "category": "product_standard"
+    },
+    {
+      "name": "Booch",
+      "category": "product_standard"
+    },
+    {
+      "name": "OMT (Rumbaugh)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jacobsen",
+      "category": "product_standard"
+    },
+    {
+      "name": "- OO-Werkzeuge: Rational Rose",
+      "category": "product_standard"
+    },
+    {
+      "name": "MagicDraw",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sparx Enterprise Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "(EA)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Together",
+      "category": "product_standard"
+    },
+    {
+      "name": "MID Innovator 2007",
+      "category": "product_standard"
+    },
+    {
+      "name": "MID Innovator 2009",
+      "category": "product_standard"
+    },
+    {
+      "name": "MID Innovator 2011",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unified Modeling Language (UML): Zertifizierung: OMG-Certified UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Professional",
+      "category": "product_standard"
+    },
+    {
+      "name": "- CORBA ( Orbix",
+      "category": "product_standard"
+    },
+    {
+      "name": "BEA",
+      "category": "product_standard"
+    },
+    {
+      "name": "VisiBroker",
+      "category": "product_standard"
+    },
+    {
+      "name": "TAO ) (9 Jahre)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- J2EE / JEE : JBoss",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebLogic",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate 3.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring 2",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Sicherheit: Zertifizierung: IT-Sicherheit TU Darmstadt",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Relationales Datenbankdesign : PowerDesigner / S-Designor",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erwin",
+      "category": "product_standard"
+    },
+    {
+      "name": "industrielle Bildverarbeitung (8 Jahre)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ereignisgesteuerte Programmierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML-Techniken und -Werkzeuge:",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "XSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "XSLT",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML-Schema",
+      "category": "product_standard"
+    },
+    {
+      "name": "XSD",
+      "category": "product_standard"
+    },
+    {
+      "name": "DTD",
+      "category": "product_standard"
+    },
+    {
+      "name": "XPath",
+      "category": "product_standard"
+    },
+    {
+      "name": "XQuery",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xalan",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xerces",
+      "category": "product_standard"
+    },
+    {
+      "name": "Saxon",
+      "category": "product_standard"
+    },
+    {
+      "name": "EDIFACT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Billing im Telekommunikationsumfeld (Mobilfunk)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Geschäftsprozesse im Telekommunikationsumfeld",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mediationsysteme (B2B-Integration) im Telekommunkationsumfeld",
+      "category": "product_standard"
+    },
+    {
+      "name": "Produktionsdatenerfassung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitätssicherung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Stabilisierung von Anwendungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Portierung von Softwaresystemen in andere Sprachen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Portierung von Softwaresystemen auf andere Betriebssysteme",
+      "category": "product_standard"
+    },
+    {
+      "name": "Performancetuning",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Produktionsdatenerfassungssystem Inhalt: Entwicklung",
+      "company": "",
+      "role": "",
+      "title": "Produktionsdatenerfassungssystem Inhalt: Entwicklung eines Produktionsdatenerfassungssystems für einen Automobilindustriezulieferer als Client/Server-Lösung Projektzeitraum: 1989 - 1990 Betriebssystem",
+      "activities": 9,
+      "technologies": 45
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Approach Grundkenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BTrieve gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAO sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2 gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Exasol",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ingres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Interbase sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle sehr gut: 5",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "10g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "11 ; OCI",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Replikation",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tuning",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Parstream",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "POET",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgres gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Quest",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "19 Jahre Erfahrung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase SQL Anywhere 5.x",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "versant",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "artbase gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Watcom SQL sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Alpha",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Digital",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Digitale Signalprozessoren Texas Instruments: C40",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Emulatoren VMWare Workstation",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VMWare Server",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VMware ESX",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "User",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Mode Linux",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "XEN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VirtualBox",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "KVM",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Framegrabber",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Messgeräte",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Mikrocontroller",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Rational",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens MX MX500",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MX300",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Texas Instruments TMS320C40",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Video Capture Karte",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Texas Instruments Signalprozessoren",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Apollo Domain OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "CP/M",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "HPUX gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell Grundkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OSF/Motif",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2 sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "True64",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ASN.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler Z80",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Z8000",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C# gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++ sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CORBA IDL sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    }
+  ]
+}

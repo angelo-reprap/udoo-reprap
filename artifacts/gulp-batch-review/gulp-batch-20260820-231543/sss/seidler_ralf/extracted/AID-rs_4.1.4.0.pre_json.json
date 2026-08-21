@@ -1,0 +1,516 @@
+{
+  "metadata": {
+    "aid": "AID-rs_4.1.4.0",
+    "version": "4.1.4.0",
+    "consultant_dir": "seidler_ralf",
+    "first_name": "Ralf",
+    "last_name": "Seidler",
+    "headline": "Krisenmanagement / Interimsmanagement / Projektmanagement / Performancemanagement / Seminare / Anwendungsentwicklung Großrechner / Produktbetreuung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:57:49.810526"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Ralf",
+      "last_name": "Seidler",
+      "birth_year": 1957,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend in Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Französisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.03.22 zu 80%, Vor-Ort-Einsatz 40% möglich",
+      "wohnort": "554xx Bingen, Deutschland",
+      "location": "554xx Bingen, Deutschland",
+      "headline": "Krisenmanagement / Interimsmanagement / Projektmanagement / Performancemanagement / Seminare / Anwendungsentwicklung Großrechner / Produktbetreuung",
+      "edv_experience_since": 2016
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access Grundkenntnisse",
+        "Approach Grundkenntnisse",
+        "DB2 Referenten Know-How",
+        "DL/1 Referenten Know-How",
+        "IMS Referenten Know-How",
+        "Lotus Notes Anwenderkenntnisse",
+        "SQL Referenten Know-How",
+        "VSAM sehr gute Kenntnisse"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "IBM Großrechnerzu vielen Themen Schulungsreferent",
+        "PC sehr gute Kenntnisse"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "IBM ISPF Referenten Know-How",
+        "MS-DOS gute Praxiskenntnisse",
+        "Multics theoretische Kenntnisse",
+        "MVS",
+        "OS/390 Referenten Know-How",
+        "OS/2 Anwenderkenntnisse",
+        "Windows sehr gute Anwenderkenntnisse",
+        "z/OS"
+      ],
+      "programming_languages": [
+        "Assembler Grundkenntnisse",
+        "Basic Grundkenntnisse",
+        "C Grundkenntnisse",
+        "C++ Grundkenntnisse",
+        "CList Referenten Know-How",
+        "Cobol Referenten Know-How",
+        "Fortran Grundkenntnisse",
+        "Java Grundkenntnisse",
+        "JavaScript Grundkenntnisse",
+        "JCL Referenten Know-How",
+        "Perl Grundkenntnisse",
+        "PHP Grundkenntnisse",
+        "PL/1 Referenten Know-How",
+        "QMF Grundkenntnisse",
+        "Rexx Referenten Know-How",
+        "ROCHADE gute Kenntnisse",
+        "SAS Grundkenntnisse"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2016-06 - 2019-09",
+        "company": "R+V",
+        "title": "Support Tabex 4 Monate, Wiesbaden",
+        "role": "Projektleitung",
+        "technologies": [
+          "Tabex/Mainframe",
+          "Tabex/Windows",
+          "Tabex/Java",
+          "JTC",
+          "OfficeProdukte etc",
+          "Eingesetzte Produkte: z/OS",
+          "DB2",
+          "COBOL",
+          "empfehlen ihn gerne anderen Kunden weiter.\"",
+          "System-/Sprachumgebungen: Windows 7",
+          "Office-Produkte",
+          "Perl",
+          "PHP",
+          "Windows Vista",
+          "Eclipse",
+          "System-/Sprachumgebungen: Linux",
+          "MATLAB",
+          "Simulink",
+          "Open Office Produkte",
+          "MVS",
+          "OS/390",
+          "IMS-DB",
+          "IMS-DC",
+          "CICS",
+          "AbendAid",
+          "DPPX",
+          "VSAM",
+          "TSO",
+          "PL/1",
+          "Smart",
+          "ROSCOE",
+          "FORTRAN 77",
+          "SAS",
+          "Sonstiges",
+          "Referenzen:",
+          "04/01 - 12/04",
+          "ein sehr breites",
+          "sondern hatte",
+          "jederzeit vorbildlich. Wir",
+          "Projekt User-ID-Umstellung",
+          "08/00 - 03/01",
+          "Referenz durch eine Versicherung vom 24.11.04",
+          "kurzer Zeit sehr gute",
+          "Aufgabenbereich in",
+          "Eigeninitiative",
+          "veränderte Situationen",
+          "erforderlichen Maßnahmen",
+          "jederzeit termingerecht",
+          "ausgezeichnete",
+          "vertrauenswürdig und",
+          "Führungskraft verstand er es",
+          "verstand er es",
+          "motivieren. Er",
+          "Mitarbeiter. Darüber",
+          "immer",
+          "Kunden und",
+          "kooperatives und",
+          "anerkannt und",
+          "stets zu unserer vollsten Zufriedenheit. [...]\"",
+          "07/96 - 07/00",
+          "Referenz durch Abteilungsleiter IT in Versicherung",
+          "er in seinem",
+          "Anregungen. Bei",
+          "organisiert seine",
+          "Arbeitsweise des",
+          "nicht nur fachliches Können",
+          "fundiertes Fachwissen",
+          "umsetzen",
+          "zeichnet sich durch",
+          "zügig",
+          "seine Mitarbeiter durch seinen vorbildlichen",
+          "Sonstige Anmerkungen:",
+          "sowie",
+          "=================================================",
+          "Durch breites Wissen",
+          "teilweise auf Referenten-Niveau",
+          "auf nahezu",
+          "Anwendungsentwicklung",
+          "Bereichen Projektmanagement",
+          "Qualitätsmanagement",
+          "Testmanagement",
+          "Performance",
+          "universell einsetzbar",
+          "FileAid"
+        ],
+        "activities": [
+          "First und Second Level Support Tabex auf den Plattformen z/OS,",
+          "Windows und Linux (Java)",
+          "Schulung und Beratung der Anwender Releaseplanung und –einführung",
+          "Tabex-System-Betreuung auf allen Plattformen",
+          "Einarbeitung weitere Mitarbeiter",
+          "System-/Sprachumgebungen: z/OS, DB2, COBOL, LE, Tabex,",
+          "Branche: Versicherung",
+          "Tabex/Java, JTC, Office-Produkte etc."
+        ]
+      }
+    ],
+    "industries": [
+      "Einstieg in das laufende Projekt",
+      "Krisenmanagement",
+      "Fortführen und Abschließen des Projekts",
+      "Koordination mit allen fachlichen und technischen Projekten wie",
+      "SAP",
+      "Personenversicherungen",
+      "Sachversicherungen",
+      "Schaden",
+      "DSS",
+      "EDM",
+      "Rückversicherung",
+      "Kundenanwendung",
+      "Vertriebsanwendung",
+      "Inkasso",
+      "Exkasso etc.",
+      "Analyse und QS der vorliegenden Ergebnisse",
+      "Abstimmungen mit zentralen Funktionen wie DSS",
+      "Kunden",
+      "Vertrieb",
+      "Vorschlag zur weiteren Vorgehensweise",
+      "Rolle: Teilprojektleitung",
+      "Branche: Versicherung",
+      "Definieren, Beschreiben und Koordinieren der Umsetzung der Vorgehensweise",
+      "Analyse aller Kern-Anwendungen auf Großrechner und im C/S-Umfeld wie",
+      "Personenversicherung",
+      "Sachversicherung",
+      "zentrale Funktionen wie DSS",
+      "Kunde",
+      "Buchhaltung etc.",
+      "Umstellen und Test der Anwendungen",
+      "Rolle: Projektleitung",
+      "System-/Sprachumgebungen: MVS",
+      "OS/390",
+      "z/OS",
+      "IMS-DB",
+      "IMS-TM",
+      "DB2",
+      "CICS",
+      "COBOL",
+      "PL/1",
+      "Smart Edit",
+      "Rochade",
+      "Xpediter",
+      "FileAid",
+      "AbendAid",
+      "Tabex",
+      "Office-Produkte",
+      "Lotus-Produkte",
+      "SAP R2",
+      "SAP R3 etc.",
+      "Marktuntersuchung und Auswahl eines CASE-Tools (IEF)",
+      "Aufstellen der Vorgehensweisen und der Konsequenzen bei einer Einführung",
+      "Abstimmungen mit Kern-Anwendungen auf Großrechner und im C/S-Umfeld wie",
+      "Mitwirkung bei der Vorbereitung des Unternehmens für die Zertifizierung",
+      "Durchführen von Audits",
+      "Change Management",
+      "Problem Management / Incident Management",
+      "Prozessoptimierung",
+      "Configuration Management",
+      "Testmanagement",
+      "Anwendungsplanung",
+      "Anwendungsstruktur",
+      "Architektur und Technik der Anwendungen",
+      "Projektplanung",
+      "Vorbereitung der Entscheidungsprozesse",
+      "Mitwirkung bei Entscheidungen",
+      "Untersuchen der konvertierten CICS-Anwendungen auf Optimierungspotential",
+      "Erstellen des Vorschlags zur Machbarkeit und Vorgehensweise",
+      "Optimierung der Anwendungen",
+      "Konvertierung aller Versicherungsanwendungen von DPPX nach CICS",
+      "zentrale Funktionen wie Kunde",
+      "Inkasso etc.",
+      "Erstellen einer Grobstudie",
+      "Neuerstellen und Pflege von Pharmakokinetiksoftware",
+      "Beraten der Endanwender",
+      "Erstellen von Hilfsprogrammen",
+      "Beraten und Schulen der ROSCOE-Anwender",
+      "Auswerten von biochemischen Daten"
+    ],
+    "focus_areas": [
+      "Krisenmanagement / Interimsmanagement / Projektmanagement / Performancemanagement / Seminare / Anwendungsentwicklung Großrechner / Produktbetreuung Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Projektmanagement im IT-Bereich; Anwendungsentwickung IBM-Welt;",
+      "Gehaltsvorstellung ca. 120.000 Euro pro Jahr Studium Diplom-Physik (Nebenfächer Mathematik, Chemie);",
+      "Ausbildung in Seminaren und Praxis in IT-Mainframe und allgemeiner Informatik von Systemsoftware über Anwendungssysteme / Anwendungsentwicklung bis hin zu Verfahren und Methoden;"
+    ],
+    "focus_experience": [
+      {
+        "name": "JTC",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Office-Produkte etc.",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Tabex",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Tabex/Java",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Tabex/Mainframe",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Tabex/Windows",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Strobe",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Intune",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "APM Tool",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "APC",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Xpediter",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "FileAid",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "AbendAid",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Cool:Gen",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Rochade",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Smart Edit",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "DebugTool",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Intertest",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "und viele andere aus dem Anwendungsentwicklungsumfeld z/OS",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Office-Produkte",
+        "category": "product_standard",
+        "sort_order": 19
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diplom-Physik (Nebenfächer Mathematik, Chemie)",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung in Seminaren und Praxis in IT-Mainframe und allgemeiner Informatik",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt PMA Performance Management für Anwendungen, 04/01 - 12/04\nReferenz durch Teamleiter Bereich Produktion einer Großbank vom 01.10.04\n\"Der Consultant hat in dem Projekt Performance Management für Anwendungen\nein sehr breites\nWissensspektrum gezeigt. Er hat die Themen eigenständig und im Team fachlich\nund sozial\nkompetent erarbeitet und umgesetzt. Dabei zeigte er nicht nur fachliches Können,\nsondern hatte\njederzeit den Überblick über den gesamten Prozess. Er hat engagiert den Know-\nHow-Transfer in die\nAnwendungsentwicklung übernommen und betrieben. Sein Verhalten war\njederzeit vorbildlich. Wir\nempfehlen ihn gerne anderen Kunden weiter.\"\nProjekt User-ID-Umstellung, 08/00 - 03/01\nReferenz durch eine Versicherung vom 24.11.04\n\"[...] Der Consultant eignete sich in seinem neuen Aufgabengebiet innerhalb\nkurzer Zeit sehr gute\nKenntnisse an. Er verfügt über ein umfangreiches Fachwissen, das er in seinem\nAufgabenbereich in\nausgezeichneter Weise umsetzen kann. Er zeigt Engagement und eine starke\nEigeninitiative,\nzeichnet sich durch großen ldeenreichtum aus und entwickelte häufig wertvolle\nund konstruktive\nVorschläge. Bei Projekten leistet der Consultant häufig die entscheidenden\nBeiträge und er\nengagiert sich auch bei der Umsetzung von Maßnahmen. Er stellt sich auf\nveränderte Situationen\nschnell ein und ist den Anforderungen und Belastungen seiner Position gut\ngewachsen. Er plant und\norganisiert seine Arbeit sehr zielstrebig und systematisch und leitete alle\nerforderlichen Maßnahmen\nselbstständig in die Wege. Die Arbeitsweise des Consultants war sehr zügig,\njederzeit\ntermingerecht, überaus exakt und sorgfältig. Dadurch erzielte der Consultant\nausgezeichnete\nErgebnisse. Wir haben den Consultant als einen außerordentlich pflichtbewussten\nund zuverlässigen\nMitarbeiter schätzen gelernt. Er war jederzeit in besonderem Maße\nvertrauenswürdig und\nverantwortungsvoll und trug wesentlich zu einer guten Zusammenarbeit bei. Als\nFührungskraft\nverstand er es, seine Mitarbeiter durch seinen vorbildlichen Einsatz sehr gut zu\nmotivieren. Er\nvereinbarte klare Ziele und delegierte die Aufgaben sinnvoll an die richtigen\nMitarbeiter. Darüber\nhinaus unterstützte er den Informationsaustausch und war für sachliche Kritik\nimmer\naufgeschlossen. Der Consultant war ein kompetenter Ansprechpartner für unsere\nKunden und\ngewährleistete eine ausgezeichnete Beratung und Betreuung. Durch sein\nkooperatives und\numgängliches Wesen war er bei Vorgesetzten und Mitarbeitern gleichermaßen\nanerkannt und\nbeliebt. Er erledigte die ihm übertragenen Aufgaben stets zu unserer vollsten\nZufriedenheit. [...]\"\nProjekt Infrastrukturprojekt / Jahr 2000 / Produktsystem, 07/96 - 07/00\nReferenz durch Abteilungsleiter IT in Versicherung, 24.11.04\n\"[...] Der Consultant eignete sich in seinem neuen Aufgabengebiet innerhalb\nkurzer Zeit sehr gute\nKenntnisse an. Er verfügt über ein umfassendes und fundiertes Fachwissen, das\ner in seinem\nAufgabenbereich in ausgezeichneter Weise umsetzen kann. Er zeigt",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "CICS sehr gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CORBA Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IMS/DC Referenten Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet sehr gute Kentnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISPF-DMS sehr gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LU6.2 Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere Grundkenntnisse als Anwender",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNA Grundkenntnisse",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:57:49.810540",
+    "source_file": "",
+    "steps_completed": [
+      "OTHER",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2016"
+      ],
+      "coverage_percent": 53.5483870967742,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

@@ -1,0 +1,101 @@
+AID: AID-aw_2.1.4.0
+Name: Anton Wachniewski
+Headline: Java EE7, JSF, JSP, Natural
+Ort: 667xx Weiskirchen, Deutschland
+Wohnort: 667xx Weiskirchen, Deutschland
+Jahrgang: 1952
+Verfügbar: 01.08.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1986
+Sprachen: Deutsch fließend, Englisch fließend, Polnisch fließend, Russisch gut, Deutsch (fließend), Englisch (fließend), Polnisch (fließend), Russisch (gut)
+
+FACHBEREICHE:
+Java EE7
+Natural
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination Softwareentwicklung Java (EE7), Natural 1985
+Dipl. Informatiker (M.Sc.), SWTU in San Marcos, Texas USA 1978
+Dipl. Physiker, U Breslau, Polen (Promotion)
+JSF
+JSP
+Projektmanagement / -leitung / Organisation / Koordination
+Softwareentwicklung Java (EE7), Natural
+
+BRANCHEN:
+Softwarehersteller - EDV
+Bahn
+Versicherungen
+Printmedien
+Forschung
+Banken
+Automobil- und Maschinenbau
+Medizin
+Energie
+
+PROJEKTE:
+  1992-1994 | Siemens-Nixdorf-Informationssysteme | Kernfunktionen und Steuerung für DDL und Utilities der Datenbank SESAM 2.0 für
+    - Siemens-Nixdorf-Informationssysteme, München-Perlach. Entwicklung in C unter BS2000 und teilweise SINIX. Aufgaben: Design, Programmierung, Test.
+    - Benchmarktests von SESAM versus Oracle und DB2 mit Hilfe von SQL, COBOL .
+    - Kernfunktionen und Steuerung für DDL und Utilities der Datenbank SESAM 2.0
+    Techs: SESAM 2.0, BS2000, SINIX, SQL, COBOL, Oracle, DB2
+  1990-1991 | SIEMENS | Wartung und Weiterentwicklung von Sisymed (System für Arztpraxis)
+    - für SIEMENS, München. Entwicklung in C, Datenbank UNIFY, SINIX . Fachfeinkonzept, Design,
+    - Programmierung, Testauswertung, Fehlersuche.
+    - 1990 Entwicklung von Meßsoftware für optische Koordinatenmessmaschinen für WEGU, Wadgassen. Implementierung in C unter MS DOS. Aufgaben: Fachkonzept der Algorithmen, Programmierung, Test.
+    Techs: UNIFY, SINIX
+  1987-1988 | KWU | Weiterentwicklung (Änderungen der physikalischen Modelle) und Fehlerbehebung bei Kraftwerksimulator Al Khobar
+    - Fehler- behebung bei Kraftwerksimmulator Al Khobar für KWU, Karlstein. Entwicklung in FORTRAN und ASSEMBLER unter MPX-32 (Gould).
+    - Weiterentwicklung (Änderungen der physikalischen Modelle)
+    - Fehlerbehebung bei Kraftwerksimulator Al Khobar
+    Techs: FORTRAN, ASSEMBLER, MPX-32, Gould
+  1986-1987 | Fordwerke Köln | Meßdatenübertragung QDS-->HP1000 und statistische Qualitätskontrolle
+    - Qualitätskontrolle für Fordwerke Köln. Entwicklung in FORTRAN unter RTE-A.
+    - 1978-1985 Numerische Berechnungen im Bereich der theoretischen Festkörperphysik an der U des Saarlandes in Saarbrücken, U of Wyoming in Laramie, WY, USA und an der SWTU in San
+    - Marcos, TX, USA. Entwicklung in BASIC unter HP und in FORTRAN unter DEC.
+    Techs: FORTRAN, RTE-A
+
+SKILLS:
+  database: Adabas (NATURAL), DB2, MySQL (JDBC), Oracle 8i (Cobol, JDBC)
+  hardware: IBM Großrechner, PC, Siemens Großrechner
+  operating_system: BS2000, MS-DOS, MVS, SINIX, Unix Sinix, VAX, VMS, Windows NT, Windows XP, Windows 2000, z/OS
+  programming_languages: Assembler, C, C++, Cobol, Fortran, Java:, JDBC, XML, JSP, EE7 (JSF, PrimeFaces, JPA 2, EJB, XHTML, CSS, JavaScript), Spring, Maven, NATURAL, PL/1, SQL, UML
+  special_skill: NaturalONE, PREDICT CASE, PREDICT, natclipse, JBuilder Enterprise, Eclipse, myeclipse, UML - Rational Rose Enterprise, Projekterfahrung
+
+SKILL-ABLAGE:
+APPC CPI-C RS232, CORBA VisiBroker, CPIC, Internet, Intranet, RPC
+
+AUSBILDUNG:
+1985 | Dipl. Informatiker (M.Sc.) | SWTU in San Marcos, Texas USA  [course]
+1978 | Dipl. Physiker (Promotion) | U Breslau, Polen  [course]
+
+FOCUS_EXP:
+  ADABAS  [product_standard]
+  Eclipse  [product_standard]
+  EE7  [product_standard]
+  Glassfish  [product_standard]
+  JBuilder Enterprise  [product_standard]
+  JCL  [product_standard]
+  Maven  [product_standard]
+  MyEclipse  [product_standard]
+  natclipse  [product_standard]
+  Natural auf Host  [product_standard]
+  Natural unter Windows  [product_standard]
+  NaturalONE  [product_standard]
+  PREDICT  [product_standard]
+  PREDICT CASE  [product_standard]
+  Tomcat  [product_standard]
+  UML  [product_standard]
+  Wildflay 10  [product_standard]
+  XML  [product_standard]
+
+SONSTIGES:
+Referenzen:
+Projekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 - 12/99
+Referenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99
+"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz."
+
+Referenzen:
+Projekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 - 12/99
+Referenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99
+"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz."
+Alle Referenzen sind durch GULP bestätigt.

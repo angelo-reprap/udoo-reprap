@@ -1,0 +1,110 @@
+AID: AID-uv_2.3.2.0
+Name: Uwe Vogt
+Headline: 
+Ort: 
+Verfügbar: 
+EDV seit: 2006
+Sprachen: 
+
+FACHBEREICHE:
+
+BRANCHEN:
+
+PROJEKTE:
+  2022-01 - 2022-03 | DEMAG Cranes and Components GmbH, Wetter (Ruhr) | Software-Entwickler
+    - Aufgrund des weltweiten Mangels an Mikroprozessoren im Zuge der COVID-19-Pandemie und möglicher zukünftiger Abkündigungen der eingesetzten Mikroprozessoren, überarbeitet der Kunde sein
+    - Produktangebot. Die bestehende Steuerung für einen Schwenksäulenkran wird auf einen neuen Microcontrollertyp (für den auch Ersatztypen zur Verfügung stehen) portiert, ohne das Applikationsprogramm selbst zu überarbeiten. Hierbei werden die Treiber des Hardware Abstraction Layer
+    - (HAL) neu entwickelt und über Wrapper an das bestehende
+    Techs: ARM, ADC, I2C, UART
+  2021-06 - 2021-11 | Joyson Safety Systems Aschaffenburg GmbH | Software-Entwickler
+    - Das HOD-System ist ein kapazitives Messsystem zur Erfassung des Berührungszustands des Fahrers am Lenkrad, um den Zustand an das Fahrzeug zu senden (z.B. zum automatischen Beschleunigen, Bremsen und Lenken bei Staus auf Autobahnen). Sein Sicherheitsziel (safety goal) ist es, nicht fälschlicherweise einen falschen Berührungszustand zu senden.
+    - Defektanalyse und -behebung
+    - Untersuchung von Defects und Feldrückläufern
+    Techs: UML, ISO 26262, ASPICE, LIN
+  2020-12 - 2021-06 | mac-can.github.io | Software-Entwickler
+    - Vielfältige CAN-Hardware und CAN-Software wird von verschiedenen Firmen angeboten, aber nur wenige von ihnen stellen einen Treiber für macOS zur Verfügung. In Ermangelung von CAN-Treibern für macOS habe ich mehrere User-Space-Treiber für USB-to-CAN-Adapter als Open-Source-Projekte erstellt. Die Hauptaufgaben waren
+    - Unterstützung neuer Hardware, Implementierung fehlender Features,
+    - Realisierung einer einheitlichen API, Stabilisierung und Fehlerbehebung. macOS User-Space-Treiber für USB-to-CAN-Adapter sind verfügbar für PCAN-USB Interfaces vom PEAK-System
+    Techs: C++, Python, macOS
+  2019-11 - 2020-11 | Joyson Safety Systems Aschaffenburg GmbH | Software-Entwickler
+    - Das HOD-System ist ein kapazitives Messsystem zur Erfassung des Berührungszustands des Fahrers am Lenkrad, um den Zustand an das Fahrzeug zu senden (z.B. zum automatischen Beschleunigen, Bremsen und Lenken bei Staus auf Autobahnen). Sein Sicherheitsziel (safety goal) ist es, nicht fälschlicherweise einen falschen Berührungszustand zu senden.
+    - Unterstützung des Softwareteams bei den folgenden Aufgaben:
+    - Software Architecture ASIL compliance
+    Techs: UML, ISO 26262, ASPICE, agile
+  2019-09 - 2019-10 | Git (Distributed Version Control System) | Software-Entwickler
+    - Die Ventilatorsteuerungen sind über RS-485 Bus mit einer hierarchischen, mehrstufigen Topologie vernetzt. Ein spezifelles 9-bit Protokoll (mit einem
+    - Wake-up Bit) kommt hierbei zum Einsatz. Eine Gateway Unit verbindet das System über eine RS-232 Schnittstelle mit der Leittechnik. Einige Anlagen sind seit mehr als 20 Jahren in Betrieb. Ersatzgeräte für die Gateway Units sind nicht mehr verfügbar. Ziel des Projekts war es, die verwendeten seriellen Protokolle auf einem Evaluationboard mit aktuellem
+    - (ARM basiertem) Mikrocontroller neu zu implementieren.
+    Techs: UML, RS-232, RS-485
+  2018-01 - 2019-06 | Joyson Safety systems Aschaffenburg GmbH | Software-Entwickler
+    - Aktivlenkung für US-amerikanischen Automobilhersteller. Unterstützung des Softwareteams in Berlin mit folgender Aufgabenstellung:
+    - Safety Check - Architektur überarbeiten, Gap Analyse, Software
+    - Anforderungen, Testvektoren erstellen und Review der Unit-Testcases Rootcausing – Vorfallanalyse, Impact Analyse, Implementierung und Dokumentation der Softwareänderungen Golden Showcase – exemplarische Überarbeitung der Softwarekomponente 'Steering Wheel Heating' für Übernahme in ein AutoSAR Projekt
+    Techs: ISO 26262 (ASIL-D), UML, CAN
+  2017-05 - 2017-12 | BSH Hausgeräte GmbH | Softwaer-Entwickler
+    - Der Kunde ist eines der weltweit führenden Unternehmen der Branche und der größte Hausgerätehersteller in Europa.
+    - Unterstützung des Software-Projektteams 'Home Connect' in Berlin mit folgenden Aufgabenstellung:
+    - Beratung in der Software-Entwicklung für Embedded-Systeme zur Steuerung und Vernetzung von Waschmaschinen, Waschtrockner und Trockner
+    Techs: UML 2.0
+  2016-06 - 2017-03 | Automotive | Senior Software Developer
+    - Der Kunde entwickelt einen Zusatzenergiespeicher (Lithium Ionen Akku) für FMA-Support (Free Wheel Engine Off), Start/Stop-Betrieb und Emergency-Support.
+    - Aufgaben im Projekt:
+    - Konzepterstellung
+    Techs: ISO 26262 (ASIL-B), AUTOSAR, UML
+  2015-08 - 2016-05 | Industrie | Software-Entwicker
+    - Entwicklung der Server-seitigen Application Layer Services nach ISO- 14229 im Rahmen einer Plattformsoftware für Drehgeber. Das Arbeitspacket umfasst die folgenden Aufgaben:
+    - Definition der Software Architekturkomponenten
+    - Erfassen der Komponenten Requirements (in Polarion)
+    Techs: Functional Safety, UML
+  2015-06 - 2015-07 | Industrielle Kommunikation / Feldbus | Software-Entwickler
+    - Entwicklung der Firmware für einen CAN-Repeater (Quasi-Repeater) als
+    - Steckerersatz zur Sensordatenerfassung in Tunnelbohrmaschinen. CAN
+    - Nachrichten werden auf UART umgesetzt, um sie mithilfe eines FSK- Modems über einen Luftspalt zu übertragen. Zur Versorgung der Sensoren im Bohrkopf stellt der Koppler 500mA bereit.
+    Techs: CAN, UML
+  2012-01 - 2015-05 | Automotive | Software-Entwickler
+    - Aktivlenkung für US-amerikanischen Automobilhersteller. Unterstützung des Projektteams in Berlin mit folgender Aufgabenstellung:
+    - Implementation of the software design (modules)
+    - Documentation of the modules and interfaces
+    Techs: ISO 26262 (ASIL-D), UML, CAN
+  2010-12 - 2011-12 | Automotive | Software-Entwickler
+    - Unterstützung der Entwicklung beim Kunden. Die Aufgabe beinhaltet:
+    - Entwicklung von hardwarenahen Softwareapplikationen
+    - Erstellen von hardwarenahen Treibern
+    Techs: UML, CAN, CANopen, C++
+  2009-07 - 2010-09 | Luftfahrttechnik | Software-Entwickler
+    - Zertifizierungsreifmachung einer Fly-by-Wire Flugsteuerung:
+    - Softwareentwicklung nach V-Modell und RTCA DO-178B für das Primary Flight Control System des Superjet 100
+    - Durchführung der Softwaretests gemäß RTCA DO-178B
+    Techs: DO178B, UML, CAN, ARINC
+  2009-02 - 2009-03 | Schneider Electric Motion Deutschland GmbH & Co.KG | Software-Entwickler
+    - Anpassung der Firmware für Kompaktantriebe um Kunden-spezifische
+    - Sonderfunktion. Der Antrieb wird zur Vervollständigung des Notfallkonzepts in einer mobilen Blutpumpe eingesetzt. Hierzu wurde die Funktion des digitalen Bedien-Interface nach Kunden-spezifischen
+    - Vorgaben angepasst.
+    Techs: CANopen
+  2009-01 - 2009-02 | Schneider Electric Motion Deutschland GmbH & Co.KG | Software-Entwickler
+    - Erweiterung der Firmware für Kompaktantriebe um Kunden-spezifische
+    - Sonderfunktion. Auf Basis der bestehenden Antriebsfirmware wurde das Getriebeflankenspiel (backlash) durch die Softwaremethode 'Pilgerschritt bzw.
+    - Schleifenfahrt' kompensiert, um eine höhere Positioniergenauigkeit zu erreichen. Bei dieser Methode werden alle Positionen nur aus einer Richtung angefahren. D.h. in einer Richtung immer direkt und in der Gegenrichtung wird die Zielposition erst um einen Betrag, der größer ist als das Getriebespiel, überlaufen und dann erst angefahren.
+    Techs: CANopen
+  2007-01 - 2008-12 | Prozessenergie | Software-Entwickler
+    - Mitarbeit bei der Spezifikation und Entwicklung eines Controllerboards mit MPC5200B (Freescale) und echtzeitfähigem Linux (Kernel 2.6 RT
+    - Preemptive, PTXdist). Das Projekt stellt eine gemeinsame HW-Plattform und einen generischen SW-Framework für produktspezifische
+    - Zentralsteuerungen von Generatorsystem für Plasmaanregung,
+    Techs: UML, CANopen, Freescale MPC5200B), Linux 2.6.x (RT, GCC, Eclipse (Linux, Debugger), CAN Interfacekarten (PEAK & IXXAT), Linux
+  2006-09 - 2007-01 | Automotive / Mobilsteuerung | Softwaer-Entwickler
+    - Erweiterung einer CANopen Steuerung mit Geräteprofil CiA DS-405
+    - (Interface and Device Profile for IEC 61131-3 Programmable Devices) um das CANopen Safety Protokoll entsprechend CiA DS-304 (Framework for safety-relevant communication). Die Mobilsteuerung wird in Teleskopkrane zur Lastmomentbegrenzung eingesetzt. Eine Zertifizierung nach SIL II wurde vom Kunden vorbereitet.
+    - Aufgaben im Projekt:
+    Techs: Functional Safety, CANopen, (Kernel 2.6 RT Preemptive, GCC, Eclipse (Linux and Cygwin), IBM compatible PC, Windows 95, Windows 3.11, Sonstiges, Referenzen:
+
+SKILLS:
+  special_skill: ARM, ADC, I2C, UART, UML, ISO 26262, ASPICE, LIN, C++, Python, macOS, agile, RS-232, RS-485, ISO 26262 (ASIL-D), CAN, UML 2.0, ISO 26262 (ASIL-B), AUTOSAR, Functional Safety, CANopen, DO178B, ARINC, Freescale MPC5200B), Linux 2.6.x (RT, GCC, Eclipse (Linux, Debugger), CAN Interfacekarten (PEAK & IXXAT), Linux, (Kernel 2.6 RT Preemptive, Eclipse (Linux and Cygwin), IBM compatible PC, Windows 95, Windows 3.11, Sonstiges, Referenzen:, Projekt Hands On Detection, 11/19 - 11/20, Referenz durch Joyson Safety Systems vom 08.02.22
+
+SKILL-ABLAGE:
+
+
+SONSTIGES:
+Referenzen:
+Projekt Hands On Detection, 11/19 - 11/20
+Referenz durch Joyson Safety Systems vom 08.02.22
+"Der Consultant hat sich besonders durch seine effektive sowie strukturierte Arbeitsweise und langjährige Projekterfahrung in diversen Themengebieten ausgezeichnet und uns damit von Anfang an bereichert. Er zeigte zudem stets eine sehr hohe Leistungs- und Hilfsbereitschaft"

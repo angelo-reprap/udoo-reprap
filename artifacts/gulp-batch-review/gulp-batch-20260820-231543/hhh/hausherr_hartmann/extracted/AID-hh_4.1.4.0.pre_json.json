@@ -1,0 +1,577 @@
+{
+  "metadata": {
+    "aid": "AID-hh_4.1.4.0",
+    "version": "4.1.4.0",
+    "consultant_dir": "hausherr_hartmann",
+    "first_name": "Hartmann",
+    "last_name": "Hausherr",
+    "headline": "Projektleitung, Teststrategien, Konfigurationsmanagement, Oualitätssicherung, Wertpapier, Banken, KORDOBA, RZ-Organisation, Rollout, Schulung, Training",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:35:18.750691"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Hartmann",
+      "last_name": "Hausherr",
+      "birth_year": 1956,
+      "languages": [
+        {
+          "name": "Arabisch",
+          "level": ""
+        },
+        {
+          "name": "Grundkenntnisse",
+          "level": ""
+        },
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "in Wort und Schrift",
+          "level": ""
+        }
+      ],
+      "availability": "01.04.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D6 im Umkreis von: Frankfurt am Main (100 km)",
+      "wohnort": "658xx Liederbach, Deutschland",
+      "headline": "Projektleitung, Teststrategien, Konfigurationsmanagement, Oualitätssicherung, Wertpapier, Banken, KORDOBA, RZ-Organisation, Rollout, Schulung, Training",
+      "edv_experience_since": 1978
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "Adabas",
+        "DB2",
+        "DL/1",
+        "DMS",
+        "IDMS",
+        "IMS",
+        "Informix",
+        "Ingres",
+        "ISAM",
+        "LEASY",
+        "Lotus Notes",
+        "MS SQL Server",
+        "MySQL",
+        "Oracle",
+        "ROCHADE",
+        "SESAM",
+        "SQL",
+        "UDS/IDMS"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "IBM Großrechner",
+        "Industrie-Roboter",
+        "Nixdorf",
+        "PC",
+        "Prozessrechner",
+        "Siemens Großrechner",
+        "Siemens-SPS STEP x",
+        "SNI RM-Rechner",
+        "SUN",
+        "UNISYS",
+        "IBM AS400",
+        "IBM /3",
+        "IBM /32",
+        "IBM /34 etc"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "BS2000",
+        "VM 2000",
+        "OSD3",
+        "sehr gute Kenntnisse im gesamten Spektrum",
+        "Dos",
+        "sehr gute Kenntnisse",
+        "HPUX",
+        "Grundkenntnisse",
+        "MS-DOS",
+        "gut und langjährige Erfahrung",
+        "Detailkenntnisse",
+        "MVS",
+        "OS/390",
+        "gute und langjährige Erfahrung",
+        "OS1100",
+        "interne Kenntnisse",
+        "OS/400",
+        "Siemens ORG-R/M (BS300)",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "VM",
+        "VMS",
+        "Windows",
+        "3.11",
+        "95",
+        "98",
+        "2000",
+        "XP",
+        "NT 4.0",
+        "/36",
+        "/38"
+      ],
+      "programming_languages": [
+        "Assembler",
+        "Basic",
+        "C++",
+        "Cobol",
+        "auch COLUMBUS-COBOL und COBOL III",
+        "ESQL/C",
+        "Java",
+        "JavaScript",
+        "Maschinensprachen",
+        "Natural",
+        "Perl",
+        "PL/SQL",
+        "PL/1",
+        "RPG",
+        "Shell",
+        "Siron"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "PVCS (Merant)",
+        "CMM",
+        "Mercury-Produkte",
+        "SQS-Test-Produkte",
+        "LoadRunner",
+        "WinRunner",
+        "FRONT/ARENA",
+        "MUREX",
+        "MS-Office (97",
+        "XP) professional",
+        "WINDOWS (95",
+        "ME",
+        "LINUX",
+        "DBCS"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "03/2015 - 11/2015",
+        "company": "Deutsche Bank Frankfurt am Main",
+        "title": "Test- Testkoordination, Releasemangement DWH, Frankfurt am Main",
+        "role": "Test Manager",
+        "technologies": [
+          "MySQL",
+          "Zahlungsverkehr",
+          "Mainframe",
+          "Massentests",
+          "MQSeries",
+          "XML",
+          "MSOffice 2010",
+          "LINUX/UNIX",
+          "Oracle-DB",
+          "HP-ALM",
+          "SAP",
+          "(Finanzmodule)",
+          "SCRUM",
+          "interne Testfactory",
+          "Toad",
+          "SQS Test-Professional",
+          "Reporting",
+          "JAVA",
+          "PHP",
+          "Python",
+          "(MS-Office 2010",
+          "PostgreSQL)",
+          "UNIX (LINUX)",
+          "Januar 2001 - Mai 2001 Testmanagement einer WINDOWS",
+          "größten",
+          "etc. Dabei kamen HP-Tools wie Quality-Center",
+          "Loadrunner",
+          "QuickTest",
+          "Überwachungstools (MS-Excel",
+          "Power-Point) sowie",
+          "Umstellung KORDOBA Core Banking",
+          "System BS2000 auf UNIX/LINUX",
+          "CI Interface",
+          "Anwender",
+          "HP-Tools (vormals",
+          "ORACLE/Linux-Anwendung",
+          "Abgleichscripts",
+          "HTML",
+          "Linux-Umfeld",
+          "Easy-Case",
+          "Clear-Case",
+          "PVCS",
+          "Großrechner",
+          "(95",
+          "98",
+          "MS-Access",
+          "MS-Project",
+          "VBA",
+          "C++) Design",
+          "(MsExcel",
+          "MS-Word",
+          "Windows XP"
+        ],
+        "activities": [
+          "Unternehmensgröße: > 1000",
+          "Branche: Banken & Finanzinstitute",
+          "Aufgaben:",
+          "Test- und Releasemanager Data Warehouse im Bereich Basel III auch für den englischen und amerikanischen Markt",
+          "September 2013 bis Februar 2015",
+          "Testleitung und Qualitätssicherung SEPA für den MTK Oktober 2013 bis Ende November 2013",
+          "Umstellung Lastschrifteinzug auf SEPA für die Liederbacher Vereine.",
+          "Mai 2013 bis Ende August 2013",
+          "am Main"
+        ]
+      },
+      {
+        "period": "1993-1995",
+        "title": "Installation und Entwicklung der Software für",
+        "activities": [
+          "Magnetbandkassettenarchive - Sicherungskonzepte im Mainframe Umfeld - Installation vollautomatischer Roboterarchivsysteme, Plattenkonzepte etc - Konzeption und Realisierung der Datenbanken (ORACLE, INFORMIX,",
+          "DB2 etc) für die Robotersteuereung (UNIX SUN/OS und IBM 360) sowie der Datenbanken auf dem Host (ADABAS/Natural) - Einsatzplanung und Einsatz (Rollout) Plattformen: IBM Großrechner, Siemens Großrechner,",
+          "SUN Sparc, SUN E10K, E2K"
+        ]
+      },
+      {
+        "period": "1990-1992",
+        "title": "Aufbau und Administration der Network Administrator",
+        "activities": [
+          "Position beim Kingdom of Saudi Arabia vor Ort in Riyadh/Saudi Arabien",
+          "Rechnerverbund Siemens BS2000 IBM OS/MVS und diverser Prozessrechner",
+          "Schulung der Anwender und des DV-Personals in englischer Sprache - Erstellen der Dokumentation in englischer Sprache Plattformen: IBM",
+          "Großrechner, Siemens Großrechner, Prozessrechner"
+        ]
+      },
+      {
+        "period": "1986-1989",
+        "title": "RZ-Leitung, Koordination und Systemprogrammierung,",
+        "activities": [
+          "Weiterentwicklung incl. Programmierung (COBOL, ASSEMBLER, PL/1, ADABAS/NATURAL) des RZ-Systems um einen automatischen JOB-Netz-Monitor incl. Test und entspr. Dokumentation (Verfahrensbeschreibung, Benutzerhandbuch, Operatorhandbuch etc.)",
+          "(COBOL, ASSEMBLER, PL/1, ADABAS/NATURAL des RZ-Systems um einen automatischen JOB-Netz-Monitor incl. Test und entspr. Dokumentation",
+          "(Verfahrensbeschreibung, Benutzerhandbuch, Operatorhandbuch etc),",
+          "Einführung in die Praxis (Rollout) Plattformen: IBM Großrechner,",
+          "UNISYS Großrechner, Siemens Großrechner",
+          "RZ-Leitung, Koordination und Systemprogrammierung"
+        ],
+        "company": "EVU in Berlin",
+        "industry": "Energieversorgung",
+        "role": "Projektleiter",
+        "location": "Berlin",
+        "technologies": [
+          "IBM Großrechner",
+          "UNISYS Großrechner",
+          "Siemens Großrechner",
+          "IBM OS",
+          "UNISYS OS/1100",
+          "BS2000",
+          "COBOL",
+          "ASSEMBLER",
+          "PL/1",
+          "ADABAS/NATURAL"
+        ]
+      },
+      {
+        "period": "1984-1985",
+        "title": "RZ-Leitung und Koordination bei einem Industrieunternehmen",
+        "activities": [
+          "in Zürich/Schweiz - Entwicklung eines automatisierten RZ-Auftrags- und Abwicklungssystemes (COBOL, ASSEMBLER, UTM, SESAM, ADABAS/NATURAL) -Pilotierung und Einführung des Systems (Rollout) Plattform: Siemens",
+          "Großrechner",
+          "Industrieunternehmen"
+        ]
+      },
+      {
+        "period": "1981-1983",
+        "title": "Training von 10 Mitarbeitern der CENTRAL Bank of Lybia in",
+        "activities": [
+          "englischer Sprache - BS2000, COBOL, UTM, UDS, SESAM, RZ-Betrieb,",
+          "Arbeitsvorbereitung, Operating - Einführungsunterstützung und Inbetriebnahme vor Ort in Tripolis (Libyen) Plattform: Siemens",
+          "Großrechner"
+        ]
+      },
+      {
+        "period": "1978-1980",
+        "title": "Stellvertretender Abteilungsleiter beim Hersteller Sperry",
+        "activities": [
+          "UNIVAC (heute UNISYS) - Entwicklung, Pilotierung, Inbetriebnahme und Schulungen des Paketes UNIS (Univac Industriesystem)",
+          "Materialwirtscheft, betriebl. Rechnungswesen - Programmiersprachen",
+          "COBOL und ASSEMBLER Plattformen: VS/9 (vgl BS2000) und OS/1100"
+        ]
+      }
+    ],
+    "industries": [
+      "Handel",
+      "Banken",
+      "Industrie",
+      "Versicherungen",
+      "Wertpapierhandel",
+      "Börse"
+    ],
+    "focus_areas": [
+      "Projektleitung",
+      "Teststrategien",
+      "Konfigurationsmanagement",
+      "Oualitätssicherung",
+      "Wertpapier",
+      "Banken",
+      "KORDOBA",
+      "RZ-Organisation",
+      "Rollout",
+      "Schulung",
+      "Training",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Schwerpunkte sind RZ-Automatisierung (Ablauf und Vernetzung von Aufträgen, RZ-Planung (Infrastrukur) und Sicherungstechniken. Detaillierte Kenntnisse AVUS/AVAS.",
+      "Konfigurationsmanagement, Qualitätsmanagement bevorzugt Studium zum Wirtschaftsinformatiker;Abschluss: Diplom, weitere Ausbildung beim Hersteller SPERRY-Univac (heute UNISYS) Diverse Fortbildungen RZ-Organisation, BDSG etc Zertifizierung ISTQB Foundation und Advanced Level Testing and Testmanagement"
+    ],
+    "focus_experience": [
+      {
+        "name": "RZ-ORGANISATION",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "RZ-Automatisierung (ATOP",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "AVUS/AVAS",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "TAPE-Roboter)",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "SYSTEMVERWALTUNG",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "SYSTEMPROGRAMMIERUNG",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "BANKEN (KORDOBA)",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Wertpapierhandel",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Meldewesen (SAMBA)",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Zahlungsverkehr",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Industrie (Materialwirtschaft)",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Versicherung (Bestandsverwaltung)",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Handel (Rechnungswesen)",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "TRAINING",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Konfigurationsmanagement",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Qualitätsmanagement",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Teststrategien und -plattformen",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Eskalationsmanagement",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Infrastruktur",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Dokumentation (Windows",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Word",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Excel",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Access)",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Data-Warehouse",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Test-",
+        "category": "product_standard",
+        "sort_order": 24
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "CICS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "DCAM/ISAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IMS/DC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UTM - Transdata",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:35:18.750709",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1978"
+      ],
+      "coverage_percent": 84.0,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

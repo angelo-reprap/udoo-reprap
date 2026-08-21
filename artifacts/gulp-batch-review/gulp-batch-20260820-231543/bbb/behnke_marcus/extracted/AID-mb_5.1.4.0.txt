@@ -1,0 +1,336 @@
+AID: AID-mb_5.1.4.0
+Name: Marcus Behnke
+Headline: Erfahrener Projektleiter/Admin/Entwickler UNIX (Solaris/HP-UX/AIX/Linux), Datenbanken (Oracle, Sybase ASE/IQ, DB2) für Banksysteme und Datawarehouse
+Ort: außerhalb D/A/CH im Umkreis von: Frankfurt am Main (200 km)
+Wohnort: 611xx Florstadt, Deutschland
+Jahrgang: 1967
+Verfügbar: 01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2004
+Sprachen: Deutsch Muttersprache, Englisch Sehr gute Kenntnisse, Deutsch (Muttersprache), Englisch (Sehr gute Kenntnisse), Französisch (Grundkenntnisse)
+
+FACHBEREICHE:
+Erfahrener Projektleiter/Admin/Entwickler UNIX (Solaris/HP-UX/AIX/Linux) Datenbanken (Oracle Sybase ASE/IQ DB2) für Banksysteme und Datawarehouse Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination Administration / Support 1994 - heute Selbständigkeit / zunächst parallel zur Festanstellung Zwei Jahre Anstellung als EDV-Leiter bei Werbe-/Mediaagentur
+Abteilungsleitung (5 MA)
+Stratagieplanung national und international
+Geschäftsprozeßanalyse und Workflow-Optimierung
+Kundengewinnung und -beratung im Bereich interaktiver Medien
+Systemadministration Novell (Netware 3.x, 4.x) und
+Unix (Hewlett Packard HP/UX)
+Screendesign und Programmierung von Internet- und Intranet-Sites
+Neustrukturierung der EDV-Abteilung
+Einkauf
+Zwei Jahre Anstellung an EDV-Leiter bei einem Unternehmen im Bereich IT-/ Datenbank-Marketing
+Abteilungsleitung (3 MA)
+Design/Entwicklung/Programmierung relationaler Datenbanksysteme (Oracle, MS Access)
+Design und Programmierung von WWW-Sites
+Systemadministration UNIX (DG/UX), Novell Netware, Oracle
+EDV-technischer Aufbau der Tocherfirmen in München und Dresden
+Kundenpräsentationen (Themen: Datenbankmarketing, Internet)
+Schulung
+Anschließend für drei Jahre Systemanalytiker bei einer Großbank in Frankfurt mit Arbeitsschwerpunkten in den Bereichen
+Novell Netware-Planung und -administration (2.x, 3.1x, 4.x)
+Datenbankadministration und -entwicklung Oracle Version 6 und 7
+Planung und Umsetzung von heterogenen Netzwerken
+Systemadministration UNIX (DEC Ultrix, OSF1, AIX) Nach dem Zivildienst Ausbildung zum Industriekaufmann
+UNIX Administration (Solaris/HP-UX/AIX/Linux)
+Datenbanken (Oracle, Sybase ASE/IQ, DB2) für Banksysteme und Datawarehouse
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+
+BRANCHEN:
+Beratung/Consulting
+Finanzdienstleister
+Wertpapierhandel/Kapitalanlage
+Industrie
+Dienstleistungsunternehmen
+Luftfahrt
+EDV
+Kfz-/Automobilbranche
+Werbung/Medien/Internet
+Marketing
+Bank (Privat/Institutionell/Börse/Terminbörse/Investmentbank/Wealth Management)
+Großbanken
+Versicherung
+Telekommunikation
+
+PROJEKTE:
+  01/2021 - heute | DG Verlag | Senior Consultant
+    - Innovation Lab
+    - Aufgaben:
+    - Systemadministration RHEL 6.x, 7.x. 8.x
+    Techs: Linux RedHat, Oracle, mySQL, Satellite, Ansible, PostGres, CheckMK
+  01/2021 - heute | Union Investment | Senior Consultant
+    - Aufgaben:
+    - Evaluierung und Implementierung Zukunftstechnologien
+    - Cloud (Azure, AWS, Google)
+    Techs: Linux (RedHat, CentOS, Ubuntu, Debian), Azure DevOps, AWS, Google Cloud, Windows Server
+  03/2020 - 12/2020 | EnBW | Service-Manager / Senior Consultant / Architekt
+    - Unterstützung als IT Service Manager und Product Owner im MESAP Projekt mit folgenden Hauptaufgaben:
+    - Betrieb und Betreuung einer Marktdatenlösungen on premise und zukünftig auch in der Cloud Migrationsvorbereitung zu neuem Vendorsystem
+    - Implementation ZE ZEMA
+    Techs: RedHat, SuSe, Windows Server, Oracle, Cloud, AWS, Azure DevOps, Seven2One, Snowflake, Ansible
+  03/2019 - 03/2020 | Airplus GmbH / CGI | Senior Admin / Senior Architect
+    - Terraform. Aufgaben:
+    - Installation, Konfiguration, Test, Wartung, Problemanalyse, Update- und Patchmanagement von Red Hat Enterprise Linux
+    - Einführung Hashicorp Terraform scripted infrastructure/Enterprise Server,
+    Techs: DevOPs, CloudOps, Ansible Tower, Azure, Satellite 6, Shell, Git, Bitbucket, Jira, Confluence
+  08/2018 - 03/2019 | Finanzdienstleister | Senior-Consultant
+    - DEVELOPMENT
+    - Aufgaben:
+    - Administration/DevOps RedHat, CentOS, Solaris, Oracle, DB2, PostgreSQL, Weblogic
+    Techs: Ansible, Docker, Openshift, Scrum, Kanban, ITIL, Oracle, RHEL, RedHat Enterprise Linux Administration, Administration
+  03/2018 - 07/2018 | DB Energie | Senior Software Developer, Senior Consultant
+    - Aufgaben:
+    - Migration Somentec XAP nach Wilken
+    - ETL-Entwicklung unter Oracle 11g/12g
+    Techs: Senior Consultant, Senior Developer, DV-Konzeption, Administration Linux, Somentec XAP, Wilken, Oracle 11g, Oracle 12g, PL/SQL, bash
+  01/2016 - 03/2018 | Commerzbank AG | SENIOR CONSULTANT
+    - Design und Entwicklung Datawarehouse/ETL-Schicht, Sybase ASE, Sybase IQ, Oracle, ETL für den Bereich Kontrahentenrisiko Investmentbanking
+    - Aufgaben:
+    - Einführung Kanban
+    Techs: Sybase ASE, Sybase IQ, SybaseIQ 16.x, Oracle, Oracle 12.x, RedHat, Bash, Perl, Shell, Murex
+  02/2015 - 12/2015 |  | Senior Consultant
+    - Aufgaben:
+    - Standardisierung, Implementierung neue Prozessketten.
+    - Anbindung an Amazon AWS Cloud
+    Techs: Anbindung externe Lokationen, Cisco Router/, Linux Red Head EE 5.x, Windows Server 2012, Amazon AWS, Switches, CheckMK, Tacacs, Radius, MacMon
+  09/2013 - 02/2015 | Commerzbank AG | Senior Consultant
+    - Aufgaben:
+    - Einführung Clear2Pay OPF, Projekt SEPA für Lastschriften/Daueraufträge/Eil-Zahlungsverkehr und Einführung einer neuen Gesamtzahlungsplattform
+    - Eil-Zahlungsverkehr und Einführung einer neuen Gesamtzahlungsplattform
+    Techs: Linux Red Head EE 5.x, Sun Solaris, IBM Websphere, (Application/Process Server/, MQ 8/8.5, Oracle 11.2g/12.x, R-Man, Clear2Pay OPF, Connect:Direct, UC4
+  05/2012 - 08/2013 | eventus3 GmbH | Gesamtprojektleitung
+    - Company
+    - Aufgaben:
+    - Aufbau und Erweiterung einer Social Media Plattform (>500.000 Nutzer) im Bereich Luxus und Lifestyle und einem Datawarehouse zur Analyse der Nutzerverhaltens.
+    Techs: Developer, Windows Server 2008, MSSQL, Exchange Server, Microsoft Azure, Linux, Apple OSX, Java, Bash, PL/SQL
+  01/2012 - 05/2012 | Sybase365 / SAP | CONSULTING, ARCHITEKTUR, ADMINISTRATION, TELKO, MOBILE, Raunheim
+    - Planung, Installation, Administration, Optimierung und kundenspezifische Anpassung von Mobile Commerce Lösung. Maßgeblich für den Kunden Telefonica in Südamerika und Vimpelcom in Russland.
+    - Aufgaben:
+    - Design, Installation und Betrieb komplexer Kommunikationssystem auf Basis von Linux und Sun Solaris im Hochverfügbarkeitsumfeld.
+    Techs: Linux, Sun Solaris, Oracle 11g RAC Cluster, SybaseIQ, Oracle RAC, Oracle Dataguard, Java, Weblogic, Tomcat
+  10/2011 - 12/2011 | 1&1 | DATAWAREHOUSE, BUSINESS INTELLIGENCE DEVELOPMENT, Karlsruhe
+    - Aufgaben:
+    - Weiterentwicklung, Optimierung und teilweise Neuentwicklung eines Datawarehouse unter Sybase IQ
+    - Datawarehouse unter Sybase IQ. Programmierung neuer ETL.
+    Techs: Sybase IQ, ETL, SOAP, XML
+  09/2010 - 10/2011 | IBM | OUTSOURCING, MIGRATION, TRANSFORMATION AIX, HP/UX, Düsseldorf
+    - Aufgaben:
+    - Migration/Transformation Oracle RAC Datenbanken inkl. Migration von HP/UX unter Serviceguard auf AIX HACMP im Rahmen eines Outsourcing-Projektes.
+    - Konsolidierung, Standardisierung, PostgreSQL
+    Techs: Linux, Windows), TWS 8.4, Oracle 10.x/11.x RAC, Dataguard, RMAN, PL/SQL, HP/UX, Safeguard, AIX
+  05/2010 - 08/2010 | Commerzbank | ENTWICKLUNG, ADMINISTRATION, ORGANISATION DATAWAREHOUSE/, Frankfurt
+    - DATAMART FÜR BASEL II/SolvV Solvatibilitätsanalyse
+    - Aufgaben:
+    - Design und Entwicklung eines Datawarehouse und Datamarts für den Bereich Basel II / SolvV
+    Techs: Sybase, SybaseIQ, Sun Solaris, AIX, TSQL, Watcom SQL, Oracle 10, PL/SQL, WMWare, Embarcadero ER/Studio
+  03/2010 - 05/2010 | Xchanging Transaction Bank | ADMINSTRATION, KOORDINATION, CHANGE-MANAGEMENT, PROJEKT, Frankfurt
+    - ABGELTUNGSSTEUER VORBEREITUNGEN OUTSOURCING/OFFSHORING, HANDOVER
+    - Aufgaben:
+    - Technische/fachliche Unterstützung
+    Techs: Oracle WebLogic Application Server, Oracle 10g, Oracle 11g RAC, Sun Solaris 10, AIX 6.x, Websphere MQ, Tributum, Maestro, Subversion, ARS Remedy
+  09/2009 - 02/2010 | Fiducia | PROVIDERMIGRATION BANK-SYSTEME - SUN SOLARIS, ORACLE,, Karlsruhe
+    - Aufgaben:
+    - Konzeption, Planung, Architektur, Umsetzung einer Migration der Gesamt-IT einer Investmentbank zu einem neuen Outsourcing Provider.
+    - Verantwortliche Migrationsplanung nach ITIL, Migration Managed Services,
+    Techs: Windows Server2003/2008(R2), BANKAPPLIKATIONEN, Sun Solaris 10, AIX, HP/UX, Red Hat Linux, Oracle, Windows Server 2003/2008 (R2), Algorythmics, FIRST
+  04/2009 - 08/2009 | BCT / EWE AG | SYSTEMADMINISTRATION SUN SOLARIS, SAN, LINUX, BACKUP, Oldenburg
+    - Aufgaben:
+    - Konzeption, Aufbau, Adminstration komplexer Sun Solaris-Systeme+
+    - Sun Solaris 10, EMC SAN, Oracle 10 (mit RAC; Grid Control), Veritas, Jumpstart,
+    Techs: Veritas Cluster, Powerpath, Nagios, Linux (Red Hat 5 (incl, Cluster), OpenSuse, Sun Solaris 10, EMC SAN, Oracle 10, Grid Control
+  06/2007 - 04/2009 | Commerzbank | PRODUKT- UND PROJEKTVERANTWORTUNG
+    - INVESTVENTBANK- BEREICH EINER INTERNATIONALEN GROSSBANK
+    - Aufgaben:
+    - Administration der Systemumgebung aus Sun Solaris, SybaseIQ, Oracle,
+    Techs: Sybase Central, Linux (RedHat 5, Windows Server 2003, VMware Storage, Performance-Tuning, Systemnahe, Oracle 9.x/10.x/RAC, TSQL, PL/SQL, Sybase Powerdesigner
+  12/2006 - 05/2007 | Dresdner-Kleinwort | ADMINISTRATION, OPTIMIERUNG UND WEITERENTWICKLUNG EINES CRM-, Frankfurt
+    - UND DATAWAREHOUSE- SYSTEMS
+    - Aufgaben:
+    - Systemadministration, Weiterentwicklung und Optimierung eines großen Datawarehouse- und CRM-Systems einer internationalen Investmentbank unter Sybase, SybaseIQ, SUN Solaris.
+    Techs: Sun Solaris 8/9, SunFire, AIX, EMC, Netapp, Red Hat Enterprise Linux AS, Linux AS, Sybase, Sunopsis
+  01/2005 - 11/2006 | UBS | System-Admin
+    - HANDELSAPPLIKATIONEN SOLARIS, ORACLE, SYBASE
+    - Aufgaben:
+    - Systemadministration Unix, Oracle, Sybase. Lokalisierung Orderflow/- routing und Handelsapplikation, Einführung und Lokalisierung HiInvest,
+    Techs: Solaris, Oracle, Sybase, Informatica Powercenter, PL/SQL, Perl, Shellscript, Sun Solaris, HP/UX, Informix
+  07/2004 - 12/2004 | HSH-Nordbank | Technische Projektleitung
+    - SOLARIS/ORACLE
+    - Aufgaben:
+    - Implementierung Oracle-Datenbanksystem für derivativen Börsenhandel / Sophis Risque 4.5.x, Riskmanagement/Derivativer Wertpapierhandel;
+    Techs: SUN Solaris 9, Oracle 9.i, Windows 2003 Server, Sophis Risque 4.5.x, 4.5.x, Sonstiges, Sonstige Anmerkungen:, Weitere Merkmale / "Softskills":, Teamfähigkeit, soziale Kompetenz
+
+SKILLS:
+  database: Access, BDE, BTrieve, DB2 DB2EE 7.x, DB2EE 7.x, Filemaker, Informix 7.x, MS SQL Server, MySQL, ODBC, Oracle 6.x, 7.x, 8.x, 8i, 9i, 10g, Parallel Server, data-mining, workflow, Oracle 11g, Oracle 12, Postgres, SQL, SQL Developer, Sybase ASE und IQ bis 16.x, XAP
+  hardware: Alpha, Ascii/X - Terminals, Bus, CD-Writer / Brenner, Data General, Digital, Drucker, Emulatoren, HP, IBM RS6000, Iomega, Macintosh, Modem, Motorola, PC, Plotter, Scanner, Soundkarten, Streamer, SUN, US Robotics Pilot, VAX, Video Capture Karte
+  operating_system: AIX, DG/UX, HP/UX, HPUX, Linux, Linux RedHat, Mac OS, Mac OSX, MPE Basiswissen, MS-DOS, NEXTSTEP / OPENSTEP, Novell, OSF/Motif, OS/2, OS/9 Basiswissen, PalmOS, Psion Series 3, RedHat, RHEL 7, Solaris, SUN OS, Terraform, Tru64, Ultrix, Unix z.B. RedHat, Suse, FreeBSD, OSX, UNIX, Windows, Windows CE, Windows NT/95/98/Me/2000/XP/2003/2003SBS/2003, Exchange, Windows Server 2008
+  programming_languages: Ansible, awk, bash, Basic Grundkenntnisse, C, C++, ColdFusion, csh, dBase, Emacs, Go Basiskenntnisse, HTML, Jason, Java, JavaScript, ksh, Makrosprachen, Oracle/SQL, Pascal, Perl, PHP, PL/SQL, Python, Scriptsprachen, sed, sh, Shell, Terraform HCL, XML
+
+SKILL-ABLAGE:
+AppleTalk, ATM, Ethernet, Fax, FDDI, HDLC, HDSL, Internet, Intranet, ISDN, Message Queuing, MQ-Series, NetBeui, NetBios, parallele Schnittstelle, PC-Anywhere, Router, RS232, SMTP, SNMP, TCP/IP, Token Ring, UUCP, Voice, Windows Netzwerk, Winsock, X.400 X.25 X.225 X.75
+
+AUSBILDUNG:
+Ausbildung zum Industriekaufmann  [course]
+
+FOCUS_EXP:
+  Administration Linux  [product_standard]
+  Agile Entwicklung  [product_standard]
+  Ansbile / Ansible Tower  [product_standard]
+  Azure  [product_standard]
+  CloudOps  [product_standard]
+  Connect: Direct  [product_standard]
+  Continuous Integration  [product_standard]
+  DevOps  [product_standard]
+  DV-Konzeption  [product_standard]
+  Exchange Server  [product_standard]
+  Git  [product_standard]
+  Kanban  [product_standard]
+  Microsoft Azure  [product_standard]
+  Oracle APEX  [product_standard]
+  PL/SQL-Entwicklung  [product_standard]
+  Rapid7  [product_standard]
+  Redhat Satellite  [product_standard]
+  RHEL Administration  [product_standard]
+  Scrum  [product_standard]
+  Senior Consultant  [product_standard]
+  Senior Developer  [product_standard]
+  Terraform  [product_standard]
+  Toad  [product_standard]
+  Toad for Oracle  [product_standard]
+  Ultraedit  [product_standard]
+  1991 - heute  [product_standard]
+  Professionelle Praxiserfahrung durchgehend  [product_standard]
+  Grundsätzliche breit gefächtertes Wissen und Erfahrung im Umfeld  [product_standard]
+  dezentraler Systeme.  [product_standard]
+  UNIX:  [product_standard]
+  SUN Solaris  [product_standard]
+  RHEL  [product_standard]
+  CentOS  [product_standard]
+  Ubuntu  [product_standard]
+  Kali  [product_standard]
+  Debian  [product_standard]
+  HP/UX  [product_standard]
+  AIX  [product_standard]
+  Linux  [product_standard]
+  DG/UX  [product_standard]
+  Ultrix  [product_standard]
+  OSF/1  [product_standard]
+  OSX  [product_standard]
+  Windows Server  [product_standard]
+  * Novell (3  [product_standard]
+  alle Standard-Applikationen  [product_standard]
+  Mac:  [product_standard]
+  Alle OS bis 9.x  [product_standard]
+  Mac OS X (Server/Client/Cluster) balle Standard-Applikationen  [product_standard]
+  Kommunikation:  [product_standard]
+  RIM Blackberry BES 3.x/4.x  [product_standard]
+  Groupwise  [product_standard]
+  * Sendmail  [product_standard]
+  Twig  [product_standard]
+  Squirrelmail  [product_standard]
+  Monitoring:  [product_standard]
+  HP OpenView  [product_standard]
+  Tivoli  [product_standard]
+  Netview  [product_standard]
+  Patrol  [product_standard]
+  BMC ARS Remedy  [product_standard]
+  ZIS  [product_standard]
+  Backup:  [product_standard]
+  TSM (ADSM)  [product_standard]
+  Omniback  [product_standard]
+  * RMAN  [product_standard]
+  etc  [product_standard]
+  Handel:  [product_standard]
+  Sophis Risque/VaR  [product_standard]
+  HiInvest  [product_standard]
+  Olympic  [product_standard]
+  Osmosys  [product_standard]
+  Foton  [product_standard]
+  Fix Coppelia  [product_standard]
+  Multifonds  [product_standard]
+  FIRST  [product_standard]
+  NAVCon  [product_standard]
+  Middleware:  [product_standard]
+  Oracle Weblogic  [product_standard]
+  IBM Websphere  [product_standard]
+  Oracle Advanced Queing  [product_standard]
+  Informatica  [product_standard]
+  Sunopsis  [product_standard]
+  MQ Series  [product_standard]
+  Weiteres:  [product_standard]
+  SAP-DB-Admin  [product_standard]
+  CSS(Compliance)  [product_standard]
+  VEGA (KAG)  [product_standard]
+  Clarify  [product_standard]
+  ClearCase  [product_standard]
+  ClearQuest  [product_standard]
+  SQL Navigator  [product_standard]
+  PL/SQL-Developer  [product_standard]
+  Exceed  [product_standard]
+  BugZilla  [product_standard]
+  * CVS (Win-CVS  [product_standard]
+  Tortoise-CVS  [product_standard]
+  Eclipse) Blockchain  [product_standard]
+  Cryptowährungen  [product_standard]
+  Bitcoin  [product_standard]
+  Internet/Intranet:  [product_standard]
+  Apache  [product_standard]
+  iPlanet  [product_standard]
+  IIS  [product_standard]
+  nginx  [product_standard]
+  * Projekte und Entwicklung in HTML/Java/Screendesign  [product_standard]
+  ColdFusion  [product_standard]
+  Multimedia:  [product_standard]
+  Photoshop  [product_standard]
+  Premiere  [product_standard]
+  After Effects  [product_standard]
+  Final Cut Pro X  [product_standard]
+  DVD Studio Pro  [product_standard]
+  Flash  [product_standard]
+  Consulting/Beratung:  [product_standard]
+  IT-Planung  [product_standard]
+  Personal  [product_standard]
+  Investition  [product_standard]
+  Outsourcing  [product_standard]
+  Projektmanagement/-leitung  [product_standard]
+  Administration  [product_standard]
+  Organisation  [product_standard]
+  Customer Relation Management (CRM)  [product_standard]
+  * Projektleitungserfahrung  [product_standard]
+  Mitarbeiterführung  [product_standard]
+  * Cloud (Azure  [product_standard]
+  AWS)  [product_standard]
+  Ansible  [product_standard]
+  Ansible Tower  [product_standard]
+  PL/SQL  [product_standard]
+  Novell  [product_standard]
+  Mac OS X  [product_standard]
+  RIM Blackberry BES  [product_standard]
+  Sendmail  [product_standard]
+  TSM  [product_standard]
+  ADSM  [product_standard]
+  RMAN  [product_standard]
+  SAP-DB  [product_standard]
+  CSS  [product_standard]
+  VEGA  [product_standard]
+  CVS  [product_standard]
+  Win-CVS  [product_standard]
+  Eclipse  [product_standard]
+  Blockchain  [product_standard]
+  HTML  [product_standard]
+  Java  [product_standard]
+  AWS  [product_standard]
+
+SONSTIGES:
+Sonstige Anmerkungen:
+Weitere Merkmale / "Softskills":
+Teamfähigkeit
+soziale Kompetenz
+Engagement
+Flexibilität
+Professionalität
+zielgerichtetes Arbeiten
+kundenorientiertes Arbeiten

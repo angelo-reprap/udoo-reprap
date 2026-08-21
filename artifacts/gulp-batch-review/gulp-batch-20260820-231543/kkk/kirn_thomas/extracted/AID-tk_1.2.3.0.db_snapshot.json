@@ -1,0 +1,616 @@
+{
+  "personal": {
+    "aid": "AID-tk_1.2.3.0",
+    "first_name": "Thomas",
+    "last_name": "Kirn",
+    "birth_year": 1971,
+    "location": "Deutschland",
+    "availability": "31.12.12 zu 95%, Vor-Ort-Einsatz 95% möglich",
+    "edv_experience_since": 1991,
+    "headline": "Softwareverteilung / -paketierung / -virtualisierung",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 86,
+    "certifications": 0,
+    "education": 4,
+    "experience": 5,
+    "industries": 6,
+    "focus_areas": 3,
+    "focus_experience": 23,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Novadigm EDM certification",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Novell CNA",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Vorstudium der Elektrotechnik",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Stabsoffizier der Marine",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Industrie",
+    "Banken und Versicherungen",
+    "Energieversorger",
+    "Chemie",
+    "Telekommunikation",
+    "Pharmazie"
+  ],
+  "focus_areas": [
+    "Softwareverteilung / -paketierung / -virtualisierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Betreuung großer heterogener Netzwerke, Sicherheitssysteme, Netzwerkinfrastruktur, Softwareverteilung, -paketierung,"
+  ],
+  "focus_experience": [
+    {
+      "name": "Aufbau/Wartung eines IntraNets",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konzeption/Aufbau und Betrieb einer EDV und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Telekommunikations-Hotline",
+      "category": "product_standard"
+    },
+    {
+      "name": "Migrationsplanungen Windows NT nach Windows 2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betrieb einer Jahr 2000 Testumgebung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerkkonzeption",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerkmonitoring",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfiguration von Sicherheitssystemen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betrieb von Softwareverteilungssystemen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betrieb von Softwarevirtualisierungssystemen (MS Application",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtualisation/ ex. Softgrid)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwarepaketierung mittels RADIA/HP CAE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Migration Windows XP/Vista",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntraNet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows NT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jahr 2000 Testumgebung",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Application Virtualisation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softgrid",
+      "category": "product_standard"
+    },
+    {
+      "name": "RADIA",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP CAE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows XP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vista",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "6.99 - 12.99",
+      "company": "Energieversorger",
+      "role": "Projekt : Aufbau einer Jahr-2000-Testumgebung",
+      "title": "Projekt : Aufbau einer Jahr-2000-Testumgebung",
+      "activities": 4,
+      "technologies": 2
+    },
+    {
+      "period": "1.00 - 8.00",
+      "company": "Energieversorger",
+      "role": "Projekt : Administration NT und Exchange 5.5,",
+      "title": "Projekt : Administration NT und Exchange 5.5,",
+      "activities": 4,
+      "technologies": 1
+    },
+    {
+      "period": "12.00 - 10.01",
+      "company": "Industrie",
+      "role": "Projekt : Netzwerkbetrieb (aktive Komponenten)",
+      "title": "Projekt : Netzwerkbetrieb (aktive Komponenten)",
+      "activities": 4,
+      "technologies": 6
+    },
+    {
+      "period": "10.01 - 03.02",
+      "company": "Telekommunikation / NOC 7 / NerveCenter",
+      "role": "Projekt : Netzwerkbetrieb (aktive Komponenten), Konzeption,",
+      "title": "Projekt : Netzwerkbetrieb (aktive Komponenten), Konzeption,",
+      "activities": 2,
+      "technologies": 7
+    },
+    {
+      "period": "04.03 - 12.09",
+      "company": "Pharma / Banken / öffentlicher Dienst",
+      "role": "Projekt : Paketierung und Betrieb der",
+      "title": "Projekt : Paketierung und Betrieb der",
+      "activities": 5,
+      "technologies": 3
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAO",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Filemaker",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Superbase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Framegrabber",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Iomega",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Macintosh",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundkarten",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "UNISYS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BS2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "CP/M",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Vista",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration 2000/XP auf Vista",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Fortran",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes Script",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "MAGIC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Makrosprachen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Superbase unter Windows",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows NT4 / 2000",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Cisco Router",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "Checkpoint Firewall-1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Optivity",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Nortel",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Komponenten",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Nokia",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Firewalls",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows 2000/XP/Vista",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Softgrid",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "X.400 X.25 X.225 X.75",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "Unternehmens Windows NT4 / 95 / 98",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MSBackoffice 4.5",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Secure-RAS-Client",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Nortel Komponenten",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SecureID Token",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "RADIA 2.x/4.x/5.x/7.2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "AppleTalk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Fax",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FDDI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISO/OSI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN Manager",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBeui",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBios",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "OS/2 Netzwerk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Packet-Radio",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "parallele Schnittstelle",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "PC-Anywhere",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Router",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RPC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RS232",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

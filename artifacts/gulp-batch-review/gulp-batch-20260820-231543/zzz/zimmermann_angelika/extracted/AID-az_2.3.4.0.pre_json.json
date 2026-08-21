@@ -1,0 +1,921 @@
+{
+  "metadata": {
+    "aid": "AID-az_2.3.4.0",
+    "version": "2.3.4.0",
+    "consultant_dir": "zimmermann_angelika",
+    "first_name": "Angelika",
+    "last_name": "Zimmermann",
+    "headline": ".NET Classic/Core C# Windows Desktop (XAML, WPF, Winforms, WCF), ASP.NET Core , MVC, TypeScript, Node, Angular, Oracle / MS SQL Server, Azure)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:12:48.556821"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Angelika",
+      "last_name": "Zimmermann",
+      "birth_year": 1965,
+      "availability": "11.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "748xx Fahrenbach, Deutschland",
+      "location": "748xx Fahrenbach, Deutschland",
+      "headline": ".NET Classic/Core C# Windows Desktop (XAML, WPF, Winforms, WCF), ASP.NET Core , MVC, TypeScript, Node, Angular, Oracle / MS SQL Server, Azure)",
+      "edv_experience_since": 1998
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "B-Tree",
+        "DAO",
+        "HerCules",
+        "Interbase",
+        "ISAM",
+        "JDBC",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle",
+        "SQL",
+        "Sybase",
+        "Watcom SQL",
+        "xBase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Amiga OS",
+        "iOS",
+        "Mac OS",
+        "MS-DOS",
+        "Novell",
+        "TOS",
+        "Unix",
+        "Windows",
+        "Windows CE"
+      ],
+      "programming_languages": [
+        "Basic",
+        "C",
+        "C#",
+        "C++",
+        "Clipper",
+        "dBase",
+        "Delphi",
+        "JavaScript",
+        "Objective C",
+        "Paradox",
+        "Pascal",
+        "PHP",
+        "TypeScript",
+        "VB.NET"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "Visual Studio 2019",
+        "Resharper",
+        "CodeMaid",
+        "und Visual Studio Code",
+        "und PrimeNg als 3 rd Party Tool",
+        "Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen",
+        "mit Jira",
+        "Team-Versionskontrollsysteme: Git",
+        "Build-System: AzureDevOps",
+        "Team: 10+",
+        "================================================="
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2021-06 - 2021-09",
+        "title": "Architektur Konzeption und Umsetzung im Bereich Front-End für ein Projektplanung-System im Automotiv",
+        "role": "Software-Architekt",
+        "activities": [
+          "Bereich (Software- Entwicklung mit Angular/TypeScript,",
+          "C#/ASP.NET Core und MS SQL-Server)",
+          "Architektur Konzeption und Umsetzung im Frontend mittels",
+          "Angular, Nx, MonoRepo, NgRx und Modul Federation.",
+          "Gestaltung und Umsetzung von attraktiven Bedienoberflächen auf Basis moderner Technologien (PrimeNg)",
+          "Optimierung von Abläufen (z.B. Einführung Front-End",
+          "Integrationstests mit Docker und SQL-Server Image)",
+          "Konzeption von neuen Anforderungen in Form von Storys",
+          "für ein Projektplanung-System im Automotiv",
+          "System im Verkehrsbereich (Software- Entwicklung mit C#/ASP.NET Classic/Core,",
+          "WindowsServices und Oracle 12)",
+          "Erweiterungen von Ticketingapplikationen (Web, WinFroms und WebAPI) zwischen Ticketsystem und Fremdsystemen.",
+          "Weiterentwicklung von bestehenden .net classic WindowsServices und Applikationen unter Windows 10",
+          "Integrationstest mit Postman/Newman und Powershell-Scripten",
+          "Tools: Visual Studio 2019, Resharper, CodeMaid, und Visual",
+          "Studio Code. Sowie DevExpress als 3 rd Party Tool.",
+          "Softwareentwicklung nach agilen Methoden und iterative"
+        ]
+      },
+      {
+        "period": "2021-01 - 2021-06",
+        "title": "Weiterentwicklung im Bereich Back-Office für ein Ticketing System im Verkehrsbereich (Software- System im Verkehrsbereich (Software-",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Entwicklung mit C#/ASP.NET Classic/Core,",
+          "WindowsServices und Oracle 12)",
+          "Erweiterungen von Ticketingapplikationen (Web, WinFroms und WebAPI) zwischen Ticketsystem und Fremdsystemen.",
+          "Weiterentwicklung von bestehenden .net classic WindowsServices und Applikationen unter Windows 10",
+          "Integrationstest mit Postman/Newman und Powershell-Scripten",
+          "Tools: Visual Studio 2019, Resharper, CodeMaid, und Visual",
+          "Studio Code. Sowie DevExpress als 3 rd Party Tool.",
+          "Softwareentwicklung nach agilen Methoden und iterative"
+        ]
+      },
+      {
+        "period": "2020-10 - 2020-12",
+        "title": "Prototyperstellung einer Web-App (Software-Architektur u. Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web, Remote",
+        "role": "Software-Architekt und Entwickler",
+        "activities": [
+          "(Software- Entwicklung mit C#/ASP.NET Core 3.1 Web",
+          "API, RabbitMQ und PostgreSQL)",
+          "Weiterentwicklung von bestehenden .net core Microservices auf Linux und Windows Zielplattform und WebAPI mit IdentityServer 4 und TopShelf Windows Service Library unter Hilfe von Postman",
+          "Konfiguration RabbitMQ unter Windows zum Aufbau eines Installationsprogramms unter WPF",
+          "Aufbau einer Health-Tool Library unter .NET Core zur Überprüfungen der gesamten Kommunikationsplattform",
+          "Softwareentwicklung nach agilen Methoden und iterative",
+          "Entwicklungszyklen mit Jira",
+          "Kommunikationsplattform im Medizinsichen Bereich",
+          "Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web, Remote",
+          "API und MS SQL-Server)",
+          "Erstellung und Implementierung eines Datenmodel für den Prototypen Backend Implementierung mit ASP.NET Core 3.1 Web-RESTApi",
+          "Entityframework, Swagger, Outh2/JWT, ASP.NET Identity, xUnit,",
+          "Postman/Insomnia.rest",
+          "Identity Server 4",
+          "Frontend Applikation mit Angular 10",
+          "Syncfusion Components, Bootstrap4, ngrx, nx, Jest, Cypres"
+        ]
+      },
+      {
+        "period": "2020-06 - 2020-09",
+        "title": "Prototyperstellung einer Web-App (Software-Architektur u. Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web, Remote",
+        "role": "Software-Architekt und Entwickler",
+        "activities": [
+          "API und MS SQL-Server)",
+          "Erstellung und Implementierung eines Datenmodel für den Prototypen Backend Implementierung mit ASP.NET Core 3.1 Web-RESTApi",
+          "Entityframework, Swagger, Outh2/JWT, ASP.NET Identity, xUnit,",
+          "Postman/Insomnia.rest",
+          "Identity Server 4",
+          "Frontend Applikation mit Angular 10",
+          "Syncfusion Components, Bootstrap4, ngrx, nx, Jest, Cypres"
+        ]
+      },
+      {
+        "period": "2019-11 - 2020-05",
+        "title": "Entwicklung eines Windows Service für den automatisierten Bestellvorgang im Discounterbereich",
+        "role": "Software-Architekt und Entwickler",
+        "activities": [
+          "(C#/.NET Classic/Oracle 12)",
+          "Aufbau einer der Software-Architektur für einen klassischen Windows Service",
+          "Extraktion von Abfragen aus einem „legacy“ Gutpa Modul für den Form basierenden Bestellvorgang.",
+          "Implementierung des Windows Service mit C#",
+          "Erstellung eines DAL mit PL/SQL Package inkl. eigenem OR-Mapper in C#",
+          "Reporting-Tool: List&Label 17",
+          "Team-Versionskontrollsysteme: Azure Git-Repo (trunc-based mit pull request)",
+          "Bestellvorgang im Discounterbereich",
+          "Temperaturmessung von Lötanlagen im",
+          "Maschinenbaubereich (Software- Architektur/C#/WPF/.NET Core 3.1/C- Daten- und Funktionsanalyse des Alt-Programms in Win32-C++.",
+          "Erstellung und Implementierung eines Datenmodels aufgrund der Alt-Anwendung und neuen erweiterten Anforderungen.",
+          "Datenbankmodel Entwicklung (Database-First) für PostgreSQL 11 und SQL-Server 2017/2019 und Azure Database, sowie Update",
+          "Funktionen",
+          "Entwerfen einer Software-Architektur für die Anwendungen mit Prism (IoC Unity) mit C# und VS 2019, sowie EF und linq2db.",
+          "Extraktion von wichtigen Funktionslogiken aus der Altanwendung und Reimplementierung in C#",
+          "Aufbau von Funktionslogik und Businesslogik, sowie Implementierung der WPF-Ansichten und deren Integration.",
+          "Aufbau und Implementation der Applikation als .NET 4.7 Classic."
+        ]
+      },
+      {
+        "period": "2019-04 - 2020-05",
+        "title": "Entwicklung eines WPF Programmes für die 2 Monate Temperaturmessung von Lötanlagen im",
+        "role": "Software-Architekt und Entwickler",
+        "activities": [
+          "Maschinenbaubereich (Software- Architektur/C#/WPF/.NET Core 3.1/C- Daten- und Funktionsanalyse des Alt-Programms in Win32-C++.",
+          "Erstellung und Implementierung eines Datenmodels aufgrund der Alt-Anwendung und neuen erweiterten Anforderungen.",
+          "Datenbankmodel Entwicklung (Database-First) für PostgreSQL 11 und SQL-Server 2017/2019 und Azure Database, sowie Update",
+          "Funktionen",
+          "Entwerfen einer Software-Architektur für die Anwendungen mit Prism (IoC Unity) mit C# und VS 2019, sowie EF und linq2db.",
+          "Extraktion von wichtigen Funktionslogiken aus der Altanwendung und Reimplementierung in C#",
+          "Aufbau von Funktionslogik und Businesslogik, sowie Implementierung der WPF-Ansichten und deren Integration.",
+          "Aufbau und Implementation der Applikation als .NET 4.7 Classic."
+        ]
+      },
+      {
+        "period": "2017-10 - 2019-03",
+        "title": "Wörterbuch- und Übersetzungsanwendung für den 6 Monate internationalen Handel im Automotivbereich (C#/.NET/ internationalen Handel im Automotivbereich (C#/.NET/",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Winforms/WPF/Angular 5+/ASP.NET Core 2.+",
+          "Implementierung eines responsiven und dynamischen Web-Portals in TypeScript 2.4+ mit dem JavaScript-Framework Angular 5, sowie Erstellung einer Web-API mittels ASP.NET Core 2.+ in C# unter Visual Studio Code und Visual Studio 2017",
+          "Implementierung neuer Anforderungen, Fehlerbereinigungen und Refactoring eines legacy Programms in C# von .NET 2.0 auf .NET",
+          "4.7 unter VS 2017 mit Winforms / WPF, Syncfusion und einer MS",
+          "SQL-Server 2016 Datenbank.",
+          "Angular Entwicklung unter TypeScript mit Syncfusion,",
+          "Erweiterungen von Gulp-Tasks, sowie Unittest mit Jasmine und Wallaby.",
+          "ASP.NET Core RESTFul Webservice (WebAPI) Entwicklung mit Autofac, Automapper und Unittest mit xTest und Moq, sowie Swagger.",
+          "internationalen Handel im Automotivbereich (C#/.NET/"
+        ]
+      },
+      {
+        "period": "2017-02 - 2017-09",
+        "title": "Erstellung eines responsiven Ticket- und Eventmanagement Web-Portal im Bildungsbereich",
+        "role": "Software-Architekt und Entwickler",
+        "activities": [
+          "(JavaScript-MVVM-Framework Aurelia und ASP.NET Core",
+          "Implementierung neuer Anforderungen für ein responsives Web-Portal (Mobil First) in TypeScript 2.3 mit dem JavaScript-MVVM-Framework Aurelia, sowie Erstellung einer Web-API mittels ASP.NET Core 1.1 in C# unter Visual Studio Code und Visual Studio 2017",
+          "Aufbau eines Teams-Versionskontrollsystems für Continuous",
+          "Integration und Deployment mit dem TFS 2017 inkl. WebServer,",
+          "Git Repositiory (TFS und Bitbucket), sowie Einrichtung von Build und Deployment Tasks.",
+          "Aurelia Entwicklung unter TypeScript mit KendoUI, Erweiterungen von Gulp-Tasks, sowie Unittest mit Jasmine und Wallaby.",
+          "Web-Portal im Bildungsbereich"
+        ]
+      },
+      {
+        "period": "2016-07 - 2017-01",
+        "title": "Logistikprogramme für den Einkauf (Zentral und Länder) im Lebensmittelbereich",
+        "technologies": [
+          "Infragistic 8 bis 12",
+          "List&Label 11 bis 18",
+          "Syncfusion 2010",
+          "Tobitfax"
+        ],
+        "activities": [
+          "(C#/.NET/WinForms/WPF/WCF)",
+          "Implementierung neuer Anforderungen und Erweiterung zweier",
+          "Logistikprogramme in C# mit .NET 4.5 unter VS 2012 / 2015 mit Infragistic unter Winforms / WPF und einer Oracle Datenbank 11 und 12",
+          "Erweiterung des WCF Webservice",
+          "Erstellen und Erweiterung von PL/SQL Packages",
+          "Erweiterung des internen Processablaufs zwischen den beiden Programmen, um verschiedene Thematiken (z.B. Aussenlager)",
+          "Erweiterungen von Processformularen in Winforms/ WPF (MVVM)",
+          "Schnittstellen für Excelreports über Syncfusion",
+          "Lebensmittelbereich"
+        ]
+      },
+      {
+        "period": "2015-04 - 2016-06",
+        "title": "Erstellung einer Prüflabor-Anwendung zur Generierung 3 Monate von Prüfaufträgen und Prüfberichten im",
+        "role": "Software-Architekt und Entwickler",
+        "activities": [
+          "Automationbereich (C#/.NET)",
+          "Erstellung eines Pflichtenheftes auf Basis von Anforderungen aus dem Prüffeld (System- und Anforderungsanalyse)",
+          "Aufbau einer Software-Architektur",
+          "Daten-Datenbank Design mit MS SQL Server 2014",
+          "Implementierung der Desktop-Anwendung mit C# / WPF / Prism und EntityFramework mit 3rd Party Bibliothek Telerik unter VS 2015",
+          "Implementierung der Web-Anwendung mit C# / ASP.NET MVC / ASP.NET WebAPI / JavaScript / HTML / JQuery und EntityFramework mit 3rd Party Bibliothek Telerik",
+          "Team-Versionskontrollsysteme: TFS / Visual Studio Online",
+          "Monate von Prüfaufträgen und Prüfberichten im"
+        ]
+      },
+      {
+        "period": "2012-03 - 2015-04",
+        "title": "Produktive Anwendung für die Lagerhaltung im 2 Monate Discounterbereich",
+        "role": "Architekt/Entwickler",
+        "activities": [
+          "(C/C++/C#/.NET/WPF/WCF/ASP.NET MVC)",
+          "Technische Projektleitung",
+          "Migration des Datenbanksystems von mySQL auf Oracle 10/11",
+          "Migration von Teilprojekten von C++ nach C#, unteranderem eines WebService für den Wawi-Datenabgleich Teilprojekte in C++Builder 5, später RAD C+ +Builder XE 6 (VCL) und in VS 2013 (wxWidgets)",
+          "Programmerweiterungen nach Fachbereichsanforderungen",
+          "Zusatzprogramm und Schnittstelle zur Einstellung / Verkauf von Artikeln in einem eBay Auktionsprogramm, Zugriff über eine SOAP Schnittstelle in C++",
+          "Implementation eines täglichen Windowsservices in C#/WCF (VS",
+          "Discounterbereich"
+        ]
+      },
+      {
+        "period": "2012-11 - 2013-05",
+        "title": "Neu-Implementation einer Vertragsverwaltung im Discounterbereich (C#/.NET)",
+        "activities": [
+          "Aufbau und Implementation eines DAL, sowie eines Windowsservice zur Vertragserstellung in PDF aufgrund eines Web-Interviews in VS 2010/2013 mit C# und Oracle 10/11, sowie LL 18",
+          "Discounterbereich (C#/.NET)"
+        ]
+      },
+      {
+        "period": "2011-07 - 2012-03",
+        "title": "Zeiterfassungssystem in C# / ASP.NET - Fraunhofer- Institut für System- und Innovationsforschung",
+        "technologies": [
+          "MS SQL Server 2008",
+          "Zugriff mittels Linq",
+          "SQLite"
+        ],
+        "activities": [
+          "Konzeption, Erstellung und Implementierung eines Zeiterfassungsmanagementsystems in C# / Winforms und ASP.NET mit .NET 4 unter VS 2010",
+          "für System- und Innovationsforschung"
+        ]
+      },
+      {
+        "period": "2009-09 - 2010-03",
+        "title": "Internes Verrechnungsprogramm für die Vorsteuer in der Lebensmittelbranche (C#/.NET/WPF/WCF)",
+        "technologies": [
+          "Prism 2 (CAG)",
+          "Infragistic 9",
+          "List&Label 14",
+          "ERPConnect"
+        ],
+        "activities": [
+          "Aufbau eines Windowsservice zur Überwachung eines anderen",
+          "Windowsservice mittels WCF und async Operationen, sowie eMail-SMTP Benachrichtigung",
+          "Erstellung einer Überprüfung von SAP-Elementen, Verbuchungen von Belegen, Abfrage gebuchter Positionen über RFC Funktionen mittels ERPConnect.",
+          "Implementation von WPF Views zur Auswahl und Darstellung von Protokollen",
+          "Berichte mit List&Label",
+          "Softwareentwicklung nach agilen Methoden und iterative",
+          "Entwicklungszyklen unter VS 2008 mit VB.NET und C# unter NET",
+          "3.51 mit WPF und WCF. Datenbanksystem mit Oracle 10g r2, DAL mit Entity Framework und LinqToEntities, sowie Enterprise",
+          "Lebensmittelbranche (C#/.NET/WPF/WCF)"
+        ]
+      },
+      {
+        "period": "2008-08 - 2014-11",
+        "title": "Logistikprogramme für den Einkauf (Zentral und Länder) 4 Monate im Lebensmittelbereich",
+        "technologies": [
+          "Infragistic 8 bis 12",
+          "List&Label 11 bis 18",
+          "Syncfusion 2010",
+          "Tobitfax"
+        ],
+        "activities": [
+          "(C#/.NET/WinForms/WPF/WCF)",
+          "Aufbau, Implementation und Wartung zweier Logistikprogramme in C# mit .NET 2.0 bis 4.5 unter VS 2005 bis VS 2013 mit Infragistic unter Winforms / WPF und einer Oracle Datenbank",
+          "Erstellung eines DAL mit PL/SQL inkl. eigenem OR-Mapper in C#",
+          "Processformulare für Schemaerstellung, Dispo-Verarbeitung / Lieferantenbestellung und Spediteur Anbindung",
+          "EDI-Schnittstelle, Vergabe von Direktlogistiken und einer Forecasting Bestellschnittstelle in PLSQL",
+          "Monate im Lebensmittelbereich"
+        ]
+      },
+      {
+        "period": "2008-05 - 2008-07",
+        "title": "Reiseticketmanagement-System in ASP.NET / C# - Fraunhofer-Institut für System- und",
+        "technologies": [
+          "Redemption",
+          "WebGrid",
+          "MS EnterpriseLib",
+          "AjaxControlToolkit",
+          "DevExpress Enterprise",
+          "MS AJAX"
+        ],
+        "activities": [
+          "Innovationsforschung",
+          "Konzeption, Erstellung und Implementierung eines Reiseticketmanagement-System in C# unter VS 2008 (NET 2.0) mit C#, SQL Server 2005, Active Directory und Exchange Server",
+          "Fraunhofer-Institut für System- und Deutschland",
+          "Erstellung eines WebShops (ACE-Vorteilswelt) für ACE unter VS",
+          "2008 (NET 3.5) mit C# und SQL 2005 und Linq",
+          "Automotive",
+          "Erstellung eines Anforderungsmanagement für einen Automotiv-Zulieferer (Parker) unter VS 2008 (NET 2.0) mit VB.NET und SQL Server 2005 und NET 3.0 WF."
+        ]
+      },
+      {
+        "period": "2008-04 - 2008-05",
+        "title": "WebShop-System in ASP.NET / C#- ACE – Auto Club Deutschland",
+        "technologies": [
+          "DevExpress Enterprise",
+          "MS EnterpriseLib",
+          "MS AJAX"
+        ],
+        "activities": [
+          "Erstellung eines WebShops (ACE-Vorteilswelt) für ACE unter VS",
+          "2008 (NET 3.5) mit C# und SQL 2005 und Linq"
+        ]
+      },
+      {
+        "period": "2008-01 - 2008-05",
+        "title": "Terminplaner in .NET / C# - Hector System – Fitnessbranche",
+        "technologies": [
+          "DevExpress-WinSuite/DXperience Enterprise",
+          "XML",
+          "EnterpriseLib",
+          "Gravitybox",
+          "Windows Installer"
+        ],
+        "activities": [
+          "Erweiterung des Terminplaners für die Fitnessbranche unter VS",
+          "2003 (VB.NET) und SQL Server 2000.",
+          "Neues ASP.NET Addon für Terminsuche über das Internet in VB.NET mit VS 2008 / NET 3.5 und SQL Server 2005",
+          "Schnittstelle und Outlook Addin) 2003 und 2005, LLBLGen (DAL), Access",
+          "2000 bis Access 2003, Subversion für Source-Code-Verwaltung"
+        ]
+      },
+      {
+        "period": "2008-03 - 2008-04",
+        "title": "Anforderungsmanagement in ASP.NET / C# - Parker – Automotive",
+        "technologies": [
+          "DevExpress Enterprise",
+          "MS EnterpriseLib",
+          "MS AJAX"
+        ],
+        "activities": [
+          "Erstellung eines Anforderungsmanagement für einen Automotiv-Zulieferer (Parker) unter VS 2008 (NET 2.0) mit VB.NET und SQL Server 2005 und NET 3.0 WF."
+        ]
+      },
+      {
+        "period": "2008-01 - 2008-03",
+        "title": "KFZ-Versicherung-Webportal in ASP.NET / C# - Asstel –",
+        "technologies": [
+          "DevExpress Enterprise",
+          "MS EnterpriseLib",
+          "MS AJAX"
+        ],
+        "activities": [
+          "Erstellung eines KFZ-WebPortal (Asstel) für die Kampagne credit4me (Fortis) unter VS 2008 (NET 3.5) mit C# und SQL 2005",
+          "Erstellen eines WCF-Dienstes"
+        ]
+      },
+      {
+        "period": "2007-06 - 2007-12",
+        "title": "Controlling/ Reporting in .NET / C#",
+        "technologies": [
+          "Enterprise Library",
+          "Infragistics Netadvantage 2007 Vol 1",
+          "Syncfusion XlsIO"
+        ],
+        "activities": [
+          "Datenanalyse und Berichts-Erstellung eines ASP.NET(1.1) und eines WinForm-Projektes (NET 2.0 C#) zur Generierung von Controlling-Excel- und PDF-Reports unter VS.NET 2003 /2005 mit ASP.NET (C# und Ajax, JavaScript) und SQL Server 2005",
+          "Reporting Service und Subversion"
+        ]
+      },
+      {
+        "period": "2007-04 - 2007-05",
+        "title": "Outlook-Addin HAM/SPAM in .NET / C#",
+        "technologies": [
+          "Redemption-Library"
+        ],
+        "activities": [
+          "Erstellung eines Outlook-Addin für Abfrage nach SPAM und HAM aufgrund der Email-Informationen unter VS.NET 2005 mit VB.NET und Visual Studio Tool für Office 2005 sowie mit Outlook 2003 und 2007 und Redemption-Library.",
+          "Fertigung eines Installer für das automatische Setup inkl. CAS,",
+          "Custom-Actions, Installer Klassen und Bedingungen."
+        ]
+      },
+      {
+        "period": "07/2006 – 08/2006",
+        "title": "Outlook-Addin / VB.NET",
+        "activities": [
+          "Erstellung eines Gateways über Outlook-Addin mit Zugriff auf einen Exchange-Server zur Ablage von Email-Informationen in eine festgelegte Struktur (XML-Definition) unter",
+          "VS.NET 2005 mit VB.NET",
+          "Fertigung eines Installer für das automatische Setup inkl. CAS, Custom-Actions,",
+          "Installer Klassen und Bedingungen.",
+          "Tools: Visual Studio Tool für Office 2005 Outlook 2003, Exchange Server 2003 SP2, XML,",
+          "Redemption-Library und SQL Server 2005"
+        ]
+      },
+      {
+        "period": "2006-06 - 2007-07",
+        "title": "KFZ-Versicherung-Webportal in ASP.NET / Winforms / 2 Monate C#",
+        "activities": [
+          "Erstellung eines KFZ-Versicherungs- und Finanzierungs-portal inkl. Umstellung von ASP.NET 1.1 / SQL 2000 auf ASP.NET 2.0 / SQL Server 2005 (mit DevExpress Enterprise) in ASP.NET / C#",
+          "Implementierung einer Back-End-Office Webanwendungen zur Verwaltung der Versicherungsdaten aus dem KFZ-Portals als",
+          "Winforms-Verwaltungsanwendungen in C#",
+          "Monate C#"
+        ]
+      },
+      {
+        "period": "03/2004 – 02/2007",
+        "title": "Terminplaner in .NET / C# & VB.NET",
+        "technologies": [
+          "Windows Installer"
+        ],
+        "activities": [
+          "Konzeption und Implementierung des Terminplaners für die Fitnessbranche unter VS 2003",
+          "/ 2005 mit VB.NET & C# / SQL Server 2000/2005",
+          "Datenmigration von Access/VBA nach MS SQL Server/.NET",
+          "Integration einer ASP Anwendung in die Winforms-Anwendung Tools: DevExpress-WinSuite / DXperience Enterprise, XML, Enterprise-Lib Gravitybox,",
+          "Addin) 2003 und 2005, LLBLGen (DAL), Access 2000 bis Access 2003, Subversion",
+          "Team: 4"
+        ]
+      },
+      {
+        "period": "07/2003 – 06/2004",
+        "title": "CRM-Vereinsverwaltungs-System / VB.NET",
+        "activities": [
+          "Entwicklung eines CRM-Vereinsverwaltungssystems für einen Basketball-Europaligsten unter VS 2003 mit VB.NET / SQL Server 2000 und List & Label 9"
+        ]
+      },
+      {
+        "period": "06/2003 – 06/2003",
+        "title": "Addin und Erweiterung KHK OfficeLine 3.x / VB6",
+        "activities": [
+          "Erweiterung, Umstellung (2.x auf 3.x) und Addin-Programmierung einer KHK OfficeLine",
+          "3.x Anwendung für die Textilbranche"
+        ]
+      },
+      {
+        "period": "05/2003 – 06/2003",
+        "title": "Eurotreuhand / VB6",
+        "activities": [
+          "Erstellung eines Verwaltungsprogramms für das Versicherungswesen mit Visual Basic 6 / Access-Datenbank und List&Label"
+        ]
+      },
+      {
+        "period": "04/2003 – 04/2003",
+        "title": "Datenaustauschsprogramm / VB6",
+        "activities": [
+          "Erstellung eines Datenaustausch- und Abgleichsprogramms zwischen Filialen und einer Hauptverwaltung"
+        ]
+      },
+      {
+        "period": "03/2003 – 03/2003",
+        "title": "Datenschnittstelle für eine Templateverwaltung / VB6",
+        "activities": [
+          "Erstellung einer Datenschnittstelle für ein Dokumentensystem mittels Templates"
+        ]
+      },
+      {
+        "period": "01/2003 – 02/2003",
+        "title": "PPS/ERP-System - Wartung und Erweiterung / Access - VBA",
+        "activities": [
+          "Erweiterung und Wartung eines PPS/ERP-System mit Access 2000 und VBA"
+        ]
+      },
+      {
+        "period": "10/2002 – 12/2002",
+        "title": "Benutzerhandbücher und Onlinehilfe für myFactory",
+        "activities": [
+          "Erstellen von vier Benutzerhandbücher (900 Seiten), sowie Hilfetexte für das Programm web-Kaufmann / myFactory in den Bereichen ERP, CRM, B2B und webFiliale.",
+          "Erstellen eines Onlinehilfe-Systems unter Benutzung der vier zuvor geschriebenen"
+        ]
+      },
+      {
+        "period": "03/2001 – 05/2002",
+        "title": "web-Kaufmann – myFactory / VB6-ASP",
+        "activities": [
+          "Entwicklung einer skalierbaren kaufmännischen Three-Tier-Lösung. Schwerpunkt CRM inkl. einer Vertragsverwaltung unter VB6 / ASP mit MS SQL Server 2000",
+          "Tools: Visual Studio 6 (VS InterDev und VB 6)",
+          "Internet Information Service (Web-Server)",
+          "Team: 6"
+        ]
+      },
+      {
+        "period": "02/2001 – 02/2001",
+        "title": "Firewall-Konzeption",
+        "technologies": [
+          "Linux oder mittels"
+        ],
+        "activities": [
+          "einer Hardware-Lösung."
+        ]
+      },
+      {
+        "period": "11/2000 – 02/2001",
+        "title": "Internet-Zugangsprogramm / C++",
+        "activities": [
+          "Erstellung eines Internet-Server-Provider-Dialers inkl. Installationsprogramm",
+          "Tools: MFC und RASAPI32-Library"
+        ],
+        "technologies": [
+          "C++",
+          "MFC",
+          "RASAPI32-Library"
+        ]
+      },
+      {
+        "period": "05/2000 – 11/2000",
+        "title": "Projektmanagement / VB6 – VBA / C++",
+        "activities": [
+          "Entwicklung eines Projekmanagements Frontends für MS Projekt inkl. Formularen,",
+          "Analysestatements, Berichten sowie eines NT-Dienstes mit MS SQL Server 7",
+          "Tools: Crystal Report 7, VS-FlexGrid 6, DBI Toolbox 4, Sheridan VB Assist 5.2, VB",
+          "Partner 6, Virtual Print Engine Professional 3.1"
+        ],
+        "technologies": [
+          "VB6",
+          "VBA",
+          "C++",
+          "MS Projekt",
+          "MS SQL Server 7",
+          "Crystal Report 7",
+          "VS-FlexGrid 6",
+          "DBI Toolbox 4",
+          "Sheridan VB Assist 5.2",
+          "VB Partner 6",
+          "Virtual Print Engine Professional 3.1"
+        ]
+      },
+      {
+        "period": "08/1999 – 10/1999",
+        "title": "SAP-Schnittstelle für ein Labor-System / C++",
+        "activities": [
+          "Entwicklung einer Schnittstelle zum Einlesen von Patientendaten aus dem SAP-System für die weitere Verarbeitung in einem Labor-EDV-Programm"
+        ]
+      },
+      {
+        "period": "10/1998 – 06/2000",
+        "title": "Warenwirtschaftssystem / VB6",
+        "activities": [
+          "Betriebliche Systemanalyse, Konzeption, Pflichtenhefterstellung und Entwicklung des Programms mit Formularen und Berichten unter VB5/6 mit einer Access 97 Datenbank",
+          "Internet-Auftritt - Web-Seiten Konzeption und Erstellung",
+          "Tools: APEX True Tools, List&Label 5/6,VS-OCX, Olectra Chart, TextControl, RoboHelp,",
+          "InstallShield Express",
+          "Vor der freiberuflichen Tätigkeit: Leiterin der Software-Entwicklung, Koordination und Programmier-Leitung für das B.I.T.-System",
+          "(Bäckerei-Informations-Technologie)",
+          "Software-Entwickler Schulung und Betreuung der Mitarbeiter Anwendungsentwicklung unter Delphi 3.0 unter Windows 95 und Windows NT 4.0 für Einzelplatz, Netzwerk und Client/Server-Bereich Sonstiges Sonstige Anmerkungen: Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]"
+        ]
+      }
+    ],
+    "industries": [
+      "Elektro",
+      "Versicherung",
+      "Textil",
+      "allgemein kaufmännische Branche",
+      "Handwerker",
+      "Fitness",
+      "Automobil",
+      "Logistik",
+      "Lebensmittel"
+    ],
+    "focus_areas": [
+      ".NET Classic/Core C# Windows Desktop (XAML WPF Winforms WCF) ASP.NET Core MVC TypeScript Node Angular Oracle / MS SQL Server Azure) Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Dokumentation / DTP 1994 Studium der Informatik an der FH Mannheim Abschluss: Diplom Informatikerin FH"
+    ],
+    "focus_experience": [
+      {
+        "name": "ASP.NET Core",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "ASP.NET MVC",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Aurelia",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "DevExpress",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Infragistic NetAdvantage",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "List & Label",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "MS Office",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Node.js",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Silverlight",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Telerik",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "TypeScript",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "VBA",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Visual Basic",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Visual Studio .NET seit 2002",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "VSTO",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "WCF",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Windows seit 3.0",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "WPF",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "XAML",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Angular",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "NgRx",
+        "category": "product_standard",
+        "sort_order": 21
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diplom Informatikerin FH",
+        "institution": "FH Mannheim",
+        "period": "1994",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "mstest",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "powerdesigner",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "unicode",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "http",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "foundation",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "import",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "unity.",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "sqldelveloper/sqlplus",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "observer",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "oracle-schnittstelle",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:12:48.556834",
+    "source_file": "",
+    "steps_completed": [
+      "OTHER",
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 18→17 bei '2021-06 - 2021-09'",
+        "ACT: 17→16 bei '2020-10 - 2020-12'",
+        "ACT: 8→7 bei '2017-02 - 2017-09'",
+        "ACT: 9→8 bei '2015-04 - 2016-06'",
+        "ACT: 9→8 bei '2012-03 - 2015-04'",
+        "ACT: 3→2 bei '2011-07 - 2012-03'",
+        "ACT: 8→6 bei '2008-08 - 2014-11'",
+        "ACT: 9→7 bei '2008-05 - 2008-07'",
+        "ACT: 5→4 bei '2006-06 - 2007-07'",
+        "ACT: 2→1 bei '05/2003 – 06/2003'",
+        "ACT: 2→1 bei '04/2003 – 04/2003'",
+        "EDV_SEIT: None→1998",
+        "AUTO_SKILLS: +10 in skill_ablage"
+      ],
+      "coverage_percent": 84.48060075093868,
+      "auto_added_skills": 10,
+      "integrity_ok": true
+    }
+  }
+}

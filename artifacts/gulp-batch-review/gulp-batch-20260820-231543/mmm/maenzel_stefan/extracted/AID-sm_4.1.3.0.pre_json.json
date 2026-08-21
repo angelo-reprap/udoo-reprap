@@ -1,0 +1,616 @@
+{
+  "metadata": {
+    "aid": "AID-sm_4.1.3.0",
+    "version": "4.1.3.0",
+    "consultant_dir": "maenzel_stefan",
+    "first_name": "Stefan",
+    "last_name": "Maenzel",
+    "headline": "* Projektmanagement, Projekt Management Office PMO, Projektleitung, Projektcontrolling, Coaching von Projektleitern * Einführung von Projektmanagement, PMO und Portfolio-Management * Testmanagement, Planung und Durchführung von Testmaßnahmen * Training (Projektmanagement, MS- Project) * Evaluierung, Planung und Durchführung von Trainingsmaßnahmen * Qualitätssicherung, Qualitätsmanagement",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:46:04.883678"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Stefan",
+      "last_name": "Maenzel",
+      "birth_year": 1965,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "04.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "904xx Nürnberg, Deutschland",
+      "headline": "* Projektmanagement, Projekt Management Office PMO, Projektleitung, Projektcontrolling, Coaching von Projektleitern * Einführung von Projektmanagement, PMO und Portfolio-Management * Testmanagement, Planung und Durchführung von Testmaßnahmen * Training (Projektmanagement, MS- Project) * Evaluierung, Planung und Durchführung von Trainingsmaßnahmen * Qualitätssicherung, Qualitätsmanagement",
+      "edv_experience_since": 2000
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "Approach",
+        "DB2",
+        "DB/400",
+        "Filemaker",
+        "Informix",
+        "Lotus Notes",
+        "MS SQL Server",
+        "ODBC",
+        "Oracle",
+        "SQL",
+        "VSAM"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "CD-Writer / Brenner",
+        "Drucker",
+        "IBM Großrechner",
+        "PC",
+        "Scanner",
+        "Soundkarten",
+        "Streamer"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS",
+        "Novell",
+        "OS/2",
+        "PalmOS",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "VMS",
+        "Windows",
+        "Windows CE"
+      ],
+      "programming_languages": [
+        "ABAP4",
+        "Basic",
+        "C",
+        "C++",
+        "Clipper",
+        "CL/400",
+        "Cobol",
+        "CORBA IDL",
+        "dBase",
+        "Java",
+        "JavaScript",
+        "JCL",
+        "ToolBook (OpenScript)"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "08/2017 - 07/2018",
+        "company": "Fresenius Netcare GmbH/, Fresenius KABI AG",
+        "title": "O365 Rollout und Lotus Notes Application Migration, Bad Homburg vor der Höhe",
+        "role": "Projektmanager",
+        "activities": [
+          "Projektmanagement Office PMO",
+          "Aufgaben:",
+          "Coaching von Projektleitern",
+          "Projekt- und Budgetplanung (Meilensteine, Termine, Ressourcen)",
+          "Projektcontrolling (Qualität, Budget, Zeit)",
+          "Statusreports und Präsentationen für Lenkungsausschüsse ===================================================== ==========================",
+          "Homburg vor der Höhe"
+        ]
+      },
+      {
+        "period": "03/2016 - heute",
+        "company": "Raiffeisenlandesbank Niederösterreich-Wien",
+        "title": "Programmmanagement /Projektmanagement Office PMO, Wien",
+        "role": "Projektmanager",
+        "activities": [
+          "Aufgaben:",
+          "Programm im Bereich Risikomanagement, Einführung Projektmanagement Governance,",
+          "Regulatorische Themen, BCBS 239, DSGVO",
+          "Konzeption der Programm- und Projektplanung (Meilensteine, Termine,",
+          "Budget, Ressourcen)",
+          "Erstellung der Projektpläne, fortlaufender Reviews und Aktualisierung",
+          "Organisatorische Überwachung des Projektfortschrittes Laufende Aktualisierung und Überwachung des Budgetverbrauches (Projektcontrolling)",
+          "Etablierung von Risikomanagement und Change-Management Prozessen"
+        ]
+      },
+      {
+        "period": "08/2015 - 03/2016",
+        "company": "Media Saturn Deutschland",
+        "title": "Einführung SAP MM, SAP VIM, Zentralisierung Rechnungsprüfung, Ingolstadt",
+        "role": "Projektmanager",
+        "activities": [
+          "im Service Center, Zentrales Scannen und Verarbeiten von Dokumenten",
+          "(Rechnungen, Lieferscheine)",
+          "Aufgaben:",
+          "Coaching von Projektleitern",
+          "Projektplanung (Meilensteine, Termine, Budget, Ressourcen)",
+          "Vorbereitung, Gestaltung und Durchführung von Workshops",
+          "Testmanagement - (Definition Testfälle, Festlegung Testvorgehen)",
+          "Steuerung von Change-Requests / Abnahme-Verfahren",
+          "Rechnungsprüfung, Ingolstadt"
+        ]
+      },
+      {
+        "period": "11/2011 - 07/2015",
+        "company": "Fresenius Netcare GmbH, Fresenius KABI AG",
+        "title": "SAP Rollout Europa, Asien, Lateinamerika, Nordamerika SAP",
+        "role": "Projektmanager",
+        "activities": [
+          "FI, SAP Financial Supply Chain Management (FSCM), Invoice Center",
+          "Aufgaben:",
+          "Internet- und Intranet Rollout, Social Media - SharePoint 2013",
+          "Einführung eines globalen 24/7 Supportes",
+          "Evaluierung und Einführung einer Software im Bereich Regulatory Affairs",
+          "Rollout Payment Factory SAP (Europa, Asien) o Projektleitung, Coaching von Projektleitern o Projekt- und Budgetplanung (Meilensteine, Termine, Ressourcen) o Projektcontrolling (Qualität, Budget, Zeit) o Risikomanagement o Vorbereitung, Gestaltung und Durchführung von Workshops o Statusreports und Präsentationen für Lenkungsausschüsse ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/2009 - 12/2011",
+        "company": "Dresdner Kleinwort, Commerzbank AG",
+        "title": "Migration FX/MM (Calypso)/Projektmanagement,",
+        "role": "Projektmanager",
+        "activities": [
+          "Projektmanagement Office PMO, Testmanagement",
+          "Aufgaben:",
+          "Durchführung der operativen Projektmanagementtätigkeiten (fachliches",
+          "Projektmanagement), insbesondere Abstimmung der erforderlichen Aktivitäten mit den relevanten IT-Projekteinheiten",
+          "Projektcontrolling",
+          "Definition fachlicher Projektstandards zur Sicherstellung der effizienten Projektdurchführung",
+          "Fachliches Projekt-Tracking (Identifikation von Plan-, Scope- und Zielabweichungen und aktives Management von Abweichungen)",
+          "Testmanagement - Vorbereitung und Durchführung der Testphasen (Definition"
+        ]
+      },
+      {
+        "period": "09/2008 - 12/2008",
+        "company": "Carl Zeiss Vision GmbH Consulting",
+        "title": "Einführung Portfolio-, Programm- und Projektmanagement",
+        "role": "Projektmanager",
+        "activities": [
+          "Aufgaben:",
+          "Ist-Analyse der bestehenden Projektmanagementlandschaft",
+          "Definition und Einführung eines phasengesteuerten Projektmanagement",
+          "Einführung eines Projekt Portfoliomanagements ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "08/2006 - 01/2007",
+        "company": "SRI Radio Systems GmbH",
+        "title": "Einführung einer Projektmanagement Software",
+        "role": "Trainer",
+        "activities": [
+          "Aufgaben:",
+          "Anforderungsanalyse und Requirements-Engineering",
+          "Systemkonfiguration und Roll-Out",
+          "Durchführung von Trainings",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "10/2005 - 09/2006",
+        "company": "Bayer Business Services",
+        "title": "Einführung eines Projekt Portfolio Management Tools",
+        "activities": [
+          "Aufgaben:",
+          "Anforderungsanalyse und Requirements-Engineering",
+          "Erstellung Pflichtenheft",
+          "Systemkonfiguration und Roll-Out",
+          "Anbindung an SAP PS und SAP HR",
+          "Sicherstellung der Qualität der ausgelieferten Software durch Implementierung eines mehrstufigen Testvorgehens bestehend aus",
+          "Komponententest, Integrationstest, System- und Abnahmetest"
+        ]
+      },
+      {
+        "period": "08/2004 - 12/2004",
+        "title": "Coaching und Durchführung von EPM Projektmanagement",
+        "role": "Projektmanager",
+        "activities": [
+          "Workshops und Trainings Einführung von Microsoft Project Server 2003",
+          "Aufgaben:",
+          "Konzeption von zielgruppenspezifischen Seminaren",
+          "Prozessaufnahme- und beschreibung von Projektmanagement-Prozessen insbesondere Ressourcenmanagement-Prozessen",
+          "Erstellen von Schulungsunterlagen",
+          "Durchführung von Workshops und Seminaren zu den neu einzuführenden",
+          "Prozessen (Ressourcenmanagement) und dem Tool Project Enterprise 2003",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "01/2004 - 08/2009",
+        "company": "Infineon AG",
+        "title": "Einführung einer Projektportfolio, Projektmanagement und",
+        "role": "Projektleiter",
+        "technologies": [
+          "Microsoft SQL-Server",
+          "Microsoft Windows Share Point Portal",
+          "Mercury IT-"
+        ],
+        "activities": [
+          "Controlling Toolbox mit SAP PS, Microsoft Project und KLUSA",
+          "Aufgaben:",
+          "Projektleitung und Coaching von Projektleitern",
+          "Übergreifende Steuerung des Programmes bei Planung und Controlling",
+          "Kommunikation und Steuerung des externen Softwarelieferanten",
+          "Steuerung des Test-Management im Programm und Koordination aller",
+          "Testaktivitäten in den einzelnen Projekten",
+          "Abnahmen aus IT-technischer und Kunden bezogener fachlicher Sicht für die einzelnen Testphasen (Komponententest, Integrationstest, System- und Abnahmetest) durchführen"
+        ]
+      },
+      {
+        "period": "01/2003 - heute",
+        "company": "auf Anfrage",
+        "title": "Analyse und Definition",
+        "activities": [
+          "Aufgaben:",
+          "Analyse und Definition von Qualifizierungsbedarfen",
+          "Kalkulation und Controlling von Qualifizierungsprojekten",
+          "Konzeption von Projektmanagement-Seminaren",
+          "Methodenunterstützung und Consulting für Projektmanagement-Prozesse sowie Schulungen im Bereich Prozess- und Projektmanagement und MS-Project (AUDI AG, GfK AG, Staedtler GmbH & Co. KG, Leoni AG, MAN) ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/2001 - 12/2002",
+        "company": "Dresdner Bank AG - Projekt GEOS",
+        "title": "Einführung eines Wertpapierabrechnungssystems",
+        "role": "Projektplaner",
+        "activities": [
+          "Aufgaben:",
+          "Planung des Projektablaufes (Definition von Zwischenzielen,",
+          "Arbeitspaketen und Meilensteinen)",
+          "Ressourceneinsatzplanung und Kostenplanung",
+          "Planung und Steuerung des Gesamtprojektes (Fachprojekt, Technikprojekt, Roll-Out und Kommunikation)",
+          "Moderation von Trackingmeetings und Besprechungen",
+          "Projektkoordination",
+          "Überwachung des Projektfortschrittes und Projektverlaufes"
+        ]
+      },
+      {
+        "period": "01/2001 - 08/2001",
+        "company": "Data-Help GmbH und Rödl & Partner GmbH",
+        "title": "Aufbau eines Projekt-Office zur Realisierung eines",
+        "role": "Projektleiter für die Entwicklung von Lernprogrammen (CBT - Computer",
+        "activities": [
+          "Internetportales",
+          "Aufgaben:",
+          "Erstellung eines übergreifenden und konsolidierten Gesamtprojektplanes",
+          "Meilensteinüberwachung",
+          "Projektübergreifende Terminkoordination",
+          "Erstellen von Statusberichten und Reports über den Stand der Softwareentwicklung Erstellen von Projektanträgen unter IT-technischen, wirtschaftlichen und betrieblichen Gesichtspunkten",
+          "Erstellung und Pflege des Programmhandbuches, Projekthandbuches",
+          "Change Request Verfahren definieren und implementieren"
+        ]
+      },
+      {
+        "period": "01/2000 - heute",
+        "company": "Audi AG",
+        "title": "Trainings für Projektmanagement",
+        "activities": [
+          "Aufgaben:",
+          "Durchführung von Trainings für Projektmanagement und Microsoft Project ===================================================== =========================="
+        ]
+      }
+    ],
+    "industries": [
+      "Elektrizitätswirtschaft",
+      "Automobilindustrie",
+      "Energieversorgung",
+      "Luft- und Raumfahrt",
+      "Automatisierungstechnik",
+      "Flughafen",
+      "Bahn",
+      "Banken",
+      "Pharmazie",
+      "Handel",
+      "Hardwarehersteller",
+      "Halbleiterhersteller",
+      "Softwarehersteller",
+      "sonstige Industrie",
+      "Telekommunikationsunternehmen",
+      "Kommunalwesen",
+      "Versicherungen"
+    ],
+    "focus_areas": [
+      "Projektmanagement",
+      "Projekt Management Office PMO",
+      "Projektleitung",
+      "Projektcontrolling",
+      "Coaching von Projektleitern * Einführung von Projektmanagement PMO und Portfolio-Management * Testmanagement Planung und Durchführung von Testmaßnahmen * Training (Projektmanagement MS-Project) * Evaluierung Planung und Durchführung von Trainingsmaßnahmen * Qualitätssicherung Qualitätsmanagement",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Zertifizierung zum Projektmanager (GPM)",
+      "Requirements Engineering",
+      "Requirements Management",
+      "Seminar SAP PS und Projekt Controlling mit Projektstrukturplänen",
+      "SEP (System Entwicklungs-Prozess) Volkswagen, AUDI AG - V-Modell XT"
+    ],
+    "focus_experience": [
+      {
+        "name": "Fachliche Kompetenz:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Zertifizierung zum Projektmanager nach IPMA",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "* Analyse",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Modellierung",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Anpassung und Einführung von Entwicklungs-",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Prozessen",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "System/Produkt-Life-Cycle Management",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Portfolio-Management",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "* Reifegradmodelle CMM(I)",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "ISO9000/EFQM/TQM QM",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Soziale Kompetenz:",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Besondere Stärken in der Motivation von Mitarbeitern - auch in",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Krisensituationen",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "* sicheres",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "selbstbewusstes Auftreten",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Teamfähigkeit",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Durchsetzungsvermögen",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Kommunikationsfähigkeit",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "weitere Skills",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Seminarthemen(Überblick) und Dienstleistungen",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Microsoft Office",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Grundlagen und Praxis des Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Projektmanagement mit MS-Project",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "* Projektcontrolling - Planung",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Steuerung und Kontrolle von Projekten",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Erstellung von Seminarkonzepten und Seminarunterlagen",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "* Kundenberatung",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Bedarfsanalyse und Seminarplanung",
+        "category": "product_standard",
+        "sort_order": 27
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Bus",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CICS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CORBA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proprietäre Protokolle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:46:04.883693",
+    "source_file": "",
+    "steps_completed": [
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '10/2005 - 09/2006'",
+        "EDV_SEIT: None→2000"
+      ],
+      "coverage_percent": 88.8663967611336,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

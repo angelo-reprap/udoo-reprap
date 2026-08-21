@@ -1,0 +1,400 @@
+{
+  "metadata": {
+    "aid": "AID-jh_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "hilbert_joerg",
+    "first_name": "Joerg",
+    "last_name": "Hilbert",
+    "headline": "VBA- Entwickler, Schwerpunkt Excel und Access",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:35:52.037323"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Joerg",
+      "last_name": "Hilbert",
+      "birth_year": 1979,
+      "availability": "01.09.17 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "241xx Kiel, Deutschland",
+      "headline": "VBA- Entwickler, Schwerpunkt Excel und Access",
+      "edv_experience_since": 2011
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "SQL-Server",
+        "MySQL"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Windows XP",
+        "Windows 7",
+        "Windows 10"
+      ],
+      "programming_languages": [
+        "VBA",
+        "VB.Net",
+        "HTML",
+        "CSS",
+        "SQL"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "12/2014 - 03/2014",
+        "title": "Amt Dänischer Wohld",
+        "technologies": [
+          "Windows 7",
+          "WPF",
+          "VB.Net",
+          "SQL"
+        ],
+        "activities": [
+          "Projekt Bauaktenverwaltung",
+          "Erstellung er Software zur Bauaktenverwaltung des Amtes incl.",
+          "Migration der alt Daten."
+        ]
+      },
+      {
+        "period": "06/2014 - 11/2014",
+        "title": "Temprix GmbH",
+        "technologies": [
+          "Windows 7",
+          "Windows Server",
+          "VB.NET",
+          "VB6",
+          "Access 2010",
+          "SQL",
+          "HTML",
+          "CSS"
+        ],
+        "activities": [
+          "Projekt: Emily",
+          "Umstellung einer VB6 Software auf .NET. Die Software Umfasst dabei, das Angebot und Rechnung erstellen, die Kundenverwaltung, und viele weitere Funktionen."
+        ]
+      },
+      {
+        "period": "05/2014 - 06/2014",
+        "title": "Siemens AG",
+        "technologies": [
+          "Windows 7",
+          "Windows Server",
+          "WPF",
+          "VB.Net",
+          "SQL Server"
+        ],
+        "activities": [
+          "Projekt: Raumbelegung",
+          "Erstellung einer WPF- Anwendung zur Raumbelegung zwecks",
+          "Heizungssteuerung."
+        ]
+      },
+      {
+        "period": "04/2014- 12/2014",
+        "title": "GNUSE Ingenieurbüro für Krankenhaustechnik GmbH &",
+        "technologies": [
+          "Windows 7",
+          "Access 2010",
+          "Excel 2010",
+          "VBA",
+          "VB.Net",
+          "HTML",
+          "CSS",
+          "SQL"
+        ],
+        "activities": [
+          "Co. KG",
+          "Projekt: Energiebilanz",
+          "Entwicklung einer Access Datenbank mit deren Hilfe man ein Raumbuch, eine Leistungsbilanz bis zur Energiebilanz bei der Krankenhausplanung erstellt."
+        ]
+      },
+      {
+        "period": "02/2014- 03/2014",
+        "title": "GNUSE Ingenieurbüro für Krankenhaustechnik GmbH &",
+        "technologies": [
+          "Windows 7",
+          "Access 2010",
+          "VBA",
+          "VB.Net",
+          "HTML",
+          "CSS",
+          "SQL"
+        ],
+        "activities": [
+          "Co. KG",
+          "Projekt: Aktenvermerk",
+          "Entwicklung einer Access Datenbank zur Reporterstellung vom Baufortschritt. Dabei werden in Access Daten erfasst, die in einem dynamischen HTML - Report ausgegeben werden. Dieser Report wird dann als PDF im Dateisystem hinterlegt."
+        ]
+      },
+      {
+        "period": "08/2013 - 01/2014",
+        "title": "Betreuung von Bestandskunden",
+        "technologies": [
+          "Windows 7",
+          "Excel 2010",
+          "Access 2010",
+          "VBA"
+        ],
+        "activities": [
+          "Projekt: Diverse",
+          "Anpassungen an diversen Datenbanken und Excel- Anwendungen.",
+          "07/2013 07/2013 Geno Guide GmbH, Home Office, Entwickler",
+          "Projekt: KPMEG",
+          "Entwicklung eines Reports um Kreditportfolios zu steuern.",
+          "02/2013 06/2013 barisco Risikomanagement GmbH, Home Office und Hamburg, Entwickler",
+          "Projekt: Reporting (Risikoreport / Gesamtbankreport)",
+          "Risiken der Banken aufzeigt. Angeschlossen an den Risikoreport, die Entwicklung eines Gesamtbankreports, der die Daten der einzel Reports zusammenfügt."
+        ],
+        "role": "Betreuung von Bestandskunden"
+      },
+      {
+        "period": "11/2012-02/2013",
+        "title": "Gutachter Müller, Home Office, Entwickler",
+        "technologies": [
+          "Windows 7",
+          "Access 2010",
+          "VBA",
+          "SQL"
+        ],
+        "activities": [
+          "Projekt: Datenbank Gutachten",
+          "Entwicklung einer Datenbank zur Verwaltung aller Geschäftsprozesse für einen Gutachter. Personen und Aufträge erfassen, diese bearbeiten,",
+          "Rechnungsstellung und Verwaltung."
+        ]
+      },
+      {
+        "period": "05/2012-06/2012",
+        "title": "Retis Consulting Group GmbH, Home Office,",
+        "technologies": [
+          "Windows 7",
+          "Excel 2010",
+          "VBA"
+        ],
+        "activities": [
+          "Entwickler",
+          "Projekt: Evaluierung Angebote",
+          "Erstellen einer Excel Datei um Angebote für Projekte dynamisch zu erfassen und auszuwerten, um das beste Angebote nach einen vorgegeben Schema zu ermitteln."
+        ]
+      },
+      {
+        "period": "03/2012-10/2012",
+        "title": "Retis Consulting Group GmbH, Home Office,",
+        "technologies": [
+          "Windows 7",
+          "Excel 2010",
+          "VBA",
+          "Windows XP",
+          "Access",
+          "SQL",
+          "Runtime",
+          "Lotus Notes",
+          "ODBC",
+          "verschiedenen Excel",
+          "um einen Fragekatalog",
+          "Pro",
+          "Win32API"
+        ],
+        "activities": [
+          "Entwickler",
+          "Projekt: Internationales Telefonkosten Modellierung",
+          "Erstellen einer Excel Datei die die aktuellen Telefonkosten",
+          "Modellieren und mit verschieden vergleichsangeboten abgleicht. Um den besten Anbieter zu finden.",
+          "05/2008 05/2008 barisco Risikomanagement GmbH, Home Office,",
+          "Projekt: SolvV",
+          "Entwicklung eines Access- Programms um die Felder im Datenbestand einer Bank, die für die Solvabilitätsverordnung relevant sind, zu analysieren."
+        ]
+      },
+      {
+        "period": "09/2011-11/2012",
+        "title": "intersoft AG, Hamburg, Entwickler",
+        "technologies": [
+          "WINDOWS 7/XP",
+          "EXCEL",
+          "Access",
+          "VBA",
+          "SQL",
+          "Lotus Notes"
+        ],
+        "activities": [
+          "Projekt: Projektplaner und Controlling",
+          "Entwicklung eines dynamischen Projektplanungstools (normal und Iterativ), Ressourcen-Verwaltung (Projekt Mitarbeiter), IST-Zeit",
+          "Erfassung, Soll-Ist Abgleich, Controlling, Rechnungserstellung und ein Dashboard für den Vorstand. 11/2011 07/2012 Retis Consulting Group GmbH, Home Office,",
+          "Entwickler",
+          "Projekt: Projekt Controlling",
+          "Erstellen einer Excel Datei um ein großes internationales Projekt auswerten und controllen. Dabei werden die Leistungen und Kosten des Projekts überwacht, ausgewertet und prognostiziert."
+        ]
+      },
+      {
+        "period": "02/2011 - 02/2011",
+        "title": "Geno Bank Consult GmbH, Home Office, Entwickler",
+        "technologies": [
+          "einer",
+          "Windows XP",
+          "Excel",
+          "VBA",
+          "um",
+          "Access",
+          "SQL",
+          "zweier",
+          "Windows 7"
+        ],
+        "activities": [
+          "Projekt: Messung Vertriebsrisiko",
+          "Bank importiert werden kann, sowie unterschiedliche Szenarien, um das Vertriebsrisiko einer Bank zu messen.",
+          "02/2010 05/2011 Geno Bank Consult GmbH, Home Office, Entwickler",
+          "Projekt: Limitsystem",
+          "Weiterentwicklung eines Limitsystems incl. Historisierung für Banken auf Grundlage von Excel.",
+          "06/2010 06/2010 Geno Bank Consult GmbH, Home Office, Entwickler",
+          "Projekt: Zinsänderungsrisiko (ZÄR)",
+          "Zinsänderungsrisiko einer Bank zu analysieren."
+        ]
+      }
+    ],
+    "industries": [
+      "Banken (Experte)"
+    ],
+    "focus_areas": [
+      "VBA- Entwickler",
+      "Schwerpunkt Excel und Access",
+      "Software-Entwicklung / Programmierung",
+      "bevorzugt",
+      "Herausforderungen.",
+      "Dipl. Bankbetriebswirt (BC)"
+    ],
+    "focus_experience": [
+      {
+        "name": "Excel (Experte)",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Access (Experte)",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Outlook (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Word (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "PowerPoint (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "VisualStudio (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Lotus Notes (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Joomla (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "OpenOffice (fortgeschr. Kenntnisse)",
+        "category": "product_standard",
+        "sort_order": 8
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Outlook",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Lotus Notes",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Firefox",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:35:52.037336",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'Betreuung von Bestandskunden'",
+        "EDV_SEIT: None→2011"
+      ],
+      "coverage_percent": 86.15384615384616,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

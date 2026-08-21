@@ -1,0 +1,484 @@
+{
+  "metadata": {
+    "aid": "AID-pk_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "kopshoff_peter",
+    "first_name": "Peter",
+    "last_name": "Kopshoff",
+    "headline": "Automatisierung und Betreuung von Entwicklungsumgebungen. Automatisierte Verteilung und Konfiguration von Builds",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:41:04.393801"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Peter",
+      "last_name": "Kopshoff",
+      "birth_year": 1963,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch Fliessend in Wort und Schrift",
+          "level": ""
+        }
+      ],
+      "availability": "01.07.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+      "location": "D4, D5, D6 im Umkreis von: Köln (50 km)",
+      "wohnort": "502xx Stommeln, Deutschland",
+      "headline": "Automatisierung und Betreuung von Entwicklungsumgebungen. Automatisierte Verteilung und Konfiguration von Builds",
+      "edv_experience_since": 1999
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access Programmierung mit VBA",
+        "DAO",
+        "JDBC",
+        "MySQL Administration und bereitstellung",
+        "ODBC",
+        "Oracle Programmierung von Stored Procedures und Triggern",
+        "redis",
+        "MongoDB",
+        "python robotframework"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "embedded Systeme Programmierung in der Autombilbranche",
+        "Emulatoren Für embedded Systeme",
+        "IBM Großrechner Als Anwender/Tester im Bankenbereich",
+        "PC"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Linux",
+        "MS-DOS",
+        "MVS",
+        "OS/390",
+        "Unix Entwicklung von Skripten",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Bash Shell",
+        "Basic VBA für MS-Access und Rational Robot",
+        "C gute Kenntnisse",
+        "C++ gute Kenntnisse",
+        "Imake",
+        "GNU-Make",
+        "Make-Maker etc",
+        "Java Grundkenntnisse",
+        "JavaScript Grundkenntnisse",
+        "JCL",
+        "Perl",
+        "PL/SQL Incl Dynamic SQL",
+        "gute Kenntnisse",
+        "Python gute Kenntnisse",
+        "Shell Unix-Shellscripting: sehr gute Kenntnisse",
+        "Unix-Shellscripting"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "SQLDeveloper",
+        "TOAD",
+        "SQL Incl Dynamic SQL",
+        "SOAP-UI",
+        "HP Quality Center",
+        "SQL-Developer",
+        "SOA-Backplane",
+        "jMeter",
+        "Rational Rose",
+        "Jira",
+        "Confluence",
+        "SubVersion",
+        "Intensive Erfahrungen",
+        "im Aufbau einer Toolchain mit Jenkins",
+        "Speichenr der Artefakte in Nexus und git / gerit",
+        "Auslieferung und Konfiguration der Stages mit puppet",
+        "Überwachung der Umgebung mit nagios und munin",
+        "ELK-Stack (Elasticsearch",
+        "Logstash und Kibana)",
+        "NoSql-"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "09/2020 - 06/2021",
+        "company": "lovenheal.org",
+        "title": "Cloud Architektur für eine App-Entwicklung, Home Office",
+        "role": "Cloud Architect und Development Operator",
+        "activities": [
+          "Geschäftsstelle: App Entwicklung",
+          "Branche: Sonstige",
+          "Aufgaben:",
+          "Aufbau der automatisierten CI-Pipeline mit CodeCommit, CodeArtifact,",
+          "CodeBuild, CodePipeline.",
+          "Erstellen und Implementierung der Architektur mit Cloudformation u.a. mit einer MySql-DB, Fargate-Containern, Load-Balancer, Blue/Green- Deployment.",
+          "Benutzer- und Rechteverwaltung mit IAM",
+          "Anleitung von Kollegen um DevOps-Tätigkeiten in der AWS-Cloud durchzuführen"
+        ]
+      },
+      {
+        "period": "08/2020 - heute",
+        "title": "Erstellung von Skripten und python-Bibliotheken",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung von Skripten und python-Bibliotheken für eine Testautomatisierung mit python robotframework ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "05/2014 - 12/2019",
+        "company": "Volkswagen AG",
+        "title": "Weiterentwicklung einer Entwicklungsumgebung, Wolfsburg",
+        "role": "Development Operator",
+        "technologies": [
+          "Testund",
+          "puppet",
+          "AWS",
+          "Nexus",
+          "git",
+          "gerrit",
+          "Jenkins",
+          "maven"
+        ],
+        "activities": [
+          "Branche: Automotive",
+          "Aufgaben:",
+          "Betreuung und Weiterentwicklung einer Entwicklungsumgebung basierend auf Jenkins als CI-Tools, git (mit gerrit) als Repository",
+          "Deployment mit Puppet-Agent",
+          "Überwachung von Backends mit nagios",
+          "Betreuung einer Applikation in aws",
+          "Produktionsstages",
+          "Kommunikation mit und Anleitung von Kollegen in Off- Shore"
+        ]
+      },
+      {
+        "period": "04/2012 - 02/2014",
+        "company": "Telekommunikation",
+        "title": "Automatisierung mit QTP",
+        "activities": [
+          "Aufgaben:",
+          "Automatisierung mit QTP des Smoke-Tests für verschiedene Applikation im Systemtest einer Entwicklungsabteilung ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2011 - 03/2012",
+        "company": "Telekommunikation",
+        "title": "Automatisierung mit QTP",
+        "activities": [
+          "Aufgaben:",
+          "Automatisierung mit QTP des Regressionstests für einen internetbasierten Webauftritts ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2010 - 02/2011",
+        "company": "Telekommunikation",
+        "title": "Migrationsprojekt",
+        "activities": [
+          "Aufgaben:",
+          "Leitung einer internationalen Testgruppe für ein Migrationsprojekt (3",
+          "Mitarbeiter vor Ort, 3 Mitarbeiter Off-Shore) ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2007 - 10/2010",
+        "company": "Telekommunikation",
+        "title": "Erstellung von Testfällen",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung von Testfällen, Automatisierung und Ausführung der Tests für die Software der Wirknetz-Administration. Ein Schwerpunkt lag auf der Entwicklung und der Wartung von Testfällen, der automatisierten Ausführung und Auswertung der Tests. Der zweite Schwerpunkt liegt in der Programmierung in Perl/TK eines Tools zur automatisierten Auswertung der Ergebnisse von Testfällen (inklusive",
+          "Synonymisierung der Testdaten) und Aktualisierung des Testergebnis in HP/ Quality Center.",
+          "Mittlerweile wird der Regressionstest nach Indien ausgelagert:",
+          "Einarbeitung, Überwachung und (telefonische) Betreuung von indischen",
+          "Kollegen.",
+          "Skriptprogrammierung unter Unix (u. a. awk, sed, perl), Programmierung in Perl und SQL"
+        ]
+      },
+      {
+        "period": "07/2004 - 12/2006",
+        "company": "Telekommunikation",
+        "title": "Ausführung der Tests für ein Netzwerkplanungstool",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung von Testfällen, Automatisierung und Ausführung der Tests für ein Netzwerkplanungstool. Der Schwerpunkt lag auf der Entwicklung und der Wartung eines proprietäten Tools zur automatisierten Ausführung und Auswertung der Tests. Zusätzlich habe ich für kleinere fachliche Gebiete Testfälle erstellt und ausgeführt",
+          "Skriptprogrammierung unter Unix (u. a. awk, sed, perl) ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2004 - 06/2004",
+        "company": "Banken und Versicherungen",
+        "title": "Implementierung",
+        "role": "Mitarbeiter",
+        "activities": [
+          "Aufgaben:",
+          "Last- und Performancetest mit Jmeter Regressionstest mit Rational-RobotJ und mit Rational-Testagent Programmierung unter Java u. a. mit der RobotJ-API Implementierung einer Teststeuerung mit ant",
+          "Implementierung von Überwachungsskripten unter Unix",
+          "Auswertung der Testergebnisse mit Excel",
+          "RobotJ, JMeter, ant, Java",
+          "===================================================== ==========================",
+          "Vor 07/1999 : Diverse Projekte",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]"
+        ],
+        "industry": "Banken und Versicherungen",
+        "technologies": [
+          "RobotJ",
+          "JMeter",
+          "ant",
+          "Java",
+          "Rational-Testagent",
+          "Unix",
+          "Excel"
+        ]
+      },
+      {
+        "period": "07/1999 - 12/2004",
+        "company": "Telekommunikation",
+        "title": "Erstellung, Weiterentwicklung und Wartung",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung, Weiterentwicklung und Wartung eines proprietäten Tool für die Erfassung von Testdaten, Testskripten und Testläufen, Ausführung und Auswertung der Testläufe, Analyse und Design der Software mit Rational",
+          "MS-Access mit einer Oracle-Anbindung, Java, SQL (Programmierung von stored",
+          "Procedures und Triggern), Skriptprogrammierung unter Unix (u. a. awk, sed, perl) ===================================================== =========================="
+        ]
+      }
+    ],
+    "industries": [
+      "Automobilhersteller",
+      "Automobilbranche",
+      "Telekommunikationsbranche",
+      "Banken"
+    ],
+    "focus_areas": [
+      "Automatisierung und Betreuung von Entwicklungsumgebungen. Automatisierte Verteilung und Konfiguration von Builds",
+      "Beratung / Consulting",
+      "Betreuung und Weiterentwicklung von Entwicklungsumgebungen",
+      "Einführung und Betreuung von AWS-Cloud-Umgebungen Erfahrung mit folgenden 1989 Studium der Elektrotechnik in Bochum Vertiefung: Softwaretechnik Abschluss als Diplom-Ingenieur Zertifizierung",
+      "ISTQB Foundation Level",
+      "12/2019:",
+      "AWS Certified Solutions Architect - Associate 01/2020:",
+      "AWS Certified Developer - Associate",
+      "02/2020:",
+      "AWS Certified SysOp - Associate"
+    ],
+    "focus_experience": [
+      {
+        "name": "AWS",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "gerrit",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "git",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "maven",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Nexus",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "puppet",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Schulung",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Betreuung und Weiterentwicklung von Entwicklungsumgebungen.",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "In der Zusammenarbeit mit der Entwicklungsabteilung und der",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Projektleitung betreue ich die Entwicklungsumgebungen für mehrere",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Entwickler- und Testgruppen.",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "* Dazu gehört das Aufsetzen einer Toolchain für Builds",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "die Auslieferung",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "und die Konfiguration der Builds",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "die Weiterentwicklung",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "die Überwachung",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "und die Fehlerbehebung in enger Zusammenarbeit mit Entwicklern.",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Aktuell habe ich mich in ein AWS-Cloud-Projekt eingearbeitet. Und ich",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "habe die drei Associate-Zertifikate von AWS (Developer",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Solutions",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Architect",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "SysOps Administrator) bestanden",
+        "category": "product_standard",
+        "sort_order": 23
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "CICS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:41:04.393812",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '01/2007 - 10/2010'",
+        "EDV_SEIT: None→1999"
+      ],
+      "coverage_percent": 84.41926345609065,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,1211 @@
+{
+  "personal": {
+    "aid": "AID-pe_3.4.4.0",
+    "first_name": "Paul",
+    "last_name": "Endras",
+    "birth_year": 1965,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2000,
+    "headline": "Cloud Architektur + Technisches Consulting von EAI / BI / Middleware / Integration Services",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 6,
+    "skills": 165,
+    "certifications": 0,
+    "education": 16,
+    "experience": 33,
+    "industries": 14,
+    "focus_areas": 32,
+    "focus_experience": 83,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Französisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Italienisch (Grundkenntnisse)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend in Wort und Schrift",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diplom-Betriebswirt (FH), Spezialisierung Wirtschaftsinformatik",
+      "institution": "",
+      "period": "1995",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Trainer",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Azure Database Administrator",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Azure Security Engineer",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Azure Solution Architect Expert",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Azure DevOps Engineer Expert",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Azure Administrator Associate",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Professional Scrum Product Owner 1",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Professional Scrum Master 1",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Trainer (MCT)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Systems Engineer (MCSE)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Solution Developer (MCSD)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Solutions Associate: SQL Server 2016 Database Development",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Solution Architect, CPSA-F (ISAQB)",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Solution Architect, TOGAF 9.1",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    },
+    {
+      "degree": "Microsoft Certified Azure Developer Associate",
+      "institution": "",
+      "period": "02/2021 - 02/2021",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Bank",
+    "Energieversorgung",
+    "Chemische Industrie",
+    "Automobil",
+    "Banken",
+    "Handel",
+    "Dienstleistungen",
+    "Nahrungsmittel Industrie",
+    "Regierung",
+    "Maschinenbau Industrie",
+    "Medien",
+    "Telekommunikation",
+    "Konsumgüterindustrie",
+    "Versicherung"
+  ],
+  "focus_areas": [
+    "Cloud Architektur + Technisches Consulting von EAI / BI / Middleware / Integration Services Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "================================================= ============================== 12/2014 - 12/2014: TOGAF 9 Abschluss: TOGAF 9 Certified Institution: Firebrand Training GmbH Schwerpunkt: The Open Grou",
+    "Used by the world’s leading enterprises to certify a common body of core knowledge about the methodology and framework",
+    "A trusted, vendor-neutral, globally recognized and portable credential",
+    "Valuable in demonstrating to employers and peers your commitment to enterprise architecture as a discipline",
+    "An outstanding career move and a foundational certification in the career of any enterprise architect ================================================= ============================== Ausbildung und Ze",
+    "Sprachkenntnisse: Deutsch (Muttersprache), Englisch (Fließend), Französisch (Grundlagen)",
+    "Solution Architect, TOGAF 9.1",
+    "Solution Architect, CPSA-F (ISAQB)",
+    "Microsoft Certified Solutions Associate: SQL Server 2016 Database Development",
+    "Microsoft Certified Solution Developer (MCSD)",
+    "Microsoft Certified Systems Engineer (MCSE)",
+    "Microsoft Certified Trainer (MCT)",
+    "Professional Scrum Master 1",
+    "Professional Scrum Product Owner 1",
+    "Microsoft Certified Azure Administrator Associate",
+    "Microsoft Certified Azure DevOps Engineer Expert",
+    "Microsoft Certified Azure Solution Architect Expert",
+    "Microsoft Certified Azure Security Engineer",
+    "Microsoft Certified Azure Database Administrator",
+    "Microsoft Certified Azure Developer Associate",
+    "Microsoft Certified Trainer",
+    "1995",
+    "Diplom-Betriebswirt (FH), Spezialisierung Wirtschaftsinformatik",
+    "Cloud Architektur",
+    "Technisches Consulting von EAI / BI / Middleware / Integration Services",
+    "Software-Entwicklung / Programmierung",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test"
+  ],
+  "focus_experience": [
+    {
+      "name": "Agile Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "API Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Analysis Services",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure API Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Event Grid",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Event Hubs",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Kubernetes Services",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Logic Apss",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Service Bus",
+      "category": "product_standard"
+    },
+    {
+      "name": "BizTalk",
+      "category": "product_standard"
+    },
+    {
+      "name": "BizTalk Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "DevOps",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "ETL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kubernetes Cluster",
+      "category": "product_standard"
+    },
+    {
+      "name": "Logic Apps",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Azure",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft CosmosDB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visio 2010",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP ERP",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP ERP 6.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum Master",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kernaktivitäten",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Planung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architektur und Bereitstellung von EAI Lösungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Migration und Konsolidierung von Data und Cloud basierenden Lösungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projekt Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Trainer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung und Review von IT-Architekturen im Enterprise Umfeld nach",
+      "category": "product_standard"
+    },
+    {
+      "name": "TOGAF",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Planung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung und Wartung von Web-Anwendungen mit Internet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Information Server IIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Operations von Unternehmenslösungen (Serverbetrieb Windows Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "CPM BPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP Outlooksoft",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtualierung VmWare",
+      "category": "product_standard"
+    },
+    {
+      "name": "Backup/Restore",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL-DR-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verfahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "Skalierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Automatierung )",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Business Integration mit Microsoft BizTalk Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle DB",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Technisches Consulting für Unternehmensauswertungen (BI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business",
+      "category": "product_standard"
+    },
+    {
+      "name": "Performance Management and Consolidation BPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Reporting mit",
+      "category": "product_standard"
+    },
+    {
+      "name": "BusinessObjects XI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Crystal Reports und Crystal Enterprise)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Erstellung von Software Anforderungsspezifikation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betriebs- und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Implementierungskonzepte im Rahmen von ITIL Standards",
+      "category": "product_standard"
+    },
+    {
+      "name": "* SQL Injection Audit (SQL Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "IIS",
+      "category": "product_standard"
+    },
+    {
+      "name": ".Net)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL Server Performance Optimierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Automatisierte Softwareverteilung / Deployment von Software-Produkten",
+      "category": "product_standard"
+    },
+    {
+      "name": "(Installshield",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Installer)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Durchführung von IT-Seminaren für Professionals",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Cloud Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "Data Engineer",
+      "category": "product_standard"
+    },
+    {
+      "name": "DevOps Engineer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Logic Apps",
+      "category": "product_standard"
+    },
+    {
+      "name": "Internet Information Server IIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP CPM BPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "VmWare",
+      "category": "product_standard"
+    },
+    {
+      "name": "Crystal Reports",
+      "category": "product_standard"
+    },
+    {
+      "name": "Crystal Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL Injection",
+      "category": "product_standard"
+    },
+    {
+      "name": ".Net",
+      "category": "product_standard"
+    },
+    {
+      "name": "Installshield",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Installer",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "01/2020 - heute",
+      "company": "",
+      "role": "Architekt, Technical Lead",
+      "title": "Portierung von DWH-Solution nach Microsoft Azure Cloud",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "09/2018 - 12/2019",
+      "company": "",
+      "role": "Technical Consultant",
+      "title": "DevOps neue Geschäftsprozesse auf Basis von Microsoft Azure",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "11/2017 - 04/2018",
+      "company": "",
+      "role": "Technical Consultant",
+      "title": "Monitoring und Qualitätssicherung einer BizTalk Plattform",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "09/2017 - 11/2017",
+      "company": "",
+      "role": "Architektur + Technical Lead",
+      "title": "Integrationslösungen für Biztalk Server, Zürich",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "02/2017 - 04/2017",
+      "company": "HP Enterprise",
+      "role": "",
+      "title": "Erstellung eines Windows Server 2016 Failover Cluster",
+      "activities": 7,
+      "technologies": 8
+    },
+    {
+      "period": "01/2017 - 01/2017",
+      "company": "HP Enterprise",
+      "role": "Solution Architekt, Consultant",
+      "title": "Beratung der Kunden während der Angebotsphase",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "09/2015 - 12/2015",
+      "company": "KPT/CPT Krankenkasse",
+      "role": "Technical Lead",
+      "title": "Migration von Microsoft BizTalk 2006 Applikationen zu BizTalk Server 2013",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "08/2013 - 12/2016",
+      "company": "KPT/CPT Krankenkasse",
+      "role": "Consultant, Developer",
+      "title": "Erweiterungen & Optimierungen von bestehenden Microsoft",
+      "activities": 5,
+      "technologies": 3
+    },
+    {
+      "period": "10/2012 - 05/2013",
+      "company": "Telco",
+      "role": "Solution Architekt, Consultant",
+      "title": "Entwicklung von Geschäftsprozessen für das Service",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "06/2011 - 09/2012",
+      "company": "Regierung",
+      "role": "",
+      "title": "Entwicklung von BizTalk Applikationen für den",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "04/2011 - 06/2011",
+      "company": "Industrie",
+      "role": "",
+      "title": "Erweiterung der Microsoft BI-Lösung durch Automatisierungen",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "01/2011 - 03/2011",
+      "company": "Automobil",
+      "role": "Consultant, DevOps",
+      "title": "Migration einer Sharepoint Plattform 2007 2010",
+      "activities": 6,
+      "technologies": 2
+    },
+    {
+      "period": "09/2010 - 06/2011",
+      "company": "Regierung",
+      "role": "Consultant, Developer",
+      "title": "Aufbau einer DWH-Lösung in SAP BO XI und mit MS SSIS",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "07/2010 - 03/2011",
+      "company": "Konsumgüter",
+      "role": "",
+      "title": "Migration von work flows nach SharePoint",
+      "activities": 3,
+      "technologies": 1
+    },
+    {
+      "period": "04/2010 - 06/2010",
+      "company": "Handel",
+      "role": "Consultant, Developer",
+      "title": "Erweiterungen am Stammdaten-Modell einer .Net- Anwendung",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "03/2010 - 04/2010",
+      "company": "Konsumgüter",
+      "role": "Consultant, DevOps",
+      "title": "Erstellung neuer work flows",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/2010 - 03/2010",
+      "company": "Versicherung",
+      "role": "",
+      "title": "Erstellung eines Konzepts für CMS-Lösung auf MS SharePoint",
+      "activities": 6,
+      "technologies": 1
+    },
+    {
+      "period": "11/2008 - 12/2009",
+      "company": "Logistik",
+      "role": "Consultant",
+      "title": "Projektmanagement einer BizTalk Server-Umgebung",
+      "activities": 7,
+      "technologies": 1
+    },
+    {
+      "period": "08/2008 - 10/2008",
+      "company": "Versicherung",
+      "role": "",
+      "title": "Erstellung einer Portal-Lösung auf Basis von ASP.Net",
+      "activities": 7,
+      "technologies": 1
+    },
+    {
+      "period": "09/2007 - 08/2008",
+      "company": "Software",
+      "role": "",
+      "title": "Integration neuer SAP-CPM-BPC Anwendung",
+      "activities": 5,
+      "technologies": 1
+    },
+    {
+      "period": "11/2006 - 08/2007",
+      "company": "Versicherung",
+      "role": "",
+      "title": "Migration einer BizTalk 2004-Umgebung nach BizTalk 2006",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "07/2006 - 10/2006",
+      "company": "Telco",
+      "role": "",
+      "title": "Erstellung neuer BizTalk Server Anwendungen",
+      "activities": 5,
+      "technologies": 1
+    },
+    {
+      "period": "09/2005 - 05/2006",
+      "company": "Telco",
+      "role": "",
+      "title": "Erstellung BI-Lösung auf Basis von SAP BO XI + SQL Server",
+      "activities": 5,
+      "technologies": 2
+    },
+    {
+      "period": "06/2004 - 08/2005",
+      "company": "Bank",
+      "role": "",
+      "title": "Automatisierte Verteilung von Software-Produkten",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "05/2003 - 05/2004",
+      "company": "Wirtschaftsprüfer/Rechtsanwälte",
+      "role": "",
+      "title": "Neuentwicklung eines Intranet-Portals für das zentrale User- Management mit SingleSignOn",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "12/2002 - 03/2003",
+      "company": "Dienstleistungen",
+      "role": "",
+      "title": "Erstellung neuer Webanwendung und automatisierten",
+      "activities": 7,
+      "technologies": 1
+    },
+    {
+      "period": "08/2002 - 11/2002",
+      "company": "Nahrungsmittel",
+      "role": "",
+      "title": "Migration von SQL Server Stored Procedures",
+      "activities": 5,
+      "technologies": 1
+    },
+    {
+      "period": "07/2002 - 08/2002",
+      "company": "Industrie",
+      "role": "",
+      "title": "Automatisierter Datenaustauch zwischen Kunden und Lieferant",
+      "activities": 5,
+      "technologies": 1
+    },
+    {
+      "period": "04/2002 - 07/2002",
+      "company": "Finanz",
+      "role": "",
+      "title": "Erstellung einer Reporting-Lösung auf Basis von SQL Server und Crystal Report Server",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "04/2002 - 07/2002",
+      "company": "",
+      "role": "",
+      "title": "Erstellung eines Reporting-Lösung auf Basis von SQL Server",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2001 - 02/2002",
+      "company": "Industrie",
+      "role": "",
+      "title": "Erstellung einer Warenwirtschafts-Lösung auf Basis von SQL Server und Crystal Report Server",
+      "activities": 6,
+      "technologies": 2
+    },
+    {
+      "period": "05/2001 - 08/2001",
+      "company": "Dienstleistungen",
+      "role": "",
+      "title": "Erstellung einer webbasierten HR-Anwendung auf Basis von SQL",
+      "activities": 6,
+      "technologies": 2
+    },
+    {
+      "period": "10/2000 - 03/2001",
+      "company": "Dienstleistungen",
+      "role": "",
+      "title": "Relaunch einer webbasierten Handelsplattform",
+      "activities": 18,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt GLEFS Migration, 04/10 - 04/11\nReferenz durch Konsumgüterindustrie vom 01.04.11\n\"[...] Während dieses Einsatzes überzeugte er durch sein großes vorhandenes Know-how, durch seine Fähigkeit neue Tools schnell zu beherrschen und durch sein angenehmes Wesen gegenüber den Kollegen und den Kunden. Seine hervorragenden englischen Sprachkenntnisse machten es ihm leicht sich im internationalen Umfeld zu bewegen. Sein Leistungseinsatz und seine Flexibilität waren stets vorbildlich. \"\nProjekt Migration Unternehmens-Reporting und EAI Workflow, 09/05 - 10/06\nReferenz durch Head of Interim Management, swisselect ag bern, vom 06.03.07\n\"Die Zusammenarbeit mit dem Consultant gestaltete sich sehr angenehm. Die fachlichen und technischen Anforderungen wurden äusserst kompetent umgesetzt. Er besitzt ein sehr grosses Know-how im Microsoft .Net-Umfeld mit Biztalk Server sowie im Bereich Reporting Lösungen. Aufgrund seiner Erfahrung konnte er schnell und effizient Lösungen in das Projekt einbringen und realisieren. Der Consultant hat sich sofort in das Team integriert. Sein Verhalten, der Umgang mit Kollegen sowie Leistungseinsatz und Flexibilität waren stets vorbildlich.\"\nProjekt ELITE Intranet, 05/03 - 05/04\nReferenz durch IT Manager, CMS Hasche Sigle (1000 MA), vom 08.02.05\n\"[...] Der Consultant hat seine Aufgaben qualitativ hochwertig ausgeführt und termingerecht abgeschlossen. Er überzeugte durch seine hohe Fachkompetenz und leistete eine sehr gute technische Unterstützung bei der Realisierung der Lösung. Durch seine prompte und flexible Arbeitsweise war er jederzeit eine große Hilfe für uns. Die Zusammenarbeit mit der Consultant war sehr angenehm. Wir waren stets zufrieden, werden ihn bei bedarf gern wieder einsetzen und können eine Zusammenarbeit mit ihm nur empfehlen.\"\nProjekt Entwicklung eines Jobboards, 05/01 - 08/01\nReferenz durch IT-Consulting-Unternehmen mit 80 MA, vom 08.04.02\n\"Der Consultant hat vom 02. Mai bis 21. August 2001 als freiberuflicher Mitarbeiter in unserem Team das Projekt 'Erstellung eines Jobboards' für unseren Kunden erfolgreich realisiert. Das Jobboard implementiert die Funktionen:\n- Erstellung und Pflege auszuschreibender Stellen\n- Suche im Bewerberpool und Reaktion auf Bewerbungen\n- Administrative Funktionen\n- Registrierung und Anlage persönlicher Daten\n- Stellensuche, Bewerbung und Kontakt\nDabei hat der Consultant folgende Aufgaben übernommen:\n- Erstellung und Ausarbeitung der Webseiten (HTML und ASP) einschließlich der client- und serverseitigen Scripte\n- Integration der Komponenten (COM)\n- Administration der Datenbank (SQL Server)\n- Adaptierung des Jobboards an das CI-konforme Design\n- Abstimmung mit dem Kunden\nDer Consultant verfügt über ein profundes Wissen im Bereich webbasierende Software-Lösungen auf der Basis von Microsoft Technologien, insbesondere Visual Basic Script, Javascript, Active Server Pages (ASP), Internet Information Server, SQL Server, Windows 2000 und COM. Er hat es verstanden, seine umfassenden Kenntnisse zielgerichtet in die Projektarbeit einzubringen und umzusetzen. Mit seiner Arbeit waren wir sehr zufrieden. Wir danken dem Consultant für seinen Einsatz und würden uns über eine erneute Zusammenarbeit in künftigen Projekten freuen.\"\nProjekt MS Backoffice und Visual Basic Schulungen, 1999 - 2001\nReferenz durch Geschäftsführer eines Schulungsanbieters vom 28.03.2001\n\"Der Consultant hat für uns seit 1999 mehrere Visual Basic Schulungen im\n…",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access seit Version 1.0",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Azure Analysis Service",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Azure Data Factory",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Azure Stream Analytics",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAO mit Jet Engine und ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Data Warehouse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MariaDB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MaxDB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Azure Cosmos DB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Azure SQL Database",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Integration Services",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Server Failover Cluster",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Server 2012",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Server 2014",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Server 2016 Failover Cluster",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Database Development",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Administration",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server Version 6.5 / 7.0 / 2000 / 2005 / 2008 / 2008 R2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "/ 2012 / 2012R2 / 2016 / 2017",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC ODBC-API Schnittstellenprogramierung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Oracle Objects",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Paradox",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgre SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Power Bi",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL adhoc Abfragen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Stored Procedures (T-SQL)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase dBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Praktische Erfahrungen mit Data Warehouse (MS Analysis Server + Azue SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Dataware house)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Reporting: Clients Crystal Reports und Crystal Enterprise (Crystal Decisions)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SAP XI",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Intranet HTTP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "XML",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "XSL",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "XSLT",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RDF",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RSS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "rfc822",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "xHTML",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISO/OSI",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LAN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LAN Manager Windows NT / 2000",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "WLAN-Umgebung",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Message Queuing MSMQ",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Message Queuing",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "NetBeui",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "NetBios",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell v. 3.11",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "parallele Schnittstelle",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "PC-Anywhere",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RFC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RPC XML-RPC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Theobald Software XtractIs",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Theobald XtraxtIS for Azure",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Token Ring",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows Netzwerk",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Winsock",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Administration Windows Server Failover Cluster",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NFS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "iScsi",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Azure Cloud",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux Suse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Debian",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS X",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS 3-6",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell v 3.11",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NT 3.51",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "4.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Win 9x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 2003 Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    }
+  ]
+}

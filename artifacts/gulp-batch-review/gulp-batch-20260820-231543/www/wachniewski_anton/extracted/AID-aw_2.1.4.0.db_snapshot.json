@@ -1,0 +1,532 @@
+{
+  "personal": {
+    "aid": "AID-aw_2.1.4.0",
+    "first_name": "Anton",
+    "last_name": "Wachniewski",
+    "birth_year": 1952,
+    "location": "667xx Weiskirchen, Deutschland",
+    "availability": "01.08.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1986,
+    "headline": "Java EE7, JSF, JSP, Natural",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 8,
+    "skills": 63,
+    "certifications": 0,
+    "education": 2,
+    "experience": 4,
+    "industries": 9,
+    "focus_areas": 11,
+    "focus_experience": 18,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend",
+      "level": ""
+    },
+    {
+      "name": "Deutsch fließend",
+      "level": ""
+    },
+    {
+      "name": "Polnisch fließend",
+      "level": ""
+    },
+    {
+      "name": "Russisch gut",
+      "level": ""
+    },
+    {
+      "name": "Polnisch (fließend)",
+      "level": ""
+    },
+    {
+      "name": "Russisch (gut)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Dipl. Physiker (Promotion)",
+      "institution": "U Breslau, Polen",
+      "period": "1978",
+      "education_type": "course"
+    },
+    {
+      "degree": "Dipl. Informatiker (M.Sc.)",
+      "institution": "SWTU in San Marcos, Texas USA",
+      "period": "1985",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Softwarehersteller - EDV",
+    "Bahn",
+    "Versicherungen",
+    "Printmedien",
+    "Forschung",
+    "Banken",
+    "Automobil- und Maschinenbau",
+    "Medizin",
+    "Energie"
+  ],
+  "focus_areas": [
+    "Java EE7",
+    "Natural",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Softwareentwicklung Java (EE7), Natural 1985",
+    "Dipl. Informatiker (M.Sc.), SWTU in San Marcos, Texas USA 1978",
+    "Dipl. Physiker, U Breslau, Polen (Promotion)",
+    "JSF",
+    "JSP",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Softwareentwicklung Java (EE7), Natural"
+  ],
+  "focus_experience": [
+    {
+      "name": "ADABAS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "EE7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Glassfish",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBuilder Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven",
+      "category": "product_standard"
+    },
+    {
+      "name": "MyEclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "natclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Natural auf Host",
+      "category": "product_standard"
+    },
+    {
+      "name": "Natural unter Windows",
+      "category": "product_standard"
+    },
+    {
+      "name": "NaturalONE",
+      "category": "product_standard"
+    },
+    {
+      "name": "PREDICT",
+      "category": "product_standard"
+    },
+    {
+      "name": "PREDICT CASE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wildflay 10",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "1992-1994",
+      "company": "Siemens-Nixdorf-Informationssysteme",
+      "role": "",
+      "title": "Kernfunktionen und Steuerung für DDL und Utilities der Datenbank SESAM 2.0 für",
+      "activities": 3,
+      "technologies": 7
+    },
+    {
+      "period": "1990-1991",
+      "company": "SIEMENS",
+      "role": "",
+      "title": "Wartung und Weiterentwicklung von Sisymed (System für Arztpraxis)",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "1987-1988",
+      "company": "KWU",
+      "role": "",
+      "title": "Weiterentwicklung (Änderungen der physikalischen Modelle) und Fehlerbehebung bei Kraftwerksimulator Al Khobar",
+      "activities": 3,
+      "technologies": 4
+    },
+    {
+      "period": "1986-1987",
+      "company": "Fordwerke Köln",
+      "role": "",
+      "title": "Meßdatenübertragung QDS-->HP1000 und statistische Qualitätskontrolle",
+      "activities": 6,
+      "technologies": 2
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 - 12/99\nReferenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99\n\"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz.\"\n\nReferenzen:\nProjekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 - 12/99\nReferenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99\n\"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz.\"\nAlle Referenzen sind durch GULP bestätigt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Adabas (NATURAL)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL (JDBC)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 8i (Cobol",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BS2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SINIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix Sinix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VAX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VMS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows NT",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "z/OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Fortran",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java:",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EE7 (JSF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PrimeFaces",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA 2",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XHTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CSS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Maven",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "NATURAL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "NaturalONE",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "PREDICT CASE",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "PREDICT",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "natclipse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "JBuilder Enterprise",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "myeclipse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "UML - Rational Rose Enterprise",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Projekterfahrung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "COBOL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "UNIFY",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "FORTRAN",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "ASSEMBLER",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "RTE-A",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "SESAM 2.0",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "MPX-32",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Gould",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "APPC CPI-C RS232",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "CORBA VisiBroker",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "CPIC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RPC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

@@ -1,0 +1,875 @@
+{
+  "metadata": {
+    "aid": "AID-oj_1.2.3.0",
+    "version": "1.2.3.0",
+    "consultant_dir": "jourdan_olaf",
+    "first_name": "Olaf",
+    "last_name": "Jourdan",
+    "headline": "Telekommunikation Spezialist",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:27:31.046267"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Olaf",
+      "last_name": "Jourdan",
+      "birth_year": 1963,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.11.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "102xx Berlin, Deutschland",
+      "headline": "Telekommunikation Spezialist",
+      "edv_experience_since": 2006
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "MySQL (mittel)",
+        "MS-Access (mittel)"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [
+        "MS Office (Gut)",
+        "MS Outlook (gut)",
+        "Firefox (sehr gut)",
+        "Lotus Notes (gut)",
+        "MS",
+        "Visio (gut)",
+        "MS Project (gut)",
+        "Methoden/",
+        "UML (mittel)",
+        "Microsoft Office (gut)",
+        "Rational ClearQuest (gut)",
+        "wiki (sehr gut)"
+      ],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Echtzeitbetriebssysteme",
+        "Mac OS",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "ASN.1",
+        "Chill",
+        "Perl",
+        "Shell",
+        "TTCN",
+        "yacc/lex"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "08/2016 - 05/2017",
+        "company": "Telekom Bonn",
+        "title": "Contractor Acceptance Test",
+        "technologies": [
+          "Wireshark",
+          "vi",
+          "awk",
+          "MS windows",
+          "ngrep",
+          "Trouble Ticket System",
+          "Quality Center",
+          "SIP",
+          "PABX",
+          "Cloud",
+          "XMPP",
+          "ISUP",
+          "MAP",
+          "CAP",
+          "Diameter",
+          "Oracle"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Unterstützung des Testcenters bei der Einführung einer SIP-basierten privaten Vermittlungsstelle (PABX) in der Cloud. Erstellen von Usecases in Zusammenarbeit mit den Stakeholdern aus Design- und Marketingabteilung, Umsetzung der Usecases in Testcases, Testplanung,",
+          "Systemintegration, Testdurchführung, Testauswertung. Analyse von Signalisierungsnachrichten der Telekommunikation (Protokolle SIP, XMPP,",
+          "ISUP, MAP, CAP, Diameter). Review von Designdokumenten. Konfiguration des SUT (System under Test: ca. 10 Netzknoten funktional getrennt mit Loadsharing in virtuellen Maschinen) in Oracle Datenbank über Web- basierte Oberfläche. Analyse von Log-Dateien mit vi und awk. Fehlersuche und Troubleshooting in Zusammenarbeit mit Engineering und Netzbetrieb",
+          "Eingesetzte Produkte: incl. Testplan und Testcases, Testautomatisierung, Testdatenerfassung ===================================================== =========================="
+        ],
+        "industry": "Telekommunikation"
+      },
+      {
+        "period": "03/2015 - 06/2016",
+        "company": "Telefonica o2 München",
+        "title": "Contractor Netzbetrieb",
+        "technologies": [
+          "Wireshark",
+          "NSN traffica",
+          "Accanto tracing system",
+          "MS windows",
+          "ngrep",
+          "shell und",
+          "Trouble Ticket System Remedy",
+          "MAP",
+          "CAP",
+          "ISUP",
+          "SCCP",
+          "RANAP",
+          "BSSAP",
+          "SIP",
+          "Diameter"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Unterstützung des Netzbetriebs bei der Einführung von NationalRoaming, HD-Voice und mVoLTE.",
+          "HD-Voice und mVoLTE. Tracen und Protokoll-analyse (MAP, CAP, ISUP, SCCP,",
+          "TCAP, RANAP, BSSAP, SIP, Diameter) Testen und Diagnose von komplexen mobilen Szenarien",
+          "Eingesetzte Produkte: perl skripts zur statistischen analyse, Trouble Ticket System Remedy ===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "role": "Contractor Netzbetrieb",
+        "location": "München"
+      },
+      {
+        "period": "12/2013 - 12/2014",
+        "company": "THALES Pforzheim",
+        "title": "Contractor System Test",
+        "technologies": [
+          "• Protokollanalyse Wireshark",
+          "Last generator SIPp",
+          "VoIP System Test",
+          "• Lasttest",
+          "Abnahmetest",
+          "Testfall design",
+          "AutoHotKey",
+          "Sprachaufzeichnung",
+          "• Voxtronic",
+          "Jira",
+          "RTP",
+          "RTCP",
+          "perl",
+          "shell scripte"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "DUT ist eine Callcenter-Entwicklung mit einer großen (>100) Anzahl von CallCenter-Agent-Arbeitsplätzen, ausschließlich VoIP-basiert mit SIP,",
+          "RTP, RTCP und proprietären streaming-Protokollen. Requirements-Analyse,",
+          "Testfall-Design, Test automatisierung. Tool zur Fehlerverfolgung war",
+          "JIRA. Präsentierung der Testergebnisse ans Management und die Entwicklung Eingesetzte Produkte:",
+          "Protokollanalyse Wireshark, Last generator SIPp, VoIP System Test, VoIP",
+          "Lasttest, Abnahmetest, Testfall design, AutoHotKey, Sprachaufzeichnung",
+          "Voxtronic, logfile Analyse, perl und shell scripte, Jira"
+        ],
+        "location": "Pforzheim"
+      },
+      {
+        "period": "12/2011 - 12/2013",
+        "company": "Vodafone Düsseldorf",
+        "title": "Contractor Passive Probing, Customer Experience Network",
+        "activities": [
+          "Quality",
+          "Aufgaben:",
+          "Unterstützung der Regionalen Teams Netzwerkqualität mit Traces, Callflows und Teststrategien",
+          "Erstellung von täglichen Statistiken zur Netzwerkqualität",
+          "Einbringung von neuen 3G/4G Netzknoten ins Monitoring Netzwerk",
+          "Eingesetzte Produkte:",
+          "TEKTRONIX Geoprobe Signaling Monitoring System, Passive Probing, SS7 Signaling",
+          "Monitoring, Session Analyzer, Protocol Correlation, Wireshark, LTE Core"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Düsseldorf",
+        "technologies": [
+          "TEKTRONIX Geoprobe Signaling Monitoring System",
+          "Passive Probing",
+          "SS7 Signaling Monitoring",
+          "Session Analyzer",
+          "Protocol Correlation",
+          "Wireshark",
+          "LTE Core"
+        ]
+      },
+      {
+        "period": "10/2010 - 09/2011",
+        "company": "Vodafone Düsseldorf",
+        "title": "Unterstützung L2 Operations R4 Core Network",
+        "activities": [
+          "Aufgaben:",
+          "Field Acceptance Test von (R4-basierten) Netzknoten",
+          "Vorbereitung, Verwaltung und Durchführung von Funktionalen Tests",
+          "Integration von neuen Netzknoten ins R4 Core-Network, Rollout",
+          "Fehlersuche, Entstörung im IP- und Access Netz",
+          "Eingesetzte Produkte:",
+          "UMTS Release 4 Core Network, MSS, MGW, Media Gateway, VoIP, Troubleshooting,",
+          "NetAct, Fehlerverfolgung, Network Monitoring, Nokia DX200 MSS, Nokia IPA2800"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Düsseldorf",
+        "technologies": [
+          "UMTS Release 4 Core Network",
+          "MSS",
+          "MGW",
+          "Media Gateway",
+          "VoIP",
+          "Troubleshooting",
+          "NetAct",
+          "Fehlerverfolgung",
+          "Network Monitoring",
+          "Nokia DX200 MSS",
+          "Nokia IPA2800"
+        ]
+      },
+      {
+        "period": "04/2010 - 09/2010",
+        "company": "T-Mobile Bonn",
+        "title": "Coaching des UMTS&GSM Release4 Core Operation Teams",
+        "activities": [
+          "Aufgaben:",
+          "Coaching und on-the-job Training für Betreiberkräfte im SMC",
+          "Erstellung und Durchführung von Workshops und Kursen",
+          "Überwachung der Servicequalität im R4 Core Net und deren automatische Prüfung (KPI)",
+          "Prüfung (KPI)",
+          "Testarchitektur, Testdurchführung, Troubleshooting im Pilot-Projekt",
+          "Eskalationsmanagement",
+          "Eingesetzte Produkte:"
+        ],
+        "industry": "Telekommunikation",
+        "technologies": [
+          "UMTS",
+          "GSM",
+          "Release 4",
+          "SMC",
+          "KPI"
+        ]
+      },
+      {
+        "period": "01/2010 - 03/2010",
+        "company": "Deutsche Telekom Darmstadt",
+        "title": "Entwicklung Testkonzept",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung einer Integrierten Testumgebung für ein geographisch verteiltes Netz-Monitoring System",
+          "Aufbau Testumgebung, Definition Testprozesse konform ITIL v.3",
+          "Projektplanung, Testmethodik, Test Infrastruktur",
+          "Durchführung von Workshops",
+          "Eingesetzte Produkte:",
+          "MS Project, MS Office, Trouble Ticket System Remedy MARS, Change Prozess,",
+          "Asset-Database, Netzmonitoring, Projektplanung, Ressourcenplanung, Tivoli"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Darmstadt",
+        "technologies": [
+          "MS Project",
+          "MS Office",
+          "Trouble Ticket System Remedy MARS",
+          "Change Prozess",
+          "Asset-Database",
+          "Netzmonitoring",
+          "Projektplanung",
+          "Ressourcenplanung",
+          "Tivoli"
+        ]
+      },
+      {
+        "period": "01/2009 - 12/2009",
+        "company": "sc5m.com",
+        "title": "Senior Testmanager / Projektleitung",
+        "activities": [
+          "Aufgaben:",
+          "Test und Projektmanagement einer Hardware Entwicklung im Bereich GSM RF Signalisierung",
+          "Signalisierung",
+          "Verantwortlich für die Testcases (Acceptance-, Integrations- und Systemtest)",
+          "Verantwortlich für die Testausführung sowie Kommunikation mit dem Lieferanten Projektplanung und Projektleitung",
+          "Eingesetzte Produkte:",
+          "MS Project, MS Office, GSM Messplatz Agilent 8922H, Nokia Monitoring Handsets,",
+          "Protocol Analyser Wireshark, Troubleticket System Mantis, HTML, GSM Air"
+        ],
+        "role": "Senior Testmanager / Projektleitung",
+        "technologies": [
+          "MS Project",
+          "MS Office",
+          "GSM Messplatz Agilent 8922H",
+          "Nokia Monitoring Handsets",
+          "Troubleticket System Mantis",
+          "HTML",
+          "GSM Air"
+        ]
+      },
+      {
+        "period": "08/2008 - 12/2008",
+        "company": "IBM Network Development Berlin",
+        "title": "Testleiter",
+        "activities": [
+          "Aufgaben:",
+          "Erstellung von Testcases, Automatisierung, Koordinierung und Durchführung von Tests",
+          "Entwicklung eines TestManagementSystems",
+          "Verwaltung, Klassifizierung und Weiterleitung der Fehlermeldungen Eingesetzte Produkte:",
+          "Office Suite, Troubleticket System Mantis, Test Driven Development, Agile",
+          "Approach",
+          "===================================================== =========================="
+        ],
+        "role": "Testleiter",
+        "location": "Berlin",
+        "technologies": [
+          "Office Suite",
+          "Mantis",
+          "Test Driven Development",
+          "Agile Approach"
+        ]
+      },
+      {
+        "period": "01/2008 - 06/2008",
+        "title": "Testleiter",
+        "activities": [
+          "Aufgaben:",
+          "Architektur eines Test-Verwaltungs Werkzeugs (test management system)",
+          "Analyse der vorhandenen Situation, Analyse der Fehler, Erfassung des Bedarf Gap-Analyse als Grundlage für externe Beauftragung",
+          "Erstellung der Prozesse, Dokumentation als Lifecycle, Aufbereitung der Prozesse in Anforderungskatalog",
+          "Kommunikation mit externen Lieferanten",
+          "Erstellen des Pflichtenheftes Eingesetzte Produkte:",
+          "Office Suite, Rational Clearcase, Rational ClearQuest, Troubleticket System"
+        ],
+        "role": "Testleiter",
+        "technologies": [
+          "Office Suite",
+          "Rational Clearcase",
+          "Rational ClearQuest",
+          "Troubleticket System",
+          "Jira"
+        ]
+      },
+      {
+        "period": "07/2007 - 12/2007",
+        "company": "o2 München",
+        "title": "Testmanager",
+        "activities": [
+          "Aufgaben:",
+          "Koordination aller Test-relevanten Tätigkeiten beim Abnahmetest. Getestet wird ein Portal zum Channelunabhängigen Austausch von email-, Kontakt- und Kalenderdaten.",
+          "Austausch von von email-, Kontakt- und Kalenderdaten.",
+          "Kommunikation mit Entwicklungsteam, Projektmanagement und externem Lieferanten",
+          "Lieferanten",
+          "Erstellung eines integrierten E2E Testkonzepts; Erstellung von E2E Testcases",
+          "Testcases",
+          "Steuerung der Test-Aktivitäten Anleitung der Tester Prüfung, Priorisierung und Weiterleitung der gemeldeten Fehler (Tickets)"
+        ],
+        "industry": "Telekommunikation",
+        "role": "Testmanager",
+        "location": "München"
+      },
+      {
+        "period": "04/2007 - 06/2007",
+        "company": "o2 München",
+        "title": "Testmanager",
+        "activities": [
+          "Aufgaben:",
+          "Abnahmetest eines komplexen Systems bei einem Netzbetreibers",
+          "Leitung von allen Schritten des Acceptance-Test für verschiedene Phasen eines internetbasierten Kommunikationsportals für Mobilfunkteilnehmer",
+          "Kommunikationsportals für Mobilfunkteilnehmer",
+          "Verantwortliche Koordination der Tests in enger Zusammenarbeit mit den Fachabteilungen Kommunikation mit Entwicklungsteam",
+          "Eingesetzte Produkte:",
+          "MS-Project, PowerPoint, Troubleticket System Bugzilla ===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "role": "Testmanager",
+        "location": "München",
+        "technologies": [
+          "MS-Project",
+          "PowerPoint",
+          "Bugzilla"
+        ]
+      },
+      {
+        "period": "01/2007 - 03/2007",
+        "company": "o2 München",
+        "title": "Testmanager",
+        "activities": [
+          "Aufgaben:",
+          "Teilprojekleitung und Koordination: Abnahmetest eines Teilprojektleitung und Koordination: Abnahmetest eines Kommunikationsportals für Mobilfunkteilnehmer",
+          "Erstellung von Testfallkatalogen, Festlegung von Testdatenbeständen und Generierung von Testdaten",
+          "Organisation, Planung und Koordination von funktionalen Tests,",
+          "Abarbeitung Testfallkataloge",
+          "Pflege Testdokumentation, Melden von Fehlern und Verifikation nach Fehlerbehebung",
+          "Fehlerbehebung"
+        ],
+        "industry": "Telekommunikation",
+        "role": "Testmanager",
+        "location": "München"
+      },
+      {
+        "period": "10/2006 - 12/2006",
+        "company": "o2 München",
+        "title": "Testentwickung",
+        "activities": [
+          "Aufgaben:",
+          "Architektur eines End-to-end Testsystems für mobile Sprach- und Datendienste",
+          "Erstellung Design, Architektur",
+          "Erstellung Requirements Liste, Lastenheft",
+          "Unterstützung Ausschreibung und Beschaffung",
+          "Konzeption von Test für Abnahme des Systems Eingesetzte Produkte:",
+          "MS-Office, MS-Project, TTCN-3",
+          "===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "location": "München",
+        "technologies": [
+          "MS-Office",
+          "MS-Project",
+          "TTCN-3"
+        ]
+      },
+      {
+        "period": "07/2006 - 10/2006",
+        "company": "o2 München",
+        "title": "Requirement Design",
+        "technologies": [
+          "Skriptsprache \"Perl\"",
+          "Betriebssystem :",
+          "\"Windows\"",
+          "\"Apple \"",
+          "\"Linux\"",
+          "Router \"Cisco\"",
+          "SNMP-Hub \"Asante\"",
+          "TK-Anlage",
+          "\"Alcatel\"",
+          "Modems",
+          "MS-Office",
+          "MS-Project",
+          "PC",
+          "SNMP-Hub Asante"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Konzept und Architektur eines externen MMS Transcoders",
+          "Erstellung Design",
+          "Erstellung Requirements Liste",
+          "Konzeption von Test, Testlisten und Testumgebung",
+          "Planung und Durchführung von Conformance Test und Lasttest",
+          "Eingesetzte Produkte:",
+          "MS-Office, MS-Project"
+        ],
+        "industry": "Telekommunikation",
+        "location": "München"
+      }
+    ],
+    "industries": [
+      "Telekommunikation",
+      "GSM Netzbetreiber und -ausrüster"
+    ],
+    "focus_areas": [
+      "Telekommunikation Spezialist",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test 2000 Checkout zum Certified Nokia Instructor 1993 2000 Als Angestellter im Trainingszentrum Alcatel permanent mit Kursvorbereitung und",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Qualitätsmanagement / Qualitätssicherung / Test"
+    ],
+    "focus_experience": [
+      {
+        "name": "Netzwerk",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "LAN - Technologien",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Cisco und OpenSource Router",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Checkpoint und Opensource Firewalls",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Netzwerkmanagementsysteme von Nokia",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Alcatel und Hewlett-Packard",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "RAS Lösungen",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Terminalserver VNC von ORL",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "TSE von Microsoft",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "WinFrame und MetaFrame von",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "CITRIX",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Client/Server Lösungen auf UNIX Basis (X11)",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Netzwerkanalyse",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Netzwerktester und Protokollanalysatoren von Agilent",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Alcatel",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "GN Nettest",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Siemens",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "INET",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Cisco Router",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "OpenSource Router",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Checkpoint Firewalls",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Opensource Firewalls",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Nokia Netzwerkmanagementsysteme",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Alcatel Netzwerkmanagementsysteme",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Hewlett-Packard Netzwerkmanagementsysteme",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "VNC Terminalserver",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Microsoft TSE",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "CITRIX WinFrame",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "CITRIX MetaFrame",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "X11",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Agilent Netzwerktester",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Alcatel Netzwerktester",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "GN Nettest Netzwerktester",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Siemens Netzwerktester",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "INET Netzwerktester",
+        "category": "product_standard",
+        "sort_order": 34
+      }
+    ],
+    "education": [
+      {
+        "degree": "Dipl.Phys",
+        "institution": "Universität Göttingen",
+        "period": "1983-1991",
+        "education_type": "course"
+      },
+      {
+        "degree": "Abitur",
+        "institution": "Freiherr-vom-Stein Gesamtschule, Hess.-Lichtenau",
+        "period": "1977-1983",
+        "education_type": "course"
+      },
+      {
+        "degree": "Studium der Pädagogik",
+        "institution": "PH Göttingen",
+        "period": "1991-1992",
+        "education_type": "course"
+      },
+      {
+        "degree": "Gaststudium",
+        "institution": "University of Minnesota, St. Paul, MN (USA)",
+        "period": "1986-1987",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Nokia Instructor",
+        "institution": "",
+        "period": "2000",
+        "education_type": "course"
+      },
+      {
+        "degree": "Train-the-Trainer, Methodik und Präsentationstechniken",
+        "institution": "",
+        "period": "seit 1992",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "AppleTalk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ATM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HDLC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IPNG",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proprietäre Protokolle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RFC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Voice",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "darüberhinaus Kenntnis der üblichen Protokolle zu VoIP wie H.323",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SIP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MGCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "etc",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:27:31.046282",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '01/2007 - 03/2007'",
+        "EDV_SEIT: None→2006"
+      ],
+      "coverage_percent": 83.11475409836065,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

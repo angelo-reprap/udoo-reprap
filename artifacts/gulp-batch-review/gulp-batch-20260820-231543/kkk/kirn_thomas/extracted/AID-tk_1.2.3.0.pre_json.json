@@ -1,0 +1,513 @@
+{
+  "metadata": {
+    "aid": "AID-tk_1.2.3.0",
+    "version": "1.2.3.0",
+    "consultant_dir": "kirn_thomas",
+    "first_name": "Thomas",
+    "last_name": "Kirn",
+    "headline": "Softwareverteilung / -paketierung / -virtualisierung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:38:17.876757"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Thomas",
+      "last_name": "Kirn",
+      "birth_year": 1971,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "31.12.12 zu 95%, Vor-Ort-Einsatz 95% möglich",
+      "location": "Deutschland",
+      "wohnort": "448xx Bochum, Deutschland",
+      "edv_experience_since": 1991,
+      "headline": "Softwareverteilung / -paketierung / -virtualisierung"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "DAO",
+        "Filemaker",
+        "Lotus Notes",
+        "MS SQL Server",
+        "ODBC",
+        "SQL",
+        "MS-SQL",
+        "Superbase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "CD-Writer / Brenner",
+        "Drucker",
+        "Framegrabber",
+        "HP",
+        "Iomega",
+        "Macintosh",
+        "Modem",
+        "PC",
+        "Scanner",
+        "Soundkarten",
+        "Streamer",
+        "SUN",
+        "UNISYS"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "BS2000",
+        "CP/M",
+        "Mac OS",
+        "MS-DOS",
+        "Novell",
+        "OS/2",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Windows",
+        "Vista",
+        "Windows CE",
+        "Migration 2000/XP auf Vista"
+      ],
+      "programming_languages": [
+        "Basic",
+        "dBase",
+        "Fortran",
+        "Java",
+        "JavaScript",
+        "Lotus Notes Script",
+        "MAGIC",
+        "Makrosprachen",
+        "Pascal",
+        "Superbase unter Windows"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "6.99 - 12.99",
+        "company": "Energieversorger",
+        "title": "Projekt : Aufbau einer Jahr-2000-Testumgebung",
+        "role": "Projekt : Aufbau einer Jahr-2000-Testumgebung",
+        "technologies": [
+          "Unternehmens Windows NT4 / 95 / 98",
+          "MSBackoffice 4.5"
+        ],
+        "activities": [
+          "Analyse diverser Programme auf Jahr 2000 Fähigkeit,",
+          "Bereitstellung einer Testplattform für die Entwickler des MS-Office 97,",
+          "X-Time 4.0, Veritas Backup Exec 6.5 / 7.3, TrendMicro Viruswall,",
+          "IIS 4.0, NAI Virusshield"
+        ]
+      },
+      {
+        "period": "1.00 - 8.00",
+        "company": "Energieversorger",
+        "title": "Projekt : Administration NT und Exchange 5.5,",
+        "role": "Projekt : Administration NT und Exchange 5.5,",
+        "technologies": [
+          "Secure-RAS-Client"
+        ],
+        "activities": [
+          "3rd Level Support MS-Back-Office/ MS-Produktpalette,",
+          "Anbindung der Außenstellen des Unternehmens Software : Windows NT4 / 2000 / 95, MS-Backoffice 4.5, MS-Office 97 / 2000,",
+          "X-Time 4.1, Veritas Backup Exec 7.3 / 8.0, TrendMicro Viruswall,",
+          "Checkpoint SecuRemote, IIS 4.0 / 5.0, NAI Virusshield"
+        ]
+      },
+      {
+        "period": "12.00 - 10.01",
+        "company": "Industrie",
+        "title": "Projekt : Netzwerkbetrieb (aktive Komponenten)",
+        "role": "Projekt : Netzwerkbetrieb (aktive Komponenten)",
+        "technologies": [
+          "Windows NT4 / 2000",
+          "Nortel Komponenten",
+          "Cisco Router",
+          "Checkpoint Firewall-1",
+          "SecureID Token",
+          "Optivity"
+        ],
+        "activities": [
+          "Administration der RAS Zugänge",
+          "Koordinierung/Konzeption und Inbetriebnahme von WAN Verbindungen",
+          "Konzeption und Realisierung von lokalen RAS Zugangsknoten Software :",
+          "HP Open View"
+        ]
+      },
+      {
+        "period": "10.01 - 03.02",
+        "company": "Telekommunikation / NOC 7 / NerveCenter",
+        "title": "Projekt : Netzwerkbetrieb (aktive Komponenten), Konzeption,",
+        "role": "Projekt : Netzwerkbetrieb (aktive Komponenten), Konzeption,",
+        "technologies": [
+          "Nortel",
+          "Komponenten",
+          "Cisco Router",
+          "Checkpoint Firewall-1",
+          "SecureID Token",
+          "Nokia",
+          "Firewalls"
+        ],
+        "activities": [
+          "Monitoring, Betrieb/Konfiguration der Firewalls, Unterstützung der Administratoren von Aussenstellen,",
+          "Optivity, HP Open View"
+        ]
+      },
+      {
+        "period": "04.03 - 12.09",
+        "company": "Pharma / Banken / öffentlicher Dienst",
+        "title": "Projekt : Paketierung und Betrieb der",
+        "role": "Projekt : Paketierung und Betrieb der",
+        "technologies": [
+          "Windows 2000/XP/Vista",
+          "RADIA 2.x/4.x/5.x/7.2",
+          "Softgrid"
+        ],
+        "activities": [
+          "Softwareverteilungs-/virtualisierungsumgebung verschiedener Endkunden mittels HP RADIA/OV CM/HP CAE (ehemals Novadigm RADIA), MS",
+          "Application Virtualisation (Softgrid)",
+          "Konzeption-/Test neuer Lösungen. Migration Windows2000/XP/Vista",
+          "Standard Office Anwendungen, spezielle pharmazeutische Software,",
+          "Kassensysteme (AKT)"
+        ]
+      }
+    ],
+    "industries": [
+      "Industrie",
+      "Banken und Versicherungen",
+      "Energieversorger",
+      "Chemie",
+      "Telekommunikation",
+      "Pharmazie"
+    ],
+    "focus_areas": [
+      "Softwareverteilung / -paketierung / -virtualisierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Betreuung großer heterogener Netzwerke, Sicherheitssysteme, Netzwerkinfrastruktur, Softwareverteilung, -paketierung, -virtualisierung bevorzugt Tätigkeit bei angemessener Bezahlung Stabsoffizier der Marine Vorstudium der Elektrotechnik Novell CNA Novadigm EDM certification"
+    ],
+    "focus_experience": [
+      {
+        "name": "Aufbau/Wartung eines IntraNets",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Konzeption/Aufbau und Betrieb einer EDV und",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Telekommunikations-Hotline",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Migrationsplanungen Windows NT nach Windows 2000",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Betrieb einer Jahr 2000 Testumgebung",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Netzwerkkonzeption",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Netzwerkmonitoring",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Konfiguration von Sicherheitssystemen",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Betrieb von Softwareverteilungssystemen",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Betrieb von Softwarevirtualisierungssystemen (MS Application",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Virtualisation/ ex. Softgrid)",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Softwarepaketierung mittels RADIA/HP CAE",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Migration Windows XP/Vista",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "IntraNet",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Windows NT",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Windows 2000",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Jahr 2000 Testumgebung",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "MS Application Virtualisation",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Softgrid",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "RADIA",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "HP CAE",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Windows XP",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Vista",
+        "category": "product_standard",
+        "sort_order": 22
+      }
+    ],
+    "education": [
+      {
+        "degree": "Stabsoffizier der Marine",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Vorstudium der Elektrotechnik",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Novell CNA",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Novadigm EDM certification",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "AppleTalk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OS/2 Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Packet-Radio",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:38:17.876769",
+    "source_file": "",
+    "steps_completed": [
+      "FACHBEREICHE",
+      "PERSONAL",
+      "BRANCHEN",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 5→4 bei '1.00 - 8.00'"
+      ],
+      "coverage_percent": 84.61538461538461,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

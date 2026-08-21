@@ -1,0 +1,1126 @@
+{
+  "metadata": {
+    "aid": "AID-jm_5.2.4.0",
+    "version": "5.2.4.0",
+    "consultant_dir": "miersch_joerg",
+    "first_name": "Joerg",
+    "last_name": "Miersch",
+    "headline": "",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:49:21.121897"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Joerg",
+      "last_name": "Miersch",
+      "birth_year": 1966,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch verhandlungssicher",
+          "level": ""
+        },
+        {
+          "name": "Französisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.09.21 zu 50%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "101xx Berlin, Deutschland",
+      "location": "101xx Berlin, Deutschland",
+      "edv_experience_since": 1983
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Lotus Notes/Domino",
+        "MS SQL Server",
+        "MS Access",
+        "Oracle (RAC)",
+        "My-",
+        "SQL",
+        "DB/2",
+        "ADABAS",
+        "IMS DB/DC",
+        "Mainframe- / AS/400-Anbindung: Netware for SAA",
+        "MS SNA Server/Host",
+        "integration Server",
+        "3270/5250-Terminal Emulationen",
+        "WEB-Server: IBM Lotus Domino",
+        "Apache",
+        "MS Internet Information Server",
+        "Portale und Dokumentenmanagementsysteme: IBM WebSphare",
+        "IBM Lotus",
+        "Domino",
+        "Content Manager",
+        "Apache TomCat",
+        "Xinco Document Management System",
+        "CRM und ERP Systeme: SAP",
+        "vTiger",
+        "Neutrino",
+        "Navision",
+        "Lexware",
+        "Dynamics",
+        "Firewalls: MS Proxy Server/ISA Server",
+        "Novell Boarder Manager",
+        "Cisco PIX/ASA",
+        "Innominate mGuard",
+        "Juniper NetScreen",
+        "IP Chain",
+        "101/104/101 Gateways"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Netware",
+        "OS/2",
+        "div. Linux und UNIX Derivate (AIX",
+        "SunOS/",
+        "Solaris",
+        "RHEL",
+        "Suse",
+        "Debian)",
+        "VMS",
+        "z/OS (MVS",
+        "OS/390) L3",
+        "MS Windows (Client/",
+        "Server)",
+        "Hypervisor/Virtualisation: Citrix WinFrame/MetaFrame/XenApp",
+        "VDI (Citrix VDI",
+        "VMware (Horizon) View)",
+        "VMware ESX(i)/GSX/Server inclusive DRS",
+        "Motion und",
+        "Consolidated Backup",
+        "(Citrix) Xen Server",
+        "MS Virtual Server",
+        "IBM POWER",
+        "Hypervisor",
+        "Oracle (SUN) VirtualBox",
+        "Direktory Services (X.500/LDAP): MS Active Directory (MSDS)",
+        "Novell Directory",
+        "Services (NDS/eDirectory)",
+        "Lotus Domino Directory",
+        "Systemsmanagementsysteme: Netware ManageWise/ZEN-Works",
+        "MS",
+        "SMS/MOM/SCCM/SCOM",
+        "IBM NetView / Tivoli",
+        "BelSoft Empirum; BMC",
+        "Remedy",
+        "GEDYS",
+        "Identity Management Systeme: MS Identity Integration Server",
+        "Tivoli Identity",
+        "Manager",
+        "MS Federation Services",
+        "IBM Federation Services",
+        "Collaboration und Groupwaresysteme: IBM Lotus Domino/Notes/Sametime",
+        "Exchange",
+        "Novell GroupWise",
+        "Blackbarry Enterprise Server (BES)",
+        "MS SharePoint",
+        "Services (WSS)",
+        "MS Project Server",
+        "MS Office Communication Server (OCS)",
+        "Netzwerktopologien: Ethernet",
+        "Token Ring",
+        "FDDI",
+        "W-LAN",
+        "Speichertopologien: SAN/TAN",
+        "NAS",
+        "iSCSI"
+      ],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2021-01 - 2021-12",
+        "company": "Siemens Mobility",
+        "title": "Compliance-Prüfung Softwareeinsatz - Fahrzeugindustrie, Erlangen - Deutschland",
+        "role": "Auditor",
+        "technologies": [
+          "DSGVO (GDPR)",
+          "BetrVG",
+          "NIST Cybersecurity Framework",
+          "ISO",
+          "20000"
+        ],
+        "activities": [
+          "Mitwirkung an der Prüfung und Verbesserung des innerbetrieblichen Risikomanagements und der Compliance beim Softwareeinsatz:",
+          "Prüfung von Test- und Entwicklungswerkzeugen auf:",
+          "Mitbestimmungspflichtigkeit gem. §87, Abs. 1, No, 6 BetrVG,",
+          "Einhaltung der Vorgaben nach DSGVO (GDPR),",
+          "Einhaltung der IT-Security Vorgaben;",
+          "Erarbeitung von Risikoeinschätzungen auf der Grundlage von gefundenen",
+          "Schwachstellen und Bedrohungsszenerien;",
+          "Erstellung von Prüfberichten und Handlungsempfehlungen;",
+          "Erlangen - Deutschland"
+        ]
+      },
+      {
+        "period": "2020-01 - 2020-09",
+        "company": "BLDAM",
+        "title": "Sicherheitskonzept (BSI 100-x/200-x), Zossen bei Berlin",
+        "role": "IT Security and Covernance Consultant",
+        "technologies": [
+          "BSI Grundschutz",
+          "BSI 100-x/200-x",
+          "ISO 27000 serie",
+          "ITIL",
+          "Prince"
+        ],
+        "activities": [
+          "Beratung zur Eingliederung des Sicherheitskonzeptes (Siko) der nachgeordneten Behörde (Brandenburgisches Landesamt für Denkmalpflege und Archäologisches Landesmuseum (BLDAM)) in das Sicherheitskonzept des IT Landesbetriebes (ZIT-BB):",
+          "Analyse der Anforderungen des Landesbetriebes; Analyse des Ist-Situation und des bestehenden Siko der Behörde; Erarbeitung prinzipieller Lösungsvorschläge und Lösungsvarianten;",
+          "Abstimmung einer Vorgehensweise (Projektplan, Phasenplan,",
+          "Meilensteine, Arbeitspakete) zur Umsetzung der Anforderungen des Landesbetriebes;",
+          "Mitwirkung an der Erarbeitung der Ausschreibungsunterlagen (Leistungen, Lose, etc.) für die Umsetzungsphasen. VOL/VOF, DSGVO (GDPR), Verinice, Identity and Access Management"
+        ]
+      },
+      {
+        "period": "2019-10 - 2020-01",
+        "company": "C&A",
+        "title": "SAP Audit - Retail, Düsseldorf, Deutschland; Brüssel, Belgien",
+        "role": "Prüfer (IT-Security/IT-Service Management)",
+        "technologies": [
+          "ISO 27001",
+          "BSI-Grundschutz",
+          "ISO 20000",
+          "ITIL V.3/V.4",
+          "Rechteund"
+        ],
+        "activities": [
+          "Interne Prüfung des SAP-Betriebes bezüglich:",
+          "Übereinstimmung der SLAs mit den betrieblichen Anforderungen in Bezug auf Vertraulichkeit, Verfügbarkeit und Integrität,",
+          "Umsetzung von Best-Practices im SAP-Betrieb,",
+          "Umsetzung von Rollen und Rechten unter Anwendung der BSI-Empfehlungen, Erreichung der Business-Ziele bei der Neuausrichtung von SAP-Anwendungen/Migrationen,",
+          "Erarbeitung von Folgemaßnahmen entsprechend der Audit-Ergebnisse; Review des internen IT Kontrollstandards (MICS (IT Security Policies, IT",
+          "Security Instructions, Hardening Guidelines)).",
+          "Rollenkonzepte, Massendatenverarbeitung, SAP R/3, SAP S/4, SAP HANA,",
+          "SAP HEC, SAP FI, SAP Success Factors, SAP Ariba, IaaS, SaaS, Multi-Cloud"
+        ]
+      },
+      {
+        "period": "2018-11 - 2019-12",
+        "company": "E.ON SE",
+        "title": "Compliance Kontrollen DSGVO, EnWG, KritisV - 2 Monate Energieversorgung, verschiedene Standorte innerhalb der EU",
+        "role": "Auditor / Enterprise Architekt",
+        "technologies": [
+          "DSGVO (GDPR)",
+          "ISO 19011",
+          "ISO 27001",
+          "ISO 27002",
+          "ISO 27019",
+          "BDEW"
+        ],
+        "activities": [
+          "Entwurf eines dreistufigen generischen Prüfprogrammes zur turnusgemäßen Prüfung von konzerninternen und externen",
+          "Auftrags(daten)verarbeitungen (ADV):",
+          "Ermittlung und Abgleich der Quellen zur Erfassung aller ADVs mit DSGVO-Bezug;",
+          "Erarbeitung eines Klassifizierungsschemas für ADVs;",
+          "Zuordnung verschiedener TOM-Kataloge zu den ADV-Klassen; Erarbeitung eines Vorgehens zur Ermittlung angemessener",
+          "Stichprobengrößen;",
+          "Erarbeitung eines kombinierten Prüfvorgehens aus",
+          "Self-Assessment und Audit zur Durchführung der Stichproben; Erarbeitung eines Vorgehens zur Auswahl der Auditkandidaten für die jährliche Stichprobe;",
+          "Energieversorgung, verschiedene Standorte innerhalb der EU"
+        ]
+      },
+      {
+        "period": "2017-09 - 2018-05",
+        "company": "VHV Versicherung",
+        "title": "Regulatorische Compliance, IT Sicherheit und Datenschutz - Versicherung, Hannover, Deutschland",
+        "role": "Auditor",
+        "technologies": [
+          "Guidewire Insurance Platform",
+          "Vmware",
+          "LINUX",
+          "Apache",
+          "TomCat",
+          "MS-SQL Server",
+          "JAVA EE",
+          "SOA",
+          "REST"
+        ],
+        "activities": [
+          "Mitarbeit an der Bearbeitung der IT-Sicherheits- und Datenschutzbelange im Zusammenhang mit einem geplanten Austausch der Core-IT Systeme :",
+          "Prüfung der internen IT-Sicherheits- und Datenschutzleitdokumente auf Vollständigkeit und Anwendbarkeit für das Vorhaben;",
+          "Prüfung der IT-Vorhaben auf Abdeckung durch externe/interne datschutzrechtliche Vereinbarungen (Datenschutzerklärungen,",
+          "Betriebsvereinbarungen);",
+          "Prüfung des Verzeichnisses der Verarbeitungstätigkeiten bezüglich",
+          "Abeckung von geplanten bzw. anzupassenden Verarbeitungstätigkeiten;",
+          "Prüfung von IT-Vorhaben auf DSGVO-konforme Abdeckung der Rechte der betroffenen Personen;",
+          "Prüfung der technischen und organisatorischen Planungsdokumente auf Übereinstimmung der mit den internen und externen/regulatorischen",
+          "Versicherung, Hannover, Deutschland"
+        ]
+      },
+      {
+        "period": "2017-09 - 2018-03",
+        "company": "Vattenfall Wärme",
+        "title": "KritisV und DSGVO Compliance - Energieversorgung (Wärme), Berlin, Deutschland; Solna, Schweden; Amsterdam, Niederlande",
+        "role": "Assessor/Berater (Data Protection and Enterprise Architecure)",
+        "technologies": [
+          "ISO 27001/27002",
+          "ISO 27005 (ISO 31.000)",
+          "ISO 27019",
+          "BDEW"
+        ],
+        "activities": [
+          "Prüfung der im Business Bereich Wärme eingesetzten Information Assets",
+          "(IA) auf Datenschutzrelevanz;",
+          "Prüfung der Zuordnung der IAs zu Datenverarbeitungsprozessen und deren Dokumentation im Register der Verarbeitungstätigkeiten; Prüfung der IAs auf Schnittstellen mit Auftragsverarbeitung;",
+          "Prüfung der Auftragsverarbeitungs-Verträge und ggf. relevante",
+          "Betriebsvereinbarungen;",
+          "Prüfung der Abdeckung der IAs durch Datenschutzvereinbarungen und Anbindung an die Prozesse zur Sicherstellung der Rechte der betroffen Personen;",
+          "Organisation und Durchführung von IT-Security und Datenschutz- Assessments inkl.",
+          "organisatorischer und technischer Tests/Pen-Tests;",
+          "Impact Analysen und Auswertung von Testergebnissen im Bereich",
+          "(Wärme), Berlin, Deutschland; Solna, Schweden; Amsterdam, Niederlande"
+        ]
+      },
+      {
+        "period": "2017-06 - 2017-11",
+        "company": "IKB Deutsche Industriebank",
+        "title": "Technisch-Organisatorische IT-Sicherheitsprüfung E- Mail Archivierung - Bank, Düsseldorf, Deutschland",
+        "role": "Prüfer (IT Security)",
+        "technologies": [
+          "ITSM gem. ISO 20.000",
+          "ISMS gem. ISO27001/27002",
+          "RiskMgmt. gem",
+          "Sarbanes–Oxley (SOX)",
+          "MaRisk",
+          "Outlook",
+          "Exchange",
+          "HypAchive",
+          "Windows"
+        ],
+        "activities": [
+          "Abstimmung des Audit-Scope mit dem CISO der Bank bezüglich der Prüfungsbereiche Vertraulichkeit, Verfügbarkeit und Integrität;",
+          "Erarbeitung und Abstimmung spezifischer technischer und organisatorischer Security-Controls aus der technischen Service- Dokumentation mit Focus auf technische und organisatorische",
+          "Fragestellungen sowie die Einbindung in das Risiko-Management der Bank und des IT-Dienstleisters; Prüfung der Dokumente und Nachweise;",
+          "Durchfühurng von organisatorischen und technischen Sicherheitstests;",
+          "Erstellen von Audit-Berichten und Ableitung von Folgemaßnahmen.",
+          "ISO 27.005, NIST, CIA Analysis, KWG, KritisV, BSIG, ITSG, DSGVO, BDSG,",
+          "Server Cluster, EMC²-Storage Lösungen, Hochverfügbarkeitsarchitektur,",
+          "Active Directory, Berechtigungskonzepte",
+          "Archivierung - Bank, Düsseldorf, Deutschland"
+        ]
+      },
+      {
+        "period": "2016-10 - 2017-12",
+        "company": "Finanz Informatik Technologie Service (FI-TS)",
+        "title": "z/OS Mainframe Security Prüfungen - Bankdienstleister 3 Monate, Haar, Deutschland",
+        "role": "Prüfer (IT Security)",
+        "technologies": [
+          "z/OS",
+          "RACF",
+          "SMF",
+          "SAS",
+          "DB2",
+          "ADABAS",
+          "REXX",
+          "SQL",
+          "JCL",
+          "ISO",
+          "9001"
+        ],
+        "activities": [
+          "Abstimmung des Audit-Inhaltes und der Prüfungsberichte mit der Innenrevision (Risiko-Management);",
+          "Prüfung der REXX/SQL-Script basierten z/OS Sicherheitsprüfungen;",
+          "Prüfung Job-Control-Flies (JCLs);",
+          "Prüfung der Änderungshistorie der Prüfscripte und Job-Control-Files;",
+          "Prüfung Ausführungsnachweise für die Prüfscripte; Prüfung der Archivierung und der Nachvollziehbarkeit der Sicherheitsprüfungsergebnisse; Prüfung des Änderungsprozesses für z/OS Sicheheitsprüfungen.",
+          "27001, ISO 27002, ISO 27005, KwG, IMS DB/DC, BaFin MaRisk",
+          "Monate, Haar, Deutschland"
+        ]
+      },
+      {
+        "period": "2016-10 - 2017-01",
+        "company": "EU-Kommission/DG-SANTE",
+        "title": "Konformitätsprüfungen EU-DSGVO und Datenschutzgesetzgebung EU Mitgliedsstaten, Brüssel Belgien",
+        "role": "Compliance-Berater (Data Protection)",
+        "technologies": [
+          "DSGVO (Verordnung 2016/679)",
+          "EU int",
+          "Datenschutzverordnung"
+        ],
+        "activities": [
+          "(Gesundheitsdaten)",
+          "Datenschutzprüfung der technischen und organisatorischen Konzepte zum EU-weiten Datenaustausch von Patientendaten mit seltenen oder/und komplexen Erkrankungen unter Nutzung der eHealth-DSI (CEF-2015,",
+          "2017).",
+          "Erarbeitung von technischen und organisatorischen",
+          "Anpassungsmaßnahmen zur Sicherstellung der Konformität der IT- Lösungen mit nationalem Recht und EU-Recht.",
+          "(Verordnung EC 45/2001), nationales Datenschutzrecht gem. EU-Richtlinie",
+          "95/46/EC, BDSG, Datenschutzgesetze der Deutschen Länder, DSG 2000",
+          "(Österreich), Data Protection Act U.K, Dirctory Konzepte, DNS, NDS, LDAP,",
+          "Datenschutzgesetzgebung EU Mitgliedsstaten, Brüssel Belgien"
+        ]
+      },
+      {
+        "period": "2016-01 - 2016-09",
+        "company": "E.ON",
+        "title": "IT-/OT-Konformitätsprüfungen - Energieversorgung (Virtuelle Kraftwerke), Essen, Deutschland; Brüssel Belgien",
+        "role": "Prüfer/Berater (Regulatory Compliance and Architecture)",
+        "technologies": [
+          "Kanban",
+          "Scrum",
+          "Prince2",
+          "JIRA",
+          "Confluence",
+          "Redmine",
+          "MindMap",
+          "JAVA",
+          "Scala",
+          "Jenkins",
+          "Git-Lab",
+          "Clean Code",
+          "CERT Secure Coding",
+          "Nexus",
+          "Linux"
+        ],
+        "activities": [
+          "Prüfung der Anwendbarkeit und Auswirkungen der BSI-KritisV (BSI- G/EnWG) auf den Betrieb des Virtuellen Kraftwerks in den Bereichen der Regelenergie und erneuerbaren Energien (Wind, PV, Bio-Gas);",
+          "Prüfung der IT-/OT-Sicherungsmaßnahmen der virtuellen Kraftwerksinfrastruktur entlang Anforderungen der Netzbetreiber (TSOs);",
+          "Prüfung der verteilten Prozessdatenverarbeitung auf Konformität mit dem BSDG und der DSGVO; Prüfung der horizontalen Continuous Development / Continuous",
+          "Deployment Prozesse (Scrum, Kanban);",
+          "Prüfung der vertikalen Implementierungsprozesse für Fachprojekte im Bereich Steuerung von Regelenergie Assets wie Windkraft-, Solar- und Biomasse-Anlagen und Batteriespeicher (PRINCE2 Agil);",
+          "Prüfung der Software-Entwicklungs- und Testprozesse;",
+          "Erarbeitung und Prüfung vor Folgemaßnahmen zur Anpassung des ISMS.",
+          "Unterstützung des Line-Managements: Teammanagement;",
+          "Unterstützung bei der Projektbesetzung, Arbeitsplanung",
+          "Kraftwerke), Essen, Deutschland; Brüssel Belgien"
+        ]
+      },
+      {
+        "period": "2015-02 - 2015-12",
+        "company": "Deutsche Börse",
+        "title": "IT Prozess und Security Prüfungen - Börse, Frankfurt/M, Deutschland",
+        "role": "Prüfer/Berater (Regulatory Compliance ITSM/ISMS)",
+        "technologies": [
+          "OWASP",
+          "STRIDE",
+          "V-Modell",
+          "BPMN",
+          "UML",
+          "z/OS",
+          "Linux on System"
+        ],
+        "activities": [
+          "Interne Vorbereitungs-Assessments zur ISO 20000 Rezertifizierung;",
+          "Interne Prüfung der Einhaltung des IT-Securiy-Managementprozesses in der IBM Mainframe Softwareentwicklung;",
+          "End-to-End IT-Architekturprüfung bezüglich der Mainframe basierten",
+          "Transaktionssysteme (SWIFT);",
+          "Review der Quality- und Security-Gates des internen Solution",
+          "Development Life Cycles (SDLC) mit Focus auf IBM-Mainframe- und VMS- Systeme;",
+          "Erarbeitung und Prüfung von technischen und organisatorischen",
+          "Folgemaßnahmen (z.B. IT Security Policy, IT security Instructions, IT",
+          "Deutschland"
+        ]
+      },
+      {
+        "period": "2014-11 - 2015-01",
+        "company": "BNP Paribas Fortis",
+        "title": "IT Architekturprüfungen - Global Bank, Brüssel, Belgien",
+        "role": "Assessor (Business and IT Architecture)",
+        "technologies": [
+          "z/OS",
+          "core Banking",
+          "HTML5",
+          "CSS",
+          "JAVA Script",
+          "C++",
+          "XML"
+        ],
+        "activities": [
+          "Prüfung der IT-Architekturstrategie gegen die Direct-Channel-Business- Strategie;",
+          "Erarbeitungund Prüfung von Anpassungsmaßnahmen.",
+          "WebServices, SOA, SOAP, WDSL, UDDI, SSO, BPNM, SCRUM, PMI, Spax",
+          "Enterprise Architect, JIRA, Confluence, MindMap, Viso, IT Archtecture,",
+          "Enterprise Architecture"
+        ]
+      },
+      {
+        "period": "2014-05 - 2014-09",
+        "company": "Deutsche Bank AG",
+        "title": "IT Prozess Compliance Prüfungen - Global Bank, Frankfurt/M, Deutschland; London, Vereinigtes Königreich",
+        "role": "Assessor/Consultant (Regulatory and internal Compliance)",
+        "technologies": [
+          "MS-Project",
+          "CA Clarity",
+          "OPAL Green",
+          "NARdb",
+          "dbRACE",
+          "Visio",
+          "MindMap"
+        ],
+        "activities": [
+          "Prüfung von IT-Programmen und IT-Projekten auf die Einhaltung der Bank internen Richtlinien \"Project Process Standard\" (PPS) und \"Financial",
+          "Reporting Governance Board\" (FGB):",
+          "Ausrichtung auf die Geschäftsstrategie, Ausrichtung auf die IT Strategie,",
+          "Ausrichtung auf die Architekturgrundsätze, Ausrichtung auf den Geschäftsnutzen, Vollständigkeit und Plausibilität der Planungsunterlagen, Bereitstellung/Verfügbarkeit der erforderlichen Ressourcen",
+          "(Kapazität),",
+          "Einhaltung der regulatorische Vorgaben;",
+          "Erarbeitung und Prüfung von Audit-Folge- und Risikomanagement- Maßnahmen resultierend aus internenund externen Audits (KWG, MAS,",
+          "SOX/FFIEC).",
+          "Deutschland; London, Vereinigtes Königreich"
+        ]
+      },
+      {
+        "period": "2013-09 - 2014-04",
+        "company": "Landesregierung Hessen",
+        "title": "IT Security und Datenschutzprüfungen - Öffentliche Hand, Wiesbaden, Deutschland",
+        "role": "Prüfer/Compliance-Berater (Regulatory Compliance)",
+        "technologies": [
+          "VMware ESXi",
+          "Windows 2003/2008 Server",
+          "Citrix XenApp",
+          "ADS",
+          "MS SQL-"
+        ],
+        "activities": [
+          "Prüfung von IT unterstützten Prozessen in den Bereichen Personal und Lieferanten auf die Einhaltung der Anforderungen nach BDSG und ISO 27001/BSI;",
+          "Schnittstellen-Prüfung von IT Services und Business-Prozessen;",
+          "Prüfung des Berechtigungskonzeptes; Durchführung und Auswertung von organisatorischen und technischen",
+          "Sicherheitstest/Penetration-Tests;",
+          "Erarbeitung und Prüfung von technischen sowie organisatorischen",
+          "Anpassungsmaßnahmen.",
+          "Server, MS Access, SAP Basis, verschiedene SAP Module, SharePoint,",
+          "SharePoint-Services, ABAP, VBA, C#, XML, SOA, ITIL, ISO 27001, ISO",
+          "Wiesbaden, Deutschland"
+        ]
+      },
+      {
+        "period": "2013 - 2014",
+        "title": "Französisch - Languages Unlimited - Brüssel",
+        "activities": [
+          "Französisch - Languages Unlimited - Brüssel"
+        ]
+      },
+      {
+        "period": "2012-03 - 2013-06",
+        "company": "T-Systems International",
+        "title": "IT Produktionsprozessprüfungen - ITSP/MSSP 4 Monate, verschiedene Standorte weltweit",
+        "role": "Process-Improvement-Berater (Enterprise Architecture (Cloud))",
+        "technologies": [
+          "AppCom",
+          "DCP",
+          "High-Availability Data Centres (z.B. Twin-Core)",
+          "LINUX",
+          "RHEL",
+          "VDI",
+          "XenApp",
+          "eCMDB",
+          "Asset Center",
+          "ASM",
+          "SMARTqube",
+          "SAP",
+          "C#",
+          "SOA",
+          "WDSL",
+          "UDDI",
+          "XML"
+        ],
+        "activities": [
+          "Prüfung der technischen und organisatorischen Prozesse des Cloud- Computing-Segmentes mit Ziel der Prozess- und Produktionskostenverbesserung und Fokus auf die Bereiche Change- Management, (Component-/Service-) Capacity-Management,",
+          "Configuration-Management, Deployment-Management, Demand- und Forecast-Management unter Beachtung der internen und externen",
+          "Compliance-vorgaben für Availability- und Service-Continuity-Management sowie Riskund Security-Management.",
+          "Erarbeitung und Prüfung von Folgemaßnahmen zur Optimierung von Planungs- und Projektsteuerungsprozessen der Cloud-Factory; Team-Management (Deputy Team-Leader):",
+          "Management von internen und exteren Mitarbeitern,",
+          "Management von Arbeitsaufgaben, Prioritäten und Arbeitsauslastung,",
+          "Evaluierung der Arbeitsergebnisse, Sicherstellung der SLA-Einhaltung, Sicherstellung der Abstimmung und Kooperation zwischen den Fachabteilungen. DCP, High-Availability Data Centres (z.B. Twin-Core), Vmware, AIX,",
+          "Basis, SOM@SAP, DOM@SAP, SAP FI/CO, ARIS, LiveLink, SharePoint, MS",
+          "verschiedene Standorte weltweit"
+        ]
+      },
+      {
+        "period": "2011-10 - 2012-01",
+        "company": "European Center for Disease Prevention and Control (ECDC)",
+        "title": "Prüfung Unterstützung des ext. Kommunikationsprozesses - EU Agentur, Stockholm, Schweden",
+        "role": "Assessor (Enterprise Architecture)",
+        "technologies": [
+          "MS Dynamics",
+          "MS SharePoint",
+          "XML",
+          "Web Services",
+          "SOA",
+          "WDSL"
+        ],
+        "activities": [
+          "Prüfung des externen Kommunikationsprozesses auf Konformität zu den europäischen Datenschutzbestimmungen und den Datenschutzbestimmungen der Mitgliedsstaten (EU und EFTA);",
+          "Prüfung der Einhaltung der Software-Entwicklungsprozesse (RUP und SCRUM Artefakte);",
+          "Erarbeitung und Prüfung von Folgemaßnahmen.",
+          "UDDI, UML, BPMN, .NET, C#, VBA, TOGAF, ITIL, SRCUM, RUP, ISTQB,",
+          "Sparx Enterprise Architect, Vsio, MS Project., EU Vergaberecht, Konzept",
+          "\"One Competent Body per Member Sate\"",
+          "EU Agentur, Stockholm, Schweden"
+        ]
+      },
+      {
+        "period": "2011-03 - 2011-09",
+        "company": "Deutsche Bank AG",
+        "title": "Prüfung IT-Tool Unterstützung für Business Prozesse - Global Bank, Frankfurt/M - Deutschland, London - U.K.",
+        "role": "Prozess-Improvement Berater (Enterprise Architecture)",
+        "technologies": [
+          "Prozess-Management-Engines",
+          "SAP",
+          "Oracle/BEA AquaLogic",
+          "Remedy",
+          "Lotus"
+        ],
+        "activities": [
+          "Dokumentation der Prozess- und Tool-Unterstützung des End-to-End Service Designs.",
+          "Prüfung der Tool-Unterstützung gegen die implementierten IT-Sourcing- Strategien.",
+          "Reifegradermittlung der Business-Prozesse und IT-Services.",
+          "Erarbeitung von IT-Anpassungsmaßnahmen (z.B. Application",
+          "Orchestration) zur Effizienzverbesserung der Tool-Chain. Risikoabschätzung (finanziell/technisch) und Business-Case",
+          "Berechnungen für Anpassungsmaßnahmen.",
+          "Notes/Domino, Federation Services, WEBSSO, SOA, SOAP, WDSL, UDDI,",
+          "SharePoint, .NET, C#, VBA, PL/SQL, Grails, LotusScript, Remedy ARS,",
+          "Bank, Frankfurt/M - Deutschland, London - U.K."
+        ]
+      },
+      {
+        "period": "2010-09 - 2011-02",
+        "company": "T-Systems International",
+        "title": "Prozessanpassung Big-Deal-Mgmt - Cloud ITSP/MSSP, München - Deutschland",
+        "role": "Process-improvement-Berater (Enterprise Architecture)",
+        "technologies": [
+          "LiveLink",
+          "MS-Visio",
+          "MS-Office",
+          "SDE-Catalog",
+          "ITIL V.3",
+          "ISO",
+          "20000"
+        ],
+        "activities": [
+          "In-Work-Dokumentation der angebotsphasenorientierten Prozesse und Vorgehensweisen.",
+          "Dokumentation der frachgruppenübergreifenden Kommunikationsstrukturen des Big-Deal-Managements bin IT- Outsourcing-Deals.",
+          "Erarbeitung von Verbesserungsvorschlägen und Anpassungsmaßnahmen der Big-Deal-Mgmt-Prozesse unter Berücksichtigung der Industry-Best- Pracitices gem. ITIL V.3/ISO 20.000 ISO 27.005.",
+          "Mitwirkung an Bieterwettbewerben für Outsourcing-Geschäfte (Claud- Services, Hosting, RZ-Outsourcings).",
+          "Begleitung der Angebotsphasen Request for Information (RfI), Request for Proposal (RfP), Letter of Intend (LoI), Due Diligence (DD).",
+          "Erarbeitung von Business-Risikoeinschätzung für Outsourcing- und Private-Cloud-Geschäfte.",
+          "Angebotskalkulation für IAS-Leistungsanteile bezüglich Outsourcing- und Private-Cloud-Geschäften.",
+          "Mitwirkung an der technische und kaufmännische Bewertung von IT- Infrastrukturen bei der Übernahme von RZs in den Bestand der T- Systems.",
+          "München - Deutschland"
+        ]
+      },
+      {
+        "period": "2010-01 - 2010-08",
+        "company": "T-Systems International",
+        "title": "Cloud-Capacity-Mgmt-Prozesse (AppCom) - IT Service Provider (ITSP)/Managed Security Provider (MSSP), Verschiedene Cloud-DCs in EMEA, Americas, APAC",
+        "role": "Process-Improvement-Berater (Enterprise Architecture)",
+        "technologies": [
+          "AppCom Technologie in Hochverfügbarkeitsumgebungen",
+          "AIX-Cluster",
+          "VMware ESX",
+          "IBM LPAR Hypervisor",
+          "IBM p5",
+          "(575 bis 595)",
+          "Cisco-Netzwerkkomponenten",
+          "Cisco-Firewalls",
+          "Netware",
+          "OS/2",
+          "Cisco PIX/ASA",
+          "Innominate",
+          "mGuard",
+          "Juniper NetScreen",
+          "Service Provider (CASB)",
+          "IDS/IPS",
+          "SIEM",
+          "SPLUNK",
+          "Identity Security",
+          "F5",
+          "Web-Application Firewall",
+          "Checkpoint",
+          "MS PKI",
+          "Cloud PKI",
+          "PrimeKey",
+          "Asterix-PBX",
+          "Cisco-Linksys",
+          "Netgear",
+          "Borland",
+          "Developer Studio",
+          "Eclipse",
+          "SQL2WEB",
+          "MS Windows Resource"
+        ],
+        "activities": [
+          "Service-Improvement-Management im Kapazitätsmanagement der TSI Cloud Computing Sparte (AppCom):",
+          "Analyse, Dokumentation und Anpassung der internen Businessprozesse;",
+          "Ausrichtung der internen Business- und Engineering-Prozesse der Dynamic Platform Procedure Teams (DPPT) am ITIL V.3",
+          "Prozessmodell sowie Einführung einer CMM-orientierten Messung und Beschreibung der Prozess-Reifegrade (involvierte ITIL v.3",
+          "Prozesse: Capacity-, Configuration-, Change- und Availability",
+          "Management);",
+          "Rollen- und Schnittstellenbeschreibung im DPPT internen",
+          "Workflows unter Einbeziehung der kooperierenden Einheiten wie",
+          "Provider (ITSP)/Managed Security Provider (MSSP), Verschiedene Cloud-DCs in EMEA, Americas, APAC"
+        ]
+      },
+      {
+        "period": "2008 - 2010",
+        "title": "Italienisch - Leitmotiv - Parma, Italien",
+        "activities": [
+          "2007 Französisch - Institut Linguistique Adenet - Montpellier, Frankreich"
+        ]
+      },
+      {
+        "period": "2002 - 2007",
+        "title": "Englisch / Business Englisch - Wall Steet Institute - Berlin, Deutschland",
+        "activities": [
+          "############################################",
+          "Englisch anzeigen",
+          "Stammdaten (Auszug):",
+          "[Photo]",
+          "Personen-ID 102135",
+          "Wohnort 101xx Berlin, Deutschland",
+          "Jahrgang 1966",
+          "Staatsbürgerschaft Deutsch"
+        ]
+      },
+      {
+        "period": "1990 - 1995",
+        "title": "Studium Mathematik und Informatik - Freie Universität Berlin",
+        "activities": [
+          "Studium Mathematik und Informatik - Freie Universität",
+          "Berlin"
+        ]
+      },
+      {
+        "period": "1986 – 1988",
+        "title": "Studium allg. Maschinenbau spez. Konstruktion - Ingenieurschule Wildau, Deutschland",
+        "activities": [
+          "Studium allg. Maschinenbau spez. Konstruktion -Ingenieurschule Wildau, Deutschland"
+        ]
+      },
+      {
+        "period": "1983 – 1985",
+        "title": "Berufsausbildung Fahrzeugschlosser - Berufsschule Berlin, Deutschland",
+        "activities": [
+          "IT/QM-Zertifizierungen und Weiterbildungen:",
+          "2020 Prüfverfahrens-Kompetenz IT-Sicherheitsaudits BSIG/KRITIS (Aktualisierungen) -Bitkom",
+          "Akademie, Deutschland",
+          "2021 Auditoren-Schulung Energieanlagen gem. ITSK und EnWG - GUTcert, Deutschland",
+          "2019 IT-Sicherheitskatalog gem. KritisV und EnWG für Auditoren - GUTcert, Deutschland",
+          "2019 DSGVO für Auditoren - Quality Austria, Österreich",
+          "2018 CISA Training für IT-Security Auditoren - ISACA, Deutschland"
+        ]
+      }
+    ],
+    "industries": [
+      "Ingenieurwesen",
+      "Finanzindustrie",
+      "Industrie",
+      "Rechenzentren",
+      "Telekommunikation",
+      "Öffentliche Verwaltungen"
+    ],
+    "focus_areas": [],
+    "focus_experience": [
+      {
+        "name": "EDVERFAHRUNGEN SEIT 1986:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "IT bezogene Branchenkenntnisse:",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Ingenieurwesen seit 1991",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Finanzindustrie seit 1995",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Industrie seit 1996",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Rechenzentren seit 1997",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Telekommunikation seit 1998",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Öffentliche Verwaltungen seit 2011",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "ORGANISATORISCHE FÄHIGKEITEN UND KOMPETENZEN:",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Langjährige Erfahrung und tiefgehendes Hintergrundwissen in allen",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "wesentlichen Managementbereichen von EDV-Betrieben; insbesondere in den",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Bereichen IT-Beratung und IT-Management sowie Projektbesetzung und",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Teammanagement:",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "- Compliance mit internen oder/und regulatorischen Anforderungen",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "- Datenschutzrecht der EU (DSGVO (Verordnung 2016/679",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Verordnung 2018/1725",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Verordnung (EC) 45/2001 und EU-Mitgliedsstaaten basierend auf Richtlinie 95/46/",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "EC (BDSG",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "DSG 2000",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Data Protection Act U.K. etc.)",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Audits in den Bereichen IT- Service- und IT-Security-Mgmt sowie IT-",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Geschäftsprozesse",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Proaktives Projektmanagement unter Nutzung verschiedener",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Projektmanagementmethoden",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "- Projektbezogenes Finanzmanagement und Budgetkontrolle",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "- Technische Ressourceplanung",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "- Sourcing Strategie Management",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "- Vertragsmanagement",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Beschaffung und Finanzmanagement unter Beachtung von",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "öffentlichen und privaten Einkaufsrichtlinien (2004/17/EC",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "2004/18/EC)",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "den",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Deutschen Beschaffungsrichtlinien (VOB/VOL/VOF) sowie deutschen und",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "internationalen Bilanzierungs- standards (HGB/IAS)",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "- Verhandlung/Überwachung von EDV-Dienstleistungen und Projekten (SLA",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "OLA",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "UC)",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "- Personalauswahl und Personalführung in Projekten und Arbeitsprozessen",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Organisations- und Planungsgeschick mit großer Aufmerksamkeit für essentielle",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Details;",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Zielorientierte Arbeitsweise in anspruchvollen Aufgabenfeldern mit hoher",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Arbeitsbelastung und Gleichzeitigkeit von Aufgaben und Projekten;",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Prioritätsgesteuerte Vorgehensweise entsprechend der Anforderungen;",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Arbeitsorganisation unter Beachtung vorgegebener Vorgehensweisen und",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Standards;",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Erfahrung im Verfassen von englisch- und deutschspracheigen",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Entscheidungsvorlagen und Gutachten;",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Pflege von Geschäftsbeziehungen und Vertrieb von IT-Dienstleistungen.",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "INTERNATIONALE ERFAHRUNGEN AUS INDUSTRIE UND INTERNATIONALEN",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "ORGANISATIONEN:",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Umfangreiche Erfahrungen in multikulturellen/multinationalen Projekt-",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Arbeits- und Lebensumfeldern z.B. in der Schweiz",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Luxemburg",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Belgien",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Schweden.",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "TOOLS",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "TECHNOLOGIEN UND METHODEN SEIT 1986:",
+        "category": "product_standard",
+        "sort_order": 56
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "cipher",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "excel",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "openoffice",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "linux-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "software",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "photoshop",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "express/express-g",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "ipx/spx",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "staroffice",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "betriebssysteme",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "s/mime",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "verschlüsselungen",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:49:21.121909",
+    "source_file": "",
+    "steps_completed": [
+      "PERSONAL",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1983",
+        "AUTO_SKILLS: +12 in skill_ablage"
+      ],
+      "coverage_percent": 79.0299572039943,
+      "auto_added_skills": 12,
+      "integrity_ok": false
+    }
+  }
+}

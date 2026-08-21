@@ -1,0 +1,436 @@
+{
+  "metadata": {
+    "aid": "AID-aw_2.1.4.0",
+    "version": "2.1.4.0",
+    "consultant_dir": "wachniewski_anton",
+    "first_name": "Anton",
+    "last_name": "Wachniewski",
+    "headline": "Java EE7, JSF, JSP, Natural",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:06:09.114768"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Anton",
+      "last_name": "Wachniewski",
+      "birth_year": 1952,
+      "languages": [
+        {
+          "name": "Deutsch fließend",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend",
+          "level": ""
+        },
+        {
+          "name": "Polnisch fließend",
+          "level": ""
+        },
+        {
+          "name": "Russisch gut",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Polnisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Russisch (gut)",
+          "level": ""
+        }
+      ],
+      "availability": "01.08.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "667xx Weiskirchen, Deutschland",
+      "location": "667xx Weiskirchen, Deutschland",
+      "headline": "Java EE7, JSF, JSP, Natural",
+      "edv_experience_since": 1986
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Adabas (NATURAL)",
+        "DB2",
+        "MySQL (JDBC)",
+        "Oracle 8i (Cobol",
+        "JDBC)"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "IBM Großrechner",
+        "PC",
+        "Siemens Großrechner"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "BS2000",
+        "MS-DOS",
+        "MVS",
+        "SINIX",
+        "Unix Sinix",
+        "VAX",
+        "VMS",
+        "Windows NT",
+        "Windows XP",
+        "Windows 2000",
+        "z/OS"
+      ],
+      "programming_languages": [
+        "Assembler",
+        "C",
+        "C++",
+        "Cobol",
+        "Fortran",
+        "Java:",
+        "JDBC",
+        "XML",
+        "JSP",
+        "EE7 (JSF",
+        "PrimeFaces",
+        "JPA 2",
+        "EJB",
+        "XHTML",
+        "CSS",
+        "JavaScript)",
+        "Spring",
+        "Maven",
+        "NATURAL",
+        "PL/1",
+        "SQL",
+        "UML"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "NaturalONE",
+        "PREDICT CASE",
+        "PREDICT",
+        "natclipse",
+        "JBuilder Enterprise",
+        "Eclipse",
+        "myeclipse",
+        "UML - Rational Rose Enterprise",
+        "Projekterfahrung"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "1992-1994",
+        "title": "Kernfunktionen und Steuerung für DDL und Utilities der Datenbank SESAM 2.0 für",
+        "activities": [
+          "Siemens-Nixdorf-Informationssysteme, München-Perlach. Entwicklung in C unter BS2000 und teilweise SINIX. Aufgaben: Design, Programmierung, Test.",
+          "Benchmarktests von SESAM versus Oracle und DB2 mit Hilfe von SQL, COBOL .",
+          "Kernfunktionen und Steuerung für DDL und Utilities der Datenbank SESAM 2.0"
+        ],
+        "company": "Siemens-Nixdorf-Informationssysteme",
+        "industry": "Informationstechnologie",
+        "location": "München-Perlach",
+        "technologies": [
+          "SESAM 2.0",
+          "BS2000",
+          "SINIX",
+          "SQL",
+          "COBOL",
+          "Oracle",
+          "DB2"
+        ]
+      },
+      {
+        "period": "1990-1991",
+        "title": "Wartung und Weiterentwicklung von Sisymed (System für Arztpraxis)",
+        "activities": [
+          "für SIEMENS, München. Entwicklung in C, Datenbank UNIFY, SINIX . Fachfeinkonzept, Design,",
+          "Programmierung, Testauswertung, Fehlersuche.",
+          "1990 Entwicklung von Meßsoftware für optische Koordinatenmessmaschinen für WEGU, Wadgassen. Implementierung in C unter MS DOS. Aufgaben: Fachkonzept der Algorithmen, Programmierung, Test.",
+          "1988-1989 Konzept, Design und technische Leitung des Projektes Anzeigenumbruchsystem",
+          "Wiener Kurier für alfa-Mannesmann-Kienzle, Rodgau. Das Anzeigenumbruchsystem ermögliche sowochl manuelle wie auch automatische Plazierung von Anzeigen. Bei der automatischen Plazierung wurde eine Optimierung bezüglich der benötigten gesamten Zeitungfläche implementiert.",
+          "Entwicklung in C unter MS DOS und OS/2. Aufgaben: technische Leitung, Fachfeinkonzept, Design.",
+          "Programmierung, Test, Produktionseinführung.",
+          "Wartung und Weiterentwicklung von Sisymed (System für Arztpraxis)"
+        ],
+        "company": "SIEMENS",
+        "industry": "Informationstechnologie",
+        "location": "München",
+        "technologies": [
+          "UNIFY",
+          "SINIX"
+        ]
+      },
+      {
+        "period": "1987-1988",
+        "title": "Weiterentwicklung (Änderungen der physikalischen Modelle) und Fehlerbehebung bei Kraftwerksimulator Al Khobar",
+        "activities": [
+          "Fehler- behebung bei Kraftwerksimmulator Al Khobar für KWU, Karlstein. Entwicklung in FORTRAN und ASSEMBLER unter MPX-32 (Gould).",
+          "Weiterentwicklung (Änderungen der physikalischen Modelle)",
+          "Fehlerbehebung bei Kraftwerksimulator Al Khobar"
+        ],
+        "company": "KWU",
+        "industry": "Energie",
+        "location": "Karlstein",
+        "technologies": [
+          "FORTRAN",
+          "ASSEMBLER",
+          "MPX-32",
+          "Gould"
+        ]
+      },
+      {
+        "period": "1986-1987",
+        "title": "Meßdatenübertragung QDS-->HP1000 und statistische Qualitätskontrolle",
+        "activities": [
+          "Qualitätskontrolle für Fordwerke Köln. Entwicklung in FORTRAN unter RTE-A.",
+          "1978-1985 Numerische Berechnungen im Bereich der theoretischen Festkörperphysik an der U des Saarlandes in Saarbrücken, U of Wyoming in Laramie, WY, USA und an der SWTU in San",
+          "Marcos, TX, USA. Entwicklung in BASIC unter HP und in FORTRAN unter DEC.",
+          "- ältere Projekte gerne auf Anfrage--Sonstiges Referenzen: Projekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 -12/99 Referenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99 \"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur.",
+          "Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz.\" Referenzen: Projekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 -12/ Referenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99 \"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz.\" Alle Referenzen sind durch GULP bestätigt.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen"
+        ],
+        "company": "Fordwerke Köln",
+        "industry": "Automotive",
+        "technologies": [
+          "FORTRAN",
+          "RTE-A"
+        ]
+      }
+    ],
+    "industries": [
+      "Softwarehersteller - EDV",
+      "Bahn",
+      "Versicherungen",
+      "Printmedien",
+      "Forschung",
+      "Banken",
+      "Automobil- und Maschinenbau",
+      "Medizin",
+      "Energie"
+    ],
+    "focus_areas": [
+      "Java EE7",
+      "Natural",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Softwareentwicklung Java (EE7), Natural 1985",
+      "Dipl. Informatiker (M.Sc.), SWTU in San Marcos, Texas USA 1978",
+      "Dipl. Physiker, U Breslau, Polen (Promotion)",
+      "JSF",
+      "JSP",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Softwareentwicklung Java (EE7), Natural"
+    ],
+    "focus_experience": [
+      {
+        "name": "ADABAS",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "EE7",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Glassfish",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "JBuilder Enterprise",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "JCL",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "MyEclipse",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "natclipse",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Natural auf Host",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Natural unter Windows",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "NaturalONE",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "PREDICT",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "PREDICT CASE",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Wildflay 10",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 17
+      }
+    ],
+    "education": [
+      {
+        "degree": "Dipl. Informatiker (M.Sc.)",
+        "institution": "SWTU in San Marcos, Texas USA",
+        "period": "1985",
+        "education_type": "course"
+      },
+      {
+        "degree": "Dipl. Physiker (Promotion)",
+        "institution": "U Breslau, Polen",
+        "period": "1978",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 - 12/99\nReferenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99\n\"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz.\"\n\nReferenzen:\nProjekt BEA Buchungssystem, NATURAL, Predict-Case, ADABAS, BS2000, 08/96 - 12/99\nReferenz durch Zusatzversorgungskasse Baugewerbe vom 01.12.99\n\"In allen ihm übertragenden Aufgaben hat sich der Consultant mit großem Fleiß und in sehr knapp bemessener Zeit eingearbeitet. Sämtliche zuvor aufgeführten Tätigkeiten erfüllte er stets zu unserer vollsten Zufriedenheit. Der Consultant beherscht die von uns vorgegebene IT-Infrastruktur. Er arbeitet ebenso gut im Team, wie auch allein auf sich gestellt, d.h. sehr selbständig. Seine Führung im Projektteam, gegenüber Fachabteilung-Mitarbeitern, unseren eigenen EDV-Mitarbeitern und seinen Auftraggebern, war stets einwandfrei. Hervorzuheben ist seine besonnene und abgeklärte Wesenart, die sich als außerordentlich professionell, speziell in der produktiven Einführungsphase von BEA ab dem Sommer 1999 herausgestellt hat. Nach endgültig stabilem Produktbetrieb verlässt uns der Consultant im Dezember 1999, da wir aus Kostengründen den Anteil externer Berater und Mitarbeiter stark reduzieren. Für seinen weiteren privaten und beruflichen Lebensweg wünschen wir ihm alles Gute und danken ihm für seinen erfolgreichen Arbeitseinsatz.\"\nAlle Referenzen sind durch GULP bestätigt.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "APPC CPI-C RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CORBA VisiBroker",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CPIC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:06:09.114785",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "TECH: 8→7 bei '1992-1994'",
+        "TECH: 3→2 bei '1990-1991'",
+        "EDV_SEIT: None→1986"
+      ],
+      "coverage_percent": 75.71059431524549,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

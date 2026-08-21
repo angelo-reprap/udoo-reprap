@@ -1,0 +1,902 @@
+{
+  "personal": {
+    "aid": "AID-ok_4.1.4.0",
+    "first_name": "Olaf",
+    "last_name": "Knauer",
+    "birth_year": 1967,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Schweiz, außerhalb D/A/CH im",
+    "availability": "01.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1997,
+    "headline": "Internationales Projektmanagement, mit Erfolgsgarantie",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 178,
+    "certifications": 0,
+    "education": 1,
+    "experience": 19,
+    "industries": 13,
+    "focus_areas": 2,
+    "focus_experience": 68,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diplom-Informatiker",
+      "institution": "",
+      "period": "1994",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Öffentliche Verwaltung",
+    "Banken",
+    "Telekommunikation",
+    "Medizinische Dienste",
+    "Gesundheit",
+    "Behörden",
+    "Verlag",
+    "Medien/Printmedien",
+    "Health Care",
+    "Versicherung",
+    "Finanzen",
+    "Bildung",
+    "Logistik-/Versandhandel"
+  ],
+  "focus_areas": [
+    "1994",
+    "Studium der angewandten Informatik und Mathematik mit Abschluss zum Diplom-Informatiker"
+  ],
+  "focus_experience": [
+    {
+      "name": "Ariba",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ausschreibungsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco",
+      "category": "product_standard"
+    },
+    {
+      "name": "Citrix",
+      "category": "product_standard"
+    },
+    {
+      "name": "Condeco",
+      "category": "product_standard"
+    },
+    {
+      "name": "Div. Audit und Review Methoden",
+      "category": "product_standard"
+    },
+    {
+      "name": "dormakarba",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL®",
+      "category": "product_standard"
+    },
+    {
+      "name": "Marktanalyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Exchange",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netscaler",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "ServiceNow",
+      "category": "product_standard"
+    },
+    {
+      "name": "Solarwind",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vendor Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verhandlung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Werte-Versprechen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Ein zukunftsorientierter Führer",
+      "category": "product_standard"
+    },
+    {
+      "name": "motiviert mit der Zielsetzung optimale",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lösungen zu verwirklichen",
+      "category": "product_standard"
+    },
+    {
+      "name": "die Rentabilität in den Betrieb bringen. Ein",
+      "category": "product_standard"
+    },
+    {
+      "name": "innovationsorientierter Management-Profi mit einer nachgewiesenen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfolgsbilanz bei der Entwicklung wirksamer Prozesse und Verfahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "der",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rationalisierung des Betriebs und der Verbesserung der Umsatzentwicklung.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Führungsmerkmal:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ein Synergist mit starker Weitsicht und Verhandlungsfähigkeiten und",
+      "category": "product_standard"
+    },
+    {
+      "name": "tiefgreifender Erfahrung im Coaching und Mentoring von Mitarbeitern auf",
+      "category": "product_standard"
+    },
+    {
+      "name": "allen Ebenen und Bereichen. Ein ergebnisorientierter Profi angetrieben",
+      "category": "product_standard"
+    },
+    {
+      "name": "durch Liebe zum Detail. Ein vollendeter Technologieführer mit",
+      "category": "product_standard"
+    },
+    {
+      "name": "kompromissloser Integrität.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entscheidende Stärken",
+      "category": "product_standard"
+    },
+    {
+      "name": "Strategic Planning & Implementation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Project Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Change Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Staff/ Client Mentoring & Coaching",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quality Control",
+      "category": "product_standard"
+    },
+    {
+      "name": "Workflow Process Analysis",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Efficiency",
+      "category": "product_standard"
+    },
+    {
+      "name": "Operations & Cost-Benefit Analysis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Systems Development",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risk Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Relationship Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Negotiation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Resource Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Budget Management & Budgetary Compliance",
+      "category": "product_standard"
+    },
+    {
+      "name": "Creative Problem Solving",
+      "category": "product_standard"
+    },
+    {
+      "name": "Team Builder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quality Assurance",
+      "category": "product_standard"
+    },
+    {
+      "name": "Critical Thinking",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "IPMA",
+      "category": "product_standard"
+    },
+    {
+      "name": "PMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "POC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Proof of Concept",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ressourcenmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Servicemanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teams",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managementerfahrung in Unternehmen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "GPM/IPMA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hermes",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prince-2",
+      "category": "product_standard"
+    },
+    {
+      "name": "RfI",
+      "category": "product_standard"
+    },
+    {
+      "name": "RfI RfP",
+      "category": "product_standard"
+    },
+    {
+      "name": "RfP",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "06/2020 - 10/2020",
+      "company": "Olympus",
+      "role": "Projektleiter",
+      "title": "WAN Migration SD-WAN, Hamburg",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "01/2018 - 02/2020",
+      "company": "Panasonic",
+      "role": "Programm Manager",
+      "title": "Senior Programm Manager, Hamburg",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "06/2016 - 10/2020",
+      "company": "Signal Iduna",
+      "role": "Projektleiter",
+      "title": "Multi-Projektleiter Infrastrukturprojekte, Hamburg",
+      "activities": 9,
+      "technologies": 7
+    },
+    {
+      "period": "01/2014 - 07/2016",
+      "company": "Öffentliche Verwaltung",
+      "role": "Programmleitung",
+      "title": "Programm Management Cloud Computing",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2012 - 09/2013",
+      "company": "Elektronik",
+      "role": "Senior Projektleitung",
+      "title": "Internationales VoIP Panasonic Europe",
+      "activities": 9,
+      "technologies": 12
+    },
+    {
+      "period": "03/2012 - 10/2012",
+      "company": "Telekommunikation",
+      "role": "Projektleitung",
+      "title": "Projekt Management Projektleitung Einführung neues Service- Service-",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "01/2012 - 03/2012",
+      "company": "Elektronik",
+      "role": "Projektleitung",
+      "title": "Interim Management Projektleitung VoIP Panasonic Europe",
+      "activities": 6,
+      "technologies": 13
+    },
+    {
+      "period": "07/2010 - 08/2011",
+      "company": "Banken",
+      "role": "Projektleitung; Multiprojekt-Management",
+      "title": "Projektleitung VoIP T-Systems/Deka-Bank",
+      "activities": 8,
+      "technologies": 30
+    },
+    {
+      "period": "07/2009 - 06/2010",
+      "company": "Print, Medien, Verlag, Behörde, Bildung, Finanz/",
+      "role": "Multi-Projektmanagement",
+      "title": "Multi-Projektmanagement: mehrere parallele IT/TK- Infrastruktur-Projekte",
+      "activities": 8,
+      "technologies": 14
+    },
+    {
+      "period": "06/2009 - 06/2010",
+      "company": "Print, Medien, Verlag",
+      "role": "Projektleitung",
+      "title": "Projektleitung VoIP NOZ (Neue Osnabrücker Zeitung)",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "07/2008 - 06/2009",
+      "company": "Gesundheit, Health Care",
+      "role": "Programmleitung",
+      "title": "Programmleitung: Aufbau VoIP; WLAN; WAN; LAN Infrastruktur",
+      "activities": 8,
+      "technologies": 15
+    },
+    {
+      "period": "12/2006 - 06/2007",
+      "company": "Telekommunikation",
+      "role": "Projektleitung",
+      "title": "Projektleitung Next Generation STP bei o2",
+      "activities": 4,
+      "technologies": 12
+    },
+    {
+      "period": "01/2006 - 12/2006",
+      "company": "Telekommunikation",
+      "role": "Projektleitung Infrastruktur und Softwareentwicklung",
+      "title": "Projektleitung IMEI / ADC (automatische Handykonfiguration)",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2005 - 06/2008",
+      "company": "Telekommunikation",
+      "role": "Projektleitung Infrastruktur und Softwareentwicklung",
+      "title": "Projektleitung: europaweit größtes Kunden- Migrationsprojekt",
+      "activities": 9,
+      "technologies": 8
+    },
+    {
+      "period": "04/2005 - 06/2008",
+      "company": "Telekommunikation",
+      "role": "Projektleitung Infrastruktur und Softwareentwicklung",
+      "title": "Projektleitung Neuentwicklung und Migration Multicard bei o2",
+      "activities": 8,
+      "technologies": 13
+    },
+    {
+      "period": "06/2003 - 04/2005",
+      "company": "Telekommunikation",
+      "role": "Managing Consultant/ Systemanalyse",
+      "title": "Managing Consultant Schwachstellenanalyse bei o2",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "06/2000 - 12/2003",
+      "company": "Arcor",
+      "role": "Head of Department",
+      "title": "Operations/Service (1st & 2nd Level Support) & Customer, München",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "01/1999 - 06/2000",
+      "company": "GTS",
+      "role": "Operations Director",
+      "title": "Operations & Großprojekte, Frankfurt am Main",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "06/1997 - 05/1999",
+      "company": "o2",
+      "role": "Head of Department",
+      "title": "Engineering, München",
+      "activities": 9,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Projektleitung VoIP, 07/10 - 08/11\nReferenz durch großen, deutschen IT-Dienstleister vom 29.02.12\n\"Der Consultant war ein aufgeschlossener und sehr versierter Projektleiter, der\naufgrund seiner vielseitigen Berufserfahrung mit seinem Arbeitsbereich bestens\nvertraut war. Trotz stärkster Beanspruchung hat der Consultant die zeitlichen\nVorgaben stets eingehalten. Seine Arbeitsweise erfüllte stets höchste\nAnsprüche. Der Consultant zeichnete sich stets durch eine vorbildliche\nArbeitsauffassung aus und zeigte stets sehr großen persönlichen Einsatz und\neine exzellente Leistungsmotivation. Der Consultant war ein angenehmer und\nfairer Projektleiter. Er hat seine Projekt-Mitarbeiter zu einem effizienten und\nharmonischen Team zusammengeführt, wodurch die Arbeitsproduktivität\ngesteigert\nwerden konnte. Seine Projekt-Mitarbeiter führte der Consultant als fachlich\nkompetentes Vorbild durch seine natürliche Autorität und die Fähigkeit der\nDelegation auch in schwierigen Situationen zu guten Ergebnissen. Er verstand es\nhervorragend, die Mitarbeiter zu überzeugen und ihre Zusammenarbeit aktiv zu\nfördern. Er informierte sein Team stets umfassend. Sein\nKommunikationsverhalten\nwar immer zeitgerecht und offen und für alle Teammitglieder motivierend. Sein\ngewinnendes Auftreten und seine sachlich-konstruktive Gesprächs- und\nVerhandlungsführung ermöglichte es dem Consultant, unser Unternehmen\ngegenüber\ndem Kunden stets vorbildlich zu vertreten. Es ist uns ein besonderes Anliegen,\ndem Consultant für sein äußerst wertvolles Wirken an verantwortlicher Stelle zu\ndanken. Wir wünschen diesem engagierten und tüchtigen Consultant auf seinem\nweiteren Berufs- und Lebensweg alles Gute und weiterhin viel Erfolg.\"\nProjekt Programmleitung: Aufbau VoIP und WLAN Infrastruktur im UKE in\nHamburg,\n07/08 - 06/09\nReferenz durch NextiraOne vom 14.10.11\n\"Der Consultant hat das Programm erfolgreich abgeschlossen. Neben seiner\nfachlichen Qualifikation ist sein besonderes Engagement hervorzuheben. Ein\nbesonderes Lob gilt seinen exzellenten Führungsqualitäten: Selbst in kritischen\nPhasen konnte er sein Team zu Höchstleistungen motivieren. Wir danken dem\nConsultant für die stets produktive und äußerst erfolgreiche Zusammenarbeit und\nmöchten an dieser Stelle den Consultant anderen Projektanbietern\nweiterempfehlen.\"\nProjekt Next Generation HLR, 04/05 - 06/08\nReferenz durch Abteilungsleiter Mobilfunkoperator, Telefonica o2 GmbH, vom\n04.06.08\n\"Der Consultant hat das Projekt in allen Phasen von der Spezifikation über die\nEntwicklungs- und Testphase bis hin zur Inbetriebnahme begleitet. Anschließend\nhat er dafür gesorgt, dass einer der europaweit größten Kundenmigration in der\nTelekommunikation ohne Probleme durchgeführt wurde. Neben seiner fachlichen\nQualifikation ist sein besonderes Engagement, das weit über die normale\nArbeitszeit hinaus ging, hervorzuheben. Seine Aufgaben erledigte er stets\nselbstständig mit großer Sorgfalt und Genauigkeit. Gegenüber unseren internen\nund externen",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Appel",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Intel",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Apple",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Derivate",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Servervirtualisiserung VMWare",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco",
+      "category_name": "Hardware",
+      "weight": 0.95
+    },
+    {
+      "name": "AD",
+      "category_name": "Identity Management",
+      "weight": 0.38
+    },
+    {
+      "name": "ServiceNow",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "SAP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.75
+    },
+    {
+      "name": "Teams",
+      "category_name": "Sonstige Skills",
+      "weight": 0.75
+    },
+    {
+      "name": "Microsoft Exchange",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.75
+    },
+    {
+      "name": "Citrix",
+      "category_name": "Virtualisierung",
+      "weight": 0.75
+    },
+    {
+      "name": "Netscaler",
+      "category_name": "Sonstige Skills",
+      "weight": 0.75
+    },
+    {
+      "name": "HP-Server",
+      "category_name": "Hardware",
+      "weight": 0.7
+    },
+    {
+      "name": "VG224",
+      "category_name": "Sonstige Skills",
+      "weight": 0.78
+    },
+    {
+      "name": "Active Directory",
+      "category_name": "Identity Management",
+      "weight": 0.7
+    },
+    {
+      "name": "LDAP",
+      "category_name": "Identity Management",
+      "weight": 0.7
+    },
+    {
+      "name": "IPCC",
+      "category_name": "Kommunikationstools",
+      "weight": 0.6
+    },
+    {
+      "name": "Siemens Hipath",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.6
+    },
+    {
+      "name": "QSIG",
+      "category_name": "Datenkommunikation",
+      "weight": 0.6
+    },
+    {
+      "name": "Sharepoint",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "Firewall)",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "PMI",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.6
+    },
+    {
+      "name": "CallManager",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Cisco 6500",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "Cisco 2801",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Cisco 3750",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Cisco 3560",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.6
+    },
+    {
+      "name": "Cisco 2821",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "HPServer",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "HP OpenView",
+      "category_name": "Monitoring Tools",
+      "weight": 0.95
+    },
+    {
+      "name": "Cisco IPPhone",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Cycos-ACD",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "UMS",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.47
+    },
+    {
+      "name": "Andtek",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Aurenz",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "ASC",
+      "category_name": "Methoden",
+      "weight": 0.47
+    },
+    {
+      "name": "Microsoft-Cluster",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Rechenzentrum",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Cisco Unified",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Cisco Enterprise IPCC",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "XCAPI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Firewallprogrammierung Cisco ASA 5xxx",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "WAN",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "CallManager Cisco",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "MyIC",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "MyTeamwork",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "UC",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "LotusNotes",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "GroupWise",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.47
+    },
+    {
+      "name": "Sametime",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.47
+    },
+    {
+      "name": "Ferrari-Fax",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Nokia",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "IPhone",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "Cisco 6509",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Cisco 6504",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "MPLS-Netz",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "GPM",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.47
+    },
+    {
+      "name": "IPMA",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.47
+    },
+    {
+      "name": "Planung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    }
+  ]
+}

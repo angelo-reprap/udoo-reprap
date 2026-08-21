@@ -1,0 +1,1067 @@
+{
+  "metadata": {
+    "aid": "AID-hr_3.1.4.0",
+    "version": "3.1.4.0",
+    "consultant_dir": "rauch_holger",
+    "first_name": "Holger",
+    "last_name": "Rauch",
+    "headline": "Senior Berater / technical lead TCP/IP Networking, Linux/Unix, open source, JEE Application Server, Continuous Integration (CI)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:53:38.986808"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Holger",
+      "last_name": "Rauch",
+      "birth_year": 1973,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Fließend und verhandlungssicher in Wort und",
+          "level": ""
+        }
+      ],
+      "availability": "03.06.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "910xx Erlangen, Deutschland",
+      "location": "910xx Erlangen, Deutschland",
+      "headline": "Senior Berater / technical lead TCP/IP Networking, Linux/Unix, open source, JEE Application Server, Continuous Integration (CI)",
+      "edv_experience_since": 1998
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "ArangoDB NoSQL",
+        "Cassandra NoSQL",
+        "Elasticsearch NoSQL",
+        "Firebird Relational",
+        "InterBase Relational",
+        "MongoDB NoSQL",
+        "MySQL Relational",
+        "Oracle Relational",
+        "PostgreSQL Relational",
+        "Redis NoSQL",
+        "Tamino XML Server Relational"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Fujitsu Siemens Prime- Power",
+        "HP ProCurve switches",
+        "ProLiant DL 100er- und 300er-",
+        "Serie",
+        "Storage- Works 1/8 G2 autoloader",
+        "IBM RS/6000",
+        "Standard-PCs",
+        "Sun SPARC"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "AFS OpenAFS; dies ist eigentlich kein Betriebs- sondern ein verteiltes",
+        "Dateisystem",
+        "AIX",
+        "FreeBSD",
+        "HP-UX Grundkenntnisse bis gute Kenntnisse",
+        "je nach Schwerpunkt",
+        "benötigt aber",
+        "Auffrischung",
+        "Linux auch embedded; primär Debian",
+        "Mac OS in bezug auf Mac OS X gute Kenntnisse",
+        "OS/2 Grundkenntnisse",
+        "SUN OS",
+        "Gute Kenntnisse",
+        "benötigt aber Auffrischung",
+        "Solaris",
+        "Unix Linux und FreeBSD: sehr gute Kenntnisse",
+        "AIX gute Kenntnisse"
+      ],
+      "programming_languages": [
+        "Compiler",
+        "C/C++ (GNU)",
+        "Go",
+        "Java",
+        "Swift",
+        "Rust",
+        "Transpiler",
+        "Typescript",
+        "Interpreter",
+        "Perl",
+        "shell (bash",
+        "zsh)",
+        "Python",
+        "Ruby",
+        "SQL",
+        "Lua",
+        "NodeJS",
+        "WWW",
+        "HTML",
+        "CSS/LESS/SASS",
+        "XML",
+        "XSLT",
+        "DTD",
+        "W3C Schema",
+        "Relax NG Schema"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "Allgemein: Unix command line tools",
+        "Build: make",
+        "Ant",
+        "Maven",
+        "Gradle",
+        "Grunt für Java",
+        "Gulp",
+        "Brunch",
+        "Broccoli",
+        "für JavaScript",
+        "Memory debugging: valgrind",
+        "mpatrol",
+        "Insure++",
+        "Purify",
+        "Continuous Integration: CruiseControl",
+        "Hudson",
+        "Jenkins",
+        "zentralisiert: CVS",
+        "Subversion (Zugriff über plain svn und Apache)",
+        "verteilt: Mercurial",
+        "Git",
+        "Sonstige: RCS",
+        "Storage Management",
+        "Konfiguration von NAS (inkl. SW RAID bzw. RAID controller)",
+        "div. Logical-Volume-Manager-Implementierungen (AIX und Linux LVM",
+        "Veritas",
+        "ZFS)",
+        "Dokumentationswerkzeuge und -Formate",
+        "Markup-basiert: LATEX (LATEX 2e",
+        "LuaLATEX",
+        "XELATEX)",
+        "PlantUML",
+        "DocBook",
+        "Asciidoc",
+        "markdown",
+        "Swagger",
+        "DTP: FrameMaker",
+        "Interleaf",
+        "Office: StarOffice/OpenOffice",
+        "Protokolle und TCP/IP-Anwendungen",
+        "TCP/IP stack",
+        "firewalls (IPFW",
+        "PF)",
+        "HTTP(S) und HTTP/2 (Apache",
+        "Xitami",
+        "Nginx)",
+        "SMTP (Postfix)",
+        "POP3 (qpopper)",
+        "IMAP (uw-imap)",
+        "FTP (ProFTPD)",
+        "NFSv3 und v4 unter Linux",
+        "CIFS (Samba)",
+        "OpenAFS",
+        "Ceph",
+        "NTP",
+        "SSH",
+        "MIT Kerberos",
+        "OpenLDAP",
+        "NodeJS-Technologien",
+        "Statische Code-Analyse: ESLint",
+        "TSLint",
+        "Codelyzer",
+        "Dokumentation: JSDoc",
+        "Build",
+        "Webpack",
+        "Grunt",
+        "Test: Karma",
+        "Protractor",
+        "Jasmine",
+        "GUI: AngularJS",
+        "Agular.io",
+        "Groovy-Technologien",
+        "Statische Code-Analyse: CodeNArc",
+        "Test: Geb und Spock",
+        "Java-Technologien",
+        "JEE: div. Technologien und frameworks (u. a. JPA",
+        "Servlets)",
+        "JEE",
+        "application server",
+        "(BEA WebLogic",
+        "JBoss",
+        "Wildfly",
+        "Glassfish/Payara)",
+        "XML: XML parser (Xerces)",
+        "XSLT processors (Saxon",
+        "Xalan)",
+        "GUI: Swing",
+        "SWT",
+        "Testing: JUnit",
+        "Mockito",
+        "Spock",
+        "Sonstiges: Attribute oriented programming (XDoclet)",
+        "web services",
+        "Spring",
+        "Boot",
+        "JAXRS (Jersey)",
+        "Serialisierung und Deserialisierung und data type",
+        "mapping/data binding mit Jackson",
+        "Quarkus microservice framework",
+        "Single-Sign-On-Technologien",
+        "MIT Kerberos in Verbindung mit OpenLDAP",
+        "Backup",
+        "tar",
+        "Amanda",
+        "rsync",
+        "Unison",
+        "Bacula",
+        "Icinga/Nagios",
+        "Sonstige Kenntnisse",
+        "Planung und Installation verschiedener Hardware-Konfigurationen im PCund",
+        "Sun-Umfeld (workstations",
+        "server",
+        "inkl. storage management)",
+        "Installation und Konfiguration von Rechnern für Java-Anwendungen (Apache-",
+        "Tomcat-Integration einschließlich virtual hosts und SSL-Verschlüsselung",
+        "SSH-Zugang",
+        "Paketfilter",
+        "RDBMS)",
+        "JEE application server Installation und Konfiguration (BEA/Oracle",
+        "WebLogic im Cluster-Betrieb und JBoss)",
+        "Installation und Konfiguration verschiedener TCP/IP-Awendungen (Samba",
+        "NFSv3 und v4",
+        "FTP",
+        "DHCP",
+        "DNS (BIND)",
+        "HTTP/HTTPS (Apache",
+        "Xitami)",
+        "IMAP (imap-uw)",
+        "LDAP",
+        "(OpenLDAP)",
+        "backup (Amanda",
+        "tar))",
+        "Diverse open source libraries und tools",
+        "ITIL-Grundkenntnisse",
+        "Berufserfahrung",
+        "02/201208/2012",
+        "Technischer Administrator (laut Anstellungsvertrag)",
+        "CLEAR IT GmbH",
+        "Erlangen",
+        "Build & Deployment- sowie IT-Infrastruktur-Manager",
+        "08/200805/2011",
+        "Software-Entwickler (laut Anstellungsvertrag)",
+        "EMPIC GmbH",
+        "RZ- und technischer IT-Leiter",
+        "IT-Sicherheitsbeauftragter",
+        "System- und",
+        "Netzwerk-Administrator",
+        "Mentor",
+        "fachlich-technischer Vorgesetzter",
+        "technical",
+        "consultant im internationalen Umfeld",
+        "build und relase manager",
+        "technischer",
+        "Redakteur",
+        "08/200107/2008",
+        "HEITEC AG",
+        "Projekt-Leiter",
+        "technical consultant im internationalen Umfeld",
+        "Software-Entwickler",
+        "technischer Redakteur"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "03/2019 - 12/2019",
+        "title": "pEpMQPlugin/pEpConnector",
+        "activities": [
+          "Aufgaben:",
+          "Verschlüsselung von SWIFT Nachrichten in Java auf Basis von IBM MQ message queues und Quarkus framework durch Integration der pEp library",
+          "(Pretty Easy Privacy) library (genauere Ausführungen wg. NDA nicht möglich)",
+          "Projektsprache:",
+          "Englisch",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2018 - 04/2019",
+        "company": "Bundesagentur für Arbeit",
+        "title": "Architektur-Beratung für das Projekt WESPE3, Nürnberg",
+        "role": "Senior-Architekt für Identity Management",
+        "activities": [
+          "Aufgaben:",
+          "Ausarbeitung von Ausschreibungs-Kriterien für den Vergleich von Identity-Management-Lösungen aus dem Open-Source Umfeld; Evaluierung dieser Lösungen und Integration in die bestehende Infrastruktur- und Architektur- Landschaft insbesondere auch unter Berücksichtigung von Sicherheits- Aspekten; Ziel: eine zentrale Lösung für alle Fachverfahren zur Ausstellung von JSON Web Tokens",
+          "(JWTs) unter Einbeziehung von SPNEGO AuthN, div. Datenbanken für AuthZ sowie der WESPE (Web Service Policy Enforcement) private custom claims und OAuth2.0/ OpenID Connect als zentrale Schnittstelle:",
+          "Evaluierung von WSO2 Identity Server, Keycloak, Apereo CAS",
+          "Test div. OAuth2.0 grant types auf Eignung (implicit grant, authorization code grant, SAML2 bearer grant)",
+          "Konfiguration von Kerberos im Java-Umfeld (GSSAPI), private custom claims, Datenbank-Anbindungen",
+          "Zusammenarbeit mit der zentralen Identity-Management Abteilung"
+        ]
+      },
+      {
+        "period": "02/2018 - 04/2018",
+        "title": "Arbeits-Ausfall infolge Unfalls",
+        "activities": [
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "10/2017 - 02/2018",
+        "company": "Marktforschung",
+        "title": "Update von AngularJS-Anwendungen und Weiterentwicklung",
+        "role": "Berater & Entwickler",
+        "activities": [
+          "Vereinfachung des JavaScript-Build-Anteils innerhalb des Gradle plugin",
+          "Aufgaben:",
+          "Update von ca. 2.5 Jahre alten AngularJS 1.4/1.5-Anwendungen auf aktuelle",
+          "Technologien im JavaScript- bzw. NodeJS-Umfeld insbesondere auch unter",
+          "Berücksichtigung des tooling nach SCRUM-Methodik:",
+          "Vorschläge und PoCs bzgl. Einsatz aktueller Technologien, wie z. B.",
+          "Ablösung von Grunt durch Webpack, Verwendung/Aktualisierung von tools zur statischen Code-Analyse, konkret ESLint/TSLint/Codelyzer in Verbindung mit NSP (Node Security Platform), Einsatz neuer SonarQube plugins zur Integration dieser tools, Implementierung von E2E-Tests auf Basis von Protractor bzw. alternativ Geb und Spock aus dem Groovy-Ökosystem, Ablösung von ES5 durch Typescript, Migration von Angular 1.5 (AngularJS) nach Angular 5 (angular.io)"
+        ]
+      },
+      {
+        "period": "06/2017 - 12/2017",
+        "company": "Bank",
+        "title": "Automatisierung des Prozesses Anlage von Kafka Topics",
+        "role": "Berater, Architekt & Entwickler für Automatisierung sowie",
+        "activities": [
+          "DevOps",
+          "Aufgaben:",
+          "Automatisierung der Anlage von Kafka topics über Service Now und Jenkins auf Basis der Verwendung von REST APIs in Verbindung mit Jenkins jobs und Ansible playbooks:",
+          "Erstellen von Jenkins pipeline (Groovy) scripts",
+          "Erstellen von Schnittstellen-Dokumentation, Berechtigungs Konzept,",
+          "Datenfluß-Diagramm,Dokumentation der Jenkins pipeline (Groovy) scripts",
+          "Koordination mit den Verantwortlichen für Service Now bzgl. REST API design und Tests",
+          "Projektsprache:"
+        ]
+      },
+      {
+        "period": "11/2016 - 06/2017",
+        "company": "FNT GmbH, Ellwangen",
+        "title": "application containerization und Cloud-Architektur von",
+        "role": "Berater und Sub team lead für cloud infrastructure & DevOps",
+        "technologies": [
+          "Chef",
+          "Ansible",
+          "Saltstack"
+        ],
+        "activities": [
+          "Experte für CI/CD, application containerization und Cloud-Architektur von microservices. Einführung von CI/CD, application containerization auf Basis von Docker und orchestration mit Kubernetes mit Ceph als verteiltem Dateisystem für das Projekt Command NXG nach SCRUM-Methodik:",
+          "Aufgaben:",
+          "Beratung/Unterstützung beim Aufbau von build und delivery pipelines mit Jenkins job DSL und Groovy",
+          "Einführung und Strukturierung der application containerization mit Docker sowie der orchestration mit Kubernetes",
+          "Einführung von Ceph als verteiltes Dateisystem",
+          "Einführung von OpenStack als cloud platform",
+          "Beratung bei der Auswahl der build tools (Gradle zugunsten von Maven für microservices)"
+        ]
+      },
+      {
+        "period": "05/2015 - 11/2016",
+        "company": "Bundesagentur für Arbeit, Nürnberg",
+        "title": "Migration VAM- auf BA-Standard-Architektur",
+        "role": "CI- und Migrations-Experte",
+        "activities": [
+          "Aufgaben:",
+          "CI und CD für das Projekt APOK (Anwendungs-Portal Online-Kunde), Migration der VAMauf die BA-Standard-Architektur sowie von Continuous Integration und Continuous Delivery für das Projekt APOK:",
+          "Durchführung von Lifecycle-Maßnahmen für WLS und WLS domains, JDK, Maven",
+          "(hierbei auch Berücksichtigung der geänderten Architektur- Anforderungen)",
+          "Integration der neuen Anwendungs-Architektur auf Basis von Node- JS",
+          "(Frontend-Bereich) sowie auf Basis von Microservices mit Docker- Containern (Backend) (abgedeckte Bereiche im front end: NPM (Node Package",
+          "Manager), Grunt (build system), Karma (Unit tests), Protractor (E2E",
+          "Tests); im back end: Spring Boot, Microservices auf Basis von Jersey,"
+        ]
+      },
+      {
+        "period": "07/2013 - 04/2015",
+        "company": "Bundesagentur für Arbeit, Nürnberg",
+        "title": "JEE-Migrations-Expertise für WebLogic",
+        "role": "Berater für DevOps",
+        "technologies": [
+          "Applikations-Betrieb",
+          "Linux",
+          "Jenkins",
+          "WLS",
+          "web services"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "JEE-Migrations-Experte für das Verfahren VAM (Virtueller ArbeitsMarkt; > 600",
+          "Service-Center; ca. 100 000 Benutzer; ca. 13 Mio Seiten-Zugriffe/Tag) bei der Bundesagentur für Arbeit im IT-Systemhaus:",
+          "Koordination mit agil arbeitenden Entwickler-/Architekten Teams (ca. 100",
+          "Entwickler) und technischen Betriebs Einheiten (abgedeckte Bereiche: JEE, security, TCP/IP networking) in bezug auf Weiterentwicklung sowie Fehler- Eingrenzung und -Behebung",
+          "Unterstützung der Betriebseinheiten bei der Produktiv Setzung der releases Coaching von neuen Projekt-Mitarbeitern im Build/Deployment team",
+          "Unterstützung bei der Ausarbeitung des Migrations-Planes sowie eigentständige Durchführung der Migration für die WLS-Migration von 10.3.0 auf 10.3.6 (Randbedingungen für das Produktiv-System: 400 application server instances in 7 clusters, hierbei jeweils komponenten- spezifische WLS domains für 4 VAM-Komponenten verteilt auf 30 hosts; speziell für die Datenbanken: 9,5 TB Daten in 3 DBs, 60 000 SQL-Abfr./s.",
+          "(peak Std.-Mittel), ca. 2,5 Mrd. Datensätze (jeweils ca.-Angaben) ); DB- und WLS-Infrastruktur verteilt auf 2 Rechenzentren"
+        ]
+      },
+      {
+        "period": "12/2012 - 07/2013",
+        "company": "Intel Mobile Communications, München",
+        "title": "Continuous Integration (CI)-Expertise für Git/Gerrit/Jenkins",
+        "role": "CI-Experte, Entwickler & Berater für DevOps",
+        "activities": [
+          "Aufgaben:",
+          "Continuous Integration Experte",
+          "Englischsprachige Anleitung einer internationalen Support-Mannschaft für den technischen support im Git/Gerrit/Jenkins-Umfeld",
+          "Durchführung von englischsprachigen workshops am Rechner",
+          "Aufsetzen von Produktiv-Installationen und Einweisung der Mitarbeiter in diese Installationen",
+          "Design und Implementierung eines web frontend als CGI script in Python mit lxml library (output: XHTML web page), welches die entsprechende Eingabe-Datei für vorgenanntes bash script erzeugt",
+          "Vereinheitlichung der Git/Gerrit/Jenkins-Infrastruktur mit Tomcat als application server und Erstellung der zugehörigen Dokumentation als Wiki"
+        ]
+      },
+      {
+        "period": "02/2012 - 08/2012",
+        "company": "CLEAR IT GmbH",
+        "title": "Build & Deployment-/IT-Infrastruktur-Management, Erlangen",
+        "role": "Build & Deployment- sowie IT-Infrastruktur-Manager",
+        "activities": [
+          "Aufgaben:",
+          "Build & Deployment-/IT-Infrastruktur-Management in einem Projekt für einen Großkunden im öffentlichen Sektor:",
+          "Koordination mit den technischen Einheiten bzgl. OS- und sonstiger",
+          "SWAusstattung der Rechner (u. a. Oracle middleware stack)",
+          "Erstellung von praxisbezogenen bzw. -nahen Konzepten, wie u. a. Ersatz von proprietären Lösungen wie Oracle ojdeploy bzw. JDeveloper für continuous integration builds von ADF-Anwendungen durch Ant und Groovy scripts",
+          "Pflege/Erweiterung der Ant build scripts",
+          "Evaluation neuer Hudson-Versionen sowie Erweiterung bestehender Hudson-Konfigurationen (u. a. Einführung parametrisierter jobs für Auslieferungs-Mails unter Verwendung der Ant tasks für die Java mail API)",
+          "Automatisierung wiederkehrender Aufgaben mittels WLST/Jython, Groovy und shell scripts"
+        ]
+      },
+      {
+        "period": "11/2011 - 02/2012",
+        "title": "arbeitssuchend",
+        "activities": [
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "07/2011 - 10/2011",
+        "title": "Ambulante OPs inkl. Reha-Maßnahmen bzw. Nachuntersuchungen",
+        "activities": [
+          "===================================================== ==========================",
+          "Nachuntersuchungen"
+        ]
+      },
+      {
+        "period": "02/2009 - 05/2011",
+        "company": "Luftfahrt",
+        "title": "RZ- und IT-Leitung inkl. Aufbau eines Firmennetzwerks",
+        "role": "diverse",
+        "technologies": [
+          "(Debian Linux",
+          "KVM"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Konzeption, Implementierung und Dokumentation eines Firmen-Netzwerks inkl.",
+          "Umstellung und Beschaffung:",
+          "NAS auf Basis von: QNAP hardware mit Debian Linux (inkl. SW RAID und LVM), Samba, OpenAFS, NFSv4, rsync, SSH/SCP, FTP, MIT Kerberos, OpenLDAP,",
+          "Bacula",
+          "Software update server auf FreeBSD-Basis für FreeBSD und Debian-basierte",
+          "Systeme",
+          "Firewalls auf Basis von: FreeBSD und IPFW bzw. PF"
+        ]
+      },
+      {
+        "period": "04/2008 - 10/2008",
+        "company": "Informationstechnologie",
+        "title": "Administration zentrale FreeBSD Server",
+        "role": "Systemadministrator und IT-Sicherheitsbeauftragter fur",
+        "technologies": [
+          "HTTP (Xitami",
+          "Apache)",
+          "firewall (IPFW)",
+          "VPN (KAME",
+          "Racoon",
+          "OpenVPN)",
+          "DNS",
+          "Linux und",
+          "Oracle"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Administration der zentralen FreeBSD server des Netzwerks der HEITEC AG (SMTP",
+          "(Postfix), IMAP (imap-uw), POP3 (qpopper), LDAP (OpenLDAP), HTTP proxy (Squid),",
+          "(BIND), FTP, CVS, SVN, backup (Amanda) )",
+          "Administration der FreeBSD server",
+          "Dokumentation der Netzwerk-Struktur Projektsprache:",
+          "Deutsch"
+        ]
+      },
+      {
+        "period": "09/2004 - 05/2011",
+        "company": "Luftfahrt",
+        "title": "EMPIC-EAP",
+        "role": "Technischer release manager, Administrator und Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Eine Lösung für die nationale Luftfahrtbehörde des jeweiligen Landes, mit der die amtsinternen Abläufe vollständig in elektronischer Form abgewickelt werden können.",
+          "Die Anwendung besteht server-seitig aus 50 JEE-Komponenten (entity beans, session beans, servlets).",
+          "Administration der BEA WebLogic- und JBoss-Konfigurationen und der zugehörigen Rechner-Systeme",
+          "Implementierung und Pflege des modular aufgebauten Build-Systems auf Ant- Basis",
+          "Verantwortlich für das technische release management",
+          "Aufsetzen und Pflege von CruiseControl für continuous integration builds",
+          "Test und Pflege von Hudson (bzw. Jenkins) für continuous integration builds",
+          "XDoclet-Anpassungen am source code"
+        ]
+      },
+      {
+        "period": "07/2003 - 10/2003",
+        "company": "Informationstechnologie",
+        "title": "Kundenspezifische Linux-Distribution",
+        "role": "diverse",
+        "activities": [
+          "Aufgaben:",
+          "Für die Administration einer Anwendung zur Steuerung von Kraftwerken war eine speziell angepaßte Linux-Distribution auf Basis von SuSE 8.2 zu erstellen.",
+          "Anforderungen waren u. a.: keine Multimedia-Programme",
+          "KDE als desktop environment",
+          "Berücksichtigung spezieller kernel patches automatische Installation (möglichst wenig Interaktion des Benutzers) Funktion im Projekt",
+          "Projektleiter und Entwickler:",
+          "Direkte Verantwortung der Ergebnisse gegenüber dem Kunden Durchführung und Ausarbeitung von Tests (shell scripts)",
+          "Dokumentation des Entwicklungs- und Test-Prozesses"
+        ]
+      },
+      {
+        "period": "10/2002 - 08/2004",
+        "company": "Informationstechnologie",
+        "title": "DMS-Portal LHM",
+        "role": "diverse",
+        "activities": [
+          "Aufgaben:",
+          "Es handelt sich um eine Portal-Lösung für die optoelektronische Archivierung von Dokumenten der verschiedenen Referate bei der Landeshauptstadt München.",
+          "Hierbei liefert die HEITEC AG das Backend-System in Form einer Server- Komponente zur Ansteuerung der Datenbank Tamino XML Server. Ziel dieser",
+          "Anwendung ist es, daß die einzelnen Referate vollständig elektronisch arbeiten können. Zu diesem Zweck gibt es ein Scan-Modul, einen Mail-Importer sowie einen DAT-Importer, der automatisch entsprechend aufbereitete COLDDaten in das Archiv importiert. Zur Kommunikation zwischen dem Portal und dem Backend-System dient XML. Die Authentifizierung der Benutzer erfolgt über",
+          "Funktion im Projekt",
+          "Software-Entwickler und Administrator:",
+          "Entwurf und Implementierung einer Komponente zur Ansteuerung des Tamino XML Server mittels HTTP in der Programmiersprache C auf Basis verschiedener open source libs (libxml2, libxslt, libcurl, glib, libstrfunc). Die von der Datenbank gelieferten Ergebnisse werden mittels"
+        ]
+      },
+      {
+        "period": "08/2001 - 10/2001",
+        "company": "Luftfahrt",
+        "title": "Single-Source-Publishing-Lösung",
+        "activities": [
+          "Aufgaben:",
+          "Im Rahmen des Projekts EMPIC-FCL3 R wurde firmenintern zwecks der Erzeugung mehrerer Ziel-Formate sowie der Versions-Kontrolle des Quelltextes eine Single-Source-Publishing-Lösung benötigt. Diese Lösung wurde auf Basis der Doc Book XML DTD sowie den DSSSL und XSL stylesheets entworfen und implementiert. Als DSSSL processor kamen Jade und Openjade, als XSL processor",
+          "Saxon zum Einsatz.",
+          "Funktion im Projekt",
+          "Projektleiter und Administrator:",
+          "Entwurf der Lösung Implementierung der Lösung (Installation der benötigten Komponenten,",
+          "Erstellen von shell scripts)",
+          "Dokumentation der Lösung Erstellen von templates für verschiedener Arten von technischer"
+        ]
+      },
+      {
+        "period": "08/2000 - 09/2002",
+        "company": "Luftfahrt",
+        "title": "EMPIC-FCL3",
+        "activities": [
+          "Aufgaben:",
+          "Software zur flugmedizinischen Tauglichkeitsprüfung von Piloten nach einem internationalen Standard der Joint Aviation Authorities (JAA). Dieses Online- Formular-System vereinfacht und vereinheitlicht den Ablauf der Tauglichkeitsprüfung von Piloten zwischen den untersuchenden Ärzten und der nationalen Behörde.",
+          "Funktion im Projekt",
+          "Software-Entwickler, Administrator und technischer Redakteur:",
+          "Entwurf und Implementierung einer Patienten-Browser-Anwendung (Clientund",
+          "Server-Komponenten mit UML, Java, Swing, JDBC und servlets",
+          "Pflege und Erweiterung des Ant build file",
+          "Pflege von JSPs"
+        ]
+      },
+      {
+        "period": "11/1999 - 07/2000",
+        "company": "Informationstechnologie",
+        "title": "Netzwerk-Administration",
+        "activities": [
+          "Aufgaben:",
+          "Administration des heterogenen Abteilungs-Netzwerks der HEITEC AG (fünf Linux bzw.",
+          "Solaris server, 20 clients). Bereitgestellte Dienste: WWW (Apache), SSH,",
+          "Samba, DNS, DHCP, dynamic DNS updates, SMTP",
+          "Funktion im Projekt",
+          "Administration, also Installation und Konfiguration der Rechner sowie Überwachung der genannten Dienste",
+          "Projektsprache",
+          "Deutsch",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/1999 - 07/2000",
+        "company": "Informationstechnologie",
+        "title": "SARA+med®",
+        "activities": [
+          "Aufgaben:",
+          "Client-/Server-System unter Unix zur Realisierung von digitalen Patientenakten.",
+          "Das System gestattet es, die Daten von Patienten und ihrer Krankengeschichte einschließlich eingescannter Dokumente (Befunde, Röntgenbilder, etc.) zu verwalten und innerhalb eines Klinikums allen Fachabteilungen gemäß ihren",
+          "Zugriffsberechtigungen bereitzustellen.",
+          "Funktion im Projekt",
+          "Software-Entwickler und Systemadministrator:",
+          "Einpflegen von kundenspezifischen Anpassungen in C",
+          "Support für SARA+med®"
+        ]
+      },
+      {
+        "period": "04/1998 - 08/1998",
+        "company": "Informationstechnologie",
+        "title": "Schulungsunterlagen",
+        "activities": [
+          "Aufgaben:",
+          "Für die IBM Deutschland Informationssysteme GmbH, Bereich UNIX/AIX wurden für den Kurs AIX TCP/IP Connectivity zwei Kurseinheiten entworfen und erstellt, davon eine zum Thema Subnetting und eine weitere zur IBM Network Station. Die Kurseinheiten sind seitdem fester Bestandteil dieses Kurses. Desweiteren wurden",
+          "Übungen überarbeitet und ergänzt.",
+          "Funktion im Projekt",
+          "Technischer Redakteur:",
+          "Entwurf und Ausarbeitung der Kurseinheiten mit dem professionellen Textverarbeitungssystem Interleaf",
+          "Projektsprache"
+        ]
+      }
+    ],
+    "industries": [
+      "Informationstechnologie",
+      "Luft- und Raumfahrt",
+      "Öffentlicher Dienst",
+      "Bin jedoch auch offen für andere/weitere Branchen"
+    ],
+    "focus_areas": [
+      "Senior Berater / technical lead TCP/IP Networking Linux/Unix open source JEE Application Server Continuous Integration (CI) Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Engineering / IT-nahe Ingenieurdienstleistungen Wochenend-Pendeln ermöglicht (einfache Strecke in max. 4,5 Std. zu bewältigen) sowie 70 000 EUR brutto/Jahr.",
+      "09/1999 - 07/2001: Fachinformatiker Fachrichtung Anwendungsentwicklung Abschluss: Software-Entwickler, System- und Netzwerk-Administrator Institution: HEITEC AG, Erlangen, Note: befriedigend.",
+      "Entwurf und Ausarbeitung von zwei Kurseinheiten, Erwerb der Zertifikate für den IBM Certified Advanced Technical Expert RS/6000 AIX V4.2 08/199601/1997: 1. Praxissemester Siemens AG, Bereich Medizinische Technik, Erlangen.",
+      "Entwicklung einer Test-Software für Computer-Tomographen und Pflege von Test-Spezifikationen Weiterbildung",
+      "ISTQB Certified Tester Foundation Level",
+      "IBM Certified Advanced Technical Expert RS/6000 AIX V4.2 Besuchte Kurse",
+      "QFTest Workshop",
+      "BEA Weblogic 9/10 System Administration",
+      "Embedded Linux und Treiber",
+      "TREND Workshop",
+      "J2EE und EJB Konzepte",
+      "XML-Kompakt (Teil I und II)",
+      "Objektorientierte Analyse und Design mit der UML",
+      "AIX Systemadministration für Fortgeschrittene",
+      "Zertifizierungs-Workshop für AIX-Fachzertifikate",
+      "JAVA Programmierung unter AIX",
+      "AIX TCP/IP Connectivity",
+      "AIX Systemadministration I und II (mit Praktikum)",
+      "Senior Berater / technical lead TCP/IP Networking",
+      "Linux/Unix",
+      "open source",
+      "JEE Application Server",
+      "Continuous Integration (CI)",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Engineering / IT-nahe Ingenieurdienstleistungen"
+    ],
+    "focus_experience": [
+      {
+        "name": "JBoss Application Server",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Together",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Virtual Box",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Architektur",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Microservices",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "clean code",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "GoF patterns",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Identity Management",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "WSO2 Identity Server",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Keycloak",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Apereo CAS",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "OpenID Connect",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "OAuth2.0",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Methodik",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "SCRUM",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Kanban",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Virtualisierung",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "OpenVZ",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "QEMU/KVM",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "VMWare Workstation",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "VirtualBox",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "* containerization (Docker",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "rkt)",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Cloud-Technologie-Stacks",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "* Private cloud infrastructure basierend auf OpenStack",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "OpenShift",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Mesos/",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Marathon/DC-OS",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Kubernetes",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Verteilte Datei-Systeme",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "OpenAFS",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Ceph",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Editoren/IDEs",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "vim",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "emacs",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "IntelliJ",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "RZ- und technische IT-Leitung inkl. Beschaffung und sizing",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "IT-Architekt",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Mentoring",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Fachlich-technische Personalführung",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Projektplanung und -leitung",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Technical consultant",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Technischer Redakteur für single source publishing toolchain",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "* Erstellung von Konzepten",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Spezifikationen",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Dokumentationen",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Schulungsunterlagen",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "* System- und Netzwerk-Konzeption",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "-Implementation",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "-Administration und -",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Dokumentation",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "* Weiterbildung von Mitarbeitern im Bereich der FreeBSD-",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Linux- und",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Oracle- Administration",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Auswahl von Open-Source-Biblitheken und -Werkzeugen",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Software-Entwicklung (Entwurf und Implementierung von mehrschichtigen",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Anwendungen auf Basis von UML mit CASE tools)",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Technisches release management",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Kundenbetreuung",
+        "category": "product_standard",
+        "sort_order": 60
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "ATM Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet Gute bis sehr gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232 Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP Gute Kenntnisse (in Verbindung mit Postfix)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP Gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UML",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:53:38.986819",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '04/2018 - 04/2019'",
+        "EDV_SEIT: None→1998"
+      ],
+      "coverage_percent": 93.92605633802818,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

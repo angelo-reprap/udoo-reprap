@@ -1,0 +1,988 @@
+{
+  "metadata": {
+    "aid": "AID-uw_5.4.4.0",
+    "version": "5.4.4.0",
+    "consultant_dir": "watermann_ulrich",
+    "first_name": "Ulrich",
+    "last_name": "Watermann",
+    "headline": "Senior Agile Coach | Senior Scrum Master | Change Management | Systemischer Coach | agile Organisationsentwicklung | Führungskräfte- & Teamentwicklung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:06:54.455797"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Ulrich",
+      "last_name": "Watermann",
+      "birth_year": 1969,
+      "availability": "16.11.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+      "wohnort": "514xx Overath, Deutschland",
+      "location": "514xx Overath, Deutschland",
+      "headline": "Senior Agile Coach | Senior Scrum Master | Change Management | Systemischer Coach | agile Organisationsentwicklung | Führungskräfte- & Teamentwicklung",
+      "edv_experience_since": 2008
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "professional scrum master",
+        "Kanban",
+        "SAFe",
+        "Spotify Modell",
+        "Design Thinking",
+        "Prototyping",
+        "Lean Canvas",
+        "User Story Mapping",
+        "Value Stream",
+        "Blueboard",
+        "Engpasskonzentrierte Strategie",
+        "Appreciative Inquiry",
+        "Eingesetzte Produkte:",
+        "JIRA",
+        "Confluence",
+        "MS Office 365",
+        "MS Teams",
+        "=================================================",
+        "==============================",
+        "01/2020 - heute: Dozentur",
+        "Scrum",
+        "Value Stream Mapping",
+        "Engpasskonzentrierte Strategie nach Wolfgang",
+        "Mewes",
+        "Transferansätze des Hochleistungsmanagements in der betrieblichen",
+        "Praxis",
+        "(HIPE) nach Prof. Dr. Peter Pawlowsky",
+        "Appreciative Inquiry nach David",
+        "Copperfield",
+        "Gewaltfreie Kommunikation nach Marshall B. Rosenberg",
+        "Kommunikationsquadrat und Kommunikationsgrundsätze nach Friedmann Schulz",
+        "von",
+        "Thun",
+        "personenzentriertes systemisches Coaching",
+        "Webex",
+        "01/2018 - 06/2020: Stärkere Vernetzung der Fachbereiche in der Produktion",
+        "mittels Einführung einer neuen IT",
+        "Agile Entwicklung",
+        "agile Projectmanagement",
+        "agile Project",
+        "Management",
+        "agile Entwicklungsmethoden",
+        "Organisationsentwicklung",
+        "agile",
+        "Project",
+        "agile Project Management",
+        "Atlassian Confluence",
+        "04/2017 - 03/2018: Agile Coaching der Geschäftsführer von bis zu acht",
+        "verschiedenen Unternehmen einer Unternehmensgruppe",
+        "Rolle: Senior Agile Coach / Organisationsentwickler",
+        "Aufgaben:",
+        "Transformationsprozess hin zu mehr Agilität in der Führung",
+        "Die innerhalb der Branche ganz unterschiedlich ausge-richteten Unternehmen der",
+        "Unternehmensgruppe",
+        "sollten zu einem sich komplementär ergänzenden",
+        "„Gesamtkonzept“ zusammengeführt werden. Hierbei galt es",
+        "im Rahmen einer",
+        "ganzheitlichen Strategie",
+        "die einzelnen Unternehmensführ-ungen in der",
+        "Umsetzung",
+        "zu begleiten. Aus den einzelnen Geschäftsführungen sollte ein Führungsteam",
+        "geformt werden",
+        "welches ganzheitlich im Sinne der Unternehmensgruppe denkt",
+        "und",
+        "handelt. Tradierte Perspektiven und Führungs-muster wurden agilisiert und",
+        "erstmals eine gemeinsame Performance mit Blick auf die Unternehmensgruppe",
+        "als",
+        "Ganzes erreicht.",
+        "Systemisches Coaching",
+        "09/2016 - 08/2017: Schrittweise Agilisierung eines gesamten Unternehmens",
+        "agile Programmierung",
+        "08/2016 - 07/2017: Arbeitgeberattraktivität",
+        "Agile Coaching",
+        "03/2017 - 06/2017: Agilisierung des Zusammenspiels der unterschiedlichen",
+        "Führungsebenen und Geschäftsbereiche",
+        "Agile Coach",
+        "Systemischer Coach",
+        "certified scrum master",
+        "professional scrum",
+        "master",
+        "zertifizierter scrum master",
+        "Scrum-Methodik",
+        "Scrum Master",
+        "Scrum-Master",
+        "03/2014 - 12/2014: Aufbau des Geschäftsfeldes „betriebliche Altersversorgung“",
+        "und Business Development"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "Zertifizierung als Professional Scrum Master (scrum.org)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Zertifizierung als Systemischer Coach und Changemanager (INeKO Institut für",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "personelle",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "?und interpersonelle Kompetenz an der Universität zu Köln",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "############################################",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Englisch anzeigen",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Stammdaten (Auszug):",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "[Photo]",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Personen-ID 180877",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Wohnort 514xx Overath",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Deutschland",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Jahrgang 1969",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Staatsbürgerschaft deutsch",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Stundensatz 120 EUR",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Je nach Projektdauer, Ausgestaltung, Komplexität und",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Reiseaufwand kann sich der Stundensatz verändern.",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Verfügbar ab 16.11.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Profil erstellt am 22.09.17",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Profil zuletzt geändert am 16.11.21",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Lesen von Projektanfragen 0,5 Tage [09]Direktkontakt",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Kommentar_schreiben Profil angezeigt am 13.12.2021 12:14:54",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Professional Scrum Master",
+        "issuer": "scrum.org",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Systemischer Coach und Changemanager",
+        "issuer": "INeKO Institut für personelle und interpersonelle Kompetenz an der Universität zu Köln",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "2020-09 - 2021-06",
+        "company": "BITMARCK GmbH",
+        "title": "Implementierung eines strategischen Produktmanagements, Essen und remote",
+        "role": "Sparringspartner und systemsicher Coach für den verantwortliche",
+        "technologies": [
+          "Scrum",
+          "Kanban",
+          "Design Thinking",
+          "Prototyping",
+          "Lean Canvas",
+          "User Story"
+        ],
+        "activities": [
+          "Ziel des Projekts ist die Implementierung eines alle Geschäftsbereiche integrierenden, strategischen Produktma-nagements. In diesem Kontext bin ich einerseits als Sparringspartner/Berater an der Entwicklung des hierfür erforderlichen Vorgehensmodells und Prozessdesigns beteiligt und begleite andererseits den verantwortlichen Bereichsleiter und dessen Team als systemischer Coach. Hierbei steht insbesondere die Weiterentwicklung als Führungskraft bzw. als Team im Fokus.",
+          "Mapping, Value Stream Mapping, Blueboard, Engpasskonzentrierte",
+          "Strategie nach Wolfgang Mewes, Transferansätze des Hochleistungsmanagements in der betrieblichen Praxis (HIPE) nach Prof.",
+          "Dr. Peter Pawlowsky, Appreciative Inquiry nach David Copperfield,",
+          "Gewaltfreie Kommunikation nach Marshall B. Rosenberg,",
+          "Kommunikationsquadrat und Kommunikationsgrundsätze nach Friedmann",
+          "Schulz von Thun, personenzentriertes systemisches Coaching",
+          "Eingesetzte Produkte: Webex, MS Office 365, MS Teams"
+        ]
+      },
+      {
+        "period": "2018-01 - 2020-06",
+        "company": "DB Fernverkehr AG",
+        "title": "Stärkere Vernetzung der Fachbereiche in der Produktion 6 Monate mittels Einführung einer neuen IT, Frankfurt am Main",
+        "role": "Agile Coach / Scrum Master",
+        "technologies": [
+          "Scrum",
+          "Kanban",
+          "agile Projectmanagement",
+          "agile Project"
+        ],
+        "activities": [
+          "In diesem Kontext umfasst der Auftrag das agile Coaching von der Projektleitung bis hin zu den einzelnen Projektteams sowie die weitergehende Agilisierung der Projekt-Organisationsstrukturen. Management, agile Entwicklungsmethoden, Organisationsentwicklung, agile Project Management, agile Project Management",
+          "Eingesetzte Produkte: Atlassian Confluence, JIRA"
+        ]
+      },
+      {
+        "period": "2017-04 - 2018-03",
+        "title": "Agile Coaching",
+        "role": "Senior Agile Coach / Organisationsentwickler",
+        "technologies": [
+          "Organisationsentwicklung",
+          "Systemisches Coaching"
+        ],
+        "activities": [
+          "Transformationsprozess hin zu mehr Agilität in der Führung Die innerhalb der Branche ganz unterschiedlich ausge-richteten",
+          "Unternehmen der Unternehmensgruppe, sollten zu einem sich komplementär ergänzenden „Gesamtkonzept“ zusammengeführt werden.",
+          "Hierbei galt es, im Rahmen einer ganzheitlichen Strategie, die einzelnen Unternehmensführ-ungen in der Umsetzung zu begleiten. Aus den einzelnen Geschäftsführungen sollte ein Führungsteam geformt werden, welches ganzheitlich im Sinne der Unternehmensgruppe denkt und handelt. Tradierte Perspektiven und Führungs-muster wurden agilisiert und erstmals eine gemeinsame Performance mit Blick auf die Unternehmensgruppe als Ganzes erreicht."
+        ]
+      },
+      {
+        "period": "2017-03 - 2017-06",
+        "company": "Architektur & Bauwesen",
+        "title": "Agilisierung des Zusammenspiels der unterschiedlichen Führungsebenen und Geschäftsbereiche, Köln",
+        "role": "Agile Coach",
+        "technologies": [
+          "Agile Coach",
+          "Systemischer Coach",
+          "certified scrum master",
+          "professional"
+        ],
+        "activities": [
+          "Der Auftrag umfasste die Begleitung des Projektteams in der Rolle des Agile Coach.",
+          "Der Fokus des Projekts galt den Themen Führung und Organisationsentwicklung in den betroffenen Unternehmensbereichen sowie deren synergetisches Zu-sammenspiel. Das Unternehmen ist nach agilen Grundsätzen aufgestellt, weshalb auch das Projekts in diesem",
+          "Kontext zu sehen ist. scrum master, zertifizierter scrum master, Scrum-Methodik, Scrum",
+          "Master, Scrum-Master",
+          "Eingesetzte Produkte: JIRA"
+        ]
+      },
+      {
+        "period": "2016-09 - 2017-08",
+        "company": "Informationstechnologie",
+        "title": "Schrittweise Agilisierung eines gesamten Unternehmens, Köln",
+        "role": "Agile Coach / Agile Consultant",
+        "technologies": [
+          "professional scrum master",
+          "agile"
+        ],
+        "activities": [
+          "Das in der „Garage“ gegründete IT-Unternehmen ist nach über 15 Jahren der Startup-Phase entwachsen und mit seiner Produktstrategie (SaaS) nachhaltig erfolgreich in einer Marktlücke positioniert. Allerdings hat der Gründergeist in Form von Innovationskraft und Veränderungs-bereitschaft mit zunehmendem Erfolg nachgelassen. Aus diesem Grund wurde eine schrittweise Agilisierung des Unternehmens mit einem besonderen",
+          "Augenmerk auf Scrum angestrebt. Der Auftrag umfasste die vollständige Projektentwicklung und -struktu-rierung sowie die enge Begleitung der Umsetzung.",
+          "Programmierung, agile Projectmanagement, agile Project Management",
+          "Eingesetzte Produkte: JIRA"
+        ]
+      },
+      {
+        "period": "2016-08 - 2017-07",
+        "company": "Architektur & Bauwesen",
+        "title": "Arbeitgeberattraktivität, Organisationsentwicklung, Montabaur",
+        "role": "Projektleitung (mit agiler Ausrichtung | Scrum, Kanban etc.)",
+        "technologies": [
+          "Agile Coaching"
+        ],
+        "activities": [
+          "Der Auftrag umfasste die vollständige Projektentwicklung und - strukturierung sowie die enge Begleitung der Umsetzung. Neben der Implementierung eines internen Projektmanagementteams und der Begleitung dieses Teams als Agile Coach, fand auch ein situatives Agile",
+          "Coaching von einzelnen Mitgliedern des Teams statt."
+        ]
+      },
+      {
+        "period": "2014-03 - 2014-12",
+        "company": "Finanzdienstleister",
+        "title": "Aufbau des Geschäftsfeldes „betriebliche Altersversorgung“ und Business Development, Düsseldorf",
+        "role": "Geschäftsentwickler",
+        "activities": [
+          "Meine Aufgabe war im Wesentlichen der Auf- und Ausbau des Geschäftsfeldes „betriebliche Altersversorgung“. Über dieses fachlich hochspezialisierte Geschäftsfeld galt es, den Kunden ganzheitlich für die Leistungen der Unternehmensgruppe zu gewinnen. Die erforderlichen Strukturen des neuen Geschäftsfeldes habe ich erfolgreich implementiert."
+        ]
+      },
+      {
+        "period": "2008-10 - 2011-10",
+        "company": "auf Anfrage",
+        "title": "Strategische Geschäftsfelderweiterung in einer 1 Monat mittelständischen GmbH, Bonn",
+        "role": "Geschäftsführer",
+        "activities": [
+          "Innerhalb der zweiköpfigen Geschäftsführung war es meine Aufgabe, das bestehende Leistungsangebot des Geschäftsfeldes „betriebliche",
+          "Altersversorgung“ zielgerichtet, insbesondere auch um den Themenkomplex „Überprüfung und Restrukturierung bestehender",
+          "Pensionsverpflichtungen“, zu erweitern und mit einem entsprechenden",
+          "Marketing- und Kommunikationskonzept zu hinterlegen.",
+          "Sonstiges",
+          "Sonstige Anmerkungen:",
+          "Qualifikationen",
+          "Professional Scrum Master",
+          "scrum.org, USA",
+          "Systemischer Coach / Changemanager",
+          "INeKO Institut an der Universität zu Köln",
+          "Spezialist betriebliche Altersversorgung (DVA) Deutsche Versicherungsakademie GmbH Köln",
+          "Versicherungsfachmann (BWV)",
+          "Berufsbildungswerk der Deutschen",
+          "Versicherungswirtschaft e.V.",
+          "Bankkaufmann (IHK)",
+          "BfG Bank AG",
+          "Düsseldorf und Neuss",
+          "Erfahrungen & Kenntnisse",
+          "Einschlägige Expertise als Scrum/Agile Coach sowie als Consultant im agilen Kontext seit mehr als zehn Jahren",
+          "hohes Maß an Verständnis für die Interaktion zwischen den einzelnen Beteiligten an einem Projekt, durch meine Erfahrungen auf unterschiedlichen Führungsebenen und in unterschiedlichen Organisationsbereichen",
+          "Erfahrung mit agilen Arbeits- und Projekttechniken in den unterschiedlichsten Branchen (z. B. Software, IT, Bau, Ingenieurwesen, Finanzdienstleistung, Unternehmensberatung, Verkehr und Logistik etc.)",
+          "Vielfältige Expertise in der Einführung agiler Techniken (insbesondere Scrum), in bisher nach traditionellen Methoden organisierten Arbeitsumgebungen",
+          "langjährige Erfahrung in den Bereichen Moderation und Kommunikation;",
+          "insbesondere auch in schwierigen Gesprächssituationen",
+          "seit über 15 Jahren als Berater und Coach tätig, seit 2008 im agilen Kontext für Projektteams sowie als Sparringspartner der Führungskräfte",
+          "Sicheres Agieren auf allen Ebenen inkl. C-Level",
+          "Tätigkeitsschwerpunkte: agiles Projektmanagement, Senior Scrum Master, Senior Agile Coach, systemisches Coaching / systemische Beratung",
+          "Dozent für agiles Projektmanagement am INeKO Institut für personelle und interpersonelle Kompetenz an der Universität zu Köln Häufig angewendete Methoden Scrum, SAFe, Kanban, Design Thinking, Prototyping, Lean Canvas, User Story Mapping, Value Stream Mapping, Blueboard, Engpasskonzentrierte Strategie nach Wolfgang Mewes, Transferansätze des Hochleistungsmanagements in der betrieblichen Praxis (HIPE) nach Prof. Dr. Peter Pawlowsky, TU Chemnitz, Appreciative Inquiry nach David Copperfield, Gewaltfreie Kommunikation nach Marshall B. Rosenberg, Kommunikationsquadrat und Kommunikations-grundsätze nach Friedmann Schulz von Thun, personenzentriertes systemisches Coaching Häufig eingesetzte Tools Jira, Confluence, MS Office und MS Teams Arbeitsweise Meine Tätigkeit folgt dem Leitgedanken der systemischen Beratung: der Entwicklung von Führungskräften und Teams unter Berücksichtigung der jeweils individuellen Wirkzusammenhänge im Unternehmen bzw. Arbeitsumfeld. Hierbei begreife ich die Entwicklung als lösungs- oder ergebnisorientierten Prozess, der sich aus der angeleiteten Selbstreflektion der betreffenden Person oder Gruppe speist.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen"
+        ]
+      }
+    ],
+    "industries": [
+      "Software",
+      "Bau",
+      "Ingenieurswesen",
+      "Finanzdienstleistung",
+      "Versicherung",
+      "Unternehmensberatung",
+      "Verkehr/Logistik",
+      "Gesundheit",
+      "Industrie",
+      "Consulting",
+      "Zertifizierung als Professional Scrum Master (scrum.org)",
+      "langjährige Erfahrung in den Bereichen Moderation und Kommunikation;",
+      "insbesondere auch in schwierigen Gesprächssituationen",
+      "Sicheres Agieren auf allen Ebenen inkl. C-Level",
+      "Tätigkeitsschwerpunkte: agiles Projektmanagement",
+      "Senior Scrum Master",
+      "Senior Agile Coach",
+      "systemisches Coaching / systemische Beratung",
+      "Schwerpunkte",
+      "Agile Coach",
+      "Agile Leadership",
+      "Change Manager",
+      "Führung",
+      "Führungskräfte- und Teamentwicklun",
+      "Organisationsentwickler",
+      "SCRUM Coach",
+      "Scrum Master",
+      "Systemischer Coach",
+      "Managementerfahrung in Unternehmen:",
+      "Geschäftsführung",
+      "Kunden-Fokussierung",
+      "MVP-Ansatz"
+    ],
+    "focus_areas": [
+      "Senior Agile Coach",
+      "Senior Scrum Master",
+      "Change Management",
+      "Systemischer Coach",
+      "Agile Organisationsentwicklung",
+      "Führungskräfte- & Teamentwicklung",
+      "Systemischer Berater",
+      "Systemische Organisationsentwicklung",
+      "Unterstützung der Potentialentfaltung von Führungskräften und Teams",
+      "Agile Leadership",
+      "Change Manager",
+      "Führung",
+      "Führungskräfte- und Teamentwicklung",
+      "Organisationsentwickler",
+      "SCRUM Coach",
+      "Scrum Master",
+      "Geschäftsführung",
+      "Kunden-Fokussierung",
+      "MVP-Ansatz",
+      "Potentialentfaltung von Individuen & Teams",
+      "Psychologische Sicherheit",
+      "Value-Fokussierung",
+      "Appreciative Inquiry nach David Copperfield",
+      "Gewaltfreie Kommunikation nach Marshall B. Rosenberg",
+      "personenzentriertes systemisches Coaching",
+      "Transferansätze des Hochleistungsmanagements in der betrieblichen Praxis (HIPE) nach Prof. Dr. Peter"
+    ],
+    "focus_experience": [
+      {
+        "name": "Agile Coaching",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Agile Entwicklung",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "agile Programmierung",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Kanban",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Organisationsentwicklung",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Systemisches Coaching",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Scrum Master",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "SAFe",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Agile Coach",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "agile Project Management",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Systemische Organisationsentwicklung",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Systemischer Berater",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Systemischer Coach",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Erfahrungen & Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Zertifizierung als Professional Scrum Master (scrum.org)",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Zertifizierung als Systemischer Coach und Changemanager (INeKO Institut",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "für personelle und interpersonelle Kompetenz an der Universität zu Köln)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Einschlägige Expertise als Scrum/Agile Coach sowie als Consultant im",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "agilen Kontext seit mehr als zehn Jahren",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "hohes Maß an Verständnis für die Interaktion zwischen den einzelnen",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Beteiligten an einem Projekt",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "durch meine Erfahrungen auf",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "unterschiedlichen Führungsebenen und in unterschiedlichen",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Organisationsbereichen",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Erfahrung mit agilen Arbeits- und Projekttechniken in den",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "unterschiedlichsten Branchen (z. B. Software",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Bau",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Ingenieurwesen",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Bank",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Versicherung",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Unternehmensberatung",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Gesundheitsbranche",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Verkehr und",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Logistik",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Industrie etc.)",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Vielfältige Expertise in der Einführung agiler Techniken (insbesondere",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Scrum)",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "in bisher nach traditionellen Methoden organisierten",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Arbeitsumgebungen",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Fundierte Expertise im skalierten agilen Kontext insbesondere mit SAFe",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "and Lean Portfolio Management (LPM)",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "langjährige Erfahrung in den Bereichen Moderation und Kommunikation;",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "insbesondere auch in schwierigen Gesprächssituationen",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "* seit über 15 Jahren als Berater und Coach tätig",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "seit 2008 im agilen",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Kontext für Projektteams sowie als Sparringspartner der Führungskräfte",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Sicheres Agieren auf allen Ebenen inkl. C-Level",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "* Tätigkeitsschwerpunkte: agiles Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Senior Scrum Master",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Senior Agile Coach",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "systemisches Coaching / systemische Beratung",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Dozent für agiles Projektmanagement am INeKO Institut für personelle und",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "interpersonelle Kompetenz an der Universität zu Köln",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Arbeitsweise",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Meine Tätigkeit folgt dem Leitgedanken der systemischen Beratung: der",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Entwicklung von Führungskräften und Teams unter Berücksichtigung der jeweils",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "individuellen Wirkzusammenhänge im Unternehmen bzw. Arbeitsumfeld. Hierbei",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "begreife ich die Entwicklung als lösungs- oder ergebnisorientierten Prozess",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "der sich aus der angeleiteten Selbstreflektion der betreffenden Person oder",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Gruppe speist.",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Agile Leadership",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Change Manager",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Führung",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Führungskräfte- und Teamentwicklun",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Organisationsentwickler",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "SCRUM Coach",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Geschäftsführung",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Kunden-Fokussierung",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "MVP-Ansatz",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Potentialentfaltung von Individuen & Teams",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Psychologische Sicherheit",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Systemische Organisationentwicklung",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Value-Fokussierung",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Personalverantwortung:",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Appreciative Inquiry nach David Copperfield",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "Gewaltfreie Kommunikation nach Marshall B. Rosenberg",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "personenzentriertes systemisches Coaching",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Transferansätze des Hochleistungsmanagements in der betrieblichen Praxis",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "(HIPE) nach Prof. Dr. Peter",
+        "category": "product_standard",
+        "sort_order": 84
+      }
+    ],
+    "education": [
+      {
+        "degree": "Systemisches Coaching und Change Management",
+        "institution": "INeKO Institut für personelle und interpersonelle Kompetenz an der Universität zu Köln",
+        "period": "04/2019 - 04/2020",
+        "education_type": "course"
+      },
+      {
+        "degree": "Professional Scrum Master",
+        "institution": "scrum.org, USA",
+        "period": "08/2017 - 10/2017",
+        "education_type": "course"
+      },
+      {
+        "degree": "Spezialist betriebliche Altersversorgung",
+        "institution": "Deutsche Versicherungsakademie",
+        "period": "01/2006 - 12/2006",
+        "education_type": "course"
+      },
+      {
+        "degree": "Versicherungsfachmann",
+        "institution": "Berufsbildungswerk der deutschen Versicherungswirtschaft (BWV)",
+        "period": "11/1997 - 04/1998",
+        "education_type": "course"
+      },
+      {
+        "degree": "Bankkaufmann",
+        "institution": "Industrie- und Handelskammer, Neuss",
+        "period": "08/1989 - 02/1992",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nQualifikationen\n* Professional Scrum Master\nscrum.org, USA\n* Systemischer Coach / Changemanager\nINeKO Institut an der Universität zu Köln\n* Spezialist betriebliche Altersversorgung (DVA)\nDeutsche Versicherungsakademie GmbH\nKöln\n* Versicherungsfachmann (BWV)\nBerufsbildungswerk der Deutschen\nVersicherungswirtschaft e.V.\nKöln\n* Bankkaufmann (IHK)\nBfG Bank AG\nDüsseldorf und Neuss\nErfahrungen & Kenntnisse\n* Einschlägige Expertise als Scrum/Agile Coach sowie als Consultant im\nagilen Kontext seit mehr als zehn Jahren\n* hohes Maß an Verständnis für die Interaktion zwischen den einzelnen\nBeteiligten an einem Projekt, durch meine Erfahrungen auf\nunterschiedlichen Führungsebenen und in unterschiedlichen\nOrganisationsbereichen\n* Erfahrung mit agilen Arbeits- und Projekttechniken in den\nunterschiedlichsten Branchen (z. B. Software, IT, Bau, Ingenieurwesen,\nFinanzdienstleistung, Unternehmensberatung, Verkehr und Logistik etc.)\n* Vielfältige Expertise in der Einführung agiler Techniken (insbesondere\nScrum), in bisher nach traditionellen Methoden organisierten\nArbeitsumgebungen\n* langjährige Erfahrung in den Bereichen Moderation und Kommunikation;\ninsbesondere auch in schwierigen Gesprächssituationen\n* seit über 15 Jahren als Berater und Coach tätig, seit 2008 im agilen\nKontext für Projektteams sowie als Sparringspartner der Führungskräfte\n* Sicheres Agieren auf allen Ebenen inkl. C-Level\n* Tätigkeitsschwerpunkte: agiles Projektmanagement, Senior Scrum Master,\nSenior Agile Coach, systemisches Coaching / systemische Beratung\n* Dozent für agiles Projektmanagement am INeKO Institut für personelle und\ninterpersonelle Kompetenz an der Universität zu Köln\nHäufig angewendete Methoden\nScrum, SAFe, Kanban, Design Thinking, Prototyping, Lean Canvas, User Story\nMapping, Value Stream Mapping, Blueboard, Engpasskonzentrierte Strategie nach\nWolfgang Mewes, Transferansätze des Hochleistungsmanagements in der\nbetrieblichen Praxis (HIPE) nach Prof. Dr. Peter Pawlowsky, TU Chemnitz,\nAppreciative Inquiry nach David Copperfield, Gewaltfreie Kommunikation nach\nMarshall B. Rosenberg, Kommunikationsquadrat und Kommunikations-grundsätze\nnach\nFriedmann Schulz von Thun, personenzentriertes systemisches Coaching\nHäufig eingesetzte Tools\nJira, Confluence, MS Office und MS Teams",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:06:54.455808",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "ZERTIFIKATE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2008"
+      ],
+      "coverage_percent": 93.37231968810916,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

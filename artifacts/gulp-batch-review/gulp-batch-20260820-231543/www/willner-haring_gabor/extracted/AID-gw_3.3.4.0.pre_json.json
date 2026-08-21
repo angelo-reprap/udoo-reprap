@@ -1,0 +1,715 @@
+{
+  "metadata": {
+    "aid": "AID-gw_3.3.4.0",
+    "version": "3.3.4.0",
+    "consultant_dir": "willner-haring_gabor",
+    "first_name": "Gabor",
+    "last_name": "Willner-haring",
+    "headline": "Java-Berater/-Architekt, WM Schnittstelle, FIX Trading, Bank- Prozesse (Risikomanagement, Wertpapierhandel und Zahlungsverkehr, Reporting, Migrationen)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:08:37.409044"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Gabor",
+      "last_name": "Willner-haring",
+      "birth_year": 1971,
+      "languages": [
+        {
+          "name": "Deutsch sehr gut",
+          "level": ""
+        },
+        {
+          "name": "Englisch sehr gut",
+          "level": ""
+        },
+        {
+          "name": "Polnisch sehr gut",
+          "level": ""
+        },
+        {
+          "name": "Ungarisch sehr",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (sehr gut)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (sehr gut)",
+          "level": ""
+        },
+        {
+          "name": "Polnisch (sehr gut)",
+          "level": ""
+        },
+        {
+          "name": "Ungarisch (sehr gut)",
+          "level": ""
+        }
+      ],
+      "availability": "01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D6",
+      "wohnort": "60Xxx Frankfurt am Main, Deutschland",
+      "headline": "Java-Berater/-Architekt, WM Schnittstelle, FIX Trading, Bank- Prozesse (Risikomanagement, Wertpapierhandel und Zahlungsverkehr, Reporting, Migrationen)"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [
+        "Cloud Computing",
+        "Microservices (Archtitecture)",
+        "Spring Boot",
+        "Netflix Tools (Eureka/Ribbon/ Zuul/",
+        "Hystrix)",
+        "Docker",
+        "FIX / Systemintegration",
+        "QuickFixJ",
+        "FIXimulator",
+        "Apache Camel",
+        "Entwicklungsumgebung",
+        "IntelliJ",
+        "Eclipse",
+        "IBM RAD",
+        "Applikationsserver",
+        "WildFly (vormals JBoss)",
+        "Oracle WebLogic",
+        "IBM Websphere",
+        "Tomcat",
+        "Build / Automation / Continuous Integration",
+        "Maven 3",
+        "Ant",
+        "Jenkins",
+        "Sonar",
+        "Continuum",
+        "Archiva",
+        "CruiseControl",
+        "Testen",
+        "JUnit",
+        "DBUnit",
+        "TestNG",
+        "JMeter",
+        "Mockito",
+        "Cucumber",
+        "Jacoco",
+        "Versionsverwaltung / Issue Tracking",
+        "Git",
+        "Subversion",
+        "Microsoft Team Foundation Server",
+        "CVS",
+        "Continuus",
+        "Change",
+        "Synergy",
+        "Bugzilla",
+        "Jira",
+        "HP Service Center",
+        "UML Tools",
+        "MagicDraw",
+        "Enterprise Architect",
+        "TogetherJ und Rational Rose",
+        "Reporting",
+        "FOP",
+        "StyleReport",
+        "iReport",
+        "Jasper",
+        "Andere Sprachen / Tools",
+        "C/C++",
+        "Pascal",
+        "Visual Basic/VBA",
+        "SAS System (4GL",
+        "AF",
+        "SAS/FSP",
+        "SAS/SHARE",
+        "SAS/CONNECT",
+        "SAS/EIS)"
+      ],
+      "communication_tool": [],
+      "database": [
+        "Oracle",
+        "Sybase",
+        "DB2",
+        "Informix",
+        "MS SQL Server",
+        "MySQL",
+        "SAS",
+        "PC",
+        "AS 400",
+        "Distributed Caches",
+        "RMI",
+        "Message Queuing (JMS",
+        "MQSeries)",
+        "REST",
+        "HTTP",
+        "JSON",
+        "XStream",
+        "FIX Trading"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "UNIX (Linux",
+        "AIX",
+        "Solaris)",
+        "OS/400",
+        "Windows",
+        "Java"
+      ],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Avaloq-Migration der Bank Julius Bär / Kosmos Systems.",
+        "title": "Avaloq-Migration der Bank Julius Bär / Kosmos Systems.",
+        "activities": [
+          "Business Analyst, Senior Java Berater und Architekt (freiberuflich)",
+          "Aufgaben:",
+          "Anforderungsanalyse, fachliche und technische Datenanalyse der Avaloq- Lieferung (Stamm-, Transaktions- und Steuerdaten),",
+          "Business-Analyse nach Global Investment Performance Standards (GIPS),",
+          "Funktions- und Code-Analyse von bestehenden Schnittstellen.",
+          "Anpassung der bestehenden (eigenen) Konversionslösung (Java / Spring),",
+          "Unix-Skripting für die Prozesssteuerung und Deployment.",
+          "Unit Testing (Junit 4), Bugfixing."
+        ],
+        "company": "Bank Julius Bär / Kosmos Systems",
+        "industry": "Banken",
+        "role": "Business Analyst, Senior Java Berater und Architekt",
+        "technologies": [
+          "Avaloq",
+          "Java",
+          "Spring",
+          "Unix",
+          "Junit 4"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Design und Implementierung einer Lösung zur",
+        "title": "Design und Implementierung einer Lösung zur Unterstützung des Beratungsprozeßes gem. WpHG",
+        "activities": [
+          "gem. WpHG der Bethmann Bank (ABN Amro)",
+          "Bethmann Bank (ABN Amro), Kosmos Systems",
+          "Senior Java Berater und Architekt (freiberuflich)",
+          "Implementierung von Businesskomponenten (Angemessenheits-, Geeignetheitsprüfung, IAC-Schnittstelle)",
+          "Geeignetheitsprüfung, IAC-Schnittstelle), Design und Implementierung von technischen Komponenten (Gattungssuche auf Basis von Lucene, Persistierung von Businessdaten im XML-Format, Generierung von Protokollen mittels Aspose), Unit",
+          "Testing (Junit 4), Bugfixing.",
+          "Systemungebung:",
+          "Linux, Eclipse, IBM WebSphere AS 8, Tomcat, Oracle RDBMS, Java 7, Spring",
+          "Unit Testing (Junit 4)"
+        ],
+        "company": "Bethmann Bank (ABN Amro)",
+        "industry": "Banken",
+        "role": "Senior Java Berater und Architekt (freiberuflich)",
+        "technologies": [
+          "Linux",
+          "Eclipse",
+          "IBM WebSphere AS 8",
+          "Tomcat",
+          "Oracle RDBMS",
+          "Java 7",
+          "Spring",
+          "Lucene",
+          "XML",
+          "Aspose",
+          "Junit 4"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung von Service-Komponenten und Weiterentwicklung einer Swing-Anwendung",
+        "title": "Entwicklung von Service-Komponenten und Weiterentwicklung einer Swing-Anwendung",
+        "activities": [
+          "der REWE-Gruppe. Freiberuflicher Java-Berater",
+          "Systemungebung:",
+          "Windows Server 2003, IBM RAD, IBM WebSphere, DB2, Java 6, Swing, myBatis",
+          "MagicDraw, Subversion, Maven 3, Archiva",
+          "Mai 2004 Jan. 2012",
+          "Mehrere Projekte (fortlaufend) im Risk Management IT-Bereich Dresdner Kleinwort",
+          "(später Commerzbank)",
+          "Freiberuflicher Java-/JEE-Architekt"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer Webapplikation zur Limitüberwachung im",
+        "title": "Entwicklung einer Webapplikation zur Limitüberwachung im Market Risk-Bereich - Market Risk-Bereich -",
+        "activities": [
+          "Risk Management IT Commerzbank, Senior Java Entwickler (freiberuflich)",
+          "Aufgaben:",
+          "Vorbereitung der Entwicklungsumgebung (Eclipse, Jboss, Maven, Deployment)",
+          "Deployment),",
+          "Objektorientierte Analyse und Design,",
+          "Anpassung der Security-Schnittstelle (JAAS, SSL, LDAP),",
+          "Webentwicklung mittels ZK-Framework nach fachlicher Vorgabe.",
+          "Erstellung neuer Businesskomponenten (Java, Spring Framework) und Erweiterung der Datenschnittstelle (Sybase RDBMS, Hibernate 3.x).",
+          "Entwicklung von Querschnittkomponenten (Security, Logging, Audit)",
+          "Vorbereitung und Erstellung von wiederverwendbaren Java-Komponenten für ZK"
+        ],
+        "company": "Dresdner Kleinwort (später Commerzbank)",
+        "industry": "Banken",
+        "role": "Senior Java Entwickler",
+        "technologies": [
+          "Eclipse",
+          "Jboss",
+          "Maven",
+          "JAAS",
+          "SSL",
+          "LDAP",
+          "ZK-Framework",
+          "Java",
+          "Spring Framework",
+          "Sybase RDBMS",
+          "Hibernate 3.x"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer Webapplikation zur Limitüberwachung im",
+        "title": "Entwicklung einer Webapplikation zur Limitüberwachung im Credit Risk-Bereich",
+        "activities": [
+          "Risk Management IT Dresdner Kleinwort (später Commerzbank)",
+          "Senior Java Entwickler (freiberuflich)",
+          "Aufgaben:",
+          "Vorbereitung der Entwicklungsumgebung (Eclipse, Jboss, Maven,",
+          "Deployment),",
+          "Objektorientierte Analyse und Design,",
+          "Entwicklung von Querschnittkomponenten (Security, Logging, Audit).",
+          "Vorbereitung und Erstellung von wiederverwendbaren Java-Komponenten für ZK."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Serverkomponenten (siehe Projekt Online Brokerage im",
+        "title": "Serverkomponenten (siehe Projekt Online Brokerage im Internet).",
+        "activities": [
+          "Aufgaben:",
+          "Mithilfe bei Implementierung von EJB-, JMS-, SOAP- und XML-Komponenten.",
+          "Durchführung von Refactoring-Aktivitäten. Beratung im Bezug auf OOA/D, Java2EE und Systemarchitektur. Coaching beim Mid-Tier-Implementierung und Deployment",
+          "(auf WebSphere und ATG Dynamo Applikationsservern). Erstellen von Fachkonzepten.",
+          "Windows NT, Solaris, Rational Rose/TogetherJ, Visual Age for Java, WebSphere,",
+          "ATG Dynamo, J2EE (EJB, JSP, JMS, Servlets, XML), SOAP, Informix DBS, Continuus",
+          "Juli 2000 - Juni 2001",
+          "Online Brokerage im Internet - Dresdner Bank AG",
+          "Internet)."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung des Zahlungsverkehrs und des",
+        "title": "Entwicklung des Zahlungsverkehrs und des Wertpapierhandels für Privatkunden.",
+        "activities": [
+          "Implementieren von Überweisungen, Daueraufträgen, Kontenübersicht, Depot,",
+          "Orderbuch, Wertpapiersuche etc. Durchführen von Performanceoptimierungen von Server-Komponenten (EJBs und Servlets).",
+          "Aufgaben:",
+          "Mithilfe bei Implementierung von J2EE-Komponenten (EJB, JSP, Servlets).",
+          "Beratung im Bezug auf OOA/D, Java2EE und Systemarchitektur. Coaching beim Mid-Tier-Implementierung und Deployment (auf WebSphere Applikationsserver).",
+          "Erstellen von Fachkonzepten.",
+          "Windows NT, Solaris, TogetherJ, Visual Age for Java, WebSphere, J2EE (EJB, JSP,",
+          "Servlets), Informix DBS, Continuus",
+          "Wertpapierhandels für Privatkunden."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Software Support Engineer, ICL Poland",
+        "title": "Software Support Engineer, ICL Poland",
+        "activities": [
+          "Datenimport und Datenbereinigung (mittels SQL und 4GL), Design von mehrdimensionalen Datenbanken, Herstellen von grafischen Benutzeroberflächen",
+          "(SAS/AF und SAS/FSP) und OLAP-Funktionen, Client/Server-Architektur (SAS/ Connect und SAS/SHARE).",
+          "März 1996 - Sept. 1996",
+          "Magnetkartensystem für Sberbank, Weissrussland"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Software Support Engineer, ICL Poland",
+        "title": "Software Support Engineer, ICL Poland",
+        "activities": [
+          "Software Support Engineer, ICL Poland"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Programm Design, System Entwicklung, Dokumentation",
+        "title": "Programm Design, System Entwicklung, Dokumentation",
+        "activities": [
+          "Sonstige Anmerkungen",
+          "Zertifizierter Scrum Master und Software Architeckt.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+          "Englisch anzeigen"
+        ]
+      }
+    ],
+    "industries": [
+      "Versicherungs- und Finanzdienstleistungsumfeld",
+      "Automobilindustrie",
+      "Software-Hersteller",
+      "Banken"
+    ],
+    "focus_areas": [
+      "Java-Berater/-Architekt",
+      "WM Schnittstelle",
+      "FIX Trading",
+      "Bank-Prozesse (Risikomanagement",
+      "Wertpapierhandel und Zahlungsverkehr",
+      "Reporting",
+      "Migrationen)",
+      "Java Berater / Architekt, Coach",
+      "Technical Lead oder Projektleiter",
+      "Business Analyst",
+      "Bank-Prozesse (Risikomanagement, Wertpapierhandel und Zahlungsverkehr, Reporting, Migrationen)"
+    ],
+    "focus_experience": [
+      {
+        "name": "* Experte auf dem Gebiet der Analyse",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Design und Implementierung von",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Systemen und Geschäftskomponenten branchenunabhängig.",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Fundierte Kenntnisse der Bankgeschäftsprozesse (insbesondere in Bereichen",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Risk Management",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Wertpapierhandel",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Zahlungsverkehr",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Reporting",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Portfoliobewertung nach GIPS) und Datenmigration. Kenntnis des",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Datenmodells von Core-Banking Systemen OBS",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Avaloq",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Olympic",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Erfahrener Entwickler und Architekt von Java-/JEE -basierten Enterprise",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Applikationen",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "wiederverwendbaren Geschäftskomponenten und Frameworks",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "beruhend auf Best Practices und Design Patterns.",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "* Qualitätssicherung",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Durchführung von Code Reviews",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "* Erstellen von Fachkonzepten: Gesamt- und Teilarchitektur (UML+Word)",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Aufwandsschätzungen",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Sicherheitskonzepte",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Teststrategien",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Umfassende Erfahrungen in Deployment und Optimierung von Web",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Applikationen. Konfiguration und Tuning von Applikation Servern.",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Umfassende Kenntnisse über Open Source Lösungen. Durchführung von Open",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Source-Pilotprojekten",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Wirtschaftlichkeitsprüfung für Open Source-",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Lösungen.",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Einführung von Lösungen und Prozessen zur Unterstützung der agilen",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Softwareentwicklung.",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "* Fähigkeit Probleme souverän",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "schnell und zuverlässig zu lösen",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Persönliche Flexibilität und Engagement. Kenntnis des multinationalen",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Umfelds.",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "OBS",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "JEE",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Word",
+        "category": "product_standard",
+        "sort_order": 38
+      }
+    ],
+    "education": [
+      {
+        "degree": "iSAQB® Certified Professional for Software Architecture",
+        "institution": "iSQI GmbH",
+        "period": "09/2018 - 09/2018",
+        "education_type": "course"
+      },
+      {
+        "degree": "Products and Processes of the Trading Environment",
+        "institution": "Dresdner Kleinwort",
+        "period": "Oktober 2006",
+        "education_type": "course"
+      },
+      {
+        "degree": "Architecting and Designing J2EE Applications (SL-425)",
+        "institution": "Sun Microsystems",
+        "period": "September 2000",
+        "education_type": "course"
+      },
+      {
+        "degree": "Enterprise Java Beans and Java Beans Seminar",
+        "institution": "Sun Microsystems",
+        "period": "Juni 1999",
+        "education_type": "course"
+      },
+      {
+        "degree": "Java Programming (SL-275)",
+        "institution": "Sun Microsystems",
+        "period": "Mai 1999",
+        "education_type": "course"
+      },
+      {
+        "degree": "AS/400 System Administration",
+        "institution": "IBM Hungary",
+        "period": "März 1998",
+        "education_type": "course"
+      },
+      {
+        "degree": "AS/400 System Basics",
+        "institution": "IBM Hungary",
+        "period": "Februar 1998",
+        "education_type": "course"
+      },
+      {
+        "degree": "SCO UnixWare System Administration",
+        "institution": "EduSoft",
+        "period": "September 1997",
+        "education_type": "course"
+      },
+      {
+        "degree": "Projekt Management mit Anwendung von LBMS Methodologie",
+        "institution": "InfoViDE",
+        "period": "Juni 1997",
+        "education_type": "course"
+      },
+      {
+        "degree": "Business Process Reengineering Seminar",
+        "institution": "ICL Learning",
+        "period": "Mai 1997",
+        "education_type": "course"
+      },
+      {
+        "degree": "SAS System Application Development, SAS Basics, SAS Data Processing, SAS/AF module, SAS/SHARE and SAS/Connect - C/S Architecture, SAS OLAP++ and multidimensional facilities",
+        "institution": "SAS Institute, Polen",
+        "period": "Oktober 1996",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Zertifizierter Scrum Master und Software Architekt.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "jdbc",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "struts",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "solr",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "jaxp",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "lambdas",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:08:37.409055",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FOCUS_EXP",
+      "OTHER",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 5→4 bei 'Projektbeschreibung: Software Support Engineer, ICL Poland'",
+        "AUTO_SKILLS: +5 in skill_ablage"
+      ],
+      "coverage_percent": 83.54661791590493,
+      "auto_added_skills": 5,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,991 @@
+{
+  "personal": {
+    "aid": "AID-az_2.3.3.0",
+    "first_name": "Alexander",
+    "last_name": "Zubok",
+    "birth_year": 1979,
+    "location": "D7, außerhalb D/A/CH",
+    "availability": "01.03.21 zu 0%, Vor-Ort-Einsatz 5% möglich",
+    "edv_experience_since": 2009,
+    "headline": "Java Entwicklung, C/C++, C#, PHP, Javascript, VBA, Vaadin, Spring, JQuery, Oracle, HTML5, VBA",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 102,
+    "certifications": 0,
+    "education": 0,
+    "experience": 23,
+    "industries": 6,
+    "focus_areas": 17,
+    "focus_experience": 80,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Russisch",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend",
+      "level": ""
+    },
+    {
+      "name": "Deutsch fließend",
+      "level": ""
+    },
+    {
+      "name": "Hebraeisch gut",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Finanzen",
+    "Industrie",
+    "Grosshandel",
+    "Einzelhandel",
+    "Fremdhandel",
+    "Automotiv"
+  ],
+  "focus_areas": [
+    "Java Entwicklung",
+    "C/C++",
+    "Javascript",
+    "Vaadin",
+    "Spring",
+    "JQuery",
+    "Oracle",
+    "HTML5",
+    "Software und Hardwareentwickler",
+    "Unternehmen: Rubikontechnologie",
+    "Ort: Smolensk/Russland",
+    "Aufgaben:",
+    "Entwicklung eine Geräte für Influenceradiation Messen",
+    "Entwicklung eine Software für Forschunggeräte",
+    "Mikrochipsfuntersuchung von den Firmen Infinion, Motorolla und Dallassemiconduktor",
+    "Systemumgebung und Sprachen:",
+    "Design Lab (CAD), C/C++, MS Office, MS Visio, VC++, AVR Studio, AVR-Assembler Moscow Power Engineering University, Moskau 09/2003 - 02/2004: Diplomarbeit Untersuchung von Radiatioseinflüssen an Mikroc"
+  ],
+  "focus_experience": [
+    {
+      "name": "Artifactory",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Confluence",
+      "category": "product_standard"
+    },
+    {
+      "name": "AWS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cake PHP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cloud Foundry",
+      "category": "product_standard"
+    },
+    {
+      "name": "Delphi XE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Distribution",
+      "category": "product_standard"
+    },
+    {
+      "name": "Docker",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse Spring tool Suite",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ejb",
+      "category": "product_standard"
+    },
+    {
+      "name": "Git",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gold-Soft CAD Komponenten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google API",
+      "category": "product_standard"
+    },
+    {
+      "name": "Closer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gradle",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hedit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jlinter",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSF",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kafka",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven",
+      "category": "product_standard"
+    },
+    {
+      "name": "MissionControl",
+      "category": "product_standard"
+    },
+    {
+      "name": "MVC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nentities",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nexus",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nginx",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenShift",
+      "category": "product_standard"
+    },
+    {
+      "name": "PayPal-API",
+      "category": "product_standard"
+    },
+    {
+      "name": "PaySafe-API",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rest",
+      "category": "product_standard"
+    },
+    {
+      "name": "Restsharp",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Boot",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sybase Power Designer",
+      "category": "product_standard"
+    },
+    {
+      "name": "VS 2010",
+      "category": "product_standard"
+    },
+    {
+      "name": "2012",
+      "category": "product_standard"
+    },
+    {
+      "name": "Code",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webmin",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebSphere",
+      "category": "product_standard"
+    },
+    {
+      "name": "Win Dbg",
+      "category": "product_standard"
+    },
+    {
+      "name": "Winforms",
+      "category": "product_standard"
+    },
+    {
+      "name": "X-Commerce",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xray",
+      "category": "product_standard"
+    },
+    {
+      "name": "ZooKeeper",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mitarbeiter im Bereich Systementwicklung/ Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Über 10 Jahre Berufserfahrung in der Softwareeinführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Sicher in Java EE",
+      "category": "product_standard"
+    },
+    {
+      "name": "C/C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "PHP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Delphi und Datenbanken",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Fundierte Kenntnisse in Webentwicklung Vaadin",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate",
+      "category": "product_standard"
+    },
+    {
+      "name": "WPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "Magento",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xcommerce",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zend und GWT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fundierte Kenntnisse in Embedded und Win32/64 so wie Win-API",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zusammenarbeit mit Kollegen aus verschiedenen Branchen auch auf",
+      "category": "product_standard"
+    },
+    {
+      "name": "internationaler Ebene",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fliessend Deutsch und English in Wort und Schrift",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Technologien:",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Web: Jquery",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2EE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Node.js",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Servlet",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zend-Framework",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP/HTTPS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Win: .Net",
+      "category": "product_standard"
+    },
+    {
+      "name": "VCL",
+      "category": "product_standard"
+    },
+    {
+      "name": "MFC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Win API",
+      "category": "product_standard"
+    },
+    {
+      "name": "OLE",
+      "category": "product_standard"
+    },
+    {
+      "name": "* DB: JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "DAO",
+      "category": "product_standard"
+    },
+    {
+      "name": "ADO",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "09/2020 - 02/2021",
+      "company": "T-Systems AG (Deutsche Telekom it solutions)",
+      "role": "Fullstack-Softwareentwickler und Devops Freiberufler",
+      "title": "ZvSys/Daspu, Fellbach",
+      "activities": 8,
+      "technologies": 14
+    },
+    {
+      "period": "09/2019 - 06/2020",
+      "company": "Allianz AG",
+      "role": "Fullstack-Softwareentwickler",
+      "title": "LifeTime, Stuttgart",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "01/2019 - 04/2019",
+      "company": "Daimler AG",
+      "role": "Fullstack Entwickler",
+      "title": "ePACE für Daimler, Böblingen",
+      "activities": 8,
+      "technologies": 12
+    },
+    {
+      "period": "06/2018 - 12/2018",
+      "company": "ITEOS",
+      "role": "Fullstack-Softwareentwickler Freiberufler",
+      "title": "Entwicklung (Unterstützung) eigene CRM Websoftware, Stuttgart",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "03/2018 - 05/2018",
+      "company": "Thales AG",
+      "role": "Fullstack-Softwareeinwickler",
+      "title": "Entwicklung (Unterstützung) eigene CAD Software, Ditzingen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "12/2017 - 03/2018",
+      "company": "VMT GmbH",
+      "role": "Fullstack-Softwareeinwickler",
+      "title": "Entwicklung (Unterstützung) eigene CAD-System, Bruchsal",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2017 - 11/2017",
+      "company": "Autolive GmbH",
+      "role": "Backend-Entwiclker",
+      "title": "Entwicklung Backend, Holzgerlingen",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "03/2017 - 06/2017",
+      "company": "DAT Ag",
+      "role": "Fullstack-Softwareeinwickler, Architekt",
+      "title": "Weiterentwicklung eine Web GUI, Ostfildern",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "12/2016 - 01/2017",
+      "company": "EQS",
+      "role": "Fullstack-Softwareeinwickler",
+      "title": "Anmeldungsystem für G20, München",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2016 - 11/2016",
+      "company": "KVWL",
+      "role": "Backend-Softwareentwickler",
+      "title": "Entwicklung eine Migrierungssystem für Daten aus alte Gbo-, Dortmund",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "06/2016 - 11/2016",
+      "company": "KVWL",
+      "role": "Softwareeinwickler",
+      "title": "Entwicklung Abgleich-System zwischen Ärzte und Krankenkassen, Dortmund",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "05/2015 - 03/2016",
+      "company": "Estos GmbH",
+      "role": "Softwareeinwickler",
+      "title": "Entwicklung Backend",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "04/2015 - 04/2016",
+      "company": "Estos GmbH",
+      "role": "Softwareentwickler",
+      "title": "Projekte im Bereich C/C++, Leonberg",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "04/2015 - 06/2015",
+      "company": "Estos GmbH",
+      "role": "Softwareeinwickler",
+      "title": "Weiterentwicklung Communicationssoftware, Leonberg",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "03/2015 - 03/2016",
+      "company": "EEB",
+      "role": "Softwareeinwickler",
+      "title": "Entwicklung Navi-Design für Fahrzeug-Steuergerät, Stuttgart",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "10/2014 - 01/2015",
+      "company": "S1NN GmbH",
+      "role": "Softwareeinwickler",
+      "title": "Entwicklung Navi-Design für Fahrzeug-Steuergeraet, Stuttgart",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "02/2014 - 08/2014",
+      "company": "EEB GmbH",
+      "role": "Softwarearchitekt",
+      "title": "Entwicklung Web-Shops für Biketeilen, Filderstadt",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "11/2013 - 01/2014",
+      "company": "EEB GmbH, Daimler AG",
+      "role": "Softwarearchitekt",
+      "title": "Weiterentwicklung Bestellsystem für Daimler AG, Filderstadt",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "09/2013 - 11/2013",
+      "company": "EEB GmbH, Daimler AG",
+      "role": "Softwarearchitekt, Softwareentwickler",
+      "title": "Optimisierung die Suche fuer Erdmann Export-Import GmbH, Filderstadt",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "02/2013 - 03/2013",
+      "company": "",
+      "role": "Softwareentwickler",
+      "title": "Mailkonten System für Neuen Server anpassen, Filderstadt",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "01/2013 - 10/2013",
+      "company": "EEB GmbH, PAL-IHKEEB GmbH, PAL-IHK",
+      "role": "Softwareentwickler, Datenbankarchitekt",
+      "title": "Entwicklung Bestellsystem für PAL-IHK, Filderstadt",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "03/2011 - 09/2011",
+      "company": "Carbacan mbH, Cabtec",
+      "role": "Softwareentwickler",
+      "title": "Bauelektrikal System basierte auf DGN und CAD Entwicklung, Frankfurt am Main",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "07/2009 - 09/2009",
+      "company": "Payment Technologies GmbH",
+      "role": "Softwareentwickler",
+      "title": "Daten konvertieren und migrieren für neuen System, Smolensk/Moscow",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nausländische Kunden immer gerne\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Maria DB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Mongo DB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ms Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MSSql",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySql",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Toad",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Query Analyser",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Studio",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "SVN",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "XDebug",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Systemadministrator",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Netzwerkadministration",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "OracleDBA",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "MsSqlDBA",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tomcat",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "IT-Projektmanagement",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "UML",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbankprojektierung",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.8
+    },
+    {
+      "name": "Altera",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "AVR Studio",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "DesignLab (CAD)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "PCad",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix Debian",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Ajax",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Angular 6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ansible",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C/C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Delphi",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Groovy",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML/CSS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Intelli JIdea",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Struts 2.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Javascript JQuery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSON",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Angular JS 2.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "React JS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "T-SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Type Script",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VBA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VC++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "EJB",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Maven",
+      "category_name": "CI/CD Tools",
+      "weight": 0.7
+    },
+    {
+      "name": "Nexus",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Jenkins",
+      "category_name": "CI/CD Tools",
+      "weight": 0.7
+    },
+    {
+      "name": "Pipeline",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Ant",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.6
+    },
+    {
+      "name": "Net",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Distribution",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Xray",
+      "category_name": "Dokumentationstools",
+      "weight": 0.38
+    },
+    {
+      "name": "Ansible)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Git",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "Nginx",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "AWS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Atlassian JIRA",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Grunt",
+      "category_name": "CI/CD Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Spring-Boot",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Docker",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Apache",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Nexus)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Net Beans",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Microservices",
+      "category_name": "Architekturmuster",
+      "weight": 0.38
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Berechnung/Simulation/Versuch/Validierung",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "active",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Projekte im Bereich Java EE — Java",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

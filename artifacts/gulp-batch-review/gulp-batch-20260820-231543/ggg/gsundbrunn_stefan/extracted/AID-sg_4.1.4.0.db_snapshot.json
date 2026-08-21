@@ -1,0 +1,1212 @@
+{
+  "personal": {
+    "aid": "AID-sg_4.1.4.0",
+    "first_name": "Stefan",
+    "last_name": "Gsundbrunn",
+    "birth_year": 1969,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+    "availability": "31.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2000,
+    "headline": "Zertifizierter Senior Project Manager: Transition, Transformation, RollOuts, Migrationen, CarveOuts, RZ Umzüge, Demand-, Change, Riskmanagement u. v. m",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 5,
+    "skills": 57,
+    "certifications": 1,
+    "education": 0,
+    "experience": 32,
+    "industries": 8,
+    "focus_areas": 17,
+    "focus_experience": 143,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Latein",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (Verhandlungssicher)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Verhandlungssicher (Wort und",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [
+    {
+      "name": "PRINCE2: 2009 Foundation",
+      "date_obtained": "",
+      "issuer": ""
+    }
+  ],
+  "industries": [
+    "Industrie",
+    "Handel",
+    "Banken",
+    "Versicherungen",
+    "Logistik",
+    "IT Dienstleistungen",
+    "Chemie",
+    "Pharma"
+  ],
+  "focus_areas": [
+    "Zertifizierter Senior Project Manager: Transition Transformation RollOuts Migrationen CarveOuts RZ Umzüge Demand-Change Riskmanagement u. v. m",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Mein kompetentes Auftreten, ein Verständnis für komplexe Zusammenhänge, sehr gute sozialen Skills, nachweisbare Erfahrungen in der Leitung in",
+    "Als Feuerwehrmann habe ich schwierige Projekte übernommen und zu einem erfolgreichen Abschluss gebracht, als Projektleiter habe ich komplexe Themen in eine saubere, steuer- und skalierbare Projektstru",
+    "Als Coach habe ich Projektleiter unterstützt, den richtigen Ansatz für die Umsetzung komplexer Projekte zu finden, als Consultant habe ich das Senior Management meiner Kunden in der strategischen Durc",
+    "entsprechend interessante Aufgabe in Betracht.",
+    "Eine leitende Funktion wird bevorzugt.",
+    "Transition",
+    "Transformation",
+    "RollOuts",
+    "Migrationen",
+    "CarveOuts",
+    "RZ Umzüge",
+    "Demand-Change",
+    "Riskmanagement",
+    "Projektmanagement / -leitung / Organisation / Koordination"
+  ],
+  "focus_experience": [
+    {
+      "name": "Active Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "Adonis",
+      "category": "product_standard"
+    },
+    {
+      "name": "agile Project Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "agiles Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Amazon Cloud",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian Confluence",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "AWS",
+      "category": "product_standard"
+    },
+    {
+      "name": "BPMN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Change Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Claimmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Client LifecycleManagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Controlling",
+      "category": "product_standard"
+    },
+    {
+      "name": "Demand Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Desktop Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Exchange 2010",
+      "category": "product_standard"
+    },
+    {
+      "name": "IP Telefonie",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Service Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITSM",
+      "category": "product_standard"
+    },
+    {
+      "name": "LAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Azure",
+      "category": "product_standard"
+    },
+    {
+      "name": "Office 365",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sharepoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Sharepoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Teams",
+      "category": "product_standard"
+    },
+    {
+      "name": "O365",
+      "category": "product_standard"
+    },
+    {
+      "name": "OIM",
+      "category": "product_standard"
+    },
+    {
+      "name": "OneDrive",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle Application Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prince 2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozessdesign",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rechenzentrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risk Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rolloutplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Deployment",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "SRM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Testmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Transition Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "USU Valuemation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtualisierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMWare",
+      "category": "product_standard"
+    },
+    {
+      "name": "VoIP",
+      "category": "product_standard"
+    },
+    {
+      "name": "WAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Überblick",
+      "category": "product_standard"
+    },
+    {
+      "name": "Senior Project Manager mit aussagefähigen Referenzen im internationalen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfeld",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrungen in der Steuerung und Leitung komplexer IT Projekte in",
+      "category": "product_standard"
+    },
+    {
+      "name": "heterogenen Systemlandschaften",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Prozessanalyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "-design und -implementierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleiter mit hoher sozialer und kommunikativer Kompetenz",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Change-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risk-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Claim-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Agiles Projekt Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wasserfall Modell",
+      "category": "product_standard"
+    },
+    {
+      "name": "Meine Leistungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Senior Project Management (national und international)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programm Management (national und international)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Transition Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Migrationen & Implementierungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Planung und Durchführung von Massenrollouts",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozess Design und Implementierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betriebsführung sowie die Erstellung von Betriebskonzepten",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Outsourcing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Steuerung von Dienstleistern",
+      "category": "product_standard"
+    },
+    {
+      "name": "* ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozessdesign & Implementierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Langjährige Erfahrungen mit Managed Services",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Risk-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Change-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Incident-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Problem-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Escalation Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Budgetplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ressourcenplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vendor Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Analyse von IST-Situationen und Darstellung der Lösungswege zur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erreichung der Projektziele",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Teamleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Moderation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Englisch in Wort und Schrift verhandlungssicher",
+      "category": "product_standard"
+    },
+    {
+      "name": "Meine Stärken",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Zielstrebig und leistungsorientiert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nachhaltigkeit in der",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektabwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hohe soziale und kommunikative Kompetenz und Moderationsfähigkeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Präsentationssicher bis auf Vorstandsebene",
+      "category": "product_standard"
+    },
+    {
+      "name": "Belastbarkeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Motivator",
+      "category": "product_standard"
+    },
+    {
+      "name": "Als Feuerwehrmann in schwierigen Situationen und Projekten einzusetzen",
+      "category": "product_standard"
+    },
+    {
+      "name": "kreativ und lösungsorientiert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Über mich",
+      "category": "product_standard"
+    },
+    {
+      "name": "Seit 1998 bin ich als IT Freiberufler tätig. In zahlreichen",
+      "category": "product_standard"
+    },
+    {
+      "name": "teilweise sehr",
+      "category": "product_standard"
+    },
+    {
+      "name": "herausfordernden Projekten habe ich meine Fähigkeiten als IT Projektleiter",
+      "category": "product_standard"
+    },
+    {
+      "name": "unter Beweis stellen können. Meine Kunden schätzen an mir meine verbindliche",
+      "category": "product_standard"
+    },
+    {
+      "name": "kommunikative Art sowie die Zielstrebigkeit und Nachhaltigkeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "mit der ich an",
+      "category": "product_standard"
+    },
+    {
+      "name": "die Projekte herangehe. Meine besonderen Fähigkeiten und Stärken liegen darin",
+      "category": "product_standard"
+    },
+    {
+      "name": "sehr schnell einen Überblick über sie Situation zu gewinnen und so die Fäden",
+      "category": "product_standard"
+    },
+    {
+      "name": "für die Projekte zur notwendigen",
+      "category": "product_standard"
+    },
+    {
+      "name": "erfolgreichen Steuerung zu übernehmen. Dabei",
+      "category": "product_standard"
+    },
+    {
+      "name": "greife ich stets auf das Wissen und die Kompetenz der Projektmitarbeiter",
+      "category": "product_standard"
+    },
+    {
+      "name": "zurück. In der Summe betrachte ich mich stets als Mitglied der Teams und sehe",
+      "category": "product_standard"
+    },
+    {
+      "name": "meine Aufgabe darin",
+      "category": "product_standard"
+    },
+    {
+      "name": "mit meinen Kenntnissen und Fähigkeiten die Teams im",
+      "category": "product_standard"
+    },
+    {
+      "name": "erfolgreichen Abschluss des Projektes zu unterstützen. Meine kommunikativen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fähigkeiten und meine Möglichkeiten im Umgang mit Teammitgliedern in",
+      "category": "product_standard"
+    },
+    {
+      "name": "heterogenen und internationalen Projektumgebungen sind in der Erreichung der",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ziele stets hilfreich und von Bedeutung.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rollen (Auszug)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung Migration Euroforum (IT Transition) => Handelsblatt Media",
+      "category": "product_standard"
+    },
+    {
+      "name": "Group",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programm Management: Automatisierung TO Prozesse Vodafone",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung Aufbau und Integration Infrastruktur NetCam Mobile / DSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vodafone GmbH",
+      "category": "product_standard"
+    },
+    {
+      "name": "ExaDATA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufbau Allot Systeme",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Changemanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Coaching",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gesamtprojektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kostenreduzierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Project",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programm Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektanalyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Riskmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Transitionmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managementerfahrung in Unternehmen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Multi Project Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "PMO",
+      "category": "product_standard"
+    },
+    {
+      "name": "Program Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programmmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projekt Analyse",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "09/2020 - heute",
+      "company": "dormakaba",
+      "role": "Service Cluster Owner, Projektleiter, Interim Manager",
+      "title": "Service Cluster Owner User Workplace Services, Ennepetal",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2019 - 05/2020",
+      "company": "C&A",
+      "role": "Senior Project Manager",
+      "title": "Corona Readiness / ZScaler Rollout / Windows 10 Rollout /, Düsseldorf",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "11/2018 - 10/2019",
+      "company": "gkvi",
+      "role": "Programm Manager",
+      "title": "Aufbau Service Request Management nach ITIL, Wuppertal",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2018 - 11/2018",
+      "company": "BTC / Amprion",
+      "role": "Projektleiter",
+      "title": "Aufbau Testmanagement im Rahmen eines CarveOuts, Oldenburg in Holstein",
+      "activities": 3,
+      "technologies": 3
+    },
+    {
+      "period": "11/2017 - 05/2018",
+      "company": "Handelsblatt Media Group",
+      "role": "Senior Project Manager",
+      "title": "IT Transition Euroforum => Handelsblatt, Düsseldorf",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "02/2017 - 01/2018",
+      "company": "Vodafone GmbH",
+      "role": "Programm Manager",
+      "title": "Programm Management \"Automation of TO Processes\", München",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2016 - 04/2017",
+      "company": "Vodafone",
+      "role": "Projektleiter",
+      "title": "Projektleitung, München",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "02/2016 - 09/2016",
+      "company": "GEA Group",
+      "role": "Projektleiter / Consultant",
+      "title": "Outsourcing von IT Applikationen, Oelde",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2015 - 01/2016",
+      "company": "Aventics GmbH",
+      "role": "Project Manager, Projektleiter",
+      "title": "IT Cost Controlling, Hannover",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "02/2015 - 08/2015",
+      "company": "DEG (KFW) Bank",
+      "role": "Projektleiter / Unternehmensberater",
+      "title": "„Umsetzungsprojekt Kundenzentrierte DEG“, Köln",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2014 - 01/2015",
+      "company": "Bayer AG",
+      "role": "Senior Project Manager, Projektleiter",
+      "title": "Active Directory Cleanup weltweit, Leverkusen",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "04/2014 - 07/2014",
+      "company": "Vodafone",
+      "role": "Projektleiter / Service Transition Manager Applications",
+      "title": "Projektleitung, Düsseldorf",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "10/2013 - 03/2014",
+      "company": "Rockwood Lithium AG",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung, Frankfurt",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "11/2012 - 06/2013",
+      "company": "FT Metall AB, Normet AB",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung, Schweden",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "06/2012 - 10/2012",
+      "company": "Vodafone",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung Unified Communications / Office Net, Düsseldorf",
+      "activities": 15,
+      "technologies": 2
+    },
+    {
+      "period": "06/2012 - 10/2012",
+      "company": "Vodafone",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung Unified Communications / Office Net, Düsseldorf",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "12/2011 - 05/2012",
+      "company": "Evonik",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung Rollout eDesk (Windows XP auf Windows7), Deutschland",
+      "activities": 10,
+      "technologies": 4
+    },
+    {
+      "period": "05/2011 - 10/2012",
+      "company": "Computacenter",
+      "role": "Senior Project Manager",
+      "title": "Senior Project Manager Kundenprojekte - Computacenter, Deutschland",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2011 - 10/2012",
+      "company": "WILO",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung Implementierung IMAC Prozess, Dortmund",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2011 - 10/2012",
+      "company": "Fraunhofer Gesellschaft",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung Migration Mailbox Exchange, Bonn",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "05/2011 - 09/2011",
+      "company": "Union Investment Bank",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung: PC Client (Windows XP auf Windows7) &, Frankfurt",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "01/2011 - 04/2011",
+      "company": "Zeiss",
+      "role": "Senior Project Manager",
+      "title": "Move der Non-SAP-Applikationen und Datenbanken / Transition Project",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "05/2010 - 12/2010",
+      "company": "Henkel",
+      "role": "Project Manager",
+      "title": "Projektleitung: Move der Non-SAP-, Non-Notes-,, Düsseldorf",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "01/2010 - 04/2010",
+      "company": "SAPAGROUP",
+      "role": "Senior Project Manager",
+      "title": "Projektleitung: Cleanup globales Active Directory, IT, Schweden",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "04/2009 - 12/2009",
+      "company": "EES Greencargo",
+      "role": "Project Manager",
+      "title": "Projektleitung Implementierung Business Solution Logistik, Köln",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "12/2008 - 03/2009",
+      "company": "1und1",
+      "role": "Project Manager",
+      "title": "Leiter IT Operations Hosting Advanced, SaaS, Karlsruhe",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "11/2007 - 10/2008",
+      "company": "SAPA / Alcoa",
+      "role": "Project Manager",
+      "title": "Projektleitung: Applikationsmigration International, Holland",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "09/2007 - 10/2007",
+      "company": "Vodafone",
+      "role": "Project Manager",
+      "title": "Projektleitung: Prozessimplementierung Riskmanagement, Ratingen",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "11/2006 - 08/2007",
+      "company": "Cognis GmbH",
+      "role": "Project Manager",
+      "title": "Projektleitung: Altiris Implementierung, AD Migration, Düsseldorf",
+      "activities": 12,
+      "technologies": 1
+    },
+    {
+      "period": "10/2005 - 11/2006",
+      "company": "Novasol, RiGips, DHL",
+      "role": "Project Manager",
+      "title": "Projektleitung: Diverse Projekte Infrastruktur, Web,, Deutschland",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2003 - 09/2005",
+      "company": "DHL Airways GmbH",
+      "role": "IT Services Manager Hubs & Gateways, Germany & , Project",
+      "title": "IT Services Manager der DHL / Umstrukturierung der IT, Köln",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/2000 - 09/2003",
+      "company": "DHL Airways GmbH",
+      "role": "Project Manager",
+      "title": "Projektleitung: IT Intranetentwicklung DHL Airways & DHL, Köln",
+      "activities": 10,
+      "technologies": 4
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProject Application Migration Project / Project Manager, 11/07 - 10/08\nReference from Global Application Manager, SAPA GmbH, from 19.01.09\n\"[...] The consultant was a great contributer to the successful completion of\nthe project. The consultant's excellent communication skills, his productive\nway of working, his profound technical knowledge and his ability to always keep\non top of things at all times including during difficult phases, made this\nproject a success. He made best use of the skills and knowledge of the team of\nstaff which he had selected to achieve a successful result. His outstanding\npeople skills and organisational abilities were a decisive factor for success\nwhen things were not always straightforward in a complex setting involving\nsuppliers, service providers and internal departments as well as migration\nprojects being carried out at the same time. [...] The consultant was always\nready to face ever-changing challenges and used his skills to the benefit of\nthe project. He completed all tasks to our fullest satisfaction. The consultant\nis a highly diligent, hard-working, very efficient and reliable project manager\nwith very good organisational talent and presentation skills, great people\nskills and we are more than delighted that we were able to contract him and we\ncan fully recommend him. His excellent organisational and communication skills\nand his ability to always stay on top of things, even in difficult\ncircumstances, were decisive factors that ensured successful completion of the\nproject. We wish him every success and all the very best for his future.\"\nProjekte - IT Services Manager, 10/03 - 09/05\nReferenz durch Business Support Manager, Logistikdienstleister, vom 16.01.06\nProjekt im Rahmen einer Festanstellung durchgeführt\n\"[...] Wir haben den IT-Spezialisten als engagierten, zielstrebigen und\nlösungsorientierten Mitarbeiter und Führungskraft kennengelernt, der die hohen\nAnforderungen an seine Stelle sicher erfüllte. Der IT-Spezialist verfügt über\nfundierte und vielseitige Fachkenntnisse, welcher er jederzeit sicher und\neffektiv in der Praxis einsetzte. Bei den ihm übertragenen Projekten hat er\nmaßgeblich zu deren Erfolg beigetragen. Sein Führungsstil war an den\nbetrieblichen Zielen ausgerichtet und verband gleichzeitig in einem\nausgewogenen Maße die Förderung der persönlichen Motivation der Mitarbeiter\nmit\nden Zielen der Abteilung. Die ihm unterstellten Mitarbeiter führte er stets zu\nguten Ergebnissen. Insgesamt erledigte der Consultant die ihm übertragenen\nAufgaben stets zu unserer vollen Zufriedenheit. Sein Verhalten Kollegen,\nMitarbeitern, Vorgesetzten und externen Partnern gegenüber war jederzeit\neinwandfrei. Der Consultant verlässt das Unternehmen mit dem heutigen Tage\nauf\neigenen Wunsch. Wir bedauern diese Entscheidung, da wir mit ihm einen guten\nMitarbeiter verlieren, bedanken uns für die angenehme und erfolgreiche\nZusammenarbeit und wünschen ihm für die Zukunft beruflich weiterhin viel Erfolg\nund privat alles Gute.\"\nAlle Referenzen sind durch GULP bestätigt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Exadata",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 11g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Server 2008",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Aufgrund der Vielzahl der Kenntnisse liefere ich Informationen gerne auf",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Anfrage",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Netzwerkkomponenten",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "IBM",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "ITIL",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "Testmanagement",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Projektleitung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "DSL",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "ExaDATA",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Big Data",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Active Directory",
+      "category_name": "Identity Management",
+      "weight": 0.6
+    },
+    {
+      "name": "Scrum",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "VoIP",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "MS Office",
+      "category_name": "Business Software",
+      "weight": 0.6
+    },
+    {
+      "name": "MS Project",
+      "category_name": "Projektmanagement Tools",
+      "weight": 0.6
+    },
+    {
+      "name": "Visio",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Exchange 2010",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.6
+    },
+    {
+      "name": "WIndows Server 2008",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Altiris",
+      "category_name": "Business Software",
+      "weight": 0.6
+    },
+    {
+      "name": "Windows XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "MS SQL Server 2008",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle 10g",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Citrix",
+      "category_name": "Virtualisierung",
+      "weight": 0.6
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.7
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "CMS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.68
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.6
+    },
+    {
+      "name": "AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "MSSQL",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "MySQL 5",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "Cluster",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "DMS",
+      "category_name": "Datenbanken",
+      "weight": 0.55
+    },
+    {
+      "name": "LDAP",
+      "category_name": "Identity Management",
+      "weight": 0.55
+    },
+    {
+      "name": "Windows & Linux Application-Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "AD Umgebung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Amazon Cloud",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "NetCam Mobile",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Allot Systeme",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Allot Data Mediator Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OfficeNet",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Roll-Out Menge: 3700 PC´s",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "4000 IP Telefone (Cisco)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Jimdo",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MailXchange",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OX Light",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "NGH - Next Generation Hosting",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "EAR",
+      "category_name": "Sonstige Skills",
+      "weight": 0.55
+    },
+    {
+      "name": "Allot",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

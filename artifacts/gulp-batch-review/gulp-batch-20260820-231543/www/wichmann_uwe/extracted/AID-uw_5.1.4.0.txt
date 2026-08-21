@@ -1,0 +1,240 @@
+AID: AID-uw_5.1.4.0
+Name: Uwe Wichmann
+Headline: Testanalyst/Tester/Testmanagement, Business-Analyst, Anwendungsentwickler Mainframe IBM
+Ort: Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Wohnort: 934xx Blaibach, Deutschland
+Jahrgang: 1953
+Verfügbar: 15.06.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2008
+Sprachen: Deutsch, Englisch Wort und Schrift, Englisch (Wort und Schrift)
+
+FACHBEREICHE:
+Testanalyst/Tester/Testmanagement
+Business-Analyst
+Anwendungsentwickler Mainframe IBM
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Fehlermanagement
+Applikationssupport
+DBA Administration
+Definieren von Testzielen, Testplanung und Testinfrastruktur
+Migration
+Qualitätssicherung
+Software-Entwicklung auf IBM Host-Systemen (COBOL, DB2 und IMS)
+Tester / Testanalyst / Testmanagement mit HP QC ALM 11 / HP-QC, Mercury Testdirector, Silk Test
+
+BRANCHEN:
+Banken
+Genossenschaftliches IT-Umfeld
+Börse (Wertpapiere)
+Automobilindustrie
+Telekom
+Dienstleistungen
+Börse
+Handel
+Behörden
+ältere Projekte auf Anfrage
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+PROJEKTE:
+  07/2018 - 10/2019 | Bundesagentur für Arbeit | Testingenieur
+    - Aufgaben:
+    - Testfallerstellung von manuellen Tests mit Silk Test
+    - Testfallerstellung schlüsselwortbasiert mit TAMARA Tool unter Swet4
+    Techs: Silk Test, TAMARA, Swet4
+  09/2017 - 06/2018 | FiduciaGad München | Testanalyst / Tester
+    - ===================================================== ==========================
+  05/2016 - 08/2017 | Fiducia GAD | Testanalyst / Tester / Business Analyst
+    - Aufgaben:
+    - Analyse und Erstellen Fachkonzepte für die Bereiche Kundenberichte, Personenverwaltung, AnaCredit, MiFIDII nach vorliegenden Pflichtenheften und Requirements.
+    - MiFIDII nach vorliegenden Pflichtenheften und Requirements.
+    Techs: Visualizer, Testfall-DB, Bugs&Wishes, Word 2010, Excel 2010, SVN-Subversion, agree21, Java
+  12/2015 - 04/2016 | Fiducia GAD | Testanalyst / Tester ISTQB
+    - Aufgaben:
+    - Testen der Oberflächensteuerung von Geldautomaten und Cash-Recyclern.
+    - Testen Migration von Seccos 6 nach Seccos7.
+    Techs: Testfall-DB, Bugs&Wishes, Word 2010, Excel 2010, SVNSubversion, Online agree21
+  08/2015 - 11/2015 | FIDUCIA GAD | Testanalyst / Tester
+    - Aufgaben:
+    - OECD, Austausch von steuerlichen Informationen von natürlichen und juristischen Personen meldepflichtiger Konten an BZST. ab 2016
+    - Sprint Planing
+    Techs: Visualizer, Testfall-DB, Bugs&Wishes, Word 2010, Excel 2010, SVN-Subversion
+  09/2014 - 02/2015 | Deutsche Bank | Testanalyst / Tester HP-QC ALM 11 (ISTQB)
+    - Aufgaben:
+    - Migration HOST nach SAP
+    - Im Rahmen des Magellan Programmes ist für die Retail Applikation der Deutschen Bank ein Wechsel der technischen Plattform von Mainframe auf SAP basiertes Umfeld vorgesehen.
+    Techs: HOST, NOS-FE, SAP-GUI, SAP-PS, SAP-DM, SAP-CML, SAP-BA, HP-ALM 11.52, Word, Excel
+  01/2014 - 07/2014 | Commerzbank | Testmanager / Defect Manager HP-QC ALM 11
+    - CoRep, FinRep, EK-DataMart, IFRS, CRD IV, ABACUS / DaVinci
+    - Aufgaben:
+    - Review der Testkonzepte, Teststeckbriefe, Testszenarien, Quality Gates und IKS Checklisten
+    Techs: HP-ALM QC 11, MS-Office (Word, Excel, PowerPoint), Outlook, SQL, SnagIT
+  10/2013 - 12/2013 | Commerzbank | Testanalyst / Tester (ISTQB) HP-QC ALM 11
+    - (Workflow)
+    - Aufgaben:
+    - Ermittlung / Beschreibung Testfälle auf Basis des Fachkonzepts. Erfassen der Testfälle in das Tool HP-QC ALM 11.
+    Techs: Retests, HP-QC ALM 11, Oracle-DB, SQL-Developer-3.2, MS-Outlook, IRISServer, Middleware, MS-Sharepoint, RDMB, GDP Kundenbasisdaten
+  04/2013 - 06/2013 | FMSA (Bundesanstalt für Finanzmarktstabilisierung) | Tester/Testdesigner (ISTQB)
+    - Frankfurt (Deutsche Bundesbank)
+    - Aufgaben:
+    - Projekt BaRes Jahresbeitrag
+    Techs: Lotus Notes 8.5, SAP Net Weaver, SAP GUI for Windows, ERP, SAP-SD, FI, Excel, Word
+  07/2012 - 11/2012 | GEZ (Gebühreneinzugszentrale) Köln | Tester (ISTQB)
+    - Rufi13 (neues Rundfunkbeitragsgesetz)
+    - Aufgaben:
+    - Testfälle aus (Use Cases) Testdurchführung, Dokumentation.
+    Techs: Lotus Notes 8.5, Serena, AQT-Tool, WinSCP, Putty. UseCases, Excel, XML, Linux, DV2005, DB2
+  06/2012 - 07/2012 | Baumarktdirekt (Otto-Group) Hamburg | Tester (ISTQB) HP-Quality-Center
+    - Aufgaben:
+    - Baumarkt-Direkt Projekt Osaka Drittanbieter
+    - Erstellen Testfälle und Testschritte im HP-Quality-Center nach fachlichen
+    Techs: MS-Excel, MS-Outlook, VMWare, Web Anwendung (OnlinePortal), HP-Quality-Center, Server, Windows XP
+  05/2009 - 12/2011 | Commerzbank - Frankfurt | Tester / Testanalyst (ISTQB) HP-QC Entwickler
+    - Entwicklung von Cobol, IMS, DB2 Programme für die Migration Dresdner-Bank zur Commerzbank. Schnittstellen Programm zum Permanentläufer.
+    - Aufgaben:
+    - Analyse bestehender Programme und erstellen Fachdesign
+    Techs: Testdaten erstellen, Cosmol - Repository, XPEDITER, ORACLE SQL-DEVELOPER, SPUFI, HP-Quality-Center, Sharepoint, PEV, RUMBA, XINFO
+  05/2008 - 12/2008 | UniCredit Group / HypoVereinsbank München | Tester / Testdesigner / Testmanager (HP-QC)
+    - Aufgaben:
+    - Geschäftsprozesse zusammen mit den Fachabteilungen analysiert.
+    - Aus der Analyse 800 Testfälle erstellt. (Host-Applikationen).
+    Techs: HP-Quality-Center, MS-Outlook, MS-OFFICE 2007, TSO-ISPF, SDSF, DB2, IMS, TABEX
+  01/2008 - 02/2008 | Hypo-Vereinsbank | Tester
+    - Aufgaben:
+    - Analyse und Abstimmung mit den Fachbereichen Aufbau Quality-Center. Einstellen Anwendungssysteme und Testfälle sowie Testsequenzen
+    - Testinfrastruktur , Planung auf Aufbau
+    Techs: Mercury Quality-Center, MS-Outlook, MS-EXCEL, MS-WORD
+
+SKILLS:
+  database: Access, DB2, DL/1, Focus DB (Information Builders), IMS, Lotus Notes 8.5, ODBC, Oracle-DB, SQL, VSAM
+  hardware: Client-Server, IBM Großrechner, PC, Siemens Großrechner, Teradata
+  operating_system: BS1000, BS2000, IBM ISPF, Linux, MS-DOS, MVS, OS/390, WANG, Resource, Windows, Windows Vista, Windows 7, Z/OS
+  programming_languages: AFP, Assembler, CA-EARL, CA-TELON, CList, Cobol Seit 1983, COBOL2, COBOL2002, Delta, DELTA-COBOL, Easytrieve Plus, FOCUS, FOCUS (Information Builders), Java, JavaScript, JCL, QMF, Rexx, ROCHADE, SWT01
+  special_skill: HP ALM 11, Anwendungsentwickler IBM Mainframe, CICS, IMS/DC, Internet, Intranet, SPUFI
+
+SKILL-ABLAGE:
+svn-, subversion, db2-, sap-erp-, active, office
+
+AUSBILDUNG:
+1972 - 1973 | Ausbildung zum Operator | Fachschule für Datenverarbeitung  [course]
+1976 - 1977 | Ausbildung zum Programmierer | Fachschule für Datenverarbeitung  [course]
+1986 - 1987 | Ausbildung für IMS, CICS, DL1 | Fachschule für Datenverarbeitung  [course]
+1989 | Datenverarbeitungskaufmann IHK München  [course]
+1995 | Ausbildung zum Datenbankadministrator DB2  [course]
+2001 | DB2-Version 7 UDB for OS/390 and z/OS  [course]
+2008 | ISTQB Certified Tester Foundation Level  [course]
+2012 | Workshop SILK-Test  [course]
+
+FOCUS_EXP:
+  3270 Emulation  [product_standard]
+  ABENDAID  [product_standard]
+  AQT-Tool  [product_standard]
+  BAP agree 21  [product_standard]
+  BMC-CATALOG  [product_standard]
+  BMC-TOOL  [product_standard]
+  Bugs & Wishes Defect Tool  [product_standard]
+  CHANGE-MAN  [product_standard]
+  CICS  [product_standard]
+  CICS-CEDF  [product_standard]
+  DB Visualizer DB2  [product_standard]
+  DL/1  [product_standard]
+  Drittsysteme  [product_standard]
+  ENDEVOR  [product_standard]
+  Excel  [product_standard]
+  FILEAID / IMS  [product_standard]
+  GDP Kundenbasisdaten  [product_standard]
+  HOST  [product_standard]
+  HP-ALM 11.52  [product_standard]
+  HP-ALM QC 11  [product_standard]
+  HP-Quality-Center ALM 11  [product_standard]
+  IBM Notes 9  [product_standard]
+  IMS-DB  [product_standard]
+  IMS-DC  [product_standard]
+  IMS-MFS (Masken)  [product_standard]
+  IRIS-Server  [product_standard]
+  Java-Umfeld  [product_standard]
+  MAESTRO2  [product_standard]
+  Mercury TESTDIRECTOR  [product_standard]
+  Middleware  [product_standard]
+  MS-ACCESS  [product_standard]
+  MS-Excel  [product_standard]
+  MS-Office (Word  [product_standard]
+  MS-Outlook  [product_standard]
+  MS-POWERPOINT  [product_standard]
+  MS-Sharepoint  [product_standard]
+  MS-WORD  [product_standard]
+  MSP-DATAMANAGER  [product_standard]
+  NCR/TERADATA-SQL  [product_standard]
+  NOS-FE  [product_standard]
+  OFIM / IMS  [product_standard]
+  OLIVER  [product_standard]
+  ORB-DB  [product_standard]
+  Outlook  [product_standard]
+  PANVALET  [product_standard]
+  PLATINUM  [product_standard]
+  PowerPoint)  [product_standard]
+  PuTTY  [product_standard]
+  WINSCP3  [product_standard]
+  Putty. UseCases  [product_standard]
+  RDMB  [product_standard]
+  SAP ERP  [product_standard]
+  SAP GUI for Windows  [product_standard]
+  SAP Netweaver  [product_standard]
+  SAP-BA  [product_standard]
+  SAP-CML  [product_standard]
+  SAP-DM  [product_standard]
+  SAP-ERP-FI  [product_standard]
+  SAP-GUI  [product_standard]
+  SAP-PS  [product_standard]
+  SAP-SD  [product_standard]
+  SCLM  [product_standard]
+  Scrum  [product_standard]
+  SDSF  [product_standard]
+  Serena  [product_standard]
+  SERENA Business Manager (Defect-Tool)  [product_standard]
+  Server  [product_standard]
+  Sharepoint  [product_standard]
+  SILK-TEST (Testautomation) mit VM Lab-Manager  [product_standard]
+  SnagIT  [product_standard]
+  Snagit9  [product_standard]
+  SQL-Developer-3.2  [product_standard]
+  SQS-TEST  [product_standard]
+  TABEX  [product_standard]
+  Testfall DB  [product_standard]
+  TSO-ISPF  [product_standard]
+  UniServ  [product_standard]
+  VIASOFT/SMARTEST  [product_standard]
+  VMWare  [product_standard]
+  Webanwendung(Online-Portal)  [product_standard]
+  WinSCP  [product_standard]
+  Word  [product_standard]
+  XML  [product_standard]
+  XMLSPY  [product_standard]
+  XPEDITER  [product_standard]
+  Z/OS  [product_standard]
+  ZSR Rechenkern  [product_standard]
+  Schwerpunkte  [product_standard]
+  Applikationssupport  [product_standard]
+  Core-Banking-Système: agree21  [product_standard]
+  Magellan  [product_standard]
+  Eurosig  [product_standard]
+  WP2 (WPServe  [product_standard]
+  WPDirekt)  [product_standard]
+  MBS  [product_standard]
+  DBA Administration  [product_standard]
+  Definieren von Testzielen  [product_standard]
+  Testplanung und Testinfrastruktur  [product_standard]
+  Migration  [product_standard]
+  Qualitätssicherung  [product_standard]
+  Software-Entwicklung auf IBM Host-Systemen (COBOL  [product_standard]
+  DB2 und IMS)  [product_standard]
+  Tester / Testanalyst / Testmanagement mit HP QC ALM 11 / HP-QC  [product_standard]
+  Mercury  [product_standard]
+  Testdirector  [product_standard]
+  Silk Test  [product_standard]
+  PuTTY, WINSCP3  [product_standard]
+  Testfall DB,  [product_standard]
