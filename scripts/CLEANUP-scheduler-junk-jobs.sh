@@ -16,7 +16,7 @@ set -euo pipefail
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 EXECUTE="${EXECUTE:-0}"
 MODE="${MODE:-delete}"
-KEEP_KEYS="${KEEP_KEYS:-radar_poll,inbox_poll,prozess_tick,email_index,radar_berater_index,namazu_profiles_index,radar_berater_gulp_available,radar_berater_fl_available}"
+KEEP_KEYS="${KEEP_KEYS:-radar_poll,inbox_poll,prozess_tick,email_index,radar_berater_index,namazu_profiles_index,namazu_profiles_index_22,namazu_profiles_index_03,radar_berater_gulp_available,radar_berater_fl_available}"
 OUT="${OUT:-/tmp/scheduler-cleanup-$(date +%Y%m%d-%H%M%S)}"
 
 mkdir -p "$OUT"
