@@ -6,6 +6,8 @@ Intervalle (Architektur Kap. 4 / Kap. 0):
   inbox_poll      alle 2 Min
   prozess_tick    alle 15 Min
   email_index     alle 1 Min  (IMAP→ES, inkrementell)
+  radar_berater_index alle 30 Min
+  namazu_profiles_index alle 6 Std (HTML→ES abpe_namazu_profiles, inkrementell)
   delegation_notify — on-demand (hier optional als seltener Tick)
 
 schedule_type: ONCE | RECURRING  (RRULE-String → Feld rrule_string)
@@ -65,6 +67,19 @@ JOBS = [
         'webhook': 'radar-berater-index',
         'rrule': 'FREQ=MINUTELY;INTERVAL=30',
         'payload': {'job': 'radar_berater_index', 'reindex': True},
+    },
+    {
+        # HTML /var/www/namazu/index → ES abpe_namazu_profiles (async Webhook)
+        'job_key': 'namazu_profiles_index',
+        'owner_type': 'system',
+        'owner_ref': 'namazu',
+        'webhook': 'namazu-profiles-index',
+        'rrule': 'FREQ=HOURLY;INTERVAL=6',
+        'payload': {
+            'job': 'namazu_profiles_index',
+            'incremental': True,
+            'since_hours': 168,
+        },
     },
 ]
 

@@ -233,6 +233,136 @@ def shaduler_radar_berater_index(payload=None):
         return {'ok': False, 'error': str(exc), 'job': 'radar_berater_index'}
 
 
+NAMAZU_PROFILES_LOCK = 'shaduler:namazu_profiles_index:lock'
+NAMAZU_PROFILES_LOCK_TTL = 3600  # Full-Lauf kann dauern — kein Parallel-Start
+
+
+def _namazu_profiles_kwargs(payload=None):
+    payload = payload or {}
+    incremental = payload.get('incremental', True)
+    if isinstance(incremental, str):
+        incremental = incremental.strip().lower() not in ('0', 'false', 'no', 'off')
+    full = payload.get('full', False)
+    if isinstance(full, str):
+        full = full.strip().lower() in ('1', 'true', 'yes', 'on')
+    if full:
+        incremental = False
+    try:
+        since_hours = int(payload.get('since_hours') or 168)
+    except (TypeError, ValueError):
+        since_hours = 168
+    try:
+        limit = int(payload.get('limit') or 0)
+    except (TypeError, ValueError):
+        limit = 0
+    return {
+        'incremental': bool(incremental),
+        'full': bool(full),
+        'since_hours': max(1, since_hours),
+        'limit': max(0, limit),
+    }
+
+
+def _namazu_profiles_sync(*, incremental=True, full=False, since_hours=168, limit=0):
+    from django.core.cache import cache
+    from django.core.management import call_command
+    from io import StringIO
+
+    if not cache.add(NAMAZU_PROFILES_LOCK, '1', NAMAZU_PROFILES_LOCK_TTL):
+        return {'ok': True, 'job': 'namazu_profiles_index', 'skipped': 'lock'}
+    try:
+        out = StringIO()
+        kwargs = {'stdout': out, 'since_hours': since_hours}
+        if limit:
+            kwargs['limit'] = limit
+        if full or not incremental:
+            kwargs['full'] = True
+        else:
+            kwargs['incremental'] = True
+        call_command('index_namazu_profiles', **kwargs)
+        text = out.getvalue()
+        return {
+            'ok': True,
+            'job': 'namazu_profiles_index',
+            'incremental': bool(incremental) and not bool(full),
+            'full': bool(full) or not bool(incremental),
+            'since_hours': since_hours,
+            'log_tail': text[-800:],
+        }
+    except Exception as exc:
+        logger.exception('namazu_profiles_index failed')
+        return {'ok': False, 'error': str(exc), 'job': 'namazu_profiles_index'}
+    finally:
+        cache.delete(NAMAZU_PROFILES_LOCK)
+
+
+def _namazu_profiles_thread(**kw):
+    def _run():
+        try:
+            _namazu_profiles_sync(**kw)
+        except Exception:
+            logger.exception('namazu_profiles_index thread fallback failed')
+
+    t = threading.Thread(target=_run, name='shaduler-namazu-profiles-index', daemon=True)
+    t.start()
+    return t.name
+
+
+def shaduler_namazu_profiles_index(payload=None):
+    """Webhook: sofort 200 — HTML→ES async (Celery oder Thread). Timeout Scheduler=15s."""
+    kw = _namazu_profiles_kwargs(payload)
+    logger.info('shaduler_namazu_profiles_index: queue %s', kw)
+    try:
+        async_result = namazu_profiles_index_run.delay(**kw)
+        return {
+            'ok': True,
+            'job': 'namazu_profiles_index',
+            'queued': True,
+            'via': 'celery',
+            'task_id': getattr(async_result, 'id', None),
+            **kw,
+        }
+    except Exception as exc:
+        logger.warning('namazu_profiles_index Celery unavailable, thread fallback: %s', exc)
+        name = _namazu_profiles_thread(**kw)
+        return {
+            'ok': True,
+            'job': 'namazu_profiles_index',
+            'queued': True,
+            'via': 'thread',
+            'thread': name,
+            'celery_error': str(exc)[:200],
+            **kw,
+        }
+
+
+try:
+    from celery import shared_task as _shared_task_namazu
+
+    @_shared_task_namazu(
+        bind=True,
+        name='abpe_shaduler.namazu_profiles_index_run',
+        ignore_result=True,
+        max_retries=2,
+        soft_time_limit=3500,
+        time_limit=3600,
+    )
+    def namazu_profiles_index_run(
+        self, incremental=True, full=False, since_hours=168, limit=0
+    ):
+        return _namazu_profiles_sync(
+            incremental=incremental,
+            full=full,
+            since_hours=since_hours,
+            limit=limit,
+        )
+
+except Exception:  # pragma: no cover — Celery optional
+
+    def namazu_profiles_index_run(**kwargs):  # type: ignore
+        return _namazu_profiles_sync(**kwargs)
+
+
 def shaduler_delegation_notify(payload=None):
     """Benachrichtigungs-Mail bei Delegation (on-demand / Job)."""
     logger.info('shaduler_delegation_notify: stub payload=%s', payload)
@@ -251,6 +381,8 @@ JOB_HANDLERS = {
     'prozess_tick': shaduler_prozess_tick,
     'email-index': shaduler_email_index,
     'email_index': shaduler_email_index,
+    'namazu-profiles-index': shaduler_namazu_profiles_index,
+    'namazu_profiles_index': shaduler_namazu_profiles_index,
     'delegation-notify': shaduler_delegation_notify,
     'delegation_notify': shaduler_delegation_notify,
 }

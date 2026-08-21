@@ -11,7 +11,7 @@ BACKEND="${BACKEND:-/opt/abpe/backend}"
 OUT="${OUT:-/tmp/matching-health-$(date +%Y%m%d-%H%M%S)}"
 NAMAZU_DIR="${NAMAZU_DIR:-/var/www/namazu/index}"
 CLASSIC_NAMAZU="${CLASSIC_NAMAZU:-/var/namazu/index}"
-KEEP_KEYS="${KEEP_KEYS:-radar_poll,inbox_poll,prozess_tick,email_index,radar_berater_index}"
+KEEP_KEYS="${KEEP_KEYS:-radar_poll,inbox_poll,prozess_tick,email_index,radar_berater_index,namazu_profiles_index,radar_berater_gulp_available,radar_berater_fl_available}"
 
 mkdir -p "$OUT"
 cd "$BACKEND"

@@ -35,7 +35,7 @@ if [[ -n "$CMD" ]]; then
   fi
 else
   echo "WARN: register_scheduler_jobs fehlt live — Periodik manuell prüfen."
-  echo "Erwartet: radar_poll, inbox_poll, prozess_tick, email_index, radar_berater_index"
+  echo "Erwartet: radar_poll, inbox_poll, prozess_tick, email_index, radar_berater_index, namazu_profiles_index"
 fi
 
 echo
