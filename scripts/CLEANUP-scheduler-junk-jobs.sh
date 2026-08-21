@@ -3,7 +3,8 @@
 # Behält: radar_poll, inbox_poll, prozess_tick, email_index, radar_berater_index.
 #
 # Default: DRY (nur Liste). Schreiben: EXECUTE=1
-# Löschmodus: MODE=cancel (API, Default) | MODE=delete (ORM hard delete)
+# Löschmodus: MODE=delete (ORM, Default — Tests sollen weg)
+#             MODE=cancel (nur API cancel, Eintrag bleibt)
 #
 # ucs5:
 #   cd /mnt/public/udoo-reprap && git pull origin cursor/matching-index-hygiene-1532
@@ -14,7 +15,7 @@ set -euo pipefail
 
 BACKEND="${BACKEND:-/opt/abpe/backend}"
 EXECUTE="${EXECUTE:-0}"
-MODE="${MODE:-cancel}"
+MODE="${MODE:-delete}"
 KEEP_KEYS="${KEEP_KEYS:-radar_poll,inbox_poll,prozess_tick,email_index,radar_berater_index}"
 OUT="${OUT:-/tmp/scheduler-cleanup-$(date +%Y%m%d-%H%M%S)}"
 
