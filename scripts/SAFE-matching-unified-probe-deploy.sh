@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-# Deploy Probe-Code (matching_weight_probe + management command) nach Live-Shaduler.
+# Deploy Contact-Matching-Probe (matching_weight_probe + management command).
+#
+# ucs5:
+#   cd /mnt/public/udoo-reprap
+#   git pull origin cursor/matching-contact-weight-index-1532
+#   bash scripts/SAFE-matching-unified-probe-deploy.sh
+#   EXECUTE=1 CONTACTS=40 bash scripts/PROBE-matching-unified-index.sh
+#
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
@@ -22,8 +29,10 @@ do
   echo "OK $f"
 done
 
-# services/__init__ falls nötig
 [[ -f "$LIVE_SH/services/__init__.py" ]] || touch "$LIVE_SH/services/__init__.py"
 
 find "$LIVE_SH" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
-echo "Deploy fertig. Danach: bash scripts/PROBE-matching-unified-index.sh"
+echo "Deploy fertig."
+echo "Danach: bash scripts/PROBE-matching-unified-index.sh"
+echo "  oder: EXECUTE=1 CONTACTS=40 bash scripts/PROBE-matching-unified-index.sh"
+echo "  oder: CONTACT_ID=<uuid> bash scripts/PROBE-matching-unified-index.sh"
