@@ -212,7 +212,11 @@ PY
 # Skip header, iterate (leerer gulp_id behält seine Spalte)
 while IFS=$'\t' read -r cat contact_id gulp_id last first fs_letter fs_dir has_neu profil_len rest || [[ -n "${cat:-}" ]]; do
   [[ "${cat:-}" == "cat" || -z "${cat:-}" ]] && continue
-  [[ "$cat" != "fs_dir_no_neu" && "$cat" != "need" ]] && continue
+  # Inventur: fs_dir_no_neu | no_fs_dir | need (manuell)
+  case "$cat" in
+    fs_dir_no_neu|no_fs_dir|need) ;;
+    *) continue ;;
+  esac
 
   # Spalten-Shift-Heilung: gulp_id=Nachname, last=Vorname, first=letter, fs_letter=dir, fs_dir=0/has_neu
   if [[ -n "$gulp_id" && ! "$gulp_id" =~ ^[0-9]+$ && "$first" =~ ^(sch|[a-z]{3})$ ]]; then
