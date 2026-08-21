@@ -70,4 +70,5 @@ fi
 
 echo
 echo "Health: bash scripts/CHECK-matching-index-health.sh"
-echo "Erwartung: Job namazu_profiles_index + max_indexed_at von abpe_namazu_profiles frisch nach FULL"
+echo "Erwartung: Jobs namazu_profiles_index + _22 + _03; max_indexed_at von abpe_namazu_profiles frisch nach FULL"
+echo "Fenster: Mo–Fr 08–19 alle 10 Min (Europe/Berlin); täglich 22:00 und 03:00"
