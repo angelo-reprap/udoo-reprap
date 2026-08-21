@@ -277,6 +277,46 @@ def normalize_pipeline_skill_name(name: str) -> str:
     return n
 
 
+# Tech-Kategorien aus der Skill-DB (SkillCategory / category_name), die für Matching zählen.
+# "Sonstige Skills" / Soft Skills absichtlich aus — dort landet der Enricher-Müll.
+MATCHING_SKILL_CATEGORIES = frozenset({
+    'Programmiersprachen',
+    'Frameworks und Bibliotheken',
+    'Datenbanken',
+    'Cloud-Plattformen',
+    'DevOps Tools',
+    'CI/CD Tools',
+    'Betriebssysteme',
+    'IT-Infrastruktur',
+    'Netzwerkprotokolle',
+    'Virtualisierung',
+    'Security Tools',
+    'Testing Tools',
+    'Versionsverwaltung',
+    'Identity Management',
+    'Architekturmuster',
+    'Datenformate',
+    'Datenmanagement',
+    'Business Software',
+    'Entwicklungsumgebungen',
+    'Monitoring Tools',
+})
+
+# Zu generisch auch innerhalb erlaubter Kategorien
+_GENERIC_SKILL_NAMES = frozenset({
+    'server', 'client', 'software', 'hardware', 'tools', 'tool',
+    'system', 'systems', 'application', 'applications', 'framework',
+    'database', 'cloud', 'network', 'networking', 'os', 'pc',
+})
+
+
+def skill_category_allowed(category_name: str) -> bool:
+    cat = (category_name or '').strip()
+    if not cat:
+        return False
+    return cat in MATCHING_SKILL_CATEGORIES
+
+
 def is_plausible_skill_name(name: str) -> bool:
     """Filtert offensichtlichen Müll aus der Pipeline-Skill-DB für den Probe-Index."""
     n = normalize_pipeline_skill_name(name) if name else ''
@@ -301,7 +341,7 @@ def is_plausible_skill_name(name: str) -> bool:
     if n.startswith('(') and n.count('(') > n.count(')'):
         return False
     # alte OS-/Versionskürzel ohne echten Skill-Wert für Matching
-    if re.fullmatch(r'(nt\d*|win\d{0,2}|w2k|w2k3|dos|os/?2|r\d+)', low):
+    if re.fullmatch(r'(nt\d*|win\d{0,2}|w2k|w2k3|dos|dr-?dos|os/?2|r\d+)', low):
         return False
     # Satzfragmente / Level-Reste
     junk_parts = (
@@ -320,14 +360,21 @@ def is_plausible_skill_name(name: str) -> bool:
     if low in ('access', 'approach', 'word', 'excel', 'powerpoint', 'outlook', 'rexx'):
         # zu generisch / Legacy für Tech-Matching
         return False
+    if low in _GENERIC_SKILL_NAMES:
+        return False
     return True
 
 
-def skill_stats_from_pipeline(consultant) -> List[Dict]:
-    """Liest ConsultantSkill.weight (+ Name) — schon vom Enricher berechnet."""
+def skill_stats_from_pipeline(consultant, *, require_category: bool = True) -> List[Dict]:
+    """
+    Liest ConsultantSkill.weight (+ Name).
+
+    Nutzt die Skill-DB-Kategorie (ConsultantSkill.category_name bzw. Skill.category_name)
+    als Allowlist — nicht die rohe Skill-Tabelle (die enthält denselben Müll).
+    """
     rows = []
     try:
-        qs = consultant.skills.select_related('skill').all()
+        qs = consultant.skills.select_related('skill', 'skill__category').all()
     except Exception:
         return rows
     for cs in qs:
@@ -335,11 +382,18 @@ def skill_stats_from_pipeline(consultant) -> List[Dict]:
         name = normalize_pipeline_skill_name(raw)
         if not name or not is_plausible_skill_name(name):
             continue
+        cat = (
+            (getattr(cs, 'category_name', None) or '').strip()
+            or (getattr(getattr(cs, 'skill', None), 'category_name', None) or '').strip()
+        )
+        if require_category and not skill_category_allowed(cat):
+            continue
         w = float(getattr(cs, 'weight', 0.5) or 0.5)
         rows.append({
             'name': name,
             'name_lc': name.lower(),
             'raw_name': raw if raw != name else None,
+            'category': cat,
             'freq': None,
             'projects': None,
             'months': None,
