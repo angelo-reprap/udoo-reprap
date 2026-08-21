@@ -47,12 +47,35 @@ from django.db.models import Count
 Consultant = apps.get_model("cv_extractor", "Consultant")
 qs = Consultant.objects.all()
 by_status = dict(qs.values("status").annotate(c=Count("id")).values_list("status", "c"))
+pool = qs.filter(status__in=["completed", "validated", "profile_ready"])
+pool_de = pool.exclude(aid__endswith="-en")
+pool_en = pool.filter(aid__endswith="-en")
+# Dedup wie Repair: neueste AID pro consultant_dir
+from collections import defaultdict
+
+def _aid_ver(aid):
+    try:
+        parts = (aid or "").split("_")[-1].replace("-en", "").split(".")
+        return tuple(int(x) for x in parts if x.isdigit())
+    except Exception:
+        return (0,)
+
+groups = defaultdict(list)
+for c in pool_de.only("id", "aid", "consultant_dir", "created_at"):
+    key = (c.consultant_dir or c.aid or str(c.id)).lower().strip()
+    groups[key].append(c)
+dedup_de = len(groups)
+
 db = {
     "consultants_total": qs.count(),
     "by_status": by_status,
     "with_skills": qs.filter(skills__isnull=False).distinct().count(),
     "match_pool_completed_validated": qs.filter(status__in=["completed", "validated"]).count(),
     "profile_ready": qs.filter(status="profile_ready").count(),
+    "pool_completed_validated_ready": pool.count(),
+    "pool_de_skip_en": pool_de.count(),
+    "pool_en_only": pool_en.count(),
+    "pool_de_dedup_by_dir": dedup_de,
 }
 print("DB:", json.dumps(db, ensure_ascii=False, indent=2))
 report["db"] = db
@@ -185,17 +208,23 @@ report["classic_namazu"] = classic
 print("Namazu HTML:", json.dumps(namazu, ensure_ascii=False))
 print("Classic Namazu:", json.dumps(classic, ensure_ascii=False))
 
-# Gap hint
+# Gap hint — vergleichbar mit REPAIR (DE, ohne -en, dedup)
 try:
-    db_n = db.get("match_pool_completed_validated", 0) + db.get("profile_ready", 0)
     es_n = es_info.get("abpe_consultants_index", {}).get("count")
     if isinstance(es_n, int):
         report["aid_es_gap_hint"] = {
-            "db_completed_validated_plus_ready": db_n,
+            "db_pool_all_incl_en": db.get("pool_completed_validated_ready"),
+            "db_pool_de_skip_en": db.get("pool_de_skip_en"),
+            "db_pool_de_dedup": db.get("pool_de_dedup_by_dir"),
             "es_consultants": es_n,
-            "rough_gap": max(0, db_n - es_n),
+            "gap_vs_dedup_de": max(0, (db.get("pool_de_dedup_by_dir") or 0) - es_n),
+            "note": (
+                "Repair indexiert DE/skip_en + dedup(dir). "
+                "Wenn gap_vs_dedup_de==0 und to_index=0 → AID-ES für diesen Pool fertig. "
+                "EN (-en) und Rohtexte außerhalb der Consultant-DB gehören nicht in diesen Gap."
+            ),
         }
-        print("AID-ES gap hint:", report["aid_es_gap_hint"])
+        print("AID-ES gap hint:", json.dumps(report["aid_es_gap_hint"], ensure_ascii=False, indent=2))
 except Exception:
     pass
 
