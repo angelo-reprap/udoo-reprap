@@ -1224,6 +1224,17 @@ def labeled_to_prejson(labeled: list, gruppen: list, block_by_nr: dict,
                 s for s in aid_extracted['skill_ablage']
                 if isinstance(s, dict) and (s.get('name') or '').strip()
             ]
+        if aid_extracted.get('other'):
+            other = aid_extracted['other']
+            if isinstance(other, list):
+                pre_json['extracted_data']['other'] = other
+            elif isinstance(other, str) and other.strip():
+                pre_json['extracted_data']['other'] = [{
+                    'content': other.strip()[:5000],
+                    'content_type': 'text',
+                    'source': 'aid_regex_sonstiges',
+                    'sort_order': 0,
+                }]
 
     # ── Gruppen-Indizes aufbauen ──────────────────────────────────────────────
     label_gruppen  = defaultdict(list)

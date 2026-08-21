@@ -1,0 +1,844 @@
+{
+  "personal": {
+    "aid": "AID-rw_1.2.3.0",
+    "first_name": "Ralf",
+    "last_name": "Winkler",
+    "birth_year": 1960,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "18.01.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+    "edv_experience_since": 2013,
+    "headline": "Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 129,
+    "certifications": 0,
+    "education": 0,
+    "experience": 9,
+    "industries": 4,
+    "focus_areas": 6,
+    "focus_experience": 78,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Versicherungen",
+    "Telekommunikation",
+    "Wertpapier",
+    "Automobile Hersteller"
+  ],
+  "focus_areas": [
+    "Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)",
+    "Beratung / Consulting",
+    "Administration / Support",
+    "Unix- und Netzwerk-Administrator fuer Linux/Unix",
+    "Monitoring (Nagios)",
+    "Aufbau und Administration von Firewalls (Checkpoint)"
+  ],
+  "focus_experience": [
+    {
+      "name": "Apache Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "Red Hat Satellite Server Version 5",
+      "category": "product_standard"
+    },
+    {
+      "name": "SUSE Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Produkte:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Solaris",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Management Center",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP-UX",
+      "category": "product_standard"
+    },
+    {
+      "name": "AIX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Veritas Volume Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Veritas NetBackup",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCO",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux Debian",
+      "category": "product_standard"
+    },
+    {
+      "name": "Suse und Red Hat",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux Cluster",
+      "category": "product_standard"
+    },
+    {
+      "name": "Checkpoint Firewall-1 Version 4.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "NG und NGX (R65)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netscape / iPlanet Web-Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache",
+      "category": "product_standard"
+    },
+    {
+      "name": "HA Cluster",
+      "category": "product_standard"
+    },
+    {
+      "name": "diverse Open Source Produkte zur Ueberwachung von Rechnern und Netzwerken",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nagios",
+      "category": "product_standard"
+    },
+    {
+      "name": "Munin",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM WebSphere Server 5",
+      "category": "product_standard"
+    },
+    {
+      "name": "6 und 7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat 6 und 7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sicherheitsüberprüfungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Penetration Test",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebSite Aufbau",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wartung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design (Internet",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Suse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Red Hat",
+      "category": "product_standard"
+    },
+    {
+      "name": "Checkpoint Firewall-1 NG",
+      "category": "product_standard"
+    },
+    {
+      "name": "Checkpoint Firewall-1 NGX (R65)",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM WebSphere Server 6",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM WebSphere Server 7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat 6",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat 7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Computer (E10K)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Solaris 2.6",
+      "category": "product_standard"
+    },
+    {
+      "name": "Compaq Alpha Systeme",
+      "category": "product_standard"
+    },
+    {
+      "name": "Digital Unix",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP G-Klasse",
+      "category": "product_standard"
+    },
+    {
+      "name": "H-Klasse",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP-UX 10",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Computer (E250)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Solaris 2.7",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun E10K",
+      "category": "product_standard"
+    },
+    {
+      "name": "A5000 Plattenarrays",
+      "category": "product_standard"
+    },
+    {
+      "name": "Solaris 2.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "Samba-Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Red Hat AS 2.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "SuSe AS 8",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tivolo",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun R280",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Solaris 2.9",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenIngres Datenbank",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dell 380 Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dell 360",
+      "category": "product_standard"
+    },
+    {
+      "name": "Debian Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sun Server (Ultra 80 bis SunFire 25K)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SLES 9",
+      "category": "product_standard"
+    },
+    {
+      "name": "SLES 10",
+      "category": "product_standard"
+    },
+    {
+      "name": "SLES11",
+      "category": "product_standard"
+    },
+    {
+      "name": "CentOS Version 4.8",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP DL380",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xen",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMWare",
+      "category": "product_standard"
+    },
+    {
+      "name": "Red Hat Fedora 13",
+      "category": "product_standard"
+    },
+    {
+      "name": "Check Point Firewall R65",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMWare V4",
+      "category": "product_standard"
+    },
+    {
+      "name": "F5 Loadbalancer",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "F5 Big IP Loadbalancer",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "02/2020 - 11/2020",
+      "company": "IBM Deutschland Research and Development GmbH",
+      "role": "Administrator",
+      "title": "Unterstützung im Betrieb von CentOS, Remote",
+      "activities": 9,
+      "technologies": 11
+    },
+    {
+      "period": "05/2019 - 01/2020",
+      "company": "BWI GmbH",
+      "role": "Administrator",
+      "title": "SUSE Enterprise Lifecycle Management mit SUSE Manager, Wilhelmshaven und Remote",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "05/2017 - 04/2019",
+      "company": "Sparkassen Versicherung",
+      "role": "Administrator",
+      "title": "Systemadministration und L2 Support, Stuttgart und Remote",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "01/2017 - 04/2017",
+      "company": "Finanz Informatik Technologis Service GmbH",
+      "role": "Ad",
+      "title": "Systemadministration im Risk-Management Bereich, Stuttgart",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "07/2016 - 12/2016",
+      "company": "BWI Systeme GmbH",
+      "role": "Administrator",
+      "title": "Systemadministration von SUSE Linux, Wilhelmshaven (D- 26384, D-26382, D-26388, D-26386, D-26389)",
+      "activities": 9,
+      "technologies": 10
+    },
+    {
+      "period": "07/2014 - 03/2016",
+      "company": "Versicherungskammer Bayern",
+      "role": "Administrator",
+      "title": "Systemadministration und Lifecycle-Management, München",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "10/2013 - 12/2014",
+      "company": "GaVI mbH",
+      "role": "Systemadministrator",
+      "title": "Systemadministration von Linux Systemen, Stuttgart",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "10/2013 - 06/2014",
+      "company": "GaVI GmbH",
+      "role": "Administrator",
+      "title": "Systemadministration von SUSE Linux, Stuttgart",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "08/2013 - 09/2013",
+      "company": "BWI Informationstechnik Gesellschaft mit beschränkter",
+      "role": "Sicherheits Berater",
+      "title": "Erstellen von Sicherheitsrichtlinien für Apache, Tomcat und, Strausberg",
+      "activities": 8,
+      "technologies": 34
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Alpha",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ascii/X - Terminals",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Digital",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker an Druckerserver",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM RS6000",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Motorola",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PC vom Zusammbau bis zur Benutzung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Silicon-Graphics",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN E 10 K",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SSP",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco Switches and Router",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "HPUX Version 10 und Version 11",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IRIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS 10.5",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris 2.6",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2.7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2.8",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2.9 auf Sun und Intel Hardware",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUSE Linux Enterprise Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix SCO",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux (Debian",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SuSe und Red Hat)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 3.x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Ansible",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SaltStack",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell C-Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "K-Schell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Bash",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CentOS 7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "RedHat 8",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OpenStack",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Bonding",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "Vlan",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Vxlan",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SUSE Manager",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "RedHat",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Suse Manager 3",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "RedHat 7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Solaris 11",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Tomcat 8",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle-Datenbank",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Veritas Cluster",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SUSE Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Tomcat",
+      "category_name": "Datenbanken",
+      "weight": 0.6
+    },
+    {
+      "name": "zypper",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "yum",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "rpm",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SLES 9",
+      "category_name": "Sonstige Skills",
+      "weight": 0.78
+    },
+    {
+      "name": "SLES 10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.78
+    },
+    {
+      "name": "SLES 11",
+      "category_name": "Betriebssysteme",
+      "weight": 0.78
+    },
+    {
+      "name": "TSM Backup",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.47
+    },
+    {
+      "name": "Red Hat Enterprise",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "VM Ware",
+      "category_name": "Virtualisierung",
+      "weight": 0.38
+    },
+    {
+      "name": "Print-Server",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "Test",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "auf HP-UX",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "Debian Linux",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "HP-Server",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Monitoring)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "DL380",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "JBoss",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "F5 Loadbalancer",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "ITIL",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "F5 Big IP",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Apache",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Websphere",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "ceph Cluster",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "RedHat OpenShift",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

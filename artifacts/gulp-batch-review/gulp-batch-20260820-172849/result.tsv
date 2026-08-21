@@ -1,0 +1,12 @@
+status	contact_id	gulp_id	letter	dir	pdf	note	secs
+OK	284	14402	aaa	arnold_jens	AID-ja_1.2.3.0.pdf	ok	22
+OK	11097	121319	uuu	ungureanu_lucian	AID-lu_1.2.3.0.pdf	ok	21
+OK	12362	173251	aaa	ahmad_ahmad	AID-aa_1.2.3.1.pdf	ok	15
+FAIL	12026	Wolfsegger	wolfsegger_bernd	0		no_neu_cv	27
+OK	12322	71352	aaa	ackermann_stefan	AID-sa_2.3.2.0.pdf	ok	22
+OK	12507	2408	aaa	anacker_ellen	AID-ea_1.2.3.0.pdf	ok	22
+OK	12650	102473	aaa	aydin_andac	AID-aa_1.2.3.0.pdf	ok	20
+OK	12722	111530	bbb	baker_ashraf	AID-ab_2.5.2.0.pdf	ok	25
+OK	12825	67435	bbb	bauchmueller_peter	AID-pb_1.2.3.0.pdf	ok	27
+OK	12827	50723	bbb	bauer_joachim	AID-jb_1.2.3.0.pdf	ok	23
+OK	12946	21374	bbb	beemers_heiko	AID-hb_1.2.3.0.pdf	ok	27

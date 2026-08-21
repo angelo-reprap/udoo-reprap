@@ -1,0 +1,99 @@
+AID: AID-mm_5.2.5.0
+Name: Michael Markstaller
+Headline: Netzwerke/Cisco/IPSec-VPNs (SINA), Smarthome (KNX), Schwerpunkt Linux, Windows (MCSE)
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,
+Wohnort: 820xx Taufkirchen, Deutschland
+Jahrgang: 1976
+Verfügbar: 01.01.20 zu 100%, Vor-Ort-Einsatz 25% möglich
+EDV seit: 1990
+Sprachen: Deutsch Muttersprache, Englisch verhandlungssicher
+
+FACHBEREICHE:
+Netzwerke/Cisco/IPSec-VPNs (SINA)
+Smarthome (KNX)
+Schwerpunkt Linux
+Windows (MCSE)
+Security / PKI / Netzwerk / VPN - Spezialist, Generalist mit Mitarbeiterführung und Projektleitungs-Erfahrung.
+04/2016 - 09/2016: CCIE
+Abschluss: CCIE
+Institution: München
+Schwerpunkt:
+Lab-Prüfung ist für 10/2016 geplant
+Cisco Enterprise Networking University: Nexus, SDN, DNA
+Cambium Networks Wlan, PTP, PtMP
+2017
+NCP, Cisco ASA/AnyConnect/IPS Intensivtraining
+Vorbereitung LPIC
+Update BSI 200-x
+2016
+Secunet SINA Basic, Advanced, Workstation
+RIPE IPv6 Basic&Advanced, RIPE-DB, Routing-Registry 1999 - 2015
+CNA & CNE (Novell Netware)
+MCSE (NT4.0, 2000, 2003 inkl. Enterprise AD), Trainings für Weiterbildung MCSA Win10/Server 2012
+MCDBA (MS SQL)
+RSA SecurID Certified
+Cisco CCIE (bisher nie abgeschlossen wegen Zeit/Projekten) Debian/Ubuntu
+Linux
+Security / PKI / Netzwerk / VPN
+Mitarbeiterführung
+Projektleitung
+Cisco
+SINA
+
+BRANCHEN:
+
+PROJEKTE:
+  08/2016 - heute | Bayerische Landesbehörde | Teilprojektleitung
+    - Verschlüsselung/PKI
+    - Aufgaben:
+    - Projektunterstützung / Teilprojektleitung Netzwerk,
+    Techs: (BYBN), Cisco ASA/IOS AnyConnect, Rollout auf, Windows 8.110, PKI (ADCS & OpenSSL) auf Server, IOSXE, Firewall/Router, MySQL, PHP, SINA
+  01/2014 - heute |  | Senior IT Consultant
+    - Aufgaben:
+    - Perl, Python, PHP, C
+    - IEEE 802.15.4 (6LoWPAN mit Contiki[AVR, MSP], Zigbee)
+    Techs: entwickelten Linux-Appliance WireGate), Smarthome-Server, Ubiquiti
+  04/1999 - 12/2013 | Auf Anfrage | Mitbegründer, Geschäftsführer, CTO
+    - Aufgaben:
+    - Softwareentwicklung (VBScript, Javascript, Perl, PHP, Python, C, C++,
+    - IFCO: externer Interims IT-Leiter für Benutzerservice, IT-Infrastruktur,
+    Techs: Windows, Linux, Cisco (BGP. IPv4 & IPv6, IPSec/DMVPN, PKI, u.a.: Routing, Switching (Cisco Catalyst 5000), Wlan (Cisco), IPSec-VPNs, während
+  01/1998 - 03/1999 | PC Atelier Stefan Werner | auf Anfrage
+    - Aufgaben:
+    - Softwareentwicklung (Visual Basic, VBScript)
+    - Systemadministration
+  09/1994 - 12/1997 | IFCO (Schoeller Logistic Services) | Datenverarbeitungskaufmann
+    - Aufgaben:
+    - Ausbildung zum Datenverarbeitungskaufmann
+    - Novell Netware 3.11 / 4.0 mit Multiprotokollrouter (ISDN, X25, optimierte
+    Techs: Windows NT 3.51 / 4.0
+  01/1990 - 12/1995 | pwe Verlag / Ackermann EDV | Aushilfe / Schüler
+    - Aufgaben:
+    - Betreuung Atari Redaktions-Netzwerk, gemischte Umgebung mit Novell
+    - Netware 2.x , Cat5-Verlegung/Umstellung von 10Base-2 auf 10Base-T
+
+SKILLS:
+  hardware: AVR, X.509, Sonstige Kenntnisse, BSI / Secunet SINA / Workstation (VS-V, VS-NfD, ISO27001), Firewall (Cisco, Checkpoint, Linux ipchains/iptables), NCP VPN, Microsoft Office 97 2016 / OpenOffice/LibreOffice (sehr gut), Windows 3.1 Windows 10 Desktop & Server NT 4.0 Server 2016 (fundiert), (Embedded) Linux, OpenWRT/LEDE (sehr gut), Cisco IOS / XE (sehr gut), EIB/KNX (sehr gut, Entwickler-Niveau), 1-Wire von Maxim/Dallas (sehr gut, NMEA 0183/2000 (CAN) (sehr gut, IPv4 & IPv6 (sehr gut), inkl. Routingprotokolle (EIGRP, OSPF, BGP) und, IPSec, TLS, IPv6 - selbst im Büro produktiv, RIPE-Schulungen mit Zertifikaten (Database, Routing-Registry, IPv6), Wireless LAN (Wlan 2.4/5 Ghz; SoHo bis Enterprise), Mesh-Netzwerke, SMTP, DNSsec (sehr gut, Provider-Niveau), Anti-Spam (Barracuda, Linux Postfix/Sendmail, Spamassasin, Blacklisten), Verschlüsselung (PGP, S/MIME
+  operating_system: Debian/Ubuntu, Attiny, avr-gcc, Bash sehr gut, C, C++, eibd/knxd-Fork, IAR mit Atmega, Java fundierte Grundkenntnisse, Javascript ECMA, z.B. jQuery, Keil, Perl, PHP, Python, Qt, VB
+
+SKILL-ABLAGE:
+asterisk, voip, monitoring-systems
+
+FOCUS_EXP:
+  IPsec  [product_standard]
+  Netzwerksicherheit  [product_standard]
+  PKI  [product_standard]
+  SmartHome  [product_standard]
+  Verschlüsselungsverfahren  [product_standard]
+  VMware ESXi  [product_standard]
+  VS-NfD  [product_standard]
+  VS-V  [product_standard]
+  IT-  [product_standard]
+  Aufgabenbereiche  [product_standard]
+  Entwicklung  [product_standard]
+  Projektleitung  [product_standard]
+  Systemintegration  [product_standard]
+  Technische Projektleitung  [product_standard]
+  Schwerpunkte  [product_standard]
+  Cisco  [product_standard]
+  SINA  [product_standard]

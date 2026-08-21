@@ -296,9 +296,14 @@ class MainExtractedToDB:
         for idx, exp in enumerate(extracted.get('experience') or []):
             if not exp:
                 continue
+            period = (exp.get('period') or '').strip()
+            pl = period.lower().rstrip('.')
+            if pl in ('k.a', 'n/a', 'n.a', '-', '–', '—', 'ohne angabe'):
+                period = ''
             exp_obj = Experience.objects.create(
                 consultant = consultant,
-                period     = (exp.get('period') or '')[:200],
+                period     = period[:200],
+
                 title      = (exp.get('title') or '')[:200],
                 company    = (exp.get('company') or '')[:200],
                 industry   = (exp.get('industry') or '')[:100],
@@ -356,6 +361,7 @@ class MainExtractedToDB:
         # ── Other Content ─────────────────────────────────────────────────────
         consultant.other_content.all().delete()
         other = extracted.get('other', '')
+        other_n = 0
         if isinstance(other, list):
             for idx, item in enumerate(other):
                 if isinstance(item, dict) and item.get('content'):
@@ -366,11 +372,22 @@ class MainExtractedToDB:
                         source       = item.get('source', '')[:200],
                         sort_order   = item.get('sort_order', idx),
                     )
+                    other_n += 1
+                elif isinstance(item, str) and item.strip():
+                    OtherContent.objects.create(
+                        consultant=consultant,
+                        content=item.strip()[:5000],
+                        content_type='text',
+                        source='pre_json',
+                        sort_order=idx,
+                    )
+                    other_n += 1
         elif isinstance(other, str) and other.strip():
             OtherContent.objects.create(
                 consultant=consultant, content=other[:5000],
                 content_type='text', source='pre_json', sort_order=0
             )
+            other_n = 1
 
         # ── Logging ───────────────────────────────────────────────────────────
         logger.info(f"✅ Daten gespeichert für {consultant.aid}")
@@ -382,6 +399,7 @@ class MainExtractedToDB:
         logger.info(f"   - Focus Experience: {consultant.focus_experience_items.count()}")
         logger.info(f"   - Branchen:         {consultant.industries.count()}")
         logger.info(f"   - Fachbereiche:     {consultant.focus_areas.count()}")
+        logger.info(f"   - Sonstiges:        {other_n}")
         logger.info(f"   - Headline:         {consultant.headline}")
         logger.info(f"   - Degree:           {consultant.degree}")
 

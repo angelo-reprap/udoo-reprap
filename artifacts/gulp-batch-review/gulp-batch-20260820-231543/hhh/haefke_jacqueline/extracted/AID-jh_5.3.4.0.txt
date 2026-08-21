@@ -1,0 +1,303 @@
+AID: AID-jh_5.3.4.0
+Name: Jacqueline Haefke
+Headline: IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps, Voice(google/Alexa), Java/Spring, SOAP/REST, Wicket, Angular, JPA, AWS
+Ort: D4, D5
+Wohnort: 405xx Düsseldorf, Deutschland
+Jahrgang: 1988
+Verfügbar: 01.11.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2000
+Sprachen: Deutsch Muttersprache, Englisch gute Kenntnisse Wort und Schrift, Deutsch (Muttersprache), Englisch (gute Kenntnisse), Esperanto (Grundlagen), Russisch (Grundlagen)
+
+FACHBEREICHE:
+IT-Beratung/Architektur/Softwareentwicklung/Agile/DevOps Voice(google/Alexa) Java/Spring SOAP/REST Wicket Angular JPA AWS Software-Entwicklung / Programmierung
+Beratung / Consulting
+IT-Beratung
+Architektur
+Softwareentwicklung
+Agile
+DevOps
+Voice (google/Alexa)
+Java/Spring
+SOAP/REST
+Wicket
+Angular
+JPA
+AWS
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Software-Architektur (MicroService)
+Agile Coach
+MicroService Architektur
+
+BRANCHEN:
+Banken
+Versicherungen
+Forderungsmanagment
+Telekommunikation
+eCommerce
+Handel
+Medienagentur
+
+PROJEKTE:
+  01/2019 - heute | ERGO | Senior IT Consutant / Architekt / Entwickler / DevOps /
+    - Aufgaben:
+    - Architektur und Implementierung von Lösungen für Voice (Alexa, Google Actions, Phone)
+    - Actions, Phone)
+    Techs: Alexa, Google Actions, Phone, Angular 6/7, Spring Boot, Java 8, Jenkins, Infrastruktur as a Code, Grafana, Prometheus
+  05/2017 - 12/2018 | DEVK | Senior IT Consutant / Architekt / Entwickler / DevOps /
+    - Aufgaben:
+    - Architekturreview mit Verbesserung-Vorschlag zur SCS/MircoService
+    - Performance-Analyse und Optimierung mit AppDynamics, Jprobe, jconsole, tcpdump, QueryAnalyzer, jconsole ...
+    Techs: Scrum, Spring, jQuery, HTML, CSS, JEE, JPA, Git, ansible, Phython
+  10/2016 - 04/2017 | Metro Systems GmbH | Senior IT Consutant / Architekt / Entwickler / Coach
+    - Aufgaben:
+    - Entwerfen einer MircoService-PAAS-Architektur für die Umstellung der internen Infrastruktur auf automatisierte Prozesse
+    - Erstellen von mehreren MircoService-Prototypen Spring Boot, go (golang), python erstes Aufsetzen der CI Umgebung mit Jenkins/JobDSL/Docker
+    Techs: Spring Boot, go (golang), python, Jenkins, JobDSL, Docker, Scrum, Spring 4.1, MircoService Architektur, Service Discovery
+  05/2016 - 09/2016 | meinestadt.de | IT Consutant / Scrum Coach
+    - Aufgaben:
+    - Komplettes Redesign (microService Architektur mit Spring Boot und Angular 2) des Jobbörsen Portals
+    - 2) des Jobbörsen Portals
+    Techs: Spring Boot, Angular 2, Pirobase, SOLR, MongoDB, Jenkins 2, JobDSL, Scrum, Spring 4.1, MicroService
+  01/2016 - 03/2016 | DWP Bank | Senior IT Consultant
+    - Aufgaben:
+    - Implementierung des dezentralen Piloten HVEK unter Verwendung Camunda
+    - BPMN. Digitalisierung des Haupteintrittskartenbestellungs-Formulars Architekurverbessung durch Implementierung eines ESB-Connector. Ziel ist eine Laufzeitanpassung der Routen für den ESB Performanceoptimierung durch Anpassung der Routen nach Auslastung
+    Techs: OSGI, BPMN, JEE, Apache Camel, SOA, REST, JSON, JAXB, Pax Exam, Integrationstest
+  07/2015 - 12/2015 | ISBAN Grupo Santander | Senior IT Consultant
+    - Front-und Backendentwicklung für die Kosyfa/Carcredit- Web-Portale zur KFZ-Finanzierung für Händler und Consumer
+    - Aufgaben:
+    - Evaluierung FirstSpirit als CMS für Carcredit
+    Techs: FirstSpirit, check24
+  01/2015 - 06/2015 | Proximity Technology GmbH | Senior IT Consultant
+    - Geschäftsstelle: Düsseldorf
+    - Unternehmensgröße: 51-100
+    - Branche: IT-Dienstleistungen
+  05/2014 - 12/2014 | Portigon Financial Service GmbH | Senior IT Consultant
+    - Geschäftsstelle: Credit Services, Risk
+    - Unternehmensgröße: 101-500
+    - Branche: Banken & Finanzinstitute
+  07/2012 - 05/2014 | Portigon AG | Senior IT Consultant
+    - Geschäftsstelle: Credit Services
+    - Unternehmensgröße: 501-1000
+    - Branche: Banken & Finanzinstitute
+  04/2008 - 06/2012 | WestLB AG | Senior IT Consultant
+    - Geschäftsstelle: Credit Risk Services
+    - Unternehmensgröße: > 1000
+    - Branche: Banken & Finanzinstitute
+  02/2008 - 03/2008 | HDI-Gerling | IT Consultant
+    - Weiterentwicklung einer vorhandenen JAVA 5 OSGI-Anwendung für die Verwaltung von Lebensversicherungsanträgen.
+    - Unternehmensgröße: > 1000
+    - Branche: Versicherungen
+  09/2007 - 02/2008 | Nokia Siemens Network | Senior-Architekt/Entwickler
+    - Unternehmensgröße: > 1000
+    - Branche: Telekommunikation
+    - Aufgaben:
+  09/2006 - 08/2007 | Nokia | Architekt- und Entwickler
+    - Portierung und Weiterentwicklung des Operation Support System zur Administration von Messplänen auf Netzwerkelement für einen Mobilfunkanbieter auf der Basis der J2EE Architekturdesign und Implementierung von Frontend und Backend, Coaching der internen Mitarbeiter (5 Personen + 5 Personen Offshore)
+    - Geschäftsstelle: Düsseldorf
+    - Unternehmensgröße: > 1000
+  07/2006 - 09/2006 | T-Systems | Software-Entwickler
+    - Weiterentwicklung eines Angebotssystems für einen Mobilfunkanbieter auf der Basis der J2EE Aufgaben
+    - Unternehmensgröße: > 1000
+    - Branche: Telekommunikation
+  01/2006 - 06/2006 | Hewlett Packard, Sparkassen | Softwareentwickler/Requirement-Analyse
+    - Unternehmensgröße: > 1000
+    - Branche: IT-Dienstleistungen
+    - Aufgaben:
+  01/2003 - 12/2005 | BG Phoenics GmbH | Software-Entwickler
+    - Unternehmensgröße: > 1000
+    - Branche: Versicherungen
+    - Aufgaben:
+  01/2002 - 08/2002 | BHF Bank | Software-Entwickler
+    - Unternehmensgröße: 501-1000
+    - Branche: Banken & Finanzinstitute
+    - Aufgaben:
+  09/2001 - 12/2001 | Medienagentur für Wella | Software-Entwickler
+    - Unternehmensgröße: < 50
+    - Branche: Medien (Verlag, TV + Hörfunk)
+    - Aufgaben:
+  07/2001 - 08/2001 | Medienagentur für Wella | Software-Entwickler
+    - Unternehmensgröße: < 50
+    - Branche: Medien (Verlag, TV + Hörfunk)
+    - Aufgaben:
+    Techs: RMI, JDBC, MySQL, XML, XERCES
+  04/2001 - 05/2001 | Yline eSolution GmbH | Software-Entwickler
+    - Entwicklung und Vereinheitlichung einer Backend-Schnittstelle für zwei unterschiedliche Shopssysteme
+    - Unternehmensgröße: < 50
+    - Branche: IT-Dienstleistungen
+    Techs: Perl, BroadVision, Oracle
+  07/2000 - 03/2001 | ABIT AG | Software-Entwickler
+    - Unternehmensgröße: 101-500
+    - Branche: IT-Dienstleistungen
+    - Aufgaben:
+
+SKILLS:
+  database: Access in wenigen Projekten verwendet, Apache Cassandra, DB2 in einigen Projekten verwendet, JDBC in zahlreichen Projekten verwendet, Lotus Notes, MongoDB, MS SQL Server Programmierung und Administration möglich, MySQL Programmierung und Administration möglich, ODBC in einigen Projekten als Schnittstelle verwendet, Oracle in einigen Projekten verwendet, Postgres in einigen Projekten verwendet, SQL perfekt
+  hardware: PC, CORBA, Ethernet, FDDI, Internet, Intranet, ISDN, ISO/OSI, LAN, LAN Manager, MQSeries, NetBios, Novell, parallele Schnittstelle, PC-Anywhere, RFC, RPC, RS232, SMTP, TCP/IP
+  operating_system: Mac OS gut, MS-DOS gut, Novell Grundkenntnisse, SUN OS, Solaris gut, Unix sehr gut, Windows sehr gut
+  programming_languages: Angular, AngularJS, Basic gut, BPMN, C gut, C++ gut, Cobol etwas fortgeschrittene Kenntnisse, Emacs, Fortran Grundlagen, Go gut, golang, Java perfekt, JavaScript perfekt, JPA, J2EE, Mantis, Perl perfekt, PHP gut PHP 4, Phython, PL/SQL sehr gut, Python, Shell normaler Umgang ist kein Problem
+
+SKILL-ABLAGE:
+
+
+AUSBILDUNG:
+04/2017 - 04/2017 | iSAQB-CPSA-F Zertifikat  [course]
+04/2016 - 04/2016 | Certified Scrum Product Owner | it-agile, Hamburg  [course]
+09/2006 - 09/2006 | Certified Scrum Master | Karlsruhe  [course]
+09/1996 - 08/1999 | Mathematisch-technischen Assistent | Werkzeugmaschinenlabor der RWTH Aachen  [course]
+
+FOCUS_EXP:
+  (AngluarJS)  [product_standard]
+  (gradle)  [product_standard]
+  (GWT)  [product_standard]
+  ActiveMQ  [product_standard]
+  Adonis  [product_standard]
+  AJAX  [product_standard]
+  ansible  [product_standard]
+  ANT  [product_standard]
+  Apache Camel  [product_standard]
+  Apache Solr  [product_standard]
+  Apache Wicket  [product_standard]
+  arc42  [product_standard]
+  Archimate  [product_standard]
+  Atlassian Confluence  [product_standard]
+  Atlassian JIRA  [product_standard]
+  Atlassian JIRA Agile  [product_standard]
+  Avantis Unisuite  [product_standard]
+  (JPA)  [product_standard]
+  Avantis UnitSuite  [product_standard]
+  AWS  [product_standard]
+  Bea Weblogic  [product_standard]
+  BIRT  [product_standard]
+  Borland Application Server  [product_standard]
+  Borland JBuilder  [product_standard]
+  C/C++  [product_standard]
+  Camunda  [product_standard]
+  CM Synergy 6.2  [product_standard]
+  Consul  [product_standard]
+  CQRS  [product_standard]
+  CSI  [product_standard]
+  CSS  [product_standard]
+  cvs  [product_standard]
+  DB2 ( Administration und Entwicklung)  [product_standard]
+  DbVisualizer  [product_standard]
+  docker  [product_standard]
+  Drools  [product_standard]
+  Eclipse  [product_standard]
+  EDA  [product_standard]
+  EJB  [product_standard]
+  ELK  [product_standard]
+  Erwin  [product_standard]
+  ESI  [product_standard]
+  etcd  [product_standard]
+  Event Sourcing  [product_standard]
+  Event-Driven Architecture  [product_standard]
+  Faclets  [product_standard]
+  Feed  [product_standard]
+  git  [product_standard]
+  GitHub  [product_standard]
+  gitlab  [product_standard]
+  Goglang  [product_standard]
+  Grafana  [product_standard]
+  Groovy-Job-DSL  [product_standard]
+  HATEOS  [product_standard]
+  Hibernate  [product_standard]
+  HTML  [product_standard]
+  IBM VisualAge for Java  [product_standard]
+  IBM Websphere  [product_standard]
+  IntelliJ  [product_standard]
+  IntelliJ IDEA  [product_standard]
+  istio  [product_standard]
+  JasperReports(iReport)  [product_standard]
+  JAX  [product_standard]
+  JAXB  [product_standard]
+  JBoss  [product_standard]
+  JBoss Fuse  [product_standard]
+  JBoss Rules  [product_standard]
+  jBPM  [product_standard]
+  JBuilder X  [product_standard]
+  JEE  [product_standard]
+  Jenkins  [product_standard]
+  jQuery  [product_standard]
+  JSF  [product_standard]
+  JSON  [product_standard]
+  JSP  [product_standard]
+  JUnit  [product_standard]
+  Kafka  [product_standard]
+  Kanban  [product_standard]
+  Kibana  [product_standard]
+  kubernetes  [product_standard]
+  lambda  [product_standard]
+  MagicDraw  [product_standard]
+  Maven  [product_standard]
+  Mercury WinRunner  [product_standard]
+  MID Innovator  [product_standard]
+  MS Access  [product_standard]
+  MS SQL Server (Administration und Entwicklung)  [product_standard]
+  MS Visual Source Safe  [product_standard]
+  MyEclipse  [product_standard]
+  mySQL  [product_standard]
+  nginx  [product_standard]
+  node.js  [product_standard]
+  openarchitectureware (OAW)  [product_standard]
+  OpenShift  [product_standard]
+  Oracle (Entwicklung)  [product_standard]
+  OSGI  [product_standard]
+  pirobase PIM  [product_standard]
+  Poseidon  [product_standard]
+  postgresSQL  [product_standard]
+  PostMan  [product_standard]
+  Prometheus  [product_standard]
+  PVCS  [product_standard]
+  RAD/RSAD/WSAD  [product_standard]
+  Rational ClearCase/UCM  [product_standard]
+  Rational Robot  [product_standard]
+  Rational Rose  [product_standard]
+  REST  [product_standard]
+  RMI  [product_standard]
+  Scrum  [product_standard]
+  Selenium  [product_standard]
+  Service Discovery  [product_standard]
+  SOA  [product_standard]
+  SOAP  [product_standard]
+  Sonar  [product_standard]
+  Spring  [product_standard]
+  Spring 4.1  [product_standard]
+  Spring Batch  [product_standard]
+  Spring Boot  [product_standard]
+  Struts  [product_standard]
+  svn (subversion)  [product_standard]
+  Swing  [product_standard]
+  Teamcity  [product_standard]
+  Terraform  [product_standard]
+  Tiles  [product_standard]
+  TOAD  [product_standard]
+  Tomcat  [product_standard]
+  TopLink/EclipseLink  [product_standard]
+  Vaadin  [product_standard]
+  Varnish  [product_standard]
+  XML  [product_standard]
+  XSLT  [product_standard]
+  Aufgabenbereiche  [product_standard]
+  Architekturberatung  [product_standard]
+  Business Analyse  [product_standard]
+  Coaching  [product_standard]
+  Requirement Engineering  [product_standard]
+  Scrum Master  [product_standard]
+  Scrum Product Owner  [product_standard]
+  Schwerpunkte  [product_standard]
+  MircoService Architektur  [product_standard]
+  AngluarJS  [product_standard]
+  gradle  [product_standard]
+  GWT  [product_standard]
+  JPA  [product_standard]
+  DB2  [product_standard]
+  JasperReports  [product_standard]
+  iReport  [product_standard]
+  MS SQL Server  [product_standard]
+  openarchitectureware  [product_standard]
+  OAW  [product_standard]
+  Oracle  [product_standard]
+  svn  [product_standard]
+  subversion  [product_standard]

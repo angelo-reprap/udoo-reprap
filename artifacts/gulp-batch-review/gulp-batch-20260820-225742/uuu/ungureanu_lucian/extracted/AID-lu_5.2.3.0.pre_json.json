@@ -1,0 +1,901 @@
+{
+  "metadata": {
+    "aid": "AID-lu_5.2.3.0",
+    "version": "5.2.3.0",
+    "consultant_dir": "ungureanu_lucian",
+    "first_name": "Lucian",
+    "last_name": "Ungureanu",
+    "headline": "Senior Netzwerk Berater Mobilkommunikation CCIE#21701",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T22:58:32.189041"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Lucian",
+      "last_name": "Ungureanu",
+      "birth_year": 1978,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "Rumänisch",
+          "level": ""
+        }
+      ],
+      "availability": "16.05.14 zu 100%, Vor-Ort-Einsatz 30% möglich",
+      "location": "Deutschland",
+      "wohnort": "813xx Munchen, Deutschland",
+      "edv_experience_since": 2000,
+      "headline": "Senior Netzwerk Berater Mobilkommunikation CCIE#21701"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Internet Technologies : Extensive experience with Cisco equipments",
+        "Protocols & Services",
+        "Security",
+        "Network Area ( LAN",
+        "WAN)",
+        "Network",
+        "Technologies (Cable Modems",
+        "ISDN",
+        "Routing/Switching",
+        "VPN)",
+        "Routers/Switches. Very knowledgeable with routing protocols (BGP/",
+        "IS-IS/ OSPF/ EIGRP)",
+        "MPLS VPNs",
+        "Layer 2/3 security. Extensive",
+        "experience with Cisco medium hardware platforms (such as the 7600 and",
+        "6500 series)",
+        "Juniper (EX4500 and MX960) and various security",
+        "appliances",
+        "Competencies: I have hands-on experience and knowledge of lab test",
+        "equipment including Protocol Analyzers",
+        "Traffic Generators",
+        "Application Simulator tools combined with strong technical skills and",
+        "depth knowledge of IP networks and networking protocols (WAN and LAN)",
+        "and the last but not the least I have the ability to handle critical &",
+        "stressful situations",
+        "to successful support the project"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Systems: Operating System environments (Linux",
+        "Solaris",
+        "FreeBSD",
+        "IPSO",
+        "Unix) together with most popular network application and system",
+        "daemons in standalone and cluster base configurations"
+      ],
+      "programming_languages": [
+        "Programming Languages: C/C++",
+        "Java (Jbuilder)",
+        "Visual Basic",
+        "Internet Language: HTML",
+        "Perl",
+        "JavaScript"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "k.A.",
+        "company": "Vodafone, O2 Telefonica and E-Plus",
+        "title": "Project Germany, Germany",
+        "activities": [
+          "Project Germany, Germany"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Germany"
+      },
+      {
+        "period": "k.A.",
+        "company": "TWM",
+        "title": "Project China CMCC, Taiwan, China CMCC, Taiwan",
+        "activities": [
+          "Project China CMCC, Taiwan, China CMCC, Taiwan"
+        ],
+        "location": "Taiwan"
+      },
+      {
+        "period": "k.A.",
+        "company": "VHA",
+        "title": "Project Australia, Australia",
+        "activities": [
+          "Project Australia, Australia"
+        ],
+        "location": "Australia"
+      },
+      {
+        "period": "k.A.",
+        "company": "SFR",
+        "title": "Project France, France",
+        "activities": [
+          "Project France, France"
+        ],
+        "industry": "Telekommunikation"
+      },
+      {
+        "period": "k.A.",
+        "company": "Elisa",
+        "title": "Project Finnland, Finnland",
+        "activities": [
+          "Project Finnland, Finnland"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Finnland"
+      },
+      {
+        "period": "k.A.",
+        "company": "Telus and TIM",
+        "title": "Project Brazil, Brazil",
+        "activities": [
+          "Project Brazil, Brazil"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Brazil"
+      },
+      {
+        "period": "k.A.",
+        "company": "Barthi",
+        "title": "Project India, India",
+        "activities": [
+          "Project India, India"
+        ],
+        "location": "India"
+      },
+      {
+        "period": "k.A.",
+        "company": "KT and SKT",
+        "title": "Project Korea, Korea",
+        "activities": [
+          "Project Korea, Korea"
+        ],
+        "location": "Korea"
+      }
+    ],
+    "industries": [
+      "Mobile Kommunikation - - PS Core 3G (UMTS) and 4G (Lte)",
+      "Mobile Kommunikation"
+    ],
+    "focus_areas": [
+      "Senior Netzwerk Berater Mobilkommunikation CCIE#21701",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen Mobile Telecommunication 4G Lte bewegen sich bei 80.000 Euro pro Jahr 15.09.1999 - 30.06.2004 TransylvaniaUniversity of Brasov, Romania University of Mathematics and Computers - specializationSoftware developer Graduate as Mathematician and Software Developer",
+      "Programming Knowledge: Programming C/C++ , Java (JBuilder), Networking, Algorithm optimizations 15.09.1997 - 30.06.2000 Transylvania University of Brasov, Romania, College of Computers Science - Computers technologies Graduated as Dipl. Engineer",
+      "RISK MANAGEMENT",
+      "PLANNING && DEVELOPMENT",
+      "EXECUTION",
+      "MONITORING && CONTROLING",
+      "PROJ. MANAGEMENT, TOOLS,TECHNOLOGIES",
+      "RESOURCE PLANNING",
+      "COMMUNICATION",
+      "Senior Netzwerk Berater Mobilkommunikation",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Engineering / IT-nahe Ingenieurdienstleistungen",
+      "Mobile Telecommunication 4G Lte"
+    ],
+    "focus_experience": [
+      {
+        "name": "* Design",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "planning and architecture of SGSN",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "GGSN",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "PCRF",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "MME",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "S/P-GW",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "IMS",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "OCS and RADIUS",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "* Expertise with LTE Core Network",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "related interfaces (S1",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "S1u",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "S6a",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "S11) and protocols (GTPv2",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "S1AP",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Diameter stack)",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "* Expertise PCRF/IMS and Gx",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Gxx",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Rx interface",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Expertise with Prepaid charging methodology as well as with",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Prepaid interfaces / Protocols (Diameter",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "GTP'",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Radius",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "including",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "content billing features (Deep Packet Inspection techniques)",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "CG and",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "OCS",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Network / Security Audits. Expert in Security Concepts used within",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Mobile PS Core",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "* Deep extendable knowledge about IP related VAS platforms (WAPGW",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "MMSC",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Video-Streaming) and mobile data optimization",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Good experience with the Protocol Emulators and with the Analysis",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "of the Results from functional tests",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "load tests and Network KPI",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "(including TCP/HTTP/RTSP/MMS/WAP1.x analysis and related Statistics)",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Extensive experience and knowledge of DPI (deep packet inspection",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "-> L7+) and lab test equipment including Protocol Analyzers",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Traffic",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Generators and Application Simulator",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Expert in GGSN and S/P-GW Load and Stability tests using Landslide",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "from Spirent and IXIA",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Consultant in Multivendor IOTs at Mobile Customers Site.",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "TAC Support and Customer Consulting for Mobile Packet Core",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "products ( Cisco CMX",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "SCE8K DPI",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Nokia FlexiISN",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "FlexiNG",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Sandvine",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Suite).",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Database Planning for all Cisco platforms used within CMX Solution",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "for 2G/3G Mobile Networks (SAMI/CSG/GGSN/SSG based on",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "7200/6500/7613/Sup720/MWAM/SAMI/CSM Hw) and in depth experience with",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "ASR9K and Cisco IOS XR",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "* Commissioning",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Installation and Troubleshooting of Juniper Junos",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Networks on EX4500 and MX960 Ethernet Switches",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Installation and commissioning for the Cisco Service Engine",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "(SCE8000)",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Cisco Subscriber Manager and Cisco Collection Manager",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Emergency support 24h/day for Cisco CMX products and NSN",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "FlexiISN/GGSN",
+        "category": "product_standard",
+        "sort_order": 60
+      }
+    ],
+    "education": [
+      {
+        "degree": "University of Mathematics and Computers - specialization Software developer",
+        "institution": "Transylvania University of Brasov, Romania",
+        "period": "15.09.1999 - 30.06.2004",
+        "education_type": "course"
+      },
+      {
+        "degree": "College of Computers Science - Computers technologies",
+        "institution": "Transylvania University of Brasov, Romania",
+        "period": "15.09.1997 - 30.06.2000",
+        "education_type": "course"
+      },
+      {
+        "degree": "HP ProCurve Campus LANs",
+        "institution": "",
+        "period": "01.09.2010 - 13.12.2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "Linux Professional (LPIC-1)",
+        "institution": "",
+        "period": "01.01.2010 - 01.09.2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "Cisco Certified Internetwork Expert",
+        "institution": "",
+        "period": "01.01.2006 - 08.08.2008",
+        "education_type": "course"
+      },
+      {
+        "degree": "SNPA - Securing Networks with PIX and ASA",
+        "institution": "Cisco",
+        "period": "01.12.2008 - 01.12.2008",
+        "education_type": "course"
+      },
+      {
+        "degree": "Project Management",
+        "institution": "Siemens Management Centre",
+        "period": "01.12.2006 - 21.12.2006",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Mobile Communication: extensive experience in the 3G/4G Mobile Packet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Core",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "handling of 3GPP standards",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "interfaces",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "protocols",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "traces",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "messages for GSM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "GPRS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UMTS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HSDPA and LTE",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "I've more than 7 years experience in Mobile Communication",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "planning and architecture of SGSN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "GGSN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PCRF",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MME",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S/P-GW",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IMS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OCS and RADIUS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Expertise with LTE Core Network",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "related interfaces (S1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S1u",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S6a",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S5",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S4",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S11) and protocols (GTPv2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "S1AP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Diameter stack)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Expertise PCRF/IMS and Gx",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Gxx",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Rx interface",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Expertise with Prepaid charging methodology as well as with",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Prepaid interfaces / Protocols (Diameter",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "GTP'",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Radius",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "including",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "content billing features (Deep Packet Inspection techniques)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CG and",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OCS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Network / Security Audits. Expert in Security Concepts used within",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Mobile PS Core",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Deep extendable knowledge about IP related VAS platforms (WAPGW",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MMSC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Video-Streaming) and mobile data optimization",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Good experience with the Protocol Emulators and with the Analysis",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "of the Results from functional tests",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "load tests and Network KPI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "(including TCP/HTTP/RTSP/MMS/WAP1.x analysis and related Statistics)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Extensive experience and knowledge of DPI (deep packet inspection",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "> L7+) and lab test equipment including Protocol Analyzers",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Traffic",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Generators and Application Simulator",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Expert in GGSN and S/P-GW Load and Stability tests using Landslide",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "from Spirent and IXIA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Consultant in Multivendor IOTs at Mobile Customers Site",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TAC Support and Customer Consulting for Mobile Packet Core",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "products ( Cisco CMX",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SCE8K DPI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Nokia FlexiISN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FlexiNG",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Sandvine",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Suite)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Database Planning for all Cisco platforms used within CMX Solution",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "for 2G/3G Mobile Networks (SAMI/CSG/GGSN/SSG based on",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "7200/6500/7613/Sup720/MWAM/SAMI/CSM Hw) and in depth experience with",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ASR9K and Cisco IOS XR",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Commissioning",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Installation and Troubleshooting of Juniper Junos",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Networks on EX4500 and MX960 Ethernet Switches",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Installation and commissioning for the Cisco Service Engine",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "(SCE8000)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Cisco Subscriber Manager and Cisco Collection Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Emergency support 24h/day for Cisco CMX products and NSN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FlexiISN/GGSN",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T22:58:32.189053",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 88.95184135977338,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

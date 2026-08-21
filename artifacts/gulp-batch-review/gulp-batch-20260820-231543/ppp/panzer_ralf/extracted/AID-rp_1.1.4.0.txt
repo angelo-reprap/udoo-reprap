@@ -1,0 +1,117 @@
+AID: AID-rp_1.1.4.0
+Name: Ralf Panzer
+Headline: DB2-Administrator für IBM z/OS Mainframe
+Ort: Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Wohnort: 417xx Viersen, Deutschland
+Jahrgang: 1953
+Verfügbar: 01.01.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1984
+Sprachen: Deutsch Muttersprache, Englisch gut
+
+FACHBEREICHE:
+DB2-Administrator für IBM z/OS Mainframe Software-Entwicklung / Programmierung Administration / Support Studium Allgemeine Verfahrenstechnik FH Düsseldorf Abschluss Ing.grad. 1979
+
+BRANCHEN:
+Industrie
+Behörde
+Automobil
+Bank
+
+PROJEKTE:
+  ab 11.2011 | Grossbank, Berlin | Produktions DB2 Administration Rolle: DB2 Administrator Betriebssysteme: z/OS DB-Systeme: DB2, VSAM DC-Systeme: TSO/ISPF Tools: BMC Change Manager, BMC Catalog Manager, SQL, REXX MAINVIEW, DB2-Utilities, IBM- Utilities,Syncsort
+    - Betriebssysteme: z/OS DB-Systeme: DB2, VSAM DC-Systeme: TSO/ISPF Tools: BMC Change Manager, BMC Catalog Manager, SQL, REXX MAINVIEW, DB2-Utilities, IBM-Utilities,Syncsort
+    - Branche: Bank
+  01.2010 - 05.2011 | Grossbank, Berlin | Produktions DB2 Administration Rolle: DB2 Administrator Betriebssysteme: z/OS DB-Systeme: DB2, VSAM DC-Systeme: TSO/ISPF Tools: BMC Change Manager, BMC Catalog Manager, SQL, REXX MAINVIEW, DB2-Utilities, IBM- Utilities,Syncsort
+    - Branche: Bank
+  05.1994 - 12.2009 | Commerzbank, Frankfurt | DB2 Administrator Tätigkeiten: DB2 Administration in einer multi-Sysplex
+    - Rolle: DB2 Administrator Tätigkeiten: DB2 Administration in einer multi-Sysplex Umgebung - LOAD, UNLOAD - RUNSTATS, REORG, CHECK, RECOVER, REPAIR -DIAGNOSE Performance Analysen SQL Analysen Analysen für Recovery und Restart Locking und Concurrency Analysen Buffer Pool Optimierung und Tuning DB2 Catalog Reorganizing Betriebssysteme: z/OS DB-Systeme: DB2, IMS, VSAM DC-Systeme: TSO/ISPF Tools: TPX, Rumba, BMC Change Manager, BMC Catalog Manager SQL, QMF, REXX MAINVIEW, STROBE, DB2 Utilities, IBM Utilities Syncsort Netview File Transfer
+    - Branche: Bank
+  04.1991 - 04.1994 | Ford Motor Company, Köln | Ganzheitliche Beratung und Unterstützung bei der Pflege Erweiterung und Neuentwicklung innerhalb des Bereichs Zahlungssysteme (European Accounts Payables) Rolle: Arbeitsvorbereiter, Anwendungsprogrammierer, DB2 Administrator Teilprojekt Arbeitsvorbereitung Erstellen von Produktions-JCL. Übergabe von
+    - Anwendung von internal reader jobs für bestimmte redundante Verarbeitungen (z.B. Aufteilung eines gesamten EDIFACT Sende Datasets für alle Lieferanten in einzelne EDIFACT Sende Datasets für die jeweiligen Lieferanten und deren separater Versand). Datenübertragung zu anderen Mainframes mittels BDT (Bulk Data Transfer). Datenübertragung zu Servern mittels FTP. Betriebssysteme: z/OS DB-Systeme: DB2 DC-Systeme: TSO, IMS-DC Tools: TSO, ISPF, QMF, SQL, SPUFI, SELCOPY, CLIST, REXX DB2 Utilities, IBM Utilities, SYNCSORT Scheduling Systeme: IBM OPC (bis 1998), Platinum ZEKE(1998-2003) CA CA/7 (seit 2003) Teilprojekt Anwendungsprogrammierung Neuentwicklung und Pflege von DB2 COBOL Online Programmen mit XPEDITER unter dem Transaktionsmonitor IMS/DC. Generierung von Online Sreens mit firmeneignem MFS Generierungstool. Neuentwicklung und Pflege von COBOL DB2 Batch Programmen. Neuentwicklung und Pflege von COBOL IMS-BMP Programmen. Neuentwicklung und Pflege von COBOL XML Programmen. Neuentwicklung und Pflege von DB2 SQL- und QMF BATCH Programmen. Neuentwicklung und Pflege von TSO CLIST und REXX Programmen.
+    - Neuentwicklung von TSO EDIT Macros. Verwendung von SELCOPY- und SYNCSORT Utilities Verwendung von IBM Utilities IDCAMS, IEBGENER und IEBCOPY Erstellung von dynamisch und statisch gelinkten Unterprogrammen Verwendung von EXTERNAL und GLOBAL Variablen und COMMON Unterprogrammen. Erstellung von EDIFACT Leseprogrammen für Bank-Bestätigungen zur Einlösung von ausgestellten Schecks. Erstellung von Standard Routinen zur Konsistenzprüfung von Daten- übertragungen mit automatischer E*mail Benachrichtigung der Nutzer.
+    - Umstellung von QMF Batch Programmen auf COBOL Programme, welche DB2 Unload Daten verarbeiten, zur Vermeidung von Deadlock Situationen. Erstellen von JCL Prozeduren für Tests. Durchführung von Performance-, Unit-, Integrationund User-Acceptance Tests. Aufruf von Java Programmen in Mainframe Unix Umgebung (Test only) Betriebssysteme: z/OS Programmiersprachen: COBOL DB-Systeme: DB2 DC-Systeme: TSO, IMS-DC Tools: TSO, ISPF, QMF, SQL, SPUFI, SELCOPY, CLIST, REXX DB2 Utilities, IBM Utilities, SYNCSORT, MFS Teilprojekt DB2 Administration Modifikation von Prod. DB2 Tablespaces, -Tables, -Indexes mit BMC Change Manager. Erstellen von DDL zur Implementierung von DB2 Simple-,Segmented- und Partitioned Tablespaces für die Prod.Umgebung.
+  1990 - 1992 | Bundesministerium der Verteidigung, Rz Köln/Wahn | Betreuung und Erweiterung des Luftwaffen Netzwerks Rolle: Systemprogrammierer Tätigkeiten: NCP-Generierungen VTAM Tuning,Modifikationen Customizing NET/VIEW Systembetreuung Netzwerküberwachung (NPDA, NLDM) Betriebssysteme: MVS/XA Programmiersprachen: Assembler DC-Systeme: TSO/ISPF
+    - Branche: Militär
+    - Systemprogrammierer Tätigkeiten: NCP-Generierungen VTAM Tuning,Modifikationen Customizing NET/VIEW Systembetreuung Netzwerküberwachung (NPDA, NLDM) Betriebssysteme: MVS/XA Programmiersprachen: Assembler DC-Systeme: TSO/ISPF
+  05.1988 - 04.1991 | Bundesministerium der Verteidigung, Rz Köln/Wahn | Entwicklung dialog- und batchorientierter Verfahren zur Materialverfolgung und -steuerung fliegender Waffensysteme Rolle: Anwendungsprogrammierer Tätigkeiten: Neuentwicklung und Pflege von DB2 PL1 Online Programmen in Verbindung mit ISPF-Services unter dem Transaktionsmonitor TSO Betriebssysteme: MV
+    - Branche: Militär
+    - Materialverfolgung und -steuerung fliegender Waffensysteme Rolle: Anwendungsprogrammierer Tätigkeiten: Neuentwicklung und Pflege von DB2 PL1 Online Programmen in Verbindung mit ISPF-Services unter dem Transaktionsmonitor TSO Betriebssysteme: MVS/XA Programmiersprachen: PL1, REXX DB-Systeme: DB2 DC-Systeme: TSO/ISPF Tools: QMF, SQL, SPUFI, Syncsort, IBM Utilities
+  10.1984 - 12.1987 | CSC PLOENZKE Akademie | Entwicklung und Durchführung der Lehrgänge MVS- Grundlagen SNA Grundlagen Rolle: Trainer
+    - Entwicklung und Durchführung der Lehrgänge MVS-Grundlagen SNA Grundlagen Rolle: Trainer
+  Firma/Institut: Rank Xerox GmbH, Düsseldorf | Rank Xerox GmbH, Düsseldorf | Automatic Operation - Customizing NetMaster Rolle: Systemprogrammierer Umstellung von VSAM auf ICF Katalog-Struktur Anlegen von VSAM KSDS, ESDS und RRDS NetMaster Datasets. Anlegen von UNIQUE und NONUNIQUE ALTERNATE INDEXES für VSAM KSDS und ESDS Datasets. BLDINDEX für ALTERNATE INDEXES. Erstellen v
+    - VSAM Tuning durch JCL Buffer setting AMP=(BUFNI=xx,BUFND=xx). Anwendung der REUSE Option für VSAM Dataset mehrfachverwendungen. Modifikation von VSAM und NON-VSAM Entitäten durch ALTER. Erstellung von Assembler Programen für Fälle, die nicht in Cobol abgedeckt werden konnten (ENQ, RESERVE Processing, ESDS alternate Index access in Cobol Batch programmen etc.) Betriebssysteme: MVS/370, MVS/XA Programmiersprachen: Assembler, Cobol DB-Systeme: VSAM DC-Systeme: NetMaster
+    - Branche: Büromaschinen
+    - Sonstiges
+
+SKILLS:
+  database: DB2 Experte, IMS Gut, SQL Experte, VSAM Experte
+  hardware: IBM Großrechner, o strukturierte Programmierung, o ISOTEC, o Solution Delivery Methodology, Spezialkenntnisse, o XEROX Laser Printer, o Enterprise Output Solution (Output Verwaltung), o SMTP, Werkzeuge und Tools, SELCOPY, SPUFI, QMF, SQL, XPEDITER, LIBRARIAN, PANVALET, DB2 Utilities, BMC Utilities, IBM Utilities, FileAID, Syncsort, MAINVIEW, STROBE, Netview File Transfer
+  operating_system: IBM ISPF Experte, MVS, OS/390 Experte, z/OS: Experte
+  programming_languages: Assembler Gut, CList Experte, Cobol Experte, Easytrieve Plus Gut, JCL Experte, PL/1 Gut, QMF Experte, Rexx Experte
+
+SKILL-ABLAGE:
+EDIFACT Gut, Ethernet Gut, HDLC Gut, IMS/DC Gut, ISDN Gut, ISO/OSI Gut, LU6.2 Gut, SMTP Gut, SNA Experte, TCP/IP Gut, Token Ring Gut, VTAM Experte
+
+FOCUS_EXP:
+  Erfahrungen im Bereich:  [product_standard]
+  Anwendungs- und Systemprogrammierung  [product_standard]
+  o Analyse  [product_standard]
+  Spezifikation  [product_standard]
+  Programmierung  [product_standard]
+  Test  [product_standard]
+  o Arbeitsvorbereitung  [product_standard]
+  Job scheduling  [product_standard]
+  DB2-Administration  [product_standard]
+
+SONSTIGES:
+Referenzen:
+Projekt div. IT Projekte im Bereich Accounts Payable, 01/06 - 12/09
+Referenz durch IT-Abteilung eines Automobilherstellers, vom 10.12.09
+"Während meiner Zusammenarbeit mit dem Kandidaten habe ich folgende
+fachliche
+und persönliche Qualifikationen beobachtet: - fundierte technische Kenntnisse
+des komplexen System-Umfeldes der von ihm betreuten Anwendungen (Cobol,
+DB2) -
+effiziente und gut strukturierte Programmierung
+- gutes Verständnis von Spezifikationen der Anwender
+- IT technische Realisierungsvorschläge dieser Spezifikationen und verläßliche
+Umsetzung
+- Vorschläge und Realisierung von Performance-Verbesserungen/Optimierung der
+Batch-Prozesse und Datenbank-Zugriffe der von ihm betreuten Anwendungen
+- große Einsatz- und Hilfebereitschaft
+- gute Integration und Zusammenarbeit in einem globalen Team
+- Kommunikationsfähigkeiten auf Englisch"
+Projekt Accounting Process Changes and Enhancements, 10/06 - 10/09
+Referenz durch Grp.-Leiter Accounting Developments, Abt. Ford IT, Ford-Werke
+GmbH, 05.12.09
+"Im Rahmen des Projekts hat der Kandidat folgende fachliche sowie persönlichen
+Qualifikationen gezeigt:
+- Erstellung von COBOL Programmen im Enterprise Umfeld (d.h. mit vielen
+verknüpften und interagierenden Systemen). Man kann sich auf die Qualität der
+erstellten Programme verlassen.
+- Detailliertes technisches Wissen zur Optimierung der Datenbank-Nutzung (DB2)
+in COBOL Programmen. Die Verbesserung der Mainframe Batch-Prozesse in Bezug
+auf
+effizientere CPU-Nutzung hat zu sichtbaren finanziellen Einsparungen geführt.
+- Aufgeschlossenheit für neue technische Anforderungen
+- Persönlicher Kontakt zur Fachabteilung und gutes Verständnis für
+Problemstellungen der Anwender. Positive Rückmeldungen von den
+Fachabteilungen
+über die Hilfsbereitschaft des Kandidaten.
+- Gute Integration in globales Team (wöchentliche Interaktion mit Kollegen in
+England und Indien auf Englisch). Die Zusammenarbeit des Kandidaten im IT-
+Umfeld ist immer zielorientiert und hilfsbereit erfolgt und war stets von
+gegenseitigem Respekt geprägt."
+Alle Referenzen sind durch GULP bestätigt.
+Sonstige Anmerkungen:
+Wegen vorgesehenem Einsatz in militärischen Rechenzentren:
+Wiederholte Sicherheitsüberprüfungen (ELOKA Ü3) durch das Bundesamt für
+Verfassungsschutz auf Veranlassung des Bundesministers für Wirtschaft (1994):
+Befugnis zum Zugang, zum Empfang und zur Aufbewahrung von schriftlichen oder
+mündlichen Verschlusssachen sowie zum Einsatz in besonders
+sicherheitsempfindlichen Programmen der Geheimhaltungsgrade
+STRENG GEHEIM
+GEHEIM
+VS-VERTRAULICH
+VS-NUR FÜR DEN DIENSTGEBRAUCH
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]

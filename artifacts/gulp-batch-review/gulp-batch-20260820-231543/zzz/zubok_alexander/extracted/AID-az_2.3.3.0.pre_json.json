@@ -1,0 +1,1073 @@
+{
+  "metadata": {
+    "aid": "AID-az_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "zubok_alexander",
+    "first_name": "Alexander",
+    "last_name": "Zubok",
+    "headline": "Java Entwicklung, C/C++, C#, PHP, Javascript, VBA, Vaadin, Spring, JQuery, Oracle, HTML5, VBA",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:14:29.763580"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Alexander",
+      "last_name": "Zubok",
+      "birth_year": 1979,
+      "languages": [
+        {
+          "name": "Deutsch fließend",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend",
+          "level": ""
+        },
+        {
+          "name": "Hebraeisch gut",
+          "level": ""
+        },
+        {
+          "name": "Russisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.03.21 zu 0%, Vor-Ort-Einsatz 5% möglich",
+      "location": "D7, außerhalb D/A/CH",
+      "wohnort": "704xx Deutschland, Deutschland",
+      "headline": "Java Entwicklung, C/C++, C#, PHP, Javascript, VBA, Vaadin, Spring, JQuery, Oracle, HTML5, VBA",
+      "edv_experience_since": 2009
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "DB2",
+        "Maria DB",
+        "Mongo DB",
+        "Ms Access",
+        "MSSql",
+        "MySql",
+        "Oracle",
+        "Postgre"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [
+        "Toad",
+        "Query Analyser",
+        "Visual Studio",
+        "SVN",
+        "XDebug",
+        "Systemadministrator",
+        "Netzwerkadministration",
+        "OracleDBA",
+        "MsSqlDBA",
+        "Apache",
+        "Tomcat",
+        "IT-Projektmanagement",
+        "UML",
+        "Datenbankprojektierung"
+      ],
+      "hardware": [
+        "Altera",
+        "AVR Studio",
+        "DesignLab (CAD)",
+        "PCad"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "DOS",
+        "Linux",
+        "Unix Debian",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Ajax",
+        "Angular 6",
+        "Ansible",
+        "C#",
+        "C/C++",
+        "Delphi",
+        "Groovy",
+        "HTML/CSS",
+        "Intelli JIdea",
+        "Java 8",
+        "EE",
+        "J2EE",
+        "JPA",
+        "Struts 2.0",
+        "Javascript JQuery",
+        "JSON",
+        "Angular JS 2.0",
+        "Oracle/SQL",
+        "PHP",
+        "PL/SQL",
+        "React JS",
+        "T-SQL",
+        "Type Script",
+        "VBA",
+        "VC++"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "09/2020 - 02/2021",
+        "company": "T-Systems AG (Deutsche Telekom it solutions)",
+        "title": "ZvSys/Daspu, Fellbach",
+        "role": "Fullstack-Softwareentwickler und Devops Freiberufler",
+        "technologies": [
+          "Projekte im Bereich Java EE — Java",
+          "JSF",
+          "Infrasturukture: SVN",
+          "EJB",
+          "Maven",
+          "Nexus",
+          "Jenkins",
+          "Groovy",
+          "Pipeline",
+          "Ant",
+          "C#",
+          "Net",
+          "Restsharp",
+          "JSON"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklen Integrationskomponente für DASPU System vom Bosch: C#, VS Cde,",
+          ".Net, Restsharp, JSON, JS",
+          "Projekte im Bereich DevOps (CI/CD)– Vorbereitung Versionen/Releasen für Kollegien und Kunde (Daimler) vorbereiten und Kümmern um Abteilings",
+          "Umstellung Projekten von Ant zu Maven",
+          "Dokumentationen erstellen",
+          "Eingesetzte Produkte:",
+          "VSCode"
+        ]
+      },
+      {
+        "period": "09/2019 - 06/2020",
+        "company": "Allianz AG",
+        "title": "LifeTime, Stuttgart",
+        "role": "Fullstack-Softwareentwickler",
+        "technologies": [
+          "Produkte (Artifactory",
+          "Distribution",
+          "MissionControl",
+          "Xray",
+          "Ansible)",
+          "Git",
+          "Jenkins",
+          "Nginx",
+          "AWS",
+          "Atlassian JIRA"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Projekte im Bereich Java EE für CI/CD— Java, Vaadin, Git, Spring, Siring",
+          "Boot, Eclipse, Eclipse Spring tool Suite, Rest, Artifactory, Jenkins,",
+          "Cloud Foundry, OpenShift, Docker, Groovy, Oracle, DB2, React JS, Angular",
+          "Projekte im Bereich Infrastruktur – Vorbereitung Installationen für Jfrog",
+          "Jenkins, Nginx, AWS",
+          "Dokumentationen erstellen",
+          "Projekte mit Jira/XRAY Rest API"
+        ]
+      },
+      {
+        "period": "01/2019 - 04/2019",
+        "company": "Daimler AG",
+        "title": "ePACE für Daimler, Böblingen",
+        "role": "Fullstack Entwickler",
+        "technologies": [
+          "Kafka/Zookeeper",
+          "Angular 6/Angular JS",
+          "Angular 6",
+          "Maven",
+          "Linux",
+          "Tomcat",
+          "Ant",
+          "Grunt",
+          "Java",
+          "Spring-Boot",
+          "Docker",
+          "Apache"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung (Unterstützung) eigene CRM Websoftware EPACE basierte auf Java und Struts, testen und weiterbilden andere Kollegien, Unterstützung alte CRM",
+          "TiOnline",
+          "Projekte im Bereich Java EE — Ti Online, ePACE (Java EE, Eclipse,",
+          "Atlassian (Git, Confluence, Jira), Docker, Unit test, Elastic Search,",
+          "Vagrant, C#, .Net, SEGA-Server)",
+          "Mitentwicklung mit Remote Team",
+          "Fullstack-Entwicklung"
+        ]
+      },
+      {
+        "period": "06/2018 - 12/2018",
+        "company": "ITEOS",
+        "title": "Entwicklung (Unterstützung) eigene CRM Websoftware, Stuttgart",
+        "role": "Fullstack-Softwareentwickler Freiberufler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung (Unterstützung) eigene CRM Websoftware basierte auf Java und Struts, testen und weiterbilden andere Kollegien",
+          "Projekte im Bereich Java EE – Meldit (Java EE, IntelliJ Idea, Git, Maven,",
+          "Unit test, Oracle, Oracle Web Logic, JS)",
+          "Kommunikation mit Kunden",
+          "J2EE, Eclipse, SVN, Atlassian Confluence, JIRA, Maven, Struts 2.0, HTML, CSS,",
+          "JUnit, Microservices, Oracle, Oracle Weblogic ===================================================== ==========================",
+          "Stuttgart"
+        ]
+      },
+      {
+        "period": "03/2018 - 05/2018",
+        "company": "Thales AG",
+        "title": "Entwicklung (Unterstützung) eigene CAD Software, Ditzingen",
+        "role": "Fullstack-Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung (Unterstützung) eigene CAD Software basierte auf C#, und WPF, testen, Analyse machen",
+          "Projekte im Bereich C# mit interne CAD-System (.Net, Atlassian (Git,",
+          "Confluence), VS, SonarQube, in)",
+          "Fullstack-Entwicklung",
+          "Kommunikation mit CAD-Experten",
+          "Scrum, C#, WPF, VS, Atllasian, Git, Unittest, Microservices ===================================================== ==========================",
+          "Ditzingen"
+        ]
+      },
+      {
+        "period": "12/2017 - 03/2018",
+        "company": "VMT GmbH",
+        "title": "Entwicklung (Unterstützung) eigene CAD-System, Bruchsal",
+        "role": "Fullstack-Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung (Unterstützung) eigene CAD-System fuer Tunneln projektieren und steuer an Tunnelbaumaschinen, Hilfe fuer Raporten entwickeln und technisches",
+          "Überstzung auf Russisch, Kommunikation mit russischen Fachkräfte",
+          "Projekte im Bereich Java EE (Java EE, IntelliJ Idea, Atlassian (Git,",
+          "Confluence, Bit-Bucket), Gradle, Unit test, MongoDB, MariaDB, Angular JS,",
+          "Groovy)",
+          "Mitentwicklung mit Remote Team",
+          "Fullstack-Entwicklung"
+        ]
+      },
+      {
+        "period": "08/2017 - 11/2017",
+        "company": "Autolive GmbH",
+        "title": "Entwicklung Backend, Holzgerlingen",
+        "role": "Backend-Entwiclker",
+        "technologies": [
+          "Maven",
+          "Nexus)",
+          "J2EE",
+          "Net Beans",
+          "Git",
+          "Jenkins",
+          "Unit test",
+          "Groovy",
+          "Microservices"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Plugins für Daten aus Radaren und Cameras von Auto bearbeiten",
+          "Projekte im Bereich Java EE (Java EE, Net Beans, Git, Jenkins, Unit test,",
+          "Mitentwicklung mit Remote Team",
+          "Backend Entwicklung",
+          "Kommunikation mit Kunden",
+          "Uml-Diagrammen erzeugen",
+          "C#, .Net"
+        ]
+      },
+      {
+        "period": "03/2017 - 06/2017",
+        "company": "DAT Ag",
+        "title": "Weiterentwicklung eine Web GUI, Ostfildern",
+        "role": "Fullstack-Softwareeinwickler, Architekt",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Frontend, Weiterentwicklung System valuate Pro und SD3 für Auto-Bewertungen",
+          "Projekte im Bereich Java EE (Java EE, Intelli JIdea, Rest/JSON(JAX-RS),",
+          "EJB,XML, JDBC, JIRA, Git, Unit test, Jenkins, Hugo Framework - Basierte auf Jquery eigenes Framework)",
+          "Architektur umstellen",
+          "Frontend Entwicklung, Backend Entwicklung",
+          "Kommunikation mit Kunden",
+          "DB-Model erzeugen – Oracle 12"
+        ]
+      },
+      {
+        "period": "12/2016 - 01/2017",
+        "company": "EQS",
+        "title": "Anmeldungsystem für G20, München",
+        "role": "Fullstack-Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Frontend",
+          "Projekte im Bereich Java EE (Java EE, Ecclipse, Vaadin, Gwt, Hibernate,",
+          "Spring, Spring Boot, Angular JS 2.0, Rest/JSON (JAX-RS), Maven, Stax,",
+          "XML, JPA, JIRA, Git, Jenkins, Unit test)",
+          "Frontend Entwicklung, Backend Entwicklung",
+          "Kommunikation mit Kunden",
+          "DB-Model erzeugen – Oracle 12"
+        ]
+      },
+      {
+        "period": "09/2016 - 11/2016",
+        "company": "KVWL",
+        "title": "Entwicklung eine Migrierungssystem für Daten aus alte Gbo-, Dortmund",
+        "role": "Backend-Softwareentwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Backend. DB-Deisgn",
+          "J2EE, Ecclipse, Hibernate, Spring, Maven, XML, SVN, Unit test. Rest/JSON(STAX,",
+          "JAX-RS), JPA, Spring Boot, Jenkins, Jira, Spring Cloud, Angular JS 2.0, Scrum/ Agile, Bugzilla, JavaScript, Microservices ===================================================== ==========================",
+          "Gbo-, Dortmund",
+          "System"
+        ]
+      },
+      {
+        "period": "06/2016 - 11/2016",
+        "company": "KVWL",
+        "title": "Entwicklung Abgleich-System zwischen Ärzte und Krankenkassen, Dortmund",
+        "role": "Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Bluetooth-Treiber",
+          "Projekte im Bereich Java EE (Java EE, Ecclipse, Vaadin, Gwt, Hibernate,",
+          "Spring, Spring Boot, Rest/JSON (JAX-RS), Maven, Stax, XML, JPA, JIRA,",
+          "Git, Jenkins, Unit test)",
+          "Frontend Entwicklung, Backend Entwicklung",
+          "Kommunikation mit Kunden",
+          "J2EE, Ecclipse, Hibernate, Spring, Maven, XML, SVN, Unit test. Rest/JSON(STAX,",
+          "Krankenkassen, Dortmund"
+        ]
+      },
+      {
+        "period": "05/2015 - 03/2016",
+        "company": "Estos GmbH",
+        "title": "Entwicklung Backend",
+        "role": "Softwareeinwickler",
+        "activities": [
+          "C/C++, VS 2012, Win Dbg",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2015 - 04/2016",
+        "company": "Estos GmbH",
+        "title": "Projekte im Bereich C/C++, Leonberg",
+        "role": "Softwareentwickler",
+        "activities": [
+          "Aufgaben:",
+          "Projekte im Bereich C/C++ - Kernel Mode und User mode",
+          "Unterstützung und Erweiterung Procall Project",
+          "Treiber erzeugen",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2015 - 06/2015",
+        "company": "Estos GmbH",
+        "title": "Weiterentwicklung Communicationssoftware, Leonberg",
+        "role": "Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Weiterentwicklung Communicationssoftware (Untersuchung Stun und Turn Servers von verschiedene Providers)",
+          "Entwicklung Frontend",
+          "C/C++, VS 2010",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2015 - 03/2016",
+        "company": "EEB",
+        "title": "Entwicklung Navi-Design für Fahrzeug-Steuergerät, Stuttgart",
+        "role": "Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Backend",
+          "Java, Spring, Eclipse, PL/SQL",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "10/2014 - 01/2015",
+        "company": "S1NN GmbH",
+        "title": "Entwicklung Navi-Design für Fahrzeug-Steuergeraet, Stuttgart",
+        "role": "Softwareeinwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Frontend",
+          "JS, HTML5, Jlinter, Ecclipse. Jquery, Google Closer ===================================================== ==========================",
+          "Stuttgart"
+        ]
+      },
+      {
+        "period": "02/2014 - 08/2014",
+        "company": "EEB GmbH",
+        "title": "Entwicklung Web-Shops für Biketeilen, Filderstadt",
+        "role": "Softwarearchitekt",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Software-Konzept und GUI, Übersetzung auf Tschechisch. Technische",
+          "Documentation schreiben",
+          "C#, .Net, Winforms, PHP, X-Commerce, Apache2, SVN, PayPal-API, PaySafe-API ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2013 - 01/2014",
+        "company": "EEB GmbH, Daimler AG",
+        "title": "Weiterentwicklung Bestellsystem für Daimler AG, Filderstadt",
+        "role": "Softwarearchitekt",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Software-Konzept und Performance. Technische Dokumentation schreiben",
+          "Java, Eclipse, MySql, Ejb, WebSphere",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "09/2013 - 11/2013",
+        "company": "EEB GmbH, Daimler AG",
+        "title": "Optimisierung die Suche fuer Erdmann Export-Import GmbH, Filderstadt",
+        "role": "Softwarearchitekt, Softwareentwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Software-Konzept und GUI. Technische Dokumentation schreiben",
+          "C#, Nentities, .Net, Winforms, Google API, MySQL ===================================================== ==========================",
+          "Filderstadt"
+        ]
+      },
+      {
+        "period": "02/2013 - 03/2013",
+        "title": "Mailkonten System für Neuen Server anpassen, Filderstadt",
+        "role": "Softwareentwickler",
+        "activities": [
+          "Aufgaben:",
+          "Code refaktoring, anpassen Mailkontoverwaltung-System zuum neuen Service",
+          "PHP, My SQL, Apache2, Eclispe, MVC, SVN, Sybase Power Designer ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2013 - 10/2013",
+        "company": "EEB GmbH, PAL-IHKEEB GmbH, PAL-IHK",
+        "title": "Entwicklung Bestellsystem für PAL-IHK, Filderstadt",
+        "role": "Softwareentwickler, Datenbankarchitekt",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung Datenbank-Desing, Software-Konzept und Software-GUI. Technische",
+          "Dokumentation schreiben",
+          "Java, Vaadin, Hibernate, Eclipse, MySql, Metamil, Tomcat 7 ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2011 - 09/2011",
+        "company": "Carbacan mbH, Cabtec",
+        "title": "Bauelektrikal System basierte auf DGN und CAD Entwicklung, Frankfurt am Main",
+        "role": "Softwareentwickler",
+        "activities": [
+          "Aufgaben:",
+          "Konvertieren CAD-Dateien und zeichnen auf Timage-Palette, Konvertieren und errechnen DGN-Komponenten und GUI-Entwicklung",
+          "Delphi XE, VC++, MySql, Microstation, Hedit, Gold-Soft CAD Komponenten ===================================================== ==========================",
+          "Entwicklung, Frankfurt am Main"
+        ]
+      },
+      {
+        "period": "07/2009 - 09/2009",
+        "company": "Payment Technologies GmbH",
+        "title": "Daten konvertieren und migrieren für neuen System, Smolensk/Moscow",
+        "role": "Softwareentwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung ein Process für Daten convertieren.",
+          "Führung aus die Kundendaten prüfen und Daten korrigieren",
+          "Kontrollieren neue System in fragen Kundendaten und Kundenbestellungen berabeiten",
+          "Einführung, Projektverantwortung",
+          "Java EE, Tomcat, Oracle, MySQL, PL/SQL, Rest/JSON, JPA, Spring Boot, Jira ===================================================== ==========================",
+          "Entwicklung einer Websoftware für die Kalkulation von Warenkosten Sonstiges Sonstige Anmerkungen: ausländische Kunden immer gerne Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+          "Smolensk/Moscow"
+        ]
+      }
+    ],
+    "industries": [
+      "Finanzen",
+      "Industrie",
+      "Grosshandel",
+      "Einzelhandel",
+      "Fremdhandel",
+      "Automotiv"
+    ],
+    "focus_areas": [
+      "Java Entwicklung",
+      "C/C++",
+      "Javascript",
+      "Vaadin",
+      "Spring",
+      "JQuery",
+      "Oracle",
+      "HTML5",
+      "Software und Hardwareentwickler",
+      "Unternehmen: Rubikontechnologie",
+      "Ort: Smolensk/Russland",
+      "Aufgaben:",
+      "Entwicklung eine Geräte für Influenceradiation Messen",
+      "Entwicklung eine Software für Forschunggeräte",
+      "Mikrochipsfuntersuchung von den Firmen Infinion, Motorolla und Dallassemiconduktor",
+      "Systemumgebung und Sprachen:",
+      "Design Lab (CAD), C/C++, MS Office, MS Visio, VC++, AVR Studio, AVR-Assembler Moscow Power Engineering University, Moskau 09/2003 - 02/2004: Diplomarbeit Untersuchung von Radiatioseinflüssen an Mikrochips Branche: Luft-und Raumfahrtindustrie"
+    ],
+    "focus_experience": [
+      {
+        "name": "Artifactory",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Atlassian JIRA",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "AWS",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Cake PHP",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Cloud Foundry",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Delphi XE",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Distribution",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Docker",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Eclipse Spring tool Suite",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Ejb",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Gold-Soft CAD Komponenten",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Google API",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Closer",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Gradle",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Hedit",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Jlinter",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Kafka",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "MissionControl",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "MVC",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Nentities",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Nexus",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Nginx",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "OpenShift",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "PayPal-API",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "PaySafe-API",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Rest",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Restsharp",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Spring Boot",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Sybase Power Designer",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "VS 2010",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "2012",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Code",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Webmin",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "WebSphere",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Win Dbg",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Winforms",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "X-Commerce",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Xray",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "ZooKeeper",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Mitarbeiter im Bereich Systementwicklung/ Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Über 10 Jahre Berufserfahrung in der Softwareeinführung",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "* Sicher in Java EE",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "C/C++",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Delphi und Datenbanken",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "* Fundierte Kenntnisse in Webentwicklung Vaadin",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "WPF",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Magento",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Xcommerce",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Zend und GWT",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Fundierte Kenntnisse in Embedded und Win32/64 so wie Win-API",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Zusammenarbeit mit Kollegen aus verschiedenen Branchen auch auf",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "internationaler Ebene",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Fliessend Deutsch und English in Wort und Schrift",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "IT-Technologien:",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "* Web: Jquery",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Node.js",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Java Servlet",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Zend-Framework",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "HTTP/HTTPS",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "* Win: .Net",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "VCL",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "MFC",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Win API",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "OLE",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "* DB: JDBC",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "DAO",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "ADO",
+        "category": "product_standard",
+        "sort_order": 79
+      }
+    ],
+    "education": [],
+    "other": [
+      {
+        "content": "Sonstige Anmerkungen:\nausländische Kunden immer gerne\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+        "content_type": "text",
+        "source": "aid_regex_sonstiges",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Hibernate",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HQL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SQL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "CAD",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Eclipse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Metamil",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Microstation",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Power Designer",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Spring Data",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "JAX-RS)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "JUnit",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Protractor",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SOAP UI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Unit test",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "assembler",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "avr-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "active",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:14:29.763591",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "OTHER",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 7→6 bei '09/2016 - 11/2016'",
+        "EDV_SEIT: None→2009",
+        "AUTO_SKILLS: +3 in skill_ablage"
+      ],
+      "coverage_percent": 93.33333333333333,
+      "auto_added_skills": 3,
+      "integrity_ok": true
+    }
+  }
+}

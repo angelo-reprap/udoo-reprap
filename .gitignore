@@ -1,2 +1,6 @@
 Repo_abpe/cv_extractor/incoming/data/
 _repo_backups/
+
+# SAFE Live↔Repo Sidecars (nicht committen)
+Repo_abpe/cv_extractor/incoming/**/*.live-copy-*
+artifacts/safe-gulp-content/

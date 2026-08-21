@@ -13,11 +13,13 @@ Kein Crash wenn Share fehlt — nur Warning.
 """
 from __future__ import annotations
 
+import errno
 import json
 import logging
 import os
 import shutil
 import subprocess
+import time
 from pathlib import Path
 from typing import Any, Optional
 
@@ -156,6 +158,74 @@ def _chown_path(path: Path) -> None:
         logger.debug(f'chown {path}: {e}')
 
 
+def _stash_blocking_path(path: Path) -> bool:
+    """CIFS: Datei/Ghost auf neu|cv beiseite legen. True wenn weg oder nie da."""
+    try:
+        if not path.exists():
+            return True
+    except OSError:
+        pass
+    stamp = time.strftime('%H%M%S')
+    junk = path.with_name(f"{path.name}.notdir-{stamp}")
+    for op_name, op in (
+        ('rename', lambda: path.rename(junk)),
+        ('unlink', lambda: path.unlink()),
+    ):
+        try:
+            op()
+            logger.warning(
+                'Publish: blockierenden Pfad per %s entfernt: %s → %s',
+                op_name, path, junk.name if op_name == 'rename' else '(gelöscht)',
+            )
+            return True
+        except OSError:
+            continue
+    return False
+
+
+def _mkdir_cifs(path: Path) -> bool:
+    """mkdir mit Retry gegen CIFS Errno 17 (File exists) / Ghost-Dentries."""
+    for attempt in range(4):
+        try:
+            if path.is_dir():
+                return True
+        except OSError:
+            pass
+        try:
+            path.mkdir(parents=True, exist_ok=True)
+            if path.is_dir():
+                return True
+        except FileExistsError:
+            pass
+        except OSError as e:
+            if getattr(e, 'errno', None) not in (errno.EEXIST, errno.EBUSY, 16, 17):
+                logger.warning('mkdir %s: %s', path, e)
+                return False
+        # existiert, ist aber kein Dir (oder CIFS-Ghost) → beiseite
+        try:
+            exists = path.exists()
+            is_dir = path.is_dir() if exists else False
+        except OSError:
+            exists, is_dir = True, False
+        if exists and not is_dir:
+            if not _stash_blocking_path(path):
+                return False
+            continue
+        if attempt < 3:
+            time.sleep(0.15 * (attempt + 1))
+            try:
+                if path.is_dir():
+                    return True
+            except OSError:
+                pass
+            # Letzter Versuch vor nächster Runde: Ghost-Rename
+            _stash_blocking_path(path)
+    try:
+        return path.is_dir()
+    except OSError:
+        return False
+
+
 def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path]:
     """
     …/AID_profile/{lll}/{consultant_dir}/neu/cv/
@@ -183,11 +253,13 @@ def ensure_neu_cv_dir(consultant_dir: str, last_name: str = '') -> Optional[Path
 
     target = person / 'neu' / 'cv'
     try:
-        # Eltern schrittweise anlegen + chmod
+        # Eltern schrittweise — CIFS: neu/cv oft Ghost/Datei nach Windows-Löschen
         cur = root
         for part in (bucket, dir_name, 'neu', 'cv'):
             cur = cur / part
-            cur.mkdir(parents=True, exist_ok=True)
+            if not _mkdir_cifs(cur):
+                logger.warning('neu/cv nicht anlegbar (%s): mkdir fehlgeschlagen bei %s', target, cur)
+                return None
             _chmod_path(cur, is_dir=True)
             _chown_path(cur)
         return target

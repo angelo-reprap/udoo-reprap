@@ -1,0 +1,870 @@
+{
+  "metadata": {
+    "aid": "AID-mb_5.1.3.0",
+    "version": "5.1.3.0",
+    "consultant_dir": "blohm_markus",
+    "first_name": "Markus",
+    "last_name": "Blohm",
+    "headline": "Beratung, Projektleitung, Hochverfügbarkeit, Virtualisierung, Transition, Migration, Service-Management, IAM, Dokumentation",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:18:57.523361"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Markus",
+      "last_name": "Blohm",
+      "birth_year": 1970,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch Englisch verhandlungssicher",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (verhandlungssicher)",
+          "level": ""
+        }
+      ],
+      "availability": "01.07.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "501xx Bergheim-Oberaußem, Deutschland",
+      "headline": "Beratung, Projektleitung, Hochverfügbarkeit, Virtualisierung, Transition, Migration, Service-Management, IAM, Dokumentation",
+      "edv_experience_since": 2014
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "Lotus Notes",
+        "Microsoft SQL Server Analysis Services",
+        "Microsoft SQL Server 2008 R2",
+        "Microsoft SQL Server 2012",
+        "Microsoft SQL Server 2014",
+        "Microsoft SQL Server 2016",
+        "MS SQL Datenbanken alle Versionen",
+        "MS SQL Server alle Versionen",
+        "MS SQL Server Analysis Services",
+        "MySQL",
+        "ODBC",
+        "Oracle",
+        "SSMS",
+        "xBase",
+        "Kenntnisse in allen Datenbankbereichen vorhanden. die tiefsten wurden hier",
+        "aufgelistet"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Appliances",
+        "Datenerfassungsterminals HP-Terminals",
+        "Drucker",
+        "HP Clients und Server",
+        "IBM RS6000",
+        "Iomega",
+        "Mac MAC mini; iPad",
+        "Modem",
+        "PC",
+        "Plotter",
+        "Scanner"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "CentOS",
+        "HPUX",
+        "Mac OS",
+        "MS Windows Server 2008",
+        "MS-DOS",
+        "Novell",
+        "RedHat",
+        "SUSE-Linux",
+        "Windows alle Versionen (Client und Server)",
+        "Windows Server 2016",
+        "Expertenkenntnisse in allen Microsoft Versionen (x32 und x64)"
+      ],
+      "programming_languages": [
+        "Clipper",
+        "dBase",
+        "ISA Regelsprache",
+        "Lotus Notes Script",
+        "Pascal",
+        "Perl",
+        "PL/SQL",
+        "Shell"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "09/2019 - 06/2021",
+        "company": "Lanxess Deutschland",
+        "title": "ESU SQL-Server 2008 upgrade // Configuration Management in, Leverkusen",
+        "role": "IT-Berater",
+        "technologies": [
+          "Lotus Notes",
+          "Microsoft Office 2010",
+          "MS Windows Server 2008",
+          "ServiceNow",
+          "SQL Server 2014",
+          "Microsoft SQL Server 2012",
+          "Microsoft SQL Server 2016"
+        ],
+        "activities": [
+          "ServiceNow",
+          "Geschäftsstelle: IT",
+          "Branche: Chemie, Mineralöl & Kunststoff",
+          "Aufgaben:",
+          "Erstellung einer IST-Analyse aller Server weltweit",
+          "Absprache der Migrationen auf HyperV",
+          "Absprache der Migrationen in die Azure Cloud"
+        ],
+        "industry": "Chemie, Mineralöl & Kunststoff",
+        "location": "Leverkusen"
+      },
+      {
+        "period": "07/2018 - 08/2019",
+        "company": "item Industrietechnik",
+        "title": "IT Service-Management @ item Industrietechnik, Solingen",
+        "role": "Berater; Service Manager",
+        "technologies": [
+          "Windows Server 2016",
+          "Microsoft Office 2013",
+          "MS visio 2013",
+          "Matrix 42"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Erstellung einer IST-Analyse",
+          "Erstellung einer IT-Landkarte",
+          "Aufzeigen von PainPoints in der vorhandenen IT-Landschaft",
+          "Erstellung eines Servicekataloges",
+          "Erstellung von Wiki Einträge in Confluence",
+          "Erstellung einer IT-LifeCycle-Management Guideline",
+          "Erstellung eines Notfallplans nach BSI-Grundschutz"
+        ],
+        "industry": "Industrietechnik"
+      },
+      {
+        "period": "01/2018 - 06/2018",
+        "company": "GKV-Spitzenverband",
+        "title": "Einführung IT-Lifecycle-Management nach BSI-Grundschutz, Bonn",
+        "role": "Berater",
+        "technologies": [
+          "Microsoft Office 2010",
+          "Microsoft Visio",
+          "Topdesk",
+          "WhatsUp",
+          "Windows Server 2012",
+          "Microsoft Windows 8",
+          "VMware vSphere"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Erstellung einer IST-Analyse",
+          "Erstellung einer IT-Landkarte",
+          "Aufzeigen der PainPoints in der IT-Landschaft Erstellung eines Sicherheitskonzeptes nach BSI-Grundschutz",
+          "Erstellung einer IT-LifeCycle-Management Guideline",
+          "Erstellung eines Notfallplans nach BSI-Grundschutz",
+          "Erstellung einer Guideline für Regeltasks",
+          "Erstellung von Changes in TopDesk"
+        ],
+        "industry": "Öffentlicher Dienst",
+        "location": "Bonn"
+      },
+      {
+        "period": "11/2015 - 12/2017",
+        "company": "Bayer BBS",
+        "title": "SQL LifeCycle Management, Guidelines und IAM, Leverkusen",
+        "role": "Consultant; IT-Engineer; SQL-Architekt; Projektleiter",
+        "technologies": [
+          "Windows Server 2012",
+          "Windows Server 2008",
+          "MS Project",
+          "Project",
+          "HP Service"
+        ],
+        "activities": [
+          "Geschäftsstelle: IT",
+          "Branche: Chemie, Mineralöl & Kunststoff",
+          "Aufgaben:",
+          "Erstellung der IST-Analyse der SQL-Server Landschaft",
+          "Erstellung des SOLL-Konzeptes der neuen SQL-Server Landschaft",
+          "Analyse der Zugriffsberechtigungen auf den SQL-Servern Analyse der Guidelines und Checklisten auf Nachhaltigkeit",
+          "Aufzeigen der PainPoints und Erstellung des weiteren Fahrplans",
+          "Erstellung der Guidelines und Checklisten (patchen, Transition, IAM)"
+        ],
+        "industry": "Chemie, Mineralöl & Kunststoff",
+        "location": "Leverkusen"
+      },
+      {
+        "period": "03/2015 - 10/2015",
+        "company": "Fujitsu TDS",
+        "title": "Stada non-SAP: Server Transition, Neckarsulm",
+        "role": "Technischer Projektleiter, IT-Engineer",
+        "technologies": [
+          "Windows 2008",
+          "Windows 2012",
+          "Oracle",
+          "MS-SQL 2012",
+          "Office 2013",
+          "BMC BladeLogic",
+          "BMC Patrol",
+          "ARS Remedy",
+          "agil Cloud",
+          "SUSE Linux Enterprise"
+        ],
+        "activities": [
+          "Unternehmensgröße: 501-1000",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Erstellung des HLD`s für die non-SAP Systemlandschaft (IST und SOLL)",
+          "Erstellung der IOQ-Protokolle für die V2V-Migration der Windows Server"
+        ],
+        "industry": "IT-Dienstleistungen",
+        "location": "Neckarsulm"
+      },
+      {
+        "period": "01/2014 - 12/2014",
+        "company": "E-Plus",
+        "title": "ECS IT-Exchange, Potsdam, Essen, Düsseldorf",
+        "role": "Teilprojektleiter",
+        "technologies": [
+          "MS Office 2010",
+          "MS SQL Server 2012",
+          "windows 8.1",
+          "Microsoft Project",
+          "project",
+          "OS: Windows 2008 R2",
+          "Windows 7",
+          "Tools: RDP",
+          "VMware ESX Server 4.x",
+          "VSphere Client",
+          "SCCM",
+          "2007 und",
+          "HP Asset Manager",
+          "Tivoli Storage Manager",
+          "Windows 200x (x32 u. x64)",
+          "u. x64)",
+          "Windows XP",
+          "RedHat",
+          "CentOS",
+          "OS: Windows 2000 / 2003 / 2008",
+          "OS: Windows NT",
+          "Bereitstellen neuer",
+          "2008 x32",
+          "x64 und",
+          "OS: Windows 2003",
+          "Windows 2008 (x64)",
+          "Windows 2003 Standard Edition",
+          "Remoteadministration im Windows",
+          "Client Umfeld (NT",
+          "XP) (Weltweit)",
+          "2003 Server",
+          "MAC OS 7.X",
+          "MacOS 8.x",
+          "MAC OS 9.X",
+          "MAC OS 10.3",
+          "Windows 2000 Advanced Server",
+          "Ca. 70 Netware Server",
+          "400 Windows NT",
+          "4.0 / 2000 / SNA Server",
+          "Novell5.1",
+          "AIX",
+          "Durchführung",
+          "HP-UX",
+          "Tools: Office Suite",
+          "X-Ray",
+          "BMC Patrol",
+          "HP-Openview",
+          "Visual Studio",
+          "Visio",
+          "OS: Windows 95",
+          "Linux",
+          "Windows 9x",
+          "Windows 2000 Pro",
+          "Windows 2000 Server Advanced",
+          "OS: Windows 3.x",
+          "OS/2",
+          "SCO-Unix",
+          "OS: DOS",
+          "Windows 98",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekt non-SAP Server Transition - GxP",
+          "03/15 - 10/15",
+          "Referenz durch Team Lead Business Application",
+          "IT-Outsourcing Unternehmen",
+          "<1000",
+          "vom 11.01.16",
+          "Projekt Servervirtualisierung",
+          "09/10",
+          "- 03/12",
+          "Referenz durch Gruppenleiter BPA IT-Development",
+          "Dynevo GmbH",
+          "Mediendienstleiter 150 MA",
+          "vom 14.07.12",
+          "gezeigt",
+          "dass er über äußerst fundierte Fachkenntnisse verfügt",
+          "waren. Besonders hervorzuheben ist seine Fähigkeit",
+          "komplexe Sachverhalte sehr",
+          "Vorgesetzten",
+          "eine vertrauensvolle",
+          "jederzeit sehr überzeugend nach außen vertreten.\"",
+          "Projekt Servermigrationen",
+          "09/09 - 05/10",
+          "Referenz durch Projektleiter TP Server",
+          "IT-Dienstleister",
+          "vom 17.05.10",
+          "vor allem auch in Situationen",
+          "sehr geachet.\"",
+          "Projekt Transition Inselspital",
+          "04/09 - 10/09",
+          "T-Sytems",
+          "vom 04.01.10",
+          "welche end of life",
+          "Auftrag",
+          "04/05 - 09/08",
+          "Referenz durch Geschäftsführung",
+          "arcensis GmbH",
+          "vom 16.02.09",
+          "5 Jahre) eine hohe",
+          "Sonstige Anmerkungen:",
+          "Vitae aufgeführt sind",
+          "Englisch anzeigen",
+          "MAC OS 8.X",
+          "Windows NT 4.0",
+          "Novell 5.1"
+        ],
+        "activities": [
+          "Geschäftsstelle: ECS",
+          "Unternehmensgröße: > 1000",
+          "Branche: Telekommunikation",
+          "Aufgaben:",
+          "Analyse der Systemumgebung und Erstellung von Systemdokumentationen",
+          "Erstellung des IST-Zustandes Erstellung des SOLL-Zustandes Erstellung einer IT-Landkarte aus dem IST und SOLL-Zustand",
+          "Erstellung von Migrationskonzepten",
+          "Durchführung von Workshops mit den Fachverantwortlichen Moderation von Telko`s und Meetings"
+        ],
+        "industry": "Telekommunikation",
+        "location": "Potsdam, Essen, Düsseldorf"
+      }
+    ],
+    "industries": [
+      "Behörde",
+      "Bank",
+      "Industrie",
+      "Immobilien",
+      "Bildung/Schule",
+      "Handel",
+      "Elektronik",
+      "Wirtschaft/Unternehmensberatung",
+      "EDV",
+      "Telekommunikation",
+      "Universitätsklinik",
+      "Bekleidungsindustrie",
+      "Flugzeugindustrie",
+      "Pharmaindustrie",
+      "Print"
+    ],
+    "focus_areas": [
+      "Beratung",
+      "Projektleitung",
+      "Hochverfügbarkeit",
+      "Virtualisierung",
+      "Transition",
+      "Migration",
+      "Service-Management",
+      "Dokumentation",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Dokumentation / DTP Engineering / IT-nahe Ingenieurdienstleistungen Spezialist für...",
+      "Projektleitung und Beratung",
+      "ITIL, GxP, Prince2, BSI und Kanban",
+      "Transition, Migration und Konsolidierung",
+      "Virtualisierung und Hochverfügbarkeit / Cluster",
+      "Service und LifeCycle-Management, IAM und Dokumentation",
+      "Server Hardening und Performancetuning",
+      "Schulabschluß: Fachhochschulreife",
+      "IAM",
+      "Coaching",
+      "Schulung",
+      "Training",
+      "Projektmanagement",
+      "Organisation",
+      "Koordination",
+      "DTP",
+      "Engineering",
+      "IT-nahe Ingenieurdienstleistungen",
+      "ITIL",
+      "GxP",
+      "Prince2",
+      "BSI",
+      "Kanban",
+      "Konsolidierung",
+      "Cluster",
+      "LifeCycle-Management",
+      "Server Hardening",
+      "Performancetuning",
+      "Qualitätssicherung",
+      "Strategie",
+      "Planung"
+    ],
+    "focus_experience": [
+      {
+        "name": "Active Directory Administration",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Azure",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "BSI Grundschutz",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Cloud Computing",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Dokumentation",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Dokumentation der Prozesse",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "HP Service Manager",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "HyperV",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "IAM",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "IAM Prozesse",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Kanban",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "LifeCycle Management",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Matrix 42",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Microsoft Azure",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Microsoft Cluster Server",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Microsoft Office alle Versionen",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Microsoft Office 2010",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Microsoft Visio",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Microsoft-Azure",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Monitoring / Backup / AV",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "ServiceNow",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Topdesk",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "VMware ESXi",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "VMware vSphere",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "WhatsUp",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Kenntnisse in allen Produkten die sich auf dem Markt befinden.",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "MS Project",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Migrationen",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Qualitätssicherung",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Service-Management",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Strategie",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Planung",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Active Directory",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Microsoft Office",
+        "category": "product_standard",
+        "sort_order": 38
+      }
+    ],
+    "education": [
+      {
+        "degree": "Fachhochschulreife",
+        "institution": "Fachoberschule Adolf-Kolping-Kollegschule Horrem",
+        "period": "1992 - 1993",
+        "education_type": "course"
+      },
+      {
+        "degree": "Studium Informatik mit Nebenfach Betriebswirtschaftslehre",
+        "institution": "Fachhochschule Köln",
+        "period": "1995 - 1997",
+        "education_type": "course"
+      },
+      {
+        "degree": "MCSA2000",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "MCSE2000",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "MCSA2003",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "MCSE2003",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "MCP ISA 2000",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "ITIL Foundation Zertifizierung",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "GxP Schulung",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Altiris Deployment Server 6.5",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Lotus Notes 5.x Programmierung",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "VMware 3.x ESX Server Design und Deployment",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt non-SAP Server Transition - GxP, 03/15 - 10/15\nReferenz durch Team Lead Business Application, IT-Outsourcing Unternehmen <1000 MA, vom 11.01.16\n\"Der Consultant hat maßgeblich zum Projketerfolg beigetragen. Er war stets zuverlässig und zu Mehrarbeit bereit. Er konnte sich sehr schnell in das Projektteam integrieren und arbeitete sich problemlos in die Gxp-Thematik ein.\"\nProjekt Servervirtualisierung, Server Operational und Transition Dynevo, 09/10 - 03/12\nReferenz durch Gruppenleiter BPA IT-Development, Dynevo GmbH, Mediendienstleiter 150 MA, vom 14.07.12\n\"[...] Während seiner Tätigkeit in unserem Unternehmen hat der Consultant gezeigt, dass er über äußerst fundierte Fachkenntnisse verfügt, die er in seinem Aufgabengebiet stets erfolgreich einsetzen konnte. Er ergriff von sich aus die Initiative und überzeugte stets durch seine überhaus hohe Leistungsbereitschaft. Im Rahmen der ihm übertragenen Aufgaben arbeitete er stets und in jeder Hinsicht selbstständig auch in Situationen, die für ihn neu waren. Besonders hervorzuheben ist seine Fähigkeit, komplexe Sachverhalte sehr schnell zu erfassen und zu analysieren. Somit konnte er stets sehr gute Ergebnisse erzielen. Der Consultant war ein äußerst belastbarer Mitarbeiter, der die hohen Anforderungen seiner Position auch unter schwierigen Umständen und hohem Termindruck stets sehr gut meisterte. Er zeichnete sich stets durch eine hervorragende Arbeitsmethodik aus. In sein Arbeitsgebiet hat er sich äußerst engagiert eingearbeitet und mit Pioniergeist und äußerst hohem Einsatzwillen einen sehr guten Beitrag zum gemeinsamen Erfolg geleistet. Sein persönliches Verhalten war jederzeit einwandfrei. In seinem Umgang mit Vorgesetzten, Kollegen und Mitarbeitern verstand er es, eine vertrauensvolle und offene Atmosphäre zu schaffen. Durch sein seriöses Auftreten, seine fachliche Autorität und sein Selbstvertrauen hat der Consultant das Unternehmen jederzeit sehr überzeugend nach außen vertreten.\"\nProjekt Servermigrationen, 09/09 - 05/10\nReferenz durch Projektleiter, IT-Dienstleister, vom 17.05.10\n\"Der Consultant verfügt über umfassende Fachkenntnisse im Bereich Windows und hatte schon nach kurzer Einarbeitung einen sicheren Umgang mit den Methoden und Prozessen in unserem Unternehmen. Die Planung, Steuerung und das Ausführen der ihm übertragenen Aufgaben erfüllte er jederzeit sehr zuverlässig. Er zeigte eine sehr gute Übersicht und Arbeitseinteilung, vor allem auch in Situationen mit erheblicher Arbeitsbelastung. Die Qualität seiner Arbeitsergebnisse lag auch bei schwierigen Arbeiten, objektiven Problemhäufungen und Termindruck weit über den Anforderungen. Der Consultant wurde im Projekt wegen seiner vielfältigen Kompetenzen sowie seines hervorragenden Kooperationsverhaltens sehr geachet.\"\nProjekt Transition Inselspital, 04/09 - 10/09\nReferenz durch Projektleiter TP Server, T-Sytems, vom 04.01.10\n\"Der Consultant wurde von uns beauftragt, Server des Kunden, welche end of life waren, auf eine neue Plattform zu migrieren. [...] Der Consultant war für die oben aufgeführten Arbeiten zuständig und führte diesen ihm übertragenen Auftrag zu unserer Zufriedenheit durch. Er zeigte sich zuverlässig und pflichtbewusst\"\nProjekt Server Operation und Konsolidierung, 04/05 - 09/08\nReferenz durch Geschäftsführung, arcensis GmbH, vom 16.02.09\n\"Der Consultant hat im Projekt (Laufzeit ca. 3,5 Jahre) eine hohe Einsatzbereitschaft und Fachkompetenz bewiesen. Sowohl Teamfähigkeit als auch …\"\n\nSonstige Anmerkungen:\nZur Zeit arbeite ich viel an Migrations.- und Virtualisierungsthemen. Ich nehme jede Herausforderung mit Technologien an, die noch nicht in meiner Vitae aufgeführt sind.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "AppleTalk gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Bus",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HDLC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing Kenntnisse durch div. Projekte",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RFC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router Software und Hardware Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Shadow",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Kenntnisse in den allermeisten Datenkommunikationesprotokollen",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:18:57.523376",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2014"
+      ],
+      "coverage_percent": 64.46280991735537,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

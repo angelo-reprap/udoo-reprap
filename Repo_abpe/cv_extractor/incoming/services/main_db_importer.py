@@ -43,6 +43,187 @@ class MainDbImporter:
                 break
         return ', '.join(names)
 
+    @classmethod
+    def _append_extract_extra_sections(cls, lines: list, ed: dict) -> None:
+        """
+        Ergänzt Extrakt-TXT um Ausbildung / Zertifikate / Focus-Exp / Sonstiges.
+        Nur anhängen — bestehende Dump-Felder bleiben unverändert.
+        """
+        ed = ed or {}
+
+        edu = ed.get('education') or []
+        if edu:
+            lines.append("")
+            lines.append("AUSBILDUNG:")
+            for item in edu:
+                if not item:
+                    continue
+                if isinstance(item, dict):
+                    degree = (
+                        item.get('degree') or item.get('name')
+                        or item.get('description') or ''
+                    ).strip()
+                    if not degree:
+                        continue
+                    period = (item.get('period') or '').strip()
+                    inst = (item.get('institution') or '').strip()
+                    et = (item.get('education_type') or '').strip()
+                    parts = [p for p in (period, degree, inst) if p]
+                    row = " | ".join(parts)
+                    if et:
+                        row = f"{row}  [{et}]"
+                    lines.append(row)
+                else:
+                    s = str(item).strip()
+                    if s:
+                        lines.append(s)
+
+        certs = ed.get('certifications') or []
+        if certs:
+            lines.append("")
+            lines.append("ZERTIFIKATE:")
+            for item in certs:
+                if not item:
+                    continue
+                if isinstance(item, dict):
+                    name = (item.get('name') or '').strip()
+                    if not name:
+                        continue
+                    date = (item.get('date_obtained') or '').strip()
+                    issuer = (
+                        item.get('issuer_name')
+                        or (item.get('issuer') if isinstance(item.get('issuer'), str) else '')
+                        or ''
+                    ).strip()
+                    parts = [p for p in (date, name, issuer) if p]
+                    lines.append(" | ".join(parts) if parts else name)
+                else:
+                    s = str(item).strip()
+                    if s:
+                        lines.append(s)
+
+        focus_exp = ed.get('focus_experience') or []
+        if focus_exp:
+            lines.append("")
+            lines.append("FOCUS_EXP:")
+            for item in focus_exp:
+                name = cls._as_name(item)
+                if not name:
+                    continue
+                if isinstance(item, dict) and (item.get('category') or '').strip():
+                    cat = str(item.get('category') or '').strip()
+                    lines.append(f"  {name}  [{cat}]")
+                else:
+                    lines.append(f"  {name}")
+
+        other = ed.get('other')
+        other_lines = []
+        if isinstance(other, list):
+            for item in other:
+                if isinstance(item, dict):
+                    c = (item.get('content') or '').strip()
+                    if c:
+                        other_lines.append(c)
+                elif item:
+                    s = str(item).strip()
+                    if s:
+                        other_lines.append(s)
+        elif isinstance(other, str) and other.strip():
+            other_lines.append(other.strip())
+        if other_lines:
+            lines.append("")
+            lines.append("SONSTIGES:")
+            for block in other_lines:
+                for ln in block.splitlines():
+                    lines.append(ln)
+                lines.append("")
+
+    @classmethod
+    def _build_db_snapshot(cls, consultant) -> dict:
+        """Kompaktes DB-Inventar nach save — Vergleich mit pre_json."""
+        personal = {
+            'aid': consultant.aid,
+            'first_name': consultant.first_name,
+            'last_name': consultant.last_name,
+            'birth_year': consultant.birth_year,
+            'location': consultant.location,
+            'availability': consultant.availability,
+            'edv_experience_since': consultant.edv_experience_since,
+            'headline': consultant.headline,
+            'degree': consultant.degree,
+            'nationality': consultant.nationality,
+            'email': consultant.email,
+            'phone': consultant.phone,
+        }
+        return {
+            'personal': personal,
+            'counts': {
+                'languages': consultant.languages.count(),
+                'skills': consultant.skills.count(),
+                'certifications': consultant.certifications.count(),
+                'education': consultant.education.count(),
+                'experience': consultant.experience.count(),
+                'industries': consultant.industries.count(),
+                'focus_areas': consultant.focus_areas.count(),
+                'focus_experience': consultant.focus_experience_items.count(),
+                'other_content': consultant.other_content.count(),
+            },
+            'languages': [
+                {'name': x.language.name, 'level': x.level}
+                for x in consultant.languages.select_related('language').all()
+            ],
+            'education': [
+                {
+                    'degree': x.degree,
+                    'institution': x.institution,
+                    'period': x.period,
+                    'education_type': x.education_type,
+                }
+                for x in consultant.education.all()
+            ],
+            'certifications': [
+                {
+                    'name': x.certification.name,
+                    'date_obtained': x.date_obtained,
+                    'issuer': x.certification.issuer_name,
+                }
+                for x in consultant.certifications.select_related('certification').all()
+            ],
+            'industries': [x.industry.name for x in consultant.industries.select_related('industry').all()],
+            'focus_areas': [x.focus_area.name for x in consultant.focus_areas.select_related('focus_area').all()],
+            'focus_experience': [
+                {'name': x.name, 'category': x.category}
+                for x in consultant.focus_experience_items.all()
+            ],
+            'experience': [
+                {
+                    'period': x.period,
+                    'company': x.company,
+                    'role': x.role,
+                    'title': x.title,
+                    'activities': x.activities.count(),
+                    'technologies': x.technologies.count(),
+                }
+                for x in consultant.experience.all()
+            ],
+            'other_content': [
+                {
+                    'content': (x.content or '')[:4000],
+                    'content_type': x.content_type,
+                    'source': x.source,
+                }
+                for x in consultant.other_content.all()
+            ],
+            'skills_sample': [
+                {
+                    'name': x.skill.name,
+                    'category_name': x.category_name or x.skill.category_name,
+                    'weight': x.weight,
+                }
+                for x in consultant.skills.select_related('skill').all()[:80]
+            ],
+        }
+
     @staticmethod
     def _years_from_periods(experience_list) -> list:
         """Volle Jahre (19xx/20xx) aus Projekt-Perioden — nicht nur (19|20)-Captures."""
@@ -375,6 +556,10 @@ class MainDbImporter:
             lines.append(f"Name: {first} {last}")
             lines.append(f"Headline: {meta.get('headline','')}")
             lines.append(f"Ort: {p.get('location','')}")
+            if p.get('wohnort'):
+                lines.append(f"Wohnort: {p.get('wohnort')}")
+            if p.get('birth_year'):
+                lines.append(f"Jahrgang: {p.get('birth_year')}")
             lines.append(f"Verfügbar: {p.get('availability','')}")
             lines.append(f"EDV seit: {p.get('edv_experience_since','')}")
             langs = p.get('languages', [])
@@ -414,12 +599,14 @@ class MainDbImporter:
             lines.append("SKILLS:")
             for cat, items in ed.get('skills', {}).items():
                 if items:
-                    lines.append(f"  {cat}: {self._join_names(items, limit=5)}")
+                    lines.append(f"  {cat}: {self._join_names(items, limit=40)}")
             # skill_ablage dict-sicher (wie import_from_prejson)
             ablage = ed.get('skill_ablage') or []
             if ablage:
                 lines.append("")
                 lines.append(f"SKILL-ABLAGE: {self._join_names(ablage)}")
+            # Ausbildung / Zertifikate / Focus-Exp / Sonstiges (anhängen, nichts umbrechen)
+            self._append_extract_extra_sections(lines, ed)
             txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
             consultant.raw_text = txt_content
@@ -476,8 +663,12 @@ class MainDbImporter:
         Wenn vorhanden → diese Skills BYPASSEN den LLM-Normalizer
         """
         """
-        Importiert direkt aus pre_json (RAM) — kein Disk-Lesen.
-        Einzige Disk-Outputs: TXT + HTML
+        Importiert direkt aus pre_json (RAM).
+        Disk-Outputs unter data/extracted/<dir>/:
+          <AID>.pre_json.json  — RAM-pre_json vor/mit AID-Meta (Review)
+          <AID>.txt            — Extrakt-Dump
+          <AID>.db_snapshot.json — was nach save in der DB liegt (Vergleich)
+        + HTML unter data/html_out/
         """
         from apps.cv_extractor.models import Consultant
         from apps.cv_extractor.enricher.main_extracted_to_db import main_extracted_to_db
@@ -516,6 +707,19 @@ class MainDbImporter:
         pre_json['metadata']['consultant_dir'] = consultant_dir
         pre_json['metadata']['first_name']     = first
         pre_json['metadata']['last_name']      = last
+
+        # pre_json auf Disk (Review: Inhalt vor DB-Write nachvollziehbar)
+        try:
+            extracted_dir = Path('data/extracted') / consultant_dir
+            extracted_dir.mkdir(parents=True, exist_ok=True)
+            pre_path = extracted_dir / f'{aid}.pre_json.json'
+            pre_path.write_text(
+                json.dumps(pre_json, ensure_ascii=False, indent=2, default=str),
+                encoding='utf-8',
+            )
+            logger.info(f"  pre_json: {pre_path}")
+        except Exception as e:
+            logger.warning(f"  pre_json Disk-Write Fehler: {e}")
 
         consultant, created = Consultant.objects.get_or_create(aid=aid)
         personal = pre_json['extracted_data'].get('personal', {})
@@ -645,6 +849,19 @@ class MainDbImporter:
         except Exception as e:
             logger.warning(f"  SkillNormalizer Fehler: {e}")
 
+        # DB-Snapshot für Vergleich pre_json ↔ Persistenz
+        try:
+            snap = self._build_db_snapshot(consultant)
+            snap_path = Path('data/extracted') / consultant_dir / f'{aid}.db_snapshot.json'
+            snap_path.parent.mkdir(parents=True, exist_ok=True)
+            snap_path.write_text(
+                json.dumps(snap, ensure_ascii=False, indent=2, default=str),
+                encoding='utf-8',
+            )
+            logger.info(f"  db_snapshot: {snap_path}")
+        except Exception as e:
+            logger.warning(f"  db_snapshot Fehler: {e}")
+
         # HTML generieren (Disk-Output 1)
         consultant.status = 'profile_ready'
         consultant.save(update_fields=['status', 'updated_at'])
@@ -669,6 +886,13 @@ class MainDbImporter:
                 f"Name: {first} {last}",
                 f"Headline: {meta.get('headline', '') or p.get('headline', '')}",
                 f"Ort: {p.get('location', '')}",
+            ]
+            if p.get('wohnort'):
+                lines.append(f"Wohnort: {p.get('wohnort')}")
+            by = p.get('birth_year') or consultant.birth_year
+            if by:
+                lines.append(f"Jahrgang: {by}")
+            lines += [
                 f"Verfügbar: {p.get('availability', '')}",
                 f"EDV seit: {consultant.edv_experience_since or ''}",
                 f"Sprachen: {', '.join(l.get('name','') if isinstance(l,dict) else str(l) for l in p.get('languages',[]) if l)}",
@@ -697,11 +921,21 @@ class MainDbImporter:
                     joined = self._join_names(techs, limit=10)
                     if joined:
                         lines.append(f"    Techs: {joined}")
+            lines += ["", "SKILLS:"]
+            skills_map = ed.get('skills') or {}
+            if isinstance(skills_map, dict) and skills_map:
+                for cat, items in skills_map.items():
+                    joined = self._join_names(items, limit=40) if items else ""
+                    if joined:
+                        lines.append(f"  {cat}: {joined}")
+            ablage = ed.get('skill_ablage') or []
             lines += [
                 "",
                 "SKILL-ABLAGE:",
-                self._join_names(ed.get('skill_ablage', [])),
+                self._join_names(ablage),
             ]
+            # Ausbildung / Zertifikate / Focus-Exp / Sonstiges (anhängen, nichts umbrechen)
+            self._append_extract_extra_sections(lines, ed)
             txt_content = '\n'.join(str(x) for x in lines)
             txt_path.write_text(txt_content, encoding='utf-8')
             consultant.raw_text = txt_content

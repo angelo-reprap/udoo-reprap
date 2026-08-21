@@ -1,0 +1,1669 @@
+{
+  "personal": {
+    "aid": "AID-jb_2.5.2.0",
+    "first_name": "Juergen",
+    "last_name": "Biwer",
+    "birth_year": 1966,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+    "availability": "03.09.18 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2014,
+    "headline": "Business Software Entwickler, Web-Entwickler, Testautomatisierung, JavaFX, EAI",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 1,
+    "skills": 139,
+    "certifications": 0,
+    "education": 6,
+    "experience": 37,
+    "industries": 7,
+    "focus_areas": 25,
+    "focus_experience": 213,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Studium zum Dipl. Ing. (FH) Technische Informatik",
+      "institution": "",
+      "period": "4 Jahre",
+      "education_type": "course"
+    },
+    {
+      "degree": "Technischer Betriebsassistent ZDF-Mainz",
+      "institution": "",
+      "period": "1 Jahr",
+      "education_type": "course"
+    },
+    {
+      "degree": "Elektroniker",
+      "institution": "",
+      "period": "2 Jahre",
+      "education_type": "course"
+    },
+    {
+      "degree": "Fachhochschulreife",
+      "institution": "",
+      "period": "1 Jahr",
+      "education_type": "course"
+    },
+    {
+      "degree": "Ausbildung zum Kommunikationselektroniker",
+      "institution": "",
+      "period": "3,5 Jahre",
+      "education_type": "course"
+    },
+    {
+      "degree": "Realschule",
+      "institution": "",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Handel",
+    "Marketing/Werbung",
+    "Handwerk",
+    "Industrie: Elektronik, Holzwerkstofftechnik, Automotive, Diskrete Fertigungsindustrie",
+    "Energieversorger",
+    "Telekommunikation, IT",
+    "Touristik, Reise"
+  ],
+  "focus_areas": [
+    "Business Software Entwickler",
+    "Web-Entwickler",
+    "Testautomatisierung",
+    "JavaFX",
+    "Business Software Entwicklung / Web-Entwicklung",
+    "Konzeption und Aufbau von agiler Testautomation",
+    "Qualitätssicherung / Test / Testautomation / Selenium / JBehave",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "Enterprise Application Integration (EAI) Lebenslauf chronologisch in Kurzform",
+    "Realschule",
+    "Ausbildung zum Kommunikationselektroniker (3,5 Jahre)",
+    "Fachhochschulreife (1 Jahr)",
+    "Elektroniker (2 Jahre)",
+    "Technischer Betriebsassistent ZDF-Mainz (1 Jahr)",
+    "Studium zum Dipl. Ing. (FH) Technische Informatik (4 Jahre) - Seit 1994 Software Entwicklung und IT-Beratung als Angestellter und freiberuflich - Seit 2010 Geschäftsführung IT-Beratungsunternehmen",
+    "Business Software Entwicklung",
+    "Web-Entwicklung",
+    "Qualitätssicherung",
+    "Test",
+    "Testautomation",
+    "Selenium",
+    "JBehave",
+    "Engineering",
+    "IT-nahe Ingenieurdienstleistungen",
+    "Enterprise Application Integration (EAI)"
+  ],
+  "focus_experience": [
+    {
+      "name": "Bootstrap",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gherkin",
+      "category": "product_standard"
+    },
+    {
+      "name": "Git",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gradle",
+      "category": "product_standard"
+    },
+    {
+      "name": "Grizzly",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML5",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ 15",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ IDEA",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAX-RS",
+      "category": "product_standard"
+    },
+    {
+      "name": "jBehave",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins",
+      "category": "product_standard"
+    },
+    {
+      "name": "Knockout.js",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven",
+      "category": "product_standard"
+    },
+    {
+      "name": "MVP-Pattern",
+      "category": "product_standard"
+    },
+    {
+      "name": "REST",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scene Builder 8.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "TestFX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Velocity",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entwicklungsumgebungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse (alle Versionen bis 2015)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Intellij (seit 2015)",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML Spy",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP Developer Studio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle SQL Developer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft: Visual Studio .NET 2003/2005/2008",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Borland: C++ Builder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Delphi",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBuilder",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Firebug",
+      "category": "product_standard"
+    },
+    {
+      "name": "Firefinder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fiddler",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Lifecycle",
+      "category": "product_standard"
+    },
+    {
+      "name": "ANT",
+      "category": "product_standard"
+    },
+    {
+      "name": "JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "SVN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gradle (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- MKS Source Integrity",
+      "category": "product_standard"
+    },
+    {
+      "name": "MKS Requirements Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visual Source Save (VSS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ticket System BMC Remedy (MARS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Frameworks und Komponentenmodelle",
+      "category": "product_standard"
+    },
+    {
+      "name": "- JEE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Servlets/JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Spring Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Batch",
+      "category": "product_standard"
+    },
+    {
+      "name": "GWT (Google Web Toolkit) 1.7",
+      "category": "product_standard"
+    },
+    {
+      "name": "AngularJS (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": ".NET",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP NetWeaver",
+      "category": "product_standard"
+    },
+    {
+      "name": "Persitence Technologien",
+      "category": "product_standard"
+    },
+    {
+      "name": "- SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "- JPA",
+      "category": "product_standard"
+    },
+    {
+      "name": "openJPA",
+      "category": "product_standard"
+    },
+    {
+      "name": "eclipseLink",
+      "category": "product_standard"
+    },
+    {
+      "name": "myBatis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle",
+      "category": "product_standard"
+    },
+    {
+      "name": "MySQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Application Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web Technologien",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP",
+      "category": "product_standard"
+    },
+    {
+      "name": "- HTTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "- HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSS",
+      "category": "product_standard"
+    },
+    {
+      "name": "- SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webservices",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Selenium II",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebDriver",
+      "category": "product_standard"
+    },
+    {
+      "name": "PageObjects-Pattern (Experte)",
+      "category": "product_standard"
+    },
+    {
+      "name": "JavaScript",
+      "category": "product_standard"
+    },
+    {
+      "name": "AJAX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache AXIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache CXF (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google GWT-RPC (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "RDF (Resource Description Framework)(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCo (SAP Java Connector) (Experte)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP BAPI (Business Application Programming Interface)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP RFC (SAP Remote Function Call)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP XI (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP RM (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Standards",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "- OOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "- XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML-Schema",
+      "category": "product_standard"
+    },
+    {
+      "name": "XSLT",
+      "category": "product_standard"
+    },
+    {
+      "name": "XPath",
+      "category": "product_standard"
+    },
+    {
+      "name": "openTRANS",
+      "category": "product_standard"
+    },
+    {
+      "name": "ERFAHRUNGEN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozedurale Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Pascal",
+      "category": "product_standard"
+    },
+    {
+      "name": "Funktionale Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Java8 Lambda",
+      "category": "product_standard"
+    },
+    {
+      "name": "Pascal Functions",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scala (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Objektorientierte Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java (umfangreich)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Object Pascal",
+      "category": "product_standard"
+    },
+    {
+      "name": "Delphi (umfangreich)",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "ABAP-OO (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rapid Analyse & Design (RAD)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Iterativ-Inkrementelle Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Exploratives/Experimentelles Prototyping",
+      "category": "product_standard"
+    },
+    {
+      "name": "Relationale Datenbanken und OR-Mapping",
+      "category": "product_standard"
+    },
+    {
+      "name": "- ER-Modellierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Normalisierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Objekt-Relationale Abbildung: JPA",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC/ODBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Oracle",
+      "category": "product_standard"
+    },
+    {
+      "name": "HSQLDB",
+      "category": "product_standard"
+    },
+    {
+      "name": "- BDE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Paradox",
+      "category": "product_standard"
+    },
+    {
+      "name": "- INFORMIX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Access",
+      "category": "product_standard"
+    },
+    {
+      "name": "Interbase",
+      "category": "product_standard"
+    },
+    {
+      "name": "Pervasive.SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "hsqldb (alle",
+      "category": "product_standard"
+    },
+    {
+      "name": "basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "PL/SQL (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mehrschichtarchitekturen und Verteilte Anwendungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Enterprise Edition (JEE)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google GWT (basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Servlets",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Applikation Server:",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP JEE-Engine(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- WebServices",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Axis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft .NET",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP Entwicklungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "NetWeaver SAP WAS 6.30/6.40/7.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "- BAPI",
+      "category": "product_standard"
+    },
+    {
+      "name": "RFC (Remote Function Calls)",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCO Java Connector (umfangreich)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ABAP-OO(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- SAP RM (Recordsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Service Provider Framework)(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP DVS(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP cProject(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP XI(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entwicklungen von Schnittstellen und Connectoren",
+      "category": "product_standard"
+    },
+    {
+      "name": "RPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Austauschformate: openTRANS",
+      "category": "product_standard"
+    },
+    {
+      "name": "STEP(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ereignisgesteuerte GUI Anwendungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "JavaFX",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Microsoft Windows Anwendungen (Delphi",
+      "category": "product_standard"
+    },
+    {
+      "name": "Borland VCL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft",
+      "category": "product_standard"
+    },
+    {
+      "name": ".NET)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web Anwendungen (Google GWT)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Testautomation Web Anwendungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "PageObjects (in allem Experte)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Automated Visual Regression/Validation Tests",
+      "category": "product_standard"
+    },
+    {
+      "name": "- HtmlUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "ApacheHttpClient",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Ant",
+      "category": "product_standard"
+    },
+    {
+      "name": "JUnit/TestNG",
+      "category": "product_standard"
+    },
+    {
+      "name": "TeamCity(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "HPQC(basics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Studio .NET 2003/2005/2008",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++ Builder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Firebug",
+      "category": "product_standard"
+    },
+    {
+      "name": "MKS Source Integrity",
+      "category": "product_standard"
+    },
+    {
+      "name": "JEE",
+      "category": "product_standard"
+    },
+    {
+      "name": "AngularJS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "JPA",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium II",
+      "category": "product_standard"
+    },
+    {
+      "name": "PageObjects-Pattern",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache CXF",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google GWT-RPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "RDF (Resource Description Framework)",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCo (SAP Java Connector)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP XI",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP RM",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Pascal",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java8 Lambda",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scala",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "Object Pascal",
+      "category": "product_standard"
+    },
+    {
+      "name": "ABAP-OO",
+      "category": "product_standard"
+    },
+    {
+      "name": "ER-Modellierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "BDE",
+      "category": "product_standard"
+    },
+    {
+      "name": "INFORMIX",
+      "category": "product_standard"
+    },
+    {
+      "name": "PL/SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google GWT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Servlets",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP JEE-Engine",
+      "category": "product_standard"
+    },
+    {
+      "name": "BAPI",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCO Java Connector",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP RM (Recordsmanagement, Service Provider Framework)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP DVS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP cProject",
+      "category": "product_standard"
+    },
+    {
+      "name": "STEP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Windows Anwendungen (Delphi, Borland VCL, Microsoft .NET)",
+      "category": "product_standard"
+    },
+    {
+      "name": "HtmlUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "TeamCity",
+      "category": "product_standard"
+    },
+    {
+      "name": "HPQC",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "10/2017 - heute",
+      "company": "DB AG",
+      "role": "Software-Entwickler",
+      "title": "Redesign des Fahrzeugservers der, Frankfurt",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "05/2017 - 09/2017",
+      "company": "DB AG",
+      "role": "",
+      "title": "Konzeption und Entwicklung einer Web Anwendung zur, Frankfurt",
+      "activities": 5,
+      "technologies": 11
+    },
+    {
+      "period": "01/2017 - 04/2017",
+      "company": "DB AG",
+      "role": "Software-Entwickler",
+      "title": "Konzeption und Entwicklung eines Testframeworks, Frankfurt",
+      "activities": 5,
+      "technologies": 8
+    },
+    {
+      "period": "10/2015 - 12/2016",
+      "company": "DB Mobility Logistics AG",
+      "role": "Externer Berater, Software-Entwickler, Testautomatisierer",
+      "title": "Entwicklung einer Benutzeroberfläche für de, Frankfurt",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "07/2014 - 04/2015",
+      "company": "Großer deutscher Reiseveranstalter",
+      "role": "Software Entwicklung, Testautomatisierung, Agile Tester",
+      "title": "Realisierung der Testautomatisierung für eine Web, Hannover",
+      "activities": 9,
+      "technologies": 3
+    },
+    {
+      "period": "07/13 - 06/14",
+      "company": "",
+      "role": "Dauer : 12 Monate",
+      "title": "Dauer : 12 Monate",
+      "activities": 6,
+      "technologies": 3
+    },
+    {
+      "period": "07/12 - 06/13",
+      "company": "",
+      "role": "Dauer : 12 Monate",
+      "title": "Dauer : 12 Monate",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/10 - 11/11",
+      "company": "",
+      "role": "Dauer : 12 Monate",
+      "title": "Dauer : 12 Monate",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "08/10 - 10/10",
+      "company": "",
+      "role": "Dauer : 3 Monate",
+      "title": "Dauer : 3 Monate",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "10/09 - 12/09",
+      "company": "",
+      "role": "Dauer : 3 Monate",
+      "title": "Dauer : 3 Monate",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/09 - 10/09",
+      "company": "",
+      "role": "Dauer : 4 Monate",
+      "title": "Dauer : 4 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "04/09 - 06/09",
+      "company": "",
+      "role": "Dauer : 3 Monate",
+      "title": "Dauer : 3 Monate",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "08/08 - 03/09",
+      "company": "",
+      "role": "Dauer : 8 Monate",
+      "title": "Dauer : 8 Monate",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "05/08 - 06/08",
+      "company": "",
+      "role": "Dauer : 2 Monate",
+      "title": "Dauer : 2 Monate",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "03/08 - 04/08",
+      "company": "Continental Teves AG & Co. oHG",
+      "role": "Dauer : 2 Monate",
+      "title": "Dauer : 2 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "12/07 - 02/08",
+      "company": "",
+      "role": "Dauer : 3 Monate",
+      "title": "Dauer : 3 Monate",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "08/07 - 11/07",
+      "company": "",
+      "role": "Dauer : 4 Monate",
+      "title": "Dauer : 4 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "05/07 - 07/07",
+      "company": "Continental Teves AG & Co. oHG",
+      "role": "Dauer : 3 Monate",
+      "title": "Dauer : 3 Monate",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/05 - 04/07",
+      "company": "",
+      "role": "Dauer : 27 Monate",
+      "title": "Dauer : 27 Monate",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "11/04",
+      "company": "ILC-PROSTEP GmbH, Bexbach",
+      "role": "Dauer : 1 Monat",
+      "title": "Dauer : 1 Monat",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "02/04 - 10/04",
+      "company": "",
+      "role": "Dauer : 9 Monate",
+      "title": "Dauer : 9 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "11/03 - 12/03",
+      "company": "Unilog für RWE System Applikation, Essen",
+      "role": "Dauer : 2 Monate",
+      "title": "Dauer : 2 Monate",
+      "activities": 6,
+      "technologies": 5
+    },
+    {
+      "period": "07/03 - 10/03",
+      "company": "Unilog für RWE System Applikation, Essen",
+      "role": "Dauer : 4 Monate",
+      "title": "Dauer : 4 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "03/03 - 06/03",
+      "company": "Unilog für RWE System Applikation, Essen",
+      "role": "Dauer : 3 Monate",
+      "title": "Dauer : 3 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "10/02 - 02/03",
+      "company": "Unilog Integrata für RWE System Applikation, Essen",
+      "role": "Dauer : 5 Monate",
+      "title": "Dauer : 5 Monate",
+      "activities": 5,
+      "technologies": 4
+    },
+    {
+      "period": "04/02 - 09/02",
+      "company": "Unilog für RWE System Applikation, Essen",
+      "role": "Dauer : 6 Monate",
+      "title": "Dauer : 6 Monate",
+      "activities": 6,
+      "technologies": 4
+    },
+    {
+      "period": "02/02 - 03/02",
+      "company": "Bistum Trier (BGV), Trier [www.bistum-trier.de]",
+      "role": "Dauer : 1 Monat",
+      "title": "Dauer : 1 Monat",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/02 - 02/02",
+      "company": "Bitburger Brauerei Th. Simon GmbH, Bitburg",
+      "role": "Dauer : 1 Monat",
+      "title": "Dauer : 1 Monat",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/01 p; : 10/01 - 12/01",
+      "company": "Deutsche Post AG, Darmstadt [http://www.dpwn.de]",
+      "role": "Dauer : 2 Monate",
+      "title": "Dauer : 2 Monate",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "08/00 - 09/01",
+      "company": "",
+      "role": "Dauer : 13 Monate",
+      "title": "Dauer : 13 Monate",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "08/99 - 07/00",
+      "company": "",
+      "role": "Dauer : 12 Monate",
+      "title": "Dauer : 12 Monate",
+      "activities": 6,
+      "technologies": 4
+    },
+    {
+      "period": "01/99 - 07/99",
+      "company": "",
+      "role": "Dauer : 7 Monate",
+      "title": "Dauer : 7 Monate",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "08/98 - 12/98",
+      "company": "",
+      "role": "Dauer : 5 Monate",
+      "title": "Dauer : 5 Monate",
+      "activities": 5,
+      "technologies": 2
+    },
+    {
+      "period": "02/97 - 07/98",
+      "company": "",
+      "role": "Dauer : 18 Monate",
+      "title": "Dauer : 18 Monate",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "07/96 - 01/97",
+      "company": "",
+      "role": "Dauer : 7 Monate",
+      "title": "Dauer : 7 Monate",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "12/94 - 06/96",
+      "company": "",
+      "role": "Dauer : 19 Monate",
+      "title": "Dauer : 19 Monate",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/93 - 01/94",
+      "company": "",
+      "role": "Dauer : 6 Monate",
+      "title": "Dauer : 6 Monate",
+      "activities": 10,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Testautomatisierung, Agile-Tester, Web Entwicklung, 07/14 - 04/15\nReferenz durch Architecture & Service Management, großes deutsches Touristikunternehmen, vom 23.04.15\n\"[...] Der Consultant hat diese Aufgaben stets zu unserer vollsten Zufriedenheit erfüllt. Er besitzt sehr gute Team-Kompetenzen. Die Integration und die Arbeit im Team funktionierten bestens. Das Team und die Projektverantwortlichen bedauern den Ausstieg des Consultants aus dem Projekt sehr, denn er hat die Produktentwicklung und insbesondere den Bereich Testautomation mit seinem Know-how und seinem Expertenwissen auf diesem Gebiet weit vorangebracht. Er war ein verantwortungsvoll arbeitender und stets zuverlässiger Kollege, den wir sehr zu schätzen gelernt haben. Wir wünschen dem Consultant auf seinem weiteren beruflichen und persönlichen Werdegang alles Gute und weiterhin viel Erfolg.\"\nAlle Referenzen sind durch GULP bestätigt. Sonstige Anmerkungen:\n- tabellarischer Lebenslauf\n- Referenzen/Zeugnisse auf Anfrage.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Borland DB Engine",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BTrieve",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "veraltet",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Interbase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "10g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "11g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Proprietäre DB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Pervasive.SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL (Grundkenntnisse)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Mikrocontroller",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Atmel AVR Grundkenntnisse",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Delphi",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "umfangreich",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "FXML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "umfangreich: Java SE von 1.3 bis 1.8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaFX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JEE (Applet",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Servlet",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JNI",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "...)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java FX 8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Funktionale Programmierung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Streams",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java8",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "jQuery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSON",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Paradox",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BSH",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XSLT",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TypeScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "+ knockout.js",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scala (basics)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ABAP-00 (basics)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TestNG",
+      "category_name": "Programmiersprachen",
+      "weight": 0.85
+    },
+    {
+      "name": "Kotlin (basics)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Dart (basics)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scrum",
+      "category_name": "Methoden",
+      "weight": 0.62
+    },
+    {
+      "name": "Velocity",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.62
+    },
+    {
+      "name": "Gradle",
+      "category_name": "Datenbanken",
+      "weight": 0.62
+    },
+    {
+      "name": "GIT",
+      "category_name": "Hardware",
+      "weight": 0.85
+    },
+    {
+      "name": "IntelliJ IDEA",
+      "category_name": "Methoden",
+      "weight": 0.75
+    },
+    {
+      "name": "REST",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "JAX-RS",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "HTML5",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Bootstrap",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Knockout.js",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "JBehave",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Gherkin",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Jenkins",
+      "category_name": "CI/CD Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Maven",
+      "category_name": "CI/CD Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "IntelliJ",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.38
+    },
+    {
+      "name": "Model View Presenter (MVP)",
+      "category_name": "Architekturmuster",
+      "weight": 0.47
+    },
+    {
+      "name": "Databinding",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "DI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Java7",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Putty",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.6
+    },
+    {
+      "name": "SVN",
+      "category_name": "Versionsverwaltung",
+      "weight": 0.6
+    },
+    {
+      "name": "Tortoise",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "NET",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

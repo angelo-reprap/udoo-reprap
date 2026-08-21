@@ -1,0 +1,608 @@
+{
+  "personal": {
+    "aid": "AID-sm_4.1.3.0",
+    "first_name": "Stefan",
+    "last_name": "Maenzel",
+    "birth_year": 1965,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "04.04.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2000,
+    "headline": "* Projektmanagement, Projekt Management Office PMO, Projektleitung, Projektcontrolling, Coaching von Projektleitern * Einführung von Projektmanagement, PMO und Portfolio-Management * Testmanagement, Planung und Durchführung von Testmaßnahmen * Training (Projektmanagement, MS- Project) * Evaluierung, Planung und Durchführung von Trainingsmaßnahmen * Qualitätssicherung, Qualitätsmanagement",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 61,
+    "certifications": 0,
+    "education": 0,
+    "experience": 14,
+    "industries": 17,
+    "focus_areas": 12,
+    "focus_experience": 28,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Elektrizitätswirtschaft",
+    "Automobilindustrie",
+    "Energieversorgung",
+    "Luft- und Raumfahrt",
+    "Automatisierungstechnik",
+    "Flughafen",
+    "Bahn",
+    "Banken",
+    "Pharmazie",
+    "Handel",
+    "Hardwarehersteller",
+    "Halbleiterhersteller",
+    "Softwarehersteller",
+    "sonstige Industrie",
+    "Telekommunikationsunternehmen",
+    "Kommunalwesen",
+    "Versicherungen"
+  ],
+  "focus_areas": [
+    "Projektmanagement",
+    "Projekt Management Office PMO",
+    "Projektleitung",
+    "Projektcontrolling",
+    "Coaching von Projektleitern * Einführung von Projektmanagement PMO und Portfolio-Management * Testmanagement Planung und Durchführung von Testmaßnahmen * Training (Projektmanagement MS-Project) * Eval",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Zertifizierung zum Projektmanager (GPM)",
+    "Requirements Engineering",
+    "Requirements Management",
+    "Seminar SAP PS und Projekt Controlling mit Projektstrukturplänen",
+    "SEP (System Entwicklungs-Prozess) Volkswagen, AUDI AG - V-Modell XT"
+  ],
+  "focus_experience": [
+    {
+      "name": "Fachliche Kompetenz:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zertifizierung zum Projektmanager nach IPMA",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Modellierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anpassung und Einführung von Entwicklungs-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozessen",
+      "category": "product_standard"
+    },
+    {
+      "name": "System/Produkt-Life-Cycle Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Portfolio-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Reifegradmodelle CMM(I)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO9000/EFQM/TQM QM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Soziale Kompetenz:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Besondere Stärken in der Motivation von Mitarbeitern - auch in",
+      "category": "product_standard"
+    },
+    {
+      "name": "Krisensituationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "* sicheres",
+      "category": "product_standard"
+    },
+    {
+      "name": "selbstbewusstes Auftreten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teamfähigkeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Durchsetzungsvermögen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kommunikationsfähigkeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "weitere Skills",
+      "category": "product_standard"
+    },
+    {
+      "name": "Seminarthemen(Überblick) und Dienstleistungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Grundlagen und Praxis des Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagement mit MS-Project",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Projektcontrolling - Planung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Steuerung und Kontrolle von Projekten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung von Seminarkonzepten und Seminarunterlagen",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Kundenberatung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bedarfsanalyse und Seminarplanung",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2017 - 07/2018",
+      "company": "Fresenius Netcare GmbH/, Fresenius KABI AG",
+      "role": "Projektmanager",
+      "title": "O365 Rollout und Lotus Notes Application Migration, Bad Homburg vor der Höhe",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "03/2016 - heute",
+      "company": "Raiffeisenlandesbank Niederösterreich-Wien",
+      "role": "Projektmanager",
+      "title": "Programmmanagement /Projektmanagement Office PMO, Wien",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2015 - 03/2016",
+      "company": "Media Saturn Deutschland",
+      "role": "Projektmanager",
+      "title": "Einführung SAP MM, SAP VIM, Zentralisierung Rechnungsprüfung, Ingolstadt",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "11/2011 - 07/2015",
+      "company": "Fresenius Netcare GmbH, Fresenius KABI AG",
+      "role": "Projektmanager",
+      "title": "SAP Rollout Europa, Asien, Lateinamerika, Nordamerika SAP",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2009 - 12/2011",
+      "company": "Dresdner Kleinwort, Commerzbank AG",
+      "role": "Projektmanager",
+      "title": "Migration FX/MM (Calypso)/Projektmanagement,",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2008 - 12/2008",
+      "company": "Carl Zeiss Vision GmbH Consulting",
+      "role": "Projektmanager",
+      "title": "Einführung Portfolio-, Programm- und Projektmanagement",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "08/2006 - 01/2007",
+      "company": "SRI Radio Systems GmbH",
+      "role": "Trainer",
+      "title": "Einführung einer Projektmanagement Software",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "10/2005 - 09/2006",
+      "company": "Bayer Business Services",
+      "role": "",
+      "title": "Einführung eines Projekt Portfolio Management Tools",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "08/2004 - 12/2004",
+      "company": "",
+      "role": "Projektmanager",
+      "title": "Coaching und Durchführung von EPM Projektmanagement",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2004 - 08/2009",
+      "company": "Infineon AG",
+      "role": "Projektleiter",
+      "title": "Einführung einer Projektportfolio, Projektmanagement und",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "01/2003 - heute",
+      "company": "auf Anfrage",
+      "role": "",
+      "title": "Analyse und Definition",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "09/2001 - 12/2002",
+      "company": "Dresdner Bank AG - Projekt GEOS",
+      "role": "Projektplaner",
+      "title": "Einführung eines Wertpapierabrechnungssystems",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2001 - 08/2001",
+      "company": "Data-Help GmbH und Rödl & Partner GmbH",
+      "role": "Projektleiter für die Entwicklung von Lernprogrammen (CBT - Computer",
+      "title": "Aufbau eines Projekt-Office zur Realisierung eines",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2000 - heute",
+      "company": "Audi AG",
+      "role": "",
+      "title": "Trainings für Projektmanagement",
+      "activities": 2,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Approach",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB/400",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Filemaker",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "VSAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundkarten",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Streamer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "PalmOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VMS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ABAP4",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Clipper",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CL/400",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CORBA IDL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JCL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ToolBook (OpenScript)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL-Server",
+      "category_name": "Datenbanken",
+      "weight": 0.62
+    },
+    {
+      "name": "X.400 X.25 X.225 X.75",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "Microsoft Windows Share Point Portal",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "Mercury IT-",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "Bus",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "CICS",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "CORBA",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FDDI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FTAM",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISO/OSI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Message Queuing",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Proprietäre Protokolle",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNA",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNMP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Token Ring",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Netzwerk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

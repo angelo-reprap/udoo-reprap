@@ -1,0 +1,104 @@
+AID: AID-pk_2.3.3.0
+Name: Peter Kopshoff
+Headline: Automatisierung und Betreuung von Entwicklungsumgebungen. Automatisierte Verteilung und Konfiguration von Builds
+Ort: D4, D5, D6 im Umkreis von: Köln (50 km)
+Wohnort: 502xx Stommeln, Deutschland
+Jahrgang: 1963
+Verfügbar: 01.07.21 zu 100%, Vor-Ort-Einsatz 80% möglich
+EDV seit: 1999
+Sprachen: Deutsch, Englisch Fliessend in Wort und Schrift
+
+FACHBEREICHE:
+Automatisierung und Betreuung von Entwicklungsumgebungen. Automatisierte Verteilung und Konfiguration von Builds
+Beratung / Consulting
+Betreuung und Weiterentwicklung von Entwicklungsumgebungen
+Einführung und Betreuung von AWS-Cloud-Umgebungen Erfahrung mit folgenden 1989 Studium der Elektrotechnik in Bochum Vertiefung: Softwaretechnik Abschluss als Diplom-Ingenieur Zertifizierung
+ISTQB Foundation Level
+12/2019:
+AWS Certified Solutions Architect - Associate 01/2020:
+AWS Certified Developer - Associate
+02/2020:
+AWS Certified SysOp - Associate
+
+BRANCHEN:
+Automobilhersteller
+Automobilbranche
+Telekommunikationsbranche
+Banken
+
+PROJEKTE:
+  09/2020 - 06/2021 | lovenheal.org | Cloud Architect und Development Operator
+    - Geschäftsstelle: App Entwicklung
+    - Branche: Sonstige
+    - Aufgaben:
+  08/2020 - heute |  | Erstellung von Skripten und python-Bibliotheken
+    - Aufgaben:
+    - Erstellung von Skripten und python-Bibliotheken für eine Testautomatisierung mit python robotframework ===================================================== ==========================
+  05/2014 - 12/2019 | Volkswagen AG | Development Operator
+    - Branche: Automotive
+    - Aufgaben:
+    - Betreuung und Weiterentwicklung einer Entwicklungsumgebung basierend auf Jenkins als CI-Tools, git (mit gerrit) als Repository
+    Techs: Testund, puppet, AWS, Nexus, git, gerrit, Jenkins, maven
+  04/2012 - 02/2014 | Telekommunikation | Automatisierung mit QTP
+    - Aufgaben:
+    - Automatisierung mit QTP des Smoke-Tests für verschiedene Applikation im Systemtest einer Entwicklungsabteilung ===================================================== ==========================
+  03/2011 - 03/2012 | Telekommunikation | Automatisierung mit QTP
+    - Aufgaben:
+    - Automatisierung mit QTP des Regressionstests für einen internetbasierten Webauftritts ===================================================== ==========================
+  11/2010 - 02/2011 | Telekommunikation | Migrationsprojekt
+    - Aufgaben:
+    - Leitung einer internationalen Testgruppe für ein Migrationsprojekt (3
+    - Mitarbeiter vor Ort, 3 Mitarbeiter Off-Shore) ===================================================== ==========================
+  01/2007 - 10/2010 | Telekommunikation | Erstellung von Testfällen
+    - Aufgaben:
+    - Erstellung von Testfällen, Automatisierung und Ausführung der Tests für die Software der Wirknetz-Administration. Ein Schwerpunkt lag auf der Entwicklung und der Wartung von Testfällen, der automatisierten Ausführung und Auswertung der Tests. Der zweite Schwerpunkt liegt in der Programmierung in Perl/TK eines Tools zur automatisierten Auswertung der Ergebnisse von Testfällen (inklusive
+    - Synonymisierung der Testdaten) und Aktualisierung des Testergebnis in HP/ Quality Center.
+  07/2004 - 12/2006 | Telekommunikation | Ausführung der Tests für ein Netzwerkplanungstool
+    - Aufgaben:
+    - Erstellung von Testfällen, Automatisierung und Ausführung der Tests für ein Netzwerkplanungstool. Der Schwerpunkt lag auf der Entwicklung und der Wartung eines proprietäten Tools zur automatisierten Ausführung und Auswertung der Tests. Zusätzlich habe ich für kleinere fachliche Gebiete Testfälle erstellt und ausgeführt
+    - Skriptprogrammierung unter Unix (u. a. awk, sed, perl) ===================================================== ==========================
+  01/2004 - 06/2004 | Banken und Versicherungen | Mitarbeiter
+    - Aufgaben:
+    - Last- und Performancetest mit Jmeter Regressionstest mit Rational-RobotJ und mit Rational-Testagent Programmierung unter Java u. a. mit der RobotJ-API Implementierung einer Teststeuerung mit ant
+    - Implementierung von Überwachungsskripten unter Unix
+    Techs: RobotJ, JMeter, ant, Java, Rational-Testagent, Unix, Excel
+  07/1999 - 12/2004 | Telekommunikation | Erstellung, Weiterentwicklung und Wartung
+    - Aufgaben:
+    - Erstellung, Weiterentwicklung und Wartung eines proprietäten Tool für die Erfassung von Testdaten, Testskripten und Testläufen, Ausführung und Auswertung der Testläufe, Analyse und Design der Software mit Rational
+    - MS-Access mit einer Oracle-Anbindung, Java, SQL (Programmierung von stored
+
+SKILLS:
+  database: Access Programmierung mit VBA, DAO, JDBC, MySQL Administration und bereitstellung, ODBC, Oracle Programmierung von Stored Procedures und Triggern, redis, MongoDB, python robotframework
+  hardware: embedded Systeme Programmierung in der Autombilbranche, Emulatoren Für embedded Systeme, IBM Großrechner Als Anwender/Tester im Bankenbereich, PC
+  operating_system: Linux, MS-DOS, MVS, OS/390, Unix Entwicklung von Skripten, Windows
+  programming_languages: Bash Shell, Basic VBA für MS-Access und Rational Robot, C gute Kenntnisse, C++ gute Kenntnisse, Imake, GNU-Make, Make-Maker etc, Java Grundkenntnisse, JavaScript Grundkenntnisse, JCL, Perl, PL/SQL Incl Dynamic SQL, gute Kenntnisse, Python gute Kenntnisse, Shell Unix-Shellscripting: sehr gute Kenntnisse, Unix-Shellscripting
+  special_skill: SQLDeveloper, TOAD, SQL Incl Dynamic SQL, SOAP-UI, HP Quality Center, SQL-Developer, SOA-Backplane, jMeter, Rational Rose, Jira, Confluence, SubVersion, Intensive Erfahrungen, im Aufbau einer Toolchain mit Jenkins, Speichenr der Artefakte in Nexus und git / gerit, Auslieferung und Konfiguration der Stages mit puppet, Überwachung der Umgebung mit nagios und munin, ELK-Stack (Elasticsearch, Logstash und Kibana), NoSql-
+
+SKILL-ABLAGE:
+CICS, EDIFACT, Internet, Intranet, ISO/OSI, RPC, TCP/IP
+
+FOCUS_EXP:
+  AWS  [product_standard]
+  gerrit  [product_standard]
+  git  [product_standard]
+  Jenkins  [product_standard]
+  maven  [product_standard]
+  Nexus  [product_standard]
+  puppet  [product_standard]
+  Schulung  [product_standard]
+  Schwerpunkte  [product_standard]
+  Betreuung und Weiterentwicklung von Entwicklungsumgebungen.  [product_standard]
+  In der Zusammenarbeit mit der Entwicklungsabteilung und der  [product_standard]
+  Projektleitung betreue ich die Entwicklungsumgebungen für mehrere  [product_standard]
+  Entwickler- und Testgruppen.  [product_standard]
+  * Dazu gehört das Aufsetzen einer Toolchain für Builds  [product_standard]
+  die Auslieferung  [product_standard]
+  und die Konfiguration der Builds  [product_standard]
+  die Weiterentwicklung  [product_standard]
+  die Überwachung  [product_standard]
+  und die Fehlerbehebung in enger Zusammenarbeit mit Entwicklern.  [product_standard]
+  Aktuell habe ich mich in ein AWS-Cloud-Projekt eingearbeitet. Und ich  [product_standard]
+  habe die drei Associate-Zertifikate von AWS (Developer  [product_standard]
+  Solutions  [product_standard]
+  Architect  [product_standard]
+  SysOps Administrator) bestanden  [product_standard]

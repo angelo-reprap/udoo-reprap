@@ -1,0 +1,873 @@
+{
+  "metadata": {
+    "aid": "AID-mw_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "wuerthle_mathias",
+    "first_name": "Mathias",
+    "last_name": "Wuerthle",
+    "headline": "Java, J2SE, JEE, J2EE, Java EE",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:11:25.043783"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Mathias",
+      "last_name": "Wuerthle",
+      "birth_year": 1975,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend",
+          "level": ""
+        },
+        {
+          "name": "FranzösischGrundkenntnisse",
+          "level": ""
+        }
+      ],
+      "availability": "01.01.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "Regionen & Länder: D4, D5",
+      "wohnort": "509xx Köln, Deutschland",
+      "headline": "Java, J2SE, JEE, J2EE, Java EE"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DB2",
+        "MySQL",
+        "Oracle",
+        "SQL",
+        "xBase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Mac OS",
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Basic",
+        "C",
+        "dBase",
+        "EJB 1.1",
+        "EJB 2.0",
+        "EJB 2.1",
+        "EJB 3.0",
+        "EJB 3.1",
+        "OpenEJB",
+        "JPA",
+        "1.0",
+        "JPA 2.0",
+        "JDBC",
+        "Querydsl",
+        "JSR 303 (Bean Validation)",
+        "JMS",
+        "JMX",
+        "JSP",
+        "Java Servlet",
+        "Java Web Start",
+        "Swing",
+        "JAXP",
+        "sowie JDOM",
+        "JAXB",
+        "XMLBeans",
+        "SAXON",
+        "JUnit",
+        "EasyMock",
+        "Java Mockito",
+        "PowerMockito",
+        "Groovy/Spock",
+        "Jemmy",
+        "Geb",
+        "JSF",
+        "(JavaServer Faces)",
+        "Struts",
+        "Tiles",
+        "Log4j",
+        "Logback",
+        "Apache",
+        "CXF (SOAP)",
+        "Hibernate 3.x und 4.x",
+        "Spring",
+        "Spring MVC",
+        "Thymeleaf",
+        "Velocity",
+        "Google Guice",
+        "JAX-RS (Jersey und",
+        "RESTEasy)",
+        "JavaScript",
+        "Modula-2",
+        "Objective C Cocoa",
+        "Pascal",
+        "TeX",
+        "LaTeX",
+        "ToolBook (OpenScript)"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "Intellij IDEA",
+        "Eclipse",
+        "CVS",
+        "DBVisualizer",
+        "YourKit"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Entwicklung eines Co-Registrierungs-Prozesses in",
+        "title": "Entwicklung eines Co-Registrierungs-Prozesses in",
+        "activities": [
+          "einem Scrum-Team",
+          "Teamgröße: ca. 15 Personen",
+          "Einsatzzeitraum:",
+          "März 2012 bis heute"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Umsetzung des Teilprojekts Payment",
+          "(E-POSTZAHLUNG) als eigene Komponente auf neuer technischer Basis ausgeführte Tätigkeit(en):",
+          "1. Entwicklung des Front- und Back-Ends in Abstimmung mit dem Fachbereich. 2.",
+          "2. Verbesserte Delivery Chain für diese Komponente mitentwickelt (TeamCity, Vagrant, unabhängiges",
+          "Deployment) techn. Umfeld:",
+          "Tomcat, Oracle, H2, Apache Maven 3, Java,",
+          "Spring 3.1, Spring MVC, Thymeleaf, Geb, JPA 2.0,",
+          "Hibernate 4, JSR 303 (Bean Validation), Querydsl,",
+          "1. Entwicklung mit neuer technischer Basis",
+          "2. Entwicklung von übergreifenden Systemtests techn. Umfeld:",
+          "Spring 3.1, JPA 2.0, Hibernate 4,",
+          "JAX-RS (Jersey), JSON, XML , JAXB, JUnit,",
+          "Zeitraum:",
+          "Projektbeschreibung: Entwicklung und Refactoring/Weiterentwicklung des Front- und Back-Ends ausgeführte Tätigkeit(en):",
+          "Refactoring und Weiterentwicklung bereits vorhandener",
+          "Bereiche. techn. Umfeld:",
+          "BEA WebLogic 9.0 (Cluster), Oracle, Apache Maven,",
+          "Java/J2EE, EJB 2.1, Hibernate 3, Spring, JMS, JAXP sowie JDOM, JUnit, EasyMock, Jemmy, HSQL, Swing, Log4j, XML,",
+          "Intellij IDEA, Eclipse, CVS, Mercurial, DBVisualizer,",
+          "YourKit eingesetzte Tools:"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung eines in den E-Postbrief integrierten",
+        "title": "Entwicklung eines in den E-Postbrief integrierten",
+        "activities": [
+          "Bezahlsystems in einem Scrum-Team",
+          "Teamgröße: ca. 15 Personen",
+          "Einsatzzeitraum:",
+          "März 2012 bis heute"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer externen Schnittstelle für den",
+        "title": "Entwicklung einer externen Schnittstelle für den",
+        "activities": [
+          "vertraulichen Austausch von Identitätsdaten mit Dritten",
+          "Teamgröße: ca. 15 Personen",
+          "Einsatzzeitraum:",
+          "September 2011 bis Februar 2012"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Verantwortlich auf Entwicklungsseite für das technische Design des Teilprojekts Ident-Service für Dritte (E-Postident)",
+          "Umsetzung des Teilprojekts Ident-Service für Dritte als eigene Komponente auf neuer technischer Basis ausgeführte Tätigkeit(en):",
+          "1. Planung des Teilprojekts und Erstellung des Design-Dokuments auf Entwicklungsseite",
+          "2. Back-End-Entwicklung mit neuer technischer",
+          "Basis techn. Umfeld:",
+          "Tomcat, Oracle, H2, Apache Maven 3, Java,",
+          "Spring 3.1, JPA 2.0, Hibernate 4, JSR 303 (Bean",
+          "Validation), Querydsl, REST, JAX-RS (Jersey),",
+          "(E-Postident) und Rechenzentrums-Anbindung",
+          "Profiling und Performance-Optimierung ausgeführte Tätigkeit(en):",
+          "1. Planung der Teilprojekte auf Entwicklungsseite",
+          "2. Evaluierung der techn. Möglichkeiten für den Identitätsdaten-Austausch: OAuth, OpenID, SAML",
+          "3. Erstellung eines Prototypen mit OAuth für den Pilotkunden eBay",
+          "4. Erstellung der technischen Dokumentation für das Vorhaben"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer Software für",
+        "title": "Entwicklung einer Software für",
+        "activities": [
+          "Wirtschaftsauskünfte und für die Pflege von Beteiligten-Daten, auf die ca. 3000 Sachbearbeiter gleichzeitig zugreifen (CTA)",
+          "Teamgröße: ca. 15 Personen",
+          "Einsatzzeitraum:",
+          "Dezember 2008 bis Dezember 2010"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Entwicklung von autom. Batch-Prozessen",
+          "Weiterentwicklung des Front- und Back-Ends",
+          "4. Einführung und sukzessive Umstellung von EJB auf REST techn. Umfeld:",
+          "1. Entwicklung von Batch-Prozessen",
+          "(Handelsregister-Import, Firmenbuch-Import",
+          "(Österreich), etc.)",
+          "2. Entwicklung des Front- und Back-Ends in Abstimmung mit dem Fachbereich. 3.",
+          "Refactoring und Weiterentwicklung bereits vorhandener Bereiche."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer Software für Privatpersonen-",
+        "title": "Entwicklung einer Software für Privatpersonen- auskünfte (CTC)",
+        "activities": [
+          "Teamgröße: ca. 10 Personen",
+          "Einsatzzeitraum:",
+          "Oktober 2007 bis November 2008",
+          "auskünfte (CTC)"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Verantwortlich für die Neuentwicklung des Web-Front-Ends. Erweiterung des Back-Ends. ausgeführte Tätigkeit(en):",
+          "1. Neuentwicklung des Web-Front-Ends in Abstimmung mit dem Fachbereich. 2.",
+          "Erweiterung des Back-Ends. 3. Entwicklung von Batch-Prozessen (Verrechnung,",
+          "Batchanfragen, Bereinigungsläufe)",
+          "4. Umstellung von Maven 1.02 auf 2.0.9",
+          "5. Einrichten des Continuous Integration und Build",
+          "Management Tools TeamCity techn. Umfeld:",
+          "BEA WebLogic 10.0 (Cluster), Oracle, Apache Maven 1 und 2, Java/J2EE, EJB 3.0, Hibernate 3, XMLBeans,",
+          "Velocity, JUnit, EasyMock, HSQL, JSF, Facelets,"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer Software für Wirtschafts-",
+        "title": "Entwicklung einer Software für Wirtschafts-",
+        "activities": [
+          "auskünfte und für die Pflege von Beteiligten- Daten, auf die ca. 3000 Sachbearbeiter gleich- zeitig zugreifen (CTA)",
+          "Teamgröße: ca. 15 Personen",
+          "Einsatzzeitraum:",
+          "Januar 2007 bis September 2007"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Funktion im Projekt"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung und Refactoring/Weiterentwicklung des",
+        "title": "Entwicklung und Refactoring/Weiterentwicklung des",
+        "activities": [
+          "Front- und Back-Ends ausgeführte Tätigkeit(en):",
+          "1. Entwicklung des Front- und Back-Ends in Abstimmung mit dem Fachbereich. 2.",
+          "Refactoring und Weiterentwicklung bereits vorhandener",
+          "Bereiche. techn. Umfeld:",
+          "BEA WebLogic 9.0 (Cluster), Oracle, Apache Maven,",
+          "Java/J2EE, EJB 2.1, Hibernate 3, Spring, JMS, JAXP sowie JDOM, JUnit, EasyMock, Jemmy, HSQL, Swing, Log4j, XML,",
+          "Intellij IDEA, Eclipse, CVS, Mercurial, DBVisualizer,",
+          "YourKit eingesetzte Tools:"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Verantwortlich für die Realisierung eines von insgesamt drei Teilgebieten im Back-End-Bereich. ausgeführte Tätigkeit(en):",
+          "Coaching der internen Mitarbeiter (fachlich und technisch)",
+          "Weiterentwicklung und Wartung der Anwendung ausgeführte Tätigkeit(en):",
+          "1. Verantwortlich für die Weiterentwicklung des Regulierung-/Abrechnungsteils in Abstimmung mit den einzelnen Fachbereichen. (Java/J2EE -> EJB 2.0,",
+          "JMX, JMS, JDOM, XML, Cluster-Umgebung).",
+          "2. Weiterentwicklung der SAP-Schnittstelle zum Rechnungswesen.",
+          "3. Performanz der Gesamtanwendung verbessert und Speicherprobleme behoben (u.",
+          "a. mit JProbe).",
+          "4. Evaluierung von BEA WebLogic 9.0 und testweise",
+          "1. Verantwortlich für die Back-End-Entwicklung des Regulierung- Abrechnungsteils in Abstimmung mit den einzelnen Fachbereichen. (Java/J2EE ->",
+          "EJB 2.0, JMX, JMS, JDOM, XML).",
+          "2. Entwicklung der SAP-Schnittstelle zum Rechnungswesen.",
+          "3. Datenimport aus verschiedenen Fremddatensystemen.",
+          "4. Refactoring und Bugfixing des Front-Ends. techn. Umfeld:",
+          "Linux, Windows 2000, BEA WebLogic (Cluster), DB2,",
+          "Apache Ant, Java/J2EE, EJB 2.0, JDBC, JMS, JMX, JSP,"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Migration der Anwendung von BEA WebLogic 7.0",
+        "title": "Migration der Anwendung von BEA WebLogic 7.0",
+        "activities": [
+          "auf 9.0.",
+          "5. Coaching der internen Mitarbeiter (fachlich und technisch)",
+          "6. Bereitstellung eines Webservices für die Schaden- fallanlage durch Lotus Notes/Domino-Server",
+          "(JAX-RPC, WSDL) techn. Umfeld:",
+          "BEA WebLogic (Cluster), Resin, DB2, Apache Ant,",
+          "Java/J2EE, EJB 2.0, JDBC, JMS, JMX, JSP, Java Servlet,",
+          "JAXP sowie JDOM, JAXB, JUnit, Struts, Tiles, AJAX, Log4j,",
+          "XML, XSLT, Intellij IDEA, Together, CVS, DBVisualizer,"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Verantwortlich für Konzeption und Realisie- rung des Back-Ends. ausgeführte Tätigkeit(en):",
+          "1. Entwicklung der Anforderungen und des Fach- konzepts mit dem Kunden. 2.",
+          "Verantwortlich für die Konzeption und Realisie- rung des Back-Ends (Java/J2EE -> EJB 2.0, JMX,",
+          "JMS, JDOM, XML).",
+          "3. Konfiguration und Tuning des Application- Servers. techn. Umfeld:",
+          "Windows 2000, BEA Weblogic, Oracle, Apache Ant,",
+          "Java/J2EE, EJB 2.0, JMS, JMX, Java Web Start,",
+          "JAXP sowie JDOM, SAXON, Log4j, XML eingesetzte Tools:",
+          "Intellij IDEA, Together, CVS, DBVisualizer eingesetzte Skills:"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Funktion im Projekt",
+        "title": "Funktion im Projekt",
+        "activities": [
+          "Projektleiter, Konzeption und Realisierung der Server-Architektur ausgeführte Tätigkeit(en):",
+          "1. Leitung und Koordinierung des Projektteams. 2. Entwicklung des Fachkonzepts in Zusammenarbeit mit dem Kunden. 3. Konzeption und Realisierung des Systemkerns und verschiedener server-seitiger Komponenten im Rahmen eines großen Softwaresystems",
+          "(Java/J2EE -> EJB 1.1, EJB 2.0, JMS, JDOM, XML,",
+          "(Java/J2EE -> EJB 1.1, JMS, JDOM, XML, JDBC).",
+          "4. Konzeption und Realisierung verschiedener",
+          "Komponenten einer grafischen Oberfläche im Rahmen eines großen Softwaresystems",
+          "(Java/J2SE -> Swing, Java Web Start, XML). techn. Umfeld:",
+          "Windows NT, BEA Weblogic, Oracle, Apache Ant,",
+          "1. Konzeption und Realisierung des Systemkerns und verschiedener server-seitiger Komponenten im Rahmen eines großen Softwaresystems",
+          "2. Konzeption und Realisierung eines Sicherheits- systems im Rahmen eines großen Softwaresystems.",
+          "Java/J2EE, EJB 1.1, JDBC, JMS, JMX, Java Web",
+          "(Java/J2EE -> EJB 1.1, JDOM, XML, JDBC).",
+          "(Java, JDBC)",
+          "3. Erstellen eines Build-Systems (Apache Ant) techn. Umfeld:",
+          "2. Erstellen von dynamsichen Web-Ansichten",
+          "(HTML, JSP) techn. Umfeld:",
+          "Windows NT, Orion Server, Oracle,",
+          "Java/J2EE, JDBC, JSP, Java Servlet, XML/XSLT eingesetzte Tools:",
+          "JBuilder, CVS eingesetzte Skills:",
+          "Java Servlet (50%)",
+          "Java Servlet (40%)",
+          "Sonstiges",
+          "Wir waren mit seinen Leistungen stets außerordentlich zufrieden. Wegen seiner freundlichen, aktiven und kooperativen Wesensart war er bei der Unternehmensleitung und den Kollegen gleichermaßen sehr anerkannt und beliebt. Er verlässt uns auf eigenen Wunsch, um sein Studium des Wirtschaftsingenieurwesens an der Universität Karlsruhe mit seiner Diplomarbeit abzuschließen. Wir bedauern, mit Ihm eine ausgezeichnete Führungskraft zu verlieren, und danken ihm für die stets Referenzen: Projekt Diverse Software-Entwicklungen auf J2EE-Basis und Projektleitung von 02/00 - 12/02 Referenz durch Geschäftsführer eines Softwarehauses mit 25 Mitarbeitern vom 16.12.02 \"Der Consultant war in der Zeit vom 17.2.2000 bis zum 15.12.2002 als Projektleiter und Softwareentwickler in unserer Firma beschäftigt. Der Consultant war von Beginn an maßgeblich an der Konzeption und Realisierung der Server-Architektur unserer Projekte beteiligt. Er entwickelte eigenständig und sehr erfolgreich große Teile des Systemkerns unseres 'Futuna Business Servers'.",
+          "Dieser ist ein Enterprise Application Framework, für das die Technologien J2EE und XML eingesetzt werden. Als Laufzeitumgebung kamen BEA WebLogic und Oracle unter Windows NT, Solaris und Linux zum Einsatz. Später wechselte er in die Arbeitsgruppe, welche die dynamische Web-Darstellung des 'Futuna Business Servers' mit den Technologien JSP, Java Servlet, XML und XSL entwickelt, um dort für einen Versionssprung neue Konzepte und neue Technologien, wie z. B.",
+          "Struts, in die Web-Schicht einzuführen. Diese haben sich sehr bewährt und sind noch heute im Einsatz. Nach dem Ausscheiden des GUI-Teamleiters übernahm er dessen Position und war grundlegend daran beteiligt, ein neues Framework für die grafische Benutzeroberfläche zu entwickeln, welches sich bis heute als sehr stabil und performant erweist. Dieses Framework basiert auf den Technologien Swing, XML und Java Web Start. Durch seine Arbeit in allen drei Teilbereichen der Entwicklung hat er umfassende Kenntnisse erworben, welche ihn zum Bindeglied und Ansprechpartner zwischen den Abteilungen mit Überblick über das gesamte System machten. Auf Grund dieser Erfahrung wurde er die Projektleitung für die Erstellung des Informationsportals 'Universitätsklinikum Aachen' übertragen. Durch seine umfangreiche Erfahrung war es ihm möglich, dieses Projekt zügig und termingerecht mit sehr großem Erfolg abzuschließen. Dies geschah zur vollsten Zufriedenheit aller Beteiligten. Der Consultant betreute unseren Auszubildenden über seine gesamte Lehrzeit hinweg. Er verstand es, diesen stets zu motivieren und ihn gleichzeitig zu fordern. Dabei setzte er seine sehr guten Fachkenntnisse erfolgreich in dessen Berufsausbildung ein, woraufhin dieser seine Prüfung mit sehr gutem Erfolg absolvierte. Der Consultant war stets hoch motiviert und zeichnete sich durch sehr viel Eigeninitiative und innovative Ideen aus. Er war jederzeit bereit und fähig, neue Projekte durch konstruktive Vorschläge zu unterstützen und bei deren Realisierung den entscheidenden Beitrag zu leisten. Der Consultant zeichnete sich bei der Erledigung seiner Aufgaben immer durch Gewissenhaftigkeit, Engagement und Selbstständigkeit aus. Er erwies sich als pflichtbewusster und zuverlässiger Mitarbeiter, der seine Aufgaben stets sehr zielstrebig, zügig und außerordentlich erfolgreich erledigte. Die Qualität seiner Arbeit war immer sehr hoch. Sein Auftreten bei Kunden war jederzeit sehr sicher und überzeugend."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung eines Unternehmensportals mit",
+        "title": "Entwicklung eines Unternehmensportals mit",
+        "activities": [
+          "SAP-Anbindung",
+          "Teamgröße: ca. 20 Personen",
+          "Einsatzzeitraum:",
+          "November 2001 bis Februar 2002"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung des E-Learning Produktionssystem IC.on.",
+        "title": "Entwicklung des E-Learning Produktionssystem IC.on.",
+        "activities": [
+          "Auf Basis eines größeren Softwaresystems wurde damit die Produktion von Web BasedTrainings (WBT) ermöglicht.",
+          "Teamgröße: ca. 15 Personen",
+          "Einsatzzeitraum:",
+          "Mai 2001 bis November 2001"
+        ]
+      }
+    ],
+    "industries": [
+      "Logistik",
+      "Versicherung",
+      "Assistance",
+      "Finanzdienstleister",
+      "Softwarehersteller",
+      "Elektrotechnik",
+      "Universitätsklinikum",
+      "E-Learning",
+      "Industrie",
+      "Behörde",
+      "Universität"
+    ],
+    "focus_areas": [
+      "Java",
+      "J2SE",
+      "J2EE",
+      "Java EE",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Software Entwicklung: OOA, OOD, OOP mit Java/J2EE/JEE/Java EE Einsatz von (OO-)Design-Patterns.",
+      "Studium des Wirtschaftsingenieurwesens mit der Fachrichtung Informatik/ Operations Research an der Universität Karlsruhe.",
+      "Abschluss als Dipl.-Wi.-Ing."
+    ],
+    "focus_experience": [
+      {
+        "name": "Erfahrungen im Bereich:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Multi-Tier-Entwicklung mittels JEE / J2EE / Java EE / Spring / REST / SOAP",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "- Entwicklung für BEA WebLogic (5.1",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "6.0",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "6.1",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "7.0",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "8.1",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "9.0",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "10.x) im Cluster",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "JBoss",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Tomcat und verschiedene weitere Web-Container",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "- Erfahrung mit den gängigen Java APIs und Bibliotheken: EJB 1.1",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "EJB 2.0",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "2.1",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "EJB 3.0",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "EJB 3.1",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "OpenEJB",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "JPA 1.0",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "JPA 2.0",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Querydsl",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "JSR 303 (Bean",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Validation)",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "JMS",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "JMX",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Java Servlet",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Java Web Start",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "JAXP sowie",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "JDOM",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "JAXB",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "XMLBeans",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "SAXON",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "JUnit",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "EasyMock",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Mockito",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "PowerMockito",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Groovy/",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Spock",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Jemmy",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "JSF (JavaServer Faces)",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Struts",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Tiles",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Log4j",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Logback",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Apache CXF",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "(SOAP)",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Hibernate 3.x und 4.x",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Spring MVC",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Thymeleaf",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Velocity",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Google",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Guice",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "JAX-RS (Jersey und RESTEasy)",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Entwicklung von Multi-Threaded Java Swing Anwendungen",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "- Testgetriebene Entwicklung mit JUnit",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Groovy/Spock",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "(Swing)",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Selenium (Web)",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Geb",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Erstellung von Build-Systemen mit Apache Maven und Apache Ant",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "- Einführung von Continuous Integration und Delivery mittels TeamCity",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Hudson/",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Jenkins und Vagrant",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Behebung von Speicher- und Performance-Problemen bei Server-Anwendungen (u.",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "a. mit JProbe und YourKit)",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Dokumentenerstellung mit BDoc",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "- Agile Entwicklung",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Coaching von Mitarbeitern",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Protokolle OAuth 1.0a/ OAuth 2.0/ OpenID",
+        "category": "product_standard",
+        "sort_order": 73
+      }
+    ],
+    "education": [],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Diverse Software-Entwicklungen auf J2EE-Basis und Projektleitung von 02/00 - 12/02\nReferenz durch Geschäftsführer eines Softwarehauses mit 25 Mitarbeitern vom 16.12.02\n\"Der Consultant war in der Zeit vom 17.2.2000 bis zum 15.12.2002 als Projektleiter und Softwareentwickler in unserer Firma beschäftigt. Der Consultant war von Beginn an maßgeblich an der Konzeption und Realisierung der Server-Architektur unserer Projekte beteiligt. Er entwickelte eigenständig und sehr erfolgreich große Teile des Systemkerns unseres 'Futuna Business Servers'. Dieser ist ein Enterprise Application Framework, für das die Technologien J2EE und XML eingesetzt werden. Als Laufzeitumgebung kamen BEA WebLogic und Oracle unter Windows NT, Solaris und Linux zum Einsatz. Später wechselte er in die Arbeitsgruppe, welche die dynamische Web-Darstellung des 'Futuna Business Servers' mit den Technologien JSP, Java Servlet, XML und XSL entwickelt, um dort für einen Versionssprung neue Konzepte und neue Technologien, wie z. B. Struts, in die Web-Schicht einzuführen. Diese haben sich sehr bewährt und sind noch heute im Einsatz. Nach dem Ausscheiden des GUI-Teamleiters übernahm er dessen Position und war grundlegend daran beteiligt, ein neues Framework für die grafische Benutzeroberfläche zu entwickeln, welches sich bis heute als sehr stabil und performant erweist. Dieses Framework basiert auf den Technologien Swing, XML und Java Web Start. Durch seine Arbeit in allen drei Teilbereichen der Entwicklung hat er umfassende Kenntnisse erworben, welche ihn zum Bindeglied und Ansprechpartner zwischen den Abteilungen mit Überblick über das gesamte System machten. Auf Grund dieser Erfahrung wurde er die Projektleitung für die Erstellung des Informationsportals 'Universitätsklinikum Aachen' übertragen. Durch seine umfangreiche Erfahrung war es ihm möglich, dieses Projekt zügig und termingerecht mit sehr großem Erfolg abzuschließen. Dies geschah zur vollsten Zufriedenheit aller Beteiligten. Der Consultant betreute unseren Auszubildenden über seine gesamte Lehrzeit hinweg. Er verstand es, diesen stets zu motivieren und ihn gleichzeitig zu fordern. Dabei setzte er seine sehr guten Fachkenntnisse erfolgreich in dessen Berufsausbildung ein, woraufhin dieser seine Prüfung mit sehr gutem Erfolg absolvierte. Der Consultant war stets hoch motiviert und zeichnete sich durch sehr viel Eigeninitiative und innovative Ideen aus. Er war jederzeit bereit und fähig, neue Projekte durch konstruktive Vorschläge zu unterstützen und bei deren Realisierung den entscheidenden Beitrag zu leisten. Der Consultant zeichnete sich bei der Erledigung seiner Aufgaben immer durch Gewissenhaftigkeit, Engagement und Selbstständigkeit aus. Er erwies sich als pflichtbewusster und zuverlässiger Mitarbeiter, der seine Aufgaben stets sehr zielstrebig, zügig und außerordentlich erfolgreich erledigte. Die Qualität seiner Arbeit war immer sehr hoch. Sein Auftreten bei Kunden war jederzeit sehr sicher und überzeugend. Wir waren mit seinen Leistungen stets außerordentlich zufrieden. Wegen seiner freundlichen, aktiven und kooperativen Wesensart war er bei der Unternehmensleitung und den Kollegen gleichermaßen sehr anerkannt und beliebt. Er verlässt uns auf eigenen Wunsch, um sein Studium des Wirtschaftsingenieurwesens an der Universität Karlsruhe mit seiner Diplomarbeit abzuschließen. Wir bedauern, mit Ihm eine ausgezeichnete Führungskraft zu verlieren, und danken ihm für die stets …\n\nReferenzen:\nProjekt Diverse Software-Entwicklungen auf J2EE-Basis und Projektleitung von 02/00 - 12/02\nReferenz durch Geschäftsführer eines Softwarehauses mit 25 Mitarbeitern vom 16.12.02\n\"Der Consultant war in der Zeit vom 17.2.2000 bis zum 15.12.2002 als Projektleiter und Softwareentwickler in unserer Firma beschäftigt. Der Consultant war von Beginn an maßgeblich an der Konzeption und Realisierung der Server-Architektur unserer Projekte beteiligt. Er entwickelte eigenständig und sehr erfolgreich große Teile des Systemkerns unseres 'Futuna Business Servers'. Dieser ist ein Enterprise Application Framework, für das die Technologien J2EE und XML eingesetzt werden. Als Laufzeitumgebung kamen BEA WebLogic und Oracle unter Windows NT, Solaris und Linux zum Einsatz. Später wechselte er in die Arbeitsgruppe, welche die dynamische Web-Darstellung des 'Futuna Business Servers' mit den Technologien JSP, Java Servlet, XML und XSL entwickelt, um dort für einen Versionssprung neue Konzepte und neue Technologien, wie z. B. Struts, in die Web-Schicht einzuführen. Diese haben sich sehr bewährt und sind noch heute im Einsatz. Nach dem Ausscheiden des GUI-Teamleiters übernahm er dessen Position und war grundlegend daran beteiligt, ein neues Framework für die grafische Benutzeroberfläche zu entwickeln, welches sich bis heute als sehr stabil und performant erweist. Dieses Framework basiert auf den Technologien Swing, XML und Java Web Start. Durch seine Arbeit in allen drei Teilbereichen der Entwicklung hat er umfassende Kenntnisse erworben, welche ihn zum Bindeglied und Ansprechpartner zwischen den Abteilungen mit Überblick über das gesamte System machten. Auf Grund dieser Erfahrung wurde er die Projektleitung für die Erstellung des Informationsportals 'Universitätsklinikum Aachen' übertragen. Durch seine umfangreiche Erfahrung war es ihm möglich, dieses Projekt zügig und termingerecht mit sehr großem Erfolg abzuschließen. Dies geschah zur vollsten Zufriedenheit aller Beteiligten. Der Consultant betreute unseren Auszubildenden über seine gesamte Lehrzeit hinweg. Er verstand es, diesen stets zu motivieren und ihn gleichzeitig zu fordern. Dabei setzte er seine sehr guten Fachkenntnisse erfolgreich in dessen Berufsausbildung ein, woraufhin dieser seine Prüfung mit sehr gutem Erfolg absolvierte. Der Consultant war stets hoch motiviert und zeichnete sich durch sehr viel Eigeninitiative und innovative Ideen aus. Er war jederzeit bereit und fähig, neue Projekte durch konstruktive Vorschläge zu unterstützen und bei deren Realisierung den entscheidenden Beitrag zu leisten. Der Consultant zeichnete sich bei der Erledigung seiner Aufgaben immer durch Gewissenhaftigkeit, Engagement und Selbstständigkeit aus. Er erwies sich als pflichtbewusster und zuverlässiger Mitarbeiter, der seine Aufgaben stets sehr zielstrebig, zügig und außerordentlich erfolgreich erledigte. Die Qualität seiner Arbeit war immer sehr hoch. Sein Auftreten bei Kunden war jederzeit sehr sicher und überzeugend. Wir waren mit seinen Leistungen stets außerordentlich zufrieden. Wegen seiner freundlichen, aktiven und kooperativen Wesensart war er bei der Unternehmensleitung und den Kollegen gleichermaßen sehr anerkannt und beliebt. Er verlässt uns auf eigenen Wunsch, um sein Studium des Wirtschaftsingenieurwesens an der Universität Karlsruhe mit seiner Diplomarbeit abzuschließen. Wir bedauern, mit Ihm eine ausgezeichnete Führungskraft zu …",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "jmeter",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "ejb/hibernate/spring",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "ejb/hibernate/google",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "xmlbeans/xml",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:11:25.043795",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 21→20 bei 'Projektbeschreibung: Funktion im Projekt'",
+        "ACT: 9→8 bei 'Projektbeschreibung: Entwicklung und Refactoring/Weiterentwicklung des'",
+        "AUTO_SKILLS: +4 in skill_ablage"
+      ],
+      "coverage_percent": 87.27544910179641,
+      "auto_added_skills": 4,
+      "integrity_ok": true
+    }
+  }
+}

@@ -1,0 +1,200 @@
+AID: AID-jw_2.3.3.0
+Name: Juergen Wolters
+Headline: Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL, C++, VB.Net, ASP.Net, Java
+Ort: D0, D1, D2, D3, D4, D5, D6, D9
+Wohnort: 382xx Salzgitter, Deutschland
+Jahrgang: 1956
+Verfügbar: 01.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2008
+Sprachen: Deutsch Muttersprache, Englisch gut in Wort und Schrift, Deutsch (Muttersprache), Englisch (gut in Wort und Schrift)
+
+FACHBEREICHE:
+Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL C++ VB.Net ASP.Net Java Software-Entwicklung / Programmierung
+Beratung / Consulting
+Softwaredesign/entwicklung
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+VB.Net
+ASP.Net
+PL/SQL
+C++
+Java
+JavaScript
+Oracle
+SQL
+Oracle SQL-Tuning
+UNIX
+Windows XP/NT/Vista/7/8/10
+Web Applications
+ABAP4 (Grundkenntnisse)
+Assembler
+Clipper
+Cobol (Grundkenntnisse)
+ESQL/C
+Perl
+embedded Perl
+Script-Sprachen
+yacc /lex
+
+BRANCHEN:
+Banken (gute Wertpapierkenntnisse)
+Bahn
+Telekommunikation
+Systemhaus
+Softwareentwicklung
+Dienstleistung
+Automobil
+Energie
+Banken
+
+PROJEKTE:
+  06/2019 - heute | Energie | Software-Entwickler
+    - Aufgaben:
+    - Migration existierender Software für den Einsatz Windows 10 von Windows 7.
+    - Softwareumstellung für Datenbankeinsatz Oracle 12c von Oracle 10g.
+    Techs: Windows 7, Windows 10, VB.Net, C#, Oracle 10g, Oracle 12c, PL/SQL, TOAD, Combit, List&Label
+  03/2018 - 05/2019 | Energie, Jülich | Neuentwicklung Laborsoftware
+    - Aufgaben:
+    - Fachliche Vorgaben nach Altsystem. Softwaredesign, Datenbankdesign Oracle und Implementierung
+    - Eingesetzte Produkte:
+    Techs: Windows 7, ASP.Net, MS-Visual Studio 2008, JavaScript, VB6, Oracle 10g, PL/SQL, TOAD, Windows Server 2008 R2, Combit List&Label
+  03/2017 - 02/2018 | Energie, Jülich | Datenbankdesign und Implementierung
+    - Aufgaben:
+    - Fertigungsinformationssystem, Schichtbuch Erstellung Softwaredesign,
+    - Datenbankdesign und Implementierung
+    Techs: Windows 7, ASP.Net, MS-Visual Studio 2008, JavaScript, VB6, Oracle 10g, PL/SQL, TOAD, Windows Server 2008 R2, Combit List&Label
+  10/2016 - 12/2016 | Weiterbildung | Weiterbildung (siehe Aus und Weiterbildung)
+    - ===================================================== ==========================
+  07/2016 - 10/2016 | Bank, Dresden | BSI - IT-Grundschutzprüfung
+    - Aufgaben:
+    - BSI - IT-Grundschutzprüfung (Bundesamt für Sicherheit in der Informationstechnik) einer Bank gemäß BSI - IT-Grundschutzkatalog.
+    - Analyse und Bewertung der bisherigen IT-Grundschutzmaßnahmen
+    Techs: Windows 7, Oracle-Datenbanken
+  01/2016 - 04/2016 | Finanzdienstleistungen, Bank, Braunschweig | Design und Implementierung
+    - Aufgaben:
+    - Rezertifizierung der Mitarbeiter-Funktionsberechtigungen von Landesgesellschaften einer Bank gemäß Vorgaben der BaFin. Umsetzung von Prüfverfahren in PL/SQL. Berichtsgenerierung in ORACLE-Datenbanktabellen.
+    - Berichtsgenerierung in ORACLE-Datenbanktabellen.
+    Techs: Windows 7, Oracle 11g, PL/SQL, SQL-Developer, SCRUM, HP Application Lifecycle, Application Lifecycle
+  10/2015 - 01/2016 | Finanzdienstleistungen, Bank, Braunschweig | Design und Implementierung
+    - Aufgaben:
+    - Erstellung einer Schnittstelle zum ORACLE OIA / OIM (Oracle Identity Analytics
+    - / Oracle Identity Manager) Funktionsmatrix in XML gemäß XSD generieren Design und Implementierung in PL/SQL Laufzeitoptimierung komplexer ORACLE-SQL-Abfragen
+    Techs: Windows 7, Oracle 11g, PL/SQL, SQL-Developer, XML, XSD, SCRUM
+  09/2013 - 05/2015 | Energie, Jülich | Fertigungsinformationssystem
+    - Aufgaben:
+    - Fertigungsinformationssystem als Web-Service SOA-Realisierung (Benutzerrollen, Mehrsprachigkeit, usw.)
+    - Mehrsprachigkeit, usw.), Datenbankdesign und Implementierung
+    Techs: Windows XP, ASP.Net, MS-Visual Studio 2008, VB.Net, JavaScript, Oracle 10g, PL/, SQL, TOAD, Windows Server 2008 R2
+  05/2013 - 08/2013 | Energie, Jülich | Datenbankdesign und Implementierung
+    - Aufgaben:
+    - Fertigungsinformationssystem als Web-Service SOA-Konzept (Benutzerrollen,
+    - Mehrsprachigkeit, usw.), Datenbankdesign und Implementierung
+    Techs: Windows XP, ASP.Net, MS-Visual Studio 2008, VB.Net, JavaScript, Oracle 10g, PL/
+  12/2012 - 04/2013 | Energie, Jülich | Neugestaltung und Implementierung
+    - Aufgaben:
+    - Datenimport aus unterschiedlichen Datenquellen nach Oracle-DB Neugestaltung und Implementierung, Datenbankdesign
+    - Eingesetzte Produkte:
+    Techs: Windows XP, ASP.Net, MS-Visual Studio 2008, VB.Net, JavaScript, Oracle 10g, PL/
+  06/2012 - 11/2012 | Energie, Jülich | Neugestaltung und Implementierung
+    - Aufgaben:
+    - Erfassung von Planungs- und Produktionsdaten. Neugestaltung und Implementierung der Bediensoftware Eingesetzte Produkte:
+    - SourceSafe Combit List&Label16 Layout-Designer ===================================================== ==========================
+    Techs: Windows XP, VB.Net, MS-Visual Studio 2008, Oracle 10g, PL/SQL, TOAD
+  02/2012 - 05/2012 | Energie, Jülich | Neugestaltung und Implementierung
+    - Aufgaben:
+    - Datenimport aus unterschiedlichen Datenquellen nach Oracle-DB Neugestaltung und Implementierung, Datenbankdesign
+    - Eingesetzte Produkte:
+    Techs: Windows XP, ASP.Net, MS-Visual Studio 2008, VB.Net, JavaScript, Oracle 10g, PL/
+  12/2011 - 01/2012 | Weiterbildung | Weiterbildung (siehe Aus und Weiterbildung)
+    - ===================================================== ==========================
+  11/2009 - 02/2010 | Deutsche Bahn, DB Systel GmbH, Frankfurt /M. | Neugestaltung und Implementierung
+    - Aufgaben:
+    - Neugestaltung und Implementierung der Bediensoftware für Fahrkartenautomat.
+    - (Windows NT/XP)
+    Techs: Windows 2000, C++, STL, MS-Visual Studio 6.0, Java 2 V.1.6, JNI, Eclipse 3.5
+  03/2009 - 10/2009 | Deutsche Bahn, DB Systel GmbH, Frankfurt /M. | Softwareübernahme
+    - Aufgaben:
+    - Softwareübernahme von Host; Softwarepflege für Fahrkartenautomat (Windows NT/ XP) sowie Mobiles Terminal (eMbedded-System)
+    - Eingesetzte Produkte:
+    Techs: Windows 2000, WinCE, MSeMbedded Visual C++, STL, MS-Visual Studio 6.0
+  01/2009 - 02/2009 | Deutsche Bahn, DB Systel GmbH, Frankfurt /M | Softwareentwicklung
+    - Aufgaben:
+    - Softwareentwicklung Zugriffsmodule aus JAVA-GUI auf Legacy Software in C.
+    - Konzept und Implementierung
+    Techs: Windows 2000, C++, MS-Visual Studio 6.0, Java 2 V.1.5, JNI, Eclipse 3.1
+  10/2008 - 12/2008 | Deutsche Bahn, DB Systel GmbH, Frankfurt /M. | Softwareentwicklung
+    - Aufgaben:
+    - Softwareentwicklung Datenbankkonverter von MS-ACCESS in ein proprietäres Datenbankformat. Control durch XML-Datei
+    - Eingesetzte Produkte:
+    Techs: Windows 2000, C++, MS-Visual Studio 6.0, Java 2 V.1.5, JNI, Eclipse 3.1
+  04/2008 - 09/2008 | Deutsche Bahn, DB Systel GmbH, Frankfurt /M. | Systemanalyse
+    - Aufgaben:
+    - Entwicklung von Systemanfragen für der intereuropäischen Fahrkartenverkauf an Ticketautomaten
+    - Eingesetzte Produkte:
+    Techs: Windows 2000, MS-Visual C++ 6.0, SQL-Navigator, MS-Visual Studio 6.0, Subversion, Tortoise, MS-Visual SourceSafe 6.0, Windows XP, Java 2, v.1.5.x
+
+SKILLS:
+  database: Oracle u. a. ; Web-Applikationen, Technische Projektleitung, Informix, ISAM, MS-Access, MySQL, ODBC, Oracle 8.1.x, 8i, 9i, 10g, 11g, 12c, Oracle 10g, Oracle 12c, SQL, SQL-Developer, SQLite3, SQL*Plus, TOAD
+  hardware: Blade-Center, Fujitsu-Siemens Primergy, Modems, Personal Computer, RM600, Siemens MX
+  methodology: Objektorientierte Programmierung, OOAnalyse / OODesign mit UML, SCRUM, Ereignisgesteuerte, visuelle, strukturierte Programmierung, Datenbank Design, Microsoft Standards, SDK (16/32 bit), MFC, MS-Office, MS-Visual InterDev
+  operating_system: MS-DOS, MS-Windows Server 2008 R2, 2000, NT4, UNIX Solaris 9, Linux, AIX, SINIX, Interactive Unix, SUN OS 386, Windows ?10, Vista, XP, Windows 10, Windows 7
+  programming_languages: ASP, ASP.Net, AWK, C#, C++ MS-VC 6.0, MS-Visual .NET 2010, MS-eMbedded Visual, C++ 4.1, HTML, JavaScript, Java2, JNI, ORACLE, PHP5, PL/SQL, UNIX System V Programming, UNIX-Shell Programmierung, VB.NET, VB-Script, VB6, Visual Basic 2006 VB.Net, XML / XSL
+  special_concept: Internet WebServer Aufbau, Design, Programmierung, DB-Anbindung, Wartung, (HTML, VBScript, TCP/IP, FTP), Infrarot-Datentechnik, Wertpapiere, Beruflicher Werdegang, 1979 1984, EDV-Servicetechniker, 1984 1987, Studium, Dipl.-Ing. Nachrichtentechnik (FH Wolfenbüttel), 1987 1996, Angestellter Systemsoftwareentwickler / Projektleiter, seit 1996, Freiberuflich, Objektorientierte Analyse und Design, UML, OOA, OOD, Web-Server, Internet Information Service (IIS), Apache
+  special_skill: ClearCase, Innovator, CVS, Subversion, SWIG, List&Label, Crystal Reports, Proprietäre HW, MIOS Infrarot - Mobil - Datenerfassungsgeräte, Datenerfassungsterminals Siemens ES1xx, MIOS Infrarottechnik
+
+SKILL-ABLAGE:
+EDIFACT, Ethernet, Internet, Intranet, ISDN, ISO/OSI, Proprietäre Protokolle3964R, RS232, Windows Netzwerk, Winsock, Design/Entwicklung/Konstruktion, MS-Visual Studio 2008, MS-Visual Studio 2015, active, express, oo-programmierung, oracle-sql-, http, dms-, abfragen, programmiersprachen
+
+AUSBILDUNG:
+10/2016 12/2016 | Eigene Weiterbildung in C# (C Sharp)  [course]
+12/2011 01/2012 | Eigene Weiterbildung  [course]
+
+FOCUS_EXP:
+  Combit List&Label  [product_standard]
+  Scrum  [product_standard]
+  Visual Basic 2006  [product_standard]
+  Erfahrungen im Bereich  [product_standard]
+  Anwendungs- und Systemprogrammierung  [product_standard]
+  * Software-Design  [product_standard]
+  Programmierung  [product_standard]
+  Test  [product_standard]
+  Erstellung von Online Hilfe  [product_standard]
+  Rollout  [product_standard]
+  Unattended Windows-NT Installation  [product_standard]
+  Betriebsdatenerfassung  [product_standard]
+  Aufgabenbereiche  [product_standard]
+  Administration  [product_standard]
+  Koordination  [product_standard]
+  Organisation  [product_standard]
+  Projektleitung  [product_standard]
+  Qualitätssicherung  [product_standard]
+  Softwaredesign  [product_standard]
+  Softwareentwicklung  [product_standard]
+  Support  [product_standard]
+  Systemanalyse  [product_standard]
+  Schwerpunkte  [product_standard]
+  * VB.Net  [product_standard]
+  ASP.Net  [product_standard]
+  PL/SQL  [product_standard]
+  C++  [product_standard]
+  Java  [product_standard]
+  JavaScript  [product_standard]
+  * Oracle  [product_standard]
+  SQL  [product_standard]
+  Oracle SQL-Tuning  [product_standard]
+  weitere Datenbanken  [product_standard]
+  * UNIX  [product_standard]
+  Windows XP/NT/Vista/7/8/10  [product_standard]
+  Web Applications  [product_standard]
+  ABAP4 (Grundkenntnisse)  [product_standard]
+  Assembler  [product_standard]
+  Clipper  [product_standard]
+  Cobol (Grundkenntnisse)  [product_standard]
+  ESQL/C  [product_standard]
+  * Perl  [product_standard]
+  embedded Perl  [product_standard]
+  Script-Sprachen  [product_standard]
+  yacc /lex  [product_standard]

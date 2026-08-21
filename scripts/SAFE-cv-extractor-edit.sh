@@ -18,7 +18,7 @@
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-cursor/cv-extractor-7f07}"
+BRANCH="${BRANCH:-cursor/gulp-keyword-pipeline-1532}"
 LIVE_CV="${LIVE_CV:-/opt/abpe/backend/apps/cv_extractor}"
 SRC="$REPO/Repo_abpe/cv_extractor/incoming"
 BACKEND="${BACKEND:-/opt/abpe/backend}"

@@ -1,0 +1,887 @@
+{
+  "personal": {
+    "aid": "AID-jm_5.2.4.0",
+    "first_name": "Joerg",
+    "last_name": "Miersch",
+    "birth_year": 1966,
+    "location": "101xx Berlin, Deutschland",
+    "availability": "01.09.21 zu 50%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1983,
+    "headline": "",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 239,
+    "certifications": 0,
+    "education": 0,
+    "experience": 25,
+    "industries": 6,
+    "focus_areas": 0,
+    "focus_experience": 57,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Französisch",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch verhandlungssicher",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Ingenieurwesen",
+    "Finanzindustrie",
+    "Industrie",
+    "Rechenzentren",
+    "Telekommunikation",
+    "Öffentliche Verwaltungen"
+  ],
+  "focus_areas": [],
+  "focus_experience": [
+    {
+      "name": "EDVERFAHRUNGEN SEIT 1986:",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT bezogene Branchenkenntnisse:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ingenieurwesen seit 1991",
+      "category": "product_standard"
+    },
+    {
+      "name": "Finanzindustrie seit 1995",
+      "category": "product_standard"
+    },
+    {
+      "name": "Industrie seit 1996",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rechenzentren seit 1997",
+      "category": "product_standard"
+    },
+    {
+      "name": "Telekommunikation seit 1998",
+      "category": "product_standard"
+    },
+    {
+      "name": "Öffentliche Verwaltungen seit 2011",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORGANISATORISCHE FÄHIGKEITEN UND KOMPETENZEN:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Langjährige Erfahrung und tiefgehendes Hintergrundwissen in allen",
+      "category": "product_standard"
+    },
+    {
+      "name": "wesentlichen Managementbereichen von EDV-Betrieben; insbesondere in den",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bereichen IT-Beratung und IT-Management sowie Projektbesetzung und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teammanagement:",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Compliance mit internen oder/und regulatorischen Anforderungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Datenschutzrecht der EU (DSGVO (Verordnung 2016/679",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verordnung 2018/1725",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verordnung (EC) 45/2001 und EU-Mitgliedsstaaten basierend auf Richtlinie 95/46/",
+      "category": "product_standard"
+    },
+    {
+      "name": "EC (BDSG",
+      "category": "product_standard"
+    },
+    {
+      "name": "DSG 2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "Data Protection Act U.K. etc.)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Audits in den Bereichen IT- Service- und IT-Security-Mgmt sowie IT-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Geschäftsprozesse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Proaktives Projektmanagement unter Nutzung verschiedener",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagementmethoden",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Projektbezogenes Finanzmanagement und Budgetkontrolle",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Technische Ressourceplanung",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Sourcing Strategie Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Vertragsmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beschaffung und Finanzmanagement unter Beachtung von",
+      "category": "product_standard"
+    },
+    {
+      "name": "öffentlichen und privaten Einkaufsrichtlinien (2004/17/EC",
+      "category": "product_standard"
+    },
+    {
+      "name": "2004/18/EC)",
+      "category": "product_standard"
+    },
+    {
+      "name": "den",
+      "category": "product_standard"
+    },
+    {
+      "name": "Deutschen Beschaffungsrichtlinien (VOB/VOL/VOF) sowie deutschen und",
+      "category": "product_standard"
+    },
+    {
+      "name": "internationalen Bilanzierungs- standards (HGB/IAS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Verhandlung/Überwachung von EDV-Dienstleistungen und Projekten (SLA",
+      "category": "product_standard"
+    },
+    {
+      "name": "OLA",
+      "category": "product_standard"
+    },
+    {
+      "name": "UC)",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Personalauswahl und Personalführung in Projekten und Arbeitsprozessen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Organisations- und Planungsgeschick mit großer Aufmerksamkeit für essentielle",
+      "category": "product_standard"
+    },
+    {
+      "name": "Details;",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zielorientierte Arbeitsweise in anspruchvollen Aufgabenfeldern mit hoher",
+      "category": "product_standard"
+    },
+    {
+      "name": "Arbeitsbelastung und Gleichzeitigkeit von Aufgaben und Projekten;",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prioritätsgesteuerte Vorgehensweise entsprechend der Anforderungen;",
+      "category": "product_standard"
+    },
+    {
+      "name": "Arbeitsorganisation unter Beachtung vorgegebener Vorgehensweisen und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Standards;",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrung im Verfassen von englisch- und deutschspracheigen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entscheidungsvorlagen und Gutachten;",
+      "category": "product_standard"
+    },
+    {
+      "name": "Pflege von Geschäftsbeziehungen und Vertrieb von IT-Dienstleistungen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "INTERNATIONALE ERFAHRUNGEN AUS INDUSTRIE UND INTERNATIONALEN",
+      "category": "product_standard"
+    },
+    {
+      "name": "ORGANISATIONEN:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfangreiche Erfahrungen in multikulturellen/multinationalen Projekt-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Arbeits- und Lebensumfeldern z.B. in der Schweiz",
+      "category": "product_standard"
+    },
+    {
+      "name": "Luxemburg",
+      "category": "product_standard"
+    },
+    {
+      "name": "Belgien",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schweden.",
+      "category": "product_standard"
+    },
+    {
+      "name": "TOOLS",
+      "category": "product_standard"
+    },
+    {
+      "name": "TECHNOLOGIEN UND METHODEN SEIT 1986:",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "2021-01 - 2021-12",
+      "company": "Siemens Mobility",
+      "role": "Auditor",
+      "title": "Compliance-Prüfung Softwareeinsatz - Fahrzeugindustrie, Erlangen - Deutschland",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "2020-01 - 2020-09",
+      "company": "BLDAM",
+      "role": "IT Security and Covernance Consultant",
+      "title": "Sicherheitskonzept (BSI 100-x/200-x), Zossen bei Berlin",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "2019-10 - 2020-01",
+      "company": "C&A",
+      "role": "Prüfer (IT-Security/IT-Service Management)",
+      "title": "SAP Audit - Retail, Düsseldorf, Deutschland; Brüssel, Belgien",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "2018-11 - 2019-12",
+      "company": "E.ON SE",
+      "role": "Auditor / Enterprise Architekt",
+      "title": "Compliance Kontrollen DSGVO, EnWG, KritisV - 2 Monate Energieversorgung, verschiedene Standorte innerhalb der EU",
+      "activities": 9,
+      "technologies": 6
+    },
+    {
+      "period": "2017-09 - 2018-05",
+      "company": "VHV Versicherung",
+      "role": "Auditor",
+      "title": "Regulatorische Compliance, IT Sicherheit und Datenschutz - Versicherung, Hannover, Deutschland",
+      "activities": 9,
+      "technologies": 9
+    },
+    {
+      "period": "2017-09 - 2018-03",
+      "company": "Vattenfall Wärme",
+      "role": "Assessor/Berater (Data Protection and Enterprise Architecure)",
+      "title": "KritisV und DSGVO Compliance - Energieversorgung (Wärme), Berlin, Deutschland; Solna, Schweden; Amsterdam, Niederlande",
+      "activities": 10,
+      "technologies": 4
+    },
+    {
+      "period": "2017-06 - 2017-11",
+      "company": "IKB Deutsche Industriebank",
+      "role": "Prüfer (IT Security)",
+      "title": "Technisch-Organisatorische IT-Sicherheitsprüfung E- Mail Archivierung - Bank, Düsseldorf, Deutschland",
+      "activities": 9,
+      "technologies": 9
+    },
+    {
+      "period": "2016-10 - 2017-12",
+      "company": "Finanz Informatik Technologie Service (FI-TS)",
+      "role": "Prüfer (IT Security)",
+      "title": "z/OS Mainframe Security Prüfungen - Bankdienstleister 3 Monate, Haar, Deutschland",
+      "activities": 7,
+      "technologies": 11
+    },
+    {
+      "period": "2016-10 - 2017-01",
+      "company": "EU-Kommission/DG-SANTE",
+      "role": "Compliance-Berater (Data Protection)",
+      "title": "Konformitätsprüfungen EU-DSGVO und Datenschutzgesetzgebung EU Mitgliedsstaten, Brüssel Belgien",
+      "activities": 9,
+      "technologies": 3
+    },
+    {
+      "period": "2016-01 - 2016-09",
+      "company": "E.ON",
+      "role": "Prüfer/Berater (Regulatory Compliance and Architecture)",
+      "title": "IT-/OT-Konformitätsprüfungen - Energieversorgung (Virtuelle Kraftwerke), Essen, Deutschland; Brüssel Belgien",
+      "activities": 10,
+      "technologies": 15
+    },
+    {
+      "period": "2015-02 - 2015-12",
+      "company": "Deutsche Börse",
+      "role": "Prüfer/Berater (Regulatory Compliance ITSM/ISMS)",
+      "title": "IT Prozess und Security Prüfungen - Börse, Frankfurt/M, Deutschland",
+      "activities": 9,
+      "technologies": 7
+    },
+    {
+      "period": "2014-11 - 2015-01",
+      "company": "BNP Paribas Fortis",
+      "role": "Assessor (Business and IT Architecture)",
+      "title": "IT Architekturprüfungen - Global Bank, Brüssel, Belgien",
+      "activities": 5,
+      "technologies": 7
+    },
+    {
+      "period": "2014-05 - 2014-09",
+      "company": "Deutsche Bank AG",
+      "role": "Assessor/Consultant (Regulatory and internal Compliance)",
+      "title": "IT Prozess Compliance Prüfungen - Global Bank, Frankfurt/M, Deutschland; London, Vereinigtes Königreich",
+      "activities": 9,
+      "technologies": 7
+    },
+    {
+      "period": "2013-09 - 2014-04",
+      "company": "Landesregierung Hessen",
+      "role": "Prüfer/Compliance-Berater (Regulatory Compliance)",
+      "title": "IT Security und Datenschutzprüfungen - Öffentliche Hand, Wiesbaden, Deutschland",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "2013 - 2014",
+      "company": "",
+      "role": "",
+      "title": "Französisch - Languages Unlimited - Brüssel",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "2012-03 - 2013-06",
+      "company": "T-Systems International",
+      "role": "Process-Improvement-Berater (Enterprise Architecture (Cloud))",
+      "title": "IT Produktionsprozessprüfungen - ITSP/MSSP 4 Monate, verschiedene Standorte weltweit",
+      "activities": 9,
+      "technologies": 17
+    },
+    {
+      "period": "2011-10 - 2012-01",
+      "company": "European Center for Disease Prevention and Control (ECDC)",
+      "role": "Assessor (Enterprise Architecture)",
+      "title": "Prüfung Unterstützung des ext. Kommunikationsprozesses - EU Agentur, Stockholm, Schweden",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "2011-03 - 2011-09",
+      "company": "Deutsche Bank AG",
+      "role": "Prozess-Improvement Berater (Enterprise Architecture)",
+      "title": "Prüfung IT-Tool Unterstützung für Business Prozesse - Global Bank, Frankfurt/M - Deutschland, London - U.K.",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "2010-09 - 2011-02",
+      "company": "T-Systems International",
+      "role": "Process-improvement-Berater (Enterprise Architecture)",
+      "title": "Prozessanpassung Big-Deal-Mgmt - Cloud ITSP/MSSP, München - Deutschland",
+      "activities": 9,
+      "technologies": 7
+    },
+    {
+      "period": "2010-01 - 2010-08",
+      "company": "T-Systems International",
+      "role": "Process-Improvement-Berater (Enterprise Architecture)",
+      "title": "Cloud-Capacity-Mgmt-Prozesse (AppCom) - IT Service Provider (ITSP)/Managed Security Provider (MSSP), Verschiedene Cloud-DCs in EMEA, Americas, APAC",
+      "activities": 9,
+      "technologies": 33
+    },
+    {
+      "period": "2008 - 2010",
+      "company": "",
+      "role": "",
+      "title": "Italienisch - Leitmotiv - Parma, Italien",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "2002 - 2007",
+      "company": "",
+      "role": "",
+      "title": "Englisch / Business Englisch - Wall Steet Institute - Berlin, Deutschland",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1990 - 1995",
+      "company": "",
+      "role": "",
+      "title": "Studium Mathematik und Informatik - Freie Universität Berlin",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "1986 – 1988",
+      "company": "",
+      "role": "",
+      "title": "Studium allg. Maschinenbau spez. Konstruktion - Ingenieurschule Wildau, Deutschland",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "1983 – 1985",
+      "company": "",
+      "role": "",
+      "title": "Berufsausbildung Fahrzeugschlosser - Berufsschule Berlin, Deutschland",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Lotus Notes/Domino",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle (RAC)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "My-",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB/2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ADABAS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS DB/DC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Mainframe- / AS/400-Anbindung: Netware for SAA",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SNA Server/Host",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "integration Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "3270/5250-Terminal Emulationen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "WEB-Server: IBM Lotus Domino",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Internet Information Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Portale und Dokumentenmanagementsysteme: IBM WebSphare",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Lotus",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Domino",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Content Manager",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache TomCat",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Xinco Document Management System",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "CRM und ERP Systeme: SAP",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "vTiger",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Neutrino",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Navision",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lexware",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Dynamics",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Firewalls: MS Proxy Server/ISA Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell Boarder Manager",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco PIX/ASA",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Innominate mGuard",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper NetScreen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IP Chain",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "101/104/101 Gateways",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Netware",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "div. Linux und UNIX Derivate (AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SunOS/",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "RHEL",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Suse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Debian)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VMS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "z/OS (MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390) L3",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Windows (Client/",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Server)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Hypervisor/Virtualisation: Citrix WinFrame/MetaFrame/XenApp",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VDI (Citrix VDI",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VMware (Horizon) View)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VMware ESX(i)/GSX/Server inclusive DRS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Motion und",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Consolidated Backup",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "(Citrix) Xen Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Virtual Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM POWER",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Hypervisor",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle (SUN) VirtualBox",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Direktory Services (X.500/LDAP): MS Active Directory (MSDS)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell Directory",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Services (NDS/eDirectory)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Domino Directory",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Systemsmanagementsysteme: Netware ManageWise/ZEN-Works",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SMS/MOM/SCCM/SCOM",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM NetView / Tivoli",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "BelSoft Empirum; BMC",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Remedy",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "GEDYS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Identity Management Systeme: MS Identity Integration Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Tivoli Identity",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Manager",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Federation Services",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Federation Services",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Collaboration und Groupwaresysteme: IBM Lotus Domino/Notes/Sametime",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Exchange",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell GroupWise",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Blackbarry Enterprise Server (BES)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SharePoint",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Services (WSS)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,738 @@
+{
+  "personal": {
+    "aid": "AID-ws_2.3.4.0",
+    "first_name": "Wolfgang",
+    "last_name": "Schroeder",
+    "birth_year": 1967,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+    "availability": "01.01.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": null,
+    "headline": "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 71,
+    "certifications": 0,
+    "education": 3,
+    "experience": 13,
+    "industries": 3,
+    "focus_areas": 7,
+    "focus_experience": 49,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Englisch (sehr gut)",
+      "level": ""
+    },
+    {
+      "name": "sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Ausbildung zum Radio- und Fernsehtechniker",
+      "institution": "Hertie Kaufhaus AG, Stade",
+      "period": "09/1983 - 01/1987",
+      "education_type": "course"
+    },
+    {
+      "degree": "Fachoberschule Technik",
+      "institution": "Stade",
+      "period": "07/1990 - 08/1991",
+      "education_type": "course"
+    },
+    {
+      "degree": "Studium Elektrotechnik, Fachrichtung Daten- und Nachrichtentechnik",
+      "institution": "Fachhochschule Hamburg",
+      "period": "09/1991 - 09/1995",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Handel",
+    "Medien",
+    "Pharmazie"
+  ],
+  "focus_areas": [
+    "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "09/1991 - 09/1995",
+    "Studium Elektrotechnik",
+    "Fachrichtung Daten- und Nachrichtentechnik Fachhochschule Hamburg Abschluss als Diplom-Ingenieur (Dipl.-Ing) 07/1990 - 08/1991 Fachoberschule Technik, Stade Abschluss mit Fachhochschulreife 09/1983 - ",
+    "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld",
+    "Software-Entwicklung / Programmierung"
+  ],
+  "focus_experience": [
+    {
+      "name": "Produkte:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat 4.x/5.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse IDE inkl diverser Plugins",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML mit Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbank-Design mit Powerbuilder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Webserver",
+      "category": "product_standard"
+    },
+    {
+      "name": "htdig",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lucene Fulltextsearchengine",
+      "category": "product_standard"
+    },
+    {
+      "name": "Frameworks: Apache/Jakarta",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenSymphony",
+      "category": "product_standard"
+    },
+    {
+      "name": "Castor-XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lucene",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate",
+      "category": "product_standard"
+    },
+    {
+      "name": "Velocity",
+      "category": "product_standard"
+    },
+    {
+      "name": "diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vignette V5",
+      "category": "product_standard"
+    },
+    {
+      "name": "Standards/Erfahrungen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "CVS/Subversion-gestütztes arbeiten",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Testing/Monitoring mit JUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Canoo Webtest",
+      "category": "product_standard"
+    },
+    {
+      "name": "JMeter",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nagios",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bugtracking JIRA und Bugzilla",
+      "category": "product_standard"
+    },
+    {
+      "name": "Build-Management mit Maven und ANT",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Projektplanung und Team-Koordination",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Aufwandsschätzung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Administration unter Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "Shell-Skripting (bash)",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenOffice / MSOffice",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Internet-Standardtools (diverse Browser",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mail",
+      "category": "product_standard"
+    },
+    {
+      "name": "SSH etc)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse IDE",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Powerbuilder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache/Jakarta",
+      "category": "product_standard"
+    },
+    {
+      "name": "Intershop Enfinity 2.3",
+      "category": "product_standard"
+    },
+    {
+      "name": "CVS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Subversion",
+      "category": "product_standard"
+    },
+    {
+      "name": "JUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bugzilla",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maven",
+      "category": "product_standard"
+    },
+    {
+      "name": "ANT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "bash",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenOffice",
+      "category": "product_standard"
+    },
+    {
+      "name": "MSOffice",
+      "category": "product_standard"
+    },
+    {
+      "name": "SSH",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Rolle: Leitung Software-Entwicklung / Software-Architektur",
+      "company": "",
+      "role": "Leitung Software-Entwicklung / Software-Architektur",
+      "title": "Rolle: Leitung Software-Entwicklung / Software-Architektur",
+      "activities": 1,
+      "technologies": 7
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung und Ausbau des OpenSource CMS basecmp auf",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung eines webbasierten Redaktionssystems.",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung eines webbasierten Redaktionssystems.",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "Projektbeschreibung: Planung und Entwicklung des Ersatzteil-Portals motoso.de",
+      "company": "",
+      "role": "",
+      "title": "Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis",
+      "activities": 7,
+      "technologies": 1
+    },
+    {
+      "period": "Projektbeschreibung: Rolle: Leitung Software-Entwicklung",
+      "company": "",
+      "role": "Leitung Software-Entwicklung",
+      "title": "Rolle: Leitung Software-Entwicklung",
+      "activities": 1,
+      "technologies": 8
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung und Betreuung des FCB-Intranets",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung und Betreuung des FCB-Intranets",
+      "activities": 4,
+      "technologies": 2
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung und fortlaufende Betreuung eines Internet- Shopsystems auf",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung und fortlaufende Betreuung eines Internet- Shopsystems auf",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Rolle: Software-Entwicklung, übernahme der",
+      "company": "",
+      "role": "Software-Entwicklung, übernahme der Entwicklungsleitung",
+      "title": "Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung der Corporate-Website",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung der Corporate-Website",
+      "activities": 12,
+      "technologies": 1
+    },
+    {
+      "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+      "company": "",
+      "role": "Software-Entwicklung",
+      "title": "Rolle: Software-Entwicklung",
+      "activities": 6,
+      "technologies": 5
+    },
+    {
+      "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+      "company": "",
+      "role": "Software-Entwicklung",
+      "title": "Rolle: Software-Entwicklung",
+      "activities": 1,
+      "technologies": 5
+    },
+    {
+      "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+      "company": "",
+      "role": "",
+      "title": "Rolle: Software-Entwicklung",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+      "company": "",
+      "role": "",
+      "title": "Rolle: Software-Entwicklung",
+      "activities": 6,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "JDBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Postgres",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Java-JDBC (nicht administrativ)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Börse & Finanzen",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "den Eigenbedarf",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Schwerpunkt J2EE und Client/Server-Umgebungen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Opensource",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Frameworks",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "u.a. Jakarta",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "OpenSymphony",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache etc",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ansi-SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Grundkenntnisse in PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Bash: Programmierung kleiner Entwicklungstools für Backup und",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Deployment",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tcl/Tk",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Vignette V5 Projekt-Erfahrung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML: Softwarearchitektur und -Design mit UML-Diagrammen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "(Klassendiagramm",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Sequenz",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Aktivitäts etc.)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "(Tabakindustrie)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML: XPath XML-Schema DTD",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.9
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.82
+    },
+    {
+      "name": "JSP",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.7
+    },
+    {
+      "name": "J2EE",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.7
+    },
+    {
+      "name": "XML",
+      "category_name": "Datenformate",
+      "weight": 0.7
+    },
+    {
+      "name": "Tomcat",
+      "category_name": "Datenbanken",
+      "weight": 0.7
+    },
+    {
+      "name": "SOAP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "Axis",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Castor",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "JUnit",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Lucene",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.6
+    },
+    {
+      "name": "Ant",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.38
+    },
+    {
+      "name": "RSS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Intershop Enfinity",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "EMC",
+      "category_name": "Hardware",
+      "weight": 0.38
+    },
+    {
+      "name": "Flash",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "ColdFusion",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "basecmp",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OSCache",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Intershop Enfinity 2.3",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OpenMarket ContentServer",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "HTTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SOAP / Webservices",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SIP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SSH",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SCP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Java/J2EE: EJB",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RPC",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "MBeans",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

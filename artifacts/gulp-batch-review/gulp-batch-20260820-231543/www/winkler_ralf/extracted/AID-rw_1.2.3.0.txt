@@ -1,0 +1,158 @@
+AID: AID-rw_1.2.3.0
+Name: Ralf Winkler
+Headline: Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,
+Wohnort: 707xx Leinfelden-Echterdingen, Deutschland
+Jahrgang: 1960
+Verfügbar: 18.01.21 zu 100%, Vor-Ort-Einsatz 80% möglich
+EDV seit: 2013
+Sprachen: Deutsch, Englisch
+
+FACHBEREICHE:
+Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)
+Beratung / Consulting
+Administration / Support
+Unix- und Netzwerk-Administrator fuer Linux/Unix
+Monitoring (Nagios)
+Aufbau und Administration von Firewalls (Checkpoint)
+
+BRANCHEN:
+Versicherungen
+Telekommunikation
+Wertpapier
+Automobile Hersteller
+
+PROJEKTE:
+  02/2020 - 11/2020 | IBM Deutschland Research and Development GmbH | Administrator
+    - Aufgaben:
+    - CentOS 7 und RedHat 8 mit OpenStack und ceph Cluster, SaltStack Konfigurations Management
+    - Management
+    Techs: CentOS 7, RedHat 8, OpenStack, ceph Cluster, SaltStack, RedHat OpenShift, Baremetal, Bonding, Vlan, Vxlan
+  05/2019 - 01/2020 | BWI GmbH | Administrator
+    - Aufgaben: use SLES diverse Release Stände, Suse Manager 3 und 4, RedHat
+    - Erstellung Benutzerkonzept im Lifecycle Management
+    - Troubleshooting Lifecycle
+    Techs: SUSE Linux Enterprise Server, SUSE Manager, RedHat, SaltStack
+  05/2017 - 04/2019 | Sparkassen Versicherung | Administrator
+    - Aufgaben:
+    - Suse SLES 10 SP3, Suse SLES 11 SP1 bis SP4, Suse SLES 12 SP1 bis SP4, Suse
+    - Manager 3, RedHat 7
+    Techs: Suse SLES 10 SP3, Suse SLES 11 SP1 bis SP4, Suse SLES 12 SP1 bis SP4, Suse Manager 3, RedHat 7
+  01/2017 - 04/2017 | Finanz Informatik Technologis Service GmbH | Ad
+    - Aufgaben:
+    - Red Hat ES 5 und ES 6, Solaris 11
+    - Allgemeine Administrations Aufgaben
+    Techs: Red Hat ES 5, Red Hat ES 6, Solaris 11, Tomcat 8, SQL, Oracle-Datenbank, Veritas Cluster
+  07/2016 - 12/2016 | BWI Systeme GmbH | Administrator
+    - Aufgaben:
+    - SuSe Sle 11 SP4 und Sle 12 SP1, Red Hat ES 6 und ES 7
+    - Allgemeine Administrations Aufgaben
+    Techs: SUSE Linux, SuSe Sle 11 SP4, Sle 12 SP1, Red Hat ES 6, Red Hat ES 7, Tomcat, Red Hat Satellite Server Version 5, zypper, yum, rpm
+  07/2014 - 03/2016 | Versicherungskammer Bayern | Administrator
+    - Aufgaben:
+    - Systemadministration von SLES 9 (SP2 und SP4), SLES 10 (SP1 – SP4), SLES 11(SP1 – SP4)
+    - Enterprise Version 4 und Version 5 auf VMWare und x86 Hardware, VMWare Version
+    Techs: SLES 9, SLES 10, SLES 11, Red Hat Enterprise Version 4, Red Hat Enterprise Version 5, VMWare Version 5
+  10/2013 - 12/2014 | GaVI mbH | Systemadministrator
+    - Geschäftsstelle: Stuttgart
+    - Unternehmensgröße: 101-500
+    - Branche: IT-Dienstleistungen
+    Techs: Suse Sles 9 - 11, Red Hat Enterprise Linux Version 5, TSM Backup, SLES 10, SLES 11, Red Hat Enterprise Linux Version 4
+  10/2013 - 06/2014 | GaVI GmbH | Administrator
+    - Aufgaben:
+    - Systemadministration von SLES 9 (SP2 und SP4), SLES 10 (SP1 – SP4), SLES 11(SP1 – SP3).
+    - – SP3).
+    Techs: SUSE Linux, SLES 9, SLES 10, SLES 11, Red Hat Enterprise, Red Hat Enterprise Version 4, Red Hat Enterprise Version 5, VM Ware, SuSe SMT Server
+  08/2013 - 09/2013 | BWI Informationstechnik Gesellschaft mit beschränkter | Sicherheits Berater
+    - Erstellen von Sicherheitsrichtlinien für Apache, Tomcat und Websphere für das Projekt Hercules
+    - Haftung
+    - Unternehmensgröße: > 1000
+    Techs: Compaq Alpha Systeme, Sun Computer (E250), spaeter 8 Domainen, A5000 Plattenarrays, SuSe Linux, Windows Rechner, Einrichten eines Linux-Rechners als Samba-Server, Print-Server, Aufgabe war es, Test
+
+SKILLS:
+  database: MySQL, Alpha, Ascii/X - Terminals, CD-Writer / Brenner, Digital, Drucker an Druckerserver, HP, IBM RS6000, Motorola, PC vom Zusammbau bis zur Benutzung, Scanner, Silicon-Graphics, Streamer, SUN E 10 K, SSP, Cisco Switches and Router
+  operating_system: HPUX Version 10 und Version 11, IRIX, Mac OS 10.5, MS-DOS, SUN OS, Solaris 2.6, 2.7, 2.8, 2.9 auf Sun und Intel Hardware, SUSE Linux Enterprise Server, Unix SCO, Linux (Debian, SuSe und Red Hat), Windows 3.x, 95, NT, XP
+  programming_languages: Ansible, Assembler, Cobol, Java, JavaScript, SaltStack, Shell C-Shell, K-Schell, Bash, HTML
+
+SKILL-ABLAGE:
+Ethernet, Internet, Intranet, ISDN, Router, RS232, SMTP, SNMP, TCP/IP, UUCP, Windows Netzwerk, DNS, DHCP
+
+FOCUS_EXP:
+  Apache Tomcat  [product_standard]
+  Red Hat Satellite Server Version 5  [product_standard]
+  SUSE Manager  [product_standard]
+  Produkte:  [product_standard]
+  Sun Solaris  [product_standard]
+  Sun Management Center  [product_standard]
+  HP-UX  [product_standard]
+  AIX  [product_standard]
+  Veritas Volume Manager  [product_standard]
+  Veritas NetBackup  [product_standard]
+  SCO  [product_standard]
+  Linux Debian  [product_standard]
+  Suse und Red Hat  [product_standard]
+  Linux Cluster  [product_standard]
+  Checkpoint Firewall-1 Version 4.0  [product_standard]
+  NG und NGX (R65)  [product_standard]
+  Netscape / iPlanet Web-Server  [product_standard]
+  Apache  [product_standard]
+  HA Cluster  [product_standard]
+  diverse Open Source Produkte zur Ueberwachung von Rechnern und Netzwerken  [product_standard]
+  Nagios  [product_standard]
+  Munin  [product_standard]
+  IBM WebSphere Server 5  [product_standard]
+  6 und 7  [product_standard]
+  Tomcat 6 und 7  [product_standard]
+  Sicherheitsüberprüfungen  [product_standard]
+  Penetration Test  [product_standard]
+  WebSite Aufbau  [product_standard]
+  Wartung  [product_standard]
+  Design (Internet  [product_standard]
+  HTML  [product_standard]
+  HTTP  [product_standard]
+  TCP/IP)  [product_standard]
+  Suse  [product_standard]
+  Red Hat  [product_standard]
+  Checkpoint Firewall-1 NG  [product_standard]
+  Checkpoint Firewall-1 NGX (R65)  [product_standard]
+  IBM WebSphere Server 6  [product_standard]
+  IBM WebSphere Server 7  [product_standard]
+  Tomcat 6  [product_standard]
+  Tomcat 7  [product_standard]
+  Sun Computer (E10K)  [product_standard]
+  Solaris 2.6  [product_standard]
+  Compaq Alpha Systeme  [product_standard]
+  Digital Unix  [product_standard]
+  HP G-Klasse  [product_standard]
+  H-Klasse  [product_standard]
+  HP-UX 10  [product_standard]
+  Sun Computer (E250)  [product_standard]
+  Solaris 2.7  [product_standard]
+  Sun E10K  [product_standard]
+  A5000 Plattenarrays  [product_standard]
+  Solaris 2.8  [product_standard]
+  Samba-Server  [product_standard]
+  Red Hat AS 2.1  [product_standard]
+  SuSe AS 8  [product_standard]
+  Tivolo  [product_standard]
+  Sun R280  [product_standard]
+  Sun Solaris 2.9  [product_standard]
+  OpenIngres Datenbank  [product_standard]
+  Dell 380 Server  [product_standard]
+  Dell 360  [product_standard]
+  Debian Linux  [product_standard]
+  Sun Server (Ultra 80 bis SunFire 25K)  [product_standard]
+  SLES 9  [product_standard]
+  SLES 10  [product_standard]
+  SLES11  [product_standard]
+  CentOS Version 4.8  [product_standard]
+  HP DL380  [product_standard]
+  Xen  [product_standard]
+  VMWare  [product_standard]
+  Red Hat Fedora 13  [product_standard]
+  Check Point Firewall R65  [product_standard]
+  JBoss  [product_standard]
+  VMWare V4  [product_standard]
+  F5 Loadbalancer  [product_standard]
+  ITIL  [product_standard]
+  F5 Big IP Loadbalancer  [product_standard]

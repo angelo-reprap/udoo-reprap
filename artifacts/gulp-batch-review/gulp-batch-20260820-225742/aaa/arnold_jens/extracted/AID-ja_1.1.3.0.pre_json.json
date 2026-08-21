@@ -1,0 +1,638 @@
+{
+  "metadata": {
+    "aid": "AID-ja_1.1.3.0",
+    "version": "1.1.3.0",
+    "consultant_dir": "arnold_jens",
+    "first_name": "Jens",
+    "last_name": "Arnold",
+    "headline": "Netzwerk Administraton und Support (OS/2, Windows NT); Datenbank Administration und Programmierung",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T22:57:56.239267"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Jens",
+      "last_name": "Arnold",
+      "birth_year": 1979,
+      "languages": [
+        {
+          "name": "Deutsch: Heimatsprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch: in Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Russisch: in",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Heimatsprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (in Wort und Schrift)",
+          "level": ""
+        },
+        {
+          "name": "Russisch (in Wort und Schrift)",
+          "level": ""
+        }
+      ],
+      "availability": "01.07.2010 zu 75%, Vor-Ort-Einsatz zu 75% möglich",
+      "location": "Deutschland",
+      "wohnort": "990xx Erfurt Deutschland",
+      "edv_experience_since": 1995,
+      "headline": "Netzwerk Administraton und Support (OS/2, Windows NT); Datenbank Administration und Programmierung"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access: Grundlagen",
+        "Approach: Grundlagen",
+        "DB2: gute Kenntnisse",
+        "Lotus Notes: gute Kenntnisse (R4",
+        "R5",
+        "R6)",
+        "MS SQL Server: Gute Kenntnisse",
+        "MySQL: Gute Kenntnisse",
+        "SQL: Gute bis sehr gute Kenntnisse"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Amiga: Grundkenntnisse der Hardware",
+        "Atari: Grundkenntnisse der Hardware",
+        "CD-Writer / Brenner: Grundkenntnisse der Hardware",
+        "Datenerfassungsterminals: Beleglese-Systeme",
+        "Drucker: HP",
+        "Lexmark",
+        "Kyocera und Epson Tintenstrahl- und Laserdrucker",
+        "Modem: Grundkenntnisse der Hardware",
+        "Nixdorf: Workstations bis zur XB-Reihe",
+        "Primergy Server",
+        "PC: tiefe Kenntnisse der Hardware",
+        "Scanner: Grundkenntnisse der Hardware",
+        "Soundkarten: Grundkenntnisse der Hardware",
+        "SPS: Grundlagen welche in der Schule vermittelt wurden",
+        "Streamer: Grundkenntnisse der Hardware"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS: MS-DOS",
+        "DR-DOS",
+        "IBM-DOS (tieferes Know-How)",
+        "OS/2: Version 2 / Warp 3 / Warp 4 / Warp 4.5 / inkl. Server (tiefes Know-How)",
+        "PalmOS: Version 3 (Grundlagen)",
+        "Unix: Redhat 5.x bis 9.x",
+        "Suse 5.x bis 9.x",
+        "Windows: 3.x",
+        "95",
+        "98",
+        "Millenium",
+        "NT4",
+        "Windows 2000",
+        "XP / NT4 Server",
+        "2000",
+        "Server",
+        "2003 Server (tiefes Know-How)",
+        "Windows CE: tieferes Know-How (CE; Mobile Editon)"
+      ],
+      "programming_languages": [
+        "Assembler: Grundlagen",
+        "C++: Grundlagen",
+        "dBase: Grundlagen",
+        "Java: Gute Kenntnisse",
+        "JavaScript: Gute Kenntnisse",
+        "Lotus Notes Script: Gute Kenntnisse",
+        "Pascal: Turbo Pascal gute Kenntnisse",
+        "Perl: Grundlagen",
+        "PHP: Gute Kenntnisse",
+        "Rexx: Grundlagen",
+        "gute HTML- und XML-Kenntnisse",
+        "gute Lotus Formula Kenntnisse"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "k.A.",
+        "company": "Daimler-Chrysler in Stuttgart Möhringen und Untertürkheim",
+        "title": "Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-",
+        "activities": [
+          "Die Aufgabe war die bestehenden Windows NT 4.0 Clients auf das Jahr 2000 und den Euro vorzubereiten. Hierzu war es nötig Service Pack 4 aufzu- spielen. Gleichzeitig wurde die Domäne umgestellt. Hardwareumrüstungen wie z.B. die Erweiterung des Arbeitsspeichers und den Einbau von Sound- karten wurden genauso vorgenommen.",
+          "Desweiteren wurde im Laufe des Rollouts ebenfalls verschiedene Software (von Acrobat Reader bis Office",
+          "97) installiert.· Meine spezielle Haupttätigkeit lag hierbei im Troubleshooting von Problemen die im Laufe des Rollouts auftraten.",
+          "Aufspielen von Service Pack 4 auf die bestehenden Windows NT 4.0 Clients",
+          "Umstellung der Domäne",
+          "Hardwareumrüstungen wie Erweiterung des Arbeitsspeichers und Einbau von Soundkarten",
+          "Installation verschiedener Software (von Acrobat Reader bis Office 97) im Laufe des Rollouts",
+          "Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.",
+          "Telefonischer Support für Banken-Administratoren bei System- und Anwendungsproblemen (OS/2, NT, Notes, verschiedene Buchungs- und Bankenanwendungen)",
+          "Serverzentralisierung und -konsolidierung (Anbindung kleiner und mittlerer Bankenzweigstellen über Standleitungen an die jeweilige Hauptstelle)",
+          "Verschiedene Tätigkeiten für verschiedene Kredit-Institute",
+          "Token-Ring zu Ethernet Migrationen",
+          "Administration von Windows und OS/2 Servern",
+          "Installation, Konfiguration, Support, Administration von Notes Netzen",
+          "Wartung und Installation von Netzwerkdruckern und Servern",
+          "OS/2, Windows NT, Windows 2000 auf Windows XP Migrationen"
+        ],
+        "industry": "Automotive",
+        "location": "Stuttgart Möhringen und Untertürkheim",
+        "technologies": [
+          "Windows NT 4.0",
+          "Service Pack 4",
+          "Acrobat Reader",
+          "Office 97",
+          "DB2",
+          "OS/2",
+          "Notes",
+          "Windows 2000",
+          "Windows XP",
+          "Token-Ring",
+          "Ethernet"
+        ]
+      },
+      {
+        "period": "k.A.",
+        "title": "Client-Migration im RWSO (Rechenzentrum der württembergischen Sparkassenorganisation)",
+        "activities": [
+          "Pack 4 (hauptsächlich Dualboot-Maschinen). Die OS/2 Migration erfolgte mittels Softwareverteilung über TED-Client und NVDM. NT musste händisch migriert werden.",
+          "Support einer Bank mit mehreren Instituten",
+          "Komplettservice, zu dem z.B. OS/2 Warp 3.0 und 4.0, NT 4.0, verschiedene sparkasseninterne Anwendungen (SEFIS, OLISS u.s.w.), 3270 und Office Anwendungen gehörten",
+          "Administration von Usern und Ressourcen der Bank (IBM LAN-SERVER)",
+          "Begleitung des Y2K-Rollout Teams mit telefonischem Support (zwei Monate)",
+          "Behebung von Problemen der SB-Endgeräte (SBT, GAA und KAD) im Raum Heidenheim über die SB-Server oder Service-Aufträge"
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "OS/2 Warp 3.0",
+          "Fix Pack 36",
+          "Windows NT",
+          "Service Pack 4",
+          "Dualboot",
+          "TED-Client",
+          "NVDM",
+          "OS/2 Warp 4.0",
+          "NT 4.0",
+          "SEFIS",
+          "OLISS",
+          "3270",
+          "Office",
+          "IBM LAN-SERVER",
+          "SBT",
+          "GAA",
+          "KAD"
+        ],
+        "company": "RWSO Stuttgart",
+        "location": "Stuttgart"
+      },
+      {
+        "period": "k.A.",
+        "title": "Client/Server Migration der Sparkassen- und Berliner Bank Institute im Raum Berlin von OS/2 Warp 3 auf Warp 4",
+        "activities": [
+          "Die einzelnen Clients mussten per CC-Server neu auf Warp 4 verteilt werden (inkl. Netzanbindung - Tokenring), dies geschah allerdings erst nachdem die Server händisch umgestellt wurden.",
+          "Netzanbindung - Tokenring), dies geschah allerdings erst nachdem die Server händisch umgestellt wurden. Wie auch bei Daimler- Chrysler wurde ich hierbei nach kurzer Zeit als Troubleshooter verwendet.",
+          "Wie auch bei Daimler-Chrysler wurde ich hierbei nach kurzer Zeit als Troubleshooter verwendet."
+        ],
+        "company": "Sparkassen- und Berliner Bank",
+        "industry": "Banken",
+        "role": "Troubleshooter",
+        "location": "Berlin",
+        "technologies": [
+          "OS/2 Warp 3",
+          "OS/2 Warp 4",
+          "CC-Server",
+          "Tokenring"
+        ]
+      },
+      {
+        "period": "k.A.",
+        "title": "User-Help-Desk im RWSO Stuttgart",
+        "activities": [
+          "Hier begleitete ich mehrere Aufgaben auf einmal.",
+          "Meine Hauptaufgabe war der Support von einer Bank mit mehreren",
+          "Instituten. Hier wurde ein Komplettservice, zu dem z.B. OS/2 Warp 3.0 und 4.0, NT 4.0, verschiedene sparkasseninterne Anwendungen (SEFIS,",
+          "OLISS u.s.w.), 3270 und Office Anwendungen gehörten, geboten. Des weiteren musste ich User und Ressourcen der Bank administrieren",
+          "(IBM LAN-SERVER). Weiterhin begleitete ich zwei Monate das Y2K-Rollout",
+          "Team mit telefonischem Support. Die letzte Aufgabe bestand darin",
+          "Probleme der SB-Endgeräte (SBT, GAA und KAD)im Raum Heidenheim über die SB-Server oder Service-Aufträge zu beheben."
+        ]
+      },
+      {
+        "period": "k.A.",
+        "company": "FIDUCIA AG Kahrsruhe für genossenschaftliche Banken",
+        "title": "Tätigkeiten bei FIDUCIA AG Kahrsruhe für genossenschaftliche Banken",
+        "activities": [
+          "Migration der vorhandenen Token-Ring-Netzwerktopologie zu Ethernet",
+          "Installation von OS/2 und Windows NT Arbeitsplätzen inkl. Anwendungen wie z.B. Lotus Notes, SmartSuite, MS Office, Personal-Communication ...). Installation und Tausch von Gateways, Datenbank-, Print- und Notes-Servern",
+          "Administration von OS/2 Servern",
+          "Fernwartung von Systemen mit Hilfe von NetFinity, Afro und NetOp",
+          "IT-technische Arbeiten bei Fussionen verschiedener Banken (Änderungen von"
+        ],
+        "industry": "Banken",
+        "technologies": [
+          "Token-Ring",
+          "Ethernet",
+          "OS/2",
+          "Windows NT",
+          "Lotus Notes",
+          "SmartSuite",
+          "MS Office",
+          "Personal-Communication",
+          "NetFinity",
+          "Afro",
+          "NetOp"
+        ]
+      },
+      {
+        "period": "k.A.",
+        "title": "Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-",
+        "activities": [
+          "problemen (OS/2, NT, Notes, verschiedene Buchungs- und Bankenanwendungen).",
+          "Serverzentralisierung und -konsolidierung (Anbindung kleiner und mittlerer",
+          "Bankenzweigstellen über Standleitungen an die jeweilige Hauptstelle)(Referenz liegt vor, bitte anfordern)",
+          "Verschiedene Tätigkeiten für verschiedene Kredit-Institute",
+          "Token-Ring zu Ethernet Migrationen",
+          "Administration von Windows und OS/2 Servern",
+          "Installation, Konfiguration, Support, Administration von Notes Netzen",
+          "Wartung und Installation von Netzwerkdruckern und Servern",
+          "OS/2, Windows NT, Windows 2000 auf Windows XP Migrationen"
+        ]
+      },
+      {
+        "period": "k.A.",
+        "title": "Datenbank-Lösung zum Unterschriften Scannen für Lotus",
+        "activities": [
+          "Notes inkl. Alt-Daten-"
+        ]
+      },
+      {
+        "period": "k.A.",
+        "title": "Datenbank-Lösung zum Unterschriften Scannen für Lotus Notes inkl. Alt-Daten-Übernahme aus ein bestehenden DB/2 Datenbank",
+        "activities": [
+          "Programmierung einer Datenbank für Kunden-Unterschriften",
+          "Umsetzung verschiedenster Kundenwünsche (z.B. Prüfziffernberechnungen, Freigabemanagment u.s.w.)",
+          "Freigabemanagment u.s.w.). Implementierung der Schnittstelle zwischen TWAIN-Treiber und Lotus Notes",
+          "Dokumentation der Anwendung Export der Alt DB/2 Datenbank beim Kunden",
+          "Migration der Alt Daten von DB/2 nach Lotus Notes",
+          "Installation und Konfiguration beim Kunden"
+        ],
+        "technologies": [
+          "Lotus Notes",
+          "DB/2",
+          "TWAIN"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Autobranche",
+      "Handel",
+      "Versicherungen",
+      "EDV"
+    ],
+    "focus_areas": [
+      "Netzwerk Administraton und Support (OS/2 Windows NT); Datenbank Administration und Programmierung Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Netzwerk Administration und Support (OS/2, Windows NT)",
+      "Datenbank Administration und Programmierung",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Dokumentation / DTP"
+    ],
+    "focus_experience": [
+      {
+        "name": "Migrationen (Client-Server Systeme unter den angegebenen Systemen -",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "vorzugsweise OS/2 und Windows Server)",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "MS-Office bis 2003",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Bankanwendungen der genossenschaftlichen Banken und Sparkassen (z.B. Rubin",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "NBS",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Gebos",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Genos",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "GIS)",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Heterogene Netze",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Lotus Notes Datenbankentwicklung",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Webseiten Entwicklung",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Wartung",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Design",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Hosting (Internet",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Intranet",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "HTTP",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "TCP/IP)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Bildverarbeitung (Fotos",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Webpictures) Erfahrung mit Corel und Photoshop",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "andere Office-Produkte wie Corel-Office und Star-Office",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Videobearbeitung mit Programmen wie Adobe Premiere und Aist MoviePack",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "MS-Office",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Rubin",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "GIS",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Lotus Notes",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "TCP/IP",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Corel",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Photoshop",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Corel-Office",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Star-Office",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Adobe Premiere",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Aist MoviePack",
+        "category": "product_standard",
+        "sort_order": 35
+      }
+    ],
+    "education": [
+      {
+        "degree": "10. Klasse",
+        "institution": "IGS Erfurt",
+        "period": "1985-1995",
+        "education_type": "course"
+      },
+      {
+        "degree": "Abitur (FR Informatik)",
+        "institution": "Staatlich Berufsbildendes Gymnasium 'Andreas Gordon'",
+        "period": "1995-1998",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IBM LAN Server: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN: gutes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager: gutes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OS/2 Netzwerk: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere: gutes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router: Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk: tieferes Know-How",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "X.400 X.25 X.225 X.75...: Grundlagen",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T22:57:56.239279",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "FACHBEREICHE",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 87.47152619589977,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

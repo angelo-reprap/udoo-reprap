@@ -1,0 +1,1144 @@
+{
+  "personal": {
+    "aid": "AID-aj_3.3.4.0",
+    "first_name": "Andre",
+    "last_name": "Jahn",
+    "birth_year": 1966,
+    "location": "612xx Bad Nauheim, Deutschland",
+    "availability": "01.01.22 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2010,
+    "headline": "Senior Software-Architekt, Senior Java Entwickler, Product Owner , Senior Businessanalyst",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 1,
+    "skills": 136,
+    "certifications": 0,
+    "education": 0,
+    "experience": 17,
+    "industries": 8,
+    "focus_areas": 24,
+    "focus_experience": 131,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch verhandlungssicher",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Nahrungs- und Genußmittel",
+    "Automobilindustrie",
+    "Umwelttechnik",
+    "Pharmazie",
+    "Banken",
+    "Versicherungen",
+    "Medizin",
+    "Telekommunikation"
+  ],
+  "focus_areas": [
+    "Senior Software-Architekt",
+    "Senior Java Entwickler",
+    "Product Owner",
+    "Senior Businessanalyst",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen >30 Jahre Berufserfahrung in der Software-Entwicklung, als Software-Architekt, Java-Entwickle",
+    "Sehr gut in direktem Kundenkontakt.",
+    "Ich bin in der Lage aus vagen Anforderungen komplette Produktkonzepte zu entwickeln, mit dem Kunden abzustimmen und umzusetzen.",
+    "Entwicklung von GUI / UI und Bedienkonzepten.",
+    "Ich übernehme auch Komplettaufträge (Anforderungen / Design und Realisierung).",
+    "Mittlere Reife",
+    "Ausbildung zum Elektroniker",
+    "Ich bin ein klassischer Quereinsteiger manchmal muss man Umwege in Kauf nehmen.",
+    "Nach dem Realschulabschluss machte ich eine 3,5 jährige Ausbildung zum Energieanlagen-Elektroniker.",
+    "Mein erster Arbeitgeber, die Firma Kraft Jacobs Suchard, begann kurz nach meinem Eintritt 1989 dort mit der Automatisierung des Röstkaffee-Werkes in Berlin.",
+    "Ich nutzte diese Chance und begann dort mit der Programmierung von Prozess-Leitsystemen in C, sowie mit der Programmierung von Produktionsanlagen in Modicon und Simatik S5.",
+    "In unserem Team war jeder für seine Arbeit selbst verantwortlich, eine Qualitätskontrolle gab es damals nicht und eine falsch programmierte Anlage konnte schnell hohen Sachschaden verursachen oder gar",
+    "Die Anforderungen wurden schnell anspruchsvoller und neben der",
+    "Programmierung",
+    "leitete ich auch den Umbau von Produktionsanlagen.",
+    "Im Alter 20 Jahren habe ich bereits große Modernisierungsprojekte mit mehr als zehn Mitarbeitern geleitet.",
+    "Neben der Programmierung von Prozess-Leitsystemen programmierte ich später mehr betriebswirtschaftliche Software dann in Turbo Pascal, Turbo C++ und später dann in Java.",
+    "Nach zehn Jahren Berufserfahrung in der Software-Entwicklung und im Projektmanagement wagte ich den Schritt in die Selbstständigkeit."
+  ],
+  "focus_experience": [
+    {
+      "name": "Adobe CQ5",
+      "category": "product_standard"
+    },
+    {
+      "name": "AngularJs 1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Camel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Kafka",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Service Mix",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "Applikationsarchitektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architekturmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian Confluence",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Atlassian JIRA Agile",
+      "category": "product_standard"
+    },
+    {
+      "name": "Camunda",
+      "category": "product_standard"
+    },
+    {
+      "name": "CQ5",
+      "category": "product_standard"
+    },
+    {
+      "name": "EAI",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss Application Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microservices",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netflix Eureka",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netflix Zuul",
+      "category": "product_standard"
+    },
+    {
+      "name": "OAuth2",
+      "category": "product_standard"
+    },
+    {
+      "name": "REST",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "SoapUI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring-Boot",
+      "category": "product_standard"
+    },
+    {
+      "name": "SpringFramework",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vaadin",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webapplication",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "* UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "* InTouch",
+      "category": "product_standard"
+    },
+    {
+      "name": "Factory Suite 2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sybase Data Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "Borland C++ Builder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Symantec Visual Cafe",
+      "category": "product_standard"
+    },
+    {
+      "name": "Doc To Help",
+      "category": "product_standard"
+    },
+    {
+      "name": "Intersolv PVCS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle 7.2/9i",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS SQL Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "RMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Struts",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Plugins",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jonas",
+      "category": "product_standard"
+    },
+    {
+      "name": "TogetherJ",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML/XSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "PL/SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Servlets",
+      "category": "product_standard"
+    },
+    {
+      "name": "ANT",
+      "category": "product_standard"
+    },
+    {
+      "name": "SSH (Secure Shell)",
+      "category": "product_standard"
+    },
+    {
+      "name": "CVS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSS",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "TeamSite",
+      "category": "product_standard"
+    },
+    {
+      "name": "Magic Draw",
+      "category": "product_standard"
+    },
+    {
+      "name": "Reuters",
+      "category": "product_standard"
+    },
+    {
+      "name": "WSAD",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "LDAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wertpapiere (WP)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Moderationstechniken",
+      "category": "product_standard"
+    },
+    {
+      "name": "Bedarfsanalyse / Requirementengineering",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konzepterstellung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung / Projektkoordination",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teambildung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teammotivierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Riskmanagement (Software)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Functionpoint Analysis (in Anfängen)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfliktmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwarearchitektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Homesite",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Rose",
+      "category": "product_standard"
+    },
+    {
+      "name": "Content Management Systeme (CMS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aris-Methode (Grundkenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "MQ Series (Websphere MQ)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Websphere",
+      "category": "product_standard"
+    },
+    {
+      "name": "C.A.R.E (Computer Aided Software Engineering)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Diverse Open Source Produkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Photoshop CS",
+      "category": "product_standard"
+    },
+    {
+      "name": "InDesign CS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Adobe Illustrator",
+      "category": "product_standard"
+    },
+    {
+      "name": "GoLive",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ein paar Informationen über mich:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Seit mehr als 25 Jahren mit großer Hingabe in der Software-Branche tätig",
+      "category": "product_standard"
+    },
+    {
+      "name": "- auf jeden Fall mehr Berufung",
+      "category": "product_standard"
+    },
+    {
+      "name": "als Beruf",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Ich arbeite erfolgsorientiert",
+      "category": "product_standard"
+    },
+    {
+      "name": "nicht nur als \"externer im Projekt\"",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ich mag einfache (aber keine primitiven) Lösungen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Arbeite gerne mit guten Leuten zusammen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ausgeprägte Hands-on Mentalität.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr gute analytische Fähigkeiten.",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Kreativ",
+      "category": "product_standard"
+    },
+    {
+      "name": "mit guten",
+      "category": "product_standard"
+    },
+    {
+      "name": "umsetzbaren Ideen",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Eher Gestalter",
+      "category": "product_standard"
+    },
+    {
+      "name": "als Verwalter",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schnelle Auffassungsgabe.",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Lösungs- und Anwenderorientiert",
+      "category": "product_standard"
+    },
+    {
+      "name": "nicht technikzentriert",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr gute Kenntnisse und Fähigkeiten in der Moderation von Workshops und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Meetings.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Komme gut in einem politisch schwierigen Umfeld gut zurecht.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr gute Englischkenntnisse in Wort und Schrift (verhandlungssicher).",
+      "category": "product_standard"
+    },
+    {
+      "name": "Belastbar.",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Ein Auftreten",
+      "category": "product_standard"
+    },
+    {
+      "name": "das auch für Präsentationen und Meetings im gehobenen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Management geeignet ist.",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Bin in der Lage",
+      "category": "product_standard"
+    },
+    {
+      "name": "Druck vom Team fernzuhalten oder auch nicht",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr gute Kenntnisse um betriebswirtschaftliche Abläufe.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Suche keine Projekte als PMO oder im Controlling.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Alle angegebenen Erfahrungen repräsentieren mindestens ein fundiertes",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projekten einsetzbares Grundwissen. Für eventuell fehlende Kenntnisse kann ggf.",
+      "category": "product_standard"
+    },
+    {
+      "name": "ein Preisnachlas über einen Zeitraum vereinbart werden.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "agiles Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Produktdesign",
+      "category": "product_standard"
+    },
+    {
+      "name": "Produktentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software-Architekturen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software-Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Managementerfahrung in Unternehmen:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Product Owner",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "06/2018 - 04/2019",
+      "company": "Porsche AG",
+      "role": "Product-Owner, Projektleiter, Architekt, Scrum-Master",
+      "title": "Connected Car Entertainment System Entwicklung",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "02/2018 - 06/2018",
+      "company": "",
+      "role": "Software-Architekt und Java Lead-Entwickler",
+      "title": "VendoSoftware-Entwicklung DB Vendo",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "11/2017 - 02/2018",
+      "company": "",
+      "role": "Architekturberater",
+      "title": "Architekturberatung Microservices",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "09/2017 - 11/2017",
+      "company": "",
+      "role": "Systemarchitekt, Java-Entwickler, Projektmanagement",
+      "title": "System-Architektur Abgeltungssteuer-Projekt",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2017 - 09/2017",
+      "company": "",
+      "role": "Businessanalyst und Projektkoordinator",
+      "title": "Businessanalyse Internet Payment Gateway",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/2017 - 07/2017",
+      "company": "Deutsche Verrechnungsstelle",
+      "role": "Entwickler für Frontend- und Backendservices",
+      "title": "Entwicklung von Microservices, Frankfurt / Main",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2016 - 12/2016",
+      "company": "",
+      "role": "JEE 6 Lead Entwickler",
+      "title": "MIFIR Reporting, Frankfurt / Main",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2016 - 05/2016",
+      "company": "",
+      "role": "Architekt und Entwickler",
+      "title": "WebService",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "07/2015 - heute",
+      "company": "",
+      "role": "diverse",
+      "title": "myAudi connect",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "07/2015 - 07/2016",
+      "company": "Audi AG",
+      "role": "Projektleiter Architekt",
+      "title": "Portal, Ingolstadt",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2015 - 07/2015",
+      "company": "Telefonica O2",
+      "role": "",
+      "title": "Planung und Koordination",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "05/2014 - 04/2015",
+      "company": "",
+      "role": "diverse",
+      "title": "Order-To-Cash Projekt",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "08/2012 - 05/2014",
+      "company": "",
+      "role": "Senior Business-Anaylst, Software-Designer",
+      "title": "Analyse Bankprozesse",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2012 - 08/2012",
+      "company": "",
+      "role": "Senior Software Entwickler",
+      "title": "Datenmigration CRM",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "03/2012 - 05/2012",
+      "company": "",
+      "role": "Senior Software-Entwickler",
+      "title": "Prototype für IT Service-Catalog",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2011 - 02/2012",
+      "company": "",
+      "role": "Senior Business-Analyst, Service Demand Manager",
+      "title": "IT Servicemanagement",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2010 - 04/2011",
+      "company": "",
+      "role": "Projektkoordinator",
+      "title": "Inbetriebnahme Telekom-Infrastruktur",
+      "activities": 7,
+      "technologies": 53
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nIch bin seit 1989 in der Softwareentwicklung tätig.\nAls \"Quereinsteiger\" war ich im Berliner Röstkaffeewerk der Firma Kraft Jacobs\nSuchard\nmit der Realisierung von Investitionsprojekten beschäftigt. Dazu gehörte der\nUmbau und\ndie Optimierung von Produktionsanlagen sowie die Entwicklung von\nSteuerungsprogrammen, Prozessleitsystemen und betriebswirtschaftlicher\nAnwendungen\nunter C und C++, Centura, Modicon und Step 5.\nSpäter übernahm ich die eine großen Teil der Planung und die Projektleitung für\nSoftware- und Automatisierungsprojekte (max. Budget 2,5 Mio. EUR).\nAufgrund meiner Erfolge in diesen Bereichen wurde ich verstärkt mit der\ntechnischen und\nfachlichen Leitung komplexer und risikobehafteter Projekte beauftragt.\nDurch den frühen Einstieg in die IT und durch ständige Weiterbildung habe ich\nin vielen\nBereichen ein sehr umfangreiches Fachwissen aufgebaut. Dank meiner\nlangjährigen\nErfahrungen bin ich in der Lage mich schnell in neue Situationen und neue\ntechnische\nUmgebungen einzuarbeiten.\nSeit 1998 arbeite ich als selbständiger Softwareentwickler. Meine fachlichen\nSchwerpunkte liegen in der Softwareentwicklung unter Java speziell in der\nEntwicklung\nvon Intranet- und EAI-Applikationen.\nWeitere Schwerpunkte liegen im Projektmanagement und im Softwaredesign bzw.\nin\nder\nSoftwarearchitektur.\nBedingt durch meine frühere Tätigkeit verfüge ich über die Fähigkeit Projekte\ntermingerecht und erfolgreich abzuschließen.\nZu diesen Fähigkeiten gehören neben der Projektplanung und der Koordination\nmit\nLieferanten und Fachabteilungen auch die Zusammenstellung und Motivation von\nProjektteams. Hierbei fördere und unterstütze ich das eigenverantwortliche\nHandeln der\nTeam-Mitglieder und unterstütze eine offene Kommunikation zwischen allen\nBeteiligten.\nGerne befasse ich mich auch mit den Themen Softwarearchitektur und\nSoftwaredesign\n(OOA, OOD). Neben den Kenntnissen der UML und dem Aufbau effektiver\nArchitekturen\ngehören dazu auch die \"Vorarbeiten\", wie das Anforderungsmanagement, die\nDurchführung Workshops und Interviews.\nDie Definition von Modul-, Integrations- und Abnahmetests und die Testleitung\nund die\nTestauswertung gehören ebenfalls dazu.\nIn verschiedenen Kursen habe ich mich in den Bereichen der Moderationstechnik\nund in\nder Planung und Durchführung von Schulungen weitergebildet. Diese Kenntnisse\nhabe ich\nin vielen Projekten mit praktischer Erfahrung weiterentwickelt und setze sie\ngerne ein.\nIch besitze umfangreiche Kenntnisse über die Vorgehensmodelle der\nSoftwareentwicklung (RUP,XP, etc.) und kann sie umsetzen. Ich bin jedoch kein\nVerfechter eines bestimmten Modells sondern ich orientiere mich an den\nVorgaben\nmeiner Kunden.\nIch arbeite gerne im Team und habe eigenverantwortlichen und selbständigen\nArbeitsstil.\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]\nEnglisch anzeigen",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Adabas Grundkenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache Cassandra",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Application Partner der Firma Caché Datenbank",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "InterSystems",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAO",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes Workflowkenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Web Programmierung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "unter Domino",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MongoDB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Version 7.3-9i",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DBA-Schulung und DBA-",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Erfahrung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL-Programmierung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 11g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Quest",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL Erfahrung in der Erstellung komplexer und",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "zeitoptimierter SQL-Statements",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lynx",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS-X",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux (bes. RedHat)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "BPMN",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Gupta",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Centura",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Imake",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "GNU-Make",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Make-Maker etc",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Swing",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Servlets",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 7",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript Swing",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JEE 6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "jQuery",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes Script",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Makrosprachen bash",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Modicon",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Paradox",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen Bash",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens S5",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TeX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "LaTeX Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML 2.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CD",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Artifactory",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Ansible",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "OpenShift",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Docker",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Vagrant",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Spring Boot",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Amazon",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Apache Tomcat",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.75
+    },
+    {
+      "name": "Microsoft Excel",
+      "category_name": "Business Software",
+      "weight": 0.75
+    },
+    {
+      "name": "Microsoft Project",
+      "category_name": "Business Software",
+      "weight": 0.62
+    },
+    {
+      "name": "SoapUI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "Jira",
+      "category_name": "Business Software",
+      "weight": 0.62
+    },
+    {
+      "name": "UML",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "SSH",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    }
+  ]
+}

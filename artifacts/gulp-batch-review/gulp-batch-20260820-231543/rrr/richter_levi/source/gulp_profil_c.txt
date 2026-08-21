@@ -1,0 +1,1722 @@
+Java J(2)EE Entwickler
+Top-Skills: Java, JEE, JSF
+Verfügbar ab: 22.08.2022
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 90,00 EUR
+Bemerkungen: all in.
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+Österreich, Schweiz, Einsatzort unbestimmt
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Position
+Kommentar:
+Projekte
+2020-01 - 2020-12 Zensus2021
+1 Jahr
+Rolle: JEE-Entwickler
+Kunde: Statistisches Bundesamt
+Einsatzort: Wiesbaden
+Projektinhalte: Teilnahme am Projekt Zensus2021 (Volks- und Wohnungszählung), RDB
+(ReferenzDatenBestand), Web-Applikation für die statistische Analyse der
+Anschriften und Personen in Deutschland.
+Aufgaben:
+    •  Architektur.
+    •  Entwicklung der einzelnen Module Back- und Frontend.
+    •  Testautomatisierung.
+24.02.2023 1 von 20
+    •  Dokumentationen.
+Skills: Java8, J(2)EE 7.0, EJB3.1, CDI 1.2, JSF 2.2., PrimeFaces 6.1,
+omnifaces-2.5.1, hibernate-5.1.15.Final-redhat-1,  log4j-1.2.17, slf4j-
+log4j12-1.7.26, apache-maven-3.6.1, Gradle-6.7.1, JUnit 4.12, mockito-all
+Version 2.0.2-beta, SoapUI 5.3.0, Red Hat JBoss Enterprise Application
+Platform - Version 7.1.4.GA, devonfw IDE Current version of devon-scripts
+is 3.3.1, Eclipse IDE for Java Developers, Version: 2019-09 R (4.13.0),
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit
+Production, Oracle SQl Developer Version 19.2.1, UML-Modellierung UMLet
+version 14.3.0, GIT version 2.26.0.windows.1, GitLab Community Edition
+10.1.4, SubVersion (SVN), TortoiseSVN 1.13.1, Build 28686 - 64 Bit,
+2019/10/31 18:49:38, Atlassian Jira v7.13.0, SonarQube Version 6.07.4
+(build 38452), CA Clarity PPM Version 15.4.0.270, PuTTY Release 0.7,
+WinSCP Version 5.15.3 (Build 9730), Notepad++ v6.3.1, Windows 10 Pro,
+Microsoft Office 365 ProPlus.
+Kenntnisse: Java8
+Eingesetzte Produkte: Eclipse4.13
+2019-07 - 2019-12 Projekt (GemFA)
+6 Monate
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: ITZBund (Informationstechnikzentrum Bund)
+Einsatzort: Bonn
+Projektinhalte: Teilnahme am Projekt (GemFA), Web-Applikation für die Finanzbehörden
+in Deutschland.
+    •  Architektur
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Testautomatisierung
+    •  Dokumentationen
+Kenntnisse: Java7/8, J(2)EE 6.0, EJB3.1, JSF 2.2.17, PrimeFaces 5.3, hibernate-
+4.3.11-Final, log4j-2.3, apache-maven-3.6.1, JUnit 4.12, mockito-all
+Version 2.0.2-beta, SoapUI 5.3.0, WebSphere Application Server V8.5.5,
+Eclipse Photon June 2018, Oracle Database 12c Enterprise Edition Release
+12.1.0.2.0 - 64bit Production, Oracle SQl Developer Version 17.4.0.355,
+UML-Modellierung UMLet version 12.2, GIT version 2.21.0.windows.1,
+Atlassian Jira v7.13.0, ITSM-Framework WebSelfService Version 3.4,
+Maven Sonar Version 2.7.1, Citrix Receiver für Web 2019, PuTTY Release
+0.7, WinSCP Version 5.15.3 (Build 9730), Notepad++ v6.8.2, Windows 10
+Enterprise 2016 LTSB, Microsoft Office Professional Plus 2016
+2018-06 - 2019-06 Diverse Projekte
+1 Jahr 1 Monat
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: VR-Smart-Finanz (eh. VR-Leasing)
+Einsatzort: Eschborn
+Projektinhalte: Teilnahme an mehreren Projekten (PA Prozessautomatisierung, POK Paket
+24.02.2023 2 von 20
+und Obligo Konditionen, StumBG Steuerumgehungsbekämpfungsgesetzt)
+für mehrere Web-
+Applikationen (LOS Leasing Online System und ANIS Antrag
+Nachbearbeitung Information System).
+    •  Architektur
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Testautomatisierung
+    •  Dokumentationen
+Kenntnisse: Java7/8, J(2)EE 7.0, EJBs, JSF 1.2, PrimeFaces 6.0, hibernate-core 4.2.21,
+hibernate-commons-annotations-5.0.1.Final, hibernate-core-5.0.12.Final,
+hibernateentitymanager- 5.0.12.Final, hibernate-jpa-2.1-api-1.0.0Final,
+Entity-Beans, WebServices (JAX-WS, JAX-B), JMS, log4j-1.2.17, Ant, JUnit
+4.12, mockito-all Version 1.9.5, SoapUI 5.3.0, Oracle WebLogic Server 12c
+R2 (12.2.1), Eclipse Neon.1a Release (4.6.1), Oracle Datenbank Release
+12.1.0.2.0 - 64bit Production, DB2 Datenbank, DbVisualizer Pro 9.0.6,
+UML-Modellierung Modelio Open Source 3.7, SubVersion (SVN),
+TortoiseSVN 1.8.11, Jenkins ver. 1.617, Atlassian Jira v7.1, ISM (Maximo)
+Version 7.2.0.3 (Incidentsbearbeitungssystem), SonarQube Version 5.6,
+Artifactory OSS 4.2.2 rev 40049 von JFrog, Confluence 6.9.0, Citrix
+XenApp Synergy 1999-2019, PuTTY 0.7, WinSCP Version 5.15 (Build
+9365), Splunk 7.0.5, Notepad++ v7.6.5, Windows 7 Professional,
+Microsoft Office Professional Plus 2010
+2017-07 - 2018-06 Projekt Verfahrenskontrolle-Applikation
+1 Jahr
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: Bundeskriminalamt
+Einsatzort: Wiesbaden
+Projektinhalte: Teilnahme am Projekt Verfahrenskontrolle-Applikation (VFKA, Web-
+Applikation) für die Kontrolle und Konfiguration der Systeme, die aus
+Warteschlangen und Services bestehen.
+    •  Architektur
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Testautomatisierung
+    •  Dokumentationen
+Kenntnisse: Java-1.8, J(2)EE 7.0, EJBs, JSF 2.2, PrimeFaces 6.0, OmniFaces 1.14,
+hibernate-core 4.2.21, hibernate-commons-annotations 4.0.2.Final,
+hibernate-entitymanager 4.2.21, Entity-Beans, Apache-Maven-3.5.2,
+TestNG 6.14.2, mockito-all Version 1.9.5, slf4j Version 1.7.25, WebLogic
+Server 12c, Apache Tomcat 8.5.24, NetBeans IDE 8.2, Eclipse Mars.1
+Release (4.5.1), Oracle Datenbank 11g, SQL Developer version
+4.2.0.17.089, eclipselink 2.6.1, UML-Modellierung Modelio Open Source
+3.7, SubVersion (SVN), TortoiseSVN 1.8.11, Jenkins ver. 1.617,
+SonarQube Version 5.6, CodeBeamer 7.7.2.2 (Oracle), PuTTY 0.63,
+WinSCP 5.1.7, Notepad++v7.3.3, Windows 7 Enterprise, Microsoft Office
+2016-12 - 2017-06 Projekt Web-Applikation
+7 Monate
+Rolle: JEE-Entwickler (freiberuflich)
+24.02.2023 3 von 20
+Kunde: W&amp;W Informatik GmbH
+Einsatzort: Ludwigsburg
+Projektinhalte: Teilnahme am Projekt Web-Applikation für die Verwaltung der
+Versicherungsaufträge (AuftragsTyp, Datum, OrdnungsbegriffTyp, Status,
+etc.).
+    •  Architektur
+    •  Entwicklung der einzelnen Module Backend
+    •  Entwicklung der WebServices
+    •  Testautomatisierung
+    •  Dokumentationen
+Kenntnisse: Java-1.7, J(2)EE, spring-core 4.2.2.RELEASE, spring-context 4.2.2.
+RELEASE, spring-context-support 4.2.2.RELEASE, spring-beans 4.2.2.
+RELEASE, spring-jms 4.2.2.RELEASE, spring-webmvc 4.2.2.RELEASE,
+spring-tx 4.2.2.RELEASE, spring-orm 4.2.2.RELEASE, spring-aop 4.2.2.
+RELEASE, spring-web 4.2.2.RELEASE, spring-jdbc 4.2.2.RELEASE, spring-
+ldap-core 21.0.RELEASE, WebServices (cxf-java2ws-plugin), RESTful
+Services (JAX-RS), SoapUI 5.3.0, dom4j, hibernate-core 4.2.21,
+hibernate-commons-annotations 4.0.2.Final, hibernate-entitymanager
+4.2.21, Entity-Beans, Apache-Maven-3.2.3, testng 6.9.12, mockito-all
+Version 1.10.19, slf4j Version 1.7.13, WebSphere Application Server
+Liberty Profile, Eclipse Mars.1 Release (4.5.1), DB2 Datenbank, SQuirreL
+SQL Client Version 3.5.2, Enterprise Architect Version 12, SVN, Jira,
+Atlassian Confluence Version 5.1.0.8,   Jenkins ver. 1.651.3,
+Notepad++v6.9.2, Windows 8.1 Enterprise, Microsoft Office.
+2016-06 - 2016-09 Projekt Web-Applikation
+4 Monate
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: Siemens AG
+Einsatzort: Erlangen
+Projektinhalte: Teilnahme am Projekt Web-Applikation für die Verwaltung der Energie-
+Projekte (Project Name, Country, Region, Main Fuels, Backup Fuel, etc.).
+    •  Architektur
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Testautomatisierung
+Kenntnisse: Java-8, J(2)EE, spring-aspects, spring-beans, spring-context, spring-
+context-support, spring-core, spring-expression, spring-jdbc, spring-orm,
+spring-tx, spring-web, spring-test), Vaadin Version 3.0.0, Hibernate 4.3.7.
+Final, Entity-Beans, Apache-Maven-3.3.9, JUnit 4.11, log4j 1.2.17, Tomcat
+Version 7.0, Eclipse Neon, Oracle Datenbank 11g, Oracle SQL Developer
+Version 4.1.3.20, ER/Studio Data Architect Version 16.0.2, GIT Version
+2.4.1, SourceTree Version 1.8.3.0, Jira, Putty, WinSCP Version 5.5.3,
+Notepad++v6.9.2, Virtual Client (VC), Citrix Receiver Version 4.4, Office
+Communicator Version 3.5.69, Windows 10, Microsoft Office., Spring
+Version 4.1.1.RELEASE (spring-aop)
+2016-04 - 2016-08 Projekt Web-Applikation
+5 Monate
+24.02.2023 4 von 20
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: Deutsche Bank
+Einsatzort: Frankfurt am Main
+Projektinhalte: Teilnahme am Projekt Web-Applikation für die Verwaltung der
+elektronischen Schlüssel.
+    •  Architektur
+    •  Frontend Entwicklung
+Kenntnisse: Java-8, J(2)EE, Spring Version 4.2.2.RELEASE, JSF2.0, JSF-Beans,
+Hibernate4.1.1.Final, Apache-Maven-3.3.9, log4j 1.2.17, Tomcat Version
+7.0, Eclipse Mars Version 4.5.2, Oracle Datenbank 11g, GIT Version 2.8.1,
+TeamViewer Version 11.0, Notepad++v6.9.1, Windows 10, Microsoft
+Office.
+2014-05 - 2016-04 Teilnahme an mehreren Projekten
+2 Jahre
+Rolle: EE-Architekt &amp; JEE-Entwickler
+Kunde: Telekom (T-Systems) International GmbH
+Einsatzort: Erfurt 
+Projektinhalte: OCR-Projekt:
+Tausende elektronische Dokumente werden täglich durch Benutzung eines
+Tools (OpenText Capture Document Reader, Abk. OCR),
+Dokumentenmanagementsystem (DMS), bearbeitet.
+ 
+Aufgaben:
+    •  Migration eines bestehenden Systems zu einem Neuen, um die
+     ?Kosten zu sparen.
+    •  Optimierung und Erweiterung einer bestehenden JEE-Applikation
+     ?(Für die Bearbeitung der elektronischen Dokumente), um die
+     ?Kosten zu sparen und die Performanz zu verbessern.
+    •  Architektur.
+    •  Installation der OCR-Software und die notwendige Umgebung.
+    •  Erstellung der OCR-Projekte.
+    •  Testautomatisierung.
+    •  Dokumentation.
+ 
+Mailorder-Projekt:
+Bearbeitung der XML-Requests und Schicken der Responses durch die
+Verwendung der MQs (vereinbarte Schnittstellen) zurück.
+ 
+Aufgaben:
+    •  Architektur.
+    •  Entwicklung der einzelnen Module Back- und Frontend.
+    •  Testautomatisierung.
+    •  Dokumentation.
+ 
+EMail-Datenmanagement-Projekt:
+Verwaltung der EMails der Kunden durch die MQ-Request/Response-
+Technologie.
+ 
+Aufgaben:
+    •  Architektur
+24.02.2023 5 von 20
+    •  Entwicklung der einzelnen Module Backend.
+    •  Testautomatisierung.
+    •  Dokumentation.
+ 
+Benachrichtigung-Projekt:
+Die Benachrichtigung der Kunden durch EMail und/oder SMS.
+ 
+Aufgaben:
+    •  Architektur.
+    •  Entwicklung der einzelnen Module Backend.
+    •  Testautomatisierung.
+    •  Dokumentation.
+Kenntnisse: Java 1.8.0_11, J(2)EE, WebServices JAXB 2.2.3, XSD, WSDL, Spring
+Version 4.1.1, JSF2.2, JSF-Beans, PrimeFaces 3.5, Hibernate4.1.1.Final,
+IBM MQ, Apache-Maven-3.2.3, Apache-ant-1.9.4, Design Patterns,
+JUnitTest 4.12, EasyMock 3.1, Groovy 2.4, Selenium 2.45.0, SoapUI 5.0.0,
+log4j 1.2.16, Enterprise Architect Full 10.00.1009.8, Oracle Datenbank
+11g, SQL Workbench Build 116, Oracle SQL Developer V4.0.3, OpenText
+Capture Document Reader (DOKuStar Professional) 3.6, DoKuStar Design
+Studio 4.3, RecoStar Design Studio, Version 3.0.53.0, JMeter 2.11,
+BeanShell bsh-2.0b4, jEdit 5.1.0, Subversion (SVN), TortoiseSVN 1.7.14,
+Jenkins 1.609.1, Polarion Build: 3.9.1.20150623-2040, JBoss 7.1.1
+Application Server Version 8.0.0.5, Eclipse Luna, WebEx Konferenz, HP
+ALM - Quality Center 12.01, Putty, WinSCP, VitrualBox  4.2.12,
+Notepad++v6.5.3, Windows 7, Windows Server 2008 R2 Standard,
+Microsoft Office.
+2014-01 - 2014-04 Familienphase und Weiterbildung
+4 Monate
+Rolle: JEE-Architekt &amp; JEE-Entwickler
+Einsatzort: Frankfurt am Main
+Projektinhalte: Familienphase und Weiterbildung (JSF 2.2, Spring 4.0.4 und Selenium)
+    •  Lernen
+    •  Architektur
+    •  Entwicklung der einzelnen Module Back- und Frontend
+Kenntnisse: Java, J(2)EE, Spring Version 4.0.4, JSF2.2, JSF-Beans, Hibernate4.1.1.
+Final, Ant 1.8.1, Design Patterns, log4j 1.2.16, RSA-Modelling-UML-Tool,
+JBoss 7.1.1 Application Server Version 8.0.0.5, Eclipse Kepler, Oracle
+Datenbank 11g, VitrualBox.Version 4.2.12, Notepad++v6.3.1, Windows 7,
+Microsoft Office.
+2013-05 - 2013-12 Projekt "SEPA"
+8 Monate
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: IBM
+Einsatzort: Chemnitz
+Projektinhalte: Eine Web-Applikation für ein grosses Projekt "SEPA" wurde entwickelt.
+    •  Architektur
+24.02.2023 6 von 20
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Bugs fixen
+    •  Test und Dokumentation
+Kenntnisse: Java, J(2)EE, Spring Version 3.1.1 RELEASE, TestNG, JSF1.2, JSF-Beans,
+Hibernate4.1.1.Final, Ant 1.8.1, Design Patterns, log4j 1.2.16, RSA-
+Modelling-UML-Tool, WebSphere Application Server Version 8.0.0.5,
+Eclipse IBM Rational Software Architect (RSA) Version 8.0.4.1, Eclipse
+Helios Build id: 20110218-0911, SubVersion (SVN) Version 3.0.1, Oracle
+Datenbank 11g, Oracle SQL Developer Version 3.1.07, Oracle VM Jenkins
+(Hudson) 1.504, Mantis 1.1.8, Rational Team Concert (RTC) Version 4.0,
+VitrualBox.Version 4.2.12, Notepad++v6.3.1, Xubuntu, Windows 7,
+Microsoft Office.
+2013-01 - 2013-04 Web-Applikation
+4 Monate
+Rolle: JEE-Architekt &amp; JEE-Entwickler
+Kunde: Eigenes Projekt
+Einsatzort: Frankfurt am Main
+Projektinhalte: Eine Web-Applikation für Internet Makler wird entwickelt.
+    •  Architektur
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Bugs fixen
+    •  Test und Dokumentation
+Kenntnisse: Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.3.1, Ajax,    CSS,
+JavaScript, JQuery, Hibernate3.3.1, Ant 1.8.1, Design Patterns, JUnitTest
+4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss5.1.0, Subversion
+(SVN), Eclipse Helios, PLSQL-Datenbank-Browser-v7.15, Oracle Database
+10g, Notepad++v6.3.1, WindowsXP, Microsoft Office, Microsoft Outlook
+2012-10 - 2012-12 Web-Applikationen
+3 Monate
+Rolle: Entwickler
+Kunde: Fa. Daimler
+Projektinhalte: Mitarbeiten in mehreren Web-Applikationen (Backend, Update, DCC und
+Async) für Upload und Download der Dateien durch Benutzung der REST-
+Technologie für Autos-Mieten (Car2Go) und die Bearbeitung der Requests
+(Anfragen) von einem mobilen Gerät (TCU-Unit) und von mobilem Telefon.
+    •  JBoss-7.1.1.Final für Windows und Unix Platforms konfigurieren
+    •  Modulierung
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Bugs fixen.
+    •  Test und Dokumentation
+Kenntnisse: Java1.6.0_35, J(2)EE, JSF-2.1.2, JSF-Beans, EJB3.1, REST, JAX-RS, JSON,
+GSON-2.0, CDI, PrimeFaces-3.4.1, Ajax,    CSS, JavaScript, JQuery,
+EclipseLink-2.4.1, JPA, Apache-Maven-3.0.4, Apache-ant-1.8.4, Design
+Patterns, JUnitTest 4, log4j 1.2.12, MagicDraw 17.0.1 (UML-Tool), JBoss-
+7.1.1.Final, GlassFish-3.1.2, TortoiseSVN-v1.6.17, Subversion (SVN),
+24.02.2023 7 von 20
+Eclipse-3.7.2-Indigo-SR2, Derby Datenbank, Squirrel-SQL-v3.4.0,
+Confluence Wiki 4.2.11, Jira 5.1.6, Jenkins (Hudson) 1.478, Putty,
+WinSCP-5.1.0, Notepad++v6.1.8, UltraEdit-v17.30.0.1002, Unix,
+Windows7, Microsoft Office, Microsoft Outlook, SCRUM
+2012-09 - 2012-10 Web-Applikation
+2 Monate
+Rolle: Entwickler (freiberuflich)
+Kunde: Fa. Dürr
+Projektinhalte: Eine Web-Applikation für Autolackierung wird entwickelt.
+    •  Erstellung der Composite Komponente vom JSF
+    •  Modulierung
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Bugs fixen
+    •  Test und Dokumentation
+Kenntnisse: Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.4, Ajax,    CSS, JavaScript,
+JQuery, Hibernate3.3.1, Maven-3.0.3, Ant-1.8.2, Design Patterns,
+JUnitTest 4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss-6.0,
+Tortoise, Subversion (SVN), Eclipse-Helios, Microsoft SQL Datenbank,
+Notepad++, Windows7, Microsoft Office, Microsoft Outlook
+2012-04 - 2012-09 Web-Applikation
+6 Monate
+Rolle: JEE-Architekt &amp; JEE-Entwickler
+Kunde: Eigenes Projekt
+Einsatzort: Frankfurt am Main
+Projektinhalte: Eine Web-Applikation für Online Shop für Klamotten wird entwickelt.
+    •  Modulierung
+    •  Entwicklung der einzelnen Module Back- und Frontend
+    •  Bugs fixen
+    •  Test und Dokumentation
+Kenntnisse: Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.3.1, Ajax,    CSS,
+JavaScript, JQuery, Hibernate3.3.1, Ant 1.8.1, Design Patterns, JUnitTest
+4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss5.1.0, Subversion
+(SVN), Eclipse Helios, PLSQL-Datenbank-Browser-v7.15, Oracle Database
+10g,   WindowsXP, Microsoft Office, Microsoft Outlook
+2011-02 - 2012-03 Diverse Projekte
+1 Jahr 2 Monate
+Rolle: Entwickler
+Kunde: Fa. Siemens
+Projektinhalte: Bei Siemens habe ich in 3 Projekten gearbeitet:
+Elektronisches Personalarchiv:
+Alle Mitarbeiter bei Siemens haben Dokumente, diese werden durch dieses
+24.02.2023 8 von 20
+Projekt elektronisch verwaltet. Fast das ganze Projekt (Front- und
+Backend) wurde von mir alleine in 2 Sprachen Deutsch und Englisch
+entwickelt.
+Move:
+Migration der 5 großen Projekte von alten Technologien (Java1.4, Oracle 8,
+JBoss3.5.1) zu neuen Technologien (Java1.6, Oracle 11g, JBoss5.1.0) und
+Entfernung eines alten Frameworks.
+Move:
+Abrechnungssystem wird entwickelt. Die Daten (ca. 50.000 Datensätze)
+werden aus einer Text-Datei gelesen, bearbeitet und in die Datenbank
+geschrieben.
+ 
+Aufgaben:
+    •  Modulierung
+    •  Entwicklung der einzelnen Module Back- und Frontend 
+    •  Bugs fixen
+    •  Test und Dokumentation
+Kenntnisse: Java, J(2)EE, JSF1.2, EJB3.1, JSF-Beans, RichFaces 3.3, Ajax, xdoclet-
+1.2.3, JSP, CSS, JavaScript, JQuery, Ant 1.8.1, Design Patterns, JUnitTest
+3.8 u. 4, log4j 1.2.12, JDBC-Connector, Enterprise Architect 8.0 UML-Tool,
+JBoss3.5.1, JBoss5.1.0, Subversion (SVN),   TortoiseSVN 1.6.8, Eclipse
+Helios, PLSQL-Datenbank-Browser-v7.15, Oracle 11g, Remedy,
+WindowsXP, Microsoft Office, Microsoft Outlook
+2010-05 - 2010-10 Web-Applikation
+6 Monate
+Rolle: JEE-Entwickler (freiberuflich)
+Kunde: McCann
+Einsatzort: Frankfurt am Main
+Projektinhalte: Die Firma McCann entwickelt momentan eine Web-Applikation für
+Konfiguration der Autos.
+    •  Entwicklung der einzelnen Module Backend
+    •  Entwicklung der Web Services
+    •  Bugs fixen Backend und Frontend
+    •  Architektur
+    •  Test und Dokumentation der Softwaremodule
+Kenntnisse: Java, JEE, WebServices jaxb 2.1, wsdl4j 1.6.1, Spring 2.5.6, Design
+Patterns, JUnitTest 3.8 u. 4, log4j 1.2.12, Enterprise Architect 8.0 UML-
+Tool, Subversion (SVN), soapUI 3.6.1, Tomcat 6.0.29, TortoiseSVN 1.6.8,
+Eclipse Helios, PLSQL und SQLyog - Datenbank-Browser, v7.15, MySQL
+Jdbc-Connector 5.1.7, Oracle 10g, MySQL Server 5.0.77, Jira
+(Backtracking) 4.1, Confluence 3.1, Deployment-Tool: Hudson, Web
+TimeSheet 6.7, Clairty, Linux Red Hat 6, Putty, WindowsXP, Microsoft
+Office, Microsoft Outlook
+2010-03 - 2010-05 Web-Applikationen Entwicklung
+3 Monate
+Rolle: Entwickler
+24.02.2023 9 von 20
+Kunde: Fa. SoftMethod
+Projektinhalte: Vodafone und Arcor haben zwei verschiede Web-Applikationen. Eine neue
+Web-Applikation wird entwickelt, sodass die zwei Applikationen nur diese
+neue Web-Applikation werden, sodass der Benutzer nur einmal einloggen
+und nur einmal ausloggen kann, das ist das sogenannte Single Signe On
+(SSO).
+         
+Aufgaben:
+    •  Installieren und Konfigurieren der folgenden Technologien:
+        •  Bea WebLogic 9.2 MP3.
+        •  Apache Tomcat 6.0.20 als Application-Server.
+        •  Apache Tomcat 2.0 als HTTP-Dispatcher-Server.
+        •  OpenSSO Enterprise Edition 8.0.
+        •  Policy Agent 3.0.
+        •  Sun Directory Server Enterprise Edition 6.3.1.
+        •  LDAP (Lightweight Directory Access Protokoll) 2.4.
+        •  Sybase ASE 15.03 Datenbank.
+    •  Beseitigen der Fehler.
+    •  Erstellen der Dokumentationen
+Kenntnisse: J2EE, Ant, Eclipse 3.5, Apache LDAP-Browser, Quantum Datenbank-
+Browser, WebLogic 9.2 MP3, Tomcat 6.0.20, OpenSSO Enterprise Edition
+8.0, Policy Agent 3.0, Sun Directory Server, LDAP, Sybase ASE 15.03,
+Oracle, Windows 7, Sun Virtual Box, Linux Ubuntu 9.1, Linux Red Hat 6,
+WinSCP, Putty.
+2009-10 - 2010-02 Entwicklung Web
+5 Monate
+Rolle: Entwickler
+Kunde: Fa. DSS
+Projektinhalte: Eine Web-Applikation wurde für Deutsche Telekom entwickelt um die
+Domains zu verwalten. Entwicklung der Web-Services für diese Applikation
+mit Java (Backend).
+Aufgaben:
+    •  Entwicklung der Web-Services.
+    •  Bugs fixen.
+    •  Modulierung.
+    •  Erstellen der Dokumentationen
+Kenntnisse: J2EE, Servlets, EJB 2.1, Spring 2.5.6, WebServices, WSDL, Hibernate 3.0,
+XSD, SOAP, Design Patterns, JUnit 3.8, Maven 2.2.1, Eclipse 3.5, SVN
+Repository, Apache Tomcat 6.0.20, JBoss 5.1.0, MagicDraw 16.5 (UML-
+Tool), Oracle 10g Datenbank, SQL,  SQuirrel SQL
+3.0.2,  (Datenbankverwaltungstool), Apache Tomcat 6.0.20, JBoss 4.2.2,
+Redhat Linux, PSPad, Open Office, Windows Vista.
+2009-09 - 2009-10 SAP Kurs
+2 Monate
+Rolle: alfatraining
+Projektinhalte: Development Consultant SAP NetWeaver 2004 – Applikcation Development
+24.02.2023 10 von 20
+Focus ABAP SAP® ERP 6.0 Focus ABAP Form 2007 mit folgenden Modulen:
+    •  SAPTEC: Grundlagen des SAP Web AS.
+    •  BC 400: ABAP Workbench Grundlagen.
+    •  BC 430: ABAP Dictionary.
+    •  ADM 940: Einführung in das Berechtigungskonzept mit SAP.
+    •  BC 410: Entwicklung und Benutzerdialoge
+Kenntnisse: SAP NetWeaver 2004, ABAP, SAP TEC, BC.
+Weitere Projekte gern auf Anfrage.
+Branchen
+    •  IT
+    •  Software
+    •  Finanz/Banking
+    •  Automotive
+    •  Telekommunikation
+    •  Versicherungen
+    •  Handel &amp; Einkauf
+    •  Output Management
+    •  Dokumentenmanagementsystem (DMS)
+Sprachen
+apache-maven-3.6.1
+Arabisch Muttersprache
+Deutsch Fließend in Wort und Schrift
+Englisch Gut in Wort und Schrift
+Kompetenzen
+Schwerpunkte Fachlicher Java-
+Entwickler
+Aufgabenbereiche Atlassian Jira v7.13.0
+Citrix Receiver für Web
+2019
+ITSM-Framework
+WebSelfService Version
+3.4
+24.02.2023 11 von 20
+Produkte / Standards / Ant 1.8.1, 1.8.2
+Erfahrungen / Methoden
+Apache LDAP-Browser, Tomcat 6.0.20, ant 1.8.4, ant
+1.9.4., Maven 3.0.4, Maven 3.2.3., Maven
+3.3.9
+Atlassian Confluence 3.1, Wiki 4.2.11
+BC
+BeanShell bsh-2.0b4
+CDI
+Citrix Receiver Version
+4.4
+Clairty
+CSS
+DB2 Datenbank
+Deployment-Tool:
+Hudson
+Derby Datenbank
+Design Patterns
+DoKuStar Design Studio
+4.3
+dom4j
+EasyMock 3.1
+Eclipse 3.5, Helios, Helios Build, IBM Rational
+Software Architect (RSA) Version 8.0.4.1,
+Kepler, Luna, Mars Version 4.5.2, Mars.1
+Release (4.5.1), Neon, 3.7.2-Indigo-SR2,
+Link 2.4.1.
+Eclipse4.13
+EJB 2.1, 3.1
+Enterprise Architect 8.0 UML-Tool, Version 12, Full 10.00.1009.8
+Entity-Beans
+ER/Studio Data Architect
+Version 16.0.2
+GIT Version 2.4.1, 2.8.1
+GlassFish-3.1.2
+Groovy 2.4
+GSON-2.0
+Hibernate 3.0, 4.3.7.Final, commons-annotations
+4.0.2.Final, core 4.2.21, entitymanager
+24.02.2023 12 von 20
+3.3.1, 4.1.1.Final
+HP ALM - Quality Center
+12.01
+IBM MQ
+J(2)EE
+Java 1.8.0_11, 1.7, 8, 1.6.0_35, 8
+JBoss 4.2.2, 5.1.0, 7.1.1 Application Server Version
+8.0.0.5, 6.0, 7.1.1.Final, 3.5.1, 5.1.0
+JDBC-Connector
+jEdit 5.1.0
+Jenkins (Hudson) 1.478, 1.609.1, ver. 1.651.3
+Jira (Backtracking) 4.1, 5.1.6,
+JMeter 2.11
+JSF 2.1.2, Beans, 1.2, 2.0, 2.2
+JUnit 3.8, 4.11,
+JUnitTest 3.8, 4, 4.12
+LDAP
+Linux Red Hat 6,  Ubuntu 9.1
+log4j 1.2.12, 1.2.16, 1.2.17
+MagicDraw 16.5 (UML-Tool), 17.0.1 (UML-Tool)
+Mantis 1.1.8
+Maven 2.2.1, 3.0.3
+Microsoft Office, Outlook
+Microsoft Office
+Professional Plus 2016
+mockito-all Version
+1.10.19
+MySQL Jdbc-Connector 5.1.7, Server 5.0.77
+Notepad++ v6.1.8, v6.3.1, v6.5.3, v6.9.1, v6.9.2
+Notepad++ v6.8.2
+Office Communicator
+Version 3.5.69
+Open Office
+OpenSSO Enterprise
+Edition 8.0
+24.02.2023 13 von 20
+OpenText Capture
+Document Reader
+(DOKuStar Professional)
+3.6
+Oracle 10g Datenbank
+Oracle SQL Developer V4.0.3, Version 3.1.07, Version 4.1.3.20
+Oracle VM Jenkins
+(Hudson) 1.504
+PLSQL und SQLyog -
+Datenbank-Browser
+PLSQL-Datenbank-
+Browser-v7.15
+Polarion Build:
+3.9.1.20150623-2040
+Policy Agent 3.0
+PrimeFaces 3.3.1, 3.4, 3.5,3.4.1
+PSPad
+Putty
+PuTTY Release 0.7
+Quantum Datenbank-
+Browser
+Rational Team Concert
+(RTC) Version 4.0
+RecoStar Design Studio
+Remedy
+REST
+RESTful Services (JAX-
+RS)
+RichFaces 3.3
+RSA-Modelling-UML-Tool
+SAP NetWeaver 2004
+SAP TEC
+SCRUM
+Selenium 2.45.0
+Servlets
+slf4j Version 1.7.13
+SOAP
+24.02.2023 14 von 20
+soapUI 3.6.1, 5.0.0,5.3.0
+SoapUI 5.3.0
+SourceTree Version
+1.8.3.0
+Spring Version 4.1.1.RELEASE (spring-aop)
+Spring 2.5.6
+Spring Version 3.1.1 RELEASE, 4.0.4, 4.1.1,
+4.2.2.RELEASE,
+spring-aop
+4.2.2.RELEASE
+spring-aspects
+spring-beans 4.2.2.RELEASE
+spring-context 4.2.2.RELEASE, support, support
+4.2.2.RELEASE
+spring-core 4.2.2.RELEASE
+spring-expression
+spring-jdbc 4.2.2.RELEASE
+spring-jms
+4.2.2.RELEASE
+spring-ldap-core
+21.0.RELEASE
+spring-orm 4.2.2.RELEASE
+spring-test
+spring-tx 4.2.2.RELEASE
+spring-web 4.2.2.RELEASE
+spring-webmvc
+4.2.2.RELEASE
+SQL Workbench Build
+116
+SQuirreL SQL Client
+Version 3.5.2
+Squirrel-SQL-v3.4.0
+Subversion (SVN) Version 3.0.1
+Sun Directory Server
+Sun Virtual Box
+SVN Repository
+Sybase ASE 15.03
+24.02.2023 15 von 20
+TeamViewer Version 11.0
+TestNG 6.9.12,
+Tomcat 6.0.20, 6.0.29, Version 7.0
+Tortoise
+TortoiseSVN 1.6.8, 1.7.14, v1.6.17
+UltraEdit-v17.30.0.1002
+v7.15
+Vaadin Version 3.0.0
+Version 3.0.53.0
+Virtual Client (VC)
+VitrualBox  4.2.12
+Web TimeSheet 6.7
+WebEx Konferenz
+WebLogic 9.2 MP3
+WebServices (cxf-java2ws-plugin), jaxb 2.1, JAXB 2.2.3
+WebSphere Application Liberty Profile, Version 8.0.0.5
+Server
+Windows 10 Enterprise
+2016 LTSB
+Windows 8.1 Enterprise
+Windows Server 2008 R2
+Standard
+Windows Vista
+WindowsXP
+WinSCP Version 5.5.3, 5.1.0
+WinSCP Version 5.15.3
+(Build 9730)
+wsdl4j 1.6.1
+xdoclet-1.2.3
+XSD
+Expertise
+    •  EDV-Erfahrung seit 1988
+Server
+    •  JBoss
+    •  Apache Tomcat
+24.02.2023 16 von 20
+    •  WebLogic
+    •  IBM WebSphere
+Betriebssysteme Dos
+Linux Redhat
+MS-DOS
+Unix
+Windows 7, 8, 10, XP
+Xubuntu
+Programmiersprachen (X)HTML
+ABAP
+ABAP4
+Ajax
+C
+CSS
+Design Patterns
+EDIFACT
+EJB3.1
+Hibernate
+J(2)EE 6.0
+J2EE
+Java J2EE, J2SE(2, 7, 8), Java-Swing, Vaadin,
+Java Server Faces (JSF), JSF-Beans, Ajax,
+RichFaces, PrimeFaces, Java Server Pages
+(JSP), JavaScript, EjB
+Java7/8
+Java8
+JavaScript
+JAX-RS
+JEE
+JPA
+JQuery
+JSF 2.2.17
+24.02.2023 17 von 20
+JSON
+JSP
+JUnit 4.12
+log4j-2.3
+mockito-all Version
+2.0.2-beta
+Spring
+SQL
+Struts
+UML
+WSDL
+XML
+XSLT
+Datenbanken Access
+DAO
+DB2
+JDBC
+Microsoft SQL Datenbank
+MS SQL Server
+MySQL
+ODBC
+Oracle 10g, 11g, Database 10g, Datenbank 11g
+Oracle Database 12c
+Enterprise Edition
+Release 12.1.0.2.0 -
+64bit Production
+Oracle SQl Developer
+Version 17.4.0.355
+SQL
+Datenkommunikation EDIFACT
+Ethernet
+Ethernet
+Fax
+24.02.2023 18 von 20
+HTTP
+LAN, LAN Manager
+LDAP
+PC-Anywhere
+TCP/IP
+Hardware Drucker HP
+Plotter
+Scanner
+Design / Entwicklung / Design mit UML
+Konstruktion
+Eclipse Photon June 2018
+Entwicklung mit J(2)EE
+GIT version
+2.21.0.windows.1
+hibernate-4.3.11-Final
+Maven Sonar Version
+2.7.1
+PrimeFaces 5.3
+UML-Modellierung UMLet
+version 12.2
+WebSphere Application
+Server V8.5.5
+Aus- und Weiterbildung
+Qualifikationen
+Diplom-Informatiker (Univ.)
+Ausbildung
+09/1997 – 11/2004
+Institution: Johann-Wolfgang-Goethe Universität Frankfurt am Main, Fachrichtung: Informatik mit
+Nebenfach Physik.
+Abschluss: Diplom-Informatiker.
+ 
+Weiterbildungen
+09/2009 – 10/2009: SAP Kurs; alfatraining
+Development Consultant SAP NetWeaver 2004 – Applikcation Development Focus ABAP SAP® ERP
+6.0. Focus ABAP Form 2007 mit folgenden Modulen:
+    •  SAPTEC: Grundlagen des SAP Web AS.
+    •  BC 400: ABAP Workbench Grundlagen.
+    •  BC 430: ABAP Dictionary.
+    •  ADM 940: Einführung in das Berechtigungskonzept mit SAP.
+    •  BC 410: Entwicklung und Benutzerdialoge.
+    •  Skills: SAP NetWeaver 2004, ABAP, SAP TEC, BC.
+ 
+24.02.2023 19 von 20
+07/2009 – 09/2009
+Java Kurs (J2SE 1.6, J2EE 1.5, Servlets, RMI, JNLP, Eclipse 3.5, Windows XP)
+ 
+09/1996 – 07/1997
+Deutsch Sprachkurs, Studienkolleg an der Uni-Leipzig, Abschluss: Zeugnis über die Deutsche
+Sprachprüfung mit der Spezialisierungsrichtung Fachsprache Naturwissenschaften/ Technik.
+24.02.2023 20 von 20
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_102939
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                102939
+  
+Wohnort                    604xx Frankfurt am Main, Deutschland
+Jahrgang                   1970
+Staatsbürgerschaft         Deutsch
+Stundensatz                90 EUR
+                           all in.
+Verfügbar ab               23.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         08.11.09
+Profil zuletzt geändert am 23.06.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 13.03.2021 19:21:54
+
+Fachlicher Schwerpunkt:
+Java J(2)EE Entwickler
+
+Position:
+Software-Entwicklung / Programmierung
+Engineering / IT-nahe Ingenieurdienstleistungen
+Festanstellung kommt in Betracht, aber freiberufliche Mitarbeit bevorzugt
+
+Voraussetzung für Festanstellung: Keine Voraussetzung.
+
+Ausbildung:
+Qualifikationen
+Diplom-Informatiker (Univ.)
+ 
+Ausbildung
+09/1997  11/2004
+Institution: Johann-Wolfgang-Goethe Universität Frankfurt am Main,
+Fachrichtung: Informatik mit Nebenfach Physik.
+Abschluss: Diplom-Informatiker.
+ 
+Weiterbildungen
+09/2009  10/2009: SAP Kurs; alfatraining
+Development Consultant SAP NetWeaver 2004  Applikcation Development Focus ABAP
+SAP® ERP 6.0. Focus ABAP Form 2007 mit folgenden Modulen:
+    * SAPTEC: Grundlagen des SAP Web AS.
+    * BC 400: ABAP Workbench Grundlagen.
+    * BC 430: ABAP Dictionary.
+    * ADM 940: Einführung in das Berechtigungskonzept mit SAP.
+    * BC 410: Entwicklung und Benutzerdialoge.
+    * Skills: SAP NetWeaver 2004, ABAP, SAP TEC, BC.
+ 
+07/2009  09/2009
+Java Kurs (J2SE 1.6, J2EE 1.5, Servlets, RMI, JNLP, Eclipse 3.5, Windows XP)
+ 
+09/1996  07/1997
+Deutsch Sprachkurs, Studienkolleg an der Uni-Leipzig, Abschluss: Zeugnis über
+die Deutsche Sprachprüfung mit der Spezialisierungsrichtung Fachsprache
+Naturwissenschaften/ Technik.
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+apache-maven-3.6.1  
+Arabisch           Muttersprache
+Deutsch            Fließend in Wort und Schrift
+Englisch           Gut in Wort und Schrift
+
+
+Hardware:
+Drucker HP
+Plotter  
+Scanner  
+
+
+Betriebssysteme:
+Dos      
+Linux   Redhat
+MS-DOS   
+Unix     
+Windows 7, 8, 10, XP
+Xubuntu  
+
+
+Programmiersprachen:
+ABAP                            
+ABAP4                           
+Ajax                            
+C                               
+CSS                             
+Design Patterns                 
+EDIFACT                         
+EJB3.1                          
+Hibernate                       
+                               J2EE, J2SE(2, 7, 8), Java-Swing, Vaadin, Java
+Java                           Server Faces (JSF), JSF-Beans, Ajax, RichFaces,
+                               PrimeFaces, Java Server Pages (JSP), JavaScript,
+                               EjB
+JavaScript                      
+Java7/8                         
+Java8                           
+JAX-RS                          
+JEE                             
+JPA                             
+JQuery                          
+JSF 2.2.17                      
+JSON                            
+JSP                             
+JUnit 4.12                      
+J2EE                            
+J(2)EE 6.0                      
+log4j-2.3                       
+mockito-all Version 2.0.2-beta  
+Spring                          
+SQL                             
+Struts                          
+UML                             
+WSDL                            
+(X)HTML                         
+XML                             
+XSLT                            
+
+
+Datenbanken:
+Access                                   
+DAO                                      
+DB2                                      
+JDBC                                     
+Microsoft SQL Datenbank                  
+MS SQL Server                            
+MySQL                                    
+ODBC                                     
+Oracle                                  10g, 11g, Database 10g, Datenbank 11g
+Oracle Database 12c Enterprise Edition   
+Release 12.1.0.2.0 - 64bit Production
+Oracle SQl Developer Version 17.4.0.355  
+SQL                                      
+
+
+Datenkommunikation:
+EDIFACT           
+Ethernet          
+Fax               
+HTTP              
+LAN, LAN Manager  
+LDAP              
+PC-Anywhere       
+TCP/IP            
+
+
+Design/Entwicklung/Konstruktion:
+Design mit UML                       
+Eclipse Photon June 2018             
+Entwicklung mit J(2)EE               
+GIT version 2.21.0.windows.1         
+hibernate-4.3.11-Final               
+Maven Sonar Version 2.7.1            
+PrimeFaces 5.3                       
+UML-Modellierung UMLet version 12.2  
+WebSphere Application Server V8.5.5  
+
+
+Aufgabenbereiche:
+Atlassian Jira v7.13.0                     
+Citrix Receiver für Web 2019              
+ITSM-Framework WebSelfService Version 3.4  
+
+
+Schwerpunkte:
+Fachlicher Java-Entwickler  
+
+
+Produkte/Standards/Erfahrungen:
+Ant                                     1.8.1, 1.8.2
+                                        LDAP-Browser, Tomcat 6.0.20, ant 1.8.4,
+Apache                                  ant 1.9.4., Maven 3.0.4, Maven 3.2.3.,
+                                        Maven 3.3.9
+Atlassian Confluence                    3.1, Wiki 4.2.11
+BC                                       
+BeanShell bsh-2.0b4                      
+CDI                                      
+Citrix Receiver Version 4.4              
+Clairty                                  
+CSS                                      
+DB2 Datenbank                            
+Deployment-Tool: Hudson                  
+Derby Datenbank                          
+Design Patterns                          
+DoKuStar Design Studio 4.3               
+dom4j                                    
+EasyMock 3.1                             
+                                        3.5, Helios, Helios Build, IBM Rational
+                                        Software Architect (RSA) Version
+Eclipse                                 8.0.4.1, Kepler, Luna, Mars Version
+                                        4.5.2, Mars.1 Release (4.5.1), Neon,
+                                        3.7.2-Indigo-SR2, Link 2.4.1.
+Eclipse4.13                              
+EJB                                     2.1, 3.1
+Enterprise Architect                    8.0 UML-Tool, Version 12, Full
+                                        10.00.1009.8
+Entity-Beans                             
+ER/Studio Data Architect Version 16.0.2  
+GIT Version                             2.4.1, 2.8.1
+GlassFish-3.1.2                          
+Groovy 2.4                               
+GSON-2.0                                 
+                                        3.0, 4.3.7.Final, commons-annotations
+Hibernate                               4.0.2.Final, core 4.2.21, entitymanager
+                                        4.2.21, 3.3.1, 4.1.1.Final
+HP ALM - Quality Center 12.01            
+IBM MQ                                   
+J(2)EE                                   
+Java                                    1.8.0_11, 1.7, 8, 1.6.0_35, 8
+                                        4.2.2, 5.1.0, 7.1.1 Application Server
+JBoss                                   Version 8.0.0.5, 6.0, 7.1.1.Final,
+                                        3.5.1, 5.1.0
+JDBC-Connector                           
+jEdit 5.1.0                              
+Jenkins                                 (Hudson) 1.478, 1.609.1, ver. 1.651.3
+Jira                                    (Backtracking) 4.1, 5.1.6,
+JMeter 2.11                              
+JSF                                     2.1.2, Beans, 1.2, 2.0, 2.2
+JUnit                                   3.8, 4.11,
+JUnitTest                               3.8, 4, 4.12
+LDAP                                     
+Linux                                   Red Hat 6, Ubuntu 9.1
+log4j                                   1.2.12, 1.2.16, 1.2.17
+MagicDraw                               16.5 (UML-Tool), 17.0.1 (UML-Tool)
+Mantis 1.1.8                             
+Maven                                   2.2.1, 3.0.3
+Microsoft                               Office, Outlook
+Microsoft Office Professional Plus 2016  
+mockito-all Version 1.10.19              
+MySQL                                   Jdbc-Connector 5.1.7, Server 5.0.77
+Notepad++                               v6.1.8, v6.3.1, v6.5.3, v6.9.1, v6.9.2
+Notepad++ v6.8.2                         
+Office Communicator Version 3.5.69       
+Open Office                              
+OpenSSO Enterprise Edition 8.0           
+OpenText Capture Document Reader         
+(DOKuStar Professional) 3.6
+Oracle 10g Datenbank                     
+Oracle SQL Developer                    V4.0.3, Version 3.1.07, Version
+                                        4.1.3.20
+Oracle VM Jenkins (Hudson) 1.504         
+PLSQL und SQLyog - Datenbank-Browser     
+PLSQL-Datenbank-Browser-v7.15            
+Polarion Build: 3.9.1.20150623-2040      
+Policy Agent 3.0                         
+PrimeFaces                              3.3.1, 3.4, 3.5,3.4.1
+PSPad                                    
+Putty                                    
+PuTTY Release 0.7                        
+Quantum Datenbank-Browser                
+Rational Team Concert (RTC) Version 4.0  
+RecoStar Design Studio                   
+Remedy                                   
+REST                                     
+RESTful Services (JAX-RS)                
+RichFaces 3.3                            
+RSA-Modelling-UML-Tool                   
+SAP NetWeaver 2004                       
+SAP TEC                                  
+SCRUM                                    
+Selenium 2.45.0                          
+Servlets                                 
+slf4j Version 1.7.13                     
+SOAP                                     
+soapUI                                  3.6.1, 5.0.0,5.3.0
+SoapUI 5.3.0                             
+SourceTree Version 1.8.3.0               
+Spring                                  Version 4.1.1.RELEASE (spring-aop)
+Spring 2.5.6                             
+Spring Version                          3.1.1 RELEASE, 4.0.4, 4.1.1,
+                                        4.2.2.RELEASE,
+spring-aop 4.2.2.RELEASE                 
+spring-aspects                           
+spring-beans                            4.2.2.RELEASE
+spring-context                          4.2.2.RELEASE, support, support
+                                        4.2.2.RELEASE
+spring-core                             4.2.2.RELEASE
+spring-expression                        
+spring-jdbc                             4.2.2.RELEASE
+spring-jms 4.2.2.RELEASE                 
+spring-ldap-core 21.0.RELEASE            
+spring-orm                              4.2.2.RELEASE
+spring-test                              
+spring-tx                               4.2.2.RELEASE
+spring-web                              4.2.2.RELEASE
+spring-webmvc 4.2.2.RELEASE              
+SQL Workbench Build 116                  
+SQuirreL SQL Client Version 3.5.2        
+Squirrel-SQL-v3.4.0                      
+Subversion (SVN)                        Version 3.0.1
+Sun Directory Server                     
+Sun Virtual Box                          
+SVN                                     Repository
+Sybase ASE 15.03                         
+TeamViewer Version 11.0                  
+TestNG                                  6.9.12,
+Tomcat                                  6.0.20, 6.0.29, Version 7.0
+Tortoise                                 
+TortoiseSVN                             1.6.8, 1.7.14, v1.6.17
+UltraEdit-v17.30.0.1002                  
+v7.15                                    
+Vaadin Version 3.0.0                     
+Version 3.0.53.0                         
+Virtual Client (VC)                      
+VitrualBox                             4.2.12
+Web TimeSheet 6.7                        
+WebEx Konferenz                          
+WebLogic 9.2 MP3                         
+WebServices                             (cxf-java2ws-plugin), jaxb 2.1, JAXB
+                                        2.2.3
+WebSphere Application Server            Liberty Profile, Version 8.0.0.5
+Windows 10 Enterprise 2016 LTSB          
+Windows 8.1 Enterprise                   
+Windows Server 2008 R2 Standard          
+Windows Vista                            
+WindowsXP                                
+WinSCP                                  Version 5.5.3, 5.1.0
+WinSCP Version 5.15.3 (Build 9730)       
+wsdl4j 1.6.1                             
+xdoclet-1.2.3                            
+XSD                                      
+Expertise
+    * EDV-Erfahrung seit 1988
+ 
+Server
+    * JBoss
+    * Apache Tomcat
+    * WebLogic
+    * IBM WebSphere
+
+Branchen:
+    * IT
+    * Software
+    * Finanz/Banking
+    * Automotive
+    * Telekommunikation
+    * Versicherungen
+    * Handel &amp; Einkauf
+    * Output Management
+    * Dokumentenmanagementsystem (DMS)
+
+Projekte:
+01/2020 - 12/2020: Zensus2021
+ 
+Einsatzort:         Wiesbaden
+Rolle:              JEE-Entwickler
+Kunde:              Statistisches Bundesamt
+ 
+Aufgaben:
+ 
+Teilnahme am Projekt Zensus2021 (Volks- und Wohnungszählung), RDB
+(ReferenzDatenBestand), Web-Applikation für die statistische Analyse der
+Anschriften und Personen in Deutschland.
+Aufgaben:
+    * Architektur.
+    * Entwicklung der einzelnen Module Back- und Frontend.
+    * Testautomatisierung.
+    * Dokumentationen.
+Skills:Java8, J(2)EE 7.0, EJB3.1, CDI 1.2, JSF 2.2., PrimeFaces 6.1, omnifaces-
+2.5.1, hibernate-5.1.15.Final-redhat-1,  log4j-1.2.17, slf4j-log4j12-1.7.26,
+apache-maven-3.6.1, Gradle-6.7.1, JUnit 4.12, mockito-all Version 2.0.2-beta,
+SoapUI 5.3.0, Red Hat JBoss Enterprise Application Platform - Version 7.1.4.GA,
+devonfw IDE Current version of devon-scripts is 3.3.1, Eclipse IDE for Java
+Developers, Version: 2019-09 R (4.13.0), Oracle Database 12c Enterprise Edition
+Release 12.1.0.2.0 - 64bit Production, Oracle SQl Developer Version 19.2.1,
+UML-Modellierung UMLet version 14.3.0, GIT version 2.26.0.windows.1, GitLab
+Community Edition 10.1.4, SubVersion (SVN), TortoiseSVN 1.13.1, Build 28686 -
+64 Bit, 2019/10/31 18:49:38, Atlassian Jira v7.13.0, SonarQube Version 6.07.4
+(build 38452), CA Clarity PPM Version 15.4.0.270, PuTTY Release 0.7, WinSCP
+Version 5.15.3 (Build 9730), Notepad++ v6.3.1, Windows 10 Pro, Microsoft Office
+365 ProPlus.
+ 
+Kenntnisse:
+ 
+Java8
+ 
+Eingesetzte Produkte:
+ 
+Eclipse4.13
+===============================================================================
+07/2019 - 12/2019: Projekt (GemFA)
+ 
+Einsatzort:         Bonn
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              ITZBund (Informationstechnikzentrum Bund)
+ 
+Aufgaben:
+ 
+Teilnahme am Projekt (GemFA), Web-Applikation für die Finanzbehörden in
+Deutschland.
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Testautomatisierung
+    * Dokumentationen
+ 
+Kenntnisse:
+ 
+Java7/8, J(2)EE 6.0, EJB3.1, JSF 2.2.17, PrimeFaces 5.3, hibernate-4.3.11-
+Final, log4j-2.3, apache-maven-3.6.1, JUnit 4.12, mockito-all Version 2.0.2-
+beta, SoapUI 5.3.0, WebSphere Application Server V8.5.5, Eclipse Photon June
+2018, Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit
+Production, Oracle SQl Developer Version 17.4.0.355, UML-Modellierung UMLet
+version 12.2, GIT version 2.21.0.windows.1, Atlassian Jira v7.13.0, ITSM-
+Framework WebSelfService Version 3.4, Maven Sonar Version 2.7.1, Citrix
+Receiver für Web 2019, PuTTY Release 0.7, WinSCP Version 5.15.3 (Build 9730),
+Notepad++ v6.8.2, Windows 10 Enterprise 2016 LTSB, Microsoft Office
+Professional Plus 2016
+===============================================================================
+06/2018 - 06/2019: Diverse Projekte
+ 
+Einsatzort:         Eschborn
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              VR-Smart-Finanz (eh. VR-Leasing)
+ 
+Aufgaben:
+ 
+Teilnahme an mehreren Projekten (PA Prozessautomatisierung, POK Paket und
+Obligo Konditionen, StumBG Steuerumgehungsbekämpfungsgesetzt) für mehrere Web-
+Applikationen (LOS Leasing Online System und ANIS Antrag Nachbearbeitung
+Information System).
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Testautomatisierung
+    * Dokumentationen
+ 
+Kenntnisse:
+ 
+Java7/8, J(2)EE 7.0, EJBs, JSF 1.2, PrimeFaces 6.0, hibernate-core 4.2.21,
+hibernate-commons-annotations-5.0.1.Final, hibernate-core-5.0.12.Final,
+hibernateentitymanager- 5.0.12.Final, hibernate-jpa-2.1-api-1.0.0Final, Entity-
+Beans, WebServices (JAX-WS, JAX-B), JMS, log4j-1.2.17, Ant, JUnit 4.12,
+mockito-all Version 1.9.5, SoapUI 5.3.0, Oracle WebLogic Server 12c R2
+(12.2.1), Eclipse Neon.1a Release (4.6.1), Oracle Datenbank Release 12.1.0.2.0
+- 64bit Production, DB2 Datenbank, DbVisualizer Pro 9.0.6, UML-Modellierung
+Modelio Open Source 3.7, SubVersion (SVN), TortoiseSVN 1.8.11, Jenkins ver.
+1.617, Atlassian Jira v7.1, ISM (Maximo) Version 7.2.0.3
+(Incidentsbearbeitungssystem), SonarQube Version 5.6, Artifactory OSS 4.2.2 rev
+40049 von JFrog, Confluence 6.9.0, Citrix XenApp Synergy 1999-2019, PuTTY 0.7,
+WinSCP Version 5.15 (Build 9365), Splunk 7.0.5, Notepad++ v7.6.5, Windows 7
+Professional, Microsoft Office Professional Plus 2010
+===============================================================================
+07/2017 - 06/2018: Projekt Verfahrenskontrolle-Applikation
+ 
+Einsatzort:         Wiesbaden
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              Bundeskriminalamt
+ 
+Aufgaben:
+ 
+Teilnahme am Projekt Verfahrenskontrolle-Applikation (VFKA, Web-Applikation)
+für die Kontrolle und Konfiguration der Systeme, die aus Warteschlangen und
+Services bestehen.
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Testautomatisierung
+    * Dokumentationen
+ 
+Kenntnisse:
+ 
+Java-1.8, J(2)EE 7.0, EJBs, JSF 2.2, PrimeFaces 6.0, OmniFaces 1.14, hibernate-
+core 4.2.21, hibernate-commons-annotations 4.0.2.Final, hibernate-entitymanager
+4.2.21, Entity-Beans, Apache-Maven-3.5.2, TestNG 6.14.2, mockito-all Version
+1.9.5, slf4j Version 1.7.25, WebLogic Server 12c, Apache Tomcat 8.5.24,
+NetBeans IDE 8.2, Eclipse Mars.1 Release (4.5.1), Oracle Datenbank 11g, SQL
+Developer version 4.2.0.17.089, eclipselink 2.6.1, UML-Modellierung Modelio
+Open Source 3.7, SubVersion (SVN), TortoiseSVN 1.8.11, Jenkins ver. 1.617,
+SonarQube Version 5.6, CodeBeamer 7.7.2.2 (Oracle), PuTTY 0.63, WinSCP 5.1.7,
+Notepad++v7.3.3, Windows 7 Enterprise, Microsoft Office
+===============================================================================
+12/2016 - 06/2017: Projekt Web-Applikation
+ 
+Einsatzort:         Ludwigsburg
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              W&amp;W Informatik GmbH
+ 
+Aufgaben:
+ 
+Teilnahme am Projekt Web-Applikation für die Verwaltung der
+Versicherungsaufträge (AuftragsTyp, Datum, OrdnungsbegriffTyp, Status, etc.).
+    * Architektur
+    * Entwicklung der einzelnen Module Backend
+    * Entwicklung der WebServices
+    * Testautomatisierung
+    * Dokumentationen
+ 
+Kenntnisse:
+ 
+Java-1.7, J(2)EE, spring-core 4.2.2.RELEASE, spring-context 4.2.2.RELEASE,
+spring-context-support 4.2.2.RELEASE, spring-beans 4.2.2.RELEASE, spring-jms
+4.2.2.RELEASE, spring-webmvc 4.2.2.RELEASE, spring-tx 4.2.2.RELEASE, spring-orm
+4.2.2.RELEASE, spring-aop 4.2.2.RELEASE, spring-web 4.2.2.RELEASE, spring-jdbc
+4.2.2.RELEASE, spring-ldap-core 21.0.RELEASE, WebServices (cxf-java2ws-plugin),
+RESTful Services (JAX-RS), SoapUI 5.3.0, dom4j, hibernate-core 4.2.21,
+hibernate-commons-annotations 4.0.2.Final, hibernate-entitymanager 4.2.21,
+Entity-Beans, Apache-Maven-3.2.3, testng 6.9.12, mockito-all Version 1.10.19,
+slf4j Version 1.7.13, WebSphere Application Server Liberty Profile, Eclipse
+Mars.1 Release (4.5.1), DB2 Datenbank, SQuirreL SQL Client Version 3.5.2,
+Enterprise Architect Version 12, SVN, Jira, Atlassian Confluence Version
+5.1.0.8,   Jenkins ver. 1.651.3, Notepad++v6.9.2, Windows 8.1 Enterprise,
+Microsoft Office.
+===============================================================================
+06/2016 - 09/2016: Projekt Web-Applikation
+ 
+Einsatzort:         Erlangen
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              Siemens AG
+ 
+Aufgaben:
+ 
+Teilnahme am Projekt Web-Applikation für die Verwaltung der Energie-Projekte
+(Project Name, Country, Region, Main Fuels, Backup Fuel, etc.).
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Testautomatisierung
+ 
+Kenntnisse:
+ 
+Java-8, J(2)EE, spring-aspects, spring-beans, spring-context, spring-context-
+support, spring-core, spring-expression, spring-jdbc, spring-orm, spring-tx,
+spring-web, spring-test), Vaadin Version 3.0.0, Hibernate 4.3.7.Final, Entity-
+Beans, Apache-Maven-3.3.9, JUnit 4.11, log4j 1.2.17, Tomcat Version 7.0,
+Eclipse Neon, Oracle Datenbank 11g, Oracle SQL Developer Version 4.1.3.20, ER/
+Studio Data Architect Version 16.0.2, GIT Version 2.4.1, SourceTree Version
+1.8.3.0, Jira, Putty, WinSCP Version 5.5.3, Notepad++v6.9.2, Virtual Client
+(VC), Citrix Receiver Version 4.4, Office Communicator Version 3.5.69, Windows
+10, Microsoft Office., Spring Version 4.1.1.RELEASE (spring-aop)
+===============================================================================
+04/2016 - 08/2016: Projekt Web-Applikation
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              Deutsche Bank
+ 
+Aufgaben:
+ 
+Teilnahme am Projekt Web-Applikation für die Verwaltung der elektronischen
+Schlüssel.
+    * Architektur
+    * Frontend Entwicklung
+ 
+Kenntnisse:
+ 
+Java-8, J(2)EE, Spring Version 4.2.2.RELEASE, JSF2.0, JSF-Beans,
+Hibernate4.1.1.Final, Apache-Maven-3.3.9, log4j 1.2.17, Tomcat Version 7.0,
+Eclipse Mars Version 4.5.2, Oracle Datenbank 11g, GIT Version 2.8.1, TeamViewer
+Version 11.0, Notepad++v6.9.1, Windows 10, Microsoft Office.
+===============================================================================
+05/2014 - 04/2016: Teilnahme an mehreren Projekten
+ 
+Einsatzort:         Erfurt 
+Rolle:              EE-Architekt &amp; JEE-Entwickler
+Kunde:              Telekom (T-Systems) International GmbH
+ 
+Aufgaben:
+ 
+OCR-Projekt:
+Tausende elektronische Dokumente werden täglich durch Benutzung eines Tools
+(OpenText Capture Document Reader, Abk. OCR), Dokumentenmanagementsystem (DMS),
+bearbeitet.
+ 
+Aufgaben:
+    * Migration eines bestehenden Systems zu einem Neuen, um die Kosten zu
+      sparen.
+    * Optimierung und Erweiterung einer bestehenden JEE-Applikation (Für die
+      Bearbeitung der elektronischen Dokumente), um die Kosten zu sparen und
+      die Performanz zu verbessern.
+    * Architektur.
+    * Installation der OCR-Software und die notwendige Umgebung.
+    * Erstellung der OCR-Projekte.
+    * Testautomatisierung.
+    * Dokumentation.
+ 
+Mailorder-Projekt:
+Bearbeitung der XML-Requests und Schicken der Responses durch die Verwendung
+der MQs (vereinbarte Schnittstellen) zurück.
+ 
+Aufgaben:
+    * Architektur.
+    * Entwicklung der einzelnen Module Back- und Frontend.
+    * Testautomatisierung.
+    * Dokumentation.
+ 
+EMail-Datenmanagement-Projekt:
+Verwaltung der EMails der Kunden durch die MQ-Request/Response-Technologie.
+ 
+Aufgaben:
+    * Architektur
+    * Entwicklung der einzelnen Module Backend.
+    * Testautomatisierung.
+    * Dokumentation.
+ 
+Benachrichtigung-Projekt:
+Die Benachrichtigung der Kunden durch EMail und/oder SMS.
+ 
+Aufgaben:
+    * Architektur.
+    * Entwicklung der einzelnen Module Backend.
+    * Testautomatisierung.
+    * Dokumentation.
+ 
+Kenntnisse:
+ 
+Java 1.8.0_11, J(2)EE, WebServices JAXB 2.2.3, XSD, WSDL, Spring Version 4.1.1,
+JSF2.2, JSF-Beans, PrimeFaces 3.5, Hibernate4.1.1.Final, IBM MQ, Apache-Maven-
+3.2.3, Apache-ant-1.9.4, Design Patterns, JUnitTest 4.12, EasyMock 3.1, Groovy
+2.4, Selenium 2.45.0, SoapUI 5.0.0, log4j 1.2.16, Enterprise Architect Full
+10.00.1009.8, Oracle Datenbank 11g, SQL Workbench Build 116, Oracle SQL
+Developer V4.0.3, OpenText Capture Document Reader (DOKuStar Professional) 3.6,
+DoKuStar Design Studio 4.3, RecoStar Design Studio, Version 3.0.53.0, JMeter
+2.11, BeanShell bsh-2.0b4, jEdit 5.1.0, Subversion (SVN), TortoiseSVN 1.7.14,
+Jenkins 1.609.1, Polarion Build: 3.9.1.20150623-2040, JBoss 7.1.1 Application
+Server Version 8.0.0.5, Eclipse Luna, WebEx Konferenz, HP ALM - Quality Center
+12.01, Putty, WinSCP, VitrualBox  4.2.12, Notepad++v6.5.3, Windows 7, Windows
+Server 2008 R2 Standard, Microsoft Office.
+===============================================================================
+01/2014 - 04/2014: Familienphase und Weiterbildung
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              JEE-Architekt &amp; JEE-Entwickler
+ 
+Aufgaben:
+ 
+Familienphase und Weiterbildung (JSF 2.2, Spring 4.0.4 und Selenium)
+    * Lernen
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+ 
+Kenntnisse:
+ 
+Java, J(2)EE, Spring Version 4.0.4, JSF2.2, JSF-Beans, Hibernate4.1.1.Final,
+Ant 1.8.1, Design Patterns, log4j 1.2.16, RSA-Modelling-UML-Tool, JBoss 7.1.1
+Application Server Version 8.0.0.5, Eclipse Kepler, Oracle Datenbank 11g,
+VitrualBox.Version 4.2.12, Notepad++v6.3.1, Windows 7, Microsoft Office.
+===============================================================================
+05/2013 - 12/2013: Projekt "SEPA"
+ 
+Einsatzort:         Chemnitz
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              IBM
+ 
+Aufgaben:
+ 
+Eine Web-Applikation für ein grosses Projekt "SEPA" wurde entwickelt.
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Bugs fixen
+    * Test und Dokumentation
+ 
+Kenntnisse:
+ 
+Java, J(2)EE, Spring Version 3.1.1 RELEASE, TestNG, JSF1.2, JSF-Beans,
+Hibernate4.1.1.Final, Ant 1.8.1, Design Patterns, log4j 1.2.16, RSA-Modelling-
+UML-Tool, WebSphere Application Server Version 8.0.0.5, Eclipse IBM Rational
+Software Architect (RSA) Version 8.0.4.1, Eclipse Helios Build id: 20110218-
+0911, SubVersion (SVN) Version 3.0.1, Oracle Datenbank 11g, Oracle SQL
+Developer Version 3.1.07, Oracle VM Jenkins (Hudson) 1.504, Mantis 1.1.8,
+Rational Team Concert (RTC) Version 4.0, VitrualBox.Version 4.2.12,
+Notepad++v6.3.1, Xubuntu, Windows 7, Microsoft Office.
+===============================================================================
+01/2013 - 04/2013: Web-Applikation
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              JEE-Architekt &amp; JEE-Entwickler
+Kunde:              Eigenes Projekt
+ 
+Aufgaben:
+ 
+Eine Web-Applikation für Internet Makler wird entwickelt.
+    * Architektur
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Bugs fixen
+    * Test und Dokumentation
+ 
+Kenntnisse:
+ 
+Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.3.1, Ajax,    CSS, JavaScript,
+JQuery, Hibernate3.3.1, Ant 1.8.1, Design Patterns, JUnitTest 4, log4j 1.2.12,
+Enterprise Architect 8.0 UML-Tool, JBoss5.1.0, Subversion (SVN), Eclipse
+Helios, PLSQL-Datenbank-Browser-v7.15, Oracle Database 10g, Notepad++v6.3.1,
+WindowsXP, Microsoft Office, Microsoft Outlook
+===============================================================================
+10/2012 - 12/2012: Web-Applikationen
+ 
+Rolle:              Entwickler
+Kunde:              Fa. Daimler
+ 
+Aufgaben:
+ 
+Mitarbeiten in mehreren Web-Applikationen (Backend, Update, DCC und Async) für
+Upload und Download der Dateien durch Benutzung der REST-Technologie für Autos-
+Mieten (Car2Go) und die Bearbeitung der Requests (Anfragen) von einem mobilen
+Gerät (TCU-Unit) und von mobilem Telefon.
+    * JBoss-7.1.1.Final für Windows und Unix Platforms konfigurieren
+    * Modulierung
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Bugs fixen.
+    * Test und Dokumentation
+ 
+Kenntnisse:
+ 
+Java1.6.0_35, J(2)EE, JSF-2.1.2, JSF-Beans, EJB3.1, REST, JAX-RS, JSON, GSON-
+2.0, CDI, PrimeFaces-3.4.1, Ajax,    CSS, JavaScript, JQuery, EclipseLink-
+2.4.1, JPA, Apache-Maven-3.0.4, Apache-ant-1.8.4, Design Patterns, JUnitTest 4,
+log4j 1.2.12, MagicDraw 17.0.1 (UML-Tool), JBoss-7.1.1.Final, GlassFish-3.1.2,
+TortoiseSVN-v1.6.17, Subversion (SVN), Eclipse-3.7.2-Indigo-SR2, Derby
+Datenbank, Squirrel-SQL-v3.4.0, Confluence Wiki 4.2.11, Jira 5.1.6, Jenkins
+(Hudson) 1.478, Putty, WinSCP-5.1.0, Notepad++v6.1.8, UltraEdit-v17.30.0.1002,
+Unix, Windows7, Microsoft Office, Microsoft Outlook, SCRUM
+===============================================================================
+09/2012 - 10/2012: Web-Applikation
+ 
+Rolle:              Entwickler (freiberuflich)
+Kunde:              Fa. Dürr
+ 
+Aufgaben:
+ 
+Eine Web-Applikation für Autolackierung wird entwickelt.
+    * Erstellung der Composite Komponente vom JSF
+    * Modulierung
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Bugs fixen
+    * Test und Dokumentation
+ 
+Kenntnisse:
+ 
+Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.4, Ajax,    CSS, JavaScript,
+JQuery, Hibernate3.3.1, Maven-3.0.3, Ant-1.8.2, Design Patterns, JUnitTest 4,
+log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss-6.0, Tortoise,
+Subversion (SVN), Eclipse-Helios, Microsoft SQL Datenbank, Notepad++, Windows7,
+Microsoft Office, Microsoft Outlook
+===============================================================================
+04/2012 - 09/2012: Web-Applikation
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              JEE-Architekt &amp; JEE-Entwickler
+Kunde:              Eigenes Projekt
+ 
+Aufgaben:
+ 
+Eine Web-Applikation für Online Shop für Klamotten wird entwickelt.
+    * Modulierung
+    * Entwicklung der einzelnen Module Back- und Frontend
+    * Bugs fixen
+    * Test und Dokumentation
+ 
+Kenntnisse:
+ 
+Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.3.1, Ajax,    CSS, JavaScript,
+JQuery, Hibernate3.3.1, Ant 1.8.1, Design Patterns, JUnitTest 4, log4j 1.2.12,
+Enterprise Architect 8.0 UML-Tool, JBoss5.1.0, Subversion (SVN), Eclipse
+Helios, PLSQL-Datenbank-Browser-v7.15, Oracle Database 10g,   WindowsXP,
+Microsoft Office, Microsoft Outlook
+===============================================================================
+02/2011 - 03/2012: Diverse Projekte
+ 
+Rolle:              Entwickler
+Kunde:              Fa. Siemens
+ 
+Aufgaben:
+ 
+Bei Siemens habe ich in 3 Projekten gearbeitet:
+Elektronisches Personalarchiv:
+Alle Mitarbeiter bei Siemens haben Dokumente, diese werden durch dieses Projekt
+elektronisch verwaltet. Fast das ganze Projekt (Front- und Backend) wurde von
+mir alleine in 2 Sprachen Deutsch und Englisch entwickelt.
+ 
+Move:
+Migration der 5 großen Projekte von alten Technologien (Java1.4, Oracle 8,
+JBoss3.5.1) zu neuen Technologien (Java1.6, Oracle 11g, JBoss5.1.0) und
+Entfernung eines alten Frameworks.
+ 
+Move:
+Abrechnungssystem wird entwickelt. Die Daten (ca. 50.000 Datensätze) werden aus
+einer Text-Datei gelesen, bearbeitet und in die Datenbank geschrieben.
+ 
+Aufgaben:
+    * Modulierung
+    * Entwicklung der einzelnen Module Back- und Frontend 
+    * Bugs fixen
+    * Test und Dokumentation
+ 
+Kenntnisse:
+ 
+Java, J(2)EE, JSF1.2, EJB3.1, JSF-Beans, RichFaces 3.3, Ajax, xdoclet-1.2.3,
+JSP, CSS, JavaScript, JQuery, Ant 1.8.1, Design Patterns, JUnitTest 3.8 u. 4,
+log4j 1.2.12, JDBC-Connector, Enterprise Architect 8.0 UML-Tool, JBoss3.5.1,
+JBoss5.1.0, Subversion (SVN),   TortoiseSVN 1.6.8, Eclipse Helios, PLSQL-
+Datenbank-Browser-v7.15, Oracle 11g, Remedy, WindowsXP, Microsoft Office,
+Microsoft Outlook
+===============================================================================
+05/2010 - 10/2010: Web-Applikation
+ 
+Einsatzort:         Frankfurt am Main
+Rolle:              JEE-Entwickler (freiberuflich)
+Kunde:              McCann
+ 
+Aufgaben:
+ 
+Die Firma McCann entwickelt momentan eine Web-Applikation für Konfiguration der
+Autos.
+    * Entwicklung der einzelnen Module Backend
+    * Entwicklung der Web Services
+    * Bugs fixen Backend und Frontend
+    * Architektur
+    * Test und Dokumentation der Softwaremodule
+ 
+Kenntnisse:
+ 
+Java, JEE, WebServices jaxb 2.1, wsdl4j 1.6.1, Spring 2.5.6, Design Patterns,
+JUnitTest 3.8 u. 4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, Subversion
+(SVN), soapUI 3.6.1, Tomcat 6.0.29, TortoiseSVN 1.6.8, Eclipse Helios, PLSQL
+und SQLyog - Datenbank-Browser, v7.15, MySQL Jdbc-Connector 5.1.7, Oracle 10g,
+MySQL Server 5.0.77, Jira (Backtracking) 4.1, Confluence 3.1, Deployment-Tool:
+Hudson, Web TimeSheet 6.7, Clairty, Linux Red Hat 6, Putty, WindowsXP,
+Microsoft Office, Microsoft Outlook
+===============================================================================
+03/2010 - 05/2010: Web-Applikationen Entwicklung
+ 
+Rolle:              Entwickler
+Kunde:              Fa. SoftMethod
+ 
+Aufgaben:
+ 
+Vodafone und Arcor haben zwei verschiede Web-Applikationen. Eine neue Web-
+Applikation wird entwickelt, sodass die zwei Applikationen nur diese neue Web-
+Applikation werden, sodass der Benutzer nur einmal einloggen und nur einmal
+ausloggen kann, das ist das sogenannte Single Signe On (SSO).
+         
+Aufgaben:
+    * Installieren und Konfigurieren der folgenden Technologien:
+          o Bea WebLogic 9.2 MP3.
+          o Apache Tomcat 6.0.20 als Application-Server.
+          o Apache Tomcat 2.0 als HTTP-Dispatcher-Server.
+          o OpenSSO Enterprise Edition 8.0.
+          o Policy Agent 3.0.
+          o Sun Directory Server Enterprise Edition 6.3.1.
+          o LDAP (Lightweight Directory Access Protokoll) 2.4.
+          o Sybase ASE 15.03 Datenbank.
+    * Beseitigen der Fehler.
+    * Erstellen der Dokumentationen
+ 
+Kenntnisse:
+ 
+J2EE, Ant, Eclipse 3.5, Apache LDAP-Browser, Quantum Datenbank-Browser,
+WebLogic 9.2 MP3, Tomcat 6.0.20, OpenSSO Enterprise Edition 8.0, Policy Agent
+3.0, Sun Directory Server, LDAP, Sybase ASE 15.03, Oracle, Windows 7, Sun
+Virtual Box, Linux Ubuntu 9.1, Linux Red Hat 6, WinSCP, Putty.
+===============================================================================
+10/2009 - 02/2010: Entwicklung Web
+ 
+Rolle:              Entwickler
+Kunde:              Fa. DSS
+ 
+Aufgaben:
+ 
+Eine Web-Applikation wurde für Deutsche Telekom entwickelt um die Domains zu
+verwalten. Entwicklung der Web-Services für diese Applikation mit Java
+(Backend).
+ 
+Aufgaben:
+    * Entwicklung der Web-Services.
+    * Bugs fixen.
+    * Modulierung.
+    * Erstellen der Dokumentationen
+ 
+Kenntnisse:
+ 
+J2EE, Servlets, EJB 2.1, Spring 2.5.6, WebServices, WSDL, Hibernate 3.0, XSD,
+SOAP, Design Patterns, JUnit 3.8, Maven 2.2.1, Eclipse 3.5, SVN Repository,
+Apache Tomcat 6.0.20, JBoss 5.1.0, MagicDraw 16.5 (UML-Tool), Oracle 10g
+Datenbank, SQL,  SQuirrel SQL 3.0.2,  (Datenbankverwaltungstool), Apache Tomcat
+6.0.20, JBoss 4.2.2, Redhat Linux, PSPad, Open Office, Windows Vista.
+===============================================================================
+09/2009 - 10/2009: SAP Kurs
+ 
+Rolle:              alfatraining
+ 
+Aufgaben:
+ 
+Development Consultant SAP NetWeaver 2004 – Applikcation Development Focus ABAP
+SAP® ERP 6.0 Focus ABAP Form 2007 mit folgenden Modulen:
+    * SAPTEC: Grundlagen des SAP Web AS.
+    * BC 400: ABAP Workbench Grundlagen.
+    * BC 430: ABAP Dictionary.
+    * ADM 940: Einführung in das Berechtigungskonzept mit SAP.
+    * BC 410: Entwicklung und Benutzerdialoge
+ 
+Kenntnisse:
+ 
+SAP NetWeaver 2004, ABAP, SAP TEC, BC.
+===============================================================================
+Weitere Projekte gern auf Anfrage.
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_102939
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 24.06.2021 00:47:40
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

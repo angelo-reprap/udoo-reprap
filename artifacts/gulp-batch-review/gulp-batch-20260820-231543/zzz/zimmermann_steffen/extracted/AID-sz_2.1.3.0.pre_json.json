@@ -1,0 +1,818 @@
+{
+  "metadata": {
+    "aid": "AID-sz_2.1.3.0",
+    "version": "2.1.3.0",
+    "consultant_dir": "zimmermann_steffen",
+    "first_name": "Steffen",
+    "last_name": "Zimmermann",
+    "headline": "Anforderungsanalyse (zertifizierter Requirements Engineer), Architektur, Design, Projektleitung, Senior Developer (Java, C++, C#), zertifizierter UML- Spezialist, OOA, OOD, MDD, MDSD, Billing, Oracle",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:13:33.053846"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Steffen",
+      "last_name": "Zimmermann",
+      "languages": [
+        {
+          "name": "Englisch gut",
+          "level": ""
+        },
+        {
+          "name": "FranzösischGrundkenntnisse",
+          "level": ""
+        },
+        {
+          "name": "Russisch Grundkenntnisse",
+          "level": ""
+        }
+      ],
+      "availability": "01.05.21 zu 100%, Vor-Ort-Einsatz 15% möglich",
+      "location": "außerhalb D/A/CH",
+      "wohnort": "360xx Hünfeld, Deutschland Staatsbürgerschaft deutsch",
+      "headline": "Anforderungsanalyse (zertifizierter Requirements Engineer), Architektur, Design, Projektleitung, Senior Developer (Java, C++, C#), zertifizierter UML- Spezialist, OOA, OOD, MDD, MDSD, Billing, Oracle"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access gut",
+        "Approach Grundkenntnisse",
+        "BDE gut",
+        "BTrieve gut",
+        "DAO sehr gut",
+        "DB2 gut",
+        "Exasol",
+        "Informix gut",
+        "Ingres",
+        "Interbase sehr gut",
+        "JDBC sehr gut",
+        "MS SQL Server gut",
+        "MySQL sehr gut",
+        "ODBC sehr gut",
+        "Oracle sehr gut: 5",
+        "9i",
+        "10g",
+        "11 ; OCI",
+        "Replikation",
+        "PL/SQL",
+        "Tuning",
+        "Parstream",
+        "POET",
+        "Postgres gut",
+        "Quest",
+        "SQL sehr gut",
+        "19 Jahre Erfahrung",
+        "Sybase SQL Anywhere 5.x",
+        "versant",
+        "artbase gut",
+        "Watcom SQL sehr gut",
+        "xBase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Alpha",
+        "CD-Writer / Brenner",
+        "Digital",
+        "Digitale Signalprozessoren Texas Instruments: C40",
+        "Drucker",
+        "Emulatoren VMWare Workstation",
+        "VMWare Server",
+        "VMware ESX",
+        "User",
+        "Mode Linux",
+        "XEN",
+        "VirtualBox",
+        "KVM",
+        "Framegrabber",
+        "HP",
+        "Messgeräte",
+        "Mikrocontroller",
+        "Modem",
+        "PC",
+        "Rational",
+        "Scanner",
+        "Siemens MX MX500",
+        "MX300",
+        "Streamer",
+        "SUN",
+        "Texas Instruments TMS320C40",
+        "Video Capture Karte",
+        "Texas Instruments Signalprozessoren"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Apollo Domain OS",
+        "CP/M",
+        "HPUX gut",
+        "Linux sehr gut",
+        "Mac OS",
+        "MS-DOS gut",
+        "Novell Grundkenntnisse",
+        "OSF/Motif",
+        "OS/2 sehr gut",
+        "SUN OS",
+        "Solaris sehr gut",
+        "True64",
+        "Unix sehr gut",
+        "Windows sehr gut",
+        "Windows CE"
+      ],
+      "programming_languages": [
+        "ASN.1",
+        "Assembler Z80",
+        "Z8000",
+        "Z8",
+        "Basic",
+        "C sehr gut",
+        "C# gut",
+        "C++ sehr gut",
+        "CORBA IDL sehr gut",
+        "Delphi Grundkenntnisse",
+        "Emacs",
+        "ESQL/C",
+        "Fortran",
+        "Imake",
+        "GNU-Make",
+        "Make-Maker etc... sehr gut",
+        "Java sehr gut",
+        "JavaScript gut",
+        "LUA gut",
+        "Modula-2 Grundkenntnisse",
+        "Objective C",
+        "Optima++ gut",
+        "Paradox",
+        "Pascal gut",
+        "Perl gut",
+        "PHP gut",
+        "PL/SQL sehr gut",
+        "PL/Z Grundkenntnisse",
+        "PL/1 Grundkenntnisse",
+        "Prolog",
+        "Python gut",
+        "Qt gut",
+        "Rexx gut",
+        "Scriptsprachen",
+        "Shell sehr gut (sh",
+        "csh",
+        "bash",
+        "ksh",
+        "zsh)",
+        "Smalltalk",
+        "Tcl/Tk gut",
+        "TeX",
+        "LaTeX",
+        "Xt",
+        "Motif",
+        "yacc/lex",
+        "ZINC gut"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Produktionsdatenerfassungssystem Inhalt: Entwicklung",
+        "title": "Produktionsdatenerfassungssystem Inhalt: Entwicklung eines Produktionsdatenerfassungssystems für einen Automobilindustriezulieferer als Client/Server-Lösung Projektzeitraum: 1989 - 1990 Betriebssystem(e): Novell Netware 2.x, Novell Netware 3.x, OS/2 1.0 OS/2 1.1 Hardware: PC Datenbanken: Btrieve Pro",
+        "industry": "Automobilindustrie Zulieferer (Automotive) Projektsprache: Deutsch",
+        "technologies": [
+          "Betriebssystem(e): Linux (SLES",
+          "RHEL",
+          "Debian)",
+          "Windows 7",
+          "ubuntu",
+          "Betriebssystem(e): Solaris",
+          "Windows XP",
+          "Windows 2000",
+          "Betriebssystem(e): AIX",
+          "Windows.NET",
+          "SWT",
+          "JDBC",
+          "ODBC",
+          "BMC Remedy",
+          "JUnit",
+          "WindowsXP",
+          "Windows2000",
+          "Betriebssystem(e): True64 (OSF1)",
+          "Windows NT 4",
+          "Betriebssystem(e): WindowsCE",
+          "Windows98",
+          "HP-UX",
+          "OS/2 2.1",
+          "HP-Workstation",
+          "Sun Workstations",
+          "PC",
+          "Betriebssystem(e): Windows NT 3.51",
+          "WindowsNT 4",
+          "Windows 95",
+          "Spark Server",
+          "CiscoRouter",
+          "Werkzeuge/Produkte: Microsoft Office",
+          "Microsoft Project",
+          "TIS Firewall",
+          "TCP/IP",
+          "SNMP",
+          "Routing",
+          "VPN",
+          "Mail",
+          "WindowsNT Server",
+          "Proxy",
+          "HF-Technik",
+          "ISDN",
+          "MS/DOS",
+          "Windows 3.1"
+        ],
+        "activities": [
+          "Implementierung und Test von NLMs - Koordination der Problemlösung der Netzwerkprobleme Novell - OS/2 - Coaching von Mitarbeitern Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen, Acrobel und MAZ Hamburg",
+          "eines Produktionsdatenerfassungssystems für einen Automobilindustriezulieferer als Client/Server-Lösung Projektzeitraum: 1989 - 1990 Betriebssystem(e): Novell Netware 2.x, Novell Netware 3.x, OS/2 1.0 OS/2 1.1 Hardware: PC Datenbanken: Btrieve Programmiersprachen: C Werkzeuge/Produkte: Microsoft C, TopSpeedC, WatcomC, nmake, make Microsoft Word, BKS-Stop, Novell Netware Technologien: IPX, SPX, Multithreading, Multiprocessing, IPC OS/2-Monitore Position: Entwickler Branche: Automobilindustrie Zulieferer (Automotive) Projektsprache: Deutsch Tätigkeitskurzbeschreibung: - Spezifikation und Implementierung von Dialogen und Abläufen unter OS/2 - Spezifikation und Implementierung von OS/2-Monitoren",
+          "Datenbanken: Oracle, Access",
+          "Programmiersprachen: Java, C++, C, Jscript, C#, javascript, bash",
+          "Werkzeuge/Produkte: Sparx Enterprise Architect, Oracle SQL-Developer,",
+          "Microsoft Visual Studio, QT Creator, Subversion,",
+          "QT4, gnu-Toolchain",
+          "Technologien: UML, Anforderungsanalyse (Requirements Engineering)",
+          "Position: Berater, Requirements Engineer, Coach"
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "Anforderungsanalyse (zertifizierter Requirements Engineer) Architektur",
+      "Design",
+      "Projektleitung",
+      "Senior Developer (Java",
+      "zertifizierter UML- Spezialist",
+      "MDSD",
+      "Billing",
+      "Oracle",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen 1984 - 1989 Studium Informationstechnik (Abschluß: Dipl.-Ing. für Informationstechnik (TH))",
+      "Anforderungsanalyse",
+      "Architektur",
+      "Senior Developer",
+      "UML",
+      "OOA",
+      "OOD",
+      "MDD",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Engineering / IT-nahe Ingenieurdienstleistungen"
+    ],
+    "focus_experience": [
+      {
+        "name": "Projektleitung",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Anforderungsanalyse:",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Zertifizierung: IREB Certified Professional for Requirements Engineering (RE)",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Geschäftsprozessmodellierung:",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "BPMN + UML + Zertifizierung: OMG-Certified Expert in BPM",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Softwarearchitektur:",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "iSAQB Certified Professional for Software Architecture",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Objektorientierte Anaylse (OOA)",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Objektorientiertes Design (OOD)",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Objektorientierte Programmierung (OOP)",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "DesignPattern:",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Douglas Schmidt et al",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "GoF (Gamma",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Helm",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Johnson",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Vlissides)",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Buschmann et al.",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "- OO-Notationen: UML1.X",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "UML2.X",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Booch",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "OMT (Rumbaugh)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Jacobsen",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "- OO-Werkzeuge: Rational Rose",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "MagicDraw",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Sparx Enterprise Architect",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "(EA)",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Together",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "MID Innovator 2007",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "MID Innovator 2009",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "MID Innovator 2011",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Unified Modeling Language (UML): Zertifizierung: OMG-Certified UML",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Professional",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "- CORBA ( Orbix",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "BEA",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "VisiBroker",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "TAO ) (9 Jahre)",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "- J2EE / JEE : JBoss",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "WebLogic",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Hibernate 3.x",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Spring 2",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "IT-Sicherheit: Zertifizierung: IT-Sicherheit TU Darmstadt",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "- Relationales Datenbankdesign : PowerDesigner / S-Designor",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Erwin",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "industrielle Bildverarbeitung (8 Jahre)",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "ereignisgesteuerte Programmierung",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "XML-Techniken und -Werkzeuge:",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "XSL",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "XML-Schema",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "XSD",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "DTD",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "XPath",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "XQuery",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Xalan",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Xerces",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Saxon",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "EDIFACT",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Billing im Telekommunikationsumfeld (Mobilfunk)",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Geschäftsprozesse im Telekommunikationsumfeld",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Mediationsysteme (B2B-Integration) im Telekommunkationsumfeld",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Produktionsdatenerfassung",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Qualitätssicherung",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Stabilisierung von Anwendungen",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Portierung von Softwaresystemen in andere Sprachen",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Portierung von Softwaresystemen auf andere Betriebssysteme",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Performancetuning",
+        "category": "product_standard",
+        "sort_order": 66
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "CORBA sehr gut",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "(TAO. JacORB",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "omniORB",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Orbix (Iona)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VisiBroker (Visigenic / Inprise)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "M3 (BEA))",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT sehr gut: (langjährige Kentnisse in Spezifikation und",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Implementierung)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTAM",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet sehr gut",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager sehr gut",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OS/2 Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "parallele Schnittstelle",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere V8",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UUCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "AutoCAD Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EAGLE Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PSpice Grundkenntnisse",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:13:33.053857",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "PERSONAL",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 84.56521739130434,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

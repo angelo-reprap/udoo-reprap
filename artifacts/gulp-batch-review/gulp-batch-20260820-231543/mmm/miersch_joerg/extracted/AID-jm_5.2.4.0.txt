@@ -1,0 +1,199 @@
+AID: AID-jm_5.2.4.0
+Name: Joerg Miersch
+Headline: 
+Ort: 101xx Berlin, Deutschland
+Wohnort: 101xx Berlin, Deutschland
+Jahrgang: 1966
+Verfügbar: 01.09.21 zu 50%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1983
+Sprachen: Deutsch Muttersprache, Englisch verhandlungssicher, Französisch
+
+FACHBEREICHE:
+
+BRANCHEN:
+Ingenieurwesen
+Finanzindustrie
+Industrie
+Rechenzentren
+Telekommunikation
+Öffentliche Verwaltungen
+
+PROJEKTE:
+  2021-01 - 2021-12 | Siemens Mobility | Auditor
+    - Mitwirkung an der Prüfung und Verbesserung des innerbetrieblichen Risikomanagements und der Compliance beim Softwareeinsatz:
+    - Prüfung von Test- und Entwicklungswerkzeugen auf:
+    - Mitbestimmungspflichtigkeit gem. §87, Abs. 1, No, 6 BetrVG,
+    Techs: DSGVO (GDPR), BetrVG, NIST Cybersecurity Framework, ISO, 20000
+  2020-01 - 2020-09 | BLDAM | IT Security and Covernance Consultant
+    - Beratung zur Eingliederung des Sicherheitskonzeptes (Siko) der nachgeordneten Behörde (Brandenburgisches Landesamt für Denkmalpflege und Archäologisches Landesmuseum (BLDAM)) in das Sicherheitskonzept des IT Landesbetriebes (ZIT-BB):
+    - Analyse der Anforderungen des Landesbetriebes; Analyse des Ist-Situation und des bestehenden Siko der Behörde; Erarbeitung prinzipieller Lösungsvorschläge und Lösungsvarianten;
+    - Abstimmung einer Vorgehensweise (Projektplan, Phasenplan,
+    Techs: BSI Grundschutz, BSI 100-x/200-x, ISO 27000 serie, ITIL, Prince
+  2019-10 - 2020-01 | C&A | Prüfer (IT-Security/IT-Service Management)
+    - Interne Prüfung des SAP-Betriebes bezüglich:
+    - Übereinstimmung der SLAs mit den betrieblichen Anforderungen in Bezug auf Vertraulichkeit, Verfügbarkeit und Integrität,
+    - Umsetzung von Best-Practices im SAP-Betrieb,
+    Techs: ISO 27001, BSI-Grundschutz, ISO 20000, ITIL V.3/V.4, Rechteund
+  2018-11 - 2019-12 | E.ON SE | Auditor / Enterprise Architekt
+    - Entwurf eines dreistufigen generischen Prüfprogrammes zur turnusgemäßen Prüfung von konzerninternen und externen
+    - Auftrags(daten)verarbeitungen (ADV):
+    - Ermittlung und Abgleich der Quellen zur Erfassung aller ADVs mit DSGVO-Bezug;
+    Techs: DSGVO (GDPR), ISO 19011, ISO 27001, ISO 27002, ISO 27019, BDEW
+  2017-09 - 2018-05 | VHV Versicherung | Auditor
+    - Mitarbeit an der Bearbeitung der IT-Sicherheits- und Datenschutzbelange im Zusammenhang mit einem geplanten Austausch der Core-IT Systeme :
+    - Prüfung der internen IT-Sicherheits- und Datenschutzleitdokumente auf Vollständigkeit und Anwendbarkeit für das Vorhaben;
+    - Prüfung der IT-Vorhaben auf Abdeckung durch externe/interne datschutzrechtliche Vereinbarungen (Datenschutzerklärungen,
+    Techs: Guidewire Insurance Platform, Vmware, LINUX, Apache, TomCat, MS-SQL Server, JAVA EE, SOA, REST
+  2017-09 - 2018-03 | Vattenfall Wärme | Assessor/Berater (Data Protection and Enterprise Architecure)
+    - Prüfung der im Business Bereich Wärme eingesetzten Information Assets
+    - (IA) auf Datenschutzrelevanz;
+    - Prüfung der Zuordnung der IAs zu Datenverarbeitungsprozessen und deren Dokumentation im Register der Verarbeitungstätigkeiten; Prüfung der IAs auf Schnittstellen mit Auftragsverarbeitung;
+    Techs: ISO 27001/27002, ISO 27005 (ISO 31.000), ISO 27019, BDEW
+  2017-06 - 2017-11 | IKB Deutsche Industriebank | Prüfer (IT Security)
+    - Abstimmung des Audit-Scope mit dem CISO der Bank bezüglich der Prüfungsbereiche Vertraulichkeit, Verfügbarkeit und Integrität;
+    - Erarbeitung und Abstimmung spezifischer technischer und organisatorischer Security-Controls aus der technischen Service- Dokumentation mit Focus auf technische und organisatorische
+    - Fragestellungen sowie die Einbindung in das Risiko-Management der Bank und des IT-Dienstleisters; Prüfung der Dokumente und Nachweise;
+    Techs: ITSM gem. ISO 20.000, ISMS gem. ISO27001/27002, RiskMgmt. gem, Sarbanes–Oxley (SOX), MaRisk, Outlook, Exchange, HypAchive, Windows
+  2016-10 - 2017-12 | Finanz Informatik Technologie Service (FI-TS) | Prüfer (IT Security)
+    - Abstimmung des Audit-Inhaltes und der Prüfungsberichte mit der Innenrevision (Risiko-Management);
+    - Prüfung der REXX/SQL-Script basierten z/OS Sicherheitsprüfungen;
+    - Prüfung Job-Control-Flies (JCLs);
+    Techs: z/OS, RACF, SMF, SAS, DB2, ADABAS, REXX, SQL, JCL, ISO
+  2016-10 - 2017-01 | EU-Kommission/DG-SANTE | Compliance-Berater (Data Protection)
+    - (Gesundheitsdaten)
+    - Datenschutzprüfung der technischen und organisatorischen Konzepte zum EU-weiten Datenaustausch von Patientendaten mit seltenen oder/und komplexen Erkrankungen unter Nutzung der eHealth-DSI (CEF-2015,
+    - 2017).
+    Techs: DSGVO (Verordnung 2016/679), EU int, Datenschutzverordnung
+  2016-01 - 2016-09 | E.ON | Prüfer/Berater (Regulatory Compliance and Architecture)
+    - Prüfung der Anwendbarkeit und Auswirkungen der BSI-KritisV (BSI- G/EnWG) auf den Betrieb des Virtuellen Kraftwerks in den Bereichen der Regelenergie und erneuerbaren Energien (Wind, PV, Bio-Gas);
+    - Prüfung der IT-/OT-Sicherungsmaßnahmen der virtuellen Kraftwerksinfrastruktur entlang Anforderungen der Netzbetreiber (TSOs);
+    - Prüfung der verteilten Prozessdatenverarbeitung auf Konformität mit dem BSDG und der DSGVO; Prüfung der horizontalen Continuous Development / Continuous
+    Techs: Kanban, Scrum, Prince2, JIRA, Confluence, Redmine, MindMap, JAVA, Scala, Jenkins
+  2015-02 - 2015-12 | Deutsche Börse | Prüfer/Berater (Regulatory Compliance ITSM/ISMS)
+    - Interne Vorbereitungs-Assessments zur ISO 20000 Rezertifizierung;
+    - Interne Prüfung der Einhaltung des IT-Securiy-Managementprozesses in der IBM Mainframe Softwareentwicklung;
+    - End-to-End IT-Architekturprüfung bezüglich der Mainframe basierten
+    Techs: OWASP, STRIDE, V-Modell, BPMN, UML, z/OS, Linux on System
+  2014-11 - 2015-01 | BNP Paribas Fortis | Assessor (Business and IT Architecture)
+    - Prüfung der IT-Architekturstrategie gegen die Direct-Channel-Business- Strategie;
+    - Erarbeitungund Prüfung von Anpassungsmaßnahmen.
+    - WebServices, SOA, SOAP, WDSL, UDDI, SSO, BPNM, SCRUM, PMI, Spax
+    Techs: z/OS, core Banking, HTML5, CSS, JAVA Script, C++, XML
+  2014-05 - 2014-09 | Deutsche Bank AG | Assessor/Consultant (Regulatory and internal Compliance)
+    - Prüfung von IT-Programmen und IT-Projekten auf die Einhaltung der Bank internen Richtlinien "Project Process Standard" (PPS) und "Financial
+    - Reporting Governance Board" (FGB):
+    - Ausrichtung auf die Geschäftsstrategie, Ausrichtung auf die IT Strategie,
+    Techs: MS-Project, CA Clarity, OPAL Green, NARdb, dbRACE, Visio, MindMap
+  2013-09 - 2014-04 | Landesregierung Hessen | Prüfer/Compliance-Berater (Regulatory Compliance)
+    - Prüfung von IT unterstützten Prozessen in den Bereichen Personal und Lieferanten auf die Einhaltung der Anforderungen nach BDSG und ISO 27001/BSI;
+    - Schnittstellen-Prüfung von IT Services und Business-Prozessen;
+    - Prüfung des Berechtigungskonzeptes; Durchführung und Auswertung von organisatorischen und technischen
+    Techs: VMware ESXi, Windows 2003/2008 Server, Citrix XenApp, ADS, MS SQL-
+  2013 - 2014 |  | Französisch - Languages Unlimited - Brüssel
+    - Französisch - Languages Unlimited - Brüssel
+  2012-03 - 2013-06 | T-Systems International | Process-Improvement-Berater (Enterprise Architecture (Cloud))
+    - Prüfung der technischen und organisatorischen Prozesse des Cloud- Computing-Segmentes mit Ziel der Prozess- und Produktionskostenverbesserung und Fokus auf die Bereiche Change- Management, (Component-/Service-) Capacity-Management,
+    - Configuration-Management, Deployment-Management, Demand- und Forecast-Management unter Beachtung der internen und externen
+    - Compliance-vorgaben für Availability- und Service-Continuity-Management sowie Riskund Security-Management.
+    Techs: AppCom, DCP, High-Availability Data Centres (z.B. Twin-Core), LINUX, RHEL, VDI, XenApp, eCMDB, Asset Center, ASM
+  2011-10 - 2012-01 | European Center for Disease Prevention and Control (ECDC) | Assessor (Enterprise Architecture)
+    - Prüfung des externen Kommunikationsprozesses auf Konformität zu den europäischen Datenschutzbestimmungen und den Datenschutzbestimmungen der Mitgliedsstaten (EU und EFTA);
+    - Prüfung der Einhaltung der Software-Entwicklungsprozesse (RUP und SCRUM Artefakte);
+    - Erarbeitung und Prüfung von Folgemaßnahmen.
+    Techs: MS Dynamics, MS SharePoint, XML, Web Services, SOA, WDSL
+  2011-03 - 2011-09 | Deutsche Bank AG | Prozess-Improvement Berater (Enterprise Architecture)
+    - Dokumentation der Prozess- und Tool-Unterstützung des End-to-End Service Designs.
+    - Prüfung der Tool-Unterstützung gegen die implementierten IT-Sourcing- Strategien.
+    - Reifegradermittlung der Business-Prozesse und IT-Services.
+    Techs: Prozess-Management-Engines, SAP, Oracle/BEA AquaLogic, Remedy, Lotus
+  2010-09 - 2011-02 | T-Systems International | Process-improvement-Berater (Enterprise Architecture)
+    - In-Work-Dokumentation der angebotsphasenorientierten Prozesse und Vorgehensweisen.
+    - Dokumentation der frachgruppenübergreifenden Kommunikationsstrukturen des Big-Deal-Managements bin IT- Outsourcing-Deals.
+    - Erarbeitung von Verbesserungsvorschlägen und Anpassungsmaßnahmen der Big-Deal-Mgmt-Prozesse unter Berücksichtigung der Industry-Best- Pracitices gem. ITIL V.3/ISO 20.000 ISO 27.005.
+    Techs: LiveLink, MS-Visio, MS-Office, SDE-Catalog, ITIL V.3, ISO, 20000
+  2010-01 - 2010-08 | T-Systems International | Process-Improvement-Berater (Enterprise Architecture)
+    - Service-Improvement-Management im Kapazitätsmanagement der TSI Cloud Computing Sparte (AppCom):
+    - Analyse, Dokumentation und Anpassung der internen Businessprozesse;
+    - Ausrichtung der internen Business- und Engineering-Prozesse der Dynamic Platform Procedure Teams (DPPT) am ITIL V.3
+    Techs: AppCom Technologie in Hochverfügbarkeitsumgebungen, AIX-Cluster, VMware ESX, IBM LPAR Hypervisor, IBM p5, (575 bis 595), Cisco-Netzwerkkomponenten, Cisco-Firewalls, Netware, OS/2
+  2008 - 2010 |  | Italienisch - Leitmotiv - Parma, Italien
+    - 2007 Französisch - Institut Linguistique Adenet - Montpellier, Frankreich
+  2002 - 2007 |  | Englisch / Business Englisch - Wall Steet Institute - Berlin, Deutschland
+    - ############################################
+    - Englisch anzeigen
+    - Stammdaten (Auszug):
+  1990 - 1995 |  | Studium Mathematik und Informatik - Freie Universität Berlin
+    - Studium Mathematik und Informatik - Freie Universität
+    - Berlin
+  1986 – 1988 |  | Studium allg. Maschinenbau spez. Konstruktion - Ingenieurschule Wildau, Deutschland
+    - Studium allg. Maschinenbau spez. Konstruktion -Ingenieurschule Wildau, Deutschland
+  1983 – 1985 |  | Berufsausbildung Fahrzeugschlosser - Berufsschule Berlin, Deutschland
+    - IT/QM-Zertifizierungen und Weiterbildungen:
+    - 2020 Prüfverfahrens-Kompetenz IT-Sicherheitsaudits BSIG/KRITIS (Aktualisierungen) -Bitkom
+    - Akademie, Deutschland
+
+SKILLS:
+  database: Lotus Notes/Domino, MS SQL Server, MS Access, Oracle (RAC), My-, SQL, DB/2, ADABAS, IMS DB/DC, Mainframe- / AS/400-Anbindung: Netware for SAA, MS SNA Server/Host, integration Server, 3270/5250-Terminal Emulationen, WEB-Server: IBM Lotus Domino, Apache, MS Internet Information Server, Portale und Dokumentenmanagementsysteme: IBM WebSphare, IBM Lotus, Domino, Content Manager, Apache TomCat, Xinco Document Management System, CRM und ERP Systeme: SAP, vTiger, Neutrino, Navision, Lexware, Dynamics, Firewalls: MS Proxy Server/ISA Server, Novell Boarder Manager, Cisco PIX/ASA, Innominate mGuard, Juniper NetScreen, IP Chain, 101/104/101 Gateways
+  operating_system: Netware, OS/2, div. Linux und UNIX Derivate (AIX, SunOS/, Solaris, RHEL, Suse, Debian), VMS, z/OS (MVS, OS/390) L3, MS Windows (Client/, Server), Hypervisor/Virtualisation: Citrix WinFrame/MetaFrame/XenApp, VDI (Citrix VDI, VMware (Horizon) View), VMware ESX(i)/GSX/Server inclusive DRS, Motion und, Consolidated Backup, (Citrix) Xen Server, MS Virtual Server, IBM POWER, Hypervisor, Oracle (SUN) VirtualBox, Direktory Services (X.500/LDAP): MS Active Directory (MSDS), Novell Directory, Services (NDS/eDirectory), Lotus Domino Directory, Systemsmanagementsysteme: Netware ManageWise/ZEN-Works, MS, SMS/MOM/SCCM/SCOM, IBM NetView / Tivoli, BelSoft Empirum; BMC, Remedy, GEDYS, Identity Management Systeme: MS Identity Integration Server, Tivoli Identity, Manager, MS Federation Services, IBM Federation Services
+
+SKILL-ABLAGE:
+cipher, excel, openoffice, linux-, software, photoshop, express/express-g, ipx/spx, staroffice, betriebssysteme, s/mime, verschlüsselungen
+
+FOCUS_EXP:
+  EDVERFAHRUNGEN SEIT 1986:  [product_standard]
+  IT bezogene Branchenkenntnisse:  [product_standard]
+  Ingenieurwesen seit 1991  [product_standard]
+  Finanzindustrie seit 1995  [product_standard]
+  Industrie seit 1996  [product_standard]
+  Rechenzentren seit 1997  [product_standard]
+  Telekommunikation seit 1998  [product_standard]
+  Öffentliche Verwaltungen seit 2011  [product_standard]
+  ORGANISATORISCHE FÄHIGKEITEN UND KOMPETENZEN:  [product_standard]
+  Langjährige Erfahrung und tiefgehendes Hintergrundwissen in allen  [product_standard]
+  wesentlichen Managementbereichen von EDV-Betrieben; insbesondere in den  [product_standard]
+  Bereichen IT-Beratung und IT-Management sowie Projektbesetzung und  [product_standard]
+  Teammanagement:  [product_standard]
+  - Compliance mit internen oder/und regulatorischen Anforderungen  [product_standard]
+  - Datenschutzrecht der EU (DSGVO (Verordnung 2016/679  [product_standard]
+  Verordnung 2018/1725  [product_standard]
+  Verordnung (EC) 45/2001 und EU-Mitgliedsstaaten basierend auf Richtlinie 95/46/  [product_standard]
+  EC (BDSG  [product_standard]
+  DSG 2000  [product_standard]
+  Data Protection Act U.K. etc.)  [product_standard]
+  Audits in den Bereichen IT- Service- und IT-Security-Mgmt sowie IT-  [product_standard]
+  Geschäftsprozesse  [product_standard]
+  Proaktives Projektmanagement unter Nutzung verschiedener  [product_standard]
+  Projektmanagementmethoden  [product_standard]
+  - Projektbezogenes Finanzmanagement und Budgetkontrolle  [product_standard]
+  - Technische Ressourceplanung  [product_standard]
+  - Sourcing Strategie Management  [product_standard]
+  - Vertragsmanagement  [product_standard]
+  Beschaffung und Finanzmanagement unter Beachtung von  [product_standard]
+  öffentlichen und privaten Einkaufsrichtlinien (2004/17/EC  [product_standard]
+  2004/18/EC)  [product_standard]
+  den  [product_standard]
+  Deutschen Beschaffungsrichtlinien (VOB/VOL/VOF) sowie deutschen und  [product_standard]
+  internationalen Bilanzierungs- standards (HGB/IAS)  [product_standard]
+  - Verhandlung/Überwachung von EDV-Dienstleistungen und Projekten (SLA  [product_standard]
+  OLA  [product_standard]
+  UC)  [product_standard]
+  - Personalauswahl und Personalführung in Projekten und Arbeitsprozessen  [product_standard]
+  Organisations- und Planungsgeschick mit großer Aufmerksamkeit für essentielle  [product_standard]
+  Details;  [product_standard]
+  Zielorientierte Arbeitsweise in anspruchvollen Aufgabenfeldern mit hoher  [product_standard]
+  Arbeitsbelastung und Gleichzeitigkeit von Aufgaben und Projekten;  [product_standard]
+  Prioritätsgesteuerte Vorgehensweise entsprechend der Anforderungen;  [product_standard]
+  Arbeitsorganisation unter Beachtung vorgegebener Vorgehensweisen und  [product_standard]
+  Standards;  [product_standard]
+  Erfahrung im Verfassen von englisch- und deutschspracheigen  [product_standard]
+  Entscheidungsvorlagen und Gutachten;  [product_standard]
+  Pflege von Geschäftsbeziehungen und Vertrieb von IT-Dienstleistungen.  [product_standard]
+  INTERNATIONALE ERFAHRUNGEN AUS INDUSTRIE UND INTERNATIONALEN  [product_standard]
+  ORGANISATIONEN:  [product_standard]
+  Umfangreiche Erfahrungen in multikulturellen/multinationalen Projekt-  [product_standard]
+  Arbeits- und Lebensumfeldern z.B. in der Schweiz  [product_standard]
+  Luxemburg  [product_standard]
+  Belgien  [product_standard]
+  Schweden.  [product_standard]
+  TOOLS  [product_standard]
+  TECHNOLOGIEN UND METHODEN SEIT 1986:  [product_standard]

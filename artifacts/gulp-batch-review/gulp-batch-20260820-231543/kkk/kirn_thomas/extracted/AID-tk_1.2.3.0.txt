@@ -1,0 +1,88 @@
+AID: AID-tk_1.2.3.0
+Name: Thomas Kirn
+Headline: Softwareverteilung / -paketierung / -virtualisierung
+Ort: Deutschland
+Wohnort: 448xx Bochum, Deutschland
+Jahrgang: 1971
+Verfügbar: 31.12.12 zu 95%, Vor-Ort-Einsatz 95% möglich
+EDV seit: 1991
+Sprachen: Deutsch, Englisch
+
+FACHBEREICHE:
+Softwareverteilung / -paketierung / -virtualisierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination Administration / Support Betreuung großer heterogener Netzwerke, Sicherheitssysteme, Netzwerkinfrastruktur, Softwareverteilung, -paketierung, -virtualisierung bevorzugt Tätigkeit bei angemessener Bezahlung Stabsoffizier der Marine Vorstudium der Elektrotechnik Novell CNA Novadigm EDM certification
+
+BRANCHEN:
+Industrie
+Banken und Versicherungen
+Energieversorger
+Chemie
+Telekommunikation
+Pharmazie
+
+PROJEKTE:
+  6.99 - 12.99 | Energieversorger | Projekt : Aufbau einer Jahr-2000-Testumgebung
+    - Analyse diverser Programme auf Jahr 2000 Fähigkeit,
+    - Bereitstellung einer Testplattform für die Entwickler des MS-Office 97,
+    - X-Time 4.0, Veritas Backup Exec 6.5 / 7.3, TrendMicro Viruswall,
+    Techs: Unternehmens Windows NT4 / 95 / 98, MSBackoffice 4.5
+  1.00 - 8.00 | Energieversorger | Projekt : Administration NT und Exchange 5.5,
+    - 3rd Level Support MS-Back-Office/ MS-Produktpalette,
+    - Anbindung der Außenstellen des Unternehmens Software : Windows NT4 / 2000 / 95, MS-Backoffice 4.5, MS-Office 97 / 2000,
+    - X-Time 4.1, Veritas Backup Exec 7.3 / 8.0, TrendMicro Viruswall,
+    Techs: Secure-RAS-Client
+  12.00 - 10.01 | Industrie | Projekt : Netzwerkbetrieb (aktive Komponenten)
+    - Administration der RAS Zugänge
+    - Koordinierung/Konzeption und Inbetriebnahme von WAN Verbindungen
+    - Konzeption und Realisierung von lokalen RAS Zugangsknoten Software :
+    Techs: Windows NT4 / 2000, Nortel Komponenten, Cisco Router, Checkpoint Firewall-1, SecureID Token, Optivity
+  10.01 - 03.02 | Telekommunikation / NOC 7 / NerveCenter | Projekt : Netzwerkbetrieb (aktive Komponenten), Konzeption,
+    - Monitoring, Betrieb/Konfiguration der Firewalls, Unterstützung der Administratoren von Aussenstellen,
+    - Optivity, HP Open View
+    Techs: Nortel, Komponenten, Cisco Router, Checkpoint Firewall-1, SecureID Token, Nokia, Firewalls
+  04.03 - 12.09 | Pharma / Banken / öffentlicher Dienst | Projekt : Paketierung und Betrieb der
+    - Softwareverteilungs-/virtualisierungsumgebung verschiedener Endkunden mittels HP RADIA/OV CM/HP CAE (ehemals Novadigm RADIA), MS
+    - Application Virtualisation (Softgrid)
+    - Konzeption-/Test neuer Lösungen. Migration Windows2000/XP/Vista
+    Techs: Windows 2000/XP/Vista, RADIA 2.x/4.x/5.x/7.2, Softgrid
+
+SKILLS:
+  database: Access, BDE, DAO, Filemaker, Lotus Notes, MS SQL Server, ODBC, SQL, MS-SQL, Superbase
+  hardware: CD-Writer / Brenner, Drucker, Framegrabber, HP, Iomega, Macintosh, Modem, PC, Scanner, Soundkarten, Streamer, SUN, UNISYS
+  operating_system: BS2000, CP/M, Mac OS, MS-DOS, Novell, OS/2, SUN OS, Solaris, Unix, Windows, Vista, Windows CE, Migration 2000/XP auf Vista
+  programming_languages: Basic, dBase, Fortran, Java, JavaScript, Lotus Notes Script, MAGIC, Makrosprachen, Pascal, Superbase unter Windows
+
+SKILL-ABLAGE:
+AppleTalk, Ethernet, Fax, FDDI, Internet, Intranet, ISDN, ISO/OSI, LAN, LAN Manager, NetBeui, NetBios, OS/2 Netzwerk, Packet-Radio, parallele Schnittstelle, PC-Anywhere, Router, RPC, RS232, SMTP, SNMP, TCP/IP, Token Ring, Windows Netzwerk, Winsock, X.400 X.25 X.225 X.75
+
+AUSBILDUNG:
+Stabsoffizier der Marine  [course]
+Vorstudium der Elektrotechnik  [course]
+Novell CNA  [course]
+Novadigm EDM certification  [course]
+
+FOCUS_EXP:
+  Aufbau/Wartung eines IntraNets  [product_standard]
+  Konzeption/Aufbau und Betrieb einer EDV und  [product_standard]
+  Telekommunikations-Hotline  [product_standard]
+  Migrationsplanungen Windows NT nach Windows 2000  [product_standard]
+  Betrieb einer Jahr 2000 Testumgebung  [product_standard]
+  Netzwerkkonzeption  [product_standard]
+  Netzwerkmonitoring  [product_standard]
+  Konfiguration von Sicherheitssystemen  [product_standard]
+  Betrieb von Softwareverteilungssystemen  [product_standard]
+  Betrieb von Softwarevirtualisierungssystemen (MS Application  [product_standard]
+  Virtualisation/ ex. Softgrid)  [product_standard]
+  Softwarepaketierung mittels RADIA/HP CAE  [product_standard]
+  Migration Windows XP/Vista  [product_standard]
+  IntraNet  [product_standard]
+  Windows NT  [product_standard]
+  Windows 2000  [product_standard]
+  Jahr 2000 Testumgebung  [product_standard]
+  MS Application Virtualisation  [product_standard]
+  Softgrid  [product_standard]
+  RADIA  [product_standard]
+  HP CAE  [product_standard]
+  Windows XP  [product_standard]
+  Vista  [product_standard]

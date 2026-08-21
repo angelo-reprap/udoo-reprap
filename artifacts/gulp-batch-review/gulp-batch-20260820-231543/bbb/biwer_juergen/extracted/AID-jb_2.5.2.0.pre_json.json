@@ -1,0 +1,2087 @@
+{
+  "metadata": {
+    "aid": "AID-jb_2.5.2.0",
+    "version": "2.5.2.0",
+    "consultant_dir": "biwer_juergen",
+    "first_name": "Juergen",
+    "last_name": "Biwer",
+    "headline": "Business Software Entwickler, Web-Entwickler, Testautomatisierung, JavaFX, EAI",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:17:48.277561"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Juergen",
+      "last_name": "Biwer",
+      "birth_year": 1966,
+      "languages": [
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "03.09.18 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+      "wohnort": "544xx Gusenburg, Deutschland",
+      "headline": "Business Software Entwickler, Web-Entwickler, Testautomatisierung, JavaFX, EAI",
+      "edv_experience_since": 2014
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "BDE",
+        "Borland DB Engine",
+        "BTrieve",
+        "veraltet",
+        "H2",
+        "Informix",
+        "Interbase",
+        "MySQL",
+        "ODBC",
+        "Oracle",
+        "8i",
+        "9i",
+        "10g",
+        "11g",
+        "Proprietäre DB",
+        "Pervasive.SQL",
+        "SQL",
+        "PL/SQL (Grundkenntnisse)"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Mikrocontroller",
+        "Atmel AVR Grundkenntnisse",
+        "PC"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "MS-DOS",
+        "Unix",
+        "Linux",
+        "Windows",
+        "Windows CE"
+      ],
+      "programming_languages": [
+        "C",
+        "C#",
+        "C++",
+        "Delphi",
+        "umfangreich",
+        "FXML",
+        "Java",
+        "umfangreich: Java SE von 1.3 bis 1.8",
+        "JavaFX",
+        "JEE (Applet",
+        "Servlet",
+        "JSP",
+        "JPA",
+        "JDBC",
+        "JNI",
+        "...)",
+        "Java FX 8",
+        "Java 8",
+        "Funktionale Programmierung",
+        "Streams",
+        "JavaScript",
+        "Java8",
+        "jQuery",
+        "JSON",
+        "Paradox",
+        "Pascal",
+        "Scriptsprachen",
+        "BSH",
+        "XSLT",
+        "Spring",
+        "TestNG",
+        "TypeScript",
+        "+ knockout.js",
+        "Scala (basics)",
+        "ABAP-00 (basics)",
+        "Kotlin (basics)",
+        "Dart (basics)"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "10/2017 - heute",
+        "company": "DB AG",
+        "title": "Redesign des Fahrzeugservers der, Frankfurt",
+        "role": "Software-Entwickler",
+        "activities": [
+          "DB-Reisendeninformation",
+          "Aufgaben:",
+          "Aufgabe: Redesign des Fahrzeugservers (Backendkomponente zur Weitergabe der Reisendeninforamation an die Fahrzeugflotte der DB AG) zwecks Ablösung der Legacy-Lösung und Integration in neues",
+          "Schnittstellendesign der angeschlossenen Systeme.",
+          "Das Team besteht aus 7 Entwicklern und einem Architekten.",
+          "Scrum, Java, Velocity, Gradle",
+          "Eingesetzte Produkte:",
+          "GIT, TestNG, IntelliJ IDEA"
+        ],
+        "industry": "Transport/Logistik",
+        "location": "Frankfurt",
+        "technologies": [
+          "Scrum",
+          "Java",
+          "Velocity",
+          "Gradle",
+          "GIT",
+          "TestNG",
+          "IntelliJ IDEA"
+        ]
+      },
+      {
+        "period": "05/2017 - 09/2017",
+        "company": "DB AG",
+        "title": "Konzeption und Entwicklung einer Web Anwendung zur, Frankfurt",
+        "activities": [
+          "Aufgabe: Konzeption und Entwicklung einer Web Anwendung zur Visualisierung von Reisendeninformation. Die von einem Simulator gelieferten Bildschirmausgaben werden über diese Anwendung einem breiteren Publikum zur Verfügung gestellt.",
+          "Aufgaben:",
+          "TypeScript, Java8, REST, JAX-RS, HTML5, Bootstrap, jQuery",
+          "Eingesetzte Produkte:",
+          "IntelliJ IDEA, Knockout.js, Grizzly, GIT"
+        ],
+        "industry": "Verkehr/Transport",
+        "location": "Frankfurt",
+        "technologies": [
+          "TypeScript",
+          "Java8",
+          "REST",
+          "JAX-RS",
+          "HTML5",
+          "Bootstrap",
+          "jQuery",
+          "IntelliJ IDEA",
+          "Knockout.js",
+          "Grizzly",
+          "GIT"
+        ]
+      },
+      {
+        "period": "01/2017 - 04/2017",
+        "company": "DB AG",
+        "title": "Konzeption und Entwicklung eines Testframeworks, Frankfurt",
+        "role": "Software-Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Konzeption und Entwicklung eines Testframeworks zur Abbildung sämtlicher Testfälle in Gherkin-Syntax und Integration der Lösung in das CI/CD der Deutschen Bahn Reisendeninformation.",
+          "Java8, JBehave, Gherkin, Jenkins, Maven",
+          "Eingesetzte Produkte:",
+          "InterlliJ, TestNG, GIT"
+        ],
+        "industry": "Öffentlicher Dienst",
+        "location": "Frankfurt",
+        "technologies": [
+          "Java8",
+          "JBehave",
+          "Gherkin",
+          "Jenkins",
+          "Maven",
+          "IntelliJ",
+          "TestNG",
+          "GIT"
+        ]
+      },
+      {
+        "period": "10/2015 - 12/2016",
+        "company": "DB Mobility Logistics AG",
+        "title": "Entwicklung einer Benutzeroberfläche für de, Frankfurt",
+        "role": "Externer Berater, Software-Entwickler, Testautomatisierer",
+        "activities": [
+          "Entwicklung einer Benutzeroberfläche für den DB-Zugsimulator Reisendeninformation",
+          "Aufgaben:",
+          "Neuentwicklung einer Graphischen Benutzeroberfläche für eine Simulations-Software (Zugsimulator) zur Darstellung der Reisendeninformation im Zug. Mit dieser Software können sämtliche",
+          "Informationsausgaben (Bildschirme, Sprachausgaben, Laufschriften) aller Züge, welche über eine Reisendeninformation verfügen (ICE, IC,",
+          "S, RE, RB,..), live und in Verbindung mit den Backendsystemen der Deutschen Bahn simuliert und ausgegeben werden.",
+          "Architektur und Design der Applikation Model View Presenter (MVP), Databinding, DI",
+          "Realisierung, Implementierung"
+        ],
+        "industry": "Mobilität / Logistik",
+        "location": "Frankfurt",
+        "technologies": [
+          "Model View Presenter (MVP)",
+          "Databinding",
+          "DI"
+        ]
+      },
+      {
+        "period": "07/2014 - 04/2015",
+        "company": "Großer deutscher Reiseveranstalter",
+        "title": "Realisierung der Testautomatisierung für eine Web, Hannover",
+        "role": "Software Entwicklung, Testautomatisierung, Agile Tester",
+        "activities": [
+          "Applikation, Agile Tester",
+          "Unternehmensgröße: > 1000",
+          "Branche: Touristik",
+          "Aufgaben:",
+          "Konzeption und Realisierung der Testautomatisierung für eine Web Applikation für ca. 20.000 User auf Basis von Java7, TestNG und Selenium II.",
+          "Integration des erstellten Frameworks in das Continuous Integration/Deployment und in die vorhandene Systemlandschaft und Entwicklungsumgebung.",
+          "Integration/Deployment und in die vorhandene Systemlandschaft und Entwicklungsumgebung. Mit dem Framework können GUI- und Integrationstests als Regressionstest automatisiert werden.",
+          "Weitere Aufgaben und Inhalte:",
+          "Arbeit im SCRUM-Team mit bis zu 20 Teammitgliedern"
+        ],
+        "industry": "Touristik",
+        "location": "Hannover",
+        "technologies": [
+          "Java7",
+          "TestNG",
+          "Selenium II"
+        ]
+      },
+      {
+        "period": "07/13 - 06/14",
+        "title": "Dauer : 12 Monate",
+        "role": "Dauer : 12 Monate",
+        "technologies": [
+          "Scene Builder 1.1",
+          "Linux",
+          "Windows"
+        ],
+        "activities": [
+          "Projektumgebung : Eclipse, Java 1.7/1.8, JavaFX 2.2/8.0, Git, XML,",
+          "Verantwortung : Eigenverantwortlich",
+          "Branche : IT-Dienstleistung",
+          "Auftraggeber : Ajela Engineering & Consulting GmbH & Co. KG",
+          "Konzeption und Realisierung des Systemtest Frameworks zur Testautomatisierung für den Relaunch von videoload.de auf Basis von JUnit und Selenium II. Identifikation, Spezifikation, Dokumentation und Implementierung der Testfälle mittels",
+          "SCRUM-Story/HP-QC/Java/Selenium im SCRUM-Team. Integration des erstellten Frameworks als Regeressionstest in das Continuous"
+        ]
+      },
+      {
+        "period": "07/12 - 06/13",
+        "title": "Dauer : 12 Monate",
+        "role": "Dauer : 12 Monate",
+        "activities": [
+          "Projektumgebung : SCRUM, Eclipse",
+          "Java 1.6, 1.7, JUnit, Tomcat, ANT,",
+          "Selenium II (WebDriver, PageObject-Pattern),",
+          "HtmlUnit, TeamCity",
+          "HTML, jQuery (basics), HTTP, firebug, firefinder,",
+          "XML, XPath, XML-Schema, JDom2,",
+          "ApacheHttpClient, ChiliProject",
+          "SVN, HPQC (basics)"
+        ]
+      },
+      {
+        "period": "11/10 - 11/11",
+        "title": "Dauer : 12 Monate",
+        "role": "Dauer : 12 Monate",
+        "technologies": [
+          "Linux",
+          "SSH",
+          "Putty",
+          "SVN"
+        ],
+        "activities": [
+          "Projektumgebung : SCRUM, Eclipse",
+          "Java, JEE, JUnit, JBoss, Tomcat,",
+          "REST Service Protokoll, Apache-CXF, cURL,",
+          "HttpClient,",
+          "Spring Core, Spring Batch,",
+          "SQL, JDBC, MySQL, Oracle, JPA, Hibernate, Oracle",
+          "SQL Developer,",
+          "RDF, XML, XML:RDF, XML-Schema,"
+        ]
+      },
+      {
+        "period": "08/10 - 10/10",
+        "title": "Dauer : 3 Monate",
+        "role": "Dauer : 3 Monate",
+        "technologies": [
+          "Linux",
+          "SSH",
+          "Putty",
+          "SVN",
+          "Tortoise"
+        ],
+        "activities": [
+          "Projektumgebung : Eclipse, Eclipse RCP",
+          "Java, JEE, JUnit, JBoss, Tomcat,",
+          "REST Service Protokoll, Apache-CXF, cURL,",
+          "HttpClient,",
+          "Spring Core, Spring Batch,",
+          "SQL, JDBC, MySQL, Oracle,",
+          "RDF, XML, XML:RDF, XML-Schema,",
+          "Ticket System MARS (BMC Remedy)"
+        ]
+      },
+      {
+        "period": "10/09 - 12/09",
+        "title": "Dauer : 3 Monate",
+        "role": "Dauer : 3 Monate",
+        "activities": [
+          "Projektumgebung : Eclipse, Google GWT 1.7, Java, HTML, XML,",
+          "JavaScript, JSON",
+          "Lexware faktura+auftrag, Perversive.SQL,",
+          "Browser(Firefox, IE, Safari, Opera, Chrome)",
+          "Visiual Studio 2005, .NET, C#, SVN(VisualSVN +",
+          "SmartSVN)",
+          "Verantwortung : Eigenverantwortlich",
+          "Branche : neutral"
+        ]
+      },
+      {
+        "period": "07/09 - 10/09",
+        "title": "Dauer : 4 Monate",
+        "role": "Dauer : 4 Monate",
+        "technologies": [
+          "Projektumgebung : Visual Studio 2005/2008",
+          "NET",
+          "C#",
+          "Windows CE 5.x"
+        ],
+        "activities": [
+          "Pocket PC, .NET Compact Framework 2.0, SOAP,",
+          "WebServices",
+          "CVS(WinCVS), SVN(VisualSVN + SmartSVN)",
+          "Verantwortung : Teamarbeit",
+          "Branche : Freizeitindustrie/Gastronomie",
+          "Auftraggeber : OPC Computer & Software GmbH, Trier",
+          "[http://www.opc.de]"
+        ]
+      },
+      {
+        "period": "04/09 - 06/09",
+        "title": "Dauer : 3 Monate",
+        "role": "Dauer : 3 Monate",
+        "activities": [
+          "Projektumgebung : Eclipse, Java, Servlets, JSP, HTML/CSS,",
+          "JavaScript, XML",
+          "Firebug, Browser (Firefox, IE, Safari, Opera,",
+          "Chrome)",
+          "Verantwortung : Eigenverantwortlich",
+          "Branche : neutral",
+          "Auftraggeber : Informations Technologie DT, Kell"
+        ]
+      },
+      {
+        "period": "08/08 - 03/09",
+        "title": "Dauer : 8 Monate",
+        "role": "Dauer : 8 Monate",
+        "activities": [
+          "Projektumgebung : Eclipse, Java 1.4.2 bis 1.6.0_13, Applets, HTML,",
+          "CSS, XML,",
+          "Bildverarbeitung, Firebug,",
+          "Browser (Firefox, IE, Safari, Opera, Chrome)",
+          "Verantwortung : Eigenverantwortlich",
+          "Branche : neutral: E-Commerce",
+          "Übergabe der ILC-Prostep \"Mechatronic Integration Suite\" an das übernehmende"
+        ]
+      },
+      {
+        "period": "05/08 - 06/08",
+        "title": "Dauer : 2 Monate",
+        "role": "Dauer : 2 Monate",
+        "activities": [
+          "Verantwortung : Teamarbeit",
+          "Branche : IT-Beratung",
+          "Arbeitgeber : ILC-PROSTEP GmbH, Bexbach [www.ilc-prostep.de]",
+          "Schnittstellenentwicklung im Rahmen eines Kundenprojektes mit der \"Mechatronic Integration Suite\". Siehe Projekt (19)",
+          "In diesem Projekt sind die Anforderungen des Kunden Continental-Teves für eine Schnittstelle zwischen den Systemen MKS Integrity Manager und SAP cProjects erfüllt worden. Für den User ist eine Verknüpfung des MKS Objektes",
+          "\"Task\" mit den SAP cProject Objekt \"Task\" auf beiden Benutzeroberflächen möglich."
+        ]
+      },
+      {
+        "period": "03/08 - 04/08",
+        "company": "Continental Teves AG & Co. oHG",
+        "title": "Dauer : 2 Monate",
+        "role": "Dauer : 2 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 2000/XP",
+          "Java",
+          "eclipse",
+          "SAP-RFC"
+        ],
+        "activities": [
+          "SAP cProjects, XML, JDom, MKS Integrity Manager",
+          "Verantwortung : Teamarbeit",
+          "Branche : IT-Beratung",
+          "Arbeitgeber : ILC-PROSTEP GmbH, Bexbach [www.ilc-prostep.de]",
+          "[www.Continental-Teves.de]",
+          "Schnittstellenentwicklung im Rahmen eines Kundenprojektes mit der \"Mechatronic Integration Suite\". Siehe Projekt (19)",
+          "In diesem Projekt sind die Anforderungen des Kunden ABB (CZ) bezüglich"
+        ]
+      },
+      {
+        "period": "12/07 - 02/08",
+        "title": "Dauer : 3 Monate",
+        "role": "Dauer : 3 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 2000/XP",
+          "Java jdk1.5",
+          "eclipse",
+          "SAP-RFC"
+        ],
+        "activities": [
+          "SAP-JCo",
+          "XML, JDom, EPLAN, MKS Source Integrity",
+          "Verantwortung : Teamarbeit",
+          "Branche : IT-Beratung; Anlagenbau",
+          "Arbeitgeber : ILC-PROSTEP GmbH, Bexbach [www.ilc-prostep.de]",
+          "Kunden : ABB (CZ) [http://www.abb.cz]",
+          "EPLAN Software & Service GmbH & Co. KG",
+          "[www.eplan.de]"
+        ]
+      },
+      {
+        "period": "08/07 - 11/07",
+        "title": "Dauer : 4 Monate",
+        "role": "Dauer : 4 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 2000/XP",
+          "Java jdk1.5",
+          "eclipse",
+          "JNI"
+        ],
+        "activities": [
+          "Microsoft Developer Studio 2003, C++, SAP-RFC,",
+          "SAP-JCo",
+          "XML, WebServices, EPLAN, MKS Source Integrity",
+          "Verantwortung : Teamarbeit",
+          "Branche : IT-Beratung",
+          "Arbeitgeber : ILC-PROSTEP GmbH, Bexbach [www.ilc-prostep.de]",
+          "Konzeption und Entwicklung einer Frontend-Applikation in ABAP-OO für das SAP"
+        ]
+      },
+      {
+        "period": "05/07 - 07/07",
+        "company": "Continental Teves AG & Co. oHG",
+        "title": "Dauer : 3 Monate",
+        "role": "Dauer : 3 Monate",
+        "activities": [
+          "Projektumgebung : SAP Web Application Server 7.0, ABAP-OO, SAP-RM,",
+          "SAP-RM Service Provider Framework, SAP WebService",
+          "Proxies,",
+          "MKS 2007, MKS Requirement Management.",
+          "Verantwortung : Eigenverantwortliche Umsetzung",
+          "Branche : IT-Beratung",
+          "Arbeitgeber : ILC-PROSTEP GmbH, Bexbach [www.ilc-prostep.de]",
+          "[www.Continental-Teves.de]"
+        ]
+      },
+      {
+        "period": "01/05 - 04/07",
+        "title": "Dauer : 27 Monate",
+        "role": "Dauer : 27 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 2000/XP",
+          "SAP NetWeaver WAS",
+          "6.30/6.40"
+        ],
+        "activities": [
+          "Java jdk1.4/jdk1.5, eclipse, SAP NetWeaver",
+          "Developer Studio,",
+          "Microsoft Developer Studio 2003, .NET, C#,",
+          "WebServices,",
+          "SOAP, Servlet, Tomcat, Axis, JDom, Java Bean Shell",
+          "(bsh),",
+          "JNI, XML, XSLT (Saxon, XALAN), XML-Schema, MKS,",
+          "EPLAN,"
+        ]
+      },
+      {
+        "period": "11/04",
+        "company": "ILC-PROSTEP GmbH, Bexbach",
+        "title": "Dauer : 1 Monat",
+        "role": "Dauer : 1 Monat",
+        "technologies": [
+          "Projektumgebung : Windows 2000/XP",
+          "SAP WAS 6.30",
+          "Java",
+          "jdk1.4"
+        ],
+        "activities": [
+          "eclipse,",
+          "Borland JBuilder, SAP NetWeaver Developer Studio,",
+          "WebServices, SOAP, EJB/Servlet",
+          "Verantwortung : Eigenverantwortliche Umsetzung und Präsentation",
+          "Branche : IT-Beratung",
+          "[http://www.ilc-prostep.de]",
+          "Entwicklung eines Electronic Business Connectors zur standardisierten"
+        ]
+      },
+      {
+        "period": "02/04 - 10/04",
+        "title": "Dauer : 9 Monate",
+        "role": "Dauer : 9 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 2000/XP",
+          "Suse Linux",
+          "sage Classic",
+          "Line"
+        ],
+        "activities": [
+          "Java jdk1.4, JBuilder 9, JDOM, JDBC, Jaxen,",
+          "Castor,",
+          "WebServices, SOAP, Tomcat 5.0, Axis,",
+          "XML/XSLT, Saxon, XML-Schema, XPath, openTRANS,",
+          "MS Studio.NET, C#, MS Visual Source Save, XML-Spy",
+          "Verantwortung : Eigenverantwortliche Umsetzung",
+          "Branche : neutral"
+        ]
+      },
+      {
+        "period": "11/03 - 12/03",
+        "company": "Unilog für RWE System Applikation, Essen",
+        "title": "Dauer : 2 Monate",
+        "role": "Dauer : 2 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "Java (JBuilder 9)",
+          "UML",
+          "SOAP",
+          "Tomcat"
+        ],
+        "activities": [
+          "CVS, XML/XSLT, RWE-iTool",
+          "Datenbank : Oracle 9i",
+          "Verantwortung : Freiberufler in eigenverantwortlicher Umsetzung",
+          "Branche : Energieversorger",
+          "[http://www.rwesystems.com]",
+          "Entwicklung einer Schnittstelle zum zyklischen Stammdatenaustausch der RWE Software VM 1.3.1 nach VM 3.2."
+        ]
+      },
+      {
+        "period": "07/03 - 10/03",
+        "company": "Unilog für RWE System Applikation, Essen",
+        "title": "Dauer : 4 Monate",
+        "role": "Dauer : 4 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "Java (JBuilder 7)",
+          "UML",
+          "Framework"
+        ],
+        "activities": [
+          "Cheops,",
+          "CVS, XML/XSLT, RWE-iTool",
+          "Datenbank : Oracle 9i",
+          "Verantwortung : Freiberufler in Teamarbeit",
+          "Branche : Energieversorger",
+          "[http://www.rwesystems.com]",
+          "Entwicklung einer Schnittstelle zur Datenmigration der RWE Software"
+        ]
+      },
+      {
+        "period": "03/03 - 06/03",
+        "company": "Unilog für RWE System Applikation, Essen",
+        "title": "Dauer : 3 Monate",
+        "role": "Dauer : 3 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "Java (JBuilder 5)",
+          "UML",
+          "Framework"
+        ],
+        "activities": [
+          "Cheops,",
+          "CVS, XML/XSLT, RWE-iTool",
+          "Datenbank : Oracle 8i",
+          "Verantwortung : Freiberufler in eigenverantwortlicher Umsetzung",
+          "Branche : Energieversorger",
+          "[http://www.rwesystems.com]",
+          "Erstellen von Spezifikationen für Schnittstellentests (Transaktions- verarbeitung angeschlossener Systeme). Durchführung und Bewertung der Tests."
+        ]
+      },
+      {
+        "period": "10/02 - 02/03",
+        "company": "Unilog Integrata für RWE System Applikation, Essen",
+        "title": "Dauer : 5 Monate",
+        "role": "Dauer : 5 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "Framework Cheops",
+          "CVS",
+          "RWE iTool"
+        ],
+        "activities": [
+          "Datenbank : Oracle 8i",
+          "Verantwortung : Freiberufler in eigenverantwortlicher Umsetzung",
+          "Branche : Energieversorger",
+          "[http://www.rwesystems.com]",
+          "Umsetzung eines Fachkonzepts zur automatischen Bearbeitung von An-/Ab-/Ummeldungen von 'Stromzählern' (Meldungsbearbeitung) der RWE Software 'Vertragsmanager VM 3.0'."
+        ]
+      },
+      {
+        "period": "04/02 - 09/02",
+        "company": "Unilog für RWE System Applikation, Essen",
+        "title": "Dauer : 6 Monate",
+        "role": "Dauer : 6 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "Java (JBuilder 4)",
+          "UML",
+          "OOD"
+        ],
+        "activities": [
+          "Framework Cheops, CORBA, CVS,",
+          "Datenbank : Oracle 8i, Access",
+          "Verantwortung : Freiberufler in Teamarbeit",
+          "Branche : Energieversorger",
+          "[http://www.rwesystems.com]",
+          "Technologieberatung zur Einführung eines Intranets."
+        ]
+      },
+      {
+        "period": "02/02 - 03/02",
+        "company": "Bistum Trier (BGV), Trier [www.bistum-trier.de]",
+        "title": "Dauer : 1 Monat",
+        "role": "Dauer : 1 Monat",
+        "activities": [
+          "Beschreibung : Analyse IT-Infrastruktur,",
+          "Beratung Softwareentwicklungs-Strategie,",
+          "Auswahl eines Contentmanagement-System (CMS)",
+          "Verantwortung : Teamarbeit",
+          "Branche : Dienstleister",
+          "Arbeitgeber : Unilog Trier/Frankfurt [http://www.logica.de]",
+          "Durchführung eines Workshops und Präsentation der Ergebnisse zur Software-Entwicklungs-Strategie hinsichtlich der Alternativen Microsoft .NET vs. J2EE."
+        ]
+      },
+      {
+        "period": "01/02 - 02/02",
+        "company": "Bitburger Brauerei Th. Simon GmbH, Bitburg",
+        "title": "Dauer : 1 Monat",
+        "role": "Dauer : 1 Monat",
+        "activities": [
+          "Beschreibung : Analyse Ist-Zustands der IT (Strategien/Architekturen/Organisation),",
+          "Definition des Soll-Zustandes, Aufwands-/Nutzenbetrachtung,",
+          "Verteilte Anwendungen, .NET vs J2EE, C#, EJB mit In-Q-My Applikation-Server (SAP)",
+          "Verantwortung : Teamarbeit",
+          "Dauer : 1 Monat",
+          "Branche : Lebensmittel",
+          "Arbeitgeber : Unilog Trier/Frankfurt [http://www.logica.de]",
+          "[www.bitburger.de]"
+        ]
+      },
+      {
+        "period": "10/01 p; : 10/01 - 12/01",
+        "company": "Deutsche Post AG, Darmstadt [http://www.dpwn.de]",
+        "title": "Dauer : 2 Monate",
+        "role": "Dauer : 2 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT/2000",
+          "C++",
+          "UML",
+          "together",
+          "Reengineering"
+        ],
+        "activities": [
+          "Verantwortung : Teamarbeit",
+          "Branche : Logistic Dienstleister",
+          "Arbeitgeber : Unilog Trier/Frankfurt [http://www.logica.de]",
+          "Anwendersoftwarewicklung, Erfassung und Abwicklung von Werbekampagnen.",
+          "Integration der Applikation in bestehende B2C- und B2B-Systeme."
+        ]
+      },
+      {
+        "period": "08/00 - 09/01",
+        "title": "Dauer : 13 Monate",
+        "role": "Dauer : 13 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 98/NT",
+          "Object Pascal (Delphi 5.0"
+        ],
+        "activities": [
+          "Enterprise),",
+          "Java (Jbuilder 4) SUN netbeans,",
+          "XML(Interoperabilität und Persistence), XML-Spy,",
+          "Anforderungsanalyse, OOA, OOD",
+          "Geschäfsprozessmodellierung mit UML,",
+          "RAD-Prototyping,",
+          "Objekt-Relationale-Abbildung, Persistence-Layer",
+          "Entwicklung,"
+        ]
+      },
+      {
+        "period": "08/99 - 07/00",
+        "title": "Dauer : 12 Monate",
+        "role": "Dauer : 12 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "UNIX/SINIX",
+          "C++ (Visual",
+          "Studio 6.0)"
+        ],
+        "activities": [
+          "OOA/OOD, MS Source Save, Borland C++ Builder,",
+          "Datenbank : INFORMIX OnLine (Trigger, Stored Procedures/SPL)",
+          "Verantwortung : Teamarbeit",
+          "Branche : Industrie (Fensterbau)",
+          "Arbeitgeber : Unilux AG, Salmtal [http://www.unilux.de]",
+          "Schnittstellenentwicklung"
+        ]
+      },
+      {
+        "period": "01/99 - 07/99",
+        "title": "Dauer : 7 Monate",
+        "role": "Dauer : 7 Monate",
+        "technologies": [
+          "Projektumgebung : Windows NT",
+          "UNIX/SINIX",
+          "Object Pascal",
+          "(Delphi"
+        ],
+        "activities": [
+          "1.0/3.0),",
+          "SQL, Datenbank: INFORMIX OnLine (Trigger/Stored",
+          "Procedures)",
+          "Verantwortung : Projektübernahme",
+          "Branche : Industrie (Fensterbau)",
+          "Arbeitgeber : Unilux AG, Salmtal [http://www.unilux.de]",
+          "Entwicklung von Installations- und Updatesoftware zur Migration der Applikations- und Datenbankversionen auf den Kunden-PCs."
+        ]
+      },
+      {
+        "period": "08/98 - 12/98",
+        "title": "Dauer : 5 Monate",
+        "role": "Dauer : 5 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 3.x/95/98/NT",
+          "InstallShield 3.0/5.0"
+        ],
+        "activities": [
+          "Object Pascal (Delphi 1.0/3.0), Paradox/BDE",
+          "Verantwortung : Projektverantwortlich",
+          "Branche : Industrie (Fensterbau)",
+          "Arbeitgeber : Unilux AG, Salmtal [http://www.unilux.de]",
+          "Entwicklung einer Kalkulationssoftware zur Angebots- und Auftragsbearbeitung für die Handelskette im Fensterbau."
+        ]
+      },
+      {
+        "period": "02/97 - 07/98",
+        "title": "Dauer : 18 Monate",
+        "role": "Dauer : 18 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 3.x/95/98/NT",
+          "Object Pascal",
+          "(Delphi 3.0)",
+          "SQL",
+          "Ereignisgesteuerte Windows Anwendung"
+        ],
+        "activities": [
+          "GUI-Entwurf,",
+          "List & Label",
+          "Datenbank : Paradox/BDE",
+          "Verantwortung : Teamarbeit",
+          "Branche : Industrie (Fensterbau)",
+          "Arbeitgeber : Unilux AG, Salmtal [http://www.unilux.de]",
+          "Entwicklung eines visuellen Produktkataloges für ein Haustürenprogramm und Verteilung/Installation mittels CD-ROM."
+        ]
+      },
+      {
+        "period": "07/96 - 01/97",
+        "title": "Dauer : 7 Monate",
+        "role": "Dauer : 7 Monate",
+        "technologies": [
+          "Projektumgebung : Windows 3.x/95",
+          "Object Pascal (Delphi 1.0)",
+          "OOD",
+          "Ereignisgesteuerte Windows Anwendung",
+          "GUI-Entwurf"
+        ],
+        "activities": [
+          "Datenbank : Paradox/BDE",
+          "Verantwortung : Projektverantwortlich",
+          "Branche : Industrie (Fensterbau)",
+          "Arbeitgeber : Unilux AG, Salmtal [http://www.unilux.de]",
+          "Weiterentwicklung einer Registrierkassensoftware für den PC. Entwicklung von Softwarekomponenten zur kartengestützten Abrechnung im Freizeit- und Gastronomiebereich. Kundenbetreuung, Installation und Integration der Lösungen."
+        ]
+      },
+      {
+        "period": "12/94 - 06/96",
+        "title": "Dauer : 19 Monate",
+        "role": "Dauer : 19 Monate",
+        "activities": [
+          "Projektumgebung : MS-DOS, Pascal (Turbo Pascal 7.0),",
+          "Maskengenerator,",
+          "Strukturierte Programmierung",
+          "Datenbank : Btrieve",
+          "Verantwortung : Teamarbeit",
+          "Branche : Freizeitindustrie/Gastronomie",
+          "Arbeitgeber : OPC Computer & Software GmbH, Trier",
+          "[http://www.opc.de]"
+        ]
+      },
+      {
+        "period": "07/93 - 01/94",
+        "title": "Dauer : 6 Monate",
+        "role": "Dauer : 6 Monate",
+        "activities": [
+          "Projektumgebung : MS-DOS, Pascal, Object Pascal, Strukturierte",
+          "Programmierung",
+          "Beschreibung : Software-Qualitätssicherung,",
+          "Ermittlung von Software Metriken und Software",
+          "Kennzahlen",
+          "(Codeumfang u. Komplexität), Generierung von Übersichten,",
+          "White Box-Testverfahren, Entwicklung eines Parsers",
+          "Institut : Fachhochschule Trier [http://www.fh-trier.de] Sonstiges Referenzen: Projekt Testautomatisierung, Agile-Tester, Web Entwicklung, 07/14 -04/15 Referenz durch Architecture & Service Management, großes deutsches Touristikunternehmen, vom 23.04.15 \"[...] Der Consultant hat diese Aufgaben stets zu unserer vollsten Zufriedenheit erfüllt. Er besitzt sehr gute Team-Kompetenzen. Die Integration und die Arbeit im Team funktionierten bestens. Das Team und die Projektverantwortlichen bedauern den Ausstieg des Consultants aus dem Projekt sehr, denn er hat die Produktentwicklung und insbesondere den Bereich Testautomation mit seinem Know-how und seinem Expertenwissen auf diesem Gebiet weit vorangebracht. Er war ein verantwortungsvoll arbeitender und stets zuverlässiger Kollege, den wir sehr zu schätzen gelernt haben. Wir wünschen dem Consultant auf seinem weiteren beruflichen und persönlichen Werdegang alles Gute und weiterhin viel Erfolg.\" Alle Referenzen sind durch GULP bestätigt. Sonstige Anmerkungen:",
+          "tabellarischer Lebenslauf",
+          "Referenzen/Zeugnisse auf Anfrage."
+        ]
+      }
+    ],
+    "industries": [
+      "Handel",
+      "Marketing/Werbung",
+      "Handwerk",
+      "Industrie: Elektronik, Holzwerkstofftechnik, Automotive, Diskrete Fertigungsindustrie",
+      "Energieversorger",
+      "Telekommunikation, IT",
+      "Touristik, Reise"
+    ],
+    "focus_areas": [
+      "Business Software Entwickler",
+      "Web-Entwickler",
+      "Testautomatisierung",
+      "JavaFX",
+      "Business Software Entwicklung / Web-Entwicklung",
+      "Konzeption und Aufbau von agiler Testautomation",
+      "Qualitätssicherung / Test / Testautomation / Selenium / JBehave",
+      "Engineering / IT-nahe Ingenieurdienstleistungen",
+      "Enterprise Application Integration (EAI) Lebenslauf chronologisch in Kurzform",
+      "Realschule",
+      "Ausbildung zum Kommunikationselektroniker (3,5 Jahre)",
+      "Fachhochschulreife (1 Jahr)",
+      "Elektroniker (2 Jahre)",
+      "Technischer Betriebsassistent ZDF-Mainz (1 Jahr)",
+      "Studium zum Dipl. Ing. (FH) Technische Informatik (4 Jahre) - Seit 1994 Software Entwicklung und IT-Beratung als Angestellter und freiberuflich - Seit 2010 Geschäftsführung IT-Beratungsunternehmen",
+      "Business Software Entwicklung",
+      "Web-Entwicklung",
+      "Qualitätssicherung",
+      "Test",
+      "Testautomation",
+      "Selenium",
+      "JBehave",
+      "Engineering",
+      "IT-nahe Ingenieurdienstleistungen",
+      "Enterprise Application Integration (EAI)"
+    ],
+    "focus_experience": [
+      {
+        "name": "Bootstrap",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Gherkin",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Gradle",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Grizzly",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "HTML5",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "IntelliJ 15",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "IntelliJ IDEA",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "JAX-RS",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "jBehave",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Knockout.js",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "MVP-Pattern",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Scene Builder 8.0",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "TestFX",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Velocity",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Entwicklungsumgebungen",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Eclipse (alle Versionen bis 2015)",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Intellij (seit 2015)",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "XML Spy",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "SAP Developer Studio",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Oracle SQL Developer",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Microsoft: Visual Studio .NET 2003/2005/2008",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "- Borland: C++ Builder",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Delphi",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "JBuilder",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "- Firebug",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Firefinder",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Fiddler",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Software Lifecycle",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "SVN",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Gradle (basics)",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "- MKS Source Integrity",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "MKS Requirements Management",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Microsoft Visual Source Save (VSS)",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Ticket System BMC Remedy (MARS)",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Frameworks und Komponentenmodelle",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "- JEE",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Servlets/JSP",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "- Spring Core",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Spring Batch",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "GWT (Google Web Toolkit) 1.7",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "AngularJS (basics)",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": ".NET",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "SAP NetWeaver",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Persitence Technologien",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "- SQL",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "- JPA",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "openJPA",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "eclipseLink",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "myBatis",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Oracle",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "MySQL",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Application Server",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "JBoss",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Web Technologien",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "TCP/IP",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "- HTTP",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "- HTML",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "- SOAP",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Webservices",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "- Selenium II",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "WebDriver",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "PageObjects-Pattern (Experte)",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "AJAX",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Apache AXIS",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Apache CXF (basics)",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Google GWT-RPC (basics)",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "RDF (Resource Description Framework)(basics)",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "SAP",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "JCo (SAP Java Connector) (Experte)",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "SAP BAPI (Business Application Programming Interface)",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "SAP RFC (SAP Remote Function Call)",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "SAP XI (basics)",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "SAP RM (basics)",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Standards",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "- OOA",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "- XML",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "XML-Schema",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "XPath",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "openTRANS",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "ERFAHRUNGEN",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Prozedurale Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "- Pascal",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Funktionale Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "- Java8 Lambda",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Pascal Functions",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Scala (basics)",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Objektorientierte Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Java (umfangreich)",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "- Object Pascal",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Delphi (umfangreich)",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "C++",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "ABAP-OO (basics)",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Rapid Analyse & Design (RAD)",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Iterativ-Inkrementelle Entwicklung",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Exploratives/Experimentelles Prototyping",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Relationale Datenbanken und OR-Mapping",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "- ER-Modellierung",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Normalisierung",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "- Objekt-Relationale Abbildung: JPA",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "JDBC/ODBC",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "- Oracle",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "HSQLDB",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "- BDE",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Paradox",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "- INFORMIX",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Access",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "Interbase",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "Pervasive.SQL",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "hsqldb (alle",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "basics)",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "PL/SQL (basics)",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "Mehrschichtarchitekturen und Verteilte Anwendungen",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Java Enterprise Edition (JEE)",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Google GWT (basics)",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "Spring Core",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "- Servlets",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "Applikation Server:",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "SAP JEE-Engine(basics)",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "JBoss(basics)",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "- WebServices",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Axis",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "Microsoft .NET",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "SAP Entwicklungen",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "NetWeaver SAP WAS 6.30/6.40/7.0",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "- BAPI",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "RFC (Remote Function Calls)",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "JCO Java Connector (umfangreich)",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "ABAP-OO(basics)",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "- SAP RM (Recordsmanagement",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "Service Provider Framework)(basics)",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "SAP DVS(basics)",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "SAP cProject(basics)",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "SAP XI(basics)",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "Entwicklungen von Schnittstellen und Connectoren",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "RPC",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "- Austauschformate: openTRANS",
+        "category": "product_standard",
+        "sort_order": 152
+      },
+      {
+        "name": "STEP(basics)",
+        "category": "product_standard",
+        "sort_order": 153
+      },
+      {
+        "name": "Ereignisgesteuerte GUI Anwendungen",
+        "category": "product_standard",
+        "sort_order": 154
+      },
+      {
+        "name": "JavaFX",
+        "category": "product_standard",
+        "sort_order": 155
+      },
+      {
+        "name": "- Microsoft Windows Anwendungen (Delphi",
+        "category": "product_standard",
+        "sort_order": 156
+      },
+      {
+        "name": "Borland VCL",
+        "category": "product_standard",
+        "sort_order": 157
+      },
+      {
+        "name": "Microsoft",
+        "category": "product_standard",
+        "sort_order": 158
+      },
+      {
+        "name": ".NET)",
+        "category": "product_standard",
+        "sort_order": 159
+      },
+      {
+        "name": "Web Anwendungen (Google GWT)",
+        "category": "product_standard",
+        "sort_order": 160
+      },
+      {
+        "name": "Testautomation Web Anwendungen",
+        "category": "product_standard",
+        "sort_order": 161
+      },
+      {
+        "name": "PageObjects (in allem Experte)",
+        "category": "product_standard",
+        "sort_order": 162
+      },
+      {
+        "name": "Automated Visual Regression/Validation Tests",
+        "category": "product_standard",
+        "sort_order": 163
+      },
+      {
+        "name": "- HtmlUnit",
+        "category": "product_standard",
+        "sort_order": 164
+      },
+      {
+        "name": "ApacheHttpClient",
+        "category": "product_standard",
+        "sort_order": 165
+      },
+      {
+        "name": "- Ant",
+        "category": "product_standard",
+        "sort_order": 166
+      },
+      {
+        "name": "JUnit/TestNG",
+        "category": "product_standard",
+        "sort_order": 167
+      },
+      {
+        "name": "TeamCity(basics)",
+        "category": "product_standard",
+        "sort_order": 168
+      },
+      {
+        "name": "HPQC(basics)",
+        "category": "product_standard",
+        "sort_order": 169
+      },
+      {
+        "name": "Visual Studio .NET 2003/2005/2008",
+        "category": "product_standard",
+        "sort_order": 170
+      },
+      {
+        "name": "C++ Builder",
+        "category": "product_standard",
+        "sort_order": 171
+      },
+      {
+        "name": "Firebug",
+        "category": "product_standard",
+        "sort_order": 172
+      },
+      {
+        "name": "MKS Source Integrity",
+        "category": "product_standard",
+        "sort_order": 173
+      },
+      {
+        "name": "JEE",
+        "category": "product_standard",
+        "sort_order": 174
+      },
+      {
+        "name": "AngularJS",
+        "category": "product_standard",
+        "sort_order": 175
+      },
+      {
+        "name": "SQL",
+        "category": "product_standard",
+        "sort_order": 176
+      },
+      {
+        "name": "JPA",
+        "category": "product_standard",
+        "sort_order": 177
+      },
+      {
+        "name": "HTTP",
+        "category": "product_standard",
+        "sort_order": 178
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 179
+      },
+      {
+        "name": "Selenium II",
+        "category": "product_standard",
+        "sort_order": 180
+      },
+      {
+        "name": "PageObjects-Pattern",
+        "category": "product_standard",
+        "sort_order": 181
+      },
+      {
+        "name": "Apache CXF",
+        "category": "product_standard",
+        "sort_order": 182
+      },
+      {
+        "name": "Google GWT-RPC",
+        "category": "product_standard",
+        "sort_order": 183
+      },
+      {
+        "name": "RDF (Resource Description Framework)",
+        "category": "product_standard",
+        "sort_order": 184
+      },
+      {
+        "name": "JCo (SAP Java Connector)",
+        "category": "product_standard",
+        "sort_order": 185
+      },
+      {
+        "name": "SAP XI",
+        "category": "product_standard",
+        "sort_order": 186
+      },
+      {
+        "name": "SAP RM",
+        "category": "product_standard",
+        "sort_order": 187
+      },
+      {
+        "name": "OOA",
+        "category": "product_standard",
+        "sort_order": 188
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 189
+      },
+      {
+        "name": "Pascal",
+        "category": "product_standard",
+        "sort_order": 190
+      },
+      {
+        "name": "Java8 Lambda",
+        "category": "product_standard",
+        "sort_order": 191
+      },
+      {
+        "name": "Scala",
+        "category": "product_standard",
+        "sort_order": 192
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 193
+      },
+      {
+        "name": "Object Pascal",
+        "category": "product_standard",
+        "sort_order": 194
+      },
+      {
+        "name": "ABAP-OO",
+        "category": "product_standard",
+        "sort_order": 195
+      },
+      {
+        "name": "ER-Modellierung",
+        "category": "product_standard",
+        "sort_order": 196
+      },
+      {
+        "name": "BDE",
+        "category": "product_standard",
+        "sort_order": 197
+      },
+      {
+        "name": "INFORMIX",
+        "category": "product_standard",
+        "sort_order": 198
+      },
+      {
+        "name": "PL/SQL",
+        "category": "product_standard",
+        "sort_order": 199
+      },
+      {
+        "name": "Google GWT",
+        "category": "product_standard",
+        "sort_order": 200
+      },
+      {
+        "name": "Servlets",
+        "category": "product_standard",
+        "sort_order": 201
+      },
+      {
+        "name": "SAP JEE-Engine",
+        "category": "product_standard",
+        "sort_order": 202
+      },
+      {
+        "name": "BAPI",
+        "category": "product_standard",
+        "sort_order": 203
+      },
+      {
+        "name": "JCO Java Connector",
+        "category": "product_standard",
+        "sort_order": 204
+      },
+      {
+        "name": "SAP RM (Recordsmanagement, Service Provider Framework)",
+        "category": "product_standard",
+        "sort_order": 205
+      },
+      {
+        "name": "SAP DVS",
+        "category": "product_standard",
+        "sort_order": 206
+      },
+      {
+        "name": "SAP cProject",
+        "category": "product_standard",
+        "sort_order": 207
+      },
+      {
+        "name": "STEP",
+        "category": "product_standard",
+        "sort_order": 208
+      },
+      {
+        "name": "Microsoft Windows Anwendungen (Delphi, Borland VCL, Microsoft .NET)",
+        "category": "product_standard",
+        "sort_order": 209
+      },
+      {
+        "name": "HtmlUnit",
+        "category": "product_standard",
+        "sort_order": 210
+      },
+      {
+        "name": "TeamCity",
+        "category": "product_standard",
+        "sort_order": 211
+      },
+      {
+        "name": "HPQC",
+        "category": "product_standard",
+        "sort_order": 212
+      }
+    ],
+    "education": [
+      {
+        "degree": "Realschule",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zum Kommunikationselektroniker",
+        "institution": "",
+        "period": "3,5 Jahre",
+        "education_type": "course"
+      },
+      {
+        "degree": "Fachhochschulreife",
+        "institution": "",
+        "period": "1 Jahr",
+        "education_type": "course"
+      },
+      {
+        "degree": "Elektroniker",
+        "institution": "",
+        "period": "2 Jahre",
+        "education_type": "course"
+      },
+      {
+        "degree": "Technischer Betriebsassistent ZDF-Mainz",
+        "institution": "",
+        "period": "1 Jahr",
+        "education_type": "course"
+      },
+      {
+        "degree": "Studium zum Dipl. Ing. (FH) Technische Informatik",
+        "institution": "",
+        "period": "4 Jahre",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Testautomatisierung, Agile-Tester, Web Entwicklung, 07/14 - 04/15\nReferenz durch Architecture & Service Management, großes deutsches Touristikunternehmen, vom 23.04.15\n\"[...] Der Consultant hat diese Aufgaben stets zu unserer vollsten Zufriedenheit erfüllt. Er besitzt sehr gute Team-Kompetenzen. Die Integration und die Arbeit im Team funktionierten bestens. Das Team und die Projektverantwortlichen bedauern den Ausstieg des Consultants aus dem Projekt sehr, denn er hat die Produktentwicklung und insbesondere den Bereich Testautomation mit seinem Know-how und seinem Expertenwissen auf diesem Gebiet weit vorangebracht. Er war ein verantwortungsvoll arbeitender und stets zuverlässiger Kollege, den wir sehr zu schätzen gelernt haben. Wir wünschen dem Consultant auf seinem weiteren beruflichen und persönlichen Werdegang alles Gute und weiterhin viel Erfolg.\"\nAlle Referenzen sind durch GULP bestätigt. Sonstige Anmerkungen:\n- tabellarischer Lebenslauf\n- Referenzen/Zeugnisse auf Anfrage.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "FTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSH",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HTTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSL WebServices",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SOAP Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet REST SAP RFC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SAP Java Connector (JCo) GWT-RPC RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Parallele Schnittstelle TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:17:48.277578",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "SCHULUNGEN",
+      "OTHER",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2014"
+      ],
+      "coverage_percent": 95.9493670886076,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

@@ -94,6 +94,62 @@ FIRST_WORD_TO_LABEL = {
     # → FOCUS_EXP
     'produkte':              'FOCUS_EXP',
     'erfahrungen':           'FOCUS_EXP',
+
+    # ── Gulp/AID Keywords v1.3-final (ergänzt, keine Konflikte mit oben) ──
+    # Quelle: services/section_label_keywords.py — Baseline vor Merge:
+    #   artifacts/gulp-keyword/live-baselines/main_labeler.py.before-v1.3-keywords
+    # PERSONAL
+    'stammdaten':            'PERSONAL',
+    'personendaten':         'PERSONAL',
+    'wohnort':               'PERSONAL',
+    'jahrgang':              'PERSONAL',
+    'staatsbürgerschaft':    'PERSONAL',
+    'staatsbuergerschaft':   'PERSONAL',
+    'stundensatz':           'PERSONAL',
+    'bemerkungen':           'PERSONAL',
+    'kontaktwunsch':         'PERSONAL',
+    # FACHBEREICHE
+    'position':              'FACHBEREICHE',
+    # SCHULUNGEN
+    'studium':               'SCHULUNGEN',
+    'abschluss':             'SCHULUNGEN',
+    'abschluß':              'SCHULUNGEN',
+    'institution':           'SCHULUNGEN',
+    'werdegang':             'SCHULUNGEN',
+    # SKILLS
+    'hardwareplattform':     'SKILLS',
+    'kenntnisse':            'SKILLS',
+    'fremdsprachen':         'SKILLS',
+    'methodisches':          'SKILLS',
+    'repositories':          'SKILLS',
+    # PERSONAL (Einsatzort = location, nicht FOCUS_EXP)
+    'einsatzort':            'PERSONAL',
+    'regionen':              'PERSONAL',
+    # OTHER
+    'sonstiges':             'OTHER',
+    # PROJECT / Experience-Felder (AID-*-gulp.pdf Cleaner-Output)
+    'projekte':              'PROJECT',
+    'projekt':               'PROJECT',
+    'laufzeit':              'PROJECT',
+    'dauer':                 'PROJECT',
+    'rolle':                 'PROJECT',
+    'kunde':                 'PROJECT',
+    'firma':                 'PROJECT',
+    'auftrag':               'PROJECT',
+    'aufgaben':              'PROJECT',
+    'aufgabenstellung':      'PROJECT',
+    'projektinhalte':        'PROJECT',
+    'tätigkeiten':           'PROJECT',
+    'tatigkeiten':           'PROJECT',
+    'tätigkeit':             'PROJECT',
+    'systemumgebung':        'PROJECT',
+    'projektumgebung':       'PROJECT',
+    'activities':            'PROJECT',
+    'company':               'PROJECT',
+    'title':                 'PROJECT',
+    'location':              'PROJECT',
+    # OTHER (Referenzen ≠ EXPERIENCE — Matching-Gift vermeiden)
+    'referenzen':            'OTHER',
 }
 
 # Skill-Kategorie direkt aus erstem Wort der Gruppe
@@ -243,6 +299,18 @@ class MainLabeler:
             if re.match(r'\d{1,2}/\d{4}', first) or first_word == 'zeitraum':
                 label_map[g['index']] = 'PROJECT'
                 continue
+
+            # Mehrwort-Überschriften (Gulp/AID): "Fachlicher Schwerpunkt", "Einsatzort / Regionen"
+            try:
+                from apps.cv_extractor.services.section_label_keywords import (
+                    label_from_heading,
+                )
+                phrase_lab = label_from_heading(g['first_line'])
+                if phrase_lab and phrase_lab in MAIN_LABELS:
+                    label_map[g['index']] = phrase_lab
+                    continue
+            except Exception:
+                pass
 
             # Bekanntes erstes Wort → direkt labeln
             if first_word in FIRST_WORD_TO_LABEL:

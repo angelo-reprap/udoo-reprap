@@ -1,0 +1,362 @@
+AID: AID-lr_2.3.2.0
+Name: Levi Richter
+Headline: Java J(2)EE Entwickler
+Ort: 604xx Frankfurt am Main, Deutschland
+Wohnort: 604xx Frankfurt am Main, Deutschland
+Jahrgang: 1970
+Verfügbar: 23.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1988
+Sprachen: apache-maven-3.6.1, Arabisch Muttersprache, Deutsch Fließend in
+
+FACHBEREICHE:
+Java J(2)EE Entwickler
+Software-Entwicklung / Programmierung
+Engineering / IT-nahe Ingenieurdienstleistungen 09/1997 11/2004 Institution: Johann-Wolfgang-Goethe Universität Frankfurt am Main, Fachrichtung: Informatik mit Nebenfach Physik.
+Abschluss: Diplom-Informatiker.
+Weiterbildungen
+09/2009 10/2009: SAP Kurs; alfatraining
+Development Consultant SAP NetWeaver 2004 Applikcation Development Focus ABAP SAP® ERP 6.0. Focus ABAP Form 2007 mit folgenden Modulen:
+SAPTEC: Grundlagen des SAP Web AS.
+BC 400: ABAP Workbench Grundlagen.
+BC 430: ABAP Dictionary.
+ADM 940: Einführung in das Berechtigungskonzept mit SAP.
+BC 410: Entwicklung und Benutzerdialoge.
+Skills: SAP NetWeaver 2004, ABAP, SAP TEC, BC.
+07/2009 09/2009
+Java Kurs (J2SE 1.6, J2EE 1.5, Servlets, RMI, JNLP, Eclipse 3.5, Windows XP) 09/1996 07/1997 Deutsch Sprachkurs, Studienkolleg an der Uni-Leipzig, Abschluss: Zeugnis über die Deutsche Sprachprüfung mit der Spezialisierungsrichtung Fachsprache Naturwissenschaften/ Technik.
+
+BRANCHEN:
+Software
+Finanz/Banking
+Automotive
+Telekommunikation
+Versicherungen
+Handel & Einkauf
+Output Management
+Dokumentenmanagementsystem (DMS)
+
+PROJEKTE:
+  2020-01 - 2020-12 | Statistisches Bundesamt | JEE-Entwickler
+    - Teilnahme am Projekt Zensus2021 (Volks- und Wohnungszählung), RDB
+    - (ReferenzDatenBestand), Web-Applikation für die statistische Analyse der Anschriften und Personen in Deutschland.
+    - Aufgaben:
+    Techs: version 14.3.0, GIT version 2.26.0.windows.1, GitLab, Community Edition, WinSCP Version 5.15.3 (Build 9730), Notepad++ v6.3.1, Windows 10 Pro, Java8
+  2019-07 - 2019-12 | ITZBund (Informationstechnikzentrum Bund) | JEE-Entwickler (freiberuflich)
+    - Teilnahme am Projekt (GemFA), Web-Applikation für die Finanzbehörden in Deutschland.
+    - Architektur
+    - Entwicklung der einzelnen Module Back- und Frontend
+    Techs: Java7/8, J(2)EE 6.0, EJB3.1, JSF 2.2.17, PrimeFaces 5.3, UML-Modellierung UMLet version 12.2, GIT version 2.21.0.windows.1, 0.7, WinSCP Version 5.15.3 (Build 9730), Notepad++ v6.8.2
+  2018-06 - 2019-06 | VR-Smart-Finanz (eh. VR-Leasing) | JEE-Entwickler (freiberuflich)
+    - Teilnahme an mehreren Projekten (PA Prozessautomatisierung, POK Paket und Obligo Konditionen, StumBG Steuerumgehungsbekämpfungsgesetzt) für mehrere Web-Applikationen (LOS Leasing Online System und ANIS Antrag
+    - Nachbearbeitung Information System).
+    - Architektur
+    Techs: Java7/8, J(2)EE 7.0, EJBs, JSF 1.2, PrimeFaces 6.0, hibernatecore 4.2.21, 9365), Splunk 7.0.5, Notepad++ v7.6.5, Windows 7 Professional
+  2017-07 - 2018-06 | Bundeskriminalamt | JEE-Entwickler (freiberuflich)
+    - Teilnahme am Projekt Verfahrenskontrolle-Applikation (VFKA, Web- Applikation) für die Kontrolle und Konfiguration der Systeme, die aus Warteschlangen und Services bestehen.
+    - Architektur
+    - Entwicklung der einzelnen Module Back- und Frontend
+    Techs: Java-1.8, J(2)EE 7.0, EJBs, JSF 2.2, PrimeFaces 6.0, OmniFaces, 1.14, WinSCP 5.1.7, Notepad++v7.3.3, Windows 7 Enterprise
+  2016-12 - 2017-06 | W&W Informatik GmbH | JEE-Entwickler (freiberuflich)
+    - Teilnahme am Projekt Web-Applikation für die Verwaltung der Versicherungsaufträge (AuftragsTyp, Datum, OrdnungsbegriffTyp, Status, etc.).
+    - Architektur
+    - Entwicklung der einzelnen Module Backend
+    Techs: Java-1.7, J(2)EE, spring-core 4.2.2.RELEASE, spring-context, Notepad++v6.9.2, Windows 8.1 Enterprise, Microsoft Office
+  2016-06 - 2016-09 | Siemens AG | JEE-Entwickler (freiberuflich)
+    - Teilnahme am Projekt Web-Applikation für die Verwaltung der Energie- Projekte (Project Name, Country, Region, Main Fuels, Backup Fuel, etc.).
+    - Architektur
+    - Entwicklung der einzelnen Module Back- und Frontend
+    Techs: Java-8, J(2)EE, spring-aspects, spring-beans, spring-context, Communicator Version 3.5.69, Windows 10, Microsoft Office
+  2016-04 - 2016-08 | Deutsche Bank | JEE-Entwickler (freiberuflich)
+    - Teilnahme am Projekt Web-Applikation für die Verwaltung der elektronischen Schlüssel.
+    - Architektur
+    - Frontend Entwicklung
+    Techs: Java-8, J(2)EE, Spring Version 4.2.2.RELEASE, JSF2.0, JSFBeans, TeamViewer Version 11.0, Notepad++v6.9.1, Windows 10, Microsoft
+  2014-05 - 2016-04 | Telekom (T-Systems) International GmbH | EE-Architekt & JEE-Entwickler
+    - OCR-Projekt:
+    - Tausende elektronische Dokumente werden täglich durch Benutzung eines Tools (OpenText Capture Document Reader, Abk. OCR),
+    - Dokumentenmanagementsystem (DMS), bearbeitet.
+    Techs: Java 1.8.0_11, J(2)EE, WebServices JAXB 2.2.3, XSD, WSDL, Spring, Notepad++v6.5.3, Windows 7, Windows Server 2008 R2 Standard
+  2014-01 - 2014-04 | Weiterbildung | JEE-Architekt & JEE-Entwickler
+    - Familienphase und Weiterbildung (JSF 2.2, Spring 4.0.4 und Selenium)
+    - Lernen
+    - Architektur
+    Techs: Java, J(2)EE, Spring Version 4.0.4, JSF2.2, JSF-Beans, Hibernate4.1.1, Datenbank 11g, VitrualBox.Version 4.2.12, Notepad++v6.3.1, Windows 7
+  2013-05 - 2013-12 | IBM | JEE-Entwickler (freiberuflich)
+    - Eine Web-Applikation für ein grosses Projekt "SEPA" wurde entwickelt.
+    - Architektur
+    - Entwicklung der einzelnen Module Back- und Frontend
+    Techs: Java, J(2)EE, Spring Version 3.1.1 RELEASE, TestNG, JSF1.2, JSF-Beans, VitrualBox.Version 4.2.12, Notepad++v6.3.1, Xubuntu, Windows 7
+  2013-01 - 2013-04 | Eigenes Projekt | JEE-Architekt & JEE-Entwickler
+    - Eine Web-Applikation für Internet Makler wird entwickelt.
+    - Architektur
+    - Entwicklung der einzelnen Module Back- und Frontend
+    Techs: Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.3.1, Ajax, CSS
+  2012-10 - 2012-12 | Fa. Daimler | Entwickler
+    - Mitarbeiten in mehreren Web-Applikationen (Backend, Update, DCC und Async) für Upload und Download der Dateien durch Benutzung der REST- Technologie für Autos-Mieten (Car2Go) und die Bearbeitung der Requests (Anfragen) von einem mobilen Gerät (TCU-Unit) und von mobilem Telefon.
+    - JBoss-7.1.1.Final für Windows und Unix Platforms konfigurieren
+    - Modulierung
+    Techs: Java1.6.0_35, J(2)EE, JSF-2.1.2, JSF-Beans, EJB3.1, REST, JAXRS, JSON
+  2012-09 - 2012-10 | Fa. Dürr | Entwickler (freiberuflich)
+    - Eine Web-Applikation für Autolackierung wird entwickelt.
+    - Erstellung der Composite Komponente vom JSF
+    - Modulierung
+    Techs: JavaScript, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.4, Ajax, CSS
+  2012-04 - 2012-09 | Eigenes Projekt | JEE-Architekt & JEE-Entwickler
+    - Eine Web-Applikation für Online Shop für Klamotten wird entwickelt.
+    - Modulierung
+    - Entwicklung der einzelnen Module Back- und Frontend
+    Techs: Java, J(2)EE, JSF2.0, JSF-Beans, PrimeFaces 3.3.1, Ajax, CSS
+  2011-02 - 2012-03 | Fa. Siemens | Entwickler
+    - Bei Siemens habe ich in 3 Projekten gearbeitet:
+    - Elektronisches Personalarchiv:
+    - Alle Mitarbeiter bei Siemens haben Dokumente, diese werden durch dieses
+    Techs: Java, J(2)EE, JSF1.2, EJB3.1, JSF-Beans, RichFaces 3.3, Ajax
+  2010-05 - 2010-10 | McCann | JEE-Entwickler (freiberuflich)
+    - Die Firma McCann entwickelt momentan eine Web-Applikation für Konfiguration der Autos. Entwicklung der einzelnen Module Backend
+    - Entwicklung der Web Services
+    - Bugs fixen Backend und Frontend
+    Techs: Java, JEE, WebServices jaxb 2.1, wsdl4j 1.6.1, Spring 2.5.6, Design, TimeSheet 6.7, Clairty, Linux Red Hat 6, Putty
+  2010-03 - 2010-05 | Fa. SoftMethod | Entwickler
+    - Vodafone und Arcor haben zwei verschiede Web-Applikationen. Eine neue Web-Applikation wird entwickelt, sodass die zwei Applikationen nur diese neue Web-Applikation werden, sodass der Benutzer nur einmal einloggen und nur einmal ausloggen kann, das ist das sogenannte Single Signe On
+    - (SSO).
+    - Aufgaben:
+    Techs: J2EE, Ant, Eclipse 3.5, Apache LDAP-Browser, Oracle, Windows 7, Sun Virtual Box, Linux Ubuntu 9.1, Linux Red Hat
+  2009-10 - 2010-02 | Fa. DSS | Entwickler
+    - Eine Web-Applikation wurde für Deutsche Telekom entwickelt um die Domains zu verwalten. Entwicklung der Web-Services für diese Applikation mit Java (Backend).
+    - Aufgaben:
+    - Modulierung.
+    Techs: J2EE, Servlets, EJB 2.1, Spring 2.5.6, WebServices, WSDL, Hibernate 3.0, Redhat Linux, PSPad, Open Office
+  2009-09 - 2009-10 |  | alfatraining
+    - Development Consultant SAP NetWeaver 2004 – Applikcation Development
+    - Focus ABAP SAP® ERP 6.0 Focus ABAP Form 2007 mit folgenden Modulen:
+    - SAPTEC: Grundlagen des SAP Web AS.
+    Techs: SAP NetWeaver 2004, ABAP, SAP TEC, BC
+
+SKILLS:
+  database: Access, DAO, DB2, JDBC, Microsoft SQL Datenbank, MS SQL Server, MySQL, ODBC, Oracle 10g, 11g, Database 10g, Datenbank 11g, Oracle Database 12c Enterprise Edition, Release 12.1.0.2.0 - 64bit Production, Oracle SQl Developer Version 17.4.0.355
+  hardware: Drucker HP, Plotter, Scanner
+  operating_system: Dos, Linux Redhat, MS-DOS, Unix, Windows 7, 10, XP, Xubuntu
+  programming_languages: ABAP, ABAP4, Ajax, C, CSS, Design Patterns, EDIFACT, EJB3.1, Hibernate, J2EE, J2SE(2, 8), Java-Swing, Vaadin, Java, Java Server Faces (JSF), JSF-Beans, RichFaces, PrimeFaces, Java Server Pages (JSP), JavaScript, EjB, Java7/8, Java8, JAX-RS, JEE, JPA, JQuery, JSF 2.2.17, JSON, JSP, JUnit 4.12, J(2)EE 6.0, log4j-2.3, mockito-all Version 2.0.2-beta, Spring, SQL, Struts, UML, WSDL
+
+SKILL-ABLAGE:
+Ethernet, Fax, HTTP, LAN, LAN Manager, LDAP, PC-Anywhere, TCP/IP, Design/Entwicklung/Konstruktion, Design mit UML, Eclipse Photon June 2018, Entwicklung mit J(2)EE, GIT version 2.21.0.windows.1, hibernate-4.3.11-Final, Maven Sonar Version 2.7.1, PrimeFaces 5.3, UML-Modellierung UMLet version 12.2, WebSphere Application Server V8.5.5, rest-technologie, lightweight, modelio, xdoclet-1.2.3, eclipse-3.7.2-indigo-sr2, entity-, modelling-uml-, winscp-5.1.0, apache-maven-3.2.3, plsql-, eclipselink, eclipselink-, tortoisesvn-v1.6.17, hibernate-core-, apache-maven-, gson-
+
+FOCUS_EXP:
+  Ant 1.8.1  [product_standard]
+  1.8.2  [product_standard]
+  LDAP-Browser  [product_standard]
+  Tomcat 6.0.20  [product_standard]
+  ant 1.8.4  [product_standard]
+  Apache ant 1.9.4  [product_standard]
+  Maven 3.0.4  [product_standard]
+  Maven 3.2.3  [product_standard]
+  Maven 3.3.9  [product_standard]
+  Atlassian Confluence 3.1  [product_standard]
+  Wiki 4.2.11  [product_standard]
+  BeanShell bsh-2.0b4  [product_standard]
+  CDI  [product_standard]
+  Citrix Receiver Version 4.4  [product_standard]
+  Clairty  [product_standard]
+  CSS  [product_standard]
+  DB2 Datenbank  [product_standard]
+  Deployment-Tool: Hudson  [product_standard]
+  Derby Datenbank  [product_standard]
+  Design Patterns  [product_standard]
+  DoKuStar Design Studio 4.3  [product_standard]
+  dom4j  [product_standard]
+  EasyMock 3.1  [product_standard]
+  3.5  [product_standard]
+  Helios  [product_standard]
+  Helios Build  [product_standard]
+  IBM Rational  [product_standard]
+  Software Architect (RSA) Version  [product_standard]
+  Eclipse 8.0.4.1  [product_standard]
+  Kepler  [product_standard]
+  Luna  [product_standard]
+  Mars Version  [product_standard]
+  4.5.2  [product_standard]
+  Mars.1 Release (4.5.1)  [product_standard]
+  Neon  [product_standard]
+  3.7.2-Indigo-SR2  [product_standard]
+  Link 2.4.1  [product_standard]
+  Eclipse4.13  [product_standard]
+  EJB 2.1  [product_standard]
+  3.1  [product_standard]
+  Enterprise Architect 8.0 UML-Tool  [product_standard]
+  Version 12  [product_standard]
+  Full  [product_standard]
+  10.00.1009.8  [product_standard]
+  Entity-Beans  [product_standard]
+  ER/Studio Data Architect Version 16.0.2  [product_standard]
+  GIT Version 2.4.1  [product_standard]
+  2.8.1  [product_standard]
+  GlassFish-3.1.2  [product_standard]
+  Groovy 2.4  [product_standard]
+  GSON-2.0  [product_standard]
+  3.0  [product_standard]
+  4.3.7.Final  [product_standard]
+  commons-annotations  [product_standard]
+  Hibernate 4.0.2.Final  [product_standard]
+  core 4.2.21  [product_standard]
+  entitymanager  [product_standard]
+  4.2.21  [product_standard]
+  3.3.1  [product_standard]
+  4.1.1.Final  [product_standard]
+  HP ALM - Quality Center 12.01  [product_standard]
+  IBM MQ  [product_standard]
+  J(2)EE  [product_standard]
+  Java 1.8.0_11  [product_standard]
+  1.7  [product_standard]
+  1.6.0_35  [product_standard]
+  4.2.2  [product_standard]
+  5.1.0  [product_standard]
+  7.1.1 Application Server  [product_standard]
+  JBoss Version 8.0.0.5  [product_standard]
+  6.0  [product_standard]
+  7.1.1.Final  [product_standard]
+  3.5.1  [product_standard]
+  JDBC-Connector  [product_standard]
+  jEdit 5.1.0  [product_standard]
+  Jenkins (Hudson) 1.478  [product_standard]
+  1.609.1  [product_standard]
+  ver. 1.651.3  [product_standard]
+  Jira (Backtracking) 4.1  [product_standard]
+  5.1.6  [product_standard]
+  JMeter 2.11  [product_standard]
+  JSF 2.1.2  [product_standard]
+  Beans  [product_standard]
+  1.2  [product_standard]
+  2.0  [product_standard]
+  2.2  [product_standard]
+  JUnit 3.8  [product_standard]
+  4.11  [product_standard]
+  JUnitTest 3.8  [product_standard]
+  4.12  [product_standard]
+  LDAP  [product_standard]
+  Linux Red Hat 6  [product_standard]
+  Ubuntu 9.1  [product_standard]
+  log4j 1.2.12  [product_standard]
+  1.2.16  [product_standard]
+  1.2.17  [product_standard]
+  MagicDraw 16.5 (UML-Tool)  [product_standard]
+  17.0.1 (UML-Tool)  [product_standard]
+  Mantis 1.1.8  [product_standard]
+  Maven 2.2.1  [product_standard]
+  3.0.3  [product_standard]
+  Microsoft Office  [product_standard]
+  Outlook  [product_standard]
+  Microsoft Office Professional Plus 2016  [product_standard]
+  mockito-all Version 1.10.19  [product_standard]
+  MySQL Jdbc-Connector 5.1.7  [product_standard]
+  Server 5.0.77  [product_standard]
+  Notepad++ v6.1.8  [product_standard]
+  v6.3.1  [product_standard]
+  v6.5.3  [product_standard]
+  v6.9.1  [product_standard]
+  v6.9.2  [product_standard]
+  Notepad++ v6.8.2  [product_standard]
+  Office Communicator Version 3.5.69  [product_standard]
+  Open Office  [product_standard]
+  OpenSSO Enterprise Edition 8.0  [product_standard]
+  OpenText Capture Document Reader  [product_standard]
+  (DOKuStar Professional) 3.6  [product_standard]
+  Oracle 10g Datenbank  [product_standard]
+  Oracle SQL Developer V4.0.3  [product_standard]
+  Version 3.1.07  [product_standard]
+  Version  [product_standard]
+  4.1.3.20  [product_standard]
+  Oracle VM Jenkins (Hudson) 1.504  [product_standard]
+  PLSQL und SQLyog - Datenbank-Browser  [product_standard]
+  PLSQL-Datenbank-Browser-v7.15  [product_standard]
+  Polarion Build: 3.9.1.20150623-2040  [product_standard]
+  Policy Agent 3.0  [product_standard]
+  PrimeFaces 3.3.1  [product_standard]
+  3.4  [product_standard]
+  3.4.1  [product_standard]
+  PSPad  [product_standard]
+  Putty  [product_standard]
+  PuTTY Release 0.7  [product_standard]
+  Quantum Datenbank-Browser  [product_standard]
+  Rational Team Concert (RTC) Version 4.0  [product_standard]
+  RecoStar Design Studio  [product_standard]
+  Remedy  [product_standard]
+  REST  [product_standard]
+  RESTful Services (JAX-RS)  [product_standard]
+  RichFaces 3.3  [product_standard]
+  RSA-Modelling-UML-Tool  [product_standard]
+  SAP NetWeaver 2004  [product_standard]
+  SAP TEC  [product_standard]
+  SCRUM  [product_standard]
+  Selenium 2.45.0  [product_standard]
+  Servlets  [product_standard]
+  slf4j Version 1.7.13  [product_standard]
+  SOAP  [product_standard]
+  soapUI 3.6.1  [product_standard]
+  5.0.0  [product_standard]
+  5.3.0  [product_standard]
+  SoapUI 5.3.0  [product_standard]
+  SourceTree Version 1.8.3.0  [product_standard]
+  Spring Version 4.1.1.RELEASE (spring-aop)  [product_standard]
+  Spring 2.5.6  [product_standard]
+  Spring Version 3.1.1 RELEASE  [product_standard]
+  4.0.4  [product_standard]
+  4.1.1  [product_standard]
+  4.2.2.RELEASE  [product_standard]
+  spring-aop 4.2.2.RELEASE  [product_standard]
+  spring-aspects  [product_standard]
+  spring-beans 4.2.2.RELEASE  [product_standard]
+  spring-context 4.2.2.RELEASE  [product_standard]
+  support  [product_standard]
+  spring-core 4.2.2.RELEASE  [product_standard]
+  spring-expression  [product_standard]
+  spring-jdbc 4.2.2.RELEASE  [product_standard]
+  spring-jms 4.2.2.RELEASE  [product_standard]
+  spring-ldap-core 21.0.RELEASE  [product_standard]
+  spring-orm 4.2.2.RELEASE  [product_standard]
+  spring-test  [product_standard]
+  spring-tx 4.2.2.RELEASE  [product_standard]
+  spring-web 4.2.2.RELEASE  [product_standard]
+  spring-webmvc 4.2.2.RELEASE  [product_standard]
+  SQL Workbench Build 116  [product_standard]
+  SQuirreL SQL Client Version 3.5.2  [product_standard]
+  Squirrel-SQL-v3.4.0  [product_standard]
+  Subversion (SVN) Version 3.0.1  [product_standard]
+  Sun Directory Server  [product_standard]
+  Sun Virtual Box  [product_standard]
+  SVN Repository  [product_standard]
+  Sybase ASE 15.03  [product_standard]
+  TeamViewer Version 11.0  [product_standard]
+  TestNG 6.9.12  [product_standard]
+  6.0.29  [product_standard]
+  Version 7.0  [product_standard]
+  Tortoise  [product_standard]
+  TortoiseSVN 1.6.8  [product_standard]
+  1.7.14  [product_standard]
+  v1.6.17  [product_standard]
+  UltraEdit-v17.30.0.1002  [product_standard]
+  v7.15  [product_standard]
+  Vaadin Version 3.0.0  [product_standard]
+  Version 3.0.53.0  [product_standard]
+  Virtual Client (VC)  [product_standard]
+  VitrualBox 4.2.12  [product_standard]
+  Web TimeSheet 6.7  [product_standard]
+  WebEx Konferenz  [product_standard]
+  WebLogic 9.2 MP3  [product_standard]
+  WebServices (cxf-java2ws-plugin)  [product_standard]
+  jaxb 2.1  [product_standard]
+  JAXB  [product_standard]
+  2.2.3  [product_standard]
+  WebSphere Application Server Liberty Profile  [product_standard]
+  Version 8.0.0.5  [product_standard]
+  Windows 10 Enterprise 2016 LTSB  [product_standard]
+  Windows 8.1 Enterprise  [product_standard]
+  Windows Server 2008 R2 Standard  [product_standard]
+  Windows Vista  [product_standard]
+  WindowsXP  [product_standard]
+  WinSCP Version 5.5.3  [product_standard]
+  Aufgabenbereiche  [product_standard]
+  Atlassian Jira v7.13.0  [product_standard]
+  Citrix Receiver für Web 2019  [product_standard]
+  ITSM-Framework WebSelfService Version 3.4  [product_standard]
+  Schwerpunkte  [product_standard]
+  Fachlicher Java-Entwickler  [product_standard]

@@ -1,0 +1,2114 @@
+---------- Gulp-Profil Stand 2018-01-15 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 71589: Java/J2EE
+Entwicklung und Beratung im Client-Server Umfeld                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+71589 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 71589    Wohnort 200xx Hamburg, Deutschland Jahrgang
+1967 Staatsbürgerschaft deutsch Stundensatz 75 EUR zzgl USt. / zzgl
+Mehrkosten bei Reisetätigkeit, übernachtung, Verpflegung Verfügbar ab
+01.01.19 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+22.04.05 Profil zuletzt geändert am 15.01.18 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 07.02.2018 09:35:08       Fachlicher
+Schwerpunkt:  Java/J2EE Entwicklung und Beratung im Client-Server
+Umfeld      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/1991 - 09/1995
+ Studium Elektrotechnik
+ Fachrichtung Daten- und Nachrichtentechnik
+ Fachhochschule Hamburg
+ Abschluss als Diplom-Ingenieur (Dipl.-Ing)
+
+ 07/1990 - 08/1991
+ Fachoberschule Technik, Stade
+ Abschluss mit Fachhochschulreife
+
+ 09/1983 - 01/1987
+ Ausbildung zum Radio- und Fernsehtechniker
+ im Kundendienst bei der Hertie Kaufhaus AG, Stade
+
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9   Ich möchte BEVORZUGT für die
+o. g. Einsatzorte kontaktiert werden.       Fremdsprachen:  
+
+		Englisch
+		sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon 2
+Jahre in den USA)
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+		Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für
+den Eigenbedarf
+
+		Java
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		JavaScript
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		PL/SQL
+		Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL
+
+		Shell
+		Bash: Programmierung kleiner Entwicklungstools für Backup und
+Deployment
+
+		Tcl/Tk
+		Vignette V5 Projekt-Erfahrung
+
+ UML: Softwarearchitektur und -Design mit UML-Diagrammen
+(Klassendiagramm, Sequenz, Aktivitäts etc.)
+ Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion
+(Tabakindustrie)
+ XML: XPath XML-Schema DTD
+       Datenbanken:  
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Postgres
+
+		SQL
+
+		Sybase
+
+ Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via
+Java-JDBC (nicht administrativ).
+       Datenkommunikation:  
+
+		Internet, Intranet
+		HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP
+
+		SMTP
+
+		TCP/IP
+
+ Java/J2EE: EJB, RPC, MBeans
+       Produkte/Standards/Erfahrungen:  Produkte:
+ - Tomcat 4.x/5.x
+ - Eclipse IDE inkl diverser Plugins
+ - UML mit Eclipse
+ - Datenbank-Design mit Powerbuilder
+ - Apache Webserver
+ - htdig
+ - Lucene Fulltextsearchengine
+ - Frameworks: Apache/Jakarta
+
+	 OpenSymphony 
+
+	 Castor-XML 
+
+	 Lucene 
+
+	 Hibernate 
+
+	 Velocity 
+
+	 diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3
+ - Vignette V5
+
+ Standards/Erfahrungen:
+ - CVS/Subversion-gestütztes arbeiten
+ - Testing/Monitoring mit JUnit, Canoo Webtest, JMeter, Nagios
+ - Bugtracking JIRA und Bugzilla
+ - Build-Management mit Maven und ANT
+ - IT-Projektplanung und Team-Koordination
+ - IT-Aufwandsschätzung
+ - Administration unter Linux
+ - Shell-Skripting (bash)
+ - OpenOffice / MSOffice
+ - Internet-Standardtools (diverse Browser, Mail, SSH etc)
+
+       Branchen:  Handel
+ Medien
+ Pharmazie
+ Software
+ Börse &amp; Finanzen
+ Banken &amp; Sparkassen
+ Maschinenbau
+
+       Projekte:  BaseCMP (02/2004 - andauernd) (www.basecmp.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+ objektorientierten Grundsätzen und einem sehr hohen
+Wiederverwendungsgrad.
+ Entwicklung eines webbasierten Redaktionssystems.
+ Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene,
+OSCache
+ sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+ Merkmale des Frameworks:
+ §1 Individuelle Workflows pro Asset
+ §2 Rechtesystem
+ §3 Gruppen- und Benutzerverwaltung
+ §4 Persönliche und Gruppen-Todo-Listen
+ §5 WYSIWYG-Internetseiten-Editierung
+ §6 Dynamische Navigation
+ §7 Mandantenfähigkeit
+ §8 Seitencache
+ §9 Stagingsystem
+ §10 Webservicefähigkeit per SOAP
+ §11 Trennung von Layout und Content
+ §12 XML-basierte Businesslogik mit wiederverwendbaren
+Logikkomponenten (Usecases)
+ §13 Plattformunabhängigkeit bezgl. des eingesetzten
+Applicationservers durch J2EE-Konformität
+ §14 Abstraktionsschicht zur einfachen Portierung des Frameworks auf
+andere (CMS-) Architekturen
+ §15 Plugin-Architektur für externe Erweiterungen
+ §16 Shop-Plugin
+ §17 X-Queue-Plugin
+ §18 BIRT-Plugin
+
+ Das CMS wird von BaseCMP zur Zeit als ASP-Plattform betrieben, mit
+dem die
+ Websites von lokalen Firmen und Betrieben in kürzestester Zeit
+kostengünstig
+ umgesetzt werden können. Referenzen:
+ - www.backwinkel.de (Shop mit Anbindung an erternen Katalog und
+Warenwirtschaft)
+ - www.steria-mummert.de / .com .at inkl Intranet + diverse Minisites
+ - www.hellermanntyton.de Portal inkl sämtlicher Länderwebsites
+ - www.bestebilder.de
+ - www.bilderanbord.de
+ - st-jago.basecmp.de
+ - www.basecmp.de / .com
+ - www.openmall.de
+
+ Einsatz von Management-und Planungstools, u.a.
+ - JIRA Bugtracking
+ - UML basierte Planung
+ - Datenbankdesign (ER-Digrammae) mit Powerbuilder
+
+ Motoso (05/2004 - andauernd) (www.motoso.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+ des OpenSource CMS-Frameworks BaseCMP.
+ §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+ §2 Volltextsuche mit Lucene
+ §3 Dynmischer, hierarchischer Kategoriebaum
+ §4 Backoffice zur Administration und Betreuung des Kundenstamms
+ §5 Online-Payment-Schnittstellen
+ §6 Import-Schnittstelle für Inserats-Massenimport
+
+ Intranet FCB Wilkens (06/2003 - 10/2003)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Betreuung des FCB-Intranets
+ §1 Aggregation von Newsfeeds (RSS und HTML)
+ §2 Schulung des Redaktionsteams
+ §3 Integration bestehender Server-Anwendungen
+
+	(Legacy-Anwendungen Telefonbuch, Forum etc) 
+
+ HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+
+ Entwicklung und fortlaufende Betreuung eines Internet-Shopsystems auf
+Basis
+ von Intershop enfinity 2.3
+ §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+ §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+ §3 Integration der Searchengine FACTFinder (Omikron) als
+enfinity-Cartridge
+
+ Otto-Supermarkt (10/2001 - 05/2003)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des
+Internet-Lebenmittelsupermarktes
+ www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+Der Shop
+ wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+
+ Mexx (10/2001 - 12/2002) (www.mexx.com)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des Internet-Shops
+ www.mexx.com auf Basis von Intershop enfinity 1.1.
+
+ §1 Entwicklung eines einfachen Content-Management-Systems auf Basis
+
+	der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents
+als XML §3 Contentbefüllung eines Flash-basierten E-Magazine
+(Mexx-eZine) 
+
+ Madaus (10/2002 - 02/2003) (www.madaus.com)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes Content-Management-System
+ §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+ §4 Extranet(s) für die Berufsgruppen ärzte, Apotheker
+ §5 Webbasiertes Redaktionssystem für externe Contentlieferanten und
+Redakteure
+
+ Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)
+ Rolle: Software-Entwicklung
+ Technologien: ColdFusion, JavaScript
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+
+ Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)
+ Rolle: Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes CMS-System
+ §3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites
+ §4 Seitenauslieferung
+
+ DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)
+ Rolle: Software-Entwicklung
+ Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+
+ Portal-Site für den Deutschen Sparkassen-und Giroverband
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP OnVista 
+
+ Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)
+ Rolle: Software-Entwicklung
+ Technologien: OpenMarket ContentServer, SQL (Oracle)
+
+ Online-Ausgabe der Tageszeitung Financial Times Deutschland
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Stagingsystem
+ §4 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP Innovative Software 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 71589 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 16.01.2018 01:13:00
+ (c) Copyright 1996-2018 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2016-08-22 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 71589: Java/J2EE
+Entwicklung und Beratung im Client-Server Umfeld                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+71589 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 71589    Wohnort 200xx Hamburg, Deutschland Jahrgang
+1967 Staatsbürgerschaft deutsch Stundensatz 75 EUR zzgl USt. / zzgl
+Mehrkosten bei Reisetätigkeit, übernachtung, Verpflegung Verfügbar ab
+01.01.18 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+22.04.05 Profil zuletzt geändert am 22.08.16 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 11.08.2016 15:46:45       Fachlicher
+Schwerpunkt:  Java/J2EE Entwicklung und Beratung im Client-Server
+Umfeld      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/1991 - 09/1995
+ Studium Elektrotechnik
+ Fachrichtung Daten- und Nachrichtentechnik
+ Fachhochschule Hamburg
+ Abschluss als Diplom-Ingenieur (Dipl.-Ing)
+
+ 07/1990 - 08/1991
+ Fachoberschule Technik, Stade
+ Abschluss mit Fachhochschulreife
+
+ 09/1983 - 01/1987
+ Ausbildung zum Radio- und Fernsehtechniker
+ im Kundendienst bei der Hertie Kaufhaus AG, Stade
+
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9       Fremdsprachen:  
+
+		Englisch
+		sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon 2
+Jahre in den USA)
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+		Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für
+den Eigenbedarf
+
+		Java
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		JavaScript
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		PL/SQL
+		Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL
+
+		Shell
+		Bash: Programmierung kleiner Entwicklungstools für Backup und
+Deployment
+
+		Tcl/Tk
+		Vignette V5 Projekt-Erfahrung
+
+ UML: Softwarearchitektur und -Design mit UML-Diagrammen
+(Klassendiagramm, Sequenz, Aktivitäts etc.)
+ Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion
+(Tabakindustrie)
+ XML: XPath XML-Schema DTD
+       Datenbanken:  
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Postgres
+
+		SQL
+
+		Sybase
+
+ Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via
+Java-JDBC (nicht administrativ).
+       Datenkommunikation:  
+
+		Internet, Intranet
+		HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP
+
+		SMTP
+
+		TCP/IP
+
+ Java/J2EE: EJB, RPC, MBeans
+       Produkte/Standards/Erfahrungen:  Produkte:
+ - Tomcat 4.x/5.x
+ - Eclipse IDE inkl diverser Plugins
+ - UML mit Eclipse
+ - Datenbank-Design mit Powerbuilder
+ - Apache Webserver
+ - htdig
+ - Lucene Fulltextsearchengine
+ - Frameworks: Apache/Jakarta
+
+	 OpenSymphony 
+
+	 Castor-XML 
+
+	 Lucene 
+
+	 Hibernate 
+
+	 Velocity 
+
+	 diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3
+ - Vignette V5
+
+ Standards/Erfahrungen:
+ - CVS/Subversion-gestütztes arbeiten
+ - Testing/Monitoring mit JUnit, Canoo Webtest, JMeter, Nagios
+ - Bugtracking JIRA und Bugzilla
+ - Build-Management mit Maven und ANT
+ - IT-Projektplanung und Team-Koordination
+ - IT-Aufwandsschätzung
+ - Administration unter Linux
+ - Shell-Skripting (bash)
+ - OpenOffice / MSOffice
+ - Internet-Standardtools (diverse Browser, Mail, SSH etc)
+
+       Branchen:  Handel
+ Medien
+ Pharmazie
+ Software
+ Börse &amp; Finanzen
+ Banken &amp; Sparkassen
+ Maschinenbau
+
+       Projekte:  BaseCMP (02/2004 - andauernd) (www.basecmp.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+ objektorientierten Grundsätzen und einem sehr hohen
+Wiederverwendungsgrad.
+ Entwicklung eines webbasierten Redaktionssystems.
+ Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene,
+OSCache
+ sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+ Merkmale des Frameworks:
+ §1 Individuelle Workflows pro Asset
+ §2 Rechtesystem
+ §3 Gruppen- und Benutzerverwaltung
+ §4 Persönliche und Gruppen-Todo-Listen
+ §5 WYSIWYG-Internetseiten-Editierung
+ §6 Dynamische Navigation
+ §7 Mandantenfähigkeit
+ §8 Seitencache
+ §9 Stagingsystem
+ §10 Webservicefähigkeit per SOAP
+ §11 Trennung von Layout und Content
+ §12 XML-basierte Businesslogik mit wiederverwendbaren
+Logikkomponenten (Usecases)
+ §13 Plattformunabhängigkeit bezgl. des eingesetzten
+Applicationservers durch J2EE-Konformität
+ §14 Abstraktionsschicht zur einfachen Portierung des Frameworks auf
+andere (CMS-) Architekturen
+ §15 Plugin-Architektur für externe Erweiterungen
+ §16 Shop-Plugin
+ §17 X-Queue-Plugin
+ §18 BIRT-Plugin
+
+ Das CMS wird von BaseCMP zur Zeit als ASP-Plattform betrieben, mit
+dem die
+ Websites von lokalen Firmen und Betrieben in kürzestester Zeit
+kostengünstig
+ umgesetzt werden können. Referenzen:
+ - www.backwinkel.de (Shop mit Anbindung an erternen Katalog und
+Warenwirtschaft)
+ - www.steria-mummert.de / .com .at inkl Intranet + diverse Minisites
+ - www.hellermanntyton.de Portal inkl sämtlicher Länderwebsites
+ - www.bestebilder.de
+ - www.bilderanbord.de
+ - st-jago.basecmp.de
+ - www.basecmp.de / .com
+ - www.openmall.de
+
+ Einsatz von Management-und Planungstools, u.a.
+ - JIRA Bugtracking
+ - UML basierte Planung
+ - Datenbankdesign (ER-Digrammae) mit Powerbuilder
+
+ Motoso (05/2004 - andauernd) (www.motoso.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+ des OpenSource CMS-Frameworks BaseCMP.
+ §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+ §2 Volltextsuche mit Lucene
+ §3 Dynmischer, hierarchischer Kategoriebaum
+ §4 Backoffice zur Administration und Betreuung des Kundenstamms
+ §5 Online-Payment-Schnittstellen
+ §6 Import-Schnittstelle für Inserats-Massenimport
+
+ Intranet FCB Wilkens (06/2003 - 10/2003)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Betreuung des FCB-Intranets
+ §1 Aggregation von Newsfeeds (RSS und HTML)
+ §2 Schulung des Redaktionsteams
+ §3 Integration bestehender Server-Anwendungen
+
+	(Legacy-Anwendungen Telefonbuch, Forum etc) 
+
+ HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+
+ Entwicklung und fortlaufende Betreuung eines Internet-Shopsystems auf
+Basis
+ von Intershop enfinity 2.3
+ §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+ §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+ §3 Integration der Searchengine FACTFinder (Omikron) als
+enfinity-Cartridge
+
+ Otto-Supermarkt (10/2001 - 05/2003)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des
+Internet-Lebenmittelsupermarktes
+ www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+Der Shop
+ wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+
+ Mexx (10/2001 - 12/2002) (www.mexx.com)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des Internet-Shops
+ www.mexx.com auf Basis von Intershop enfinity 1.1.
+
+ §1 Entwicklung eines einfachen Content-Management-Systems auf Basis
+
+	der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents
+als XML §3 Contentbefüllung eines Flash-basierten E-Magazine
+(Mexx-eZine) 
+
+ Madaus (10/2002 - 02/2003) (www.madaus.com)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes Content-Management-System
+ §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+ §4 Extranet(s) für die Berufsgruppen ärzte, Apotheker
+ §5 Webbasiertes Redaktionssystem für externe Contentlieferanten und
+Redakteure
+
+ Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)
+ Rolle: Software-Entwicklung
+ Technologien: ColdFusion, JavaScript
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+
+ Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)
+ Rolle: Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes CMS-System
+ §3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites
+ §4 Seitenauslieferung
+
+ DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)
+ Rolle: Software-Entwicklung
+ Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+
+ Portal-Site für den Deutschen Sparkassen-und Giroverband
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP OnVista 
+
+ Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)
+ Rolle: Software-Entwicklung
+ Technologien: OpenMarket ContentServer, SQL (Oracle)
+
+ Online-Ausgabe der Tageszeitung Financial Times Deutschland
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Stagingsystem
+ §4 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP Innovative Software 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 71589 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 03.09.2016 01:30:23
+ (c) Copyright 1996-2016 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+---------- Gulp-Profil Stand 2015-12-21 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 71589: Java/J2EE
+Entwicklung und Beratung im Client-Server Umfeld                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+71589 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 71589    Wohnort 200xx Hamburg, Deutschland Jahrgang
+1967 Staatsbürgerschaft deutsch Stundensatz 75 EUR zzgl USt. / zzgl
+Mehrkosten bei Reisetätigkeit, übernachtung, Verpflegung Verfügbar ab
+01.01.17 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+22.04.05 Profil zuletzt geändert am 21.12.15 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 29.10.2015 09:42:34       Fachlicher
+Schwerpunkt:  Java/J2EE Entwicklung und Beratung im Client-Server
+Umfeld      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/1991 - 09/1995
+ Studium Elektrotechnik
+ Fachrichtung Daten- und Nachrichtentechnik
+ Fachhochschule Hamburg
+ Abschluss als Diplom-Ingenieur (Dipl.-Ing)
+
+ 07/1990 - 08/1991
+ Fachoberschule Technik, Stade
+ Abschluss mit Fachhochschulreife
+
+ 09/1983 - 01/1987
+ Ausbildung zum Radio- und Fernsehtechniker
+ im Kundendienst bei der Hertie Kaufhaus AG, Stade
+
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9       Fremdsprachen:  
+
+		Englisch
+		sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon 2
+Jahre in den USA)
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+		Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für
+den Eigenbedarf
+
+		Java
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		JavaScript
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		PL/SQL
+		Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL
+
+		Shell
+		Bash: Programmierung kleiner Entwicklungstools für Backup und
+Deployment
+
+		Tcl/Tk
+		Vignette V5 Projekt-Erfahrung
+
+ UML: Softwarearchitektur und -Design mit UML-Diagrammen
+(Klassendiagramm, Sequenz, Aktivitäts etc.)
+ Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion
+(Tabakindustrie)
+ XML: XPath XML-Schema DTD
+       Datenbanken:  
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Postgres
+
+		SQL
+
+		Sybase
+
+ Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via
+Java-JDBC (nicht administrativ).
+       Datenkommunikation:  
+
+		Internet, Intranet
+		HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP
+
+		SMTP
+
+		TCP/IP
+
+ Java/J2EE: EJB, RPC, MBeans
+       Produkte/Standards/Erfahrungen:  Produkte:
+ - Tomcat 4.x/5.x
+ - Eclipse IDE inkl diverser Plugins
+ - UML mit Eclipse
+ - Datenbank-Design mit Powerbuilder
+ - Apache Webserver
+ - htdig
+ - Lucene Fulltextsearchengine
+ - Frameworks: Apache/Jakarta
+
+	 OpenSymphony 
+
+	 Castor-XML 
+
+	 Lucene 
+
+	 Hibernate 
+
+	 Velocity 
+
+	 diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3
+ - Vignette V5
+
+ Standards/Erfahrungen:
+ - CVS/Subversion-gestütztes arbeiten
+ - Testing/Monitoring mit JUnit, Canoo Webtest, JMeter, Nagios
+ - Bugtracking JIRA und Bugzilla
+ - Build-Management mit Maven und ANT
+ - IT-Projektplanung und Team-Koordination
+ - IT-Aufwandsschätzung
+ - Administration unter Linux
+ - Shell-Skripting (bash)
+ - OpenOffice / MSOffice
+ - Internet-Standardtools (diverse Browser, Mail, SSH etc)
+
+       Branchen:  Handel
+ Medien
+ Pharmazie
+ Software
+ Börse &amp; Finanzen
+ Banken &amp; Sparkassen
+ Maschinenbau
+
+       Projekte:  BaseCMP (02/2004 - andauernd) (www.basecmp.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+ objektorientierten Grundsätzen und einem sehr hohen
+Wiederverwendungsgrad.
+ Entwicklung eines webbasierten Redaktionssystems.
+ Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene,
+OSCache
+ sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+ Merkmale des Frameworks:
+ §1 Individuelle Workflows pro Asset
+ §2 Rechtesystem
+ §3 Gruppen- und Benutzerverwaltung
+ §4 Persönliche und Gruppen-Todo-Listen
+ §5 WYSIWYG-Internetseiten-Editierung
+ §6 Dynamische Navigation
+ §7 Mandantenfähigkeit
+ §8 Seitencache
+ §9 Stagingsystem
+ §10 Webservicefähigkeit per SOAP
+ §11 Trennung von Layout und Content
+ §12 XML-basierte Businesslogik mit wiederverwendbaren
+Logikkomponenten (Usecases)
+ §13 Plattformunabhängigkeit bezgl. des eingesetzten
+Applicationservers durch J2EE-Konformität
+ §14 Abstraktionsschicht zur einfachen Portierung des Frameworks auf
+andere (CMS-) Architekturen
+ §15 Plugin-Architektur für externe Erweiterungen
+ §16 Shop-Plugin
+ §17 X-Queue-Plugin
+ §18 BIRT-Plugin
+
+ Das CMS wird von BaseCMP zur Zeit als ASP-Plattform betrieben, mit
+dem die
+ Websites von lokalen Firmen und Betrieben in kürzestester Zeit
+kostengünstig
+ umgesetzt werden können. Referenzen:
+ - www.backwinkel.de (Shop mit Anbindung an erternen Katalog und
+Warenwirtschaft)
+ - www.steria-mummert.de / .com .at inkl Intranet + diverse Minisites
+ - www.hellermanntyton.de Portal inkl sämtlicher Länderwebsites
+ - www.bestebilder.de
+ - www.bilderanbord.de
+ - st-jago.basecmp.de
+ - www.basecmp.de / .com
+ - www.openmall.de
+
+ Einsatz von Management-und Planungstools, u.a.
+ - JIRA Bugtracking
+ - UML basierte Planung
+ - Datenbankdesign (ER-Digrammae) mit Powerbuilder
+
+ Motoso (05/2004 - andauernd) (www.motoso.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+ des OpenSource CMS-Frameworks BaseCMP.
+ §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+ §2 Volltextsuche mit Lucene
+ §3 Dynmischer, hierarchischer Kategoriebaum
+ §4 Backoffice zur Administration und Betreuung des Kundenstamms
+ §5 Online-Payment-Schnittstellen
+ §6 Import-Schnittstelle für Inserats-Massenimport
+
+ Intranet FCB Wilkens (06/2003 - 10/2003)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Betreuung des FCB-Intranets
+ §1 Aggregation von Newsfeeds (RSS und HTML)
+ §2 Schulung des Redaktionsteams
+ §3 Integration bestehender Server-Anwendungen
+
+	(Legacy-Anwendungen Telefonbuch, Forum etc) 
+
+ HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+
+ Entwicklung und fortlaufende Betreuung eines Internet-Shopsystems auf
+Basis
+ von Intershop enfinity 2.3
+ §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+ §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+ §3 Integration der Searchengine FACTFinder (Omikron) als
+enfinity-Cartridge
+
+ Otto-Supermarkt (10/2001 - 05/2003)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des
+Internet-Lebenmittelsupermarktes
+ www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+Der Shop
+ wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+
+ Mexx (10/2001 - 12/2002) (www.mexx.com)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des Internet-Shops
+ www.mexx.com auf Basis von Intershop enfinity 1.1.
+
+ §1 Entwicklung eines einfachen Content-Management-Systems auf Basis
+
+	der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents
+als XML §3 Contentbefüllung eines Flash-basierten E-Magazine
+(Mexx-eZine) 
+
+ Madaus (10/2002 - 02/2003) (www.madaus.com)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes Content-Management-System
+ §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+ §4 Extranet(s) für die Berufsgruppen ärzte, Apotheker
+ §5 Webbasiertes Redaktionssystem für externe Contentlieferanten und
+Redakteure
+
+ Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)
+ Rolle: Software-Entwicklung
+ Technologien: ColdFusion, JavaScript
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+
+ Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)
+ Rolle: Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes CMS-System
+ §3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites
+ §4 Seitenauslieferung
+
+ DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)
+ Rolle: Software-Entwicklung
+ Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+
+ Portal-Site für den Deutschen Sparkassen-und Giroverband
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP OnVista 
+
+ Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)
+ Rolle: Software-Entwicklung
+ Technologien: OpenMarket ContentServer, SQL (Oracle)
+
+ Online-Ausgabe der Tageszeitung Financial Times Deutschland
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Stagingsystem
+ §4 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP Innovative Software 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 71589 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 24.12.2015 03:34:58
+ (c) Copyright 1996-2015 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show240358
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[4] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[8] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show240358
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[14] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2015-03-04 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 71589: Java/J2EE
+Entwicklung und Beratung im Client-Server Umfeld                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+71589 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 71589    Wohnort 200xx Hamburg, Deutschland Jahrgang
+1967 Staatsbürgerschaft deutsch Stundensatz 75 EUR zzgl USt. / zzgl
+Mehrkosten bei Reisetätigkeit, übernachtung, Verpflegung Verfügbar ab
+01.01.16 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+22.04.05 Profil zuletzt geändert am 04.03.15 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 23.01.2015 11:27:59       Fachlicher
+Schwerpunkt:  Java/J2EE Entwicklung und Beratung im Client-Server
+Umfeld      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/1991 - 09/1995
+ Studium Elektrotechnik
+ Fachrichtung Daten- und Nachrichtentechnik
+ Fachhochschule Hamburg
+ Abschluss als Diplom-Ingenieur (Dipl.-Ing)
+
+ 07/1990 - 08/1991
+ Fachoberschule Technik, Stade
+ Abschluss mit Fachhochschulreife
+
+ 09/1983 - 01/1987
+ Ausbildung zum Radio- und Fernsehtechniker
+ im Kundendienst bei der Hertie Kaufhaus AG, Stade
+
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9       Fremdsprachen:  
+
+		Englisch
+		sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon 2
+Jahre in den USA)
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+		Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für
+den Eigenbedarf
+
+		Java
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		JavaScript
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		Shell
+		Bash: Programmierung kleiner Entwicklungstools für Backup und
+Deployment
+
+		PL/SQL
+		Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL
+
+		Tcl/Tk
+		Vignette V5 Projekt-Erfahrung
+
+UML: Softwarearchitektur und -Design mit UML-Diagrammen
+(Klassendiagramm, Sequenz, Aktivitäts etc.)
+ Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion
+(Tabakindustrie)
+ XML: XPath XML-Schema DTD
+       Datenbanken:  
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Postgres
+
+		Sybase
+
+		JDBC
+
+		SQL
+
+Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via
+Java-JDBC (nicht administrativ).
+       Datenkommunikation:  
+
+		Internet, Intranet
+		HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP
+
+		TCP/IP
+
+		SMTP
+
+Java/J2EE: EJB, RPC, MBeans
+       Produkte/Standards/Erfahrungen:  Produkte:
+ - Tomcat 4.x/5.x
+ - Eclipse IDE inkl diverser Plugins
+ - UML mit Eclipse
+ - Datenbank-Design mit Powerbuilder
+ - Apache Webserver
+ - htdig
+ - Lucene Fulltextsearchengine
+ - Frameworks: Apache/Jakarta
+
+	 OpenSymphony 
+
+	 Castor-XML 
+
+	 Lucene 
+
+	 Hibernate 
+
+	 Velocity 
+
+	 diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3
+ - Vignette V5
+
+ Standards/Erfahrungen:
+ - CVS/Subversion-gestütztes arbeiten
+ - Testing/Monitoring mit JUnit, Canoo Webtest, JMeter, Nagios
+ - Bugtracking JIRA und Bugzilla
+ - Build-Management mit Maven und ANT
+ - IT-Projektplanung und Team-Koordination
+ - IT-Aufwandsschätzung
+ - Administration unter Linux
+ - Shell-Skripting (bash)
+ - OpenOffice / MSOffice
+ - Internet-Standardtools (diverse Browser, Mail, SSH etc)
+
+       Branchen:  Handel
+ Medien
+ Pharmazie
+ Software
+ Börse &amp; Finanzen
+ Banken &amp; Sparkassen
+ Maschinenbau
+
+       Projekte:  BaseCMP (02/2004 - andauernd) (www.basecmp.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+ objektorientierten Grundsätzen und einem sehr hohen
+Wiederverwendungsgrad.
+ Entwicklung eines webbasierten Redaktionssystems.
+ Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene,
+OSCache
+ sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+ Merkmale des Frameworks:
+ §1 Individuelle Workflows pro Asset
+ §2 Rechtesystem
+ §3 Gruppen- und Benutzerverwaltung
+ §4 Persönliche und Gruppen-Todo-Listen
+ §5 WYSIWYG-Internetseiten-Editierung
+ §6 Dynamische Navigation
+ §7 Mandantenfähigkeit
+ §8 Seitencache
+ §9 Stagingsystem
+ §10 Webservicefähigkeit per SOAP
+ §11 Trennung von Layout und Content
+ §12 XML-basierte Businesslogik mit wiederverwendbaren
+Logikkomponenten (Usecases)
+ §13 Plattformunabhängigkeit bezgl. des eingesetzten
+Applicationservers durch J2EE-Konformität
+ §14 Abstraktionsschicht zur einfachen Portierung des Frameworks auf
+andere (CMS-) Architekturen
+ §15 Plugin-Architektur für externe Erweiterungen
+ §16 Shop-Plugin
+ §17 X-Queue-Plugin
+ §18 BIRT-Plugin
+
+ Das CMS wird von BaseCMP zur Zeit als ASP-Plattform betrieben, mit
+dem die
+ Websites von lokalen Firmen und Betrieben in kürzestester Zeit
+kostengünstig
+ umgesetzt werden können. Referenzen:
+ - www.backwinkel.de (Shop mit Anbindung an erternen Katalog und
+Warenwirtschaft)
+ - www.steria-mummert.de / .com .at inkl Intranet + diverse Minisites
+ - www.hellermanntyton.de Portal inkl sämtlicher Länderwebsites
+ - www.bestebilder.de
+ - www.bilderanbord.de
+ - st-jago.basecmp.de
+ - www.basecmp.de / .com
+ - www.openmall.de
+
+ Einsatz von Management-und Planungstools, u.a.
+ - JIRA Bugtracking
+ - UML basierte Planung
+ - Datenbankdesign (ER-Digrammae) mit Powerbuilder
+
+ Motoso (05/2004 - andauernd) (www.motoso.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+ des OpenSource CMS-Frameworks BaseCMP.
+ §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+ §2 Volltextsuche mit Lucene
+ §3 Dynmischer, hierarchischer Kategoriebaum
+ §4 Backoffice zur Administration und Betreuung des Kundenstamms
+ §5 Online-Payment-Schnittstellen
+ §6 Import-Schnittstelle für Inserats-Massenimport
+
+ Intranet FCB Wilkens (06/2003 - 10/2003)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Betreuung des FCB-Intranets
+ §1 Aggregation von Newsfeeds (RSS und HTML)
+ §2 Schulung des Redaktionsteams
+ §3 Integration bestehender Server-Anwendungen
+
+	(Legacy-Anwendungen Telefonbuch, Forum etc) 
+
+ HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+
+ Entwicklung und fortlaufende Betreuung eines Internet-Shopsystems auf
+Basis
+ von Intershop enfinity 2.3
+ §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+ §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+ §3 Integration der Searchengine FACTFinder (Omikron) als
+enfinity-Cartridge
+
+ Otto-Supermarkt (10/2001 - 05/2003)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des
+Internet-Lebenmittelsupermarktes
+ www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+Der Shop
+ wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+
+ Mexx (10/2001 - 12/2002) (www.mexx.com)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des Internet-Shops
+ www.mexx.com auf Basis von Intershop enfinity 1.1.
+
+ §1 Entwicklung eines einfachen Content-Management-Systems auf Basis
+
+	der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents
+als XML §3 Contentbefüllung eines Flash-basierten E-Magazine
+(Mexx-eZine) 
+
+ Madaus (10/2002 - 02/2003) (www.madaus.com)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes Content-Management-System
+ §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+ §4 Extranet(s) für die Berufsgruppen ärzte, Apotheker
+ §5 Webbasiertes Redaktionssystem für externe Contentlieferanten und
+Redakteure
+
+ Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)
+ Rolle: Software-Entwicklung
+ Technologien: ColdFusion, JavaScript
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+
+ Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)
+ Rolle: Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes CMS-System
+ §3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites
+ §4 Seitenauslieferung
+
+ DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)
+ Rolle: Software-Entwicklung
+ Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+
+ Portal-Site für den Deutschen Sparkassen-und Giroverband
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP OnVista 
+
+ Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)
+ Rolle: Software-Entwicklung
+ Technologien: OpenMarket ContentServer, SQL (Oracle)
+
+ Online-Ausgabe der Tageszeitung Financial Times Deutschland
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Stagingsystem
+ §4 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP Innovative Software 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 71589 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 16.03.2015 02:06:28
+ (c) Copyright 1996-2015 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show160228
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[4] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[8] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show160228
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[14] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[15] mailto:info@gulp.de
+
+
+---------- Gulp-Profil Stand 2014-06-17 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 71589: Java/J2EE
+Entwicklung und Beratung im Client-Server Umfeld                   
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+71589 [4]
+     Stammdaten (Auszug):    
+
+	 Personen-ID 71589    Wohnort 200xx Hamburg, Deutschland Jahrgang
+1967 Staatsbürgerschaft deutsch Stundensatz 60 EUR zzgl USt. / zzgl
+Mehrkosten bei Reisetätigkeit, übernachtung, Verpflegung Verfügbar ab
+01.01.15 zu 100%, Vor-Ort-Einsatz 100% möglich Profil erstellt am
+22.04.05 Profil zuletzt geändert am 17.06.14 Lesen von Projektanfragen
+0,5 Tage  [5]Direktkontakt [6]         Kommentar:   Kommentar
+schreiben Profil angezeigt am 23.07.2012 11:35:51       Fachlicher
+Schwerpunkt:  Java/J2EE Entwicklung und Beratung im Client-Server
+Umfeld      Position:  Software-Entwicklung / Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/1991 - 09/1995
+ Studium Elektrotechnik
+ Fachrichtung Daten- und Nachrichtentechnik
+ Fachhochschule Hamburg
+ Abschluss als Diplom-Ingenieur (Dipl.-Ing)
+
+ 07/1990 - 08/1991
+ Fachoberschule Technik, Stade
+ Abschluss mit Fachhochschulreife
+
+ 09/1983 - 01/1987
+ Ausbildung zum Radio- und Fernsehtechniker
+ im Kundendienst bei der Hertie Kaufhaus AG, Stade
+
+       Einsatzort:   Regionen: 
+
+	D0, D1, D2, D3, D4, D5, D6, D7, D8, D9       Fremdsprachen:  
+
+		Englisch
+		sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon 2
+Jahre in den USA)
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+		Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für
+den Eigenbedarf
+
+		Java
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		JavaScript
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		Shell
+		Bash: Programmierung kleiner Entwicklungstools für Backup und
+Deployment
+
+		PL/SQL
+		Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL
+
+		Tcl/Tk
+		Vignette V5 Projekt-Erfahrung
+
+UML: Softwarearchitektur und -Design mit UML-Diagrammen
+(Klassendiagramm, Sequenz, Aktivitäts etc.)
+ Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion
+(Tabakindustrie)
+ XML: XPath XML-Schema DTD
+       Datenbanken:  
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Postgres
+
+		Sybase
+
+		JDBC
+
+		SQL
+
+Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via
+Java-JDBC (nicht administrativ).
+       Datenkommunikation:  
+
+		Internet, Intranet
+		HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP
+
+		TCP/IP
+
+		SMTP
+
+Java/J2EE: EJB, RPC, MBeans
+       Produkte/Standards/Erfahrungen:  Produkte:
+ - Tomcat 4.x/5.x
+ - Eclipse IDE inkl diverser Plugins
+ - UML mit Eclipse
+ - Datenbank-Design mit Powerbuilder
+ - Apache Webserver
+ - htdig
+ - Lucene Fulltextsearchengine
+ - Frameworks: Apache/Jakarta
+
+	 OpenSymphony 
+
+	 Castor-XML 
+
+	 Lucene 
+
+	 Hibernate 
+
+	 Velocity 
+
+	 diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3
+ - Vignette V5
+
+ Standards/Erfahrungen:
+ - CVS/Subversion-gestütztes arbeiten
+ - Testing/Monitoring mit JUnit, Canoo Webtest, JMeter, Nagios
+ - Bugtracking JIRA und Bugzilla
+ - Build-Management mit Maven und ANT
+ - IT-Projektplanung und Team-Koordination
+ - IT-Aufwandsschätzung
+ - Administration unter Linux
+ - Shell-Skripting (bash)
+ - OpenOffice / MSOffice
+ - Internet-Standardtools (diverse Browser, Mail, SSH etc)
+
+       Branchen:  Handel
+ Medien
+ Pharmazie
+ Software
+ Börse &amp; Finanzen
+ Banken &amp; Sparkassen
+ Maschinenbau
+
+       Projekte:  BaseCMP (02/2004 - andauernd) (www.basecmp.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+ objektorientierten Grundsätzen und einem sehr hohen
+Wiederverwendungsgrad.
+ Entwicklung eines webbasierten Redaktionssystems.
+ Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene,
+OSCache
+ sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+ Merkmale des Frameworks:
+ §1 Individuelle Workflows pro Asset
+ §2 Rechtesystem
+ §3 Gruppen- und Benutzerverwaltung
+ §4 Persönliche und Gruppen-Todo-Listen
+ §5 WYSIWYG-Internetseiten-Editierung
+ §6 Dynamische Navigation
+ §7 Mandantenfähigkeit
+ §8 Seitencache
+ §9 Stagingsystem
+ §10 Webservicefähigkeit per SOAP
+ §11 Trennung von Layout und Content
+ §12 XML-basierte Businesslogik mit wiederverwendbaren
+Logikkomponenten (Usecases)
+ §13 Plattformunabhängigkeit bezgl. des eingesetzten
+Applicationservers durch J2EE-Konformität
+ §14 Abstraktionsschicht zur einfachen Portierung des Frameworks auf
+andere (CMS-) Architekturen
+ §15 Plugin-Architektur für externe Erweiterungen
+ §16 Shop-Plugin
+ §17 X-Queue-Plugin
+ §18 BIRT-Plugin
+
+ Das CMS wird von BaseCMP zur Zeit als ASP-Plattform betrieben, mit
+dem die
+ Websites von lokalen Firmen und Betrieben in kürzestester Zeit
+kostengünstig
+ umgesetzt werden können. Referenzen:
+ - www.backwinkel.de (Shop mit Anbindung an erternen Katalog und
+Warenwirtschaft)
+ - www.steria-mummert.de / .com .at inkl Intranet + diverse Minisites
+ - www.hellermanntyton.de Portal inkl sämtlicher Länderwebsites
+ - www.bestebilder.de
+ - www.bilderanbord.de
+ - st-jago.basecmp.de
+ - www.basecmp.de / .com
+ - www.openmall.de
+
+ Einsatz von Management-und Planungstools, u.a.
+ - JIRA Bugtracking
+ - UML basierte Planung
+ - Datenbankdesign (ER-Digrammae) mit Powerbuilder
+
+ Motoso (05/2004 - andauernd) (www.motoso.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+ des OpenSource CMS-Frameworks BaseCMP.
+ §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+ §2 Volltextsuche mit Lucene
+ §3 Dynmischer, hierarchischer Kategoriebaum
+ §4 Backoffice zur Administration und Betreuung des Kundenstamms
+ §5 Online-Payment-Schnittstellen
+ §6 Import-Schnittstelle für Inserats-Massenimport
+
+ Intranet FCB Wilkens (06/2003 - 10/2003)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Betreuung des FCB-Intranets
+ §1 Aggregation von Newsfeeds (RSS und HTML)
+ §2 Schulung des Redaktionsteams
+ §3 Integration bestehender Server-Anwendungen
+
+	(Legacy-Anwendungen Telefonbuch, Forum etc) 
+
+ HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+
+ Entwicklung und fortlaufende Betreuung eines Internet-Shopsystems auf
+Basis
+ von Intershop enfinity 2.3
+ §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+ §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+ §3 Integration der Searchengine FACTFinder (Omikron) als
+enfinity-Cartridge
+
+ Otto-Supermarkt (10/2001 - 05/2003)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des
+Internet-Lebenmittelsupermarktes
+ www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+Der Shop
+ wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+
+ Mexx (10/2001 - 12/2002) (www.mexx.com)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des Internet-Shops
+ www.mexx.com auf Basis von Intershop enfinity 1.1.
+
+ §1 Entwicklung eines einfachen Content-Management-Systems auf Basis
+
+	der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents
+als XML §3 Contentbefüllung eines Flash-basierten E-Magazine
+(Mexx-eZine) 
+
+ Madaus (10/2002 - 02/2003) (www.madaus.com)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes Content-Management-System
+ §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+ §4 Extranet(s) für die Berufsgruppen ärzte, Apotheker
+ §5 Webbasiertes Redaktionssystem für externe Contentlieferanten und
+Redakteure
+
+ Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)
+ Rolle: Software-Entwicklung
+ Technologien: ColdFusion, JavaScript
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+
+ Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)
+ Rolle: Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes CMS-System
+ §3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites
+ §4 Seitenauslieferung
+
+ DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)
+ Rolle: Software-Entwicklung
+ Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+
+ Portal-Site für den Deutschen Sparkassen-und Giroverband
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP OnVista 
+
+ Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)
+ Rolle: Software-Entwicklung
+ Technologien: OpenMarket ContentServer, SQL (Oracle)
+
+ Online-Ausgabe der Tageszeitung Financial Times Deutschland
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Stagingsystem
+ §4 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP Innovative Software 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 71589 [14]
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 02.10.2014 18:58:00
+ (c) Copyright 1996-2014 GULP Information Services GmbH,
+ Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+  
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show021800
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[4] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D1
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D1
+[7] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[8] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show021800
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[14] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html
+
+
+---------- Gulp-Profil Stand 2012-04-17 00:00:00----------------------------------------
+
+   GULP - Jobbörse und Projektvermittlung: Profil ID 71589: Java/J2EE
+Entwicklung und Beratung im Client-Server Umfeld                  
+	* 
+	*               
+
+ Recherche [1] | Suchergebnis [2] | Kontaktieren [3] | Anfragen an ID
+71589 [4] | Wordprofil | XML Profil
+     Stammdaten (Auszug):   
+
+	 Personen-ID 71589    Wohnort 200xx Hamburg, Deutschland Jahrgang
+1967 EDV-Erfahrung seit 1993 Staatsbürgerschaft deutsch Stundensatz 60
+EUR zzgl USt. / zzgl Mehrkosten bei Reisetätigkeit, übernachtung,
+Verpflegung Verfügbar ab 01.09.12 zu 100%, Vor-Ort-Einsatz 100%
+möglich Profil erstellt am 22.04.05 Profil zuletzt geändert am
+17.04.12 Lesen von Projektanfragen 12 Stunden  [5]Direktkontakt [6]   
+     Kommentar:   Kommentar schreiben Profil angezeigt am 11.06.2012
+11:23:52       Fachlicher Schwerpunkt:  Java/J2EE Entwicklung und
+Beratung im Client-Server Umfeld      Position:  Software-Entwicklung
+/ Programmierung
+ Beratung / Consulting
+ Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche
+Mitarbeit
+      Ausbildung:  09/1991 - 09/1995
+ Studium Elektrotechnik
+ Fachrichtung Daten- und Nachrichtentechnik
+ Fachhochschule Hamburg
+ Abschluss als Diplom-Ingenieur (Dipl.-Ing)
+
+ 07/1990 - 08/1991
+ Fachoberschule Technik, Stade
+ Abschluss mit Fachhochschulreife
+
+ 09/1983 - 01/1987
+ Ausbildung zum Radio- und Fernsehtechniker
+ im Kundendienst bei der Hertie Kaufhaus AG, Stade
+
+       Einsatzort:  Deutschland      Fremdsprachen:  
+
+		Englisch
+		sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon 2
+Jahre in den USA)
+
+      Hardware:  
+
+		PC
+
+      Betriebssysteme:  
+
+		Unix
+
+		Windows
+
+      Programmiersprachen:  
+
+		Basic
+		Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für
+den Eigenbedarf
+
+		Java
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		JavaScript
+		Schwerpunkt J2EE und Client/Server-Umgebungen, Opensource
+Frameworks, u.a. Jakarta, OpenSymphony, Apache etc
+
+		PL/SQL
+		Ansi-SQL, MySQL, Sybase, MS, Grundkenntnisse in PL/SQL
+
+		Shell
+		Bash: Programmierung kleiner Entwicklungstools für Backup und
+Deployment
+
+		Tcl/Tk
+		Vignette V5 Projekt-Erfahrung
+
+ UML: Softwarearchitektur und -Design mit UML-Diagrammen
+(Klassendiagramm, Sequenz, Aktivitäts etc.)
+ Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion
+(Tabakindustrie)
+ XML: XPath XML-Schema DTD
+       Datenbanken:  
+
+		JDBC
+
+		MS SQL Server
+
+		MySQL
+
+		Oracle
+
+		Postgres
+
+		SQL
+
+		Sybase
+
+ Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via
+Java-JDBC (nicht administrativ).
+       Datenkommunikation:  
+
+		Internet, Intranet
+		HTTP, SOAP / Webservices, SIP, FTP, SSH, SCP
+
+		SMTP
+
+		TCP/IP
+
+ Java/J2EE: EJB, RPC, MBeans
+       Produkte/Standards/Erfahrungen:  Produkte:
+ - Tomcat 4.x/5.x
+ - Eclipse IDE inkl diverser Plugins
+ - UML mit Eclipse
+ - Datenbank-Design mit Powerbuilder
+ - Apache Webserver
+ - htdig
+ - Lucene Fulltextsearchengine
+ - Frameworks: Apache/Jakarta
+
+	 OpenSymphony 
+
+	 Castor-XML 
+
+	 Lucene 
+
+	 Hibernate 
+
+	 Velocity 
+
+	 diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3
+ - Vignette V5
+
+ Standards/Erfahrungen:
+ - CVS/Subversion-gestütztes arbeiten
+ - Testing/Monitoring mit JUnit, Canoo Webtest, JMeter, Nagios
+ - Bugtracking JIRA und Bugzilla
+ - Build-Management mit Maven und ANT
+ - IT-Projektplanung und Team-Koordination
+ - IT-Aufwandsschätzung
+ - Administration unter Linux
+ - Shell-Skripting (bash)
+ - OpenOffice / MSOffice
+ - Internet-Standardtools (diverse Browser, Mail, SSH etc)
+
+       Branchen:  Handel
+ Medien
+ Pharmazie
+ Software
+ Börse &amp; Finanzen
+ Banken &amp; Sparkassen
+ Maschinenbau
+
+       Projekte:  BaseCMP (02/2004 - andauernd) (www.basecmp.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach
+ objektorientierten Grundsätzen und einem sehr hohen
+Wiederverwendungsgrad.
+ Entwicklung eines webbasierten Redaktionssystems.
+ Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene,
+OSCache
+ sowie der OpenSource-Komponenten Tomcat, MySQL und Ant
+ Merkmale des Frameworks:
+ §1 Individuelle Workflows pro Asset
+ §2 Rechtesystem
+ §3 Gruppen- und Benutzerverwaltung
+ §4 Persönliche und Gruppen-Todo-Listen
+ §5 WYSIWYG-Internetseiten-Editierung
+ §6 Dynamische Navigation
+ §7 Mandantenfähigkeit
+ §8 Seitencache
+ §9 Stagingsystem
+ §10 Webservicefähigkeit per SOAP
+ §11 Trennung von Layout und Content
+ §12 XML-basierte Businesslogik mit wiederverwendbaren
+Logikkomponenten (Usecases)
+ §13 Plattformunabhängigkeit bezgl. des eingesetzten
+Applicationservers durch J2EE-Konformität
+ §14 Abstraktionsschicht zur einfachen Portierung des Frameworks auf
+andere (CMS-) Architekturen
+ §15 Plugin-Architektur für externe Erweiterungen
+ §16 Shop-Plugin
+ §17 X-Queue-Plugin
+ §18 BIRT-Plugin
+
+ Das CMS wird von BaseCMP zur Zeit als ASP-Plattform betrieben, mit
+dem die
+ Websites von lokalen Firmen und Betrieben in kürzestester Zeit
+kostengünstig
+ umgesetzt werden können. Referenzen:
+ - www.backwinkel.de (Shop mit Anbindung an erternen Katalog und
+Warenwirtschaft)
+ - www.steria-mummert.de / .com .at inkl Intranet + diverse Minisites
+ - www.hellermanntyton.de Portal inkl sämtlicher Länderwebsites
+ - www.bestebilder.de
+ - www.bilderanbord.de
+ - st-jago.basecmp.de
+ - www.basecmp.de / .com
+ - www.openmall.de
+
+ Einsatz von Management-und Planungstools, u.a.
+ - JIRA Bugtracking
+ - UML basierte Planung
+ - Datenbankdesign (ER-Digrammae) mit Powerbuilder
+
+ Motoso (05/2004 - andauernd) (www.motoso.de)
+ Rolle: Leitung Software-Entwicklung / Software-Architektur
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis
+ des OpenSource CMS-Frameworks BaseCMP.
+ §1 Detailierte Inseratseingabe mit dynamisch generierten Formularen
+ §2 Volltextsuche mit Lucene
+ §3 Dynmischer, hierarchischer Kategoriebaum
+ §4 Backoffice zur Administration und Betreuung des Kundenstamms
+ §5 Online-Payment-Schnittstellen
+ §6 Import-Schnittstelle für Inserats-Massenimport
+
+ Intranet FCB Wilkens (06/2003 - 10/2003)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP
+
+ Entwicklung und Betreuung des FCB-Intranets
+ §1 Aggregation von Newsfeeds (RSS und HTML)
+ §2 Schulung des Redaktionsteams
+ §3 Integration bestehender Server-Anwendungen
+
+	(Legacy-Anwendungen Telefonbuch, Forum etc) 
+
+ HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3
+
+ Entwicklung und fortlaufende Betreuung eines Internet-Shopsystems auf
+Basis
+ von Intershop enfinity 2.3
+ §1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)
+ §2 Datenimport des Artikelstamms im PaLoMa-Austauschformat
+ §3 Integration der Searchengine FACTFinder (Omikron) als
+enfinity-Cartridge
+
+ Otto-Supermarkt (10/2001 - 05/2003)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des
+Internet-Lebenmittelsupermarktes
+ www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:
+Der Shop
+ wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt
+
+ Mexx (10/2001 - 12/2002) (www.mexx.com)
+ Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung
+ Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity
+1.1
+
+ Fortlaufende Betreuung und Weiterentwicklung des Internet-Shops
+ www.mexx.com auf Basis von Intershop enfinity 1.1.
+
+ §1 Entwicklung eines einfachen Content-Management-Systems auf Basis
+
+	der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents
+als XML §3 Contentbefüllung eines Flash-basierten E-Magazine
+(Mexx-eZine) 
+
+ Madaus (10/2002 - 02/2003) (www.madaus.com)
+ Rolle: Leitung Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes Content-Management-System
+ §3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)
+ §4 Extranet(s) für die Berufsgruppen ärzte, Apotheker
+ §5 Webbasiertes Redaktionssystem für externe Contentlieferanten und
+Redakteure
+
+ Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)
+ Rolle: Software-Entwicklung
+ Technologien: ColdFusion, JavaScript
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+
+ Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)
+ Rolle: Software-Entwicklung
+ Technologien: Java, JSP, J2EE, SQL, Tomcat
+
+ Entwicklung der Corporate-Website:
+ §1 Webbasiertes Redaktionssystem
+ §2 Java-basiertes CMS-System
+ §3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites
+ §4 Seitenauslieferung
+
+ DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)
+ Rolle: Software-Entwicklung
+ Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)
+
+ Portal-Site für den Deutschen Sparkassen-und Giroverband
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP OnVista 
+
+ Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)
+ Rolle: Software-Entwicklung
+ Technologien: OpenMarket ContentServer, SQL (Oracle)
+
+ Online-Ausgabe der Tageszeitung Financial Times Deutschland
+ §1 Webbasiertes Redaktionssystem
+ §2 Seitenauslieferung
+ §3 Stagingsystem
+ §4 Serverseitige, personalisierte Integration von Börsendaten
+
+	über den ASP Innovative Software 
+
+		Seite drucken [7]  [8] 
+		Zum Seitenanfang [9]  [10]
+
+ Recherche [11] | Suchergebnis [12] | Kontaktieren [13] | Anfragen an
+ID 71589 [14] | Wordprofil | XML Profil
+
+   GULP Information Services übernimmt keine Gewähr für die
+Richtigkeit der hier gemachten Angaben.
+Seite generiert am 18.04.2012 00:44:09
+ (c) Copyright 1996-2012 GULP Information Services GmbH,
+ Ridlerstraße 37, D-80339 München, Tel. +49-89-500316-0, Fax
++49-89-500316-999, E-Mail info@gulp.de [15] 
+
+          Suche [16] | Kontakt [17] | AGB [18] | Impressum [19]       
+ 
+   
+
+Links:
+------
+[1] /cgi-gulpsearch/enter.exe/r
+[2] /cgi-gulpsearch/ShowResults.exe/Show180009
+[3] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[4] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[5] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D0
+[6] /cgi-gulpsearch/Kontakt.exe/PCODG?71589D0
+[7] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[8] /cgi-gulpsearch/printdoc.exe/profil?7GCZNTOW
+[9] /#
+[10] /#
+[11] /cgi-gulpsearch/enter.exe/r
+[12] /cgi-gulpsearch/ShowResults.exe/Show180009
+[13] /cgi-gulpsearch/Kontakt.exe/PCOAG?71589
+[14] /cgi-gulpsearch/gp.exe/UBONE71589?0
+[15] mailto:info@gulp.de
+[16] /suche/mainsuche.html
+[17] /wiruu/mainkont.html
+[18] /agb/mainagb_feb_2012.html
+[19] /impressum/mainimp.html

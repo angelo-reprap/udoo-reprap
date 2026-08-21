@@ -1,0 +1,1010 @@
+{
+  "metadata": {
+    "aid": "AID-or_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "runte_oliver",
+    "first_name": "Oliver",
+    "last_name": "Runte",
+    "headline": "Anwendungs-/ Web-Entwicklung auf Basis von Java EE, Spring, Angular, Python und Django. JEE, EJB3. x, JSF, JPA, CDI, Hibernate, JMS, Spring, Spring Web",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:56:36.502529"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Oliver",
+      "last_name": "Runte",
+      "birth_year": 1972,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch Fließend",
+          "level": ""
+        },
+        {
+          "name": "Französisch",
+          "level": ""
+        }
+      ],
+      "availability": "09.01.20 zu 40%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D4 im Umkreis von: Dortmund (100 km)",
+      "wohnort": "442xx Dortmund, Deutschland",
+      "headline": "Anwendungs-/ Web-Entwicklung auf Basis von Java EE, Spring, Angular, Python und Django. JEE, EJB3. x, JSF, JPA, CDI, Hibernate, JMS, Spring, Spring Web",
+      "edv_experience_since": 2008
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "MySQL",
+        "Oracle",
+        "PostgreSQL"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "FreeBSD",
+        "Linux",
+        "macOS",
+        "NetWare",
+        "OpenBSD",
+        "RedHat Enterprise Linux",
+        "Solaris",
+        "SUSE Linux Enterprise Server",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Angular",
+        "Groovy",
+        "Java JEE",
+        "Spring",
+        "Java EE",
+        "JavaScript Angular",
+        "Perl",
+        "PHP",
+        "Python Django",
+        "Ruby Rails",
+        "Shell",
+        "Tcl"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "10/06",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "SCSA Sun Certified System Administrator for Solaris 10 OS",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "LPIC-3 Linux Professional Institute Certified Level 3",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "01/05",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CLE Certified Linux Engineer",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "03/04",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "LPIC-2 Linux Professional Institute Certified Level 2",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "04/03",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CNE 6 Certified Novell Engineer (Netware 6)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "03/03",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "MCP Windows XP Professional",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "11/02",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "LPIC-1 Linux Professional Institute Certified Level 1",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "01/02",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CCNP Cisco Certified Network Professional",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "12/00",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CCNA Cisco Certified Network Associate",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "10/00",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "MCNE Master Certified Novell Engineer",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "09/00",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CNS Certified Novell Specialist (TCP/IP)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CNS Certified Novell Specialist (Bordermanager)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "03/00",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CNE 5 Certified Novell Engineer (Netware 5)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "02/00",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "MCSE Microsoft Certified Systems Engineer",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "10/99",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CNE 4 Certified Novell Engineer (Netware 4)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "06/99",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "MCP Microsoft Certified Professional (TCP/IP)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "03/99",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "CNA Certified Novell Administrator",
+        "issuer": "",
+        "date_obtained": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "01/2019 - 06/2020",
+        "company": "IHK GfI",
+        "title": "Java EE Entwicklung, Dortmund",
+        "role": "Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung des ERP-Systems der IHK mit Schwerpunkt",
+          "ReWe und E-Rechnung",
+          "Tätigkeiten:",
+          "Entwicklung Backend (Java EE)",
+          "Entwicklung Frontend (Swing)",
+          "Entwicklung Webservices",
+          "Java EE, Java Swing, Spring-Framework, SOAP, REST"
+        ]
+      },
+      {
+        "period": "06/2018 - 12/2018",
+        "company": "DEVK",
+        "title": "Portalentwicklung, Köln",
+        "role": "Entwickler",
+        "technologies": [
+          "Python",
+          "Django",
+          "AMQP",
+          "Celery",
+          "Angular",
+          "Spring Boot",
+          "SUSE Linux Enterprise Server",
+          "LDAP",
+          "Java",
+          "Scrum",
+          "RabbitMQ",
+          "RedHat Enterprise",
+          "PostgreSQL"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung eines Intranetportals zur Bereitstellung virtueller Maschinen",
+          "Tätigkeiten:",
+          "Planung, Konzept, Architektur",
+          "Entwicklung Web-Frontend (Angular, Django Templates)",
+          "Entwicklung Backend (Django)",
+          "Ansible",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "01/2018 - 06/2018",
+        "company": "NWB Verlag",
+        "title": "Java EE Entwicklung, Herne, Westfalen",
+        "role": "Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Unterstützung des Teams in der Entwicklung, Anpassung und Erweiterung des JuveOS (CRM-System)",
+          "Tätigkeiten:",
+          "Entwicklung Java EE",
+          "Entwicklung Angular",
+          "Java EE, Angular, JAX-RS, JPA, EclipseLink, Arquillian, Lucene",
+          "Eingesetzte Produkte:",
+          "Glassfish, Payara, MySQL"
+        ]
+      },
+      {
+        "period": "01/2017 - 12/2017",
+        "company": "Lemonbeat GmbH",
+        "title": "Projekt- und Beratungsleistung im Bereich Linux und IoT, Dortmund",
+        "role": "DevOps",
+        "technologies": [
+          "Windows)",
+          "Einführung Single Sign-On Linux (Active Directory",
+          "Kerberos)",
+          "Apache Webserver",
+          "CI/CD",
+          "Python",
+          "Ansible",
+          "Elixir",
+          "Phoenix-Framework",
+          "C/ C++",
+          "Debian",
+          "Ubuntu",
+          "Windows Server",
+          "Cisco Router",
+          "Nginx",
+          "Jenkins"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Administration der lokalen Infrastruktur",
+          "Tätigkeiten:",
+          "Netzwerkbetrieb",
+          "Einführung Systemmonitoring auf Basis von Icinga 2",
+          "Einführung Systemmanagement mit Ansible",
+          "Bereitstellung und Betrieb der Anwendungen im Bereich IoT-Entwicklung: o Jira o Confuence o GitLab o Jenkins o Docker o KVM",
+          "Migration von vSphere zu Proxmox",
+          "Dortmund"
+        ]
+      },
+      {
+        "period": "12/2016 - 12/2016",
+        "company": "Stadt Münster (citeq)",
+        "title": "Single Sign On Intranet, Münster",
+        "role": "Beratung, Support",
+        "technologies": [
+          "Apache Webserver",
+          "Windows Server",
+          "Ubuntu",
+          "Tomcat",
+          "Novell",
+          "e-Directory",
+          "Active"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Update der Single Sign On – Lösung auf Basis von Jasig CAS und Kerberos für Intranet-Anwendungen.",
+          "Tätigkeiten:",
+          "Troubleshooting",
+          "Anpassung der Konfiguration Webserver, Verzeichnisdienste, Kerberos, Spring Security, Spring WebFlow, PHP",
+          "Eingesetzte Produkte:",
+          "Directory, Jasig CAS",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2014 - 01/2017",
+        "company": "DEVK",
+        "title": "DevOps Competence Centre Java (CCJava), Köln",
+        "role": "DevOps",
+        "technologies": [
+          "SUSE Linux Enterprise Server",
+          "Java EE",
+          "Spring Boot",
+          "Apache Webserver",
+          "CI/CD",
+          "Python",
+          "Ansible",
+          "Ruby",
+          "Tomcat",
+          "Foreman",
+          "Jenkins"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Betreitstellung und Betrieb der Infrastruktur für Java-Anwendungen",
+          "Tätigkeiten:",
+          "Installation, Konfiguration und Betrieb der Java Application Server,",
+          "Webserver und StandaloneAnwendungen (Spring Boot)",
+          "Automatisierung Deployment (Continuous Integration)",
+          "Konfigurations-Management mit Ansible",
+          "Skriptentwicklung Shell, Python, Ruby"
+        ]
+      },
+      {
+        "period": "10/2014 - 10/2014",
+        "company": "Stadt Münster (citeq)",
+        "title": "Single Sign On Intranet, Münster",
+        "role": "Beratung/ Support/ Entwicklung",
+        "technologies": [
+          "Spring Security",
+          "Spring Webfow",
+          "Linux",
+          "Verzeichnisdienste",
+          "Kerberos",
+          "Java",
+          "Windows Server 2012 R2",
+          "Apache Webserver (mod_proxy_ajp)",
+          "Apache Tomcat 7"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Einführung einer Single Sign On – Lösung auf Basis von Jasig CAS und Kerberos für Intranet-Anwendungen.",
+          "Tätigkeiten:",
+          "Installation/Konfiguration Jasig CAS und Tomcat",
+          "Integration in Kerberos und Active Directoy o CAS-Authentifizierung mit KerberosTicket der Windows Anmeldung",
+          "CAS-Integration verschiedener Anwendungen: o Apache Webserver o PHP-Anwendungen o Java Webanwendungen (Spring)",
+          "Entwicklung einer Erweiterung für Jasig CAS, die abhängig von der Authentifizierung (Kerberos oder LDAP) Cookies generiert"
+        ]
+      },
+      {
+        "period": "10/2013 - 10/2014",
+        "company": "arvato Bertelsmann",
+        "title": "Systemadministration Unix/ Linux, Gütersloh",
+        "role": "Admin Unix/ Linux",
+        "technologies": [
+          "Linux Cluster",
+          "Unix",
+          "Virtualisierung",
+          "SUSE Linux",
+          "Enterprise Server",
+          "RedHat Enterprise Linux",
+          "AIX",
+          "Solaris",
+          "VMware"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Systemadministration Unix Server mit dem Schwerpunkt Linux und plattformübergreifende Weiterentwicklung der Unix Systemumgebung.",
+          "Tätigkeiten: technische Projektberatung im Unix Umfeld",
+          "Unterstützung im Unix / Linux Produktionsbetrieb",
+          "Bearbeitung von Service Requests",
+          "Bearbeitung und Dokumentation von Störungen im Trouble Ticket System enge Kooperation mit den Bereichen Netzwerk, Storage und Application",
+          "Hosting",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "04/2013 - 09/2013",
+        "company": "Vodafone",
+        "title": "Portalentwicklung, Ratingen",
+        "role": "Entwickler",
+        "technologies": [
+          "Linux",
+          "Virtualisierung",
+          "Java",
+          "Groovy",
+          "PHP",
+          "Tcl"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung eines Intranetportals und verschiedener Anwendungen zur Bereitstellung virtueller Maschinen (VMware)",
+          "Tätigkeiten:",
+          "Entwicklung von Drupal-Modulen (PHP)",
+          "Entwicklung verschiedener Module für das Deployment und Provisioning",
+          "(Groovy, Java, Shell-Script, Tcl)",
+          "Konfiguration und Erweiterung des Monitoring (Icinga/ Nagios)",
+          "Erstellen der virtual Appliances"
+        ]
+      },
+      {
+        "period": "12/2012 - 02/2013",
+        "company": "Sapa AB",
+        "title": "Einführung System Monitoring, Drunen",
+        "role": "Beratung, Support",
+        "technologies": [
+          "Red Hat Enterprise Linux",
+          "Monitoring",
+          "Icinga"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Einführung einer Systemüberwachung auf Basis von Icinga",
+          "Tätigkeiten:",
+          "Planung",
+          "Installation und Konfiguration",
+          "Entwicklung zusätzlicher Plugins",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2012 - 12/2012",
+        "company": "Sapa AB",
+        "title": "Entwicklung Web Service, Remote (Finspång)",
+        "role": "Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung eines Web Service zur Invertierung von Matrizen",
+          "Tomcat, Java, Spring, REST",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "10/2012 - 03/2013",
+        "company": "arvato Bertelsmann",
+        "title": "Systemadministration Unix/ Linux, Gütersloh",
+        "role": "Admin Unix/ Linux",
+        "technologies": [
+          "SUSE Linux Enterprise",
+          "Unix",
+          "Virtualisierung",
+          "Red Hat",
+          "Enterprise Linux",
+          "AIX",
+          "Solaris",
+          "VMware",
+          "Xen"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Systemadministration Unix Server mit dem Schwerpunkt Linux und plattformübergreifende Weiterentwicklung der Unix Systemumgebung.",
+          "Tätigkeiten: technische Projektberatung im Unix-Umfeld",
+          "Unterstützung im Unix/ Linux Produktionsbetrieb",
+          "Bearbeitung von Service-Requests",
+          "Bearbeitung und Dokumentation von Störungen im Trouble Ticket System enge Kooperation mit den Bereichen Netzwerk, Storage und Application",
+          "Hosting",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "05/2012 - 12/2012",
+        "company": "Talanx Bancassurance",
+        "title": "Systemadministration Solaris, Hilden",
+        "role": "Systemadministration",
+        "activities": [
+          "Aufgaben:",
+          "Administration der hochverfügbaren Solaris-Systeme mit mehreren virtuellen",
+          "Systemen (Zonen)",
+          "Tätigkeiten:",
+          "Fehleranalyse und Störungsbeseitigung",
+          "Installieren von Patches",
+          "Erstellen von Konzepten",
+          "Erstellen von Dokumentation"
+        ]
+      },
+      {
+        "period": "03/2012 - 03/2012",
+        "company": "Sapa AB",
+        "title": "Einführung Single Sign-On, Drunen",
+        "role": "Beratung, Support",
+        "activities": [
+          "Aufgaben:",
+          "Einführung einer Single Sign-On-Lösung auf Basis von Jasig CAS.",
+          "Tätigkeiten:",
+          "Planung",
+          "Customizing (MS ADS Integration, Corporate Design)",
+          "Installation und Konfiguration",
+          "Integration der Portalanwendungen Verzeichnisdienste, Java, Spring Security, PHP",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "02/2012 - 09/2012",
+        "company": "DEVK",
+        "title": "Systemadministration Java Application Server, Köln",
+        "role": "Systemadministration",
+        "technologies": [
+          "Java",
+          "SUSE Linux Enterprise",
+          "JBoss EAP",
+          "Apache Tomcat",
+          "Server",
+          "COR&FJA Life Factory"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Administration Jboss und Tomcat, sowie Einführung einer neuen Software zur Verwaltung von Lebensversicherungen",
+          "Tätigkeiten:",
+          "Installation, Konfiguration und Betrieb der Java Application Server",
+          "Fehleranalyse und Störungsbeseitigung",
+          "Deployment von Anwendungen",
+          "Erstellen von Konzepten"
+        ]
+      },
+      {
+        "period": "10/2011 - 12/2011",
+        "company": "Metro Systems GmbH",
+        "title": "E-Commerce, Düsseldorf",
+        "role": "Beratung, Support",
+        "technologies": [
+          "Enterprise Linux",
+          "Webserver",
+          "Identity Management",
+          "Monitoring",
+          "RedHat",
+          "Oracle 10g",
+          "Tomcat",
+          "Hybris",
+          "OpenAM",
+          "Tivoli ITM",
+          "Active"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Aufbau des Metro Cash & Carry Online-Shop auf Basis von Hybris",
+          "Tätigkeiten:",
+          "Aufbau und Betrieb der Infrastruktur Erstellen von Konzepten zu den Themen Betrieb und Überwachung",
+          "Support und Troubleshooting",
+          "Eingesetzte Produkte:",
+          "Directory",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2011 - 07/2011",
+        "company": "GAD",
+        "title": "Aufbau eBusiness-Plattform, Münster",
+        "role": "Beratung, Support",
+        "technologies": [
+          "Linux",
+          "Webserver",
+          "LDAP",
+          "CMS",
+          "Unix",
+          "Solaris",
+          "Enterprise",
+          "Tomcat",
+          "Jasig CAS",
+          "Day CQ5",
+          "Typo3"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Aufbau einer eBusiness-Plattform mit mehreren JEE-Anwendungen im Bankenumfeld.",
+          "Tätigkeiten:",
+          "Installation und Konfiguration der Webserver Deployment der Anwendungen (automatisch und manuell)",
+          "Planunung und Einführung angepasster Architekturen zur Gewährleistung der Systemsicherheit und Verfügbarkeit",
+          "Integration System Management",
+          "Erstellen der Dokumentation Support und Troubleshooting",
+          "Eingesetzte Produkte:"
+        ]
+      },
+      {
+        "period": "01/2010 - 06/2010",
+        "company": "GAD",
+        "title": "Betrieb und Support, Münster",
+        "role": "Admin",
+        "technologies": [
+          "Unix",
+          "Windows Server",
+          "Java",
+          "Solaris",
+          "Tomcat",
+          "JBoss",
+          "AS",
+          "Charles River IMS"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Betrieb und Support von Anwendungen im Bereich Investment-Management.",
+          "Tätigkeiten:",
+          "Planung und Einspielung neuer Releases und Updates.",
+          "Zusammenarbeit mit dem Change- und ProblemManagement.",
+          "Support und Troubleshooting",
+          "Eingesetzte Produkte:",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2009 - 12/2017",
+        "company": "Sapa AB",
+        "title": "Portalentwicklung, Drunen",
+        "role": "Entwicklung, Betrieb (DevOps)",
+        "technologies": [
+          "Apache Tomcat",
+          "RedHat Enterprise Linux",
+          "Oracle 9i",
+          "DB2",
+          "MSSQL-Server",
+          "Active",
+          "Java",
+          "Spring",
+          "CI/CD",
+          "Oracle 10g",
+          "Jobs",
+          "Jetty",
+          "Windows"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung eines Intranetportals mit den Anwendungen KPITS (Key Performance Indicator Tracking System),",
+          "CT (Closing Tool),",
+          "RST (Reconciliation Status Tool), iCRM (Customer Relationship Management)",
+          "Tätigkeiten:",
+          "Entwicklung Java (Spring, Spring WebMVC, Spring Security)",
+          "Erstellen/ Umsetzen von Konzepten zu den Themen Anwendungsarchitektur,",
+          "Sicherheit, Verfügbarkeit",
+          "Betrieb und Weiterentwicklung der 2008 migrierten Applikationen und Systeme.",
+          "Überwachung und Betrieb der Applikationen und Datenbanken",
+          "Fehlersuche und Behebung",
+          "Anpassung und Weiterentwicklung",
+          "Eingesetzte Produkte:",
+          "Server, Eclipse, MSSQL-Server"
+        ]
+      },
+      {
+        "period": "03/2008 - 12/2008",
+        "company": "Sapa AB",
+        "title": "Applikationsmigration Windows, Linux, Unix und weitere, Drunen",
+        "role": "Beratung, Support",
+        "technologies": [
+          "Red Hat Enterprise Linux",
+          "HPUnix sowie um lokale",
+          "Windows",
+          "Java",
+          "CI/CD",
+          "Apache Webserver",
+          "Oracle 9i",
+          "Oracle 10g",
+          "Microsoft"
+        ],
+        "activities": [
+          "Serverapplikationen",
+          "Aufgaben:",
+          "Die IT der beiden Unternehmen SAPA und ALCOA wurde verschmolzen. Die Aufgabe besteht darin als Techniker in einer internationalen Umgebung (USA, Ungarn,",
+          "Norwegen, Dänemark, Schweden, Niederlande) die zentral geführten Applikationen",
+          "(Rechenzentrum USA, Ungarn) in die neue Struktur zu migrieren (Rechenzentrum",
+          "Stockholm). Bei den Applikationen handelt es sich um serverbasierte,",
+          "Applikationen der Betriebsprozesse. Tätigkeiten:",
+          "Analyse der Applikationen und Datenbanken",
+          "Drunen"
+        ]
+      }
+    ],
+    "industries": [
+      "EDV",
+      "IT-Dienstleister",
+      "Chemie",
+      "Metallverarbeitung",
+      "Automotive",
+      "Banken",
+      "Versicherungen",
+      "Handel",
+      "Flughafen/ Luftfahrt",
+      "Behörden"
+    ],
+    "focus_areas": [
+      "Anwendungs-/ Web-Entwicklung auf Basis von Java EE Spring Angular Python und Django. JEE EJB3. x JSF JPA CDI Hibernate JMS Spring Web Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Administration / Support",
+      "Schulungen und Weiterbildung:",
+      "1999",
+      "EDV-Netzwerk-Techniker (IHK)",
+      "1998",
+      "EDV-Service-Techniker (IHK)"
+    ],
+    "focus_experience": [
+      {
+        "name": "Active Directory",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Apache Tomcat",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Apache Webserver",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Cisco Router",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "CMS",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Django",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Docker",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Drupal",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "EclipseLink",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Glassfish",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Icinga",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Java Swing",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "JBoss AS",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Jetty",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Kerberos",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "LDAP",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Liferay Portal",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Lucene",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Nginx",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Novell e-Directory",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Spring Security",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Spring WebFlow",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Spring-Framework",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Subversion",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Verzeichnisdienste",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Virtualisierung",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "VMware",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "WebLogic",
+        "category": "product_standard",
+        "sort_order": 36
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:56:36.502544",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FOCUS_EXP",
+      "ZERTIFIKATE",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2008"
+      ],
+      "coverage_percent": 91.9661733615222,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

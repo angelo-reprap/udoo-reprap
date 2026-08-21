@@ -1,0 +1,597 @@
+{
+  "personal": {
+    "aid": "AID-sa_2.3.3.0",
+    "first_name": "Stefan",
+    "last_name": "Ackermann",
+    "birth_year": 1975,
+    "location": "D8 im Umkreis von: Augsburg (100 km) Ingolstadt (50 km) München",
+    "availability": "01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2010,
+    "headline": "Softwareentwickler .NET",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 6,
+    "skills": 32,
+    "certifications": 0,
+    "education": 1,
+    "experience": 9,
+    "industries": 11,
+    "focus_areas": 15,
+    "focus_experience": 65,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (Verhandlungssicher)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Verhandlungssicher",
+      "level": ""
+    },
+    {
+      "name": "Spanisch Gut",
+      "level": ""
+    },
+    {
+      "name": "Spanisch (Gut)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Professional Scrum Master (PSM I)",
+      "institution": "Scrum.org",
+      "period": "03/2017 - 03/2017",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Erneuerbare Energien:",
+    "Photovoltaik",
+    "Solarthermie",
+    "Wind",
+    "Smart Grid",
+    "Smart Home",
+    "Monitoring",
+    "Sonstige:",
+    "Automotive",
+    "Health-Care",
+    "Erneuerbare Energien"
+  ],
+  "focus_areas": [
+    "Softwareentwickler .NET",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen Fullstack-Entwickler (.NET) mit folgenden Sch",
+    "Softwareentwicklung",
+    "Frontent",
+    "Backend",
+    "Datenbank",
+    "Softwarearchitektur",
+    "Projektmanagement / Scrum",
+    "03/2017 - 03/2017: Scrum Master",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "Fullstack-Entwickler (.NET)"
+  ],
+  "focus_experience": [
+    {
+      "name": "ASP.NET Core MVC seit 2018",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufwandsschätzungen Realistische Schätzungen (3-Punkt",
+      "category": "product_standard"
+    },
+    {
+      "name": "T-Shirt-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Size)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure Gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entity Framework Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "JetBrains ReSharper Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "jQuery Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Information Server (IIS) Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Sharepoint Befriedigend / Wissen veraltet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Team Foundation Server Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "(TFS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visio Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visual Studio Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "NET Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "NHibernate",
+      "category": "product_standard"
+    },
+    {
+      "name": "Objektorientierte Programmierung Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "(OOP)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Responsive Web Design Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum bin ScrumMaster",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium Gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spezifikation / Konzeptionierung Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Telerik KendoUI Controls Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web API Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web Services (SOAP) Sehr gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows Communication Foundation Gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "(WCF)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows Presentation Foundation Gut",
+      "category": "product_standard"
+    },
+    {
+      "name": "(WPF)",
+      "category": "product_standard"
+    },
+    {
+      "name": "WinForms Gut / etwas eingerostet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Berufserfahrung",
+      "category": "product_standard"
+    },
+    {
+      "name": "06/2012 heute:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Branchen-Schwerpunkt Erneuerbare Energien",
+      "category": "product_standard"
+    },
+    {
+      "name": "07/2002 heute:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entwicklung mit Microsoft.NET-Technologien",
+      "category": "product_standard"
+    },
+    {
+      "name": "02/2001 heute:",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Freelancer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbankentwicklung seit 2001",
+      "category": "product_standard"
+    },
+    {
+      "name": "GUI Entwicklung / Responsive Design seit 2001",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwarearchitektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareentwicklung seit 2001 mit .NET",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spezifikation / Konzeption / Dokumentation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Stabilisierung / Test",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webentwicklung seit 1997",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Backendentwicklung WebAPI",
+      "category": "product_standard"
+    },
+    {
+      "name": "MicroServices",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB Zugriff",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbankentwicklung Relationale oder Dokumenten-Datenbank",
+      "category": "product_standard"
+    },
+    {
+      "name": "Webentwicklung Gutes Gespür für Design und UX",
+      "category": "product_standard"
+    },
+    {
+      "name": "ASP.NET Core MVC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Azure",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entity Framework",
+      "category": "product_standard"
+    },
+    {
+      "name": "JetBrains ReSharper",
+      "category": "product_standard"
+    },
+    {
+      "name": "jQuery",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Information Server (IIS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Sharepoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Team Foundation Server (TFS)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visual Studio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Responsive Web Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "01/2017 - heute",
+      "company": "",
+      "role": "Softwareentwickler / Softwarearchitekt",
+      "title": "Neuentwicklung einer webbasierten, mandantenfähigen Software",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "06/2016 - 12/2016",
+      "company": "Computer Futures",
+      "role": "Softwareentwickler",
+      "title": "Software zur Serialisierung von Produktionseinheiten, Neutraubling / Regensburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2014 - 08/2015",
+      "company": "EnBW Energie Baden-Württemberg",
+      "role": "Softwareentwickler",
+      "title": "Webbasiertes Endkundenportal für Stromkunden, Köln",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "06/2013 - 11/2014",
+      "company": "Comparex AG",
+      "role": "Softwarearchitekt, Softwareentwickler, GUI-Entwickler",
+      "title": "Entwicklung eines HTML5 Dashboards zur Darstellung von, München / Leipzig",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "08/2011 - 06/2013",
+      "company": "Solarschmiede GmbH",
+      "role": "Projektleiter (insgesamt 10 Mitarbeiter),",
+      "title": "Softwareplattform zur Planung von Photovoltaik-Anlagen, München",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2011 - 12/2011",
+      "company": "Pica GmbH",
+      "role": "Softwareentwickler",
+      "title": "Erstellung eines Info-Path-Formulars für ChangeManagement, München",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "11/2010 - 06/2011",
+      "company": "General Electric Global Research",
+      "role": "Technischer Projektleiter, Softwarearchitekt, Softwareentwickler",
+      "title": "Aufbau und Steuerung eines integrierten Prüfstands für eine, Garching bei München",
+      "activities": 11,
+      "technologies": 1
+    },
+    {
+      "period": "11/2010 - 06/2011",
+      "company": "General Electric Global Research",
+      "role": "Technischer Projektleiter, Softwarearchitekt,",
+      "title": "Aufbau eines webbasierten Energieinformationssystems, Garching bei München",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2010 - 06/2011",
+      "company": "KACO GmbH",
+      "role": "Projektleiter, Softwarearchitekt, Softwareentwickler",
+      "title": "Software zur Ertragsberechnung von PV-Anlagen, München",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Verschiedene Projekte, 05/07 - 02/09\nReferenz durch Manager Development & BI Group, Münchner Systemhaus (130 MA), vom 19.05.09\n\"Wir haben den Consultant als einen Mitarbeiter kennengelernt, der über ein profundes Wissen im .NET-Bereich, insbesondere in den Technologien ASP.NET, C# und MS SQL Server verfügt. Er hat in meiner Abteilung zahlreiche Projekte in allen Phasen von der Spezifikation über die Entwicklungs- und Testphase bis hin zur Inbetriebnahme begleitet. Dabei zählten auch Beratung und Coaching, jeweils im direkten Kundenkontakt, zu seinen Aufgaben. Die ihm gestellten Aufgaben bearbeitete er mit hohem Engagement, äußerster Gewissenhaftigkeit und zu unserer vollsten Zufriedenheit. [...] Auch der Consultant hat für die von ihm entwickelten Applikationen entsprechend dieser Maxime stets sein umfassendes Know-how aktueller Technologien eingebracht. Neben seiner fachlichen Qualifikation sind seine hohe Teamfähigkeit, sein Verantwortungsbewusstsein und seine Fähigkeit, sich rasch in neue Themen einzuarbeiten, hervorzuheben. Wir möchten uns an dieser Stelle für die sehr gute Zusammenarbeit bedanken und empfehlen den Consultant für den Einsatz in IT-Projekten uneingeschränkt weiter.\"\nProjekt 4,5-jährige, freiberufliche Mitarbeit, 02/01 - 09/04\nReferenz durch Geschäftsführer Softwarefirma (25 MA), vom 12.04.05\n\"[...] Nach seiner sehr zügigen Einarbeitung konzipierte und programmierte der Consultant zunächst als Projektmitarbeiter Webapplikationen auf der Basis von HTML, CSS, Javascript, XML, Macromedia Flash, Cold Fusion und ASP. [..] Der Consultant ist ein einsatzfreudiger und eigenmotivierter Mitarbeiter, der bei Personalausfällen, Terminaufträgen und in Notfällen jederzeit Aufträge auch in Abendstunden und an Wochenenden ausführte. Er verfügt über ein sehr hohes Maß an fachlicher Qualifikation und war allen Belastungen unserer umfangreichen und zeitkritischen Projekte gewachsen. Bei neuen geschäftlichen Entwicklungen agierte er stets sicher, flexibel und sehr verantwortungsvoll. In seinen Projekten brachte er seine Begabungen zu konzeptionellem und langfristig-strategischem unternehmerischen Denken ein und setzte seine sehr guten innovativen Ideen in praktische Verbesserungen um. Sein unternehmerisches Denken und seine Fähigkeit, Teamgeist bei Projektmitarbeitern zu wecken, halfen dem Consultant, die durch die wechselhaften Entwicklungen unserer Branche nötigen sachlichen und personellen Abstimmungsprozesse zu meistern. Auch in der Gewinnung von Neukunden und Referenzkunden sowie in der Bindung von Stammkunden zeigte der Consultant wertvolles Engagement. Die Arbeitsergebnisse waren, auch bei fachlich sehr schwierigen Aufgaben und unter Zeitdruck, stets von sehr hoher Qualität. Seine offensichtlichen Erfolge fanden bei uns und unseren Auftraggebern stets vollste Anerkennung. Der Consultant hat sein sehr fundiertes Fachwissen durch Weiterbildung mit Hilfe von Fachpublikationen und einschlägigen Online-Informationsquellen sowie durch Teilnahme an Fortbildungsverantstaltungen in Eigeninitiative jederzeit auf aktuellstem Stand gehalten. Der Consultant war eine bei der Geschäftsführung, bei den Mitarbeitern und bei Geschäftspartnern und Kunden fachlich und persönlich sehr geschätzte Persönlichkeit mit stets vorbildlichem Verhalten. Der Consultant hat die seine Verantwortungsbereiche stets zu unserer vollsten Zufriedenheit geleitet und seine Leistungen übertrafen während der gesamten Einsatzzeit …\"",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Microsoft Azure SQL Database Gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft SQL Server Sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Mysql Gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Business Intelligence (BI)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Integration Services (SSIS): sehr gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Angular Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ASP.NET Core MVC Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Aurelia Befriedigend",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Blazor Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C# Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CSS Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML5 Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "LESS Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Linq Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": ".NET Core Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SASS Sehr gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TypeScript Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VB.NET Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "WPF Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Figo",
+      "category_name": "Business Software",
+      "weight": 0.62
+    },
+    {
+      "name": "HBCI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "eSignatur",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "SAP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "HTML5",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "CodedUI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "InfoPath",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Webservice",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Active Directory",
+      "category_name": "Identity Management",
+      "weight": 0.38
+    },
+    {
+      "name": "SharePoint",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "SPS",
+      "category_name": "Hardware",
+      "weight": 0.38
+    }
+  ]
+}

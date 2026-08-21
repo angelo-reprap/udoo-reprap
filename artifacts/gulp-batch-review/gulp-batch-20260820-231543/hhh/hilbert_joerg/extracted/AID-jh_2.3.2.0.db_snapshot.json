@@ -1,0 +1,332 @@
+{
+  "personal": {
+    "aid": "AID-jh_2.3.2.0",
+    "first_name": "Joerg",
+    "last_name": "Hilbert",
+    "birth_year": 1979,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+    "availability": "01.09.17 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2011,
+    "headline": "VBA- Entwickler, Schwerpunkt Excel und Access",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 0,
+    "skills": 32,
+    "certifications": 0,
+    "education": 0,
+    "experience": 11,
+    "industries": 1,
+    "focus_areas": 6,
+    "focus_experience": 9,
+    "other_content": 0
+  },
+  "languages": [],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Banken (Experte)"
+  ],
+  "focus_areas": [
+    "VBA- Entwickler",
+    "Schwerpunkt Excel und Access",
+    "Software-Entwicklung / Programmierung",
+    "bevorzugt",
+    "Herausforderungen.",
+    "Dipl. Bankbetriebswirt (BC)"
+  ],
+  "focus_experience": [
+    {
+      "name": "Excel (Experte)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Access (Experte)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Outlook (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Word (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "PowerPoint (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "VisualStudio (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lotus Notes (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Joomla (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenOffice (fortgeschr. Kenntnisse)",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "12/2014 - 03/2014",
+      "company": "",
+      "role": "",
+      "title": "Amt Dänischer Wohld",
+      "activities": 3,
+      "technologies": 4
+    },
+    {
+      "period": "06/2014 - 11/2014",
+      "company": "",
+      "role": "",
+      "title": "Temprix GmbH",
+      "activities": 2,
+      "technologies": 8
+    },
+    {
+      "period": "05/2014 - 06/2014",
+      "company": "",
+      "role": "",
+      "title": "Siemens AG",
+      "activities": 3,
+      "technologies": 5
+    },
+    {
+      "period": "04/2014- 12/2014",
+      "company": "",
+      "role": "",
+      "title": "GNUSE Ingenieurbüro für Krankenhaustechnik GmbH &",
+      "activities": 3,
+      "technologies": 8
+    },
+    {
+      "period": "02/2014- 03/2014",
+      "company": "",
+      "role": "",
+      "title": "GNUSE Ingenieurbüro für Krankenhaustechnik GmbH &",
+      "activities": 3,
+      "technologies": 7
+    },
+    {
+      "period": "08/2013 - 01/2014",
+      "company": "",
+      "role": "Betreuung von Bestandskunden",
+      "title": "Betreuung von Bestandskunden",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "11/2012-02/2013",
+      "company": "",
+      "role": "",
+      "title": "Gutachter Müller, Home Office, Entwickler",
+      "activities": 3,
+      "technologies": 4
+    },
+    {
+      "period": "05/2012-06/2012",
+      "company": "",
+      "role": "",
+      "title": "Retis Consulting Group GmbH, Home Office,",
+      "activities": 3,
+      "technologies": 3
+    },
+    {
+      "period": "03/2012-10/2012",
+      "company": "",
+      "role": "",
+      "title": "Retis Consulting Group GmbH, Home Office,",
+      "activities": 7,
+      "technologies": 13
+    },
+    {
+      "period": "09/2011-11/2012",
+      "company": "",
+      "role": "",
+      "title": "intersoft AG, Hamburg, Entwickler",
+      "activities": 6,
+      "technologies": 6
+    },
+    {
+      "period": "02/2011 - 02/2011",
+      "company": "",
+      "role": "",
+      "title": "Geno Bank Consult GmbH, Home Office, Entwickler",
+      "activities": 8,
+      "technologies": 8
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL-Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VB.Net",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CSS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "WPF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "Windows Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "VB.NET",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "VB6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Access 2010",
+      "category_name": "Sonstige Skills",
+      "weight": 0.82
+    },
+    {
+      "name": "SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Excel 2010",
+      "category_name": "Sonstige Skills",
+      "weight": 0.7
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Pro",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.38
+    },
+    {
+      "name": "EXCEL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "um",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Runtime",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "verschiedenen Excel",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "um einen Fragekatalog",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Win32API",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "WINDOWS 7/XP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "einer",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "zweier",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "VBA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.95
+    },
+    {
+      "name": "SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.95
+    },
+    {
+      "name": "Windows 7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.95
+    },
+    {
+      "name": "Outlook",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenkommunikation",
+      "weight": 0.6
+    },
+    {
+      "name": "Firefox",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

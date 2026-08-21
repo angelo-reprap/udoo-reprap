@@ -1,0 +1,833 @@
+{
+  "personal": {
+    "aid": "AID-jw_2.3.3.0",
+    "first_name": "Juergen",
+    "last_name": "Wolters",
+    "birth_year": 1956,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D9",
+    "availability": "01.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2008,
+    "headline": "Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL, C++, VB.Net, ASP.Net, Java",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 191,
+    "certifications": 0,
+    "education": 2,
+    "experience": 18,
+    "industries": 9,
+    "focus_areas": 29,
+    "focus_experience": 45,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch (Muttersprache)",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch gut in Wort und Schrift",
+      "level": ""
+    },
+    {
+      "name": "Englisch (gut in Wort und Schrift)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Eigene Weiterbildung",
+      "institution": "",
+      "period": "12/2011 01/2012",
+      "education_type": "course"
+    },
+    {
+      "degree": "Eigene Weiterbildung in C# (C Sharp)",
+      "institution": "",
+      "period": "10/2016 12/2016",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Banken (gute Wertpapierkenntnisse)",
+    "Bahn",
+    "Telekommunikation",
+    "Systemhaus",
+    "Softwareentwicklung",
+    "Dienstleistung",
+    "Automobil",
+    "Energie",
+    "Banken"
+  ],
+  "focus_areas": [
+    "Softwaredesign/entwicklung: (Schwerpunkt: PL/SQL C++ VB.Net ASP.Net Java Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Softwaredesign/entwicklung",
+    "Software-Entwicklung / Programmierung",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "VB.Net",
+    "ASP.Net",
+    "PL/SQL",
+    "C++",
+    "Java",
+    "JavaScript",
+    "Oracle",
+    "SQL",
+    "Oracle SQL-Tuning",
+    "UNIX",
+    "Windows XP/NT/Vista/7/8/10",
+    "Web Applications",
+    "ABAP4 (Grundkenntnisse)",
+    "Assembler",
+    "Clipper",
+    "Cobol (Grundkenntnisse)",
+    "ESQL/C",
+    "Perl",
+    "embedded Perl",
+    "Script-Sprachen",
+    "yacc /lex"
+  ],
+  "focus_experience": [
+    {
+      "name": "Combit List&Label",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Basic 2006",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrungen im Bereich",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anwendungs- und Systemprogrammierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Software-Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programmierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung von Online Hilfe",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rollout",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unattended Windows-NT Installation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Betriebsdatenerfassung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Administration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Koordination",
+      "category": "product_standard"
+    },
+    {
+      "name": "Organisation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitätssicherung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwaredesign",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareentwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Support",
+      "category": "product_standard"
+    },
+    {
+      "name": "Systemanalyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "* VB.Net",
+      "category": "product_standard"
+    },
+    {
+      "name": "ASP.Net",
+      "category": "product_standard"
+    },
+    {
+      "name": "PL/SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "JavaScript",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Oracle",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle SQL-Tuning",
+      "category": "product_standard"
+    },
+    {
+      "name": "weitere Datenbanken",
+      "category": "product_standard"
+    },
+    {
+      "name": "* UNIX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows XP/NT/Vista/7/8/10",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web Applications",
+      "category": "product_standard"
+    },
+    {
+      "name": "ABAP4 (Grundkenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Assembler",
+      "category": "product_standard"
+    },
+    {
+      "name": "Clipper",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cobol (Grundkenntnisse)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ESQL/C",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Perl",
+      "category": "product_standard"
+    },
+    {
+      "name": "embedded Perl",
+      "category": "product_standard"
+    },
+    {
+      "name": "Script-Sprachen",
+      "category": "product_standard"
+    },
+    {
+      "name": "yacc /lex",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "06/2019 - heute",
+      "company": "Energie",
+      "role": "Software-Entwickler",
+      "title": "Migration Software Windows 10 und Oracle 12c, Jülich",
+      "activities": 6,
+      "technologies": 12
+    },
+    {
+      "period": "03/2018 - 05/2019",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Neuentwicklung Laborsoftware",
+      "activities": 5,
+      "technologies": 12
+    },
+    {
+      "period": "03/2017 - 02/2018",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Datenbankdesign und Implementierung",
+      "activities": 6,
+      "technologies": 12
+    },
+    {
+      "period": "10/2016 - 12/2016",
+      "company": "Weiterbildung",
+      "role": "",
+      "title": "Weiterbildung (siehe Aus und Weiterbildung)",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "07/2016 - 10/2016",
+      "company": "Bank, Dresden",
+      "role": "",
+      "title": "BSI - IT-Grundschutzprüfung",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "01/2016 - 04/2016",
+      "company": "Finanzdienstleistungen, Bank, Braunschweig",
+      "role": "",
+      "title": "Design und Implementierung",
+      "activities": 7,
+      "technologies": 7
+    },
+    {
+      "period": "10/2015 - 01/2016",
+      "company": "Finanzdienstleistungen, Bank, Braunschweig",
+      "role": "",
+      "title": "Design und Implementierung",
+      "activities": 5,
+      "technologies": 7
+    },
+    {
+      "period": "09/2013 - 05/2015",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Fertigungsinformationssystem",
+      "activities": 5,
+      "technologies": 14
+    },
+    {
+      "period": "05/2013 - 08/2013",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Datenbankdesign und Implementierung",
+      "activities": 6,
+      "technologies": 7
+    },
+    {
+      "period": "12/2012 - 04/2013",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Neugestaltung und Implementierung",
+      "activities": 5,
+      "technologies": 7
+    },
+    {
+      "period": "06/2012 - 11/2012",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Neugestaltung und Implementierung",
+      "activities": 3,
+      "technologies": 6
+    },
+    {
+      "period": "02/2012 - 05/2012",
+      "company": "Energie, Jülich",
+      "role": "",
+      "title": "Neugestaltung und Implementierung",
+      "activities": 5,
+      "technologies": 7
+    },
+    {
+      "period": "12/2011 - 01/2012",
+      "company": "Weiterbildung",
+      "role": "",
+      "title": "Weiterbildung (siehe Aus und Weiterbildung)",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "11/2009 - 02/2010",
+      "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+      "role": "",
+      "title": "Neugestaltung und Implementierung",
+      "activities": 5,
+      "technologies": 7
+    },
+    {
+      "period": "03/2009 - 10/2009",
+      "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+      "role": "",
+      "title": "Softwareübernahme",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "01/2009 - 02/2009",
+      "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M",
+      "role": "",
+      "title": "Softwareentwicklung",
+      "activities": 6,
+      "technologies": 6
+    },
+    {
+      "period": "10/2008 - 12/2008",
+      "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+      "role": "",
+      "title": "Softwareentwicklung",
+      "activities": 5,
+      "technologies": 6
+    },
+    {
+      "period": "04/2008 - 09/2008",
+      "company": "Deutsche Bahn, DB Systel GmbH, Frankfurt /M.",
+      "role": "",
+      "title": "Systemanalyse",
+      "activities": 8,
+      "technologies": 54
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Oracle u. a. ; Web-Applikationen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Technische Projektleitung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 8.1.x",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "10g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "11g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "12c",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 12c",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL-Developer",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQLite3",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL*Plus",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Blade-Center",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Fujitsu-Siemens Primergy",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modems",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Personal Computer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RM600",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "TOAD",
+      "category_name": "Datenbanken",
+      "weight": 0.95
+    },
+    {
+      "name": "Siemens MX",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Objektorientierte Programmierung",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "OOAnalyse / OODesign mit UML",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "SCRUM",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Ereignisgesteuerte",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "visuelle",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "strukturierte Programmierung",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbank Design",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Standards",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "SDK (16/32 bit)",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "MFC",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Office",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Visual InterDev",
+      "category_name": "Methoden",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Windows Server 2008 R2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NT4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX Solaris 9",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SINIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Interactive Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS 386",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows ?10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Vista",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.95
+    },
+    {
+      "name": "ASP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "AWK",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++ MS-VC 6.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Visual .NET 2010",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-eMbedded Visual",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++ 4.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java2",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JNI",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ORACLE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP5",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX System V Programming",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX-Shell Programmierung",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VB.NET",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VB-Script",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VB6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Basic 2006 VB.Net",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML / XSL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet WebServer Aufbau",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Design",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Programmierung",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "DB-Anbindung",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Wartung",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "(HTML",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "VBScript",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "FTP)",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Infrarot-Datentechnik",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Wertpapiere",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Beruflicher Werdegang",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "1979 1984",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "EDV-Servicetechniker",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,1079 @@
+{
+  "metadata": {
+    "aid": "AID-ak_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "koval_alexandre",
+    "first_name": "Alexandre",
+    "last_name": "Koval",
+    "headline": "Java EE (J2EE) Architektur, Design und Implementierung, Web- Anwendungen, WebServices",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:41:43.006325"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Alexandre",
+      "last_name": "Koval",
+      "birth_year": 1965,
+      "languages": [
+        {
+          "name": "Englisch fachspezifisch",
+          "level": ""
+        }
+      ],
+      "availability": "06.09.21 zu 100%, Vor-Ort-Einsatz 10% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "863xx Königsbrunn, Deutschland",
+      "headline": "Java EE (J2EE) Architektur, Design und Implementierung, Web- Anwendungen, WebServices",
+      "edv_experience_since": 2004
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "CDI",
+        "DAO",
+        "DB2",
+        "Envers",
+        "Hibernate",
+        "HSQLDB",
+        "iBatis",
+        "Informix",
+        "JDBC",
+        "MongoDB",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "OJB",
+        "Oracle",
+        "Postgres",
+        "RDB",
+        "SQL",
+        "Sybase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "PC",
+        "Internet",
+        "Intranet",
+        "RPC",
+        "TCP/IP"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Linux",
+        "Microsoft Windows",
+        "MS-DOS",
+        "Red Hat",
+        "Ubuntu",
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Basic",
+        "C",
+        "C++",
+        "Groovy",
+        "Java",
+        "Java EE 1.7",
+        "Java 1.8",
+        "Java 8",
+        "JavaScript",
+        "JAXB",
+        "JAXW",
+        "JPA/Hibernate",
+        "JQuery",
+        "JSON",
+        "JUnit",
+        "Maven2",
+        "Oracle/SQL",
+        "Perl",
+        "PHP",
+        "PL/SQL",
+        "Scriptsprachen Ant",
+        "Shell",
+        "Spring Boot",
+        "Spring Security",
+        "WireMock"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "10/2018 - 04/2019",
+        "company": "Bayerisches Staatsministerium für Gesundheit und Pflege",
+        "title": "LPGplus, Amberg, München",
+        "role": "IT-Berater, Software-Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Migration und Weiterentwicklung einer Web-Applikation zur operativen",
+          "Abwicklung eines Fachverfahrens des Landespflegegeldes in Bayern",
+          "Scrum, REST, SOAP, JSF, JUnit, Oracle/SQL, Java 8, WebService, Spring Security",
+          "Eingesetzte Produkte:",
+          "Hibernate, Maven, Git, PrimeFaces, Envers, CDI, WireMock, JMeter, Bamboo,",
+          "Confluence, JIRA",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "04/2018 - 08/2018",
+        "company": "Consorsbank",
+        "title": "API-Management Trading, Nürnberg",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "SonarQube",
+          "Nexus",
+          "Groovy",
+          "Gradle",
+          "OpenShift",
+          "Microsoft",
+          "Windows",
+          "Linux"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung einer neuen REST-Schnittstelle API für eine bestehende Trading-Plattform der Consorsbank. In Scope the implementation was a new unified API-Management, which enables a state of the art banking service and more secure access for internal and external developers and partners. With this unified new API external partners will get an easy to use toolbox of our",
+          "Consorsbank services. This project will help to lower time to market for adapting upcoming Fintechs and service consumers of any kind. In a mid term, the legacy Consorsbank APIs will be replaced by this new",
+          "API-Management system.",
+          "Scrum, REST, BDD, TDD, Gherkin, Micro Services",
+          "Eingesetzte Produkte:",
+          "Java 1.8, Spring 4.1, Spring Boot, Swagger, JAXW, JAXB, SOAP, HATEOAS,",
+          "Cucumber, Spock, Git, BitBucket, JIRA, Atlassian Confluence, Jenkins,"
+        ]
+      },
+      {
+        "period": "08/2017 - 03/2018",
+        "company": "ING-DiBa AG",
+        "title": "CC Customer Data, MWS ZAP, Nürnberg",
+        "role": "Softwareentwickler / Externer IT-Berater",
+        "technologies": [
+          "SQL",
+          "Sonar",
+          "PMD",
+          "Jira",
+          "Jenkins",
+          "CloudBee",
+          "Nexus",
+          "Confluence",
+          "Scrum"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Weiterentwicklung der Middleware Services für die Zinsanpassungsabrechnung der Vertriebspartner. Java EE 1.7, Spring, Hibernate, Oracle, JUnit, Mockito, Git, BitBucket, Maven, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "03/2015 - 07/2017",
+        "company": "Talanx AG",
+        "title": "ZBBplus Bestand Industrie KFZ, Hannover",
+        "role": "Softwareentwickler / Externer IT-Berater",
+        "technologies": [
+          "Nexus",
+          "Confluence",
+          "MS SharePoint",
+          "Citrix",
+          "Windows"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Weiterentwicklung einer Teilapplikation für die Verwaltung, Pflege sowie Berechnung von KFZ-Versicherungslösungen für industrielle Großkunden",
+          "(„Flottenversicherung“)",
+          "Java EE 1.7, Eclipse RCP, SWT, EJB 3, JPA/Hibernate, IBM WebSphere 7, Oracle,",
+          "Informix, Spring Batch, Harpoon, GWT, JUnit, JMockit, EclEmma, SVN, Git,",
+          "BitBucket, Maven 3, Artifactory, Splunk, SQL, WebServices, WSDL, SoapUI, UML,",
+          "JAMon, JProfiler, JRebel, FIPS, Sonar, SonarQube, PMD, HP QC, HP ALM, Hudson, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2014 - 02/2015",
+        "title": "EXTERNITY",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Git",
+          "Docker",
+          "Shell",
+          "Apache",
+          "Tomcat",
+          "Jenkins",
+          "Windows",
+          "Linux",
+          "(Ubuntu)",
+          "Amazon"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Architektur, Design und Realisierung einer Akquirierungsplatform mit integrierter online Projektsuchmaschine.",
+          "Java EE 1.8, SOA, Spring Boot, Spring Data Solr, SolrJ, Spring MVC, JPA/ Hibernate, MySQL, MongoDB, WebServices (REST, Spring WS), Apache Solr,",
+          "Selenium, PhantomJS, SQL, XML, JSON, GSON, HTML, CSS, JQuery, Twitter",
+          "Bootstrap, Skeleton responsive boilerplate, Maven, JUnit, Mockito, Logback,",
+          "AWS/EC2",
+          "===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2014 - 10/2014",
+        "company": "Swiss Life Deutschland Operations GmbH / tecis",
+        "title": "SLOT, Hamburg",
+        "role": "Softwareentwickler / Externer IT-Berater",
+        "technologies": [
+          "JUnit",
+          "DbUnit",
+          "Mockito",
+          "Hudson",
+          "Eclipse",
+          "nSubversion",
+          "Jira",
+          "Windows",
+          "Java EE",
+          "PowerMock"
+        ],
+        "activities": [
+          "Finanzdienstleistungen AG",
+          "Aufgaben:",
+          "Anpassung, Integration und Weiterentwicklung eines Profil Alexandre",
+          "Koval, IT-Berater Provisionsabrechnungs- und Stammdaten-Systems im Rahmen der Harmonisierung von Softwahrelandschafen der tecis AG,",
+          "Proventus, Horbach und Swiss Life Select.",
+          "Analyse, Umsetzung, Testabsicherung, SW-Releasmanagement",
+          "Spring Batch, Hibernate, Spring JDBC, PL/SQL, JasperReports, Ant, Maven 2,",
+          "1.7, Eclipse RCP e2 3.4, SWT, Hibernate 3.6, JDBC, Oracle 10g, Maven2, Tycho,"
+        ]
+      },
+      {
+        "period": "08/2013 - 10/2013",
+        "company": "Adeos",
+        "title": "STARTrans",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Bootstrap",
+          "Maven2",
+          "JUnit",
+          "Mockito",
+          "Git",
+          "Windows"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Konzeptionierung, Design und Neuentwicklung einer Web-Applikation für die Verwaltung von Übersetzungen",
+          "Bearbeitung und Übersetzung der mandantenspezifischen Textbausteine für die Module der STARiXApplikation von ADEUS GmbH (Eigenentwicklung).",
+          "Java EE 1.7, Spring MVC, Spring Security, JPA/Hibernate, MySQL, WebServices",
+          "(JAX WS), Apache Solr, Lucene Hibernate Search, HTML, CSS, JQuery, Twitter ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2012 - 07/2013",
+        "company": "Allianz AMOS/ADEUS",
+        "title": "STARX, München",
+        "role": "Softwareentwickler / Externer IT-Berater",
+        "technologies": [
+          "Jenkins",
+          "Eclipse",
+          "Subversion",
+          "Jira",
+          "Windows",
+          "Linux",
+          "Vorgehensmodell: V-Modell"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Portletbasierter Online-Service zur Aktienregisterführung.",
+          "Eintrittskartenbestellung oder Bevollmächtigung des Stimmrechtsvertreters der Gesellschaft und Weisungsabgabe oder elektronische Abstimmung",
+          "(STARiX).",
+          "Bevollmächtigung von Kreditinstituten oder Aktionärsvereinigungen.",
+          "Registrierung für den EMail-Versand der Einladung zur Hauptversammlung;",
+          "Widerruf für vorab registrierte Aktionäre.",
+          "Änderung der im Aktienregister eingetragenen Adresse (STARVote)."
+        ]
+      },
+      {
+        "period": "08/2007 - 09/2012",
+        "company": "IBM CH",
+        "title": "Vista ELKK - Ergänzungsleistungen und Krankheitskosten, München/Zürich",
+        "role": "Senior Software-Entwickler/-Architekt, Function Group Lead / Externer",
+        "technologies": [
+          "ClearCase",
+          "ClearQuest",
+          "Windows",
+          "Vorgehensmodell: RUP",
+          "VModell"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "IT-Berater",
+          "Teilapplikation des Sozialversicherungssystems IGS Vista für 16 Kantone der Schweiz und Liechtenstein (IBM CH).",
+          "Ablösung der mehreren kantonsspezifischen Host-Fachapplikationen mit einer JEE-Gesamtlösung, die von mehreren Teams (Schweiz, Deutschland und Indien) entwickelt wurde (s. Projekt IGS VISTA).",
+          "Business-Analyse, Design, Modellierung und Entwicklung der Fachdetailkonzepte einer Teilapplikation „Ergänzungsleistungen und Krankheitskosten“",
+          "Java 1.4 (später 1.6), Eclipse RCP, SOA, EJB 2.1, Spring, WebSphere 6, DB2 9,",
+          "Hibernate, Maven2, JUnit, DbUnit, Rational Software Architect 7, UML, SWT,",
+          "München/Zürich"
+        ]
+      },
+      {
+        "period": "05/2007 - 07/2007",
+        "company": "ASL Fleet Services GE Capital",
+        "title": "FirmenWagenCenter. Druck-Interface-Erweiterung mit",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Junit",
+          "OpenOffice 2.0",
+          "Linux",
+          "Windows",
+          "SVN",
+          "Informix"
+        ],
+        "activities": [
+          "Printengine Webservice",
+          "Aufgaben:",
+          "Architekturdesign und Realisierung einer Schnittstelle im OnlineFirmenWagenCenter zum Printengine.",
+          "Mit Hilfe des Webservices wurde eine FOP Drucklösung ersetzt, was die Erstellung von Leasingformularen erleichterte und dadurch Zeitersparnisse ermöglichte.",
+          "Java 1.4, Spring, WebServices (Axis; Axis2), SOAP, WSDL, MyEclipse, Maven2, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2006 - 04/2007",
+        "company": "ASL Fleet Services GE Capital",
+        "title": "Gebrauchtwagenverkauf Online Applikation",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "MyEclipse",
+          "Maven2",
+          "Junit",
+          "Red Hat Linux",
+          "Windows",
+          "SVN",
+          "Informix"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Design und Entwicklung einer Online-Applikation für den Weiterverkauf von Leasingrückläufern eines Autoleasinganbieters.",
+          "Java 1.5, Spring, JSF, myFaces, Tomahawk, Acegi, Hibernate, JBoss Seam, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "06/2006 - 07/2006",
+        "company": "ASL, Auto Service-Leasing GmbH",
+        "title": "Thyssen Krupp Datenaustausch Webservice",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Maven2",
+          "Junit",
+          "Linux",
+          "Windows",
+          "SVN"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Realisierung einer Schnittstelle für den Leasingdatenaustausch zwischen",
+          "Geschäftspartnern.",
+          "Java 1.5, WebServices (Axis), SOAP, WSDL, OJB, SQL, Informix, MyEclipse, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "02/2006 - 05/2006",
+        "company": "ASL, Auto Service-Leasing GmbH",
+        "title": "CarConfigurator (Leasing Online). Frontend Re-Design.",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Linux",
+          "Windows",
+          "SVN"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Redesign des Frontends einer Online-Leasingapplikation.",
+          "Einführung dynamischer Themen für bestehende Sourcen.",
+          "Java 1.4, CSS, Javascript, MyEclipse, Ant, Adobe Photoshop, XML Spy, FOP, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "10/2005 - 01/2006",
+        "company": "ASL, Auto Service-Leasing GmbH",
+        "title": "Fahrzeug-Restwertermittlung Webservice (Schwacke- Schnittstelle)",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Java 1.4",
+          "WebServices (Axis)",
+          "SOAP",
+          "WSDL",
+          "OJB",
+          "Informix",
+          "MyEclipse",
+          "Ant",
+          "Linux",
+          "Windows",
+          "SVN"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Design und Realisierung eines Webservices für die Restwertermittlung von Fahrzeugen mittels Schwacke-Schnittstelle.",
+          "===================================================== ==========================",
+          "Schnittstelle)"
+        ]
+      },
+      {
+        "period": "02/2005 - 09/2005",
+        "company": "ASL, Auto Service-Leasing GmbH",
+        "title": "Printengine. Dynamische Druckformulare mittels OpenOffice",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Informix",
+          "MyEclipse",
+          "Ant",
+          "JUnit",
+          "Linux",
+          "Windows",
+          "SVN"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Design und Realisierung einer dynamischen Printengine auf Basis von OpenOffice 2.x für eine Backend-Leasingapplikation. Dadurch wurde es möglich die Druckformulare mittels OpenOffice durch Kunden erstellen zu lassen, was Ersparnisse auf Kunden- sowie der Leasingprovider Seite erzielte.",
+          "Java 1.5, Spring, WebServices (Axis), SOAP, WSDL, OpenOffice, XML, OJB, SQL, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "12/2004 - 01/2005",
+        "company": "ASL, Auto Service-Leasing GmbH",
+        "title": "CarConfigurator (Leasing Online). Modul",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Linux",
+          "Windows",
+          "SVN"
+        ],
+        "activities": [
+          "\"Barlohngehaltsumwandlung\"",
+          "Aufgaben:",
+          "Entwicklung eines Fachmoduls für eine Autoleasing Online-Applikation um den Kunden den Vergleich zwischen verschiedenen Leasingvarianten von Fahrzeugen anzubieten.",
+          "Java 1.4, JSP, HTML, CSS, Javascript, FOP, XML, JDBC, SQL, Informix, MyEclipse, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2004 - 01/2005",
+        "company": "Al.systems GmbH",
+        "title": "E-Shop",
+        "role": "Softwareentwickler",
+        "technologies": [
+          "Java 1.4",
+          "JSP",
+          "HTML",
+          "CSS",
+          "Javascript",
+          "JDBC",
+          "SQL",
+          "MyEclipse",
+          "Fibu",
+          "Linux",
+          "Windows",
+          "SVN"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung eines E-Shop-Systems für den firmeninternen Gebrauch.",
+          "===================================================== ==========================",
+          "-- weitere Projekte gerne auf Anfrage--- Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Finanzdienstleistungen",
+      "Versicherungen und öffentlicher Dienst",
+      "Leasing",
+      "Softwareentwicklung"
+    ],
+    "focus_areas": [
+      "Java EE (J2EE) Architektur",
+      "Design und Implementierung",
+      "Web-Anwendungen",
+      "WebServices",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "1996-1998",
+      "Staatl. gepr. Elektrotechniker für Datenverarbeitung,",
+      "Rudolf-Diesel-Technikum (Augsburg)",
+      "1982-1988",
+      "Diplom-Ingenieur",
+      "Physik und Technologie an der Universität Dnepropetrowsk (SU).",
+      "Schwerpunkt: Raumfahrttechnik. Automatische Steuerungssysteme."
+    ],
+    "focus_experience": [
+      {
+        "name": "Apache",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Apache Solr",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Atlassian Confluence",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Bamboo",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "BDD",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "BitBucket",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Cucumber",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Gherkin",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Gradle",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "HATEOAS",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "JMeter",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Lucene Hibernate Search",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Micro Services",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Mockito",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Nexus",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "OpenShift",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "PMD",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "PrimeFaces",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "SOA",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Sonar",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "SonarQube",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Spock",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Spring 4.1",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Spring MVC",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Swagger",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "TDD",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Twitter Bootstrap",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "WebService",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Methoden und Technologien",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "IT-Erfahrung seit 1988",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Java/J2EE/JEE seit 2001",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "* Entwicklung von Web-Applikationen mit Servlets",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "Wicket",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "MVC",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "PHP (Yii",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Modx",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Joomla",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Drupal)",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Ruby",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "* Entwicklung von WebServices (SOAP",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "WSDL",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Axis",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "XFire",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Spring/JAXWS",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "REST)",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "* Entwicklung von Rich-Client-Anwendungen (Eclipse RCP",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "SWT",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Swing)",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "* Entwicklung von verteilten Systemen (EJB",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "RMI",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "SOAP)",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "* Relationale Datenbanksysteme mit object-relational mapping (SQL",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "JPA",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "OJB",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "iBatis)",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "* SOA",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Design-Patterns und Modellierung mit UML",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Testverfahren und Tools",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Junit",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "DbUnit",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Selenium",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "HtmlUnit",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "EasyMock",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Web-Mining/Big-Data-Technologien",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Jsoup",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "PhantomJS",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Apache Lucene",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "MongoDB",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Apache Hadoop",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "ElasticSearch",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "JEE",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "Servlets",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Yii",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "Drupal",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Eclipse RCP",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "SQL",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "iBatis",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 98
+      }
+    ],
+    "education": [
+      {
+        "degree": "Staatl. gepr. Elektrotechniker für Datenverarbeitung",
+        "institution": "Rudolf-Diesel-Technikum (Augsburg)",
+        "period": "1996-1998",
+        "education_type": "course"
+      },
+      {
+        "degree": "Diplom-Ingenieur",
+        "institution": "Universität Dnepropetrowsk (SU)",
+        "period": "1982-1988",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:41:43.006338",
+    "source_file": "",
+    "steps_completed": [
+      "PERSONAL",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '11/2014 - 02/2015'",
+        "ACT: 4→3 bei '02/2005 - 09/2005'",
+        "EDV_SEIT: None→2004"
+      ],
+      "coverage_percent": 92.1146953405018,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

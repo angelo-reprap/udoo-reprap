@@ -1,0 +1,325 @@
+{
+  "personal": {
+    "aid": "AID-sk_5.1.3.0",
+    "first_name": "Stefan",
+    "last_name": "Klein",
+    "birth_year": 1967,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9 im Umkreis von: Hamburg (300",
+    "availability": "01.03.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+    "edv_experience_since": 1999,
+    "headline": "IT-Management Consulting, Outsourcing, RZ Migration, Cloud Migration, Contract Management, Program Management, Interims Management",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 6,
+    "certifications": 0,
+    "education": 0,
+    "experience": 20,
+    "industries": 7,
+    "focus_areas": 10,
+    "focus_experience": 17,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch verhandlungssicher in Wort und Schrift",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Banken, Versicherungen",
+    "High Tech",
+    "Luftfahrt, Logistik",
+    "Telekommunikation",
+    "IT Service Provider",
+    "Medizintechnik",
+    "Energieversorger"
+  ],
+  "focus_areas": [
+    "IT-Management Consulting",
+    "Outsourcing",
+    "RZ Migration",
+    "Cloud Migration",
+    "Contract Management",
+    "Program Management",
+    "Interims Management",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Studium: Informatik und Unternehmensführung an der TU Braunschweig Abschluss: Dipl. Informatiker"
+  ],
+  "focus_experience": [
+    {
+      "name": "- Service Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL (zertifiziert)",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Prozesse",
+      "category": "product_standard"
+    },
+    {
+      "name": "-Optimierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zertifizierung nach ISO 9000",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Financial Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Controlling",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projekt Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Personalführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfassende Outsourcingerfahrungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Application Hosting",
+      "category": "product_standard"
+    },
+    {
+      "name": "ASP (Application Service Provider)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mission Critical Applications",
+      "category": "product_standard"
+    },
+    {
+      "name": "SEPA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Swift",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO 9000",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "11/2015 - heute",
+      "company": "Munster Stadtverwaltung",
+      "role": "Berater",
+      "title": "Ausschreibung RZ Infrastruktur, Munster",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "09/2015 - heute",
+      "company": "e.dat",
+      "role": "Berater",
+      "title": "Application Hosting für Energiewirtschaft, Schwerin",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2014 - heute",
+      "company": "Drägerwerk AG",
+      "role": "Projektleiter",
+      "title": "Einführung SharePoint, Lübeck",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2013 - 04/2015",
+      "company": "Drägerwerk AG",
+      "role": "Projektleiter IT",
+      "title": "Einführung SAP Treasury, Lübeck",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2013 - 12/2013",
+      "company": "Drägerwerk AG",
+      "role": "Projektleiter",
+      "title": "SAP Migration und Upgrade, Lübeck",
+      "activities": 13,
+      "technologies": 0
+    },
+    {
+      "period": "06/2012 - 12/2012",
+      "company": "Drägerwerk AG",
+      "role": "Projektleiter",
+      "title": "Active Directory Domain Konsolidierung, Lübeck",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/2011 - 06/2012",
+      "company": "Drägerwerk AG",
+      "role": "Projektleiter",
+      "title": "Providerwechsel, Lübeck",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2010 - 12/2010",
+      "company": "Deutsche Bank",
+      "role": "Programm Manager",
+      "title": "Stability Improvement Programme, Eschborn",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2009 - 03/2010",
+      "company": "HSH Nordbank",
+      "role": "Projektleiter",
+      "title": "SLA Management, Luxemburg",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "04/2009 - 09/2009",
+      "company": "gematik",
+      "role": "Berater IT Betrieb",
+      "title": "Betriebsleitzentrale für die elektronische Gesundheitskarte, Berlin",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "09/2008 - 03/2009",
+      "company": "Drägerwerk AG",
+      "role": "Programm Manager",
+      "title": "Aufbau neues Rechenzentrum, Lübeck",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2007 - 12/2008",
+      "company": "Helaba (Landesbank Hessen Thüringen",
+      "role": "Berater",
+      "title": "Outsourcing Management, Frankfurt",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "07/2006 - 06/2007",
+      "company": "Barclaycard",
+      "role": "Projektleiter",
+      "title": "SLA Management, Hamburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2005 - 06/2006",
+      "company": "Helaba (Landesbank Hessen Thüringen)",
+      "role": "Berater",
+      "title": "Outsourcing Management, Frankfurt",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2005 - 07/2005",
+      "company": "Deutsche Bank",
+      "role": "Teilprojektleiter",
+      "title": "Governance & Control, Eschborn",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2004 - 02/2005",
+      "company": "O2 (Germany)",
+      "role": "Projektleiter",
+      "title": "ITIL Service Management, München",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "06/2003 - 09/2004",
+      "company": "Infineon AG",
+      "role": "Teilprojektleiter",
+      "title": "Contract & Vendor Management, München",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2002 - 05/2003",
+      "company": "Lufthansa Cargo AG",
+      "role": "Projektleiter",
+      "title": "SLA Management, Frankfurt",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "05/2001 - 06/2002",
+      "company": "",
+      "role": "",
+      "title": "EINSTEINet in Hamburg",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/1999 - 04/2001",
+      "company": "",
+      "role": "",
+      "title": "Info AG in Hamburg",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Scriptsprachen Powershell 3.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

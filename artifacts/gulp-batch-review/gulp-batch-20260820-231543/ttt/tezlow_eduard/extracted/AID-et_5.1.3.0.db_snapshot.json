@@ -1,0 +1,766 @@
+{
+  "personal": {
+    "aid": "AID-et_5.1.3.0",
+    "first_name": "Eduard",
+    "last_name": "Tezlow",
+    "birth_year": 1960,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+    "availability": "01.02.16 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1999,
+    "headline": "Oracle Experte: Konzeption, Entwicklung, Administration, Optimierung, Störungsbeseitigung, Performancetuning",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 7,
+    "skills": 93,
+    "certifications": 13,
+    "education": 2,
+    "experience": 19,
+    "industries": 5,
+    "focus_areas": 14,
+    "focus_experience": 10,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Russisch",
+      "level": ""
+    },
+    {
+      "name": "gesprochenes ausreichend",
+      "level": ""
+    },
+    {
+      "name": "schriftlich gut",
+      "level": ""
+    },
+    {
+      "name": "perfekt",
+      "level": ""
+    },
+    {
+      "name": "Englisch (ausreichend gesprochen, gut schriftlich)",
+      "level": ""
+    },
+    {
+      "name": "Russisch (perfekt)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Oracle Database Administrator (OCP) Zertifizierung",
+      "institution": "",
+      "period": "Seit 1999",
+      "education_type": "course"
+    },
+    {
+      "degree": "Diplom Ingenieur-Mechaniker FH",
+      "institution": "Polytechnische Hochschule in Tscheljabinsk",
+      "period": "",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Oracle 8 Database Adminstrator Certified",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Professional - Oracle 9i Database Administrator Certified Professional",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Oracle Database 10g Administrator Certified Professional - Oracle",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Database 11g Administrator Certified Professional",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Siebel:",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Siebel Enterprise Integration Managers / EIM.",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Migrationen von Daten in Siebel.",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Datenbereinigung in Siebel.",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Export/Import von Siebel-Daten.",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "Oracle 8 Database Adminstrator Certified Professional",
+      "date_obtained": "",
+      "issuer": "Oracle"
+    },
+    {
+      "name": "Oracle 9i Database Administrator Certified Professional",
+      "date_obtained": "",
+      "issuer": "Oracle"
+    },
+    {
+      "name": "Oracle Database 10g Administrator Certified Professional",
+      "date_obtained": "",
+      "issuer": "Oracle"
+    },
+    {
+      "name": "Oracle Database 11g Administrator Certified Professional",
+      "date_obtained": "",
+      "issuer": "Oracle"
+    }
+  ],
+  "industries": [
+    "Telekommunikation",
+    "Banken",
+    "Transport",
+    "Logistik",
+    "Diensleistung"
+  ],
+  "focus_areas": [
+    "Oracle Experte: Konzeption",
+    "Entwicklung",
+    "Administration",
+    "Optimierung",
+    "Störungsbeseitigung",
+    "Performancetuning",
+    "Software-Entwicklung /",
+    "Programmierung",
+    "Beratung / Consulting",
+    "Administration / Support",
+    "bevorzugt",
+    "begrenzte Reisetätigkeit.",
+    "Studium: Maschinenbau an der Polytechnischen Hochschule in Tscheljabinsk Abschluß: Diplom Ingenieur-Mechaniker FH Seit 1999 durchgehende Zertifizierung als Oracle Database Administrator (OCP) Versione",
+    "Software-Entwicklung / Programmierung"
+  ],
+  "focus_experience": [
+    {
+      "name": "Oracle: - Konzeption",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Administration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sehr umfangreiche Erfahrung in Oracle Performance Tuning",
+      "category": "product_standard"
+    },
+    {
+      "name": "- DWH - Datenmassenverarbeitung: ETL-Tools",
+      "category": "product_standard"
+    },
+    {
+      "name": "parallele Verarbeitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Partitionierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Daten-Migrationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle",
+      "category": "product_standard"
+    },
+    {
+      "name": "ETL-Tools",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "11.2014 12.2014",
+      "company": "EBV Elektronik GmbH",
+      "role": "Konzeption von Maßnahmen zur",
+      "title": "Konzeption von Maßnahmen zur",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "09.2014 10.2014",
+      "company": "DekaBank",
+      "role": "Projekt: Performance-Optimierung einer Oracle Datenbank bei",
+      "title": "Projekt: Performance-Optimierung einer Oracle Datenbank bei",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "06.2014 07.2014 Firma: WINGAS GmbH",
+      "company": "WINGAS GmbH",
+      "role": "Projekt: Entwicklung: performante Übertragung von Daten nach",
+      "title": "Projekt: Entwicklung: performante Übertragung von Daten nach",
+      "activities": 4,
+      "technologies": 4
+    },
+    {
+      "period": "11.2013 12.2013 Firma: Siemens AG Projekt:",
+      "company": "Siemens AG",
+      "role": "Die Laufzeit der Ladeprozessen (ETL) der",
+      "title": "Die Laufzeit der Ladeprozessen (ETL) der",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "10.2013 10.2013 Firma: Siemens AG Projekt:",
+      "company": "Siemens AG",
+      "role": "Unter anderem auch Verschlüsselung von",
+      "title": "Unter anderem auch Verschlüsselung von",
+      "activities": 4,
+      "technologies": 3
+    },
+    {
+      "period": "05.2012 06.2013 Firma: Telekom Deutschland",
+      "company": "Telekom Deutschland",
+      "role": "Verschiedene Migrationsszenarien: Transportable",
+      "title": "Verschiedene Migrationsszenarien: Transportable",
+      "activities": 5,
+      "technologies": 3
+    },
+    {
+      "period": "03.2012 03.2012 Firma: Online Directory",
+      "company": "Online Directory Service GmbH",
+      "role": "Service GmbH Projekt: Performance-Optimierung einer",
+      "title": "Service GmbH Projekt: Performance-Optimierung einer",
+      "activities": 4,
+      "technologies": 4
+    },
+    {
+      "period": "09.2008 12.2011",
+      "company": "Telekom Deutschland Projekt: Optimierung der",
+      "role": "Analyse von Datenfehler",
+      "title": "Optimierung der Datenqualität in Siebel CRM-T Datenbank",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "01.2008 - 08.2008",
+      "company": "Deutsche Telekom, T-Com / IBM",
+      "role": "Die Daten wurden von einer DB2-Datenbank nach",
+      "title": "Die Daten wurden von einer DB2-Datenbank nach",
+      "activities": 9,
+      "technologies": 10
+    },
+    {
+      "period": "01.2006 - 12.2007",
+      "company": "Deutsche Telekom, T-Online",
+      "role": "Asynchrone Kommunikation, Oracle Advanced",
+      "title": "Asynchrone Kommunikation, Oracle Advanced",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "09.2005 - 12.2005 Firma: DekaBank",
+      "company": "DekaBank",
+      "role": "Projekt: Konzeption und Entwicklung einer Applikation zur",
+      "title": "Konzeption und Entwicklung einer Applikation zur Berechnung der Vertriebserfolgsvergütung",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "07.2005 - 07.2005 Firma: Mittelständiges",
+      "company": "Mittelständisches Produktionsunternehmen",
+      "role": "Produktionsunternehmen",
+      "title": "Analyse und Beseitigung von Datenbankabstürzen",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "09.2004 - 06.2005 Firma: AGIS / Allianz Dresdner",
+      "company": "AGIS / Allianz Dresdner Informationssysteme GmbH",
+      "role": "Informationssysteme GmbH",
+      "title": "Informationssysteme GmbH",
+      "activities": 4,
+      "technologies": 7
+    },
+    {
+      "period": "06.2004 - 08.2004 Firma: Accenture GmbH",
+      "company": "Accenture GmbH",
+      "role": "Projekt: Oracle Datenbankadministration, Einrichtung von",
+      "title": "Projekt: Oracle Datenbankadministration, Einrichtung von",
+      "activities": 6,
+      "technologies": 9
+    },
+    {
+      "period": "04.2004 - 05.2004",
+      "company": "Deutsche Bahn",
+      "role": "Projekt: Technische Verfahrensbetriebsführung von folgenden",
+      "title": "Projekt: Technische Verfahrensbetriebsführung von folgenden",
+      "activities": 8,
+      "technologies": 4
+    },
+    {
+      "period": "01.2004 - 03.2004 Firma: Deutsche Bahn",
+      "company": "Deutsche Bahn",
+      "role": "Projekt: Oracle DBA, technische Verfahrensbetriebsführung eines",
+      "title": "Projekt: Oracle DBA, technische Verfahrensbetriebsführung eines",
+      "activities": 6,
+      "technologies": 5
+    },
+    {
+      "period": "03.2001 - 12.2003",
+      "company": "Deutsche Bahn",
+      "role": "Projekt: Oracle DBA, SUN Solaris und HP-UX Systemadministration",
+      "title": "Projekt: Oracle DBA, SUN Solaris und HP-UX Systemadministration",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "06.1999 - 01.2001",
+      "company": "Deutsche Post",
+      "role": "Projekt: Administration von Oracle DB, SUN Solaris Systemen",
+      "title": "Projekt: Administration von Oracle DB, SUN Solaris Systemen",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "03.1999 - 05.1999",
+      "company": "Geno-RZ",
+      "role": "Projekt: Administration, Reorganization und Tuning von Oracle8",
+      "title": "Projekt: Administration, Reorganization und Tuning von Oracle8",
+      "activities": 5,
+      "technologies": 4
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Oracle- und Solaris Systemadministration von 03/01 - 08/03\nReferenz durch Projektleiter bei Fujitsu Technology Solutions International GmbH vom 28.07.03\n\"Der Consultant war von März 01 bis August 03 als Oracle-Datenbankadministrator für uns tätig. Während dieser Zeit administrierte er, eingebunden in das Projektteam, eine komplette Verfahrensumgebung (Entwicklung, Abnahme, Wartung, Produktion)mit ca. 50 Datenbanken und einer Größe von bis zu 200 GB. Die Plattform stellte Sun Solaris 8 mit Cluster 2.2. dar. Für die Datenbanken wurde hauptsächlich Oracle 8.1.7 (Parallel Server) und Oracle 9.0.1.4 eingesetzt. Der Consultant verfügt ausserdem über ein äußerst fundiertes Solaris Know-How, welches ihm erlaubte, auch die plattformspezifischen Arbeiten auszuführen (Anlegen von Usern, Filesystemen, Raw-Devices, Umgang mit SDS und Veritas Volume-Manager, Unterstützung der Solaris-Administration). Der Consultant hatte erheblichen Anteil an den sowohl termingerecht als auch qualitätsgesichert abgewickelten Release- und Verfahrenseinführungen. Hervorzuheben sind seine fachliche Kompetenz und die Fähigkeit zur schnellen Einarbeitung in neue Themen.\"\nAlle Referenzen sind durch GULP bestätigt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle ist mein Schwerpunkt: Administration",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Entwicklung",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tuning",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Experte in Oracle-SQL und PL/SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "HPUX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Sehr gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Erfahrung als Systemadministrator",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux: Erfahrung als Systemadministrator",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "x86",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Clipper",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Experte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "viel Erfahrung mit komplexen Applikationen",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Powershell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Sehr gute",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 11g",
+      "category_name": "Sonstige Skills",
+      "weight": 0.9
+    },
+    {
+      "name": "HP-UX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.78
+    },
+    {
+      "name": "Windows Server 2008",
+      "category_name": "Hardware",
+      "weight": 0.6
+    },
+    {
+      "name": "Oracle 10g",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Solaris 10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Siebel EIM",
+      "category_name": "Datenkommunikation",
+      "weight": 0.6
+    },
+    {
+      "name": "Siebel Tools",
+      "category_name": "Programmiersprachen",
+      "weight": 0.6
+    },
+    {
+      "name": "AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Subversion",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "VCS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ANT",
+      "category_name": "Entwicklungsumgebungen",
+      "weight": 0.38
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle 10.2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Clear Case",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Clear Quest",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Oracle 9.2",
+      "category_name": "Datenbanken",
+      "weight": 0.78
+    },
+    {
+      "name": "SUN Solaris 2.8",
+      "category_name": "Sonstige Skills",
+      "weight": 0.7
+    },
+    {
+      "name": "AIX5L",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle 8.1.7",
+      "category_name": "Datenbanken",
+      "weight": 0.7
+    },
+    {
+      "name": "RMAN",
+      "category_name": "Datenbanken",
+      "weight": 0.6
+    },
+    {
+      "name": "TSM",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "SUN Solaris 2.7",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "sh",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle 9.2.0.4",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "FileNet",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle 8.0.5",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "SUN Solaris 2.6",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SUN Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.85
+    },
+    {
+      "name": "SUN Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "OPS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "DWH",
+      "category_name": "Datenmanagement",
+      "weight": 0.47
+    },
+    {
+      "name": "Awk",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Oracle 8.1.5",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Sun Cluster 2.2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Veritas Volume Manager",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.6
+    },
+    {
+      "name": "Oracle Parallel Server",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "ADSM",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle Scheduler",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle Query Flashback",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "DBMS_PARALLEL_EXECUTE",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.9
+    },
+    {
+      "name": "Transparent Data Encryption (TDE)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Linux 2.6.18",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

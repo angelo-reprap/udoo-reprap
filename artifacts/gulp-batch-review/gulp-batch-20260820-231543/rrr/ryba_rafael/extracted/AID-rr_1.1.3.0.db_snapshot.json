@@ -1,0 +1,813 @@
+{
+  "personal": {
+    "aid": "AID-rr_1.1.3.0",
+    "first_name": "Rafael",
+    "last_name": "Ryba",
+    "birth_year": 1971,
+    "location": "816xx München, Deutschland",
+    "availability": "01.10.12 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1995,
+    "headline": "Senior Projektmanager, Servicemanager ITIL V2/V3 SLA/OLA Service Katalog, Prozessmanager, Transitionmanager, Outsourcing, Rechenzentrum, Hochverfügbarkeit, Migration, Rollout, Applikationmanager",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 100,
+    "certifications": 0,
+    "education": 0,
+    "experience": 1,
+    "industries": 4,
+    "focus_areas": 27,
+    "focus_experience": 80,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Schrift und Sprache",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Maschinenbau",
+    "Triebwerks- Hersteller",
+    "Raffinerie",
+    "Nahrungsmittel- Hersteller"
+  ],
+  "focus_areas": [
+    "Senior Projektmanager",
+    "Servicemanager ITIL V2/V3 SLA/OLA Service Katalog Prozessmanager Transitionmanager Outsourcing Rechenzentrum Hochverfügbarkeit Migration Rollout Applikationmanager",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Fachliche 1993- 1999 Studium der Informatik in P",
+    "1999 Ausbildung zum Consultant und MS Trainer MCSE NT4, MCT.",
+    "1999-2001 Leitung und Mitarbeit in verschiedenen Projekten.",
+    "Halten von allen gängigen MS-Trainings Deutschland- und Europaweit.",
+    "2001 Beginn meiner Freiberuflichkeit.",
+    "Durchführung und Leitung diverser Projekte.",
+    "Rezertifizierung zum MCSE 2000.",
+    "Erneuerung des MCT 2001 - Trainerzertifikates.",
+    "2002 Durchführung und Leitung diverser Projekte.",
+    "Erneuerung des MCT 2002 - Trainerzertifikate.",
+    "2003 Durchführung und Leitung diverser Projekte.",
+    "Erneuerung des MCT 2003 - Trainerzertifikates.",
+    "2004 Durchführung und Leitung diverser Projekte.",
+    "Rezertifizierung MCT 2004/2005/2006",
+    "2005 Durchführung und Leitung diverser Projekte.",
+    "Zertifizierung ITIL Foundation",
+    "2006 Durchführung und Leitung diverser Projekte.",
+    "Rezertifizierung MCT 2006/2007",
+    "2007 bis 2008 Durchführung und Leitung diverser Projekte.",
+    "2009 Durchführung und Leitung diverser Projekte.",
+    "Zertifizierung Prince2 Foundation",
+    "Zertifizierung Prince2 Practitioner",
+    "2010 Zertifizierung ITIL Service Manager v2 Zertifizierung ITIL Service Manager v3 Expert"
+  ],
+  "focus_experience": [
+    {
+      "name": "Leitung von Anwendungs-",
+      "category": "product_standard"
+    },
+    {
+      "name": "System- oder Infrastrukturprojekten",
+      "category": "product_standard"
+    },
+    {
+      "name": "nach",
+      "category": "product_standard"
+    },
+    {
+      "name": "PRINCE2 oder PMI sowie Betrieb von über 10.000 Endanwender",
+      "category": "product_standard"
+    },
+    {
+      "name": "Leitung von Teams mit bis zu 30 Mitarbeitern",
+      "category": "product_standard"
+    },
+    {
+      "name": "Weitere Erfahrung in Projektmanagement- Methoden V- Modell",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Leitung von Prozessoptimierungsprojekten im IT Service Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL V2 / ITIL V3 bis 1000 Mitarbeiter",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitätsmanagement EFQM / Reifegradmodel CMMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "(Multi-) Projekt Management / PMO",
+      "category": "product_standard"
+    },
+    {
+      "name": "PLM / PDM - Product Lifecycle Management / Product Data Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "PMLC - Project Management Life Cycle",
+      "category": "product_standard"
+    },
+    {
+      "name": "CIP - Continuous Improvement Process",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risk Management / Risk Mitigation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Prozess Management / Workflow-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ressource Engineering",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Organisation /-Management IT-TOM / eTOM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Analysis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Reporting und Financial Services",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOA Service Orientierte Architektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT SOX Compliance / Basel II",
+      "category": "product_standard"
+    },
+    {
+      "name": "CobiT Governance",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Intelligence / Data Warehouse Enterprise Ressource",
+      "category": "product_standard"
+    },
+    {
+      "name": "Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Windows Server / Client",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Office: Word",
+      "category": "product_standard"
+    },
+    {
+      "name": "Excel",
+      "category": "product_standard"
+    },
+    {
+      "name": "PowerPoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Project",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unix",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apple Mac OS X",
+      "category": "product_standard"
+    },
+    {
+      "name": "iOS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP R3 Basis / ERP 6.0 / BI 7.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Directories: MS Active Directory / Open Directory / NIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB: SQL / Oracle / MySQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Email / Collaboration: MS Exchange",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Sharepoint / Lotus Notes",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Dynamics CRM",
+      "category": "product_standard"
+    },
+    {
+      "name": "AutoCAD",
+      "category": "product_standard"
+    },
+    {
+      "name": "ARS Remedy",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP Openview",
+      "category": "product_standard"
+    },
+    {
+      "name": "Service Now",
+      "category": "product_standard"
+    },
+    {
+      "name": "VM: VMware",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Virtual Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "XEN",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAN EMC",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM",
+      "category": "product_standard"
+    },
+    {
+      "name": "DELL",
+      "category": "product_standard"
+    },
+    {
+      "name": "NAS NetApp",
+      "category": "product_standard"
+    },
+    {
+      "name": "Web-Portale: WebSphere WAS / Jboss SOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "BPM: Aeneis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Adonis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aris",
+      "category": "product_standard"
+    },
+    {
+      "name": "PTC Windchill",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dataloader MindMap",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Interim Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prozessberatung und Modellierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Integration und Rollout",
+      "category": "product_standard"
+    },
+    {
+      "name": "Service Management nach ITIL V2 und ITIL V3",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Architekt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rechenzentrums- Verwaltung / Aufbau / Umzug / Konsolidierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Outsourcing / Insourcing / Providersteuerung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nearshore / Offshore Management / Transistion Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitätssicherung und Test Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Requirements Engineering",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risk Management / Mitigation",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT Organisation Modelling",
+      "category": "product_standard"
+    },
+    {
+      "name": "Business Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Coaching / Training",
+      "category": "product_standard"
+    },
+    {
+      "name": "Festanstellung kommt in Betracht",
+      "category": "product_standard"
+    },
+    {
+      "name": "aber freiberufliche Mitarbeit",
+      "category": "product_standard"
+    },
+    {
+      "name": "bevorzugt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Voraussetzung für Festanstellung: Bei interessanten Projekten",
+      "category": "product_standard"
+    },
+    {
+      "name": "und/oder ansprechender Position im Raum München.",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Migration von Novell 5.1 NDS zu Windows2000 ADS mit",
+      "company": "",
+      "role": "",
+      "title": "Migration von Novell 5.1 NDS zu Windows2000 ADS mit NetIQ",
+      "activities": 7,
+      "technologies": 8
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "´97 2000",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration zu SQL2000",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "7.0",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "2000 Installation und Administration",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Migrations zu SQL2000",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Installation und Konfiguration",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Grundkenntnisse",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration zu SQL 2000",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Atari",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Administration der Hardware",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Bus",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Macintosh",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Plotter",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Soundkarten",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Administration",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Tiefe Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Einfache Administration",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration von NDS zu ADS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration NT4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MCSE NT4",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MCSE 2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Gute Kenntnisse 3.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Schwerpunkt Windows NT4/2000/2003/XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Davon Terminal Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Cluster",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Exchange 5.5/2000/2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Konzeption",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Automatische Installation",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Rollout",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Migration",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Citrix Metaframe/XP + Windows 2000/2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Gute Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Geringe Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Clipper",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ausreichende Kenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VRML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Planung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Exchange2000",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Office 2000",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "X.400 X.25 X.225 X.75",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "Cisco Registar",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "europaweiten Intranet",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows XP Client-",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Visual-Policy",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ClusterXL)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "AppleTalk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Administrations-Kenntnisse",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ATM",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Fax",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "FDDI",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Entwurf und Administrations-Kenntnisse",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISA",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "IIS5.0",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

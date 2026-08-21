@@ -1,0 +1,94 @@
+status	contact_id	gulp_id	letter	dir	pdf	note	secs
+FAIL	12956	45045	bbb	behling_karsten		no_neu_cv	4
+OK	12959	20627	bbb	behnke_marcus	AID-mb_5.1.4.0.pdf	ok	80
+OK	13215	28464	bbb	biwer_juergen	AID-jb_2.5.2.0.pdf	ok	79
+OK	13253	24473	bbb	blohm_markus	AID-mb_5.1.3.0.pdf	ok	57
+OK	13282	7841	bbb	bockemuehl_jens	AID-jb_1.1.3.0.pdf	ok	29
+OK	13442	81823	bbb	braeutigam_tobias	AID-tb_5.1.3.0.pdf	ok	39
+OK	13464	13521	bbb	brass_christian	AID-cb_2.1.3.0.pdf	ok	25
+OK	13598	39171	bbb	buchholz_frank	AID-fb_4.1.4.0.pdf	ok	64
+OK	13721	120829	ccc	canpolat_goekhan	AID-gc_4.2.4.0.pdf	ok	52
+OK	13992	99769	ddd	decker_wilfried	AID-wd_2.1.3.0.pdf	ok	35
+OK	14013	31963	ddd	delatron_dieter	AID-dd_2.1.5.0.pdf	ok	32
+OK	14539	3769	eee	endras_paul	AID-pe_3.4.4.0.pdf	ok	59
+OK	14557	64408	eee	engels_christian	AID-ce_2.1.4.0.pdf	ok	33
+OK	14593	13394	eee	erhardt_frank	AID-fe_1.1.2.0.pdf	ok	30
+OK	16872	37564	jjj	jourdan_olaf	AID-oj_1.2.3.0.pdf	ok	37
+OK	14706	74894	fff	faude_dirk	AID-df_1.1.3.0.pdf	ok	40
+OK	14805	134724	fff	finken_rainer	AID-rf_4.1.3.0.pdf	ok	24
+OK	14919	11903	fff	frank_juergen	AID-jf_5.2.4.0.pdf	ok	29
+OK	15044	8306	fff	fuchs_helmut	AID-hf_1.1.4.0.pdf	ok	26
+SKIP	15045	19945	fff	fuchs_helmut		has_neu_cv	0
+OK	15069	59205	fff	funk_gerhard	AID-gf_5.2.3.0.pdf	ok	41
+OK	15105	81421	ggg	galimova_elena	AID-eg_2.1.3.0.pdf	ok	29
+OK	15468	72585	ggg	gottfried_guenter	AID-gg_2.1.3.0.pdf	ok	41
+OK	15631	167841	ggg	gruenberg_patrick	AID-pg_1.2.2.0.pdf	ok	29
+OK	15671	11340	ggg	gsundbrunn_stefan	AID-sg_4.1.4.0.pdf	ok	51
+OK	15785	74634	hhh	haefke_jacqueline	AID-jh_5.3.4.0.pdf	ok	36
+OK	15896	87312	hhh	hanif_mohammed	AID-mh_5.2.4.0.pdf	ok	30
+OK	15997	7242	hhh	hausherr_hartmann	AID-hh_4.1.4.0.pdf	ok	27
+OK	16325	129791	hhh	hilbert_joerg	AID-jh_2.3.2.0.pdf	ok	24
+OK	16519	16895	hhh	homm_jens	AID-jh_2.3.3.0.pdf	ok	42
+OK	16615	79747	hhh	huettermann_michael	AID-mh_1.1.3.0.pdf	ok	24
+OK	16745	7343	jjj	jahn_andre	AID-aj_3.3.4.0.pdf	ok	38
+OK	17297	19240	kkk	kirn_thomas	AID-tk_1.2.3.0.pdf	ok	33
+OK	17357	78921	kkk	klein_martin	AID-mk_2.3.2.0.pdf	ok	29
+OK	17358	33895	kkk	klein_stefan	AID-sk_5.1.3.0.pdf	ok	25
+OK	17444	69802	kkk	knauer_olaf	AID-ok_4.1.4.0.pdf	ok	55
+OK	17628	57392	kkk	kopshoff_peter	AID-pk_2.3.3.0.pdf	ok	32
+OK	17678	83951	kkk	koval_alexandre	AID-ak_2.3.3.0.pdf	ok	42
+OK	17732	29436	kkk	krause_mirko	AID-mk_2.3.2.0.pdf	ok	58
+OK	17803	53056	kkk	kritchevski_oleg	AID-ok_4.2.3.0.pdf	ok	33
+OK	18000	84795	kkk	kwasny_marc	AID-mk_1.1.3.0.pdf	ok	38
+OK	18177	16203	lll	leidel_niko	AID-nl_5.1.4.0.pdf	ok	45
+OK	18234	74588	lll	lew_joerg	AID-jl_2.3.3.0.pdf	ok	18
+OK	18496	21131	mmm	maenzel_stefan	AID-sm_4.1.3.0.pdf	ok	28
+OK	18497	74922	mmm	maerdian_ralf	AID-rm_2.1.3.0.pdf	ok	19
+OK	18511	181093	mmm	mahmoudy_aziz	AID-am_2.3.2.0.pdf	ok	24
+OK	18621	164269	mmm	markstaller_michael	AID-mm_5.2.5.0.pdf	ok	30
+OK	18756	60899	mmm	meese_rainer	AID-rm_2.1.3.0.pdf	ok	59
+OK	18925	102135	mmm	miersch_joerg	AID-jm_5.2.4.0.pdf	ok	64
+FAIL	18955	9037	mmm	millonig_roland		convert	1
+OK	19009	161168	mmm	mohamed_ramadan	AID-rm_1.1.2.0.pdf	ok	31
+OK	19626	84003	ooo	otto_daniel	AID-do_1.1.3.0.pdf	ok	33
+OK	19651	78514	ppp	pados_gabor	AID-gp_1.1.5.0.pdf	ok	40
+OK	19682	94242	ppp	panzer_ralf	AID-rp_1.1.4.0.pdf	ok	23
+FAIL	19806	13040	ppp	peters_carola		convert	1
+FAIL	19860	13631	ppp	pfingst_thomas		convert	2
+FAIL	19897	10851	ppp	pieper_michael		convert	1
+FAIL	19941	117966	ppp	platt_torsten		convert	1
+FAIL	19979	11117	ppp	poehlmann_michael		convert	1
+FAIL	20113	49143	ppp	puchinger_werner		convert	2
+OK	20249	124425	rrr	rauch_holger	AID-hr_3.1.4.0.pdf	ok	44
+OK	20413	23205	rrr	richardon_michael	AID-mr_5.1.4.0.pdf	ok	31
+OK	20426	102939	rrr	richter_levi	AID-lr_2.3.2.0.pdf	ok	51
+OK	20430	213809	rrr	richter_benjamin	AID-br_5.2.4.0.pdf	ok	21
+FAIL	20615	49589	rrr	roshop_ulrich		convert	2
+FAIL	20664	9985	rrr	rubbert_peter		convert	1
+OK	20716	74862	rrr	runte_oliver	AID-or_2.3.3.0.pdf	ok	32
+OK	20742	34053	rrr	ryba_rafael	AID-rr_1.1.3.0.pdf	ok	24
+FAIL	21369	71589	sss	schroeder_wolfgang		no_neu_cv	4
+OK	21633	63759	sss	seidler_ralf	AID-rs_4.1.4.0.pdf	ok	30
+OK	21638	6137	sss	seifert_alexander	AID-as_4.1.3.0.pdf	ok	50
+OK	21808	71632	sss	sjoegren_patrick	AID-ps_5.1.4.0.pdf	ok	43
+OK	21876	102369	sss	sopart_michael	AID-ms_1.2.3.0.pdf	ok	40
+OK	21877	35007	sss	soppa_helmut	AID-hs_1.1.3.0.pdf	ok	26
+OK	21942	34199	sss	sprenger_andre	AID-as_2.3.3.0.pdf	ok	32
+OK	22359	52926	ttt	tenge_armin	AID-at_3.3.4.0.pdf	ok	78
+OK	22382	23795	ttt	tezlow_eduard	AID-et_5.1.3.0.pdf	ok	38
+OK	22682	5283	vvv	van_der_horst_tim	AID-dv_2.3.2.0.pdf	ok	40
+OK	22698	51559	vvv	vanselow_matthias	AID-mv_2.3.3.0.pdf	ok	27
+OK	22795	76080	vvv	vogt_uwe	AID-uv_2.3.2.0.pdf	ok	39
+OK	22874	57157	www	wachniewski_anton	AID-aw_2.1.4.0.pdf	ok	38
+OK	22976	180877	www	watermann_ulrich	AID-uw_5.4.4.0.pdf	ok	40
+OK	23205	47428	www	wichmann_uwe	AID-uw_5.1.4.0.pdf	ok	56
+OK	23313	26020	www	willner-haring_gabor	AID-gw_3.3.4.0.pdf	ok	35
+OK	23338	13476	www	winkler_ralf	AID-rw_1.2.3.0.pdf	ok	39
+OK	23447	11589	www	wolters_juergen	AID-jw_2.3.3.0.pdf	ok	66
+OK	23475	48758	www	wuerthle_mathias	AID-mw_2.3.2.0.pdf	ok	52
+OK	23596	30796	zzz	zell_peter	AID-pz_5.1.3.0.pdf	ok	27
+OK	23657	51836	zzz	zimmermann_angelika	AID-az_2.3.4.0.pdf	ok	50
+OK	23660	1123	zzz	zimmermann_steffen	AID-sz_2.1.3.0.pdf	ok	38
+SKIP	23662	1123	zzz	zimmermann_steffen		has_neu_cv	0
+OK	23697	136399	zzz	zubok_alexander	AID-az_2.3.3.0.pdf	ok	46
+FAIL	15328	103796	ggg	glas_oliver_fritz		no_neu_cv	4

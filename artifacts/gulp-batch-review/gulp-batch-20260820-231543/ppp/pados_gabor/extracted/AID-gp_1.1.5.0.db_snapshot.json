@@ -1,0 +1,1257 @@
+{
+  "personal": {
+    "aid": "AID-gp_1.1.5.0",
+    "first_name": "Gabor",
+    "last_name": "Pados",
+    "birth_year": 1954,
+    "location": "D6 im Umkreis von: Damstadt, Frankfurt, Mainz, Wiesbaden (200 km)",
+    "availability": "07.10.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1979,
+    "headline": "Anwendungsentwicklung, Systemsprogrammierung, Test, Anwendungsadministration in IBM M/F Umfeld: z/OS, Cobol, Assembler, Macro, JCL, SQL, CICS, DB2, TCP/IP Socket Interface (Batch+CICS), Dokumentation",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 103,
+    "certifications": 0,
+    "education": 0,
+    "experience": 22,
+    "industries": 10,
+    "focus_areas": 7,
+    "focus_experience": 151,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Verhandlungsfähig",
+      "level": ""
+    },
+    {
+      "name": "Englisch Gut",
+      "level": ""
+    },
+    {
+      "name": "Ungarisch Muttersprache",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Forschungsinstitut",
+    "Industrie",
+    "Software Herstellung und Handel",
+    "Softwarehaus",
+    "Buchführung/Finanz",
+    "Telekommunikation",
+    "Geldinstitut/Bank",
+    "Informationsdienstleistung",
+    "Finanzdienstleistung",
+    "Versicherung"
+  ],
+  "focus_areas": [
+    "Anwendungsentwicklung",
+    "Systemsprogrammierung",
+    "Test",
+    "Anwendungsadministration in IBM M/F Umfeld: z/OS Cobol Assembler Macro JCL SQL CICS DB2 TCP/IP Socket Interface (Batch+CICS) Dokumentation Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Engineering / IT-nahe Ingenieurdienstleistungen Studium der Elektronik und Regelungstechnik an der Technischen Universität, Budapest"
+  ],
+  "focus_experience": [
+    {
+      "name": "(E)JES3 (Phoenix Software Intl.)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ABEND-AID",
+      "category": "product_standard"
+    },
+    {
+      "name": "Assembler/HLASM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beta92",
+      "category": "product_standard"
+    },
+    {
+      "name": "BETA92/93",
+      "category": "product_standard"
+    },
+    {
+      "name": "Beta93",
+      "category": "product_standard"
+    },
+    {
+      "name": "BMC MainView",
+      "category": "product_standard"
+    },
+    {
+      "name": "BMC MainView for WebSphere MQSeries",
+      "category": "product_standard"
+    },
+    {
+      "name": "BMC MainView Window Interface",
+      "category": "product_standard"
+    },
+    {
+      "name": "BMC Utilities",
+      "category": "product_standard"
+    },
+    {
+      "name": "BTB-VIEWER",
+      "category": "product_standard"
+    },
+    {
+      "name": "BUGZILLA Problem- und Testmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "CA-INTERTEST",
+      "category": "product_standard"
+    },
+    {
+      "name": "CA-INTERTEST/CICS",
+      "category": "product_standard"
+    },
+    {
+      "name": "CA-LIBRARIAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Change and Task-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "CICS Transaction-Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "DAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 for i5/OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 Query Manager for i5/OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 SQL für i5/OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 Stored Procedure (CICS und Batch)",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 Stored Procedures",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 und z/OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2-CMD/UTIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2/ADMIN",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2/QMF",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2/SPUFI",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2/SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2I",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2I/DCLGEN",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2I/SPUFI",
+      "category": "product_standard"
+    },
+    {
+      "name": "DCLGEN",
+      "category": "product_standard"
+    },
+    {
+      "name": "DEBUG-TOOL",
+      "category": "product_standard"
+    },
+    {
+      "name": "DMS CA DISK",
+      "category": "product_standard"
+    },
+    {
+      "name": "EXCEL",
+      "category": "product_standard"
+    },
+    {
+      "name": "FILE-AID",
+      "category": "product_standard"
+    },
+    {
+      "name": "FILEAID",
+      "category": "product_standard"
+    },
+    {
+      "name": "FLASH",
+      "category": "product_standard"
+    },
+    {
+      "name": "GDG",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP Quality Center",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP Service Manager (Incident und Change Management)",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM CLEANUP Data Set Selection",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Dashbord Application service Hub",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Datapropagator",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM DB2-Tools",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM NetView",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM PC Telnet 3270",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM TSA Tivoli System Automation",
+      "category": "product_standard"
+    },
+    {
+      "name": "ICEMAN/IBM SORT",
+      "category": "product_standard"
+    },
+    {
+      "name": "ICETOOL/IBM SORT",
+      "category": "product_standard"
+    },
+    {
+      "name": "IMPACT Incident-",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISPF/PDF",
+      "category": "product_standard"
+    },
+    {
+      "name": "JES2",
+      "category": "product_standard"
+    },
+    {
+      "name": "JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "JVS Job Verwaltung System",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfigurations-Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfigurations-Management PR- und BT-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "KUNO Kundenreporting Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "KVS/ENDEVOR Komponentverwaltung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lotus Notes (Anforderungsmanagement)",
+      "category": "product_standard"
+    },
+    {
+      "name": "MQM Utilities",
+      "category": "product_standard"
+    },
+    {
+      "name": "MQSI MQSeries Interface/OS390",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netview FTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzverwaltungsystem VMware vSphere Client. Remote Desktop Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "OLYMPIC Kernbanksystem für Depotführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "OMC FLASH",
+      "category": "product_standard"
+    },
+    {
+      "name": "OMEGAMON",
+      "category": "product_standard"
+    },
+    {
+      "name": "OMEGAMON II",
+      "category": "product_standard"
+    },
+    {
+      "name": "OmniTracker",
+      "category": "product_standard"
+    },
+    {
+      "name": "OmniTracker (Incident- und Service Request Management)",
+      "category": "product_standard"
+    },
+    {
+      "name": "OPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "OPC Operations Planning and Control",
+      "category": "product_standard"
+    },
+    {
+      "name": "OS/390 und z/OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "OS390 Utilities",
+      "category": "product_standard"
+    },
+    {
+      "name": "OS390-z/OS Utilities",
+      "category": "product_standard"
+    },
+    {
+      "name": "Peregrine Service Center (Incident und Change Management)",
+      "category": "product_standard"
+    },
+    {
+      "name": "PLATINIUM",
+      "category": "product_standard"
+    },
+    {
+      "name": "PRADO Dokumentmanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Problem-",
+      "category": "product_standard"
+    },
+    {
+      "name": "PRÜV Produktion Übergabeverfahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "PuTTY",
+      "category": "product_standard"
+    },
+    {
+      "name": "QMF-Windows",
+      "category": "product_standard"
+    },
+    {
+      "name": "Quick3270 (DN Computing)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Remedy Action Request Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "Remedy AR Tool (Incident Management und Action Request)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Remote Desktop Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "RZ-Übergabeverfahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCLM",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDSF",
+      "category": "product_standard"
+    },
+    {
+      "name": "SEWB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Smart SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software Configuration Manager (SCLM)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareentwicklungsmodell DASEM",
+      "category": "product_standard"
+    },
+    {
+      "name": "SRCVW",
+      "category": "product_standard"
+    },
+    {
+      "name": "TABEX",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP FTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP MVS Batch und CICS EZASOCKET Interface",
+      "category": "product_standard"
+    },
+    {
+      "name": "TPX",
+      "category": "product_standard"
+    },
+    {
+      "name": "TSO",
+      "category": "product_standard"
+    },
+    {
+      "name": "TSO/ISPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "TSO/ISPF PDSMAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "UC4-ATOMIC (Automation Engine)",
+      "category": "product_standard"
+    },
+    {
+      "name": "VM-BASIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "VOOM",
+      "category": "product_standard"
+    },
+    {
+      "name": "VS COBOL II",
+      "category": "product_standard"
+    },
+    {
+      "name": "VTAM/SNA",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebSphere Message Queueing for z/OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows 7 und Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "WINDOWS/XP",
+      "category": "product_standard"
+    },
+    {
+      "name": "XINFO",
+      "category": "product_standard"
+    },
+    {
+      "name": "XPEDITER/Batch",
+      "category": "product_standard"
+    },
+    {
+      "name": "z/OS Utilities",
+      "category": "product_standard"
+    },
+    {
+      "name": "z/OS: DB2",
+      "category": "product_standard"
+    },
+    {
+      "name": "ZEUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "OMEGAMON II Performance Monitor für CICS und DB2",
+      "category": "product_standard"
+    },
+    {
+      "name": "* MAINVIEW Performance Monitor für CICS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2 und MVS",
+      "category": "product_standard"
+    },
+    {
+      "name": "BMC MainViewforWebSphere MQSeries",
+      "category": "product_standard"
+    },
+    {
+      "name": "FQS Friendly Query Dateiabfrage-System",
+      "category": "product_standard"
+    },
+    {
+      "name": "IDMS-OLQ Online Datenabfrage-System zum IDMS-DB",
+      "category": "product_standard"
+    },
+    {
+      "name": "TEMPUS-LINK Virtuelle PC-Dateimanagement auf dem Host und PC",
+      "category": "product_standard"
+    },
+    {
+      "name": "* NDM Network Data Mover automatisierter Filetransfer-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "CONNECT: Direct automatisierter Filetransfer-Tool",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM SCRIPT MVS und SCRIPT-PC",
+      "category": "product_standard"
+    },
+    {
+      "name": "* IBM Dateimanagement BSAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "QSAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "VSAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM/ICEMAN SORT",
+      "category": "product_standard"
+    },
+    {
+      "name": "CA-LIBRARIAN Source Management System",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konfiguration Management: PR-TOOL Problem Reporting Tool Source-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verwaltungs-System",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Konfiguration Management: BT-TOOL Bereitstellung Tool (Sourceverwaltung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Release- und Version-Bereitstellung/Lieferung IBM / DTAG)",
+      "category": "product_standard"
+    },
+    {
+      "name": "PRISM Problem Report and Incident Management System (Anforderungs- und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fehlermanagement",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ticket-Verarbeitung - IBM / Systems Center Inc",
+      "category": "product_standard"
+    },
+    {
+      "name": "FLAM Datenkomprimierung uns Dekomprimierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "BMC Utilities für DB2 UDB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netview FTP Filetransferprogramm",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP FTP Filetransferprogramm",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM DEBUG TOOL",
+      "category": "product_standard"
+    },
+    {
+      "name": "* ABEND-AID",
+      "category": "product_standard"
+    },
+    {
+      "name": "VOOM (Message-Routing- und Message-Anzeige-System",
+      "category": "product_standard"
+    },
+    {
+      "name": "ZEKE Enterprise Scheduling System von ALTAI/PLATINIUM",
+      "category": "product_standard"
+    },
+    {
+      "name": "PROST (Tool zur EURO-Umstellung durch dynamische Programmsteuerung)",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "04/2016 - heute",
+      "company": "Finanzdienstleistung",
+      "role": "",
+      "title": "Anwendungsentwicklung im Wertpapierbereich",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "08/2014 - 04/2016",
+      "company": "Versicherung",
+      "role": "Operation Manager",
+      "title": "Operation Manager",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "11/2013 - 03/2014",
+      "company": "Versicherung",
+      "role": "",
+      "title": "Unterstützungsleistung in WebSphere MQ Bereitstellung und",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "04/2013 - 04/2013",
+      "company": "Finanzdienstleistung",
+      "role": "",
+      "title": "Systemberatung IBM DB2 Stored Procedures in z/OS",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "12/2011 - 03/2012",
+      "company": "Geldinstitut",
+      "role": "",
+      "title": "Funktionelle Analyse und Datenbereinigung",
+      "activities": 5,
+      "technologies": 6
+    },
+    {
+      "period": "10/2010 - 02/2011",
+      "company": "Geldinstitut",
+      "role": "",
+      "title": "Testunterstützung bei Erweiterung der Funktionalität des",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2010 - 06/2010",
+      "company": "Geldinstitut",
+      "role": "",
+      "title": "Unterstützungsleistung im Anwendungsbereich Kartengeschäfte",
+      "activities": 9,
+      "technologies": 12
+    },
+    {
+      "period": "07/2008 - 11/2009",
+      "company": "Geldinstitut",
+      "role": "",
+      "title": "Datenbankbereinigung Geschäftspartnerdaten, Vorbereitung für",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "07/2007 - 06/2008",
+      "company": "Finanzdienstleistung",
+      "role": "",
+      "title": "Anwendungsentwicklung Rechnungswesen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2007 - 03/2007",
+      "company": "EDV",
+      "role": "",
+      "title": "Java-Schulung",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "09/2006 - 10/2006",
+      "company": "Informationsdienstleistung",
+      "role": "",
+      "title": "Web-Design eigenes Internetauftrittes",
+      "activities": 2,
+      "technologies": 2
+    },
+    {
+      "period": "11/2002 - 06/2006",
+      "company": "Telekommunikation",
+      "role": "",
+      "title": "Programmierung, Anwendungsadministration und Systemberatung",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "10/2000 - 10/2002",
+      "company": "Geldinstitut",
+      "role": "",
+      "title": "Systemberatung und Programmierung Online Standard Programme",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2000 - heute",
+      "company": "Informationsdienstleistung",
+      "role": "",
+      "title": "Führung und Verwaltung der eigener GmbH als Geschäftsführender",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "1998 - 2000",
+      "company": "",
+      "role": "",
+      "title": "Systemberatung und Programmierung VUS-GK",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1996 - 1997",
+      "company": "",
+      "role": "",
+      "title": "Systemberatung und Programmierung IKU",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1994 - 1995",
+      "company": "",
+      "role": "",
+      "title": "Software Distribution CONNECT:Direct",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1992 - 1994",
+      "company": "",
+      "role": "",
+      "title": "Systemberatung Network Data Mover",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1990 - 1992",
+      "company": "",
+      "role": "",
+      "title": "Software-Distribution Tempus-Link",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "1983 - 1990",
+      "company": "",
+      "role": "",
+      "title": "Software Distribution SHADOW II und FQS",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1982 - 1988",
+      "company": "",
+      "role": "",
+      "title": "Software Distribution IDMS-OLQ und IDMS-DB",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "1979 - 1981",
+      "company": "",
+      "role": "",
+      "title": "Installation, Systemadministration und Wartung CRJE und TSO",
+      "activities": 14,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt VUS-GK, 11/02 - 06/06\nReferenz durch Projektgruppenleiter, T-Systems, 30.000 MA, vom 08.11.06\n\"Der Consultant wurde mit dem Entwickeln von Konzepten, dem Erstellen, der\nAnalyse, dem Redesign und Warten von Programmen, dem Durchführen von\nEntwicklungs-, System- und Abnahme-Tests, mit dem Inbetriebnahme, sowie mit\nder\nUnterstützung der Abnahme und des Wirkbetriebes der zentralen IBM z/OS\nMainframe-Komponenten in unserem Projekt - sowohl als Entwickler, als auch als\nSystemprogrammierer und Administrator - betraut. Der Consultant verfügt über\nein hervorragendes Wissen in Programmsprache COBOL, Assembler, SQL, JCL,\nsowie\nim Transaktionsserver CICS, im Datenbankmanegement DB2, in\nDateimanagement\nVSAM, DAM und QSAM, in Kommunikation TCP/IP Socket Interface, in Batch und\nTSO\nJobverarbeitung. Die von ihm entwickelten Programme laufen fehlerfrei und\nperformant. Er hat immer seine Aufgaben zu unserer vollsten Zufriedenheit ganz\nbesonders zuverlässig erledigt. Neben seiner fachlichen Qualifikation ist sein\nbesonderes Engagement hervorzuheben. Wir möchten uns an dieser Stelle dafür\nbedanken und den Consultant anderen Projektanbietern weiterempfehlen.\"\nProjekt Einführung neuer Online Systemprogramme (OSP), 10/00 - 10/02\nReferenz durch Produktverantwortlicher OSP (Online System Programme), dt.\nGroßbank, vom 20.10.06\n\"[...] Der Consultant arbeitete im OS/390-Umfeld mit TSO, JCL, Batch, CICS,\nTCP/IP, CICS Socket Interface, MQSeries, VSAM, Cobol und Assembler. Er hat\nhervorragendes Wissen in diesen Bereichen. Er hat das Projekt in allen Phasen\nvon der Spezifikation bis zur Implementierung als Entwickler und\nSystemprogrammierer begleitet. Der Consultant hat die ihm übertragenen\nAufgaben\nstets zu unserer vollsten Zufriedenheit erledigt. Er war ganz besonders\nzuverlässig. Sein Einsatz und sein Verhalten gegenüber Teamkollegen war stets\nvorbildlich. Die von ihm entwickelten Standardprogramme laufen bis jetzt\nfehlerfrei und performant. Wir danken dem Consultant für seine sehr guten\nLeistungen und wünschen ihm für seinen weiteren beruflichen Lebensweg\nweiterhin\nviel Erfolg. Auf diesem Wege möchten wir den Consultant anderen\nProjektanbietern weiterempfehlen.\"\nAlle Referenzen sind durch GULP bestätigt.\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]\nEnglisch anzeigen",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "DB2 > 10 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2 UDB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DDL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DSNTIAUL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IDMS 3 Jahre IDMS-DB",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISAM 1 Jahr",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL > 12 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Trigger",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "VSAM 8 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2I (SPUFI",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DCLGEN",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2-CMD/UTIL u.s.w.) - 9 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM DB2 für OS/390",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "z/OS - 12 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM DB2 für i5/OS - 1 Jahr",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IDMS-OLQ: 5 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "QSAM: > 5 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BSAM: > 5 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAM: > 4 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "GDG: > 4 Jahre",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "AS/400",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM GroßrechnerIBM Host/Mainframe > 27 J",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM AS/400 - insg. 1 Jahr",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CMS IBM VM/CMS = 1 Jahr",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Dos IBM VSE/SP = 1 Jahr",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM ISPF als Benutzer > 10 J ahre / als Entwickler = 1 Jahr",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "JES",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390 (inkl. z/OS) > 20 Jahre",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2 < 1 Jahr",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/400 insg. 1 Jahr",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "QSAM",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "RACF",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VM insg. 1 Jahr",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows - MS WINDOWS/XP Professional (als Anwender) = 5 Jahre",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "z/OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "ABAP4 3 MM (R2 Ausbildung / Einführung in RF)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler (inkl. Macros und HLASM) insg. 9 Jahre",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CList 1 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol (inkl. VS COBOL II): insg. 17 Jahre",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "COBOL II",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DCL (von IBM DB2/SQL) 1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "5 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAVA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JCL > 24 Jahre",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Makrosprachen (von IBM Assembler) > 3 Jahre",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/1 (Basiskenntnisse) 1 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "QMF (Basiskenntnisse) < 1 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rexx (Basiskenntnisse) 1 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL(DDL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DML) > 8 Jahre",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML = 1 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML (Basiskenntnisse) = 1 Monat",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX Shellprozeduren (Basiskenntnisse) < 1 Jahr",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Management)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.75
+    },
+    {
+      "name": "JIRA",
+      "category_name": "Business Software",
+      "weight": 0.62
+    },
+    {
+      "name": "MS Office",
+      "category_name": "Business Software",
+      "weight": 0.47
+    },
+    {
+      "name": "BMC MainView",
+      "category_name": "Monitoring Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "REXX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "EXCEL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.7
+    },
+    {
+      "name": "Remedy AR",
+      "category_name": "Business Software",
+      "weight": 0.38
+    },
+    {
+      "name": "DB2/QMF",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "TABEX",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "SAM",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ZEUS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "HP Quality Center",
+      "category_name": "Testing Tools",
+      "weight": 0.47
+    },
+    {
+      "name": "Dokumentmanagement",
+      "category_name": "Datenbanken",
+      "weight": 0.47
+    },
+    {
+      "name": "WINDOWS/XP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Design/Entwicklung/Konstruktion",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Remote Desktop Manager",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "AIX IT-",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "VMware vSphere Client. Remote Desktop Manager",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "WebSphere Message Queueing for z/OS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OS Utilities",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

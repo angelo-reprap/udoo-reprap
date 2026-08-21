@@ -1,0 +1,595 @@
+{
+  "personal": {
+    "aid": "AID-mm_5.2.5.0",
+    "first_name": "Michael",
+    "last_name": "Markstaller",
+    "birth_year": 1976,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "01.01.20 zu 100%, Vor-Ort-Einsatz 25% möglich",
+    "edv_experience_since": 1990,
+    "headline": "Netzwerke/Cisco/IPSec-VPNs (SINA), Smarthome (KNX), Schwerpunkt Linux, Windows (MCSE)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 106,
+    "certifications": 0,
+    "education": 0,
+    "experience": 6,
+    "industries": 0,
+    "focus_areas": 30,
+    "focus_experience": 17,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch verhandlungssicher",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "Netzwerke/Cisco/IPSec-VPNs (SINA)",
+    "Smarthome (KNX)",
+    "Schwerpunkt Linux",
+    "Windows (MCSE)",
+    "Security / PKI / Netzwerk / VPN - Spezialist, Generalist mit Mitarbeiterführung und Projektleitungs-Erfahrung.",
+    "04/2016 - 09/2016: CCIE",
+    "Abschluss: CCIE",
+    "Institution: München",
+    "Schwerpunkt:",
+    "Lab-Prüfung ist für 10/2016 geplant",
+    "Cisco Enterprise Networking University: Nexus, SDN, DNA",
+    "Cambium Networks Wlan, PTP, PtMP",
+    "2017",
+    "NCP, Cisco ASA/AnyConnect/IPS Intensivtraining",
+    "Vorbereitung LPIC",
+    "Update BSI 200-x",
+    "2016",
+    "Secunet SINA Basic, Advanced, Workstation",
+    "RIPE IPv6 Basic&Advanced, RIPE-DB, Routing-Registry 1999 - 2015",
+    "CNA & CNE (Novell Netware)",
+    "MCSE (NT4.0, 2000, 2003 inkl. Enterprise AD), Trainings für Weiterbildung MCSA Win10/Server 2012",
+    "MCDBA (MS SQL)",
+    "RSA SecurID Certified",
+    "Cisco CCIE (bisher nie abgeschlossen wegen Zeit/Projekten) Debian/Ubuntu",
+    "Linux",
+    "Security / PKI / Netzwerk / VPN",
+    "Mitarbeiterführung",
+    "Projektleitung",
+    "Cisco",
+    "SINA"
+  ],
+  "focus_experience": [
+    {
+      "name": "IPsec",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netzwerksicherheit",
+      "category": "product_standard"
+    },
+    {
+      "name": "PKI",
+      "category": "product_standard"
+    },
+    {
+      "name": "SmartHome",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verschlüsselungsverfahren",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMware ESXi",
+      "category": "product_standard"
+    },
+    {
+      "name": "VS-NfD",
+      "category": "product_standard"
+    },
+    {
+      "name": "VS-V",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Systemintegration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technische Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schwerpunkte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco",
+      "category": "product_standard"
+    },
+    {
+      "name": "SINA",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2016 - heute",
+      "company": "Bayerische Landesbehörde",
+      "role": "Teilprojektleitung",
+      "title": "Projektunterstützung / Teilprojektleitung Netzwerk,, München",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "01/2014 - heute",
+      "company": "",
+      "role": "Senior IT Consultant",
+      "title": "Software-Entwicklung, Gebäudeautomatisierung, Netzwerk, auf Anfrage",
+      "activities": 9,
+      "technologies": 3
+    },
+    {
+      "period": "04/1999 - 12/2013",
+      "company": "Auf Anfrage",
+      "role": "Mitbegründer, Geschäftsführer, CTO",
+      "title": "Geschäftsleitung, CTO, auf Anfrage",
+      "activities": 5,
+      "technologies": 19
+    },
+    {
+      "period": "01/1998 - 03/1999",
+      "company": "PC Atelier Stefan Werner",
+      "role": "auf Anfrage",
+      "title": "Softwareentwicklung und Sytemadministration, Olympiahalle München",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/1994 - 12/1997",
+      "company": "IFCO (Schoeller Logistic Services)",
+      "role": "Datenverarbeitungskaufmann",
+      "title": "Ausbildung / IT-Benutzerservice / Sytemadministration",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "01/1990 - 12/1995",
+      "company": "pwe Verlag / Ackermann EDV",
+      "role": "Aushilfe / Schüler",
+      "title": "Aushilfstätigkeiten beim pwe Verlag / Ackermann EDV, auf Anfrage",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "AVR",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "X.509",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Sonstige Kenntnisse",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BSI / Secunet SINA / Workstation (VS-V",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VS-NfD",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISO27001)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Firewall (Cisco",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Checkpoint",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux ipchains/iptables)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "NCP VPN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Office 97 2016 / OpenOffice/LibreOffice (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 3.1 Windows 10 Desktop & Server NT 4.0 Server 2016 (fundiert)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "(Embedded) Linux",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "OpenWRT/LEDE (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco IOS / XE (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "EIB/KNX (sehr gut",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Entwickler-Niveau)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "1-Wire von Maxim/Dallas (sehr gut",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "NMEA 0183/2000 (CAN) (sehr gut",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IPv4 & IPv6 (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "inkl. Routingprotokolle (EIGRP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "OSPF",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BGP) und",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IPSec",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "TLS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IPv6 - selbst im Büro produktiv",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RIPE-Schulungen mit Zertifikaten (Database",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Routing-Registry",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IPv6)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Wireless LAN (Wlan 2.4/5 Ghz; SoHo bis Enterprise)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Mesh-Netzwerke",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "DNSsec (sehr gut",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Provider-Niveau)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Anti-Spam (Barracuda",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux Postfix/Sendmail",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Spamassasin",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Blacklisten)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Verschlüsselung (PGP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "S/MIME",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "TLS) (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "High-Availability / Redundante Failover-Systeme (Cluster",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "HSRP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VRRP)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "FreeRADIUS / TACACS+ (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Nagios/Icinga",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SNMP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Monitoring (sehr gut)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISO9001 Ticket-Systeme (Request Tracker [RT]",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Action Request",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "OTRS)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ITIL",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LDAP (Active Directory",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Samba",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "OpenLDAP)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "RS232/RS422/RS485",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "AVR (Atmel)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Debian/Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Attiny",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "avr-gcc",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Bash sehr gut",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "eibd/knxd-Fork",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IAR mit Atmega",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Java fundierte Grundkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Javascript ECMA",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "z.B. jQuery",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Keil",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Python",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.62
+    },
+    {
+      "name": "SINA",
+      "category_name": "Hardware",
+      "weight": 0.62
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.62
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.62
+    },
+    {
+      "name": "IPSec/DMVPN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.62
+    },
+    {
+      "name": "PKI",
+      "category_name": "Security Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "während",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "IOS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "ASA",
+      "category_name": "Security Tools",
+      "weight": 0.62
+    },
+    {
+      "name": "Authentisierung",
+      "category_name": "Datenbanken",
+      "weight": 0.62
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+AID: AID-aa_2.3.2.1
+Name: Andac Aydin
+Headline: Java/JEE & Android Softwareentwickler
+Ort: D6
+Verfügbar: 31.12.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2006
+Sprachen: Deutsch Muttersprache, Englisch fließend, Deutsch (Muttersprache), Englisch (fließend), Französisch (Grundkenntnisse), Türkisch (Muttersprache)
+
+FACHBEREICHE:
+Java/JEE & Android Softwareentwickler
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen
+Qualitätsmanagement / Qualitätssicherung / Test
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+BRANCHEN:
+
+PROJEKTE:
+  01/2020 - heute | Deutsche Bank | Senior Fullstack Developer
+    - Aufgaben:
+    - Die Digital Factory der DB beschäftigt für all ihre Mandanten wie Maxblue, Norisbank als auch die Muttergesellschaft Deutsche Bank Entwicklungsteams die sich um alle ihre IT-Belange kümmern. Das OPrA-Team (Online Produkt Antrag) entwickelt für alle Mandanten auf der neuesten techn. Basis responsive, modulare Webseiten in einem agilen Prozess.
+    - Norisbank als auch die Muttergesellschaft Deutsche Bank Entwicklungsteams die sich um alle ihre IT-Belange kümmern. Das OPrA-Team (Online Produkt Antrag) entwickelt für alle Mandanten auf der neuesten techn. Basis responsive, modulare Webseiten in einem agilen Prozess.
+    Techs: Scrum, Maven, npm, rest, Angular, Spring Framework, IntelliJ, OpenText, Atlassian JIRA, bitbucket
+  08/2019 - 12/2019 | Deutsche Bahn | Senior Android Developer
+    - Aufgaben:
+    - Die DB RIS hat für ihre Android Applikation RIS-Communicator 2 entschieden diese in den Enterprise Managed Google Playstore zu stellen. Hierzu mussten in der Applikation DB als auch Google Richtlinien eingehalten werden und implementiert werden. Unter anderem: Datenschutzrichtlinien, API-Erhöhung von Android 4.0 auf Android 7, Neu-Implementierung der Backend-Kommunikation etc
+    - Kanban, REST, Architektur, Handler, Alarmmanager, Legacy code, Android
+    Techs: Android Studio, Git, Jenkins, Android, REST, Handler, Alarmmanager, Legacy code
+  11/2018 - 07/2019 | Finanz Informatik Solutions Plus | Full-Stack Developer
+    - Aufgaben:
+    - Die FISP Wartet und Implementiert spezielle Lösungen innerhalb der Sparkassen- IT-Landschaft. Meine Rolle in dem Team war es die Vielzahl an Produktionsproblemen gemeinsam mit den Scrum-Teams zu Lösen und mit minimal- Invasiven Methoden die Produktions-Software zu stabilisieren.
+    - Desweiteren war es erforderlich die monolithische Struktur des Servers aufzubrechen und in kleinere Module zu trennen, in Vorbereitung auf eine Microservice-Architektur.
+    Techs: JEE8, JBoss, SOAP, Maven, Camunda BPM, IntelliJ IDEA, Git, Atlassian JIRA, Jenkins
+  06/2017 - 11/2018 | Deutsche Bank | Full-Stack Developer
+    - Aufgaben:
+    - Die Digital Factory der DB beschäftigt für all ihre Mandanten wie Maxblue,
+    - Norisbank als auch die Muttergesellschaft Deutsche Bank Entwicklungsteams die sich um alle ihre IT-Belange kümmern. Das OPrA-Team (Online Produkt Antrag) entwickelt für alle Mandanten auf der neuesten techn. Basis responsive, modulare Webseiten in einem agilen Prozess.
+  11/2016 - 05/2017 | Commerzbank | Android Developer
+    - Aufgaben:
+    - Die Commerzbank bietet mit ihrer Android App dem Endnutzer eine Vielfalt von Features unter anderem: Aufträge ohne TAN-Liste oder Zweitgerät freigeben - per photoTAN-App, per Kontovorschau ohne Login Kontostände und Umsätze sehen, durch Kontoalarm sofort über Kontobewegungen informiert werden, Fotoüberweisung und vieles mehr
+    - Anforderungsanalyse
+    Techs: Android, photoTAN-App
+  01/2016 - 10/2016 | KATANA GmbH | Architekt
+    - Aufgaben:
+    - Katana Hotelmanagement GmbH (in Gründung) hat sich auf die Automatisierung der Prozesse innerhalb des Hotelmanagements konzentriert. Hier werden neben einer Anzahl von neuen Frameworks wie Dropwizard oder NodeJS auch eine große Anzahl von alt-Systemen angesprochen wie PROTEL oder CITADEL. Abgerundet wird das Konzept mit einer Android & iOS App für den End-Consumer Bereich.
+    - Herausforderung ist es den Informationsfluß über verschiedene Mediensprünge konsistent und fehlerfrei zu gewährleisten.
+    Techs: Android, iOS, Dropwizard, NodeJS, PROTEL, CITADEL
+  06/2015 - 12/2016 | GYMMER | Techn. Implementierung & Teamlead
+    - Aufgaben:
+    - Das Stuttgarter Startup GYMMER hat sich auf die Vermittlung von Fitness- Angeboten für Endkunden spezialisiert. Der Kunde hat mit der Mobile App die Möglichkeit sich in einem Fitnesscenter einzuchecken und ohne Vertragsbindung zu trainieren.
+    - Abgerechnet wird Sekundengenau.
+    Techs: Android, Backend
+  02/2015 - 01/2016 | DB EWDS Empty Wagon | Backend-Verantwortlicher & Entwickler
+    - Aufgaben:
+    - Für die Deutsche Bahn wurde ein neues Backend-System zur Steuerung der Disposition von Leerwagen implementiert. Hierzu wurde auf etablierte Frameworks zurückgegriffen wie Spring, JEE, JBoss und Maven.
+    - Entwicklung
+    Techs: Jboss 6.2.2, Oracle DB, Primefaces, Maven, JEE, Eclipse IDE, ClearQuest, Spring
+  09/2014 - 01/2015 | DER-com | Entwickler
+    - Aufgaben:
+    - Das Deutsche Reisebüro hat sich zum Ziel gesetzt die bestehende Reservierungs-Webapplikation der.com für die Wintersaison 2014 / 15 fit zu machen. Dazu werden aktuelle Frameworks wie Magnolia 5, Jboss FUSE, Node.js eingesetzt um eine modulare Systemlandschaft zu erstellen die auch für andere Webseiten im Konzern genutzt werden kann. Das Team wird von mehreren SCRUM-Coaches begleitet und arbeitet im agilen Verfahren.
+    - Entwicklung
+    Techs: Jboss FUSE, JEE, Elastic Search, Magnolia 5, NodeJS, JSON, RESTful Webservices, SOAP, Camel, Maven
+  04/2014 - 07/2014 | Design Database | Projektleiter
+    - Aufgaben:
+    - Eine Design Datenbank mit auf RESTful Webservices basiertem Backend und einem AngularJS Frontend wurde auf Kundenwunsch implementiert.
+    - AngularJS Frontend wurde auf Kundenwunsch implementiert. Der JEE Technologie
+    Techs: RESTful Webservices, AngularJS, JEE, JAAS, EJBs, JaxRS, Jackson, JSON
+  03/2014 - 06/2014 | Gelbe Seiten | Engineer
+    - Aufgaben:
+    - Der neuen Gelbe Seiten App liegt ein komplett neues Konzept zugrunde die insbesondere intensiven Gebrauch von Webviews macht um die Wartungskosten zu reduzieren. Gleichzeitig sollten alle vorhanden Apps der Gelbe-Seiten-Gruppe zu einer zusammengefasst werden
+    - Prototyping – Proof of Concept
+    Techs: Android, Webviews
+  02/2014 - 03/2014 | Radio FFH | Engineer
+    - Aufgaben:
+    - Die neue Radio FFH Android Applikation ist eine komplette neu-implementierung mit dynamischem Inhalt und Verhalten abhängig von der Geräteklasse auf der diese ausgeführt wird. Besonderheit bildet das Abspielen von Live-Streams, das anzeigen von Informationen über JSON Schnittstellen und die Animationsvielfalt Implementierung und Stabilisierung von Features
+    - Testing
+    Techs: Android 4.x, Java 1.6, Google Coud Messaging, Google Maps, Facebook SDK, JSON, Webservices, Live Streams, Eclipse IDE, Android Debugging Bridge
+  10/2013 - 11/2013 | Mc Donalds | Engineer
+    - Aufgaben:
+    - Die offizielle McDonalds App für Deutschland wurde um die Möglichkeit erweitert nun eigene Coupons zu erstellen. Aktionsgutscheine werden über das neue „Do your own Coupon“ Feature erstellt. Hierzu wurde die Schnittstelle zum McDonalds
+    - Server erweitert und das Feature dahingehend dynamisch implementiert, dass auch zukünftige Gutschein-Aktionen angezeigt werden können, ohne dass die User eine neue App installieren müssen
+    Techs: Android 2.3.3 4.x, Java 1.6, Google Cloud Messaging, Google Maps, JSON, Webservices, Greendao, NineOldAndroids, SherlockBar, Eclipse IDE
+  07/2013 - 09/2013 | Blaupunkt Telematics | Lead Architect & Engineer
+    - Aufgaben:
+    - Zur Anzeige der Fahrzeug-Flotte und Benachrichtigung für das Fahrtenbuch auf Android-Geräten wurde für Blaupunkt Telematics eine passende Android Applikation implementiert.
+    - Applikation imlementiert.
+    Techs: Android, Google Cloud Messaging, Google Maps
+  01/2013 - 06/2013 | EpisodeReminder | Lead Architect & Engineer
+    - Aufgaben:
+    - Ziel dieser Android-Applikation und dem dazugehörigen Cloudservice ist es dem Anwender eine Möglichkeit zu geben gesehene Tvserien-Episoden auf einem virtuellen Merkzettel zu markieren.
+    - Hierbei werden nicht nur die Daten zu den einzelnen Sendungen von TheTVDB in die Google App Engine importiert, sondern hier auch Zwischengelagert und dem Anwender per Update-Mechanismus regelmäßig aktualisiert.
+    Techs: Android, TheTVDB, Google App Engine
+  05/2008 - 12/2012 | Deutsches Reisebüro | IT-Consultant / Software Engineer
+    - Aufgaben:
+    - Das Deutsche Reisebüro hat sich zum Ziel gesetzt, sein Reservierungssystem zu erneuern. Die Basistechnologie des alten Systems ist COBOL. Mit den Vorgaben, eine Serviceorientierte Architektur und den Modellgetriebenen Entwicklungsansatz zu wählen, setzt DER auf allerneuste Technologien.
+    - Gewünschter Nebeneffekt ist die Schulung der angestellten Entwickler auf diese
+    Techs: COBOL, SOA, JUnit
+  06/2007 - 03/2008 | ExecutiveBase | Software Engineer
+    - Aufgaben:
+    - Beteiligung an der Implementierung des CMS der Webapplikation und Testen der verschiedenen Funktionen und Neuimplementierung von Elementen des Frontends Kommunikation mit dem Fachbereich Design und Implementierung der Teile des Backends Testdurchführung
+    - Eingesetzte Produkte:
+    Techs: PHP 5, MySQL, Subversion, AJAX (MooTools), HTML / JavaScript, Dreamweaver, Eclipse, Tortoise SVN
+  10/2006 - 03/2008 | earthTV.com | Software Engineer / System Manager
+    - Aufgaben:
+    - Verantwortliches Design und Implementierung der Internet-Präsenz der „Earth Television Network GmbH“. Videoportal auf Basis von Drupal 4.7, mit PHP/MySQL,
+    - AJAX und Flash. Einbindung unterschiedlichen Contents durch Webservices (XML),
+    Techs: Drupal 4.7, PHP, MySQL, AJAX, Flash, XML, Webservices, Streamingserver, RSS
+  05/2006 - 08/2006 | Code64 | Software Architect
+    - Aufgaben:
+    - Konzeption, Design und Implementierung des AJAX-CMS „Galleryedit“ für Galleristen sowie die dazugehörige Datenbank. Einsatz des Prototype Frameworks,
+    - Apache Webserver, Cross-Browser Kompatibilität
+    Techs: PHP 5, MySQL, AJAX, prototype.js, HTML, JavaScript, Dreamweaver, Eclipse, Prototype Framework, Firebug Debugger
+
+SKILL-ABLAGE:

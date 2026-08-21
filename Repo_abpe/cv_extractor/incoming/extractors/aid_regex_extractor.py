@@ -64,6 +64,7 @@ SKILL_SECTIONS = [
     (r'Softwaretechnologien?',     'Frameworks und Bibliotheken', 'structured'),
     (r'Modellierungstools?',       'Dokumentationstools',      'structured'),
     (r'Spezialkenntnisse',         'Sonstige Skills',          'structured'),
+    (r'Sonstige\s+Kenntnisse',     'Sonstige Skills',          'structured'),
     (r'Application',               'Business Software',        'structured'),
     # Produkte|Standards|Erfahrungen → focus_experience (nicht skill_ablage)
     (r'Erfahrungen?\s+im\s+Bereich', 'Sonstige Skills',       'ablage'),
@@ -388,6 +389,12 @@ class AidRegexExtractor:
             pre_json['extracted_data']['experience'] = projekte
             filled.append(f'projekte({len(projekte)})')
 
+        # 8c. Sonstiges (Stärken / Anmerkungen / Referenzen) → other
+        other = self._extract_other(text)
+        if other:
+            pre_json['extracted_data']['other'] = other
+            filled.append('other')
+
         # 8b. Format-A ohne Skill-Tabellen: Tech aus Projekten nachziehen
         if not skill_ablage and projekte:
             harvested = self._harvest_skills_from_projects(projekte)
@@ -426,8 +433,8 @@ class AidRegexExtractor:
         if first_name: p['first_name'] = first_name
         if last_name:  p['last_name']  = last_name
 
-        # Geburtsjahr
-        m = re.search(r'(?im)^\s*Geburtsjahr\s*:\s*(\d{4})', text)
+        # Geburtsjahr / Jahrgang (Gulp-Stammdaten)
+        m = re.search(r'(?im)^\s*(?:Geburtsjahr|Jahrgang)\s*:\s*(\d{4})', text)
         if m:
             p['birth_year'] = int(m.group(1))
 
@@ -452,6 +459,20 @@ class AidRegexExtractor:
         m = re.search(r'(?im)^\s*Einsatzort\s*:\s*(.+?)$', text)
         if m:
             p['location'] = m.group(1).strip()
+
+        # Wohnort (Gulp) — eigenes Feld; Ort/location bleibt Einsatzort
+        m = re.search(r'(?im)^\s*Wohnort\s*:\s*(.+?)$', text)
+        if m:
+            wohn = m.group(1).strip()
+            if wohn:
+                p['wohnort'] = wohn
+                if not p.get('location'):
+                    p['location'] = wohn
+
+        # Stundensatz (Gulp, optional Meta — nicht in Standard-Personal-Feldern)
+        m = re.search(r'(?im)^\s*Stundensatz\s*:\s*(.+?)$', text)
+        if m:
+            p['hourly_rate'] = m.group(1).strip()
 
         # EDV Erfahrung seit
         m = re.search(r'(?im)^\s*EDV.Erfahrung\s*(?:seit)?\s*:\s*(.+?)$', text)
@@ -495,6 +516,7 @@ class AidRegexExtractor:
             r'Fachbereiche',
             r'Fachlicher\s+Schwerpunkt',
             r'Schwerpunkt\s*$',
+            r'Position\s*$',
         ], stop_patterns=[
             r'Zertifizierungen?(?:\s*[\|/].*)?',
             r'IT.Kompetenzen?',
@@ -734,6 +756,42 @@ class AidRegexExtractor:
                 })
         return certs
 
+    def _extract_other(self, text: str) -> list:
+        """
+        Sonstiges-Block (Gulp/AID: Stärken, Anmerkungen, Referenzen) → other[].
+        Nicht als Experience/Skills einsortieren.
+        """
+        block = self._extract_block(
+            text,
+            start_patterns=[
+                r'Sonstiges\s*$',
+                r'Sonstige\s+Anmerkungen\s*:?\s*$',
+                r'Persönliche\s+St.rken\s*:?\s*$',
+                r'Referenzen\s*:?\s*$',
+            ],
+            stop_patterns=[
+                r'Berufliche\s+Erfahrungen?',
+                r'Fachbereiche',
+                r'Branchen?\s*$',
+                r'Zertifizierungen?',
+                r'Ausbildung\s*:',
+                r'Programmiersprachen?',
+                r'Betriebssysteme',
+                r'Qualifikationsprofil\s*:',
+            ],
+        )
+        if not block:
+            return []
+        content = re.sub(r'\s+\n', '\n', block).strip()
+        if len(content) < 8:
+            return []
+        return [{
+            'content': content[:5000],
+            'content_type': 'text',
+            'source': 'aid_regex_sonstiges',
+            'sort_order': 0,
+        }]
+
     def _extract_focus_experience(self, text: str) -> List[dict]:
         """
         Extrahiert „Produkte | Standards | Erfahrungen“ → focus_experience[].
@@ -753,6 +811,7 @@ class AidRegexExtractor:
                 r'Branchen?',
                 r'Zertifizierungen?(?:\s*[\|/].*)?',
                 r'Schulungen?\s*/\s*Kurse',
+                r'Sonstiges\s*$',
             ],
         )
         if not block:
@@ -1559,7 +1618,11 @@ class AidRegexExtractor:
         # Zeitraum (gleiche Zeile oder nächste Zeile)
         period = self._labeled_value(block, r'Zeitraum|Period')
         if period:
-            proj['period'] = period
+            pl = period.strip().lower().rstrip('.')
+            if pl in ('k.a', 'n/a', 'n.a', '-', '–', '—', 'ohne angabe', ''):
+                period = ''
+            else:
+                proj['period'] = period
 
         # Firma/Institut / Kunde (gleiche Zeile oder nächste Zeile)
         company = (
@@ -1570,10 +1633,10 @@ class AidRegexExtractor:
         if company:
             proj['company'] = company
 
-        # Projektbeschreibung → title (ohne Activity-Bullets)
+        # Projektbeschreibung / Projekttätigkeiten → title (ohne Activity-Bullets)
         # Wichtig: \Z statt $ — bei (?m) würde $ nach der ersten Soft-Wrap-Zeile stoppen
         m = re.search(
-            r'(?im)^\s*Projektbeschreibung\s*:\s*(.+?)'
+            r'(?im)^\s*(?:Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:\s*(.+?)'
             r'(?=\n\s*(?:Systemumgebung|Position|Rolle|Zeitraum|Firma|Kunde|'
             r'Protokolle|Technologien|Eingesetzte)\s*:|'
             r'\n\s*[-•\*\u2022\u25aa\uf0b7\uf09f]|\Z)',
@@ -1585,7 +1648,9 @@ class AidRegexExtractor:
                 proj['title'] = title[:300]
         if not proj.get('title'):
             # Label allein, Text beginnt nächste Zeile
-            title = self._labeled_value(block, r'Projektbeschreibung')
+            title = self._labeled_value(
+                block, r'Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten'
+            )
             if title:
                 proj['title'] = title[:300]
 
@@ -1638,7 +1703,7 @@ class AidRegexExtractor:
         # activities: Bullet-Liste unter Projektbeschreibung (inkl. Soft-Wraps)
         act_block = ''
         m_act = re.search(
-            r'(?is)(?:^|\n)\s*Projektbeschreibung\s*:\s*.*?\n(.*?)'
+            r'(?is)(?:^|\n)\s*(?:Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:\s*.*?\n(.*?)'
             r'(?=\n\s*(?:Systemumgebung|Protokolle\s*/\s*Technologien|'
             r'Technologien\s*/|Position|Rolle|Zeitraum|Firma|Kunde)\s*:|\Z)',
             block,
@@ -1745,7 +1810,7 @@ class AidRegexExtractor:
         if proj.get('activities'):
             return
         m = re.search(
-            r'(?is)(?:^|\n)\s*Projektbeschreibung\s*:\s*(.*?)'
+            r'(?is)(?:^|\n)\s*(?:Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:\s*(.*?)'
             r'(?=\n\s*(?:Systemumgebung|Protokolle\s*/\s*Technologien|'
             r'Technologien\s*/|Position|Rolle|Zeitraum|Firma|Kunde)\s*:|\Z)',
             block,
@@ -1799,7 +1864,7 @@ class AidRegexExtractor:
             # OV-Stil: Periode am Zeilenanfang + Firma/Institut / Projektbeschreibung
             # → Format-A-Parser (sonst zerlegt Format B die Beschreibung)
             if re.search(
-                r'(?im)^\s*(?:Firma\s*/?\s*Institut|Projektbeschreibung)\s*:',
+                r'(?im)^\s*(?:Firma\s*/?\s*Institut|Projektbeschreibung|Projekttätigkeiten|Projekttatigkeiten)\s*:',
                 block,
             ):
                 a_block = self._period_block_to_format_a(block, period_str)

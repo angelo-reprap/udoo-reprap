@@ -1,0 +1,791 @@
+{
+  "metadata": {
+    "aid": "AID-tb_5.1.3.0",
+    "version": "5.1.3.0",
+    "consultant_dir": "braeutigam_tobias",
+    "first_name": "Tobias",
+    "last_name": "Braeutigam",
+    "headline": "Projektleitung, Projektmanagement, Anforderungsanalyse, Quality Management/Controlling, SOA,Technischer Architekt, Konzeption/Analysen, Infrastruktur, Datenmodellierung, Workshops",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:20:31.570585"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Tobias",
+      "last_name": "Braeutigam",
+      "birth_year": 1975,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "verhandlungssicher",
+          "level": ""
+        },
+        {
+          "name": "Französisch",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (verhandlungssicher)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (erweiterte Kenntnisse)",
+          "level": ""
+        },
+        {
+          "name": "Russisch (erweiterte Kenntnisse)",
+          "level": ""
+        },
+        {
+          "name": "Spanisch (erweiterte Kenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "05.01.15 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D5, D6 Deutschland: Raum Rhein-Main",
+      "wohnort": "632xx Neu-Isenburg, Deutschland",
+      "headline": "Projektleitung, Projektmanagement, Anforderungsanalyse, Quality Management/Controlling, SOA,Technischer Architekt, Konzeption/Analysen, Infrastruktur, Datenmodellierung, Workshops",
+      "edv_experience_since": 2012
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "MS SQL Server",
+        "MySQL",
+        "Oracle",
+        "ODBC",
+        "SQL",
+        "Oracle SOA Suite Experte",
+        "Oracle 7.x-12c sehr gute"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Mac OS",
+        "gute Kenntnisse",
+        "OS/2",
+        "Unix",
+        "Experte",
+        "Windows",
+        "Linux (RedHat",
+        "Embedded u.a. seit 1999) Experte",
+        "Windows 2000",
+        "2003",
+        "2008 Server",
+        "XP",
+        "7 Experte",
+        "OS X sehr gute Kenntnisse",
+        "FreeBSD",
+        "pfSense Firewall seit V.1.2.1 gute Kenntnisse",
+        "AIX",
+        "HP-UX Anwenderkenntnisse"
+      ],
+      "programming_languages": [
+        "C#",
+        "Basiskenntnisse",
+        "Java",
+        "sehr gute Kenntnisse",
+        "JavaScript",
+        "PL/SQL",
+        "Bash Shell Experte",
+        "SQL sehr",
+        "JEE",
+        "J2EE sehr gute"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "Rhetorik Live Training (Zunker",
+        "issuer": "",
+        "date_obtained": "2014"
+      },
+      {
+        "name": "Academy)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "3 Tage APEX Workshop",
+        "issuer": "",
+        "date_obtained": "2014"
+      },
+      {
+        "name": "(Erstellen von Reports und",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Forms",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "APEX URL",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Page Processing",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Page Rendering",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Dynamic",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Actions)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Praxiskurs Activiti 5",
+        "issuer": "",
+        "date_obtained": "05/2012"
+      },
+      {
+        "name": "SCRUM Workshop",
+        "issuer": "",
+        "date_obtained": "08/2010"
+      },
+      {
+        "name": "ITIL Foundation v3 Upgrade",
+        "issuer": "",
+        "date_obtained": "05/2010"
+      },
+      {
+        "name": "Oracle BPM Suite",
+        "issuer": "",
+        "date_obtained": "11/2009"
+      },
+      {
+        "name": "Oracle Certified Associate (OCA) -",
+        "issuer": "",
+        "date_obtained": "02/2007"
+      },
+      {
+        "name": "Database Development",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "ITIL Foundation v2 Certificate",
+        "issuer": "",
+        "date_obtained": "01/2007"
+      },
+      {
+        "name": "- 2014 JAX Conference",
+        "issuer": "",
+        "date_obtained": "2007"
+      },
+      {
+        "name": "seit 2006 DOAG-Mitglied (Deutsche Oracle",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Anwendergruppe)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "regelmäßige Teilnahme an",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "DOAG-Regionaltreffen und",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "der jährlichen DOAG-Konferenz",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Oracle Certified Associate (OCA) - Database Development",
+        "issuer": "Oracle",
+        "date_obtained": "02/2007",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "09/2014-12/2014",
+        "title": "Börse",
+        "role": "Business Analyst und Architekt",
+        "activities": [
+          "Projekt:",
+          "Unser Kunde, ein deutscher Wertpapierhandelsplatz, betreibt ein umfangreiches Data Warehouse (~400 TB Hot Data). Dieses DWH nimmt",
+          "Echtzeit-Transaktionsdaten mehrerer Handelssysteme (Energiebörse,",
+          "Aktien- und Derivatehandel) entgegen und stellt Speicher- und Reporting-Dienste bereit.",
+          "Aufgrund regulatorischer Anforderungen (MARISK) entschied sich der Kunde für die kurzfristige Einführung neuer Release Management- und Deployment-Prozesse. Fokus war dabei das revisionssichere und flexible",
+          "Deployment neuer Funktionalität in Test-, Simulations-, und Produktionsumgebungen.",
+          "Meine Position:",
+          "In meiner Verantwortung lagen Entwurf und interne Kommunikation eines neuen Deployment-Prozesses für das Data Warehouse, einschließlich zugehöriger ETL-, Reporting- und Scheduling-Systeme. Dies erforderte intensive Abstimmung und Zusammenarbeit mit an diesem Prozess beteiligten Stakeholdern und Fachabteilungen auf technischer und organisatorischer Ebene."
+        ],
+        "industry": "Finanzdienstleistungen"
+      },
+      {
+        "period": "05/2013-12/2013",
+        "title": "Anbindung des Unternehmens an die MasterCard InControl/PurchaseControl Plattform",
+        "role": "Business Analyst und Architekt",
+        "activities": [
+          "Projekt: Anbindung des Unternehmens an die MasterCard InControl/PurchaseControl",
+          "Plattform. Ziel des Projektes war die Bereitstellung virtuelle",
+          "Kreditkartennummern für Corporate Card- und Reisestellenkartenkonten.",
+          "Meine Position: In meiner Verantwortung lag die planerische und technische",
+          "Unterstützung des Kunden bis zur Inbetriebnahme der Lösung. Zu meinen Aufgaben gehörten:",
+          "PMO und UML Modellierung/Design bei Implementierung eines innovativen Reisestellenkartenservices",
+          "Design der Prozesskette Kunde Merchant, Merchant Acquirer, Card",
+          "Acquirer, Card"
+        ],
+        "company": "Bank Frankfurt",
+        "industry": "Banken",
+        "technologies": [
+          "MasterCard InControl",
+          "PurchaseControl",
+          "UML"
+        ]
+      },
+      {
+        "period": "01/2013-05/2013",
+        "title": "Erweiterung einer vorhandenen Netzwerkarchitektur um eine DMZ",
+        "role": "Netzwerkarchitekt",
+        "activities": [
+          "Projekt: Erweiterung einer vorhandenen Netzwerkarchitektur um eine DMZ (demilitarisierte Zone) mit dem Ziel, über das WAN erreichbare",
+          "Produktivsysteme vom internen LAN zu isolieren. Dabei sollte die Netzwerkleistung beibehalten oder verbessert werden, ohne Investitionen in neue Hardware tätigen zu müssen.",
+          "Meine Position: In meiner Verantwortung lag das vollständige",
+          "Gesamtprojekt einschließlich der Phasen Entwurf, Realisierung, Test und Inbetriebnahme.",
+          "Zu meinen Aufgaben gehörten:",
+          "IST-Analyse: tabellarische und grafische Dokumentation vorhandener",
+          "Dokumentation vorhandener"
+        ]
+      },
+      {
+        "period": "11/2012-12/2012",
+        "title": "Bahnunternehmen Frankfurt am Main (Tourismusbranche) (05/2007 06/2007) internes Projekt (IT-Dienstleister) (02/2007 04/2007) internes Projekt (IT-Dienstleister) (02/2002 09/2006) Markenartikler (Großhandel) (02/2001 02/2002) Informatikzentrum eins Bankverbundes (02/2000 02/2001) Finanzdienstleister ",
+        "role": "Berater für Migration",
+        "technologies": [
+          "Lotus Notes/Sametime",
+          "MS Visio",
+          "Powerpoint",
+          "Excel",
+          "Oracle 9i",
+          "Oracle 10g",
+          "Oracle Linux",
+          "Oracle APEX",
+          "Fedora Linux",
+          "TWiki",
+          "PERL",
+          "Apache2",
+          "Windows NT/2000/XP/2003",
+          "XML",
+          "spezielle",
+          "Postscript Print Server",
+          "OS/2",
+          "AIX",
+          "IBM eServer"
+        ],
+        "activities": [
+          "Erstellung einer Machbarkeitsstudie zur europaweiten Einführung eines integrierten touristischen Dienstleistungsproduktes eines führenden Mobility- und Logistics-Anbieters.",
+          "Einführung eines integrierten touristischen Dienstleistungsproduktes eines führenden",
+          "Mobility- und Logistics-Anbieters.",
+          "Meine Position: In meiner Verantwortung lag die Entwicklung fachlicher Szenarien,",
+          "Modellierung von Use Cases und Aktivitätsdiagrammen sowie die Beschreibung möglicher Szenarien.",
+          "Insbesondere erstellte ich ein Konzept zur Konsolidierung veralteter",
+          "Erstellung eines Konzepts zur Konsolidierung veralteter Webservices und Entwicklung einer flexibleren Architektur für die Bahn Internet Booking Engine",
+          "Architektur für die Bahn Internet Booking Engine."
+        ],
+        "company": "Bahnunternehmen Frankfurt am Main",
+        "industry": "Tourismus",
+        "location": "Frankfurt am Main"
+      }
+    ],
+    "industries": [
+      "Telekommunikation",
+      "Banken / Finanzen",
+      "Börse",
+      "Beratungsunternehmen",
+      "Großhandelsunternehmen"
+    ],
+    "focus_areas": [
+      "Projektleitung",
+      "Projektmanagement",
+      "Anforderungsanalyse",
+      "Quality Management/Controlling",
+      "Technischer Architekt",
+      "Konzeption/Analysen",
+      "Infrastruktur",
+      "Datenmodellierung",
+      "Workshops",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test 1995 - 2000 Studium der Informatik an der TU Dresden 1995 Abitur 1993 Auslandsschuljahr in Südafrika Weiterbildungen und",
+      "SOA",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Qualitätsmanagement / Qualitätssicherung / Test"
+    ],
+    "focus_experience": [
+      {
+        "name": "Methodiken / Frameworks / Standards:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "ITIL Experte",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "UML 2.0 Experte",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "MDA/MDSD/TDD Experte",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "XSD",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "XSL",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "XPATH Experte",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "VLAN",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "IP-Netze",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Routing sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "SCRUM sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "BPEL",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "BPMN sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Web Services",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "REST-WS sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "WSDL",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "SOAP sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Pentesting (Wireshark",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Skipfish",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "nmap",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": ") sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Apache Ant gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Hibernate gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Oracle APEX 4.2 sehr gute Kenntnisse",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Business Analyst",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Anforderungsanalyse",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Projektmanagement: Entwicklung und Betrieb verteilter Systeme",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Erarbeitung und Umsetzung von Spezifikationen",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "(Pflichtenheft)",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Dokumentation",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Datenmodellierung",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Quality Management / Controlling: Usability-Standards",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Qualitätssicherung",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Statistik",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "internes Marketing",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Architektur",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Entwurf und Entwicklung von Portalen und",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Serviceorientierten Architekturen (SOA)",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Infrastruktur: Linux Distributionen Architektur",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Administration",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Migration",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Workshops",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "UML 2.0",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "MDA",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "MDSD",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "TDD",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "XPATH",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Routing",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "SCRUM",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "BPMN",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "REST-WS",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Wireshark",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Apache Ant",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Oracle APEX 4.2",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Linux",
+        "category": "product_standard",
+        "sort_order": 59
+      }
+    ],
+    "education": [
+      {
+        "degree": "Studium der Informatik",
+        "institution": "TU Dresden",
+        "period": "1995 - 2000",
+        "education_type": "course"
+      },
+      {
+        "degree": "Abitur",
+        "institution": "",
+        "period": "1995",
+        "education_type": "course"
+      },
+      {
+        "degree": "Auslandsschuljahr in Südafrika",
+        "institution": "",
+        "period": "1993",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Sonstige Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Groovy",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Grails sehr",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ajax sehr gute",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": ".NET",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RedDot Query Language gute Kenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Tomcat sehr",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Glassfish sehr",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OC4J gute",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:20:31.570598",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "ZERTIFIKATE",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2012"
+      ],
+      "coverage_percent": 90.625,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

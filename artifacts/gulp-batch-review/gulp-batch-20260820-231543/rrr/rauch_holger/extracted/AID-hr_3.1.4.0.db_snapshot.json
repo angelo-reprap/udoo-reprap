@@ -1,0 +1,904 @@
+{
+  "personal": {
+    "aid": "AID-hr_3.1.4.0",
+    "first_name": "Holger",
+    "last_name": "Rauch",
+    "birth_year": 1973,
+    "location": "910xx Erlangen, Deutschland",
+    "availability": "03.06.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1998,
+    "headline": "Senior Berater / technical lead TCP/IP Networking, Linux/Unix, open source, JEE Application Server, Continuous Integration (CI)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 247,
+    "certifications": 0,
+    "education": 0,
+    "experience": 22,
+    "industries": 4,
+    "focus_areas": 30,
+    "focus_experience": 61,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Fließend und verhandlungssicher in Wort und",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Informationstechnologie",
+    "Luft- und Raumfahrt",
+    "Öffentlicher Dienst",
+    "Bin jedoch auch offen für andere/weitere Branchen"
+  ],
+  "focus_areas": [
+    "Senior Berater / technical lead TCP/IP Networking Linux/Unix open source JEE Application Server Continuous Integration (CI) Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Engineering / IT-nahe Ingenieurdienstleistungen Wochenend-Pendeln ermöglicht (einfache Strecke in max. 4,5 Std. zu b",
+    "09/1999 - 07/2001: Fachinformatiker Fachrichtung Anwendungsentwicklung Abschluss: Software-Entwickler, System- und Netzwerk-Administrator Institution: HEITEC AG, Erlangen, Note: befriedigend.",
+    "Entwurf und Ausarbeitung von zwei Kurseinheiten, Erwerb der Zertifikate für den IBM Certified Advanced Technical Expert RS/6000 AIX V4.2 08/199601/1997: 1. Praxissemester Siemens AG, Bereich Medizinis",
+    "Entwicklung einer Test-Software für Computer-Tomographen und Pflege von Test-Spezifikationen Weiterbildung",
+    "ISTQB Certified Tester Foundation Level",
+    "IBM Certified Advanced Technical Expert RS/6000 AIX V4.2 Besuchte Kurse",
+    "QFTest Workshop",
+    "BEA Weblogic 9/10 System Administration",
+    "Embedded Linux und Treiber",
+    "TREND Workshop",
+    "J2EE und EJB Konzepte",
+    "XML-Kompakt (Teil I und II)",
+    "Objektorientierte Analyse und Design mit der UML",
+    "AIX Systemadministration für Fortgeschrittene",
+    "Zertifizierungs-Workshop für AIX-Fachzertifikate",
+    "JAVA Programmierung unter AIX",
+    "AIX TCP/IP Connectivity",
+    "AIX Systemadministration I und II (mit Praktikum)",
+    "Senior Berater / technical lead TCP/IP Networking",
+    "Linux/Unix",
+    "open source",
+    "JEE Application Server",
+    "Continuous Integration (CI)",
+    "Software-Entwicklung / Programmierung",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Engineering / IT-nahe Ingenieurdienstleistungen"
+  ],
+  "focus_experience": [
+    {
+      "name": "JBoss Application Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Together",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtual Box",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architektur",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microservices",
+      "category": "product_standard"
+    },
+    {
+      "name": "clean code",
+      "category": "product_standard"
+    },
+    {
+      "name": "GoF patterns",
+      "category": "product_standard"
+    },
+    {
+      "name": "Identity Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "WSO2 Identity Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Keycloak",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apereo CAS",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenID Connect",
+      "category": "product_standard"
+    },
+    {
+      "name": "OAuth2.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Methodik",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCRUM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtualisierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenVZ",
+      "category": "product_standard"
+    },
+    {
+      "name": "QEMU/KVM",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMWare Workstation",
+      "category": "product_standard"
+    },
+    {
+      "name": "VirtualBox",
+      "category": "product_standard"
+    },
+    {
+      "name": "* containerization (Docker",
+      "category": "product_standard"
+    },
+    {
+      "name": "rkt)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cloud-Technologie-Stacks",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Private cloud infrastructure basierend auf OpenStack",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenShift",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mesos/",
+      "category": "product_standard"
+    },
+    {
+      "name": "Marathon/DC-OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kubernetes",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verteilte Datei-Systeme",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenAFS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ceph",
+      "category": "product_standard"
+    },
+    {
+      "name": "Editoren/IDEs",
+      "category": "product_standard"
+    },
+    {
+      "name": "vim",
+      "category": "product_standard"
+    },
+    {
+      "name": "emacs",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "IntelliJ",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "RZ- und technische IT-Leitung inkl. Beschaffung und sizing",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Architekt",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mentoring",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fachlich-technische Personalführung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektplanung und -leitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technical consultant",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technischer Redakteur für single source publishing toolchain",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Erstellung von Konzepten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spezifikationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dokumentationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Schulungsunterlagen",
+      "category": "product_standard"
+    },
+    {
+      "name": "* System- und Netzwerk-Konzeption",
+      "category": "product_standard"
+    },
+    {
+      "name": "-Implementation",
+      "category": "product_standard"
+    },
+    {
+      "name": "-Administration und -",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dokumentation",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Weiterbildung von Mitarbeitern im Bereich der FreeBSD-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux- und",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle- Administration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Auswahl von Open-Source-Biblitheken und -Werkzeugen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software-Entwicklung (Entwurf und Implementierung von mehrschichtigen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anwendungen auf Basis von UML mit CASE tools)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Technisches release management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kundenbetreuung",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "03/2019 - 12/2019",
+      "company": "",
+      "role": "",
+      "title": "pEpMQPlugin/pEpConnector",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "04/2018 - 04/2019",
+      "company": "Bundesagentur für Arbeit",
+      "role": "Senior-Architekt für Identity Management",
+      "title": "Architektur-Beratung für das Projekt WESPE3, Nürnberg",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "02/2018 - 04/2018",
+      "company": "",
+      "role": "",
+      "title": "Arbeits-Ausfall infolge Unfalls",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "10/2017 - 02/2018",
+      "company": "Marktforschung",
+      "role": "Berater & Entwickler",
+      "title": "Update von AngularJS-Anwendungen und Weiterentwicklung",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "06/2017 - 12/2017",
+      "company": "Bank",
+      "role": "Berater, Architekt & Entwickler für Automatisierung sowie",
+      "title": "Automatisierung des Prozesses Anlage von Kafka Topics",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2016 - 06/2017",
+      "company": "FNT GmbH, Ellwangen",
+      "role": "Berater und Sub team lead für cloud infrastructure & DevOps",
+      "title": "application containerization und Cloud-Architektur von",
+      "activities": 7,
+      "technologies": 3
+    },
+    {
+      "period": "05/2015 - 11/2016",
+      "company": "Bundesagentur für Arbeit, Nürnberg",
+      "role": "CI- und Migrations-Experte",
+      "title": "Migration VAM- auf BA-Standard-Architektur",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2013 - 04/2015",
+      "company": "Bundesagentur für Arbeit, Nürnberg",
+      "role": "Berater für DevOps",
+      "title": "JEE-Migrations-Expertise für WebLogic",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "12/2012 - 07/2013",
+      "company": "Intel Mobile Communications, München",
+      "role": "CI-Experte, Entwickler & Berater für DevOps",
+      "title": "Continuous Integration (CI)-Expertise für Git/Gerrit/Jenkins",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "02/2012 - 08/2012",
+      "company": "CLEAR IT GmbH",
+      "role": "Build & Deployment- sowie IT-Infrastruktur-Manager",
+      "title": "Build & Deployment-/IT-Infrastruktur-Management, Erlangen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/2011 - 02/2012",
+      "company": "",
+      "role": "",
+      "title": "arbeitssuchend",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "07/2011 - 10/2011",
+      "company": "",
+      "role": "",
+      "title": "Ambulante OPs inkl. Reha-Maßnahmen bzw. Nachuntersuchungen",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "02/2009 - 05/2011",
+      "company": "Luftfahrt",
+      "role": "diverse",
+      "title": "RZ- und IT-Leitung inkl. Aufbau eines Firmennetzwerks",
+      "activities": 8,
+      "technologies": 2
+    },
+    {
+      "period": "04/2008 - 10/2008",
+      "company": "Informationstechnologie",
+      "role": "Systemadministrator und IT-Sicherheitsbeauftragter fur",
+      "title": "Administration zentrale FreeBSD Server",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "09/2004 - 05/2011",
+      "company": "Luftfahrt",
+      "role": "Technischer release manager, Administrator und Entwickler",
+      "title": "EMPIC-EAP",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "07/2003 - 10/2003",
+      "company": "Informationstechnologie",
+      "role": "diverse",
+      "title": "Kundenspezifische Linux-Distribution",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/2002 - 08/2004",
+      "company": "Informationstechnologie",
+      "role": "diverse",
+      "title": "DMS-Portal LHM",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "08/2001 - 10/2001",
+      "company": "Luftfahrt",
+      "role": "",
+      "title": "Single-Source-Publishing-Lösung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "08/2000 - 09/2002",
+      "company": "Luftfahrt",
+      "role": "",
+      "title": "EMPIC-FCL3",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/1999 - 07/2000",
+      "company": "Informationstechnologie",
+      "role": "",
+      "title": "Netzwerk-Administration",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "09/1999 - 07/2000",
+      "company": "Informationstechnologie",
+      "role": "",
+      "title": "SARA+med®",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/1998 - 08/1998",
+      "company": "Informationstechnologie",
+      "role": "",
+      "title": "Schulungsunterlagen",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "ArangoDB NoSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Cassandra NoSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Elasticsearch NoSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Firebird Relational",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "InterBase Relational",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MongoDB NoSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL Relational",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle Relational",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PostgreSQL Relational",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Redis NoSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Tamino XML Server Relational",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Fujitsu Siemens Prime- Power",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "HP ProCurve switches",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ProLiant DL 100er- und 300er-",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Serie",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Storage- Works 1/8 G2 autoloader",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM RS/6000",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Standard-PCs",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Sun SPARC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "AFS OpenAFS; dies ist eigentlich kein Betriebs- sondern ein verteiltes",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Dateisystem",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "FreeBSD",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "HP-UX Grundkenntnisse bis gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "je nach Schwerpunkt",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "benötigt aber",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Auffrischung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux auch embedded; primär Debian",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS in bezug auf Mac OS X gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2 Grundkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "benötigt aber Auffrischung",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix Linux und FreeBSD: sehr gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "AIX gute Kenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Compiler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C/C++ (GNU)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Swift",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rust",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Transpiler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Typescript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Interpreter",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "shell (bash",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "zsh)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ruby",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Lua",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "NodeJS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "WWW",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CSS/LESS/SASS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XSLT",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DTD",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "W3C Schema",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Relax NG Schema",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Allgemein: Unix command line tools",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Build: make",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Ant",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Maven",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Gradle",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Grunt für Java",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Gulp",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Brunch",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Broccoli",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "für JavaScript",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Memory debugging: valgrind",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "mpatrol",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Insure++",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Purify",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuous Integration: CruiseControl",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Hudson",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Jenkins",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "zentralisiert: CVS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Subversion (Zugriff über plain svn und Apache)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "verteilt: Mercurial",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    }
+  ]
+}

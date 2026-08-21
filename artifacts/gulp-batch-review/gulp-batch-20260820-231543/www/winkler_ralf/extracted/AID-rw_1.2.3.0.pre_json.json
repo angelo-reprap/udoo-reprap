@@ -1,0 +1,890 @@
+{
+  "metadata": {
+    "aid": "AID-rw_1.2.3.0",
+    "version": "1.2.3.0",
+    "consultant_dir": "winkler_ralf",
+    "first_name": "Ralf",
+    "last_name": "Winkler",
+    "headline": "Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:09:13.069224"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Ralf",
+      "last_name": "Winkler",
+      "birth_year": 1960,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "18.01.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "707xx Leinfelden-Echterdingen, Deutschland",
+      "headline": "Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)",
+      "edv_experience_since": 2013
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "MySQL",
+        "Alpha",
+        "Ascii/X - Terminals",
+        "CD-Writer / Brenner",
+        "Digital",
+        "Drucker an Druckerserver",
+        "HP",
+        "IBM RS6000",
+        "Motorola",
+        "PC vom Zusammbau bis zur Benutzung",
+        "Scanner",
+        "Silicon-Graphics",
+        "Streamer",
+        "SUN E 10 K",
+        "SSP",
+        "Cisco Switches and Router"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "HPUX Version 10 und Version 11",
+        "IRIX",
+        "Mac OS 10.5",
+        "MS-DOS",
+        "SUN OS",
+        "Solaris 2.6",
+        "2.7",
+        "2.8",
+        "2.9 auf Sun und Intel Hardware",
+        "SUSE Linux Enterprise Server",
+        "Unix SCO",
+        "Linux (Debian",
+        "SuSe und Red Hat)",
+        "Windows 3.x",
+        "95",
+        "NT",
+        "XP"
+      ],
+      "programming_languages": [
+        "Ansible",
+        "Assembler",
+        "Cobol",
+        "Java",
+        "JavaScript",
+        "SaltStack",
+        "Shell C-Shell",
+        "K-Schell",
+        "Bash",
+        "HTML"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "02/2020 - 11/2020",
+        "company": "IBM Deutschland Research and Development GmbH",
+        "title": "Unterstützung im Betrieb von CentOS, Remote",
+        "role": "Administrator",
+        "activities": [
+          "Aufgaben:",
+          "CentOS 7 und RedHat 8 mit OpenStack und ceph Cluster, SaltStack Konfigurations Management",
+          "Management",
+          "Aufbau eines RedHat OpenShift Cluster auf Baremetal als PoC",
+          "Netzwerkkonfiguration mit Bonding, Vlan und Vxlan sowie Konfiguration von managed Switches",
+          "Installieren von Security Patches",
+          "Unterstützung bei Salt-Scripten",
+          "Unterstützung bei der Fehlersuche und Analyse",
+          "Unterstützung im Betrieb von CentOS"
+        ],
+        "industry": "Informationstechnologie",
+        "location": "remote",
+        "technologies": [
+          "CentOS 7",
+          "RedHat 8",
+          "OpenStack",
+          "ceph Cluster",
+          "SaltStack",
+          "RedHat OpenShift",
+          "Baremetal",
+          "Bonding",
+          "Vlan",
+          "Vxlan",
+          "managed Switches"
+        ]
+      },
+      {
+        "period": "05/2019 - 01/2020",
+        "company": "BWI GmbH",
+        "title": "SUSE Enterprise Lifecycle Management mit SUSE Manager, Wilhelmshaven und Remote",
+        "role": "Administrator",
+        "technologies": [
+          "SUSE Linux Enterprise Server",
+          "SUSE Manager",
+          "RedHat",
+          "SaltStack"
+        ],
+        "activities": [
+          "Aufgaben: use SLES diverse Release Stände, Suse Manager 3 und 4, RedHat",
+          "Erstellung Benutzerkonzept im Lifecycle Management",
+          "Troubleshooting Lifecycle",
+          "Härten von Systemen",
+          "Unterstützung bei der Erstellung von SaltStack Skripten",
+          "Machbarkeits Analysen im Lifecycle",
+          "SUSE Enterprise Lifecycle Management mit SUSE Manager"
+        ],
+        "industry": "Öffentlicher Dienst",
+        "location": "Wilhelmshaven und Remote"
+      },
+      {
+        "period": "05/2017 - 04/2019",
+        "company": "Sparkassen Versicherung",
+        "title": "Systemadministration und L2 Support, Stuttgart und Remote",
+        "role": "Administrator",
+        "activities": [
+          "Aufgaben:",
+          "Suse SLES 10 SP3, Suse SLES 11 SP1 bis SP4, Suse SLES 12 SP1 bis SP4, Suse",
+          "Manager 3, RedHat 7",
+          "Allgemeine Administrations Aufgaben",
+          "Lifecycle Management",
+          "Service Pack Upgrades",
+          "Distriburtions Upgrades",
+          "Härten von Systemen",
+          "Systemadministration und L2 Support"
+        ],
+        "industry": "Versicherung",
+        "location": "Stuttgart und Remote",
+        "technologies": [
+          "Suse SLES 10 SP3",
+          "Suse SLES 11 SP1 bis SP4",
+          "Suse SLES 12 SP1 bis SP4",
+          "Suse Manager 3",
+          "RedHat 7"
+        ]
+      },
+      {
+        "period": "01/2017 - 04/2017",
+        "company": "Finanz Informatik Technologis Service GmbH",
+        "title": "Systemadministration im Risk-Management Bereich, Stuttgart",
+        "role": "Ad",
+        "activities": [
+          "Aufgaben:",
+          "Red Hat ES 5 und ES 6, Solaris 11",
+          "Allgemeine Administrations Aufgaben",
+          "Tomcat 8 installieren und konfigurieren",
+          "Schreiben von Scripten",
+          "Ausführen von SQL Befehlen in der Oracle-Datenbank Bedienung des Veritas Cluster auf den Solaris Maschinen",
+          "Computer-Forensik nach vermuteten Einbruch",
+          "Empfehlungen um die Computer Sicherheit zu erhöhen"
+        ],
+        "industry": "Finanzdienstleistungen",
+        "location": "Stuttgart",
+        "technologies": [
+          "Red Hat ES 5",
+          "Red Hat ES 6",
+          "Solaris 11",
+          "Tomcat 8",
+          "SQL",
+          "Oracle-Datenbank",
+          "Veritas Cluster"
+        ]
+      },
+      {
+        "period": "07/2016 - 12/2016",
+        "company": "BWI Systeme GmbH",
+        "title": "Systemadministration von SUSE Linux, Wilhelmshaven (D- 26384, D-26382, D-26388, D-26386, D-26389)",
+        "role": "Administrator",
+        "activities": [
+          "Aufgaben:",
+          "SuSe Sle 11 SP4 und Sle 12 SP1, Red Hat ES 6 und ES 7",
+          "Allgemeine Administrations Aufgaben",
+          "Tomcat Unterstützung",
+          "2nd Level Support",
+          "Red Hat Satellite Server Version 5",
+          "Patchen von Systemen mit zypper, yum und rpm",
+          "Distributions Upgrade SLES 11.4 nach SLES 12.1",
+          "Systemadministration von SUSE Linux"
+        ],
+        "location": "Wilhelmshaven",
+        "technologies": [
+          "SUSE Linux",
+          "SuSe Sle 11 SP4",
+          "Sle 12 SP1",
+          "Red Hat ES 6",
+          "Red Hat ES 7",
+          "Tomcat",
+          "Red Hat Satellite Server Version 5",
+          "zypper",
+          "yum",
+          "rpm"
+        ]
+      },
+      {
+        "period": "07/2014 - 03/2016",
+        "company": "Versicherungskammer Bayern",
+        "title": "Systemadministration und Lifecycle-Management, München",
+        "role": "Administrator",
+        "activities": [
+          "Aufgaben:",
+          "Systemadministration von SLES 9 (SP2 und SP4), SLES 10 (SP1 – SP4), SLES 11(SP1 – SP4)",
+          "Enterprise Version 4 und Version 5 auf VMWare und x86 Hardware, VMWare Version",
+          "Linux-Systemadministrator",
+          "– SP4).",
+          "Einführung von Red Hat Enterprise im normalen Unternehmenseinsatz.",
+          "Systemadministration und Lifecycle-Management"
+        ],
+        "industry": "Versicherung",
+        "location": "München",
+        "technologies": [
+          "SLES 9",
+          "SLES 10",
+          "SLES 11",
+          "Red Hat Enterprise Version 4",
+          "Red Hat Enterprise Version 5",
+          "VMWare Version 5"
+        ]
+      },
+      {
+        "period": "10/2013 - 12/2014",
+        "company": "GaVI mbH",
+        "title": "Systemadministration von Linux Systemen, Stuttgart",
+        "role": "Systemadministrator",
+        "technologies": [
+          "Suse Sles 9 - 11",
+          "Red Hat Enterprise Linux Version 5",
+          "TSM Backup",
+          "SLES 10",
+          "SLES 11",
+          "Red Hat Enterprise Linux Version 4"
+        ],
+        "activities": [
+          "Geschäftsstelle: Stuttgart",
+          "Unternehmensgröße: 101-500",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Systemadministration von SLES 9 (SP2 und SP4), SLES 10 (SP1 SP4), SLES 11(SP1 SP3).",
+          "Systemadministration von Red Hat Enterpise Version 4 und Version 5.",
+          "Neuaufbau von SLES 11 SP3 und RH Enterprise Version 5 System."
+        ],
+        "industry": "IT-Dienstleistungen",
+        "location": "Stuttgart"
+      },
+      {
+        "period": "10/2013 - 06/2014",
+        "company": "GaVI GmbH",
+        "title": "Systemadministration von SUSE Linux, Stuttgart",
+        "role": "Administrator",
+        "activities": [
+          "Aufgaben:",
+          "Systemadministration von SLES 9 (SP2 und SP4), SLES 10 (SP1 – SP4), SLES 11(SP1 – SP3).",
+          "– SP3).",
+          "Einführung von Red Hat Enterprise im normalen Unternehmenseinsatz.",
+          "Systemadministration von Red Hat Enterpise Version 4 und Version 5.",
+          "Neuaufbau von SLES 11 SP3 und RH Enterprise Version 5 System.",
+          "Erstellen von System-Templates für VM Ware.",
+          "Patchen von Systemen ohne und mit SuSe SMT Server."
+        ],
+        "location": "Stuttgart",
+        "technologies": [
+          "SUSE Linux",
+          "SLES 9",
+          "SLES 10",
+          "SLES 11",
+          "Red Hat Enterprise",
+          "Red Hat Enterprise Version 4",
+          "Red Hat Enterprise Version 5",
+          "VM Ware",
+          "SuSe SMT Server"
+        ]
+      },
+      {
+        "period": "08/2013 - 09/2013",
+        "company": "BWI Informationstechnik Gesellschaft mit beschränkter",
+        "title": "Erstellen von Sicherheitsrichtlinien für Apache, Tomcat und, Strausberg",
+        "role": "Sicherheits Berater",
+        "technologies": [
+          "Compaq Alpha Systeme",
+          "Sun Computer (E250)",
+          "spaeter 8 Domainen",
+          "A5000 Plattenarrays",
+          "SuSe Linux",
+          "Windows Rechner",
+          "Einrichten eines Linux-Rechners als Samba-Server",
+          "Print-Server",
+          "Aufgabe war es",
+          "Test",
+          "auf HP-UX",
+          "ca. 1000 Server",
+          "Debian Linux",
+          "Sun Server (Ultra 80 bis SunFire 25K)",
+          "AIX Server",
+          "HP-Server",
+          "R&D fuer Linux Loesungen",
+          "(Office",
+          "Monitoring)",
+          "Sun Rechner",
+          "DL380",
+          "Hauptaufgabe ist Security",
+          "Clustern",
+          "SLES 9",
+          "SLES 10",
+          "Mainframe (z/Linux)",
+          "JBoss",
+          "VMWare V4",
+          "F5 Loadbalancer",
+          "ITIL",
+          "F5 Big IP",
+          "Umleitungen aktivieren/",
+          "Apache",
+          "Tomcat",
+          "Websphere"
+        ],
+        "activities": [
+          "Erstellen von Sicherheitsrichtlinien für Apache, Tomcat und Websphere für das Projekt Hercules",
+          "Haftung",
+          "Unternehmensgröße: > 1000",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Erstellen von Vorgaben und Checklisten für die Sicherheitsüberprüfung von Apache, Tomcat und IBM Websphere für den Einsatz bei der Bundeswehr. Eingesetzte Produkte:",
+          "Apache, Tomcat, Websphere",
+          "===================================================== =========================="
+        ],
+        "industry": "IT-Dienstleistungen",
+        "location": "Strausberg"
+      }
+    ],
+    "industries": [
+      "Versicherungen",
+      "Telekommunikation",
+      "Wertpapier",
+      "Automobile Hersteller"
+    ],
+    "focus_areas": [
+      "Unix- und Netzwerk-Administrator fuer Linux/Unix mit Erfahrung im Monitoring (Nagios) sowie Aufbau und der Administration von Firewalls (Checkpoint)",
+      "Beratung / Consulting",
+      "Administration / Support",
+      "Unix- und Netzwerk-Administrator fuer Linux/Unix",
+      "Monitoring (Nagios)",
+      "Aufbau und Administration von Firewalls (Checkpoint)"
+    ],
+    "focus_experience": [
+      {
+        "name": "Apache Tomcat",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Red Hat Satellite Server Version 5",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "SUSE Manager",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Produkte:",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Sun Solaris",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Sun Management Center",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "HP-UX",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "AIX",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Veritas Volume Manager",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Veritas NetBackup",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "SCO",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Linux Debian",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Suse und Red Hat",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Linux Cluster",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Checkpoint Firewall-1 Version 4.0",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "NG und NGX (R65)",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Netscape / iPlanet Web-Server",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Apache",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "HA Cluster",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "diverse Open Source Produkte zur Ueberwachung von Rechnern und Netzwerken",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Nagios",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Munin",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "IBM WebSphere Server 5",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "6 und 7",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Tomcat 6 und 7",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Sicherheitsüberprüfungen",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Penetration Test",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "WebSite Aufbau",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Wartung",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Design (Internet",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "HTTP",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "TCP/IP)",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Suse",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Red Hat",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Checkpoint Firewall-1 NG",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Checkpoint Firewall-1 NGX (R65)",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "IBM WebSphere Server 6",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "IBM WebSphere Server 7",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Tomcat 6",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Tomcat 7",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Sun Computer (E10K)",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Solaris 2.6",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Compaq Alpha Systeme",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Digital Unix",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "HP G-Klasse",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "H-Klasse",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "HP-UX 10",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Sun Computer (E250)",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Solaris 2.7",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Sun E10K",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "A5000 Plattenarrays",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Solaris 2.8",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Samba-Server",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Red Hat AS 2.1",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "SuSe AS 8",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Tivolo",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Sun R280",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Sun Solaris 2.9",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "OpenIngres Datenbank",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "Dell 380 Server",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Dell 360",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Debian Linux",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Sun Server (Ultra 80 bis SunFire 25K)",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "SLES 9",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "SLES 10",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "SLES11",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "CentOS Version 4.8",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "HP DL380",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Xen",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "VMWare",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Red Hat Fedora 13",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Check Point Firewall R65",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "JBoss",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "VMWare V4",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "F5 Loadbalancer",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "ITIL",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "F5 Big IP Loadbalancer",
+        "category": "product_standard",
+        "sort_order": 77
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RS232",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UUCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "DNS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "DHCP",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:09:13.069236",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2013"
+      ],
+      "coverage_percent": 84.4632768361582,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

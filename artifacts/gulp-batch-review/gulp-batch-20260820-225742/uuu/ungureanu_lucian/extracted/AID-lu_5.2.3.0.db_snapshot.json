@@ -1,0 +1,823 @@
+{
+  "personal": {
+    "aid": "AID-lu_5.2.3.0",
+    "first_name": "Lucian",
+    "last_name": "Ungureanu",
+    "birth_year": 1978,
+    "location": "Deutschland",
+    "availability": "16.05.14 zu 100%, Vor-Ort-Einsatz 30% möglich",
+    "edv_experience_since": 2000,
+    "headline": "Senior Netzwerk Berater Mobilkommunikation CCIE#21701",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 112,
+    "certifications": 0,
+    "education": 7,
+    "experience": 8,
+    "industries": 2,
+    "focus_areas": 16,
+    "focus_experience": 61,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Rumänisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Project Management",
+      "institution": "Siemens Management Centre",
+      "period": "01.12.2006 - 21.12.2006",
+      "education_type": "course"
+    },
+    {
+      "degree": "SNPA - Securing Networks with PIX and ASA",
+      "institution": "Cisco",
+      "period": "01.12.2008 - 01.12.2008",
+      "education_type": "course"
+    },
+    {
+      "degree": "Cisco Certified Internetwork Expert",
+      "institution": "",
+      "period": "01.01.2006 - 08.08.2008",
+      "education_type": "course"
+    },
+    {
+      "degree": "Linux Professional (LPIC-1)",
+      "institution": "",
+      "period": "01.01.2010 - 01.09.2010",
+      "education_type": "course"
+    },
+    {
+      "degree": "HP ProCurve Campus LANs",
+      "institution": "",
+      "period": "01.09.2010 - 13.12.2010",
+      "education_type": "course"
+    },
+    {
+      "degree": "College of Computers Science - Computers technologies",
+      "institution": "Transylvania University of Brasov, Romania",
+      "period": "15.09.1997 - 30.06.2000",
+      "education_type": "course"
+    },
+    {
+      "degree": "University of Mathematics and Computers - specialization Software developer",
+      "institution": "Transylvania University of Brasov, Romania",
+      "period": "15.09.1999 - 30.06.2004",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Mobile Kommunikation - - PS Core 3G (UMTS) and 4G (Lte)",
+    "Mobile Kommunikation"
+  ],
+  "focus_areas": [
+    "Senior Netzwerk Berater Mobilkommunikation CCIE#21701",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Engineering / IT-nahe Ingenieurdienstleistungen Mobile Telecommunication 4G Lte bewegen sich bei 80.000 Euro pro Jahr 15.09.1999 - 30.06.2004",
+    "Programming Knowledge: Programming C/C++ , Java (JBuilder), Networking, Algorithm optimizations 15.09.1997 - 30.06.2000 Transylvania University of Brasov, Romania, College of Computers Science - Compu",
+    "RISK MANAGEMENT",
+    "PLANNING && DEVELOPMENT",
+    "EXECUTION",
+    "MONITORING && CONTROLING",
+    "PROJ. MANAGEMENT, TOOLS,TECHNOLOGIES",
+    "RESOURCE PLANNING",
+    "COMMUNICATION",
+    "Senior Netzwerk Berater Mobilkommunikation",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Engineering / IT-nahe Ingenieurdienstleistungen",
+    "Mobile Telecommunication 4G Lte"
+  ],
+  "focus_experience": [
+    {
+      "name": "* Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "planning and architecture of SGSN",
+      "category": "product_standard"
+    },
+    {
+      "name": "GGSN",
+      "category": "product_standard"
+    },
+    {
+      "name": "PCRF",
+      "category": "product_standard"
+    },
+    {
+      "name": "MME",
+      "category": "product_standard"
+    },
+    {
+      "name": "S/P-GW",
+      "category": "product_standard"
+    },
+    {
+      "name": "IMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "OCS and RADIUS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Expertise with LTE Core Network",
+      "category": "product_standard"
+    },
+    {
+      "name": "related interfaces (S1",
+      "category": "product_standard"
+    },
+    {
+      "name": "S1u",
+      "category": "product_standard"
+    },
+    {
+      "name": "S6a",
+      "category": "product_standard"
+    },
+    {
+      "name": "S11) and protocols (GTPv2",
+      "category": "product_standard"
+    },
+    {
+      "name": "S1AP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Diameter stack)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Expertise PCRF/IMS and Gx",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gxx",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rx interface",
+      "category": "product_standard"
+    },
+    {
+      "name": "Expertise with Prepaid charging methodology as well as with",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prepaid interfaces / Protocols (Diameter",
+      "category": "product_standard"
+    },
+    {
+      "name": "GTP'",
+      "category": "product_standard"
+    },
+    {
+      "name": "Radius",
+      "category": "product_standard"
+    },
+    {
+      "name": "including",
+      "category": "product_standard"
+    },
+    {
+      "name": "content billing features (Deep Packet Inspection techniques)",
+      "category": "product_standard"
+    },
+    {
+      "name": "CG and",
+      "category": "product_standard"
+    },
+    {
+      "name": "OCS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Network / Security Audits. Expert in Security Concepts used within",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mobile PS Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Deep extendable knowledge about IP related VAS platforms (WAPGW",
+      "category": "product_standard"
+    },
+    {
+      "name": "MMSC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Video-Streaming) and mobile data optimization",
+      "category": "product_standard"
+    },
+    {
+      "name": "Good experience with the Protocol Emulators and with the Analysis",
+      "category": "product_standard"
+    },
+    {
+      "name": "of the Results from functional tests",
+      "category": "product_standard"
+    },
+    {
+      "name": "load tests and Network KPI",
+      "category": "product_standard"
+    },
+    {
+      "name": "(including TCP/HTTP/RTSP/MMS/WAP1.x analysis and related Statistics)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Extensive experience and knowledge of DPI (deep packet inspection",
+      "category": "product_standard"
+    },
+    {
+      "name": "-> L7+) and lab test equipment including Protocol Analyzers",
+      "category": "product_standard"
+    },
+    {
+      "name": "Traffic",
+      "category": "product_standard"
+    },
+    {
+      "name": "Generators and Application Simulator",
+      "category": "product_standard"
+    },
+    {
+      "name": "Expert in GGSN and S/P-GW Load and Stability tests using Landslide",
+      "category": "product_standard"
+    },
+    {
+      "name": "from Spirent and IXIA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Consultant in Multivendor IOTs at Mobile Customers Site.",
+      "category": "product_standard"
+    },
+    {
+      "name": "TAC Support and Customer Consulting for Mobile Packet Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "products ( Cisco CMX",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCE8K DPI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nokia FlexiISN",
+      "category": "product_standard"
+    },
+    {
+      "name": "FlexiNG",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sandvine",
+      "category": "product_standard"
+    },
+    {
+      "name": "Suite).",
+      "category": "product_standard"
+    },
+    {
+      "name": "Database Planning for all Cisco platforms used within CMX Solution",
+      "category": "product_standard"
+    },
+    {
+      "name": "for 2G/3G Mobile Networks (SAMI/CSG/GGSN/SSG based on",
+      "category": "product_standard"
+    },
+    {
+      "name": "7200/6500/7613/Sup720/MWAM/SAMI/CSM Hw) and in depth experience with",
+      "category": "product_standard"
+    },
+    {
+      "name": "ASR9K and Cisco IOS XR",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Commissioning",
+      "category": "product_standard"
+    },
+    {
+      "name": "Installation and Troubleshooting of Juniper Junos",
+      "category": "product_standard"
+    },
+    {
+      "name": "Networks on EX4500 and MX960 Ethernet Switches",
+      "category": "product_standard"
+    },
+    {
+      "name": "Installation and commissioning for the Cisco Service Engine",
+      "category": "product_standard"
+    },
+    {
+      "name": "(SCE8000)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco Subscriber Manager and Cisco Collection Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "Emergency support 24h/day for Cisco CMX products and NSN",
+      "category": "product_standard"
+    },
+    {
+      "name": "FlexiISN/GGSN",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "k.A.",
+      "company": "Vodafone, O2 Telefonica and E-Plus",
+      "role": "",
+      "title": "Project Germany, Germany",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "TWM",
+      "role": "",
+      "title": "Project China CMCC, Taiwan, China CMCC, Taiwan",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "VHA",
+      "role": "",
+      "title": "Project Australia, Australia",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "SFR",
+      "role": "",
+      "title": "Project France, France",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "Elisa",
+      "role": "",
+      "title": "Project Finnland, Finnland",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "Telus and TIM",
+      "role": "",
+      "title": "Project Brazil, Brazil",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "Barthi",
+      "role": "",
+      "title": "Project India, India",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "k.A.",
+      "company": "KT and SKT",
+      "role": "",
+      "title": "Project Korea, Korea",
+      "activities": 1,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Internet Technologies : Extensive experience with Cisco equipments",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Protocols & Services",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Security",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Network Area ( LAN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "WAN)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Network",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Technologies (Cable Modems",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Routing/Switching",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VPN)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Routers/Switches. Very knowledgeable with routing protocols (BGP/",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IS-IS/ OSPF/ EIGRP)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MPLS VPNs",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Layer 2/3 security. Extensive",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "experience with Cisco medium hardware platforms (such as the 7600 and",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "6500 series)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper (EX4500 and MX960) and various security",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "appliances",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Competencies: I have hands-on experience and knowledge of lab test",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "equipment including Protocol Analyzers",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Traffic Generators",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Application Simulator tools combined with strong technical skills and",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "depth knowledge of IP networks and networking protocols (WAN and LAN)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "and the last but not the least I have the ability to handle critical &",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "stressful situations",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "to successful support the project",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Systems: Operating System environments (Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "FreeBSD",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IPSO",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix) together with most popular network application and system",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "daemons in standalone and cluster base configurations",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Programming Languages: C/C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java (Jbuilder)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Internet Language: HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Design",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "GGSN",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "PCRF",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "IMS",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "S5",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "S4",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Radius",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "OCS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MMSC",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Traffic",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "FlexiNG",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "planning and architecture of SGSN",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MME",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "S/P-GW",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OCS and RADIUS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Expertise with LTE Core Network",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "related interfaces (S1",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "S1u",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "S6a",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "S11) and protocols (GTPv2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "S1AP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Diameter stack)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Expertise PCRF/IMS and Gx",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Gxx",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Rx interface",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Expertise with Prepaid charging methodology as well as with",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Prepaid interfaces / Protocols (Diameter",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "GTP'",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "including",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "content billing features (Deep Packet Inspection techniques)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "CG and",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Network / Security Audits. Expert in Security Concepts used within",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Mobile PS Core",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Deep extendable knowledge about IP related VAS platforms (WAPGW",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Video-Streaming) and mobile data optimization",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Good experience with the Protocol Emulators and with the Analysis",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "of the Results from functional tests",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "load tests and Network KPI",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "(including TCP/HTTP/RTSP/MMS/WAP1.x analysis and related Statistics)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Extensive experience and knowledge of DPI (deep packet inspection",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "> L7+) and lab test equipment including Protocol Analyzers",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Generators and Application Simulator",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

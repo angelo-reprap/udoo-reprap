@@ -59,9 +59,11 @@ cd "$BACKEND"
 [[ -f /opt/abpe/venv311/bin/activate ]] && source /opt/abpe/venv311/bin/activate
 export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 export REPO AID_ROOT NEED FAILS TXT_DIR WEB_COPY OUT_DIR SKIP_PERSON_DIR OUT_LOG LIMIT EXECUTE MIN_LEN VERSION_TAG
+# Optional offline gulp text (by-person/ oder txt/)
+export GULP_TXT_ROOT="${GULP_TXT_ROOT:-}"
 
 python3 manage.py shell <<'PY'
-import os, re, html, subprocess, tempfile, shutil, json
+import errno, os, re, html, subprocess, tempfile, shutil, json, time
 from pathlib import Path
 from django.apps import apps
 
@@ -70,6 +72,7 @@ AID_ROOT = Path(os.environ["AID_ROOT"])
 NEED = (os.environ.get("NEED") or "").strip()
 FAILS = (os.environ.get("FAILS") or "").strip()
 TXT_DIR = (os.environ.get("TXT_DIR") or "").strip()
+GULP_TXT_ROOT = (os.environ.get("GULP_TXT_ROOT") or "").strip()
 WEB_COPY = (os.environ.get("WEB_COPY") or "").strip()
 OUT_DIR = (os.environ.get("OUT_DIR") or "").strip()
 SKIP_PERSON_DIR = os.environ.get("SKIP_PERSON_DIR", "0") in ("1", "true", "TRUE", "yes")
@@ -128,9 +131,85 @@ def letter_bucket(dir_name: str, last_name: str = "") -> str:
     return (ch * 3) if ch else "zzzSONSTIGES"
 
 
+def install_pdf(src: Path, dest: Path) -> Path:
+    """PDF nach dest legen; bei CIFS/SMB EBUSY auf freien AID-*_a.b.c.d.pdf-Namen ausweichen.
+
+    Windows-Handles auf dem Share blockieren oft open(dest,'wb')/unlink — neuer Name geht.
+    """
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    part = dest.with_name(dest.name + ".part")
+    try:
+        if part.exists():
+            part.unlink()
+    except OSError:
+        pass
+    shutil.copy2(src, part)
+
+    def _busy(err: OSError) -> bool:
+        return getattr(err, "errno", None) in (errno.EBUSY, errno.EPERM, 16)
+
+    try:
+        os.replace(part, dest)
+        return dest
+    except OSError as e1:
+        try:
+            if dest.exists():
+                dest.unlink()
+            os.replace(part, dest)
+            return dest
+        except OSError as e2:
+            e1 = e2
+        # Fallback: AID-{ini}_{ver}.pdf → letzte Versionsziffer erhöhen (get_best_pdf-tauglich)
+        m = re.match(r"^(AID-[A-Za-z0-9]+)_(.+)\.pdf$", dest.name, re.I)
+        if m:
+            prefix, ver = m.group(1), m.group(2)
+            parts = ver.split(".")
+            if len(parts) >= 1 and parts[-1].isdigit():
+                base_n = int(parts[-1])
+                for bump in range(1, 40):
+                    alt_ver = ".".join(parts[:-1] + [str(base_n + bump)]) if len(parts) > 1 else str(base_n + bump)
+                    alt = dest.with_name(f"{prefix}_{alt_ver}.pdf")
+                    try:
+                        os.replace(part, alt)
+                        print(f"  WARN: Ziel busy ({dest.name}, errno={getattr(e1, 'errno', '?')}) → {alt.name}")
+                        return alt
+                    except OSError:
+                        try:
+                            shutil.copy2(src, alt)
+                            try:
+                                part.unlink()
+                            except OSError:
+                                pass
+                            print(f"  WARN: Ziel busy ({dest.name}) → {alt.name}")
+                            return alt
+                        except OSError:
+                            continue
+            ts = time.strftime("%H%M%S")
+            if len(parts) >= 3:
+                alt = dest.with_name(f"{prefix}_{'.'.join(parts[:3])}.{ts}.pdf")
+            else:
+                alt = dest.with_name(f"{prefix}_{ver}.{ts}.pdf")
+            try:
+                if part.exists():
+                    os.replace(part, alt)
+                else:
+                    shutil.copy2(src, alt)
+                print(f"  WARN: Ziel busy ({dest.name}) → {alt.name}")
+                return alt
+            except OSError as e3:
+                raise OSError(
+                    f"PDF-Install fehlgeschlagen (busy?): dest={dest} err={e1!r} alt={e3!r}"
+                ) from e3
+        raise OSError(f"PDF-Install fehlgeschlagen: dest={dest} err={e1!r}") from e1
+
+
 def find_existing_person_dir(root: Path, dir_name: str):
     name = (dir_name or "").strip().strip("/")
     if not name or not root.is_dir():
+        return None
+    # Refuse bogus dirs from shifted TSV (e.g. "0")
+    if name.isdigit():
         return None
     hits = []
     try:
@@ -265,6 +344,31 @@ def cstm_text(cid: str, gulp_id: str = "") -> str:
     return (getattr(st, "gulp_profil_c", None) or "").strip() if st else ""
 
 
+def resolve_offline_txt(letter: str, dname: str, cid: str = "") -> str:
+    """GULP_TXT_ROOT: by-person/{letter}/{dir}/gulp_profil_c.txt oder txt/{letter}__{dir}.txt."""
+    root = Path(GULP_TXT_ROOT) if GULP_TXT_ROOT else None
+    if not root or not root.is_dir() or not dname:
+        return ""
+    cands = []
+    if letter:
+        cands.append(root / "by-person" / letter / dname / "gulp_profil_c.txt")
+        cands.append(root / "txt" / f"{letter}__{dname}.txt")
+    # Letter-Fallback: flache txt + by-person/*/dir
+    cands.append(root / "txt" / f"{dname}.txt")
+    bp = root / "by-person"
+    if bp.is_dir():
+        for sub in bp.iterdir():
+            if sub.is_dir():
+                cands.append(sub / dname / "gulp_profil_c.txt")
+    for p in cands:
+        try:
+            if p.is_file() and p.stat().st_size >= MIN_LEN:
+                return str(p)
+        except OSError:
+            continue
+    return ""
+
+
 # ── Jobs sammeln ────────────────────────────────────────────────────────────
 jobs = []
 if TXT_DIR and Path(TXT_DIR).is_dir():
@@ -311,6 +415,19 @@ elif NEED and Path(NEED).is_file():
                 "txt_path": "",
             }
         )
+        # Guard shifted TSV / digit-only dir
+        if not p[6] or str(p[6]).isdigit() or (
+            "_" not in str(p[6]) and p[3] and p[4]
+        ):
+            jobs[-1]["fs_dir"] = slug_name(p[3], p[4])
+        if not re.fullmatch(r"(?:sch|[a-z]{3}|zzzSONSTIGES)", str(p[5] or "")):
+            jobs[-1]["fs_letter"] = letter_bucket(jobs[-1]["fs_dir"], p[3])
+        # Offline-TXT wenn vorhanden (kein CRM-Hit unter DB-Last)
+        offline = resolve_offline_txt(
+            jobs[-1]["fs_letter"], jobs[-1]["fs_dir"], jobs[-1]["contact_id"]
+        )
+        if offline:
+            jobs[-1]["txt_path"] = offline
 elif FAILS and Path(FAILS).is_file():
     for i, line in enumerate(Path(FAILS).read_text(encoding="utf-8").splitlines()):
         if i == 0 or not line.strip():
@@ -384,11 +501,28 @@ for j in jobs:
     profile = gclean.clean_gulp_profile(
         text, first=first, last=last, version=VERSION_TAG, max_activities=8
     )
+    n_exp = len(profile.get("experience") or [])
+    print(f"  clean: experience={n_exp} snapshot={profile.get('snapshot_chars')} aid={profile.get('aid_name')}")
+    if n_exp == 0:
+        # Diagnose: Projekte-Body vorhanden?
+        try:
+            snap = gclean.strip_noise_lines(
+                gclean.cut_after_projects_footer(gclean.latest_snapshot(text))
+            )
+            _, pbody = gclean._carve_projekte(snap)
+            if len(pbody) > 200:
+                print(
+                    f"  WARN: Projekte-Body={len(pbody)} chars aber experience=0 "
+                    f"— Format noch nicht erkannt ({dname})"
+                )
+        except Exception as e:
+            print(f"  WARN: projekte-diagnose failed: {e}")
     if profile.get("gulp_id") and not j.get("gulp_id"):
         j["gulp_id"] = profile["gulp_id"]
     aid = profile.get("aid_name") or f"AID-{ini}_{VERSION_TAG}"
     ini = aid.split("_", 1)[0].replace("AID-", "") if aid.startswith("AID-") else ini
-    pdf_name = f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
+    # Person-Dir: sauberer AID-Name für get_best_pdf / Pipeline
+    pdf_name = f"AID-{ini}_{VERSION_TAG}.pdf"
     target = person_dir / pdf_name
     html_doc = gclean.profile_to_html(
         profile, display_title=f"{last}, {first}".strip(", ") or aid
@@ -397,7 +531,7 @@ for j in jobs:
     web = ""
     with tempfile.TemporaryDirectory(prefix="gulp2aid_") as td:
         td_path = Path(td)
-        html_stem = f"AID-{ini}_{VERSION_TAG}-gulp"
+        html_stem = f"AID-{ini}_{VERSION_TAG}"
         if OUT_DIR:
             html_stem = f"AID-{ini}_{VERSION_TAG}-gulp-{dname}"[:120]
             pdf_name = f"{html_stem}.pdf"
@@ -416,13 +550,15 @@ for j in jobs:
         written = []
         if not SKIP_PERSON_DIR and not OUT_DIR:
             person_dir.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(pdf, target)
-            written.append(str(target))
+            placed = install_pdf(pdf, target)
+            pdf_name = placed.name
+            written.append(str(placed))
         elif not SKIP_PERSON_DIR and OUT_DIR:
             person_dir.mkdir(parents=True, exist_ok=True)
-            person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}-gulp.pdf"
-            shutil.copy2(pdf, person_pdf)
-            written.append(str(person_pdf))
+            person_pdf = person_dir / f"AID-{ini}_{VERSION_TAG}.pdf"
+            placed = install_pdf(pdf, person_pdf)
+            pdf_name = placed.name
+            written.append(str(placed))
         if OUT_DIR:
             odir = Path(OUT_DIR)
             odir.mkdir(parents=True, exist_ok=True)

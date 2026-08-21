@@ -1,0 +1,579 @@
+{
+  "personal": {
+    "aid": "AID-rm_1.1.2.0",
+    "first_name": "Ramadan",
+    "last_name": "Mohamed",
+    "birth_year": 1958,
+    "location": "808xx München, Deutschland",
+    "availability": "01.03.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1977,
+    "headline": "Kommentar: • Enterpriseadministrator MCITP, MCSA, MCTS, VMWare",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 34,
+    "certifications": 0,
+    "education": 0,
+    "experience": 16,
+    "industries": 0,
+    "focus_areas": 90,
+    "focus_experience": 33,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Arabisch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Deutsch fließend in Wort und Schrift",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "Kommentar: • Enterpriseadministrator MCITP, MCSA, MCTS, VMWare",
+    "Netzwerkadministrator MCSE, MCP",
+    "MCITP",
+    "MCSA",
+    "MCTS",
+    "MS Server 2008",
+    "Active Directory",
+    "Windows 7",
+    "02/2009 08/2009",
+    "Drexler Seminare, München",
+    "Weiterbildung zum Netzwerkadministrator",
+    "MCSE",
+    "MS Server 2003 R2",
+    "Linux lpic 1 junior level certification",
+    "Netzwerktechnik",
+    "Planung",
+    "Optimierung",
+    "Projektmanagement",
+    "01/2006 06/2006",
+    "DEKRA-AKADEMIE, München",
+    "Weiterbildung Business English",
+    "SAP/R3 Basismodul",
+    "Meetings",
+    "Negotiations",
+    "Intermediate Commercial Correspondence",
+    "Linux Ubuntu",
+    "MS Office 2003, 2007, 2010 und 2013",
+    "Windows XP,Vista,7,8,10",
+    "Oracel",
+    "Datenbankanwendungen:",
+    "Haussoft (Software für die Hausverwaltungen, DB Basis SQL)",
+    "IBM Lotus Notes 7/8.5",
+    "BMC Remedy IT Service Management Suite (Ticketssystem)",
+    "IBM Maximo (Ticketssystem)",
+    "HP Service Manager Incident, Change und Problemmanagement dell lenovo thinkpad lenovo yoga Windows 7, AD, SCCM, Windows 7, BMC-Remedy Eingesetzte Produkte: Active Directory Admin, Offfice 365 ========",
+    "Datenanalyse (Cs client- JIRA)",
+    "Kundenanalyse (PUTTY connection Manager–BMC Remedy)",
+    "Datenkorrektur (SQL developer)",
+    "Datenanalyse",
+    "================================================= ============================== 08/2015 - 08/2016: 2nd & 3rd level Rolle: Senior Consultant Kunde: AIRBUS München Aufgaben:",
+    "Analyse von vorhandenen Softwarepaketen",
+    "2nd & 3rd level application support",
+    "Scripting (PowerShell)",
+    "Paketierung und Repaketierung von Softwarepaketen",
+    "Vorbereitung für die Software-Verteilung",
+    "Pflege der Configuration Management Database(CMDB)",
+    "Verwaltung, Betreuung der Tolls SCCM",
+    "================================================= ============================== 11/2014 - 07/2015: IT-Field-Support Kunde: Symantec, München Aufgaben:",
+    "Bearbeitung von Tickets im 2nd Level Support, Sicherstellung von Lösungszeiten",
+    "Nachträgliche SW-Installation und Aufrüstung der Client- Hardware und ebenso für die Umzüge der Clients und deren Installation verantwortlich.",
+    "Übernehmen.",
+    "Verwaltung von Benutzerdaten und entsprechenden Rechten",
+    "Betreuung der Tolls WSUS, HP, Symantec",
+    "================================================= ============================== 07/2014 - 10/2014: Onsid Support BMC-Remedy Change now CMDB SCCM, JIRA Loop CS Client, Maxim PUTTY SCCM Toad for Oracle",
+    "Windows 9x; Vista; 7.0; 8.1; 10, /2008R2/2011/2012 Server (Standard, Enterprise), inkl.AD, ADS/GPO Linux Ubuntu",
+    "Office 2003, 2007, 2010, 2013",
+    "Netzwerkdienste DNS, DHCP; DFS",
+    "Roll - Out Projektplanung und Durchführung Migrationen Dienste & Anwendungen",
+    "DHCP",
+    "SMTP",
+    "HTTP",
+    "MS Exchange",
+    "VMware ESX Server",
+    "MS Wsus",
+    "PowerShell",
+    "sonstiges",
+    "Bearbeitung aller IT-relevanten Fragestellungen im Hard- und Softwarebereich",
+    "Administration und Support der Clients und Server sowie der Standortvernetzung",
+    "Benutzerpflege, Berechtigungsverwaltung.",
+    "Planung und Durchführung von Hard- und Softwareinstallationen",
+    "Erstellen von Anleitungen und Prozessdokumentationen",
+    "Nachträgliche SW-Installation und Aufrüstung der Client-Hardware und ebenso für die Umzüge der Clients und deren Installation verantwortlich.",
+    "Übernehmen die",
+    "Bei Roll-Outs neuer Client-Systeme und dem Abbau der Alt-Systemean der Koordination des Roll-Outs am Leistungsort und der Überprüfung der Liefervollständigkeit, dem lückenlosen Erfassen und der Dokume",
+    "Installation von Microsoft-Betriebssystemen und die lokale Installation und Erweiterung voetbearbeitung und -dokumentation im Ticketsystem sowie für das Eskalationsmanagement, die Pflege und Dokumenta",
+    "ITSM:",
+    "BMC Remedy",
+    "Maxim",
+    "Change now",
+    "JIRA",
+    "Management Data:",
+    "CMDB SCCM",
+    "Toad for Oracle 12.1",
+    "PUTTY",
+    "Loop CS Client",
+    "SQL Developer",
+    "Customer Service Gui",
+    "Aufgabenbereiche",
+    "Managementerfahrung in Unternehmen:",
+    "Active Directory Admin"
+  ],
+  "focus_experience": [
+    {
+      "name": "BMC-Remedy",
+      "category": "product_standard"
+    },
+    {
+      "name": "Change now",
+      "category": "product_standard"
+    },
+    {
+      "name": "CMDB SCCM",
+      "category": "product_standard"
+    },
+    {
+      "name": "JIRA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Loop CS Client",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maxim",
+      "category": "product_standard"
+    },
+    {
+      "name": "PUTTY",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCCM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Toad for Oracle 12.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "IT-Kenntnisse",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Windows 9x; Vista; 7.0; 8.1; 10",
+      "category": "product_standard"
+    },
+    {
+      "name": "/2008R2/2011/2012 Server (Standard",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise)",
+      "category": "product_standard"
+    },
+    {
+      "name": "inkl.AD",
+      "category": "product_standard"
+    },
+    {
+      "name": "ADS/GPO Linux Ubuntu",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Office 2003",
+      "category": "product_standard"
+    },
+    {
+      "name": "2007",
+      "category": "product_standard"
+    },
+    {
+      "name": "2010",
+      "category": "product_standard"
+    },
+    {
+      "name": "2013",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Netzwerkdienste DNS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DHCP; DFS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Roll - Out Projektplanung und Durchführung Migrationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dienste & Anwendungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Active Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "DHCP",
+      "category": "product_standard"
+    },
+    {
+      "name": "DNS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SMTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "FTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Exchange",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMware ESX Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Wsus",
+      "category": "product_standard"
+    },
+    {
+      "name": "PowerShell",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "2018-01 - 2019-07",
+      "company": "UNISYS München",
+      "role": "Windows Adminstrator",
+      "title": "Deployment 7 Monate",
+      "activities": 6,
+      "technologies": 4
+    },
+    {
+      "period": "2016-09 - 2017-12",
+      "company": "Telefonica O2, München",
+      "role": "",
+      "title": "Datensicherung 4 Monate",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "2015-08 - 2016-08",
+      "company": "AIRBUS München",
+      "role": "Senior Consultant",
+      "title": "2nd & 3rd level 1 Monat",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "2014-11 - 2015-07",
+      "company": "Symantec, München",
+      "role": "",
+      "title": "IT-Field-Support",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "2014-07 - 2014-10",
+      "company": "FMS Wirtmanagement",
+      "role": "",
+      "title": "Onsid Support, München",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "2013-12 - 2014-05",
+      "company": "Kiribati Mediaservice-Verlag",
+      "role": "IT Administrator Windows",
+      "title": "IT Administration Windows, München",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "2013-02 - 2013-11",
+      "company": "BMW",
+      "role": "IT Administrator Windows",
+      "title": "IT Administration Windows, München",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "2009-09 - 2012-12",
+      "company": "Logic",
+      "role": "",
+      "title": "IT Service (Help Desk) 4 Monate, Stuttgart",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "2006-02 - 2009-01",
+      "company": "DBV-Winterthur",
+      "role": "Sachbearbeiter",
+      "title": "Inkasso-Zahlungsverkehr, München",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "2000-01 - 2005-12",
+      "company": "Schniering Ingenieur GmbH",
+      "role": "Sachbearbeiter",
+      "title": "EDV-gestützte Video-Zustandserfassung, München",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "1999-09 - 1999-12",
+      "company": "THE Virtual Solution Software GmbH",
+      "role": "Web und Datenbankentwickler",
+      "title": "Praktikum, München",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "1997-10 - 1999-08",
+      "company": "Software GmbH Informatik KG, München",
+      "role": "Informatikkaufmann",
+      "title": "Praktikum 11 Monate",
+      "activities": 6,
+      "technologies": 11
+    },
+    {
+      "period": "1997-10 - 1999-08",
+      "company": "",
+      "role": "",
+      "title": "Umschulung zum Informatikkaufmann 11 Monate",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "1984-10 - 1992-08",
+      "company": "",
+      "role": "",
+      "title": "Diplom Kaufmann für Buchführung und Kostenrechnung 11 Monate",
+      "activities": 3,
+      "technologies": 0
+    },
+    {
+      "period": "1978-10 - 1984-07",
+      "company": "",
+      "role": "",
+      "title": "Architektur, Leonardo da Vinci, 10 Monate",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "1963-09 - 1977-07",
+      "company": "",
+      "role": "",
+      "title": "Abitur 11 Monate",
+      "activities": 6,
+      "technologies": 2
+    }
+  ],
+  "other_content": [
+    {
+      "content": "* Bearbeitung aller IT-relevanten Fragestellungen im Hard- und\nSoftwarebereich\n* Administration und Support der Clients und Server sowie der\nStandortvernetzung\n* Benutzerpflege, Berechtigungsverwaltung.\n* Planung und Durchführung von Hard- und Softwareinstallationen\n* Erstellen von Anleitungen und Prozessdokumentationen\n* Nachträgliche SW-Installation und Aufrüstung der Client-Hardware und\nebenso für die Umzüge der Clients und deren Installation verantwortlich.\nÜbernehmen die\n* Bei Roll-Outs neuer Client-Systeme und dem Abbau der Alt-Systemean der\nKoordination des Roll-Outs am Leistungsort und der Überprüfung der\nLiefervollständigkeit, dem lückenlosen Erfassen und der Dokumentation\ntätig Tick\n* Installation von Microsoft-Betriebssystemen und die lokale Installation\nund Erweiterung voetbearbeitung und -dokumentation im Ticketsystem sowie\nfür das Eskalationsmanagement, die Pflege und Dokumentation von\ntechnischen Lösungen und für das Erreichen Angebotsermittlung und\nBeschaffung (Hardware, Software).\nITSM:\n* BMC Remedy\n* Maxim\n* Change now\n* JIRA\nManagement Data:\n* CMDB SCCM\n* Toad for Oracle 12.1\n* PUTTY\n* Loop CS Client\n* SQL Developer\n* Customer Service Gui\nAufgabenbereiche\nAD\nWindows 7\nManagementerfahrung in Unternehmen:\nActive Directory Admin",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Oracel",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenbankanwendungen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Haussoft (Software für die Hausverwaltungen",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB Basis SQL)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Lotus Notes 7/8.5",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BMC Remedy IT Service Management Suite (Ticketssystem)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Maximo (Ticketssystem)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "HP Service Manager Incident",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Change und Problemmanagement",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "dell",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "lenovo thinkpad",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "lenovo yoga",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Office 2003",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2007",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "2010 und 2013",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows XP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Vista",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows 9x",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "7.0",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "8.1",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Enterprise)",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Windows-Umfeld",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "/2008R2/2011/2012 Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "(Standard",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "inkl.AD",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "ADS/GPO Linux Ubuntu",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Administration im",
+      "category_name": "Sonstige Skills",
+      "weight": 0.62
+    },
+    {
+      "name": "10",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Windows 7",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "AD",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "SCCM",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "BMC-Remedy",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    }
+  ]
+}

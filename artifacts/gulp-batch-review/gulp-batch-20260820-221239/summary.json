@@ -1,0 +1,11 @@
+{
+  "ok": 0,
+  "fail": 1,
+  "skip": 0,
+  "limit": 1,
+  "need": "/tmp/gulp-need-beemers.tsv",
+  "mem_thresh": 88,
+  "cpu_thresh": 88,
+  "throttle_sleep": 30,
+  "ended": "2026-08-20T22:12:43"
+}

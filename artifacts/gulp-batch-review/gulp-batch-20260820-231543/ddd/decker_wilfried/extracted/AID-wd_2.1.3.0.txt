@@ -1,0 +1,110 @@
+AID: AID-wd_2.1.3.0
+Name: Wilfried Decker
+Headline: 
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,
+Wohnort: 614xx Glashütten, Deutschland
+Jahrgang: 1969
+Verfügbar: 31.01.16 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2000
+Sprachen: Englisch
+
+FACHBEREICHE:
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+
+BRANCHEN:
+Chemie/Pharma
+Versicherungen
+Retail/Handel
+Automotive/Automobilindustrie
+Flottenmanagement/Fleet
+
+PROJEKTE:
+  Projektbeschreibung: EN ISO 9001:2000 bei einem Beschaffungsdienstleister |  | EN ISO 9001:2000 bei einem Beschaffungsdienstleister
+    - Modellierung und Einführung von Prozessen der Softwareentwicklung und Softwarewartung
+    - Mitwirkung bei der Erstellung der MOA (Mappe für Organisation und Ablaufbeschreibung) inklusive der Gestaltung der Unternehmens-IT-Richtlinien 12/02 11/03:
+  Projektbeschreibung: Flottenmanagement-Unternehmen |  | Flottenmanagement-Unternehmen
+    - PowerMart-Sessions laden die Daten eines operativen
+    - Fuhrparkmanagementsystems in ein Data Warehouse und stellen diese für ein Online-Reporting mit Kundenzugriff zur Verfügung.
+    - Entwicklung und Pflege von ETL-Prozessen mit Informatica PowerMart
+  Projektbeschreibung: Plattform PowerCenter 8.6 bei einem deutschen Retailer | deutscher Retailer | Plattform PowerCenter 8.6 bei einem deutschen Retailer
+    - Mit PowerCenter werden Oracle-Quell-Daten extrahiert, im ETL-Prozess mit Zusatzinformationen angereichert und ins Data Warehouse auf Basis
+    - Teradata geladen. Nach dem Transformations- und Normalisierungsprozess im Data Warehouse extrahieren PowerCenter-Workflows Datenausschnitte, überführen diese in eine XML-Struktur und liefern sie an nachgelagerte
+    - Informationssysteme aus.
+    Techs: PowerCenter 8.6, Oracle, Teradata, BusinessObjects
+  Projektbeschreibung: CRM-Lösung (CRM-Data Warehouse) eines deutschen |  | CRM-Lösung (CRM-Data Warehouse) eines deutschen Fahrzeugherstellers
+    - Mit Pentaho Data Integration wird ein ETL-System aufgebaut, welches
+    - Adress-Daten normalisiert und verwaltet. Durch Anwendung von Data-Warehouse-Mehtoden und ETL-Delta-Mechanismen werden die Daten abgeglichen, versioniert und an nachgelagerte Systeme ausgeliefet.
+    - Entwicklung von ETL-Prozessen mit Pentaho Data Integration 3.1
+  Projektbeschreibung: Entwickler und Berater bei der Erstellung einer Data |  | Entwickler und Berater bei der Erstellung einer Data Warehouse-Lösung
+    - für einen deutschen Fahrzeughersteller:
+    - Das Data Warehouse integriert die Auftragsdaten der GO-Plattform (Global Ordering) mit den Account-Informationen eines Microsoft
+    - CRM-Systems. PowerCenter-Jobs validieren auditierbar
+  Projektbeschreibung: Projektleitung beim Releasewechsel der ERP-Lösung MS |  | Projektleitung beim Releasewechsel der ERP-Lösung MS Navision bei
+    - einem Beschaffungsdienstleister:
+    - Auswahl eines externen Beratungspartners
+    - Durchführung des Releasewechsels inkl. Testing und Dokumentation
+  Projektbeschreibung: Projektleitung zur Realisierung einer Data-Mart-Lösung mit |  | Projektleitung zur Realisierung einer Data-Mart-Lösung mit
+    - Projektleitung zur Realisierung einer Data-Mart-Lösung mit
+  Projektbeschreibung: Online-Zugriff bei einem Flottenmanagement-Unternehmen |  | Online-Zugriff bei einem Flottenmanagement-Unternehmen
+    - Umgebung und Werkzeuge: Informatica PowerMart, ERwin, ORACLE,
+    - Daten-Quellsystem: Flottenmanagementsystem auf Basis MS Navision
+    - Erhebung und Analyse der Endanwender-Anforderungen ER-Modellierung der DWH-Datenbank Erstellung von ETL-Prozessen mit Informatica PowerMart 5.1
+    Techs: Informatica PowerMart, ERwin, ORACLE, MS Navision, Informatica PowerMart 5.1
+  Projektbeschreibung: Projektleitung bei der Entwicklung der webbasierten |  | Projektleitung
+    - FleetAssist zur Fahrzeugkonfiguration mit Online-Berechnung von Leasingangeboten inklusive Prozessanalyse und Prozessmodellierung bei einem Flottenmanagement-Unternehmen:
+    - Objektorientierte Anforderungsanalyse und Modellerstellung in UML
+    - Umgebung und Werkzeuge: Java, IBM-Websphere, Rational XDE, ORACLE
+    Techs: Java, IBM-Websphere, Rational XDE, ORACLE, UML
+  Projektbeschreibung: Lösung bei einem deutschen Chemie/Pharam-Konzern |  | Lösung bei einem deutschen Chemie/Pharam-Konzern
+    - Projektsteuerung inklusive Projektcontrolling und Projektabrechnung
+    - Koordinierung der externen Ressourcen
+    - Data Warehouse Umgebung: IBM AIX, ORACLE 8i, ERwin, PowerMart,
+  Projektbeschreibung: Berater und Entwickler im Data Warehouse Projekt bei |  | Berater und Entwickler
+    - Versicherungunskonzern:
+    - Realisierung und Dokumentation des Front-End Zugriffs einer Data Mart Anwendung zur Arbeitsmengenstatistik
+    - Mart Anwendung zur Arbeitsmengenstatistik
+    Techs: DB2, OS 390, Cognos PowerPlay, Impromptu
+  Projektbeschreibung: Projektleitung in einem Data Warehouse-Projekt bei einem | Kreditkarten-Unternehmen | Projektleitung
+    - Kreditkarten- Unternehmen:
+    - Ableitung der DWH-Strategie Konzeption des Endbenutzerzugriffs Data Warehouse Umgebung: IBM AIX, DB2/400, ERwin, Informatica
+    - PowerMart, Cognos Impromptu
+    Techs: IBM AIX, DB2/400, ERwin, Informatica PowerMart, Cognos Impromptu
+
+SKILLS:
+  database: Access, DB2, Postgres, SQL
+  methodology: Prozessmodellierung nach Aris, OO-Analyse und OO-Entwurf mit UML, ER-Datenmodellierung, DWH-Datenmodellierung
+  operating_system: SUN OS, Solaris, Unix, Windows, Windows x, UNIX (AIX, Linux), Datenbanksysteme, Oracle, MS SQL Server, IBM DB2 8, PostgreSQL, Teradata, Modellierungswerkzeuge, ERwin, Designer 2000, ARIS Toolset, ERP-Systeme, SAP R/3 (MM), Navision Financials, Data Warehouse-Werkzeuge, ETL, PowerCenter/PowerMart (Informatica)
+  programming_languages: Basic, Pascal, Scriptsprachen, Shell, Borland-Pascal, Visual Basic
+
+SKILL-ABLAGE:
+
+
+AUSBILDUNG:
+Executive Master of Business Administration in Information Management  [course]
+Diplom-Ingenieur (FH) für Physikalische Technik  [course]
+Physikalisch-Technischer Assistent  [course]
+
+ZERTIFIKATE:
+Cognos: Impromptu 4.0 und PowerPlay 5.2
+Informatica PowerCenter: Certified Developer V 8.x, Certified
+Administrator V 8.x
+Sprachen:
+Deutsch (Muttersprache),
+Englisch
+Informatica PowerCenter: Certified Developer V 8.x | Informatica
+Informatica PowerCenter: Certified Administrator V 8.x | Informatica
+
+FOCUS_EXP:
+  Aktuelle  [product_standard]
+  Schwerpunkte  [product_standard]
+  Leitung von IT-Projekten  [product_standard]
+  Senior-Consultant und Developer für ETL-  [product_standard]
+  und Data Warehouse-Lösungen  [product_standard]
+  Business Intelligence  [product_standard]
+  Business  [product_standard]
+  Integration und Dataquality einschließlich Konzepterstellung  [product_standard]
+  ETL  [product_standard]
+  Data Warehouse  [product_standard]
+  Business Integration  [product_standard]
+  Dataquality  [product_standard]

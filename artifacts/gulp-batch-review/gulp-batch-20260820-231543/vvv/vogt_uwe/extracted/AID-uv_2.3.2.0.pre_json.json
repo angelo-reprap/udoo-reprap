@@ -1,0 +1,523 @@
+{
+  "metadata": {
+    "aid": "AID-uv_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "vogt_uwe",
+    "first_name": "Uwe",
+    "last_name": "Vogt",
+    "headline": "",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:05:26.879977"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Uwe",
+      "last_name": "Vogt",
+      "edv_experience_since": 2006
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "ARM",
+        "ADC",
+        "I2C",
+        "UART",
+        "UML",
+        "ISO 26262",
+        "ASPICE",
+        "LIN",
+        "C++",
+        "Python",
+        "macOS",
+        "agile",
+        "RS-232",
+        "RS-485",
+        "ISO 26262 (ASIL-D)",
+        "CAN",
+        "UML 2.0",
+        "ISO 26262 (ASIL-B)",
+        "AUTOSAR",
+        "Functional Safety",
+        "CANopen",
+        "DO178B",
+        "ARINC",
+        "Freescale MPC5200B)",
+        "Linux 2.6.x (RT",
+        "GCC",
+        "Eclipse (Linux",
+        "Debugger)",
+        "CAN Interfacekarten (PEAK & IXXAT)",
+        "Linux",
+        "(Kernel 2.6 RT Preemptive",
+        "Eclipse (Linux and Cygwin)",
+        "IBM compatible PC",
+        "Windows 95",
+        "Windows 3.11",
+        "Sonstiges",
+        "Referenzen:",
+        "Projekt Hands On Detection",
+        "11/19 - 11/20",
+        "Referenz durch Joyson Safety Systems vom 08.02.22",
+        "Arbeitsweise und",
+        "Hilfsbereitschaft"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2022-01 - 2022-03",
+        "company": "DEMAG Cranes and Components GmbH, Wetter (Ruhr)",
+        "title": "C-Entwicklung für einen Schwenksäulenkran, Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "ARM",
+          "ADC",
+          "I2C",
+          "UART"
+        ],
+        "activities": [
+          "Aufgrund des weltweiten Mangels an Mikroprozessoren im Zuge der COVID-19-Pandemie und möglicher zukünftiger Abkündigungen der eingesetzten Mikroprozessoren, überarbeitet der Kunde sein",
+          "Produktangebot. Die bestehende Steuerung für einen Schwenksäulenkran wird auf einen neuen Microcontrollertyp (für den auch Ersatztypen zur Verfügung stehen) portiert, ohne das Applikationsprogramm selbst zu überarbeiten. Hierbei werden die Treiber des Hardware Abstraction Layer",
+          "(HAL) neu entwickelt und über Wrapper an das bestehende",
+          "Applikationsprogramm angebunden.",
+          "Meine Aufgabe im Projekt war die Entwicklung der Treiber und Wrapper für ADC, I2C, UART, sowie deren Inbetriebnahme auf der (neuen) Zielhardware.",
+          "Rolle im Projekt:",
+          "Implementierung",
+          "Code-Reviews"
+        ]
+      },
+      {
+        "period": "2021-06 - 2021-11",
+        "company": "Joyson Safety Systems Aschaffenburg GmbH",
+        "title": "Hands On Detection (II), Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "UML",
+          "ISO 26262",
+          "ASPICE",
+          "LIN"
+        ],
+        "activities": [
+          "Das HOD-System ist ein kapazitives Messsystem zur Erfassung des Berührungszustands des Fahrers am Lenkrad, um den Zustand an das Fahrzeug zu senden (z.B. zum automatischen Beschleunigen, Bremsen und Lenken bei Staus auf Autobahnen). Sein Sicherheitsziel (safety goal) ist es, nicht fälschlicherweise einen falschen Berührungszustand zu senden.",
+          "Defektanalyse und -behebung",
+          "Untersuchung von Defects und Feldrückläufern",
+          "Beheben von Softwaredefects",
+          "Dokumentation der Änderungen (Requirements, Design, Code,",
+          "Ticketsystem)",
+          "Projektschnittstelle",
+          "Teilnahme an Besprechungen mit dem Kunden zur Klärung von Defekten und Implementierungen"
+        ]
+      },
+      {
+        "period": "2020-12 - 2021-06",
+        "company": "mac-can.github.io",
+        "title": "CAN User-space Drivers for macOS (Open-Source), Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "C++",
+          "Python",
+          "macOS"
+        ],
+        "activities": [
+          "Vielfältige CAN-Hardware und CAN-Software wird von verschiedenen Firmen angeboten, aber nur wenige von ihnen stellen einen Treiber für macOS zur Verfügung. In Ermangelung von CAN-Treibern für macOS habe ich mehrere User-Space-Treiber für USB-to-CAN-Adapter als Open-Source-Projekte erstellt. Die Hauptaufgaben waren",
+          "Unterstützung neuer Hardware, Implementierung fehlender Features,",
+          "Realisierung einer einheitlichen API, Stabilisierung und Fehlerbehebung. macOS User-Space-Treiber für USB-to-CAN-Adapter sind verfügbar für PCAN-USB Interfaces vom PEAK-System",
+          "TouCAN USB Interfaces von Rusoku",
+          "CAN Leaf Interfaces von Kvaser",
+          "Rolle im Projekt:",
+          "Systemspezifikation",
+          "Softwarearchitektur"
+        ]
+      },
+      {
+        "period": "2019-11 - 2020-11",
+        "company": "Joyson Safety Systems Aschaffenburg GmbH",
+        "title": "Hands On Detection 1 Monat, Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "UML",
+          "ISO 26262",
+          "ASPICE",
+          "agile"
+        ],
+        "activities": [
+          "Das HOD-System ist ein kapazitives Messsystem zur Erfassung des Berührungszustands des Fahrers am Lenkrad, um den Zustand an das Fahrzeug zu senden (z.B. zum automatischen Beschleunigen, Bremsen und Lenken bei Staus auf Autobahnen). Sein Sicherheitsziel (safety goal) ist es, nicht fälschlicherweise einen falschen Berührungszustand zu senden.",
+          "Unterstützung des Softwareteams bei den folgenden Aufgaben:",
+          "Software Architecture ASIL compliance",
+          "Software Design ASIL compliance",
+          "Software inspections",
+          "Software safety analysis",
+          "Rolle im Projekt:",
+          "Software Architektur Design"
+        ]
+      },
+      {
+        "period": "2019-09 - 2019-10",
+        "company": "Git (Distributed Version Control System)",
+        "title": "Gateway Unit für Filter Fan Unit Systeme, Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "UML",
+          "RS-232",
+          "RS-485"
+        ],
+        "activities": [
+          "Die Ventilatorsteuerungen sind über RS-485 Bus mit einer hierarchischen, mehrstufigen Topologie vernetzt. Ein spezifelles 9-bit Protokoll (mit einem",
+          "Wake-up Bit) kommt hierbei zum Einsatz. Eine Gateway Unit verbindet das System über eine RS-232 Schnittstelle mit der Leittechnik. Einige Anlagen sind seit mehr als 20 Jahren in Betrieb. Ersatzgeräte für die Gateway Units sind nicht mehr verfügbar. Ziel des Projekts war es, die verwendeten seriellen Protokolle auf einem Evaluationboard mit aktuellem",
+          "(ARM basiertem) Mikrocontroller neu zu implementieren.",
+          "Rolle im Projekt:",
+          "Softwareentwurf",
+          "Implementierung",
+          "Funktionstests",
+          "Dokumentation"
+        ]
+      },
+      {
+        "period": "2018-01 - 2019-06",
+        "company": "Joyson Safety systems Aschaffenburg GmbH",
+        "title": "Active Front Steering 6 Monate, Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "ISO 26262 (ASIL-D)",
+          "UML",
+          "CAN"
+        ],
+        "activities": [
+          "Aktivlenkung für US-amerikanischen Automobilhersteller. Unterstützung des Softwareteams in Berlin mit folgender Aufgabenstellung:",
+          "Safety Check - Architektur überarbeiten, Gap Analyse, Software",
+          "Anforderungen, Testvektoren erstellen und Review der Unit-Testcases Rootcausing – Vorfallanalyse, Impact Analyse, Implementierung und Dokumentation der Softwareänderungen Golden Showcase – exemplarische Überarbeitung der Softwarekomponente 'Steering Wheel Heating' für Übernahme in ein AutoSAR Projekt",
+          "Entwurf und Implementierung einer Software für einen Dauerprüfstand zur Aufzeichnung von Weg/Zeit-Daten einer Verriegelungseinheit auf USB- Massenspeicher (Abtastrate: 10kHz)",
+          "Betreuung von Werkstudenten bei Erstellung eines S-Function Wrappers aus Softwarearchitektur",
+          "Bereits 2012 bis 2015 war ich während der Entwicklung des B- und C- Musters bei diesem Unternehmen in Einsatz.",
+          "Rolle im Projekt:",
+          "Software Design"
+        ]
+      },
+      {
+        "period": "2017-05 - 2017-12",
+        "company": "BSH Hausgeräte GmbH",
+        "title": "Connectivity / IoT, Berlin",
+        "role": "Softwaer-Entwickler",
+        "technologies": [
+          "UML 2.0"
+        ],
+        "activities": [
+          "Der Kunde ist eines der weltweit führenden Unternehmen der Branche und der größte Hausgerätehersteller in Europa.",
+          "Unterstützung des Software-Projektteams 'Home Connect' in Berlin mit folgenden Aufgabenstellung:",
+          "Beratung in der Software-Entwicklung für Embedded-Systeme zur Steuerung und Vernetzung von Waschmaschinen, Waschtrockner und Trockner",
+          "Umsetzung von Software-Architektur und Software-Design",
+          "Analyse, Konzeption und Abschätzung neuer Anforderungen",
+          "Test und Beratung zu der erstellten Software",
+          "Eingesetzte Produkte: Enterprise Architect, Eclipse, IAR Workbench, Python, Py.test, PC-lint,",
+          "Serena Dimensions CM, Subversion, BitBucket (git), Atlassian JIRA, JFrog"
+        ]
+      },
+      {
+        "period": "2016-06 - 2017-03",
+        "company": "Automotive",
+        "title": "Battery Management System, Berlin",
+        "role": "Senior Software Developer",
+        "technologies": [
+          "ISO 26262 (ASIL-B)",
+          "AUTOSAR",
+          "UML"
+        ],
+        "activities": [
+          "Der Kunde entwickelt einen Zusatzenergiespeicher (Lithium Ionen Akku) für FMA-Support (Free Wheel Engine Off), Start/Stop-Betrieb und Emergency-Support.",
+          "Aufgaben im Projekt:",
+          "Konzepterstellung",
+          "Softwaredesign",
+          "Unit-Tests",
+          "Code-Reviews",
+          "Issue Analysis",
+          "Eingesetzte Produkte: IBM Rational DOORS (IBM), STAGES Prozessmanagement (methodpark),"
+        ]
+      },
+      {
+        "period": "2015-08 - 2016-05",
+        "company": "Industrie",
+        "title": "UDS-basierter Kommunikationsstack für Drehgeber, Berlin",
+        "role": "Software-Entwicker",
+        "technologies": [
+          "Functional Safety",
+          "UML"
+        ],
+        "activities": [
+          "Entwicklung der Server-seitigen Application Layer Services nach ISO- 14229 im Rahmen einer Plattformsoftware für Drehgeber. Das Arbeitspacket umfasst die folgenden Aufgaben:",
+          "Definition der Software Architekturkomponenten",
+          "Erfassen der Komponenten Requirements (in Polarion)",
+          "Erstellen des Komponenten- und Klassendesign (in EA)",
+          "Implementierung der Sourcecode-Module in C unter Berücksichtigung von Coding-Rules für sicherheitsrelevante Software",
+          "Statische Codeanalyse mit PC-Lint (MISRA-C 2012)",
+          "Implementierung von White-box Tests mit GoogleTest",
+          "Continuous Integration (Jenkins)"
+        ]
+      },
+      {
+        "period": "2015-06 - 2015-07",
+        "company": "Industrielle Kommunikation / Feldbus",
+        "title": "Induktivkoppler mit CAN-Interface, Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "CAN",
+          "UML"
+        ],
+        "activities": [
+          "Entwicklung der Firmware für einen CAN-Repeater (Quasi-Repeater) als",
+          "Steckerersatz zur Sensordatenerfassung in Tunnelbohrmaschinen. CAN",
+          "Nachrichten werden auf UART umgesetzt, um sie mithilfe eines FSK- Modems über einen Luftspalt zu übertragen. Zur Versorgung der Sensoren im Bohrkopf stellt der Koppler 500mA bereit.",
+          "Aufgaben im Projekt:",
+          "Softwareentwurf",
+          "Implementierung",
+          "Funktionstests",
+          "Dokumentation"
+        ]
+      },
+      {
+        "period": "2012-01 - 2015-05",
+        "company": "Automotive",
+        "title": "Active Steering Wheel 5 Monate, Berlin",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "ISO 26262 (ASIL-D)",
+          "UML",
+          "CAN"
+        ],
+        "activities": [
+          "Aktivlenkung für US-amerikanischen Automobilhersteller. Unterstützung des Projektteams in Berlin mit folgender Aufgabenstellung:",
+          "Implementation of the software design (modules)",
+          "Documentation of the modules and interfaces",
+          "Integration of software components",
+          "Design and execution of Unit Tests",
+          "Code Reviews",
+          "Issue Analysis",
+          "Eingesetzte Produkte: Enterprise Architect (Sparx), GHS C-Compiler (Green Hills), PC-Lint"
+        ]
+      },
+      {
+        "period": "2010-12 - 2011-12",
+        "company": "Automotive",
+        "title": "Hardwarenahe Softwareentwicklung 1 Monat, Ravensburg",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "UML",
+          "CAN",
+          "CANopen",
+          "C++"
+        ],
+        "activities": [
+          "Unterstützung der Entwicklung beim Kunden. Die Aufgabe beinhaltet:",
+          "Entwicklung von hardwarenahen Softwareapplikationen",
+          "Erstellen von hardwarenahen Treibern",
+          "Implementierung von Echtzeitbetriebssystemen auf Embedded",
+          "Plattform",
+          "Anpassung von BIOS- und Treibersoftware",
+          "Projektbegleitung vom Requirement Engineering bis zur Validation",
+          "Arbeitspaket 1: Analog-CAN-Transmitter für Force-Feedback- Sidesticksteuerung (2110004)"
+        ]
+      },
+      {
+        "period": "2009-07 - 2010-09",
+        "company": "Luftfahrttechnik",
+        "title": "Primary Flight Control System 3 Monate, Lindenberg im Allgäu",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "DO178B",
+          "UML",
+          "CAN",
+          "ARINC"
+        ],
+        "activities": [
+          "Zertifizierungsreifmachung einer Fly-by-Wire Flugsteuerung:",
+          "Softwareentwicklung nach V-Modell und RTCA DO-178B für das Primary Flight Control System des Superjet 100",
+          "Durchführung der Softwaretests gemäß RTCA DO-178B",
+          "Erstellung der erforderlichen Dokumentation gemäß RTCA DO-178B",
+          "Aufgaben im Projekt:",
+          "Design und Code Reviews",
+          "Softwareerweiterung",
+          "Softwaretests (VoV)"
+        ]
+      },
+      {
+        "period": "2009-02 - 2009-03",
+        "company": "Schneider Electric Motion Deutschland GmbH & Co.KG",
+        "title": "Notantrieb für Blutpumpe, Friedrichshafen, Lahr im Schwarzwald",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "CANopen"
+        ],
+        "activities": [
+          "Anpassung der Firmware für Kompaktantriebe um Kunden-spezifische",
+          "Sonderfunktion. Der Antrieb wird zur Vervollständigung des Notfallkonzepts in einer mobilen Blutpumpe eingesetzt. Hierzu wurde die Funktion des digitalen Bedien-Interface nach Kunden-spezifischen",
+          "Vorgaben angepasst.",
+          "Aufgaben im Projekt:",
+          "Softwareentwurf",
+          "Implementierung",
+          "Funktionstests",
+          "Dokumentation"
+        ]
+      },
+      {
+        "period": "2009-01 - 2009-02",
+        "company": "Schneider Electric Motion Deutschland GmbH & Co.KG",
+        "title": "Pilgerschritt bzw. Schleifenfahrt, Friedrichshafen, Lahr im Schwarzwald",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "CANopen"
+        ],
+        "activities": [
+          "Erweiterung der Firmware für Kompaktantriebe um Kunden-spezifische",
+          "Sonderfunktion. Auf Basis der bestehenden Antriebsfirmware wurde das Getriebeflankenspiel (backlash) durch die Softwaremethode 'Pilgerschritt bzw.",
+          "Schleifenfahrt' kompensiert, um eine höhere Positioniergenauigkeit zu erreichen. Bei dieser Methode werden alle Positionen nur aus einer Richtung angefahren. D.h. in einer Richtung immer direkt und in der Gegenrichtung wird die Zielposition erst um einen Betrag, der größer ist als das Getriebespiel, überlaufen und dann erst angefahren.",
+          "Aufgaben im Projekt:",
+          "Pflichtenheft",
+          "Softwareentwurf",
+          "Implementierung",
+          "Funktionstests"
+        ]
+      },
+      {
+        "period": "2007-01 - 2008-12",
+        "company": "Prozessenergie",
+        "title": "Controllerboard mit Echtzeit-Linux, Freiburg",
+        "role": "Software-Entwickler",
+        "technologies": [
+          "UML",
+          "CANopen",
+          "Freescale MPC5200B)",
+          "Linux 2.6.x (RT",
+          "GCC",
+          "Eclipse (Linux",
+          "Debugger)",
+          "CAN Interfacekarten (PEAK & IXXAT)",
+          "Linux"
+        ],
+        "activities": [
+          "Mitarbeit bei der Spezifikation und Entwicklung eines Controllerboards mit MPC5200B (Freescale) und echtzeitfähigem Linux (Kernel 2.6 RT",
+          "Preemptive, PTXdist). Das Projekt stellt eine gemeinsame HW-Plattform und einen generischen SW-Framework für produktspezifische",
+          "Zentralsteuerungen von Generatorsystem für Plasmaanregung,",
+          "Induktionserwärmung und CO2-Laseranregung zur Verfügung.",
+          "Haupttätigkeitsschwerpunkt im Projekt waren die Definition und Realisierung des SystemCAN für die Kommunikation von Generatormodulen. Der SystemCAN basiert auf dem CANopen-Protokoll nach CiA DS-301 (EN 50325-4).",
+          "Mit dem Projekt wurde beim Kunden ein modellbasierter Entwicklungsansatz nach UML 2.0 eingeführt und ein agiler Entwicklungsprozess nach OpenUP etabliert.",
+          "Aufgaben im Projekt:",
+          "Anforderungsermittlung"
+        ]
+      },
+      {
+        "period": "2006-09 - 2007-01",
+        "company": "Automotive / Mobilsteuerung",
+        "title": "CANopen Safety Treiber, Ettlingen",
+        "role": "Softwaer-Entwickler",
+        "technologies": [
+          "Functional Safety",
+          "CANopen",
+          "(Kernel 2.6 RT Preemptive",
+          "GCC",
+          "Eclipse (Linux and Cygwin)",
+          "IBM compatible PC",
+          "Windows 95",
+          "Windows 3.11",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekt Hands On Detection",
+          "11/19 - 11/20",
+          "Referenz durch Joyson Safety Systems vom 08.02.22",
+          "Arbeitsweise und",
+          "Hilfsbereitschaft"
+        ],
+        "activities": [
+          "Erweiterung einer CANopen Steuerung mit Geräteprofil CiA DS-405",
+          "(Interface and Device Profile for IEC 61131-3 Programmable Devices) um das CANopen Safety Protokoll entsprechend CiA DS-304 (Framework for safety-relevant communication). Die Mobilsteuerung wird in Teleskopkrane zur Lastmomentbegrenzung eingesetzt. Eine Zertifizierung nach SIL II wurde vom Kunden vorbereitet.",
+          "Aufgaben im Projekt:",
+          "Softwareentwurf",
+          "Implementierung",
+          "Funktionstests",
+          "Dokumentation",
+          "Eingesetzte Produkte: Wind River Diab Data C Compiler, RTOS-UH Echtzeitbetriebssystem,"
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [],
+    "focus_experience": [],
+    "education": [],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Hands On Detection, 11/19 - 11/20\nReferenz durch Joyson Safety Systems vom 08.02.22\n\"Der Consultant hat sich besonders durch seine effektive sowie strukturierte Arbeitsweise und langjährige Projekterfahrung in diversen Themengebieten ausgezeichnet und uns damit von Anfang an bereichert. Er zeigte zudem stets eine sehr hohe Leistungs- und Hilfsbereitschaft\"",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:05:26.879992",
+    "source_file": "",
+    "steps_completed": [
+      "PERSONAL",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 9→8 bei '2009-01 - 2009-02'",
+        "EDV_SEIT: None→2006"
+      ],
+      "coverage_percent": 92.13313161875945,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

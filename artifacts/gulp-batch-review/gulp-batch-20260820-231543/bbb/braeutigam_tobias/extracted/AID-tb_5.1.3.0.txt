@@ -1,0 +1,155 @@
+AID: AID-tb_5.1.3.0
+Name: Tobias Braeutigam
+Headline: Projektleitung, Projektmanagement, Anforderungsanalyse, Quality Management/Controlling, SOA,Technischer Architekt, Konzeption/Analysen, Infrastruktur, Datenmodellierung, Workshops
+Ort: D5, D6 Deutschland: Raum Rhein-Main
+Wohnort: 632xx Neu-Isenburg, Deutschland
+Jahrgang: 1975
+Verfügbar: 05.01.15 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2012
+Sprachen: Deutsch, Muttersprache, Englisch, verhandlungssicher, Französisch, Deutsch (Muttersprache), Englisch (verhandlungssicher), Französisch (erweiterte Kenntnisse), Russisch (erweiterte Kenntnisse), Spanisch (erweiterte Kenntnisse)
+
+FACHBEREICHE:
+Projektleitung
+Projektmanagement
+Anforderungsanalyse
+Quality Management/Controlling
+Technischer Architekt
+Konzeption/Analysen
+Infrastruktur
+Datenmodellierung
+Workshops
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test 1995 - 2000 Studium der Informatik an der TU Dresden 1995 Abitur 1993 Auslandsschuljahr in Südafrika Weiterbildungen und
+SOA
+Projektmanagement / -leitung / Organisation / Koordination
+Qualitätsmanagement / Qualitätssicherung / Test
+
+BRANCHEN:
+Telekommunikation
+Banken / Finanzen
+Börse
+Beratungsunternehmen
+Großhandelsunternehmen
+
+PROJEKTE:
+  09/2014-12/2014 |  | Business Analyst und Architekt
+    - Projekt:
+    - Unser Kunde, ein deutscher Wertpapierhandelsplatz, betreibt ein umfangreiches Data Warehouse (~400 TB Hot Data). Dieses DWH nimmt
+    - Echtzeit-Transaktionsdaten mehrerer Handelssysteme (Energiebörse,
+  05/2013-12/2013 | Bank Frankfurt | Business Analyst und Architekt
+    - Projekt: Anbindung des Unternehmens an die MasterCard InControl/PurchaseControl
+    - Plattform. Ziel des Projektes war die Bereitstellung virtuelle
+    - Kreditkartennummern für Corporate Card- und Reisestellenkartenkonten.
+    Techs: MasterCard InControl, PurchaseControl, UML
+  01/2013-05/2013 |  | Netzwerkarchitekt
+    - Projekt: Erweiterung einer vorhandenen Netzwerkarchitektur um eine DMZ (demilitarisierte Zone) mit dem Ziel, über das WAN erreichbare
+    - Produktivsysteme vom internen LAN zu isolieren. Dabei sollte die Netzwerkleistung beibehalten oder verbessert werden, ohne Investitionen in neue Hardware tätigen zu müssen.
+    - Meine Position: In meiner Verantwortung lag das vollständige
+  11/2012-12/2012 | Bahnunternehmen Frankfurt am Main | Berater für Migration
+    - Erstellung einer Machbarkeitsstudie zur europaweiten Einführung eines integrierten touristischen Dienstleistungsproduktes eines führenden Mobility- und Logistics-Anbieters.
+    - Einführung eines integrierten touristischen Dienstleistungsproduktes eines führenden
+    - Mobility- und Logistics-Anbieters.
+    Techs: Lotus Notes/Sametime, MS Visio, Powerpoint, Excel, Oracle 9i, Oracle 10g, Oracle Linux, Oracle APEX, Fedora Linux, TWiki
+
+SKILLS:
+  database: Access, MS SQL Server, MySQL, Oracle, ODBC, SQL, Oracle SOA Suite Experte, Oracle 7.x-12c sehr gute
+  operating_system: Mac OS, gute Kenntnisse, OS/2, Unix, Experte, Windows, Linux (RedHat, Embedded u.a. seit 1999) Experte, Windows 2000, 2003, 2008 Server, XP, 7 Experte, OS X sehr gute Kenntnisse, FreeBSD, pfSense Firewall seit V.1.2.1 gute Kenntnisse, AIX, HP-UX Anwenderkenntnisse
+  programming_languages: C#, Basiskenntnisse, Java, sehr gute Kenntnisse, JavaScript, PL/SQL, Bash Shell Experte, SQL sehr, JEE, J2EE sehr gute
+
+SKILL-ABLAGE:
+Internet, Intranet, Sonstige Kenntnisse, Groovy, Grails sehr, Ajax sehr gute, .NET, RedDot Query Language gute Kenntnisse, Tomcat sehr, Glassfish sehr, OC4J gute
+
+AUSBILDUNG:
+1995 - 2000 | Studium der Informatik | TU Dresden  [course]
+1995 | Abitur  [course]
+1993 | Auslandsschuljahr in Südafrika  [course]
+
+ZERTIFIKATE:
+2014 | Rhetorik Live Training (Zunker
+Academy)
+2014 | 3 Tage APEX Workshop
+(Erstellen von Reports und
+Forms
+APEX URL
+Page Processing
+Page Rendering
+Dynamic
+Actions)
+05/2012 | Praxiskurs Activiti 5
+08/2010 | SCRUM Workshop
+05/2010 | ITIL Foundation v3 Upgrade
+11/2009 | Oracle BPM Suite
+02/2007 | Oracle Certified Associate (OCA) -
+Database Development
+01/2007 | ITIL Foundation v2 Certificate
+2007 | - 2014 JAX Conference
+seit 2006 DOAG-Mitglied (Deutsche Oracle
+Anwendergruppe)
+regelmäßige Teilnahme an
+DOAG-Regionaltreffen und
+der jährlichen DOAG-Konferenz
+02/2007 | Oracle Certified Associate (OCA) - Database Development | Oracle
+
+FOCUS_EXP:
+  Methodiken / Frameworks / Standards:  [product_standard]
+  ITIL Experte  [product_standard]
+  UML 2.0 Experte  [product_standard]
+  MDA/MDSD/TDD Experte  [product_standard]
+  XML  [product_standard]
+  XSD  [product_standard]
+  XSL  [product_standard]
+  XSLT  [product_standard]
+  XPATH Experte  [product_standard]
+  VLAN  [product_standard]
+  IP-Netze  [product_standard]
+  Routing sehr gute Kenntnisse  [product_standard]
+  SCRUM sehr gute Kenntnisse  [product_standard]
+  BPEL  [product_standard]
+  BPMN sehr gute Kenntnisse  [product_standard]
+  Web Services  [product_standard]
+  REST-WS sehr gute Kenntnisse  [product_standard]
+  WSDL  [product_standard]
+  SOAP sehr gute Kenntnisse  [product_standard]
+  Pentesting (Wireshark  [product_standard]
+  Skipfish  [product_standard]
+  nmap  [product_standard]
+  ) sehr gute Kenntnisse  [product_standard]
+  Apache Ant gute Kenntnisse  [product_standard]
+  Hibernate gute Kenntnisse  [product_standard]
+  Oracle APEX 4.2 sehr gute Kenntnisse  [product_standard]
+  Business Analyst  [product_standard]
+  Anforderungsanalyse  [product_standard]
+  Projektmanagement: Entwicklung und Betrieb verteilter Systeme  [product_standard]
+  Erarbeitung und Umsetzung von Spezifikationen  [product_standard]
+  (Pflichtenheft)  [product_standard]
+  Dokumentation  [product_standard]
+  Datenmodellierung  [product_standard]
+  Quality Management / Controlling: Usability-Standards  [product_standard]
+  Qualitätssicherung  [product_standard]
+  Statistik  [product_standard]
+  internes Marketing  [product_standard]
+  Architektur  [product_standard]
+  Entwurf und Entwicklung von Portalen und  [product_standard]
+  Serviceorientierten Architekturen (SOA)  [product_standard]
+  Infrastruktur: Linux Distributionen Architektur  [product_standard]
+  Administration  [product_standard]
+  Migration  [product_standard]
+  Workshops  [product_standard]
+  ITIL  [product_standard]
+  UML 2.0  [product_standard]
+  MDA  [product_standard]
+  MDSD  [product_standard]
+  TDD  [product_standard]
+  XPATH  [product_standard]
+  Routing  [product_standard]
+  SCRUM  [product_standard]
+  BPMN  [product_standard]
+  REST-WS  [product_standard]
+  SOAP  [product_standard]
+  Wireshark  [product_standard]
+  Apache Ant  [product_standard]
+  Hibernate  [product_standard]
+  Oracle APEX 4.2  [product_standard]
+  Linux  [product_standard]

@@ -1,0 +1,331 @@
+AID: AID-gp_1.1.5.0
+Name: Gabor Pados
+Headline: Anwendungsentwicklung, Systemsprogrammierung, Test, Anwendungsadministration in IBM M/F Umfeld: z/OS, Cobol, Assembler, Macro, JCL, SQL, CICS, DB2, TCP/IP Socket Interface (Batch+CICS), Dokumentation
+Ort: D6 im Umkreis von: Damstadt, Frankfurt, Mainz, Wiesbaden (200 km)
+Wohnort: 642xx Darmstadt, Deutschland
+Jahrgang: 1954
+Verfügbar: 07.10.19 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1979
+Sprachen: Deutsch Verhandlungsfähig, Englisch Gut, Ungarisch Muttersprache
+
+FACHBEREICHE:
+Anwendungsentwicklung
+Systemsprogrammierung
+Test
+Anwendungsadministration in IBM M/F Umfeld: z/OS Cobol Assembler Macro JCL SQL CICS DB2 TCP/IP Socket Interface (Batch+CICS) Dokumentation Software-Entwicklung / Programmierung
+Beratung / Consulting
+Administration / Support
+Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Engineering / IT-nahe Ingenieurdienstleistungen Studium der Elektronik und Regelungstechnik an der Technischen Universität, Budapest, Fakultät Elektroingenieur Abschluss: Diplom-Elektroingenieur(TU Budapest) 1977
+
+BRANCHEN:
+Forschungsinstitut
+Industrie
+Software Herstellung und Handel
+Softwarehaus
+Buchführung/Finanz
+Telekommunikation
+Geldinstitut/Bank
+Informationsdienstleistung
+Finanzdienstleistung
+Versicherung
+
+PROJEKTE:
+  04/2016 - heute | Finanzdienstleistung | Anwendungsentwicklung im Wertpapierbereich
+    - Aufgaben:
+    - Programmentwicklung:
+    - Analyse, DV-Konzept, Realisierung, Dokumentation, Datenbereinigung und Entwicklertest des Depot Abwicklung Systems für Kapitalanlage Gesellschaften einer Wertpapiergesellschaft (Verwaltung der Kundenstamm-, Fondstammdaten,
+    Techs: Management), Remote Desktop Manager, Windows, JIRA
+  08/2014 - 04/2016 | Versicherung | Operation Manager
+    - Aufgaben:
+    - Infrastruktur, Unterstützen und Bedienung des Betriebes des Konzerns z/OS, TSO, ISPF/PDF, JCL, JES2, SDSF, TPX, IBM NetView, BMC MainView Window
+    - Interface, IBM TSA Tivoli System Automation, UC4-ATOMIC (Automation Engine),
+    Techs: Windows, Linux, AIX IT-, VMware vSphere Client. Remote Desktop Manager, MS Office
+  11/2013 - 03/2014 | Versicherung | Unterstützungsleistung in WebSphere MQ Bereitstellung und
+    - Betrieb
+    - Aufgaben:
+    - Administration der WMQ-Resourcen und Objekte, Anwendung-Support, Problemanalyse und Quality-Maßnahmen, Supportleistung
+    Techs: WebSphere Message Queueing for z/OS, Linux, BMC MainView
+  04/2013 - 04/2013 | Finanzdienstleistung | Systemberatung IBM DB2 Stored Procedures in z/OS
+    - Aufgaben:
+    - Abhalten eines firmeninternen Schulungskurses "Theorie der IBM DB2 V8 Stored
+    - Procedures und Erfahrungen in z/OS" bei einem Finanzdienstleister.
+  12/2011 - 03/2012 | Geldinstitut | Funktionelle Analyse und Datenbereinigung
+    - Aufgaben:
+    - Supportleistung bei einer Großbank-Anwendung
+    - Ticket-Verarbeitung, Problem Management, Action Request DB Tables
+    Techs: OS Utilities, REXX, ICETOOL/IBM SORT, EXCEL, Remedy AR, Tool (Incident
+  10/2010 - 02/2011 | Geldinstitut | Testunterstützung bei Erweiterung der Funktionalität des
+    - Fondsvermögensverwaltungs-Systems (FVV-Relaunch)
+    - Aufgaben:
+    - Modultest der Generierung neuer Briefe und Variablen des KUNO-Briefmodules für Depoteröffnungsbestätigung, Kontenbestätigung, Wertsteuerungsfeatures (WSF),
+  01/2010 - 06/2010 | Geldinstitut | Unterstützungsleistung im Anwendungsbereich Kartengeschäfte
+    - (Card Dialog System / CDS), zentraler Geldautomaten (ZGA) und Drucken
+    - Kontoauszüge (KAD)
+    - Aufgaben:
+    Techs: DB2/ADMIN, DB2/QMF, QMF-Windows, DSNTIAUL, TABEX, MQSeries, MQM Utilities, SAM, ZEUS, TSO/ISPF PDSMAN
+  07/2008 - 11/2009 | Geldinstitut | Datenbankbereinigung Geschäftspartnerdaten, Vorbereitung für
+    - Bereinigen und Vorbereiten der Kundenstamm-Datenbank für Migration nach
+    - Aufgaben:
+    - Customer Information File – Data Cleansing im Projekt EUROSIG 9000
+    Techs: and Task-Management, HP Quality Center, PRADO, Dokumentmanagement, EXCEL
+  07/2007 - 06/2008 | Finanzdienstleistung | Anwendungsentwicklung Rechnungswesen
+    - Aufgaben:
+    - Migration Produkt- und Artikeldaten für neue Strukturverwaltung
+    - Analyse, Konzept, Realisierung, Dokumentation, Test und Bereitstellung der Sonderprogramme für Export Debitoren und Kreditoren Stammdaten an ASCII
+  01/2007 - 03/2007 | EDV | Java-Schulung
+    - Aufgaben:
+    - Teilnahme im Fernlehrgang Java-Programmierer ===================================================== ==========================
+    Techs: WINDOWS/XP, JAVA
+  09/2006 - 10/2006 | Informationsdienstleistung | Web-Design eigenes Internetauftrittes
+    - Aufgaben:
+    - Design und Realisierung des Internetauftrittes der eigenen GmbH ===================================================== ==========================
+    Techs: WINDOWS/XP, HTML
+  11/2002 - 06/2006 | Telekommunikation | Programmierung, Anwendungsadministration und Systemberatung
+    - bei Weiterentwicklung, Rückbau und Abwicklung VUS-GK
+    - Aufgaben:
+    - Reaktivierung, Unterstützung und Abwicklung des Vertriebsunterstützungssystems für Geschäftskundenvertrieb (VUS-GK)
+  10/2000 - 10/2002 | Geldinstitut | Systemberatung und Programmierung Online Standard Programme
+    - Aufgaben:
+    - Eigenverantwortliche fachliche Beratung und Programmentwicklung, Konzipierung,
+    - Realisierung, Dokumentation, Pilotbetrieb und Praxiseinführung neuer
+  09/2000 - heute | Informationsdienstleistung | Führung und Verwaltung der eigener GmbH als Geschäftsführender
+    - Gesellschafter
+    - Aufgaben:
+    - Firmeninterne Tätigkeit:
+  1998 - 2000 |  | Systemberatung und Programmierung VUS-GK
+    - Branche:
+    - Telekommunikation
+    - Konzipieren, Redesign, Implementierung, Test, Dokumentation, Lieferung und Inbetriebnahme diverser Anwendungs- und Systemfunktionen einer Client-Server
+  1996 - 1997 |  | Systemberatung und Programmierung IKU
+    - Branche:
+    - Telekommunikation
+    - Konzept, Implementierung und Inbetriebnahme der folgenden Komponenten des integrierten Kundenunterstützung Systems (IKU):
+  1994 - 1995 |  | Software Distribution CONNECT:Direct
+    - Branche:
+    - Software Herstellung und Handel
+    - Vertrieb und Technik
+  1992 - 1994 |  | Systemberatung Network Data Mover
+    - Branche:
+    - Software Herstellung und Handel
+    - Einführung, Installation, Verwaltung des automatisierten Filetransfer- Produktes NDM auf verschiedenen Plattformen (MVS, VSE, VM, PC-DOS, OS/2,
+  1990 - 1992 |  | Software-Distribution Tempus-Link
+    - Branche:
+    - Software Herstellung und Handel
+    - Installation, Verwaltung, Distribution des virtuellen PC-Datei-Systems auf dem Host Anwenderunterstützung/Beratung
+  1983 - 1990 |  | Software Distribution SHADOW II und FQS
+    - Branche:
+    - Software Herstellung und Handel
+    - Installation, Anpassen, Verwaltung, Distribution des Teleprocessing-Monitors SHADOW II und des Dateiabfrage-Systems FQS
+  1982 - 1988 |  | Software Distribution IDMS-OLQ und IDMS-DB
+    - Branche:
+    - Software Herstellung und Handel
+    - Installation, Systemadministration, Wartung und Anwenderunterstützung des IDMS-DB hierarchischen Datenbankmanagement Systems und des Online Abfragesystems IDMS-OLQ zum IDMS-DB
+  1979 - 1981 |  | Installation, Systemadministration und Wartung CRJE und TSO
+    - Branche:
+    - Forschungsinstitut
+    - Pflege mit Online Programmentwicklungssystemen IBM CRJE und TSO
+
+SKILLS:
+  database: DB2 > 10 Jahre, DB2 UDB, DDL, DSNTIAUL, IDMS 3 Jahre IDMS-DB, IMS, ISAM 1 Jahr, Lotus Notes, SQL > 12 Jahre, Trigger, VSAM 8 Jahre, DB2I (SPUFI, DCLGEN, DB2-CMD/UTIL u.s.w.) - 9 Jahre, IBM DB2 für OS/390, z/OS - 12 Jahre, IBM DB2 für i5/OS - 1 Jahr, IDMS-OLQ: 5 Jahre, QSAM: > 5 Jahre, BSAM: > 5 Jahre, DAM: > 4 Jahre, GDG: > 4 Jahre
+  hardware: AS/400, IBM GroßrechnerIBM Host/Mainframe > 27 J, IBM AS/400 - insg. 1 Jahr
+  operating_system: CMS IBM VM/CMS = 1 Jahr, Dos IBM VSE/SP = 1 Jahr, IBM ISPF als Benutzer > 10 J ahre / als Entwickler = 1 Jahr, JES, Linux, MVS, OS/390 (inkl. z/OS) > 20 Jahre, OS/2 < 1 Jahr, OS/390, OS/400 insg. 1 Jahr, QSAM, RACF, VM insg. 1 Jahr, Windows - MS WINDOWS/XP Professional (als Anwender) = 5 Jahre, z/OS
+  programming_languages: ABAP4 3 MM (R2 Ausbildung / Einführung in RF), Assembler (inkl. Macros und HLASM) insg. 9 Jahre, CList 1 Jahr, Cobol (inkl. VS COBOL II): insg. 17 Jahre, COBOL II, DCL (von IBM DB2/SQL) 1, 5 Jahr, JAVA, JCL > 24 Jahre, Makrosprachen (von IBM Assembler) > 3 Jahre, PL/1 (Basiskenntnisse) 1 Jahr, QMF (Basiskenntnisse) < 1 Jahr, Rexx (Basiskenntnisse) 1 Jahr, SQL(DDL, DML) > 8 Jahre, HTML = 1 Jahr, XML (Basiskenntnisse) = 1 Monat, UNIX Shellprozeduren (Basiskenntnisse) < 1 Jahr
+
+SKILL-ABLAGE:
+BSC 1 Jahr, CICS 12 Jahre (IBM Transaktion Server), LU6.2 1 Jahr (Basiskenntnisse), MQSeries, Shadow 8 Jahre (SHADOW II TP-Monitor von Altergo Sw Ltd./Thor EMI Computer, Software/Ringwood SW Ltd), SNA 1 Jahr, SPUFI, TCP/IP 4 Jahre (MVS Batch und CICS Socket Interface), VTAM 4 Jahre, MQSeries Interface for OS/390 (IBM) : 1 Jahr, WebSphere MQ in z/OS : 3 Monate, NDM Network Data Mover (Systems Center Inc.): > 2 Jahre, CONNECT DIRECT (Sterling Software Inc.) : > 2 Jahre, Design/Entwicklung/Konstruktion
+
+FOCUS_EXP:
+  (E)JES3 (Phoenix Software Intl.)  [product_standard]
+  ABEND-AID  [product_standard]
+  Assembler/HLASM  [product_standard]
+  Beta92  [product_standard]
+  BETA92/93  [product_standard]
+  Beta93  [product_standard]
+  BMC MainView  [product_standard]
+  BMC MainView for WebSphere MQSeries  [product_standard]
+  BMC MainView Window Interface  [product_standard]
+  BMC Utilities  [product_standard]
+  BTB-VIEWER  [product_standard]
+  BUGZILLA Problem- und Testmanagement  [product_standard]
+  CA-INTERTEST  [product_standard]
+  CA-INTERTEST/CICS  [product_standard]
+  CA-LIBRARIAN  [product_standard]
+  Change and Task-Management  [product_standard]
+  CICS Transaction-Server  [product_standard]
+  DAM  [product_standard]
+  DB2 for i5/OS  [product_standard]
+  DB2 Query Manager for i5/OS  [product_standard]
+  DB2 SQL für i5/OS  [product_standard]
+  DB2 Stored Procedure (CICS und Batch)  [product_standard]
+  DB2 Stored Procedures  [product_standard]
+  DB2 und z/OS  [product_standard]
+  DB2-CMD/UTIL  [product_standard]
+  DB2/ADMIN  [product_standard]
+  DB2/QMF  [product_standard]
+  DB2/SPUFI  [product_standard]
+  DB2/SQL  [product_standard]
+  DB2I  [product_standard]
+  DB2I/DCLGEN  [product_standard]
+  DB2I/SPUFI  [product_standard]
+  DCLGEN  [product_standard]
+  DEBUG-TOOL  [product_standard]
+  DMS CA DISK  [product_standard]
+  EXCEL  [product_standard]
+  FILE-AID  [product_standard]
+  FILEAID  [product_standard]
+  FLASH  [product_standard]
+  GDG  [product_standard]
+  HP Quality Center  [product_standard]
+  HP Service Manager (Incident und Change Management)  [product_standard]
+  HTML  [product_standard]
+  IBM CLEANUP Data Set Selection  [product_standard]
+  IBM Dashbord Application service Hub  [product_standard]
+  IBM Datapropagator  [product_standard]
+  IBM DB2-Tools  [product_standard]
+  IBM NetView  [product_standard]
+  IBM PC Telnet 3270  [product_standard]
+  IBM TSA Tivoli System Automation  [product_standard]
+  ICEMAN/IBM SORT  [product_standard]
+  ICETOOL/IBM SORT  [product_standard]
+  IMPACT Incident-  [product_standard]
+  ISPF  [product_standard]
+  ISPF/PDF  [product_standard]
+  JES2  [product_standard]
+  JIRA  [product_standard]
+  JVS Job Verwaltung System  [product_standard]
+  Konfigurations-Management  [product_standard]
+  Konfigurations-Management PR- und BT-Tool  [product_standard]
+  KUNO Kundenreporting Tool  [product_standard]
+  KVS/ENDEVOR Komponentverwaltung  [product_standard]
+  Lotus Notes (Anforderungsmanagement)  [product_standard]
+  MQM Utilities  [product_standard]
+  MQSI MQSeries Interface/OS390  [product_standard]
+  MS Office  [product_standard]
+  Netview FTP  [product_standard]
+  Netzverwaltungsystem VMware vSphere Client. Remote Desktop Manager  [product_standard]
+  OLYMPIC Kernbanksystem für Depotführung  [product_standard]
+  OMC FLASH  [product_standard]
+  OMEGAMON  [product_standard]
+  OMEGAMON II  [product_standard]
+  OmniTracker  [product_standard]
+  OmniTracker (Incident- und Service Request Management)  [product_standard]
+  OPC  [product_standard]
+  OPC Operations Planning and Control  [product_standard]
+  OS/390 und z/OS  [product_standard]
+  OS390 Utilities  [product_standard]
+  OS390-z/OS Utilities  [product_standard]
+  Peregrine Service Center (Incident und Change Management)  [product_standard]
+  PLATINIUM  [product_standard]
+  PRADO Dokumentmanagement  [product_standard]
+  Problem-  [product_standard]
+  PRÜV Produktion Übergabeverfahren  [product_standard]
+  PuTTY  [product_standard]
+  QMF-Windows  [product_standard]
+  Quick3270 (DN Computing)  [product_standard]
+  Remedy Action Request Tool  [product_standard]
+  Remedy AR Tool (Incident Management und Action Request)  [product_standard]
+  Remote Desktop Manager  [product_standard]
+  RZ-Übergabeverfahren  [product_standard]
+  SAM  [product_standard]
+  SCLM  [product_standard]
+  SDSF  [product_standard]
+  SEWB  [product_standard]
+  Smart SQL  [product_standard]
+  Software Configuration Manager (SCLM)  [product_standard]
+  Softwareentwicklungsmodell DASEM  [product_standard]
+  SRCVW  [product_standard]
+  TABEX  [product_standard]
+  TCP/IP FTP  [product_standard]
+  TCP/IP MVS Batch und CICS EZASOCKET Interface  [product_standard]
+  TPX  [product_standard]
+  TSO  [product_standard]
+  TSO/ISPF  [product_standard]
+  TSO/ISPF PDSMAN  [product_standard]
+  UC4-ATOMIC (Automation Engine)  [product_standard]
+  VM-BASIS  [product_standard]
+  VOOM  [product_standard]
+  VS COBOL II  [product_standard]
+  VTAM/SNA  [product_standard]
+  WebSphere Message Queueing for z/OS  [product_standard]
+  Windows 7 und Linux  [product_standard]
+  WINDOWS/XP  [product_standard]
+  XINFO  [product_standard]
+  XPEDITER/Batch  [product_standard]
+  z/OS Utilities  [product_standard]
+  z/OS: DB2  [product_standard]
+  ZEUS  [product_standard]
+  OMEGAMON II Performance Monitor für CICS und DB2  [product_standard]
+  * MAINVIEW Performance Monitor für CICS  [product_standard]
+  DB2 und MVS  [product_standard]
+  BMC MainViewforWebSphere MQSeries  [product_standard]
+  FQS Friendly Query Dateiabfrage-System  [product_standard]
+  IDMS-OLQ Online Datenabfrage-System zum IDMS-DB  [product_standard]
+  TEMPUS-LINK Virtuelle PC-Dateimanagement auf dem Host und PC  [product_standard]
+  * NDM Network Data Mover automatisierter Filetransfer-Tool  [product_standard]
+  CONNECT: Direct automatisierter Filetransfer-Tool  [product_standard]
+  IBM SCRIPT MVS und SCRIPT-PC  [product_standard]
+  * IBM Dateimanagement BSAM  [product_standard]
+  QSAM  [product_standard]
+  ISAM  [product_standard]
+  VSAM  [product_standard]
+  IBM/ICEMAN SORT  [product_standard]
+  CA-LIBRARIAN Source Management System  [product_standard]
+  Konfiguration Management: PR-TOOL Problem Reporting Tool Source-  [product_standard]
+  Verwaltungs-System  [product_standard]
+  * Konfiguration Management: BT-TOOL Bereitstellung Tool (Sourceverwaltung  [product_standard]
+  Release- und Version-Bereitstellung/Lieferung IBM / DTAG)  [product_standard]
+  PRISM Problem Report and Incident Management System (Anforderungs- und  [product_standard]
+  Fehlermanagement  [product_standard]
+  Ticket-Verarbeitung - IBM / Systems Center Inc  [product_standard]
+  FLAM Datenkomprimierung uns Dekomprimierung  [product_standard]
+  BMC Utilities für DB2 UDB  [product_standard]
+  Netview FTP Filetransferprogramm  [product_standard]
+  TCP/IP FTP Filetransferprogramm  [product_standard]
+  IBM DEBUG TOOL  [product_standard]
+  * ABEND-AID  [product_standard]
+  VOOM (Message-Routing- und Message-Anzeige-System  [product_standard]
+  ZEKE Enterprise Scheduling System von ALTAI/PLATINIUM  [product_standard]
+  PROST (Tool zur EURO-Umstellung durch dynamische Programmsteuerung)  [product_standard]
+
+SONSTIGES:
+Referenzen:
+Projekt VUS-GK, 11/02 - 06/06
+Referenz durch Projektgruppenleiter, T-Systems, 30.000 MA, vom 08.11.06
+"Der Consultant wurde mit dem Entwickeln von Konzepten, dem Erstellen, der
+Analyse, dem Redesign und Warten von Programmen, dem Durchführen von
+Entwicklungs-, System- und Abnahme-Tests, mit dem Inbetriebnahme, sowie mit
+der
+Unterstützung der Abnahme und des Wirkbetriebes der zentralen IBM z/OS
+Mainframe-Komponenten in unserem Projekt - sowohl als Entwickler, als auch als
+Systemprogrammierer und Administrator - betraut. Der Consultant verfügt über
+ein hervorragendes Wissen in Programmsprache COBOL, Assembler, SQL, JCL,
+sowie
+im Transaktionsserver CICS, im Datenbankmanegement DB2, in
+Dateimanagement
+VSAM, DAM und QSAM, in Kommunikation TCP/IP Socket Interface, in Batch und
+TSO
+Jobverarbeitung. Die von ihm entwickelten Programme laufen fehlerfrei und
+performant. Er hat immer seine Aufgaben zu unserer vollsten Zufriedenheit ganz
+besonders zuverlässig erledigt. Neben seiner fachlichen Qualifikation ist sein
+besonderes Engagement hervorzuheben. Wir möchten uns an dieser Stelle dafür
+bedanken und den Consultant anderen Projektanbietern weiterempfehlen."
+Projekt Einführung neuer Online Systemprogramme (OSP), 10/00 - 10/02
+Referenz durch Produktverantwortlicher OSP (Online System Programme), dt.
+Großbank, vom 20.10.06
+"[...] Der Consultant arbeitete im OS/390-Umfeld mit TSO, JCL, Batch, CICS,
+TCP/IP, CICS Socket Interface, MQSeries, VSAM, Cobol und Assembler. Er hat
+hervorragendes Wissen in diesen Bereichen. Er hat das Projekt in allen Phasen
+von der Spezifikation bis zur Implementierung als Entwickler und
+Systemprogrammierer begleitet. Der Consultant hat die ihm übertragenen
+Aufgaben
+stets zu unserer vollsten Zufriedenheit erledigt. Er war ganz besonders
+zuverlässig. Sein Einsatz und sein Verhalten gegenüber Teamkollegen war stets
+vorbildlich. Die von ihm entwickelten Standardprogramme laufen bis jetzt
+fehlerfrei und performant. Wir danken dem Consultant für seine sehr guten
+Leistungen und wünschen ihm für seinen weiteren beruflichen Lebensweg
+weiterhin
+viel Erfolg. Auf diesem Wege möchten wir den Consultant anderen
+Projektanbietern weiterempfehlen."
+Alle Referenzen sind durch GULP bestätigt.
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+Englisch anzeigen

@@ -1,0 +1,421 @@
+{
+  "personal": {
+    "aid": "AID-rp_1.1.4.0",
+    "first_name": "Ralf",
+    "last_name": "Panzer",
+    "birth_year": 1953,
+    "location": "Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+    "availability": "01.01.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1984,
+    "headline": "DB2-Administrator für IBM z/OS Mainframe",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 52,
+    "certifications": 0,
+    "education": 0,
+    "experience": 8,
+    "industries": 4,
+    "focus_areas": 1,
+    "focus_experience": 9,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch gut",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Industrie",
+    "Behörde",
+    "Automobil",
+    "Bank"
+  ],
+  "focus_areas": [
+    "DB2-Administrator für IBM z/OS Mainframe Software-Entwicklung / Programmierung Administration / Support Studium Allgemeine Verfahrenstechnik FH Düsseldorf Abschluss Ing.grad. 1979"
+  ],
+  "focus_experience": [
+    {
+      "name": "Erfahrungen im Bereich:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Anwendungs- und Systemprogrammierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spezifikation",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programmierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Arbeitsvorbereitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Job scheduling",
+      "category": "product_standard"
+    },
+    {
+      "name": "DB2-Administration",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "ab 11.2011",
+      "company": "Grossbank, Berlin",
+      "role": "",
+      "title": "Produktions DB2 Administration Rolle: DB2 Administrator Betriebssysteme: z/OS DB-Systeme: DB2, VSAM DC-Systeme: TSO/ISPF Tools: BMC Change Manager, BMC Catalog Manager, SQL, REXX MAINVIEW, DB2-Utiliti",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "01.2010 - 05.2011",
+      "company": "Grossbank, Berlin",
+      "role": "",
+      "title": "Produktions DB2 Administration Rolle: DB2 Administrator Betriebssysteme: z/OS DB-Systeme: DB2, VSAM DC-Systeme: TSO/ISPF Tools: BMC Change Manager, BMC Catalog Manager, SQL, REXX MAINVIEW, DB2-Utiliti",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "05.1994 - 12.2009",
+      "company": "Commerzbank, Frankfurt",
+      "role": "DB2 Administrator Tätigkeiten: DB2 Administration in einer multi-Sysplex",
+      "title": "Integration der Dresdner Bank IT in die Commerzbank IT",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "04.1991 - 04.1994",
+      "company": "Ford Motor Company, Köln",
+      "role": "",
+      "title": "Ganzheitliche Beratung und Unterstützung bei der Pflege Erweiterung und Neuentwicklung innerhalb des Bereichs Zahlungssysteme (European Accounts Payables) Rolle: Arbeitsvorbereiter, Anwendungsprogramm",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "1990 - 1992",
+      "company": "Bundesministerium der Verteidigung, Rz Köln/Wahn",
+      "role": "",
+      "title": "Betreuung und Erweiterung des Luftwaffen Netzwerks Rolle: Systemprogrammierer Tätigkeiten: NCP-Generierungen VTAM Tuning,Modifikationen Customizing NET/VIEW Systembetreuung Netzwerküberwachung (NPDA, ",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "05.1988 - 04.1991",
+      "company": "Bundesministerium der Verteidigung, Rz Köln/Wahn",
+      "role": "",
+      "title": "Entwicklung dialog- und batchorientierter Verfahren zur Materialverfolgung und -steuerung fliegender Waffensysteme Rolle: Anwendungsprogrammierer Tätigkeiten: Neuentwicklung und Pflege von DB2 PL1 Onl",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "10.1984 - 12.1987",
+      "company": "CSC PLOENZKE Akademie",
+      "role": "",
+      "title": "Entwicklung und Durchführung der Lehrgänge MVS- Grundlagen SNA Grundlagen Rolle: Trainer",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "Firma/Institut: Rank Xerox GmbH, Düsseldorf",
+      "company": "Rank Xerox GmbH, Düsseldorf",
+      "role": "",
+      "title": "Automatic Operation - Customizing NetMaster Rolle: Systemprogrammierer Umstellung von VSAM auf ICF Katalog-Struktur Anlegen von VSAM KSDS, ESDS und RRDS NetMaster Datasets. Anlegen von UNIQUE und NONU",
+      "activities": 20,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt div. IT Projekte im Bereich Accounts Payable, 01/06 - 12/09\nReferenz durch IT-Abteilung eines Automobilherstellers, vom 10.12.09\n\"Während meiner Zusammenarbeit mit dem Kandidaten habe ich folgende\nfachliche\nund persönliche Qualifikationen beobachtet: - fundierte technische Kenntnisse\ndes komplexen System-Umfeldes der von ihm betreuten Anwendungen (Cobol,\nDB2) -\neffiziente und gut strukturierte Programmierung\n- gutes Verständnis von Spezifikationen der Anwender\n- IT technische Realisierungsvorschläge dieser Spezifikationen und verläßliche\nUmsetzung\n- Vorschläge und Realisierung von Performance-Verbesserungen/Optimierung der\nBatch-Prozesse und Datenbank-Zugriffe der von ihm betreuten Anwendungen\n- große Einsatz- und Hilfebereitschaft\n- gute Integration und Zusammenarbeit in einem globalen Team\n- Kommunikationsfähigkeiten auf Englisch\"\nProjekt Accounting Process Changes and Enhancements, 10/06 - 10/09\nReferenz durch Grp.-Leiter Accounting Developments, Abt. Ford IT, Ford-Werke\nGmbH, 05.12.09\n\"Im Rahmen des Projekts hat der Kandidat folgende fachliche sowie persönlichen\nQualifikationen gezeigt:\n- Erstellung von COBOL Programmen im Enterprise Umfeld (d.h. mit vielen\nverknüpften und interagierenden Systemen). Man kann sich auf die Qualität der\nerstellten Programme verlassen.\n- Detailliertes technisches Wissen zur Optimierung der Datenbank-Nutzung (DB2)\nin COBOL Programmen. Die Verbesserung der Mainframe Batch-Prozesse in Bezug\nauf\neffizientere CPU-Nutzung hat zu sichtbaren finanziellen Einsparungen geführt.\n- Aufgeschlossenheit für neue technische Anforderungen\n- Persönlicher Kontakt zur Fachabteilung und gutes Verständnis für\nProblemstellungen der Anwender. Positive Rückmeldungen von den\nFachabteilungen\nüber die Hilfsbereitschaft des Kandidaten.\n- Gute Integration in globales Team (wöchentliche Interaktion mit Kollegen in\nEngland und Indien auf Englisch). Die Zusammenarbeit des Kandidaten im IT-\nUmfeld ist immer zielorientiert und hilfsbereit erfolgt und war stets von\ngegenseitigem Respekt geprägt.\"\nAlle Referenzen sind durch GULP bestätigt.\nSonstige Anmerkungen:\nWegen vorgesehenem Einsatz in militärischen Rechenzentren:\nWiederholte Sicherheitsüberprüfungen (ELOKA Ü3) durch das Bundesamt für\nVerfassungsschutz auf Veranlassung des Bundesministers für Wirtschaft (1994):\nBefugnis zum Zugang, zum Empfang und zur Aufbewahrung von schriftlichen oder\nmündlichen Verschlusssachen sowie zum Einsatz in besonders\nsicherheitsempfindlichen Programmen der Geheimhaltungsgrade\nSTRENG GEHEIM\nGEHEIM\nVS-VERTRAULICH\nVS-NUR FÜR DEN DIENSTGEBRAUCH\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "DB2 Experte",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS Gut",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL Experte",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "VSAM Experte",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "o strukturierte Programmierung",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "o ISOTEC",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "o Solution Delivery Methodology",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Spezialkenntnisse",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "o XEROX Laser Printer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "o Enterprise Output Solution (Output Verwaltung)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "o SMTP",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Werkzeuge und Tools",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SELCOPY",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SPUFI",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "QMF",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "XPEDITER",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "LIBRARIAN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "PANVALET",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2 Utilities",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "BMC Utilities",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Utilities",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "FileAID",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Syncsort",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MAINVIEW",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "STROBE",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Netview File Transfer",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM ISPF Experte",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390 Experte",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "z/OS: Experte",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CList Experte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol Experte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Easytrieve Plus Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JCL Experte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/1 Gut",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "QMF Experte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rexx Experte",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EDIFACT Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "HDLC Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "IMS/DC Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISDN Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISO/OSI Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LU6.2 Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SMTP Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNA Experte",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Token Ring Gut",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "VTAM Experte",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

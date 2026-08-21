@@ -1,0 +1,381 @@
+======== BATCH gulp → AID Pipeline ========
+Start: 2026-08-20T21:54:06+02:00 host=ucs5 pid=756397
+LIMIT=1 EXECUTE=1 MEM_THRESH=88 CPU_THRESH=88
+SWAP_THRESH=95 SWAP_MEM_COMBO=75 MIN_AVAIL_MB=1536
+THROTTLE_SLEEP=30 PAUSE_BETWEEN=2
+OUT_LOG=/tmp/gulp-batch-20260820-215406
+
+NEED=/tmp/gulp-need-beemers.tsv (2 Zeilen inkl. Header)
+
+─── [1] bbb/beemers_heiko (gulp_id=21374 len=15381) ───
+NEED=/tmp/gulp-batch-20260820-215406/one_beemers_heiko.tsv FAILS= TXT_DIR= OUT_DIR= LIMIT=1 EXECUTE=1
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-20 21:54:06,829 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-20 21:54:06,829 search_service ✅ SearchService initialisiert
+INFO 2026-08-20 21:54:07,161 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-20 21:54:07,228 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-20 21:54:07,228 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-20 21:54:07,229 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-20 21:54:07,283 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-20 21:54:07,284 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-20 21:54:07,286 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-20 21:54:07,287 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-20 21:54:07,289 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-20 21:54:07,289 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-20 21:54:07,289 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-20 21:54:07,289 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-20 21:54:07,291 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-20 21:54:07,292 apps    Status: yellow
+INFO 2026-08-20 21:54:07,292 apps    Cluster: docker-cluster
+INFO 2026-08-20 21:54:07,292 apps    Build: default
+INFO 2026-08-20 21:54:07,294 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-20 21:54:07,294 apps    📊 Dokumente: 22
+INFO 2026-08-20 21:54:07,294 apps    📦 Größe: 0.06 MB
+INFO 2026-08-20 21:54:07,294 apps    📝 Felder: 13
+INFO 2026-08-20 21:54:07,294 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-20 21:54:07,310 apps 📊 Synchronisations-Status:
+INFO 2026-08-20 21:54:07,310 apps    🗄️  DB Profile: 1
+INFO 2026-08-20 21:54:07,310 apps    🗄️  DB Versionen: 0
+INFO 2026-08-20 21:54:07,310 apps    🔍 ES Versionen: 22
+INFO 2026-08-20 21:54:07,310 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-20 21:54:07,310 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-20 21:54:07,310 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-20 21:54:07,310 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-20 21:54:07,310 apps    📊 Index: VORHANDEN
+INFO 2026-08-20 21:54:07,310 apps    📈 ES-Dokumente: 22
+INFO 2026-08-20 21:54:07,311 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-20 21:54:07,311 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-20 21:54:07,311 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-20 21:54:07,313 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-20 21:54:07,313 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-20 21:54:07,314 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-20 21:54:07,314 signals ✅ ai_cv_training Signals geladen und bereit
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+2 objects could not be automatically imported:
+
+  djangocms_versioning.datastructures.SnippetVersion
+  djangocms_versioning.datastructures.PageContentVersion
+
+251 objects imported automatically (use -v 2 for details).
+
+jobs_candidates=1 EXECUTE=True AID_ROOT=/mnt/public/Berater/AID_profile
+keywords=v1.3-final
+  clean: experience=5 snapshot=13406 aid=AID-hb_1.0.0.0
+OK beemers_heiko chars=15381 sections=6 experience=5 aid=AID-hb_1.0.0.0
+  → /mnt/public/Berater/AID_profile/bbb/beemers_heiko/AID-hb_1.0.0.0.pdf
+{
+  "execute": true,
+  "jobs_ok": 1,
+  "fail": 0,
+  "skip": 0,
+  "version_tag": "1.0.0.0",
+  "keywords": "v1.3-final",
+  "aid_root": "/mnt/public/Berater/AID_profile",
+  "web_urls": []
+}
+LOG=/tmp/gulp-batch-20260820-215406/convert-beemers_heiko
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-20 21:54:08,687 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-20 21:54:08,687 search_service ✅ SearchService initialisiert
+INFO 2026-08-20 21:54:09,026 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-20 21:54:09,097 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-20 21:54:09,098 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-20 21:54:09,098 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-20 21:54:09,153 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-20 21:54:09,153 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-20 21:54:09,156 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-20 21:54:09,157 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-20 21:54:09,159 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-20 21:54:09,159 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-20 21:54:09,159 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-20 21:54:09,159 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-20 21:54:09,161 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-20 21:54:09,161 apps    Status: yellow
+INFO 2026-08-20 21:54:09,161 apps    Cluster: docker-cluster
+INFO 2026-08-20 21:54:09,161 apps    Build: default
+INFO 2026-08-20 21:54:09,164 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-20 21:54:09,164 apps    📊 Dokumente: 22
+INFO 2026-08-20 21:54:09,164 apps    📦 Größe: 0.06 MB
+INFO 2026-08-20 21:54:09,164 apps    📝 Felder: 13
+INFO 2026-08-20 21:54:09,164 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-20 21:54:09,180 apps 📊 Synchronisations-Status:
+INFO 2026-08-20 21:54:09,180 apps    🗄️  DB Profile: 1
+INFO 2026-08-20 21:54:09,180 apps    🗄️  DB Versionen: 0
+INFO 2026-08-20 21:54:09,180 apps    🔍 ES Versionen: 22
+INFO 2026-08-20 21:54:09,180 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-20 21:54:09,180 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-20 21:54:09,180 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-20 21:54:09,180 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-20 21:54:09,180 apps    📊 Index: VORHANDEN
+INFO 2026-08-20 21:54:09,180 apps    📈 ES-Dokumente: 22
+INFO 2026-08-20 21:54:09,180 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-20 21:54:09,180 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-20 21:54:09,180 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-20 21:54:09,183 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-20 21:54:09,183 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-20 21:54:09,183 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-20 21:54:09,184 signals ✅ ai_cv_training Signals geladen und bereit
+INFO 2026-08-20 21:54:09,296 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-20 21:54:09,604 db_enricher DBEnricher initialisiert
+INFO 2026-08-20 21:54:09,604 extracted_to_db ✅ ExtractedToDB initialisiert (mit get_or_create)
+INFO 2026-08-20 21:54:09,605 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-20 21:54:09,605 self_learning_pipeline SelfLearningPipeline initialisiert
+INFO 2026-08-20 21:54:09,605 skill_graph_builder SkillGraphBuilder initialisiert
+INFO 2026-08-20 21:54:09,605 word2vec_matcher ✅ Word2VecMatcher initialisiert
+INFO 2026-08-20 21:54:09,606 word2vec_matcher ✅ Doc2VecMatcher initialisiert
+INFO 2026-08-20 21:54:09,606 search_enricher SearchEnricher initialisiert
+INFO 2026-08-20 21:54:09,734 aid_generator AIDGenerator (LLM-basiert) initialisiert
+INFO 2026-08-20 21:54:09,735 block_labeler BlockLabeler initialisiert
+INFO 2026-08-20 21:54:09,737 pipeline Pipeline initialisiert mit 28 Skill-Kategorien
+INFO 2026-08-20 21:54:09,942 tasks Stufe 1 Start: Heiko Beemers | action=aid_import | dir=beemers_heiko
+INFO 2026-08-20 21:54:09,969 main_pipeline_controller [MainPipeline] START: Heiko Beemers — AID-hb_1.0.0.0.pdf
+INFO 2026-08-20 21:54:09,969 main_pipeline_controller [MainPipeline] Schritt 1: PDF → Spans
+INFO 2026-08-20 21:54:09,995 main_pipeline_controller [MainPipeline] Spans: 335
+INFO 2026-08-20 21:54:10,044 main_pipeline_controller [MainPipeline] Schritt 1b: lines=335 chars=12772 aid_signals=5/5 is_aid=True
+INFO 2026-08-20 21:54:10,044 main_pipeline_controller [MainPipeline] Schritt 1b: abcona-Profil erkannt → Fast-Path
+INFO 2026-08-20 21:54:10,048 main_pipeline_controller [MainPipeline] Schritt 1b: 68 Skills vorkategorisiert
+DEBUG 2026-08-20 21:54:10,059 aid_regex_extractor [AidRegex] 5 Projekte extrahiert
+INFO 2026-08-20 21:54:10,060 main_pipeline_controller [MainPipeline] Schritt 1b: headline=True | personal=True | fachbereiche=64 | branchen=8 | zertifikate=0 | ausbildung=0 | focus_exp=99 | projekte=5
+INFO 2026-08-20 21:54:10,060 main_pipeline_controller [MainPipeline] Schritt 2: Spans → Gruppen
+INFO 2026-08-20 21:54:20,918 main_pipeline_controller [MainPipeline] Gruppen: 23, Blöcke: 95
+INFO 2026-08-20 21:54:20,919 main_pipeline_controller [MainPipeline] Schritt 3: Labels
+INFO 2026-08-20 21:54:20,955 main_labeler [MainLabeler] 23 Gruppen
+INFO 2026-08-20 21:54:20,955 main_labeler   Stufe 1: Hauptlabels...
+INFO 2026-08-20 21:54:20,957 main_labeler   Regelbasiert: 16 Gruppen direkt gelabelt
+INFO 2026-08-20 21:54:22,908 main_labeler   LLM: 7 Gruppen nachklassifiziert
+INFO 2026-08-20 21:54:22,908 main_labeler   Labels: {'PERSONAL': 1, 'FACHBEREICHE': 2, 'SCHULUNGEN': 1, 'BRANCHEN': 1, 'SKILLS': 4, 'FOCUS_EXP': 1, 'PROJECT': 10, 'OTHER': 2, 'HEADER': 1}
+INFO 2026-08-20 21:54:22,908 main_labeler   Stufe 2: Skills kategorisieren...
+INFO 2026-08-20 21:54:22,908 main_labeler   Regelbasiert: 4 Skill-Kategorien direkt erkannt
+INFO 2026-08-20 21:54:22,908 main_labeler   4 Skill-Bloecke kategorisiert
+INFO 2026-08-20 21:54:22,908 main_labeler   Stufe 3: Projekte zusammenfuehren...
+INFO 2026-08-20 21:54:24,219 main_labeler   6 Projekte
+INFO 2026-08-20 21:54:24,220 main_labeler [MainLabeler] 6 Projekte, 4 Skill-Bloecke
+INFO 2026-08-20 21:54:24,220 main_pipeline_controller [MainPipeline] 10 Projekte, 4 Skill-Blöcke
+INFO 2026-08-20 21:54:24,220 main_pipeline_controller [MainPipeline] Schritt 4: pre_json
+INFO 2026-08-20 21:54:31,370 main_pipeline_controller [MainPipeline] pre_json: 5 Projekte, 28 skill_ablage
+INFO 2026-08-20 21:54:31,370 main_pipeline_controller [MainPipeline] Schritt 4b: Post-Processor
+INFO 2026-08-20 21:54:31,372 main_post_processor [MainPostProcessor] START: 5 Projekte
+INFO 2026-08-20 21:54:31,373 main_post_processor   [PostProcessor] EDV seit: 1992
+INFO 2026-08-20 21:54:31,396 main_post_processor   [PostProcessor] PDF Tokens: 588
+INFO 2026-08-20 21:54:31,397 main_post_processor   [PostProcessor] Extrahierte Tokens: 556
+INFO 2026-08-20 21:54:31,397 main_post_processor   [PostProcessor] Coverage: 94.0% (553/588)
+INFO 2026-08-20 21:54:31,397 main_post_processor   [PostProcessor] Fehlende Tokens: 34
+INFO 2026-08-20 21:54:33,163 main_post_processor   [PostProcessor] LLM: 0 Skills, 0 Produkte
+INFO 2026-08-20 21:54:33,164 main_post_processor [MainPostProcessor] FERTIG: coverage=94.0% | fixes=2 | auto_skills=0
+INFO 2026-08-20 21:54:33,231 main_pipeline_controller [MainPipeline] Post-Processor: coverage=94.0% | fixes=2 | auto_skills=0
+INFO 2026-08-20 21:54:33,231 main_pipeline_controller [MainPipeline] skill_ablage nach PostProcessor: 28
+INFO 2026-08-20 21:54:33,231 main_pipeline_controller [MainPipeline] Schritt 5: DB-Import
+INFO 2026-08-20 21:54:33,471 main_extracted_to_db ✅ MainExtractedToDB initialisiert
+INFO 2026-08-20 21:54:33,472 main_db_importer [MainDbImporter] import_from_prejson: Heiko Beemers
+INFO 2026-08-20 21:54:33,472 main_db_importer   Projekte: 5 | skill_ablage: 28
+INFO 2026-08-20 21:54:33,520 versioning Version reserviert: beemers_heiko v1.0.0.0
+INFO 2026-08-20 21:54:34,425 aid_generator LLM Klassifikation: {'role_code': 5, 'landscape_code': 2, 'level_code': 3}
+INFO 2026-08-20 21:54:34,426 aid_generator AID generiert: AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:34,426 aid_generator   Rolle:      Berater (5)
+INFO 2026-08-20 21:54:34,426 aid_generator   Landschaft: Netzwerk/Security (2)
+INFO 2026-08-20 21:54:34,426 aid_generator   Level:      Experte (3)
+INFO 2026-08-20 21:54:34,426 aid_generator   Verzeichnis:beemers_heiko
+INFO 2026-08-20 21:54:34,736 main_extracted_to_db 💾 MainExtractedToDB: Speichere AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:35,106 main_extracted_to_db    - Skills gespeichert: 40 Einträge
+INFO 2026-08-20 21:54:37,165 main_extracted_to_db ✅ Daten gespeichert für AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:37,165 main_extracted_to_db    - Projekte:         5
+INFO 2026-08-20 21:54:37,166 main_extracted_to_db    - Skills:           40
+INFO 2026-08-20 21:54:37,167 main_extracted_to_db    - Zertifikate:      0
+INFO 2026-08-20 21:54:37,167 main_extracted_to_db    - Ausbildung:       0
+INFO 2026-08-20 21:54:37,168 main_extracted_to_db    - Schulungen:       19
+INFO 2026-08-20 21:54:37,168 main_extracted_to_db    - Focus Experience: 103
+INFO 2026-08-20 21:54:37,169 main_extracted_to_db    - Branchen:         8
+INFO 2026-08-20 21:54:37,170 main_extracted_to_db    - Fachbereiche:     79
+INFO 2026-08-20 21:54:37,170 main_extracted_to_db    - Headline:         Informationssicherheit & Datenschutz: Management, Audits, Dokumentation
+INFO 2026-08-20 21:54:37,170 main_extracted_to_db    - Degree:           
+INFO 2026-08-20 21:54:37,258 main_db_importer   Tech-Counter Projekte: 16 Technologien
+INFO 2026-08-20 21:54:37,258 main_db_importer   skill_ablage: +27 Zusatz-Skills
+INFO 2026-08-20 21:54:37,258 main_db_importer   Tech-Counter gesamt: 43 einzigartige Technologien
+INFO 2026-08-20 21:54:37,258 main_db_importer   68 Skills aus PDF-Layout vorkategorisiert
+INFO 2026-08-20 21:54:37,258 main_db_importer   15 Projekt-Skills via Normalizer
+INFO 2026-08-20 21:54:37,258 main_skill_normalizer   SkillNormalizer START: 15 Projekt-Skills
+INFO 2026-08-20 21:54:37,258 main_skill_normalizer   Schritt 1 (pre_json): 0 bekannt → 15 uebrig
+INFO 2026-08-20 21:54:38,936 main_skill_normalizer   Schritt 2 (TrainingTerm): 15 gefunden → 0 uebrig
+INFO 2026-08-20 21:54:38,936 main_skill_normalizer   SkillNormalizer FERTIG: 15 Skills kategorisiert, 0 unbekannt
+INFO 2026-08-20 21:54:38,943 main_db_importer   Gesamt: 43 Skills (28 aus PDF, 15 via Normalizer)
+INFO 2026-08-20 21:54:39,710 main_skill_normalizer   save_to_db: +43 neu, 0 aktualisiert
+INFO 2026-08-20 21:54:39,710 main_db_importer   SkillNormalizer: +43 Skills, 0 aktualisiert
+INFO 2026-08-20 21:54:39,746 cv_display_utils Offline-HTML Assets eingebettet: css, js, logo
+INFO 2026-08-20 21:54:39,783 aid_profile_publish Publish HTML offline-fähig: /mnt/public/Berater/AID_profile/bbb/beemers_heiko/neu/cv/AID-hb_5.2.3.0.html
+INFO 2026-08-20 21:54:41,091 aid_profile_publish Publish neu/cv: AID-hb_5.2.3.0 → /mnt/public/Berater/AID_profile/bbb/beemers_heiko/neu/cv (3 Dateien)
+INFO 2026-08-20 21:54:41,091 html_generator AID-Profile publiziert: AID-hb_5.2.3.0 → /mnt/public/Berater/AID_profile/bbb/beemers_heiko/neu/cv
+INFO 2026-08-20 21:54:41,114 cv_display_utils Offline-HTML Assets eingebettet: css-fallback, js-fallback, logo
+INFO 2026-08-20 21:54:41,116 main_db_importer   HTML: AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:41,124 main_db_importer   TXT: data/extracted/beemers_heiko/AID-hb_5.2.3.0.txt
+INFO 2026-08-20 21:54:41,124 search_enricher SearchEnricher fuer AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:41,402 search_enricher ES indexiert: AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:41,402 search_enricher SearchEnricher abgeschlossen fuer AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:41,429 self_learning_pipeline Self-Learning (sync) fuer AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:41,789 self_learning_pipeline Self-Learning (sync) abgeschlossen: 0 neu, 83 aktualisiert, 0 Prompts
+INFO 2026-08-20 21:54:41,869 main_pipeline_controller [MainPipeline] FERTIG: AID-hb_5.2.3.0
+INFO 2026-08-20 21:54:41,900 signals Job 3516 abgeschlossen: AID-hb_1.0.0.0.pdf
+INFO 2026-08-20 21:54:41,908 tasks ============================================================
+INFO 2026-08-20 21:54:41,908 tasks ✅ AID-hb_5.2.3.0 | Heiko Beemers | erfolgreich angelegt
+INFO 2026-08-20 21:54:41,908 tasks    Dauer: 31s | Projekte: 5 | Skills: 83
+INFO 2026-08-20 21:54:41,908 tasks ============================================================
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+⚠️  Using default ElasticSearch host: http://localhost:9200
+=== AID-Profil Import ===
+Basis:    /mnt/public/Berater/AID_profile (exists=True)
+Limit:    alle
+Letter:   bbb
+Dir:      beemers_heiko
+Dry-run:  False
+Sync:     True
+Skip existing: False
+  [   1] Heiko Beemers ← AID-hb_1.0.0.0.pdf
+  split_blocks 2nd-pass: 'Betriebssysteme' + 'CentOS LPIC Level I, Systemverwaltung, Härtung, Schwachstellenmanagment' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Programmiersprachen' + 'awk-Programm Auswertung von Logs' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Datenbanken' + 'DB2 Härtung, Rechte & Rollen, Datenanalyse, Logauswertung' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Datenkommunikation' + 'E-Mail Verschlüsselung, PGP, S/Mime, Archivierung' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Produkte|Standards|Erfahrungen' + 'Access Management' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: '* QM, ISO9001' + 'Aufgabenbereiche' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 'Schwerpunkte' + 'BDSG neu Umfangreiche Kenntnisse insbesondere zum Beschäftigtendatenschutz' (gap=39 > 28) → aufgetrennt
+  split_blocks 2nd-pass: 7 Header-Kleber behoben
+  Gruppierung: 95 Bloecke in einem Aufruf...
+  Gruppierer-Prompt: main_detector_group
+  Gruppen: 23
+  Format-Split: Keine Splits noetig
+  Quality-Check: Sende 3464 Zeichen an LLM...
+  Quality-Check: 21 Label-Korrekturen
+    G001: 'Kopfbereich mit Qualifikationsprofil und Kontaktdaten' → 'Qualifikationsprofil: AID-hb_1.0.0.0 www.abcona.de'
+    G002: 'Persönliche Daten' → 'Persönliche Daten: Name: AID-hb_1.0.0.0'
+    G003: 'Fachbereiche' → 'Fachbereiche: Informationssicherheit & Datenschutz: Management'
+    G004: 'Ausbildung' → 'Ausbildung: 1990 Dipl. Verwaltungswirt (FH)'
+    G005: 'Branchen' → 'Branchen: Automotive / Sonderfahrzeugbau'
+    G006: 'Betriebssysteme' → 'Betriebssysteme: CentOS LPIC Level I, Systemverwaltung, Härtung, Schwachstellenmanagment'
+    G007: 'Programmiersprachen' → 'Programmiersprachen: awk-Programm Auswertung von Logs'
+    G008: 'Datenbanken' → 'Datenbanken: DB2 Härtung, Rechte & Rollen, Datenanalyse, Logauswertung'
+    G009: 'Datenkommunikation' → 'Datenkommunikation: E-Mail Verschlüsselung, PGP, S/Mime, Archivierung'
+    G010: 'Produkte, Standards, Erfahrungen' → 'Produkte|Standards|Erfahrungen: Access Management'
+    G011: 'Weitere Standards und Zertifikate' → 'Weitere Standards und Zertifikate: IPMA Anwendung der PM-Methodik'
+    G012: 'Aufgabenbereiche und Führungsrolle' → 'Aufgabenbereiche: Führungsrolle Führung von Mitarbeitenden zwecks Zielerreichung'
+    G013: 'Schwerpunkte und Führungskompetenz' → 'Schwerpunkte: BDSG neu Umfangreiche Kenntnisse insbesondere zum Beschäftigtendatenschutz'
+    G014: 'Projektmanagement und Auslandseinsätze' → 'Projektmanagement (Infrastrukturbereitstellung für ein Softwareentwicklungsprojekt in der Automotive Industrie)'
+    G015: 'Berufliche Erfahrung: Bank (11/2020 - heute)' → 'Berufliche Erfahrungen: Zeitraum: 11/2020 - heute'
+    G016: 'Berufliche Erfahrung: Datenschutz- / Informationssicherheitsbeauftragter (08/2010 - heute)' → 'Berufliche Erfahrungen: Zeitraum: 08/2010 - heute'
+    G017: 'Berufliche Erfahrung: Automobilhersteller (11/2009)' → 'Berufliche Erfahrungen: Zeitraum: 11/2009 - 11/2009'
+    G018: 'Berufliche Erfahrung: Kirchliche Einrichtung (07/2009)' → 'Berufliche Erfahrungen: Zeitraum: 07/2009 - 07/2009'
+    G020: 'Berufliche Erfahrung: Kommunalverwaltung / Steuerberater (06/1992 - 12/1996)' → 'Berufliche Erfahrungen: Zeitraum: 06/1992 - 12/1996'
+    G022: 'Sonstiges und Referenzen' → 'Sonstiges: Referenzen: Projekt RZ-Betrieb, Administration , Systemsupport, 06/04 - 03/06'
+    G023: 'Sonstige Anmerkungen und Mitgliedschaften' → 'Sonstige Anmerkungen: Publikation gerne auf Anfrage'
+  LLM: 6 Extraktionen parallel...
+    BRANCHEN: ✅
+    FOCUS_EXP: ✅
+    PERSONAL: ✅
+    FACHBEREICHE: ✅
+    SCHULUNGEN: ✅
+    OTHER: ✅
+    personal gemerged: seed_keys=8 → 8
+    languages normalisiert: 8 Einträge
+    fachbereiche gemerged: seed=64 + llm → 79
+    schulungen gemerged: +19 courses (education gesamt 19)
+    branchen gemerged: seed=8 + llm → 8
+    focus_experience gemerged: seed=99 + llm=9 → 103
+  PROJEKTE: 10 einzeln parallel...
+❌ main_extract_experience: None | raw=[]
+    Projekt 21: ❌
+❌ main_extract_experience: None | raw=[]
+    Projekt 12: ❌
+❌ main_extract_experience: None | raw=[]
+    Projekt 19: ❌
+    Projekt 18: ✅
+    Projekt 14: ✅
+    Projekt 20: ✅
+    Projekt 17: ✅
+    Projekt 11: ✅
+    Projekt 16: ✅
+    Projekt 15: ✅
+  5 Projekte extrahiert (seed=5, fill=7)
+    HEADER:   | 
+  SKILLS: 4 Gruppe(n) → skill_ablage...
+    Betriebssysteme: 23 Skills (Regex)
+    Programmiersprachen: 9 Skills (Regex)
+    Datenbanken: 8 Skills (Regex)
+    Datenkommunikation: 28 Skills (Regex)
+    68 Skills → skill_ablage (mit Kategorie)
+    skills befüllt: 3 Kategorien, skill_ablage Rest: 28
+    ✅ AID-hb_5.2.3.0
+    📁 neu/cv: AID-hb_5.2.3.0.docx, AID-hb_5.2.3.0.html, AID-hb_5.2.3.0.pdf
+
+==================================================
+ERGEBNIS nach 32s (0.5 min):
+  Versucht:     1
+  Gestartet:    1
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+OK bbb/beemers_heiko → AID-hb_5.2.3.0.pdf (36s)
+{
+  "ok": 1,
+  "fail": 0,
+  "skip": 0,
+  "limit": 1,
+  "need": "/tmp/gulp-need-beemers.tsv",
+  "mem_thresh": 88,
+  "cpu_thresh": 88,
+  "throttle_sleep": 30,
+  "ended": "2026-08-20T21:54:44"
+}
+
+======== FERTIG ok=1 fail=0 skip=0 ========
+Log: /tmp/gulp-batch-20260820-215406/batch.log
+TSV: /tmp/gulp-batch-20260820-215406/result.tsv

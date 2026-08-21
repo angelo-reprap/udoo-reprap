@@ -1,0 +1,711 @@
+{
+  "metadata": {
+    "aid": "AID-ws_2.3.4.0",
+    "version": "2.3.4.0",
+    "consultant_dir": "schroeder_wolfgang",
+    "first_name": "Wolfgang",
+    "last_name": "Schroeder",
+    "headline": "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T10:53:01.443812"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Wolfgang",
+      "last_name": "Schroeder",
+      "birth_year": 1967,
+      "languages": [
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "sehr gut durch 4-jährige Tätigkeit im Ausland weltweit (davon",
+          "level": ""
+        },
+        {
+          "name": "Englisch (sehr gut)",
+          "level": ""
+        }
+      ],
+      "availability": "01.01.19 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "200xx Hamburg, Deutschland",
+      "headline": "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "JDBC",
+        "MS SQL Server",
+        "Oracle",
+        "Postgres",
+        "SQL",
+        "Datenbank-unabhängige Programmierung beliebiger Datenbank-Server via",
+        "Java-JDBC (nicht administrativ)"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "PC",
+        "Börse & Finanzen"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Basic",
+        "Programmierung kleiner (Entwicklungs-)Tools und Makros für Excel für",
+        "den Eigenbedarf",
+        "Java",
+        "Schwerpunkt J2EE und Client/Server-Umgebungen",
+        "Opensource",
+        "Frameworks",
+        "u.a. Jakarta",
+        "OpenSymphony",
+        "Apache etc",
+        "JavaScript",
+        "PL/SQL",
+        "Ansi-SQL",
+        "MySQL",
+        "Sybase",
+        "MS",
+        "Grundkenntnisse in PL/SQL",
+        "Shell",
+        "Bash: Programmierung kleiner Entwicklungstools für Backup und",
+        "Deployment",
+        "Tcl/Tk",
+        "Vignette V5 Projekt-Erfahrung",
+        "UML: Softwarearchitektur und -Design mit UML-Diagrammen",
+        "(Klassendiagramm",
+        "Sequenz",
+        "Aktivitäts etc.)",
+        "Siemens S5: Prozesssteuerung und Messtechnik im Bereich Produktion",
+        "(Tabakindustrie)",
+        "XML: XPath XML-Schema DTD"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Rolle: Leitung Software-Entwicklung / Software-Architektur",
+        "title": "Rolle: Leitung Software-Entwicklung / Software-Architektur",
+        "activities": [
+          "Technologien: Java, JSP, J2EE, XML, SQL, Tomcat, SOAP"
+        ],
+        "role": "Leitung Software-Entwicklung / Software-Architektur",
+        "technologies": [
+          "Java",
+          "JSP",
+          "J2EE",
+          "XML",
+          "SQL",
+          "Tomcat",
+          "SOAP"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung und Ausbau des OpenSource CMS basecmp auf",
+        "title": "Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach",
+        "activities": [
+          "Entwicklung und Ausbau des OpenSource CMS basecmp auf Java-Basis nach objektorientierten Grundsätzen und einem sehr hohen Wiederverwendungsgrad.",
+          "Wiederverwendungsgrad."
+        ],
+        "technologies": [
+          "Java",
+          "basecmp"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung eines webbasierten Redaktionssystems.",
+        "title": "Entwicklung eines webbasierten Redaktionssystems.",
+        "activities": [
+          "Integration der OpenSource-Frameworks Axis, Castor, JUnit, Lucene, OSCache sowie der OpenSource-Komponenten Tomcat, MySQL und Ant",
+          "OSCache sowie der OpenSource-Komponenten Tomcat, MySQL und Ant",
+          "Merkmale des Frameworks: §1 Individuelle Workflows pro Asset",
+          "§2 Rechtesystem",
+          "§3 Gruppen- und Benutzerverwaltung",
+          "§4 Persönliche und Gruppen-Todo-Listen",
+          "§5 WYSIWYG-Internetseiten-Editierung",
+          "§6 Dynamische Navigation"
+        ],
+        "technologies": [
+          "Axis",
+          "Castor",
+          "JUnit",
+          "Lucene",
+          "OSCache",
+          "Tomcat",
+          "MySQL",
+          "Ant"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Planung und Entwicklung des Ersatzteil-Portals motoso.de",
+        "title": "Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis",
+        "activities": [
+          "Planung und Entwicklung des Ersatzteil-Portals motoso.de auf Basis des OpenSource CMS-Frameworks BaseCMP",
+          "§1 Detailierte Inseratseingabe mit dynamisch generierten Formularen",
+          "§2 Volltextsuche mit Lucene",
+          "§3 Dynmischer, hierarchischer Kategoriebaum",
+          "§4 Backoffice zur Administration und Betreuung des Kundenstamms §5 Online-Payment-Schnittstellen",
+          "§6 Import-Schnittstelle für Inserats-Massenimport",
+          "Intranet FCB Wilkens (06/2003 - 10/2003)"
+        ],
+        "technologies": [
+          "BaseCMP",
+          "Lucene"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Rolle: Leitung Software-Entwicklung",
+        "title": "Rolle: Leitung Software-Entwicklung",
+        "activities": [
+          "Technologien: Java, JSP, J2EE, XML, SQL, Intershop Enfinity 2.3"
+        ],
+        "role": "Leitung Software-Entwicklung",
+        "technologies": [
+          "Java",
+          "JSP",
+          "J2EE",
+          "XML",
+          "SQL",
+          "Tomcat",
+          "SOAP",
+          "Intershop Enfinity 2.3"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung und Betreuung des FCB-Intranets",
+        "title": "Entwicklung und Betreuung des FCB-Intranets",
+        "activities": [
+          "§1 Aggregation von Newsfeeds (RSS und HTML)",
+          "Integration bestehender Server-Anwendungen (Legacy-Anwendungen Telefonbuch, Forum etc)",
+          "(Legacy-Anwendungen Telefonbuch, Forum etc)",
+          "HPShop24 (03/2003 - 01/2004) (www.hpshop24.de)"
+        ],
+        "technologies": [
+          "RSS",
+          "HTML"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung und fortlaufende Betreuung eines Internet- Shopsystems auf",
+        "title": "Entwicklung und fortlaufende Betreuung eines Internet- Shopsystems auf",
+        "activities": [
+          "Basis von Intershop enfinity 2.3",
+          "§1 Anbindung an das Warenauslieferungssystem PaLoMa (Otto-Konzern)",
+          "§2 Datenimport des Artikelstamms im PaLoMa-Austauschformat",
+          "§3 Integration der Searchengine FACTFinder (Omikron) als enfinity-Cartridge",
+          "Otto-Supermarkt (10/2001 - 05/2003)"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Rolle: Software-Entwicklung, übernahme der",
+        "title": "Rolle: Software-Entwicklung, übernahme der Entwicklungsleitung",
+        "activities": [
+          "Technologien: Java, JSP, J2EE, XML, SQL (Oracle), Intershop Enfinity",
+          "Fortlaufende Betreuung und Weiterentwicklung des Internet-Lebenmittelsupermarktes www.otto-supermarkt.de auf Basis von Intershop enfinity 1.1. Hinweis:",
+          "Der Shop wurde mitterlweile aufgrund einer Vorstandsentscheidung eingestellt",
+          "Mexx (10/2001 - 12/2002) (www.mexx.com)",
+          "§1 Entwicklung eines einfachen Content-Management-Systems auf Basis der Enfinity-Management-Console (EMC) §2 Auslieferung des Contents als XML §3 Contentbefüllung eines Flash-basierten E-Magazine",
+          "(Mexx-eZine)",
+          "Madaus (10/2002 - 02/2003) (www.madaus.com)"
+        ],
+        "role": "Software-Entwicklung, übernahme der Entwicklungsleitung",
+        "technologies": [
+          "Java",
+          "JSP",
+          "J2EE",
+          "XML",
+          "SQL",
+          "Oracle",
+          "Intershop Enfinity",
+          "EMC",
+          "Flash"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung der Corporate-Website",
+        "title": "Entwicklung der Corporate-Website",
+        "activities": [
+          "§1 Webbasiertes Redaktionssystem",
+          "§2 Java-basiertes Content-Management-System",
+          "§3 Integration eines bestehenden Forum mit Single-Sign-On (SSO)",
+          "§4 Extranet(s) für die Berufsgruppen ärzte, Apotheker",
+          "§5 Webbasiertes Redaktionssystem für externe Contentlieferanten und Redakteure",
+          "Bertelsmann (06/2002 - 09/2002) (www.bertelsmann.com)",
+          "§2 Seitenauslieferung",
+          "Pixelpark (03/2002 - 05/2002) (www.pixelpark.com)",
+          "§2 Java-basiertes CMS-System",
+          "§3 Redaktionssystem für 5 zusätzliche, länderspezifische Microsites",
+          "§4 Seitenauslieferung",
+          "DSGV (Sparkasse) (10/2000 - 09/2001) (www.sparkasse.de)"
+        ],
+        "technologies": [
+          "Java"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+        "title": "Rolle: Software-Entwicklung",
+        "activities": [
+          "Technologien: ColdFusion, JavaScript",
+          "Online-Ausgabe der Tageszeitung Financial Times Deutschland",
+          "Webbasiertes Redaktionssystem",
+          "Seitenauslieferung",
+          "Stagingsystem",
+          "Serverseitige, personalisierte Integration von Börsendaten über den ASP Innovative Software"
+        ],
+        "role": "Software-Entwicklung",
+        "technologies": [
+          "ColdFusion",
+          "JavaScript",
+          "OpenMarket ContentServer",
+          "SQL",
+          "Oracle"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+        "title": "Rolle: Software-Entwicklung",
+        "activities": [
+          "Technologien: Java, JSP, J2EE, SQL, Tomcat"
+        ],
+        "role": "Software-Entwicklung",
+        "technologies": [
+          "Java",
+          "JSP",
+          "J2EE",
+          "SQL",
+          "Tomcat"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+        "title": "Rolle: Software-Entwicklung",
+        "activities": [
+          "Technologien: Vignette Storyserver, TCL/TK, SQL (Oracle)",
+          "Portal-Site für den Deutschen Sparkassen-und Giroverband",
+          "§1 Webbasiertes Redaktionssystem",
+          "§2 Seitenauslieferung",
+          "§3 Serverseitige, personalisierte Integration von Börsendaten über den ASP OnVista",
+          "Financial Times Deutschland (07/2000 - 9/2000) (www.ftd.de)"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Rolle: Software-Entwicklung",
+        "title": "Rolle: Software-Entwicklung",
+        "activities": [
+          "Technologien: OpenMarket ContentServer, SQL (Oracle)",
+          "Online-Ausgabe der Tageszeitung Financial Times Deutschland",
+          "§1 Webbasiertes Redaktionssystem",
+          "§2 Seitenauslieferung",
+          "§3 Stagingsystem",
+          "§4 Serverseitige, personalisierte Integration von Börsendaten über den ASP Innovative Software"
+        ]
+      }
+    ],
+    "industries": [
+      "Handel",
+      "Medien",
+      "Pharmazie"
+    ],
+    "focus_areas": [
+      "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "09/1991 - 09/1995",
+      "Studium Elektrotechnik",
+      "Fachrichtung Daten- und Nachrichtentechnik Fachhochschule Hamburg Abschluss als Diplom-Ingenieur (Dipl.-Ing) 07/1990 - 08/1991 Fachoberschule Technik, Stade Abschluss mit Fachhochschulreife 09/1983 - 01/1987 Ausbildung zum Radio- und Fernsehtechniker im Kundendienst bei der Hertie Kaufhaus AG, Stade",
+      "Java/J2EE Entwicklung und Beratung im Client-Server Umfeld",
+      "Software-Entwicklung / Programmierung"
+    ],
+    "focus_experience": [
+      {
+        "name": "Produkte:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Tomcat 4.x/5.x",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Eclipse IDE inkl diverser Plugins",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "UML mit Eclipse",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Datenbank-Design mit Powerbuilder",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Apache Webserver",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "htdig",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Lucene Fulltextsearchengine",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Frameworks: Apache/Jakarta",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "OpenSymphony",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Castor-XML",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Lucene",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Velocity",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "diverse weitere OpenSource-Frameworks - Intershop Enfinity 2.3",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Vignette V5",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Standards/Erfahrungen:",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "CVS/Subversion-gestütztes arbeiten",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "- Testing/Monitoring mit JUnit",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Canoo Webtest",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "JMeter",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Nagios",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Bugtracking JIRA und Bugzilla",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Build-Management mit Maven und ANT",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "IT-Projektplanung und Team-Koordination",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "IT-Aufwandsschätzung",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Administration unter Linux",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Shell-Skripting (bash)",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "OpenOffice / MSOffice",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "- Internet-Standardtools (diverse Browser",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Mail",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "SSH etc)",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Eclipse IDE",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Powerbuilder",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Apache/Jakarta",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Intershop Enfinity 2.3",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "CVS",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Subversion",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "JUnit",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Bugzilla",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Linux",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "bash",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "OpenOffice",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "MSOffice",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "SSH",
+        "category": "product_standard",
+        "sort_order": 48
+      }
+    ],
+    "education": [
+      {
+        "degree": "Studium Elektrotechnik, Fachrichtung Daten- und Nachrichtentechnik",
+        "institution": "Fachhochschule Hamburg",
+        "period": "09/1991 - 09/1995",
+        "education_type": "course"
+      },
+      {
+        "degree": "Fachoberschule Technik",
+        "institution": "Stade",
+        "period": "07/1990 - 08/1991",
+        "education_type": "course"
+      },
+      {
+        "degree": "Ausbildung zum Radio- und Fernsehtechniker",
+        "institution": "Hertie Kaufhaus AG, Stade",
+        "period": "09/1983 - 01/1987",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HTTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SOAP / Webservices",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SIP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SSH",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SCP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Java/J2EE: EJB",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "MBeans",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T10:53:01.443823",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 88.1542699724518,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

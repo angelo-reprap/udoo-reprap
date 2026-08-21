@@ -1,0 +1,286 @@
+{
+  "metadata": {
+    "aid": "AID-mv_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "vanselow_matthias",
+    "first_name": "Matthias",
+    "last_name": "Vanselow",
+    "headline": "Webtechnologien, iOS App-Entwicklung Datenbanken Access DAO DB2 Hibernate JDBC MS SQL Server MySQL ODBC Oracle Postgres postgresql RDB relationale Datenbank SQL Sybase Datenkommunikation CORBA Internet, Intranet TCP/IP Berufliche Erfahrungen Zeitraum: 2009-2010 Projektbeschreibung: [URL auf Anfrage] siehe unten • plus Hibernate, jsf, javascript, dao, spring, ajax, richfaces, xml, • 2008: Software AG (Software-Haus) • Java J2EE, webservices (diesmal: frontend), javascript, jsf, jsp, servlet, ajax, richfaces, xml, html, java beans, eclipse, subversion indirekt für Hornbach, Süd-Chemie, Klett- Verlag, Heidelberger • Durckmaschinen usw. Systemumgebung: java beans, J2EE, eclipse, subversion (svn), subclipse, linux, (opensuse, debian) und Windows XP Prof. usw, (svn), cvs, auf windows XP Zeitraum: 2004-2008 Projektbeschreibung: [URL auf Anfrage]: Verteiler für Kleinanzeigen im • deutschsprachigen Raum client-server, jsp, servlet, xml, MVC, model 2 • Integration von Bezahlfunktionen wie paypal, kreditkarte, bankeinzug. • Erstellung eines Mitgliedsbereich zur Verwaltung geschalteter • Inserate. Erstellung eines Adminbereichs . Statistikfunktionen zur Auswertung der Besucherströme. Erstellung eines • Affiliate-Partner-Programm . Verteilunsfunktion für Inserate an andere websites. Etc. • 2002 2003: Für ***** GmbH (Software-Haus): • Java (J2EE), Visual Age, Websphere, Weblogic, JBuilder, Visual Basic • (ADO), MS SQL-Server. Software für Handel, Banken. Systemumgebung: java J2EE, perl, mysql, postgresql, apache, linux, debian, SunOS/Solaris, Linux), tomcat, Netscape Server, weblogic, System-Konfiguration in DB, Unix (OSF1, Linux)), Oracle-Web-Application-Server, html, java, Windows NT, Linux. Später Portierung auf perl, MS Access, Entwicklungsumgebung: MS- Access, Visual Basic, SQL, MS-Windows 95/98",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T00:04:46.387798"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Matthias",
+      "last_name": "Vanselow",
+      "birth_year": 1967,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "gut",
+          "level": ""
+        },
+        {
+          "name": "Französisch",
+          "level": ""
+        },
+        {
+          "name": "basic",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (gut)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (basic)",
+          "level": ""
+        }
+      ],
+      "availability": "12.04.17 zu 45%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+      "wohnort": "751xx pforzheim, Deutschland",
+      "headline": "Webtechnologien, iOS App-Entwicklung Datenbanken Access DAO DB2 Hibernate JDBC MS SQL Server MySQL ODBC Oracle Postgres postgresql RDB relationale Datenbank SQL Sybase Datenkommunikation CORBA Internet, Intranet TCP/IP Berufliche Erfahrungen Zeitraum: 2009-2010 Projektbeschreibung: [URL auf Anfrage] siehe unten • plus Hibernate, jsf, javascript, dao, spring, ajax, richfaces, xml, • 2008: Software AG (Software-Haus) • Java J2EE, webservices (diesmal: frontend), javascript, jsf, jsp, servlet, ajax, richfaces, xml, html, java beans, eclipse, subversion indirekt für Hornbach, Süd-Chemie, Klett- Verlag, Heidelberger • Durckmaschinen usw. Systemumgebung: java beans, J2EE, eclipse, subversion (svn), subclipse, linux, (opensuse, debian) und Windows XP Prof. usw, (svn), cvs, auf windows XP Zeitraum: 2004-2008 Projektbeschreibung: [URL auf Anfrage]: Verteiler für Kleinanzeigen im • deutschsprachigen Raum client-server, jsp, servlet, xml, MVC, model 2 • Integration von Bezahlfunktionen wie paypal, kreditkarte, bankeinzug. • Erstellung eines Mitgliedsbereich zur Verwaltung geschalteter • Inserate. Erstellung eines Adminbereichs . Statistikfunktionen zur Auswertung der Besucherströme. Erstellung eines • Affiliate-Partner-Programm . Verteilunsfunktion für Inserate an andere websites. Etc. • 2002 2003: Für ***** GmbH (Software-Haus): • Java (J2EE), Visual Age, Websphere, Weblogic, JBuilder, Visual Basic • (ADO), MS SQL-Server. Software für Handel, Banken. Systemumgebung: java J2EE, perl, mysql, postgresql, apache, linux, debian, SunOS/Solaris, Linux), tomcat, Netscape Server, weblogic, System-Konfiguration in DB, Unix (OSF1, Linux)), Oracle-Web-Application-Server, html, java, Windows NT, Linux. Später Portierung auf perl, MS Access, Entwicklungsumgebung: MS- Access, Visual Basic, SQL, MS-Windows 95/98",
+      "edv_experience_since": 2004
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DAO",
+        "DB2",
+        "Hibernate",
+        "JDBC",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle",
+        "Postgres",
+        "postgresql",
+        "RDB",
+        "relationale Datenbank",
+        "SQL",
+        "Sybase"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "HPUX",
+        "iOs",
+        "Linux",
+        "MacOs",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Windows"
+      ],
+      "programming_languages": [
+        "Basic",
+        "veraltet",
+        "C++",
+        "Emacs",
+        "Java",
+        "Schwerpunkt",
+        "JavaScript",
+        "aktuell",
+        "Objective C",
+        "Perl",
+        "PL/SQL",
+        "Schwerpunkt: Webtechnologien",
+        "iOS App-Entwicklung"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2009-2010",
+        "title": "[URL auf Anfrage] siehe unten",
+        "technologies": [
+          "java beans",
+          "J2EE",
+          "eclipse",
+          "subversion (svn)",
+          "subclipse",
+          "linux",
+          "(opensuse",
+          "cvs",
+          "auf windows XP",
+          "Hibernate",
+          "jsf",
+          "javascript",
+          "dao",
+          "spring",
+          "ajax",
+          "richfaces",
+          "xml"
+        ],
+        "activities": [
+          "plus Hibernate, jsf, javascript, dao, spring, ajax, richfaces, xml,",
+          "2008: Software AG (Software-Haus)",
+          "Java J2EE, webservices (diesmal: frontend), javascript, jsf, jsp, servlet, ajax, richfaces, xml, html, java beans, eclipse, subversion indirekt für Hornbach, Süd-Chemie, Klett-Verlag, Heidelberger",
+          "Durckmaschinen usw.",
+          "Projektbeschreibung: [URL auf Anfrage] siehe unten"
+        ]
+      },
+      {
+        "period": "2004-2008",
+        "title": "[URL auf Anfrage]: Verteiler für Kleinanzeigen im",
+        "technologies": [
+          "java J2EE",
+          "Linux. Später Portierung auf perl",
+          "mysql",
+          "postgresql",
+          "apache",
+          "linux",
+          "debian",
+          "SunOS/Solaris",
+          "tomcat",
+          "Netscape Server",
+          "weblogic",
+          "System-Konfiguration",
+          "in DB",
+          "Unix (OSF1",
+          "Oracle-Web-Application-Server",
+          "html",
+          "MS-Windows 95/98",
+          "client-server",
+          "MS Access",
+          "Visual Basic",
+          "jsp",
+          "servlet",
+          "xml",
+          "MVC",
+          "model 2",
+          "paypal",
+          "kreditkarte",
+          "bankeinzug"
+        ],
+        "activities": [
+          "deutschsprachigen Raum client-server, jsp, servlet, xml, MVC, model 2",
+          "Integration von Bezahlfunktionen wie paypal, kreditkarte, bankeinzug.",
+          "Erstellung eines Mitgliedsbereich zur Verwaltung geschalteter Inserate.",
+          "Inserate. Erstellung eines Adminbereichs . Statistikfunktionen zur Auswertung der Besucherströme. Erstellung eines Affiliate-Partner-Programm . Verteilunsfunktion für Inserate an andere websites. Etc.",
+          "2002 2003: Für ***** GmbH (Software-Haus):",
+          "Java (J2EE), Visual Age, Websphere, Weblogic, JBuilder, Visual Basic",
+          "(ADO), MS SQL-Server. Software für Handel, Banken.",
+          "Erstellung eines Affiliate-Partner-Programm."
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "Software-Entwicklung / Programmierung",
+      "Diplom Physiker",
+      "Diplom an Ludwig-Maximilian-Universität 1995 Note: 1,5 HPUX iOs Linux MacOs SUN OS, Solaris Unix Windows"
+    ],
+    "focus_experience": [],
+    "education": [
+      {
+        "degree": "Diplom Physiker",
+        "institution": "Ludwig-Maximilian-Universität",
+        "period": "1995",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "CORBA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T00:04:46.387812",
+    "source_file": "",
+    "steps_completed": [
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 9→8 bei '2004-2008'",
+        "EDV_SEIT: None→2004"
+      ],
+      "coverage_percent": 82.35294117647058,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

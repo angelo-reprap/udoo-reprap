@@ -1,0 +1,279 @@
+AID: AID-gg_2.1.3.0
+Name: Guenter Gottfried
+Headline: Anwendungsentwickler z/OS 390, MVS, RTC, Cobol, DB2, IMS, DC/DB, Bank, Versicherung, Automotive, gerne auch Teilzeit oder kurzfristige Aufträge
+Ort: 635xx Hainburg, Deutschland
+Wohnort: 635xx Hainburg, Deutschland
+Jahrgang: 1957
+Verfügbar: 14.06.21 zu 65%, Vor-Ort-Einsatz 25% möglich
+EDV seit: 1999
+Sprachen: Deutsch, Englisch, Spanisch
+
+FACHBEREICHE:
+Anwendungsentwickler z/OS 390
+Cobol
+DC/DB
+Bank
+Versicherung
+Automotive
+gerne auch Teilzeit oder kurzfristige Aufträge Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Administration / Support
+Gerne auch in wiederkehrender Teilzeit oder kurzfristige Aufträge
+EDV-Software-Entwickler
+Programmierer
+EDV-Organisator
+IT-Berater
+Abschluss: Mittlere Reife
+Institution: Fachoberschule Offenbach
+Abschluss: Industriekaufmann
+Abschluss: Betriebswirt FH
+Institution: Bundesfachschule für Datenverarbeitung Fulda Abschluss: Fachhochschulreife Abschluss: Programmierer Abschluss: DV-Organisator Abschluss: Systemanalytiker
+MVS
+RTC
+DB2
+IMS
+Software-Entwicklung / Programmierung
+
+BRANCHEN:
+Banken
+Versicherung / Personen
+Automobilindustrie
+
+PROJEKTE:
+  2018-03 - 2018-10 | Basler Versicherung | Partner-Rollen-Verwaltung, Bad Homburg
+    - Cobol PGM’s erstellen
+    - Test mit Dokumentation
+    - (TWS), Control-M, XPED, Projekta, Jira, Confluence
+    Techs: RTC, COBOL, DB2, JCL, TSO, VM, ISPF, SQL, SPUFI Z/OS/390, (MVS) OPC
+  2017-10 - 2018-02 | Commerzbank FrankfurtV | Migration, Frankfurt
+    - Cobol PGM’s anpassen
+    - Test mit Dokumentation
+    - Jobs DB-Admin erstellen/starten
+    Techs: DB2-DB. RTC, COBOL, JCL, TSO, ISPF, SQL, SPUFI, Z/OS/390 (MVS)
+  2016-10 - 2017-07 | DB SYSTEL | Migration DB2-DB, Frankfurt
+    - Jobs DB-Admin erstellen/starten
+    - Cobol PGM’s anpassen
+    - Test mit Dokumentation
+  2016-04 - 2016-09 | UNION IT | Software- Tester/Entwickler
+    - Testkonzept erstellen
+    - Cobol PGM’s anpassen
+    - Test mit Dokumentation
+  2015-02 - 2016-02 | VW AG Wolfsburg | Software-Entwickler
+    - Fahrzeug Konfigurator,
+    - Testkonzept-Erstellung
+    - Eingesetzte Produkte: COBOL, EASYTRIEVE, DB2, IMS, JCL, TSO, ISPF, Proba, Stored
+  2014-02 - 2014-12 | DB- Systel | Consult
+    - Ausführliche fachliche Regressions-Tests (Diversifizierenden). Hier wurde ein Testsystem der DB SYSTEL für die verschiedenen Testfälle verwendet.
+    - Cobol Sourcen wurden angepasst.
+    - Frankfurt
+  2011-05 - 2014-01 | SANTANDER BANK | Ausführliche fachliche Regressions-Tests 9 Monate, Mönchengladbach
+    - MS-DOS, PANVALET, BMC Remedy
+    - Mönchengladbach
+    - Ausführliche fachliche Regressions-Tests(Diversifizierenden) bei den wöchentlichen Updates der verschiedenen Systeme. Hier wurde ein eigenes Testsystem der COBA für die verschiedenen Testfälle verwendet.
+    Techs: DB2, IMS-DB, COBOL / Assembler / Easytrieve, JAVA, IMS-DC, IBM-HOST, Z/OS / 390 (MVS), AS400, PCs u. Kompatible, MVS/XA
+  2009-04 - 2011-04 | Commerzbank | Software-Entwickler/Tester
+    - Integrierung Dreba, Kundendaten, Depotstammdaten, Wertpapier,
+    - Ausführliche fachliche Regressionstests
+    - Projekt Konzern Person
+    Techs: CODABAS, OPC-Steuerung, JCL, BIO, JEV, JES, Test, AV, Cobol, PL1
+  2008-11 - 2009-04 | Fiducia Karlsruhe | Software-Entwickler, Datawarehouse, SEPA, Zahlungsverkehr
+    - (PUU/NDVP), Batch JCL, Altersvorsorge, Riester, Lebensversicherung / Personen / Sach-, Composit-Versicherungen, SEPA
+    - Altersversorgung, Riester
+    Techs: DB2, IMS-DB, Cobol, Assembler, JAVA, IMS-DC, IBM-HOST, PCs, Kompatible, MVS/XA
+  2007-05 - 2008-11 | BHF Bank | Software-Entwickler, Depotstammdaten, Abgeltungssteuer,
+    - DB2 Stammdaten historisieren.
+    - Online-Eingabe-System mit IMS realisieren.
+    - Zugriffe mit Anfragen über 2 (aktuelle und historische)
+    Techs: DB2, IMS-DB, PL1, Cobol, Assembler, SAS, IMS-DC, CICS, IBMHOST, PCs
+  2006-03 - 2007-04 | Deutsche Börse AG | Software-Entwickler, Kursdienste, WP-Stammdaten, Reuters,
+    - WP-Stammdaten
+    - Bestandsverwaltung
+    - Neues Testkonzept erarbeitet
+    Techs: DB2, IMS-DB, Cobol, SWT01, EDB, IMS-DC, IBM-HOST, PCs u, Kompatible, OS/390
+  2005-08 - 2006-02 | Credit Suisse | Software-Entwickler
+    - Portfolio Management System
+    - Portfolio Rebalancing Trading Tool
+    - Problemanalyse, Konzepterarbeitung
+    Techs: DB2, IMS-DB, PL/1, JAVA, CORBA-Service, IMS-DC, IBM-HOST, PCs u, Kompatible, OS/390
+  2000-2005 | Commerzbank Frankfurt | Software-Entwickler/ Projektleiter Wertpapier-Effektivgeschäft,
+    - Wertpapier-Effektivgeschäft, Euro-Konvertierung, WP-Stammdaten, Konvertierung WKN>ISIN, CASCADE, Projektleiter der Commerzbank war [Name auf Anfrage].
+    - Aufgaben:
+    - Für dieses Projekt wurde ich von [Name auf Anfrage], IT-Direktor der Commerzbank, ausgewählt. Er kannte mich und meine gute Arbeit aus vorherigen Projekten, die ich in der Commerzbank abgewickelt hatte.
+    Techs: CASCADE, WKN, ISIN, Nixdorf-Kienzle
+  1999-2000 | Deutsche Bank Eschborn | Software-Entwickler, Projektleiter der Deutschen Bank war [Name
+    - Aufgaben:
+    - In diesem Projekt war ich als Cobol-Entwickler eingesetzt. Die Weiter- und Neu-Entwicklungen der Cobol-Programme wurden hier mit FILE-AID für DB2 und SPUFI und QMF durchgeführt.
+    - WPHG-9
+  1999 - 1999 | Warburg Dillon Read Frankfurt | Software-Entwickler/Projektleiter, Projektleiter, Jahr2000-Solution
+    - auch ein Erfolg für den Kunden Director, Projektleiter WDR war [Name auf Anfrage]
+    - Weitere Projekte gerne auf Anfrage.
+    - lassen und das Projekt war
+
+SKILLS:
+  database: ADABAS, DB2, IMS-DB, ORACLE, SQL, VSAM
+  hardware: IBM-HOST, PCs u. Kompatible, SIEMENS-HOST, Z/OS / 390 MVS
+  operating_system: AS400, BS2000, DOS/VSE, MS-DOS, MVS/XA, OS/390, UNIX, VSE/ESA, WINDOWS NT/XP, XPED
+  programming_languages: ASSEMBLER, C ++, COBOL, FORTRAN, JAVA, JCL, Natural, PL/1, RPG, SAP, Visual Basic
+
+SKILL-ABLAGE:
+CICS, CORBA-Service, EDB, IDMS, IMS-DC, MFS Masken, SDF2, SPUFI
+
+AUSBILDUNG:
+Mittlere Reife | Fachoberschule Offenbach  [course]
+Industriekaufmann  [course]
+Betriebswirt FH | Bundesfachschule für Datenverarbeitung Fulda  [course]
+Fachhochschulreife  [course]
+Programmierer  [course]
+DV-Organisator  [course]
+Systemanalytiker  [course]
+
+FOCUS_EXP:
+  BETA92  [product_standard]
+  Control-M  [product_standard]
+  ISPF  [product_standard]
+  TSO  [product_standard]
+  Z/OS/390 (MVS) OPC(TWS)  [product_standard]
+  Standardsoftware:  [product_standard]
+  PANVALET  [product_standard]
+  LIBRARIAN  [product_standard]
+  ENDEVOR  [product_standard]
+  SCLM  [product_standard]
+  SWT-01  [product_standard]
+  ABEND-AID  [product_standard]
+  * SQL  [product_standard]
+  SPUFI  [product_standard]
+  QMF  [product_standard]
+  File-AID (IMS u. DB2)  [product_standard]
+  TPX / XML  [product_standard]
+  BMC Remedy  [product_standard]
+  * TSO/ISPF  [product_standard]
+  XPF  [product_standard]
+  * BTS  [product_standard]
+  Stored Procedures  [product_standard]
+  HTLM  [product_standard]
+  * XPEDITER  [product_standard]
+  JIRA  [product_standard]
+  SDF2  [product_standard]
+  * CLIST  [product_standard]
+  REXX  [product_standard]
+  * BETA 91  [product_standard]
+  SEPA  [product_standard]
+  WORD / EXCEL  [product_standard]
+  * POWERPOINT  [product_standard]
+  VISIO  [product_standard]
+  Smart-Edit  [product_standard]
+  * JCL  [product_standard]
+  TWS/JCL  [product_standard]
+  MS-Access  [product_standard]
+  Bank Sphere  [product_standard]
+  * OPC  [product_standard]
+  JEV. ConnectDirect  [product_standard]
+  * Ultra-Edit  [product_standard]
+  TOAD  [product_standard]
+  Lotus Notes 8.5  [product_standard]
+  RTC für Host-Entwicklung  [product_standard]
+  Projekt-Erfahrung:  [product_standard]
+  * Pflichtenheft  [product_standard]
+  Spezifikationen  [product_standard]
+  Anwendungs-Design  [product_standard]
+  Ist-Analyse  [product_standard]
+  Programmierung  [product_standard]
+  Projektleitung  [product_standard]
+  Systemeinführung  [product_standard]
+  Systementwicklung  [product_standard]
+  Test  [product_standard]
+  Wartung und Pflege  [product_standard]
+  Methoden/Techniken:  [product_standard]
+  Funktion Point Analyse  [product_standard]
+  EVA-Diagramm  [product_standard]
+  Nassi Schneidermann  [product_standard]
+  Pseudo-Code  [product_standard]
+  * Strukturierte Programmierung  [product_standard]
+  Strukturierte Analyse  [product_standard]
+  SWT01  [product_standard]
+  Testverfahren:  [product_standard]
+  Regressionstest  [product_standard]
+  Eliminationsmethode  [product_standard]
+  Bottom-Up-Methode  [product_standard]
+  Top-Down-Methode  [product_standard]
+  Beratungserfahrung:  [product_standard]
+  * Abgeltungssteuer  [product_standard]
+  Riester-Produkte  [product_standard]
+  Lebensversicherung / Personen  [product_standard]
+  * Sach/Komposit  [product_standard]
+  Unfallversicherung  [product_standard]
+  Touristik Online-Buchung  [product_standard]
+  Kapitalerhöhung  [product_standard]
+  Effektenhandel  [product_standard]
+  Depotbuchung  [product_standard]
+  Wertpapierhandel  [product_standard]
+  SWIFT MT940  [product_standard]
+  Transaktions-Banking  [product_standard]
+  * Börsenhandel  [product_standard]
+  DWZ  [product_standard]
+  EURO-Einführung  [product_standard]
+  ISIN-Convertierung  [product_standard]
+  Datawarehouse  [product_standard]
+  Fertigungsorganisation  [product_standard]
+  * Logistik  [product_standard]
+  Stücklisten  [product_standard]
+  Schulung und Training  [product_standard]
+  Middleware:  [product_standard]
+  MQ Series  [product_standard]
+  WebSphere MQ  [product_standard]
+  Profil:  [product_standard]
+  * Meine Tätigkeiten als IT-Berater der Commerzbank  [product_standard]
+  Credit Suisse  [product_standard]
+  Deutsche  [product_standard]
+  Bank  [product_standard]
+  UBS  [product_standard]
+  BHF-Bank  [product_standard]
+  Deutsche Börse und SANTANDER  [product_standard]
+  UNION Invest  [product_standard]
+  zeichneten sich dadurch aus  [product_standard]
+  daß die jeweiligen Tätigkeiten innerhalb der  [product_standard]
+  Projekte von mir als Entwickler auch koordiniert/organisiert  [product_standard]
+  erfolgreich  [product_standard]
+  realisiert und getestet wurden.  [product_standard]
+  * Dies war ebenso der Fall bei klassischen Online-Dialog-Projekten  [product_standard]
+  sowie  [product_standard]
+  auch bei BATCH-Anwendungen.  [product_standard]
+  Als bekennender Team-Player war ich mit den jeweiligen Mitarbeitern  [product_standard]
+  aufgrund meines Teamgeistes als Gemeinschaft sehr erfolgreich.  [product_standard]
+  Kurz-Lebenslauf:  [product_standard]
+  Mittlere Reife  [product_standard]
+  Fachoberschule  [product_standard]
+  Abendgymnasium  [product_standard]
+  Industriekaufmann  [product_standard]
+  Betriebswirtschaft  [product_standard]
+  Programmierer  [product_standard]
+  DV-Organisator  [product_standard]
+  Systemanalytiker  [product_standard]
+  RTC  [product_standard]
+  COBOL  [product_standard]
+  DB2  [product_standard]
+  JCL  [product_standard]
+  SQL  [product_standard]
+  Z/OS/390 (MVS)  [product_standard]
+  OPC(TWS)  [product_standard]
+  XPED  [product_standard]
+  Projekta  [product_standard]
+  Confluence  [product_standard]
+  File-AID  [product_standard]
+  TPX  [product_standard]
+  XML  [product_standard]
+  BTS  [product_standard]
+  XPEDITER  [product_standard]
+  CLIST  [product_standard]
+  BETA 91  [product_standard]
+  WORD  [product_standard]
+  EXCEL  [product_standard]
+  POWERPOINT  [product_standard]
+  OPC  [product_standard]
+  JEV  [product_standard]
+  ConnectDirect  [product_standard]
+  Ultra-Edit  [product_standard]
+
+SONSTIGES:
+Weitere Projekte gerne auf Anfrage.

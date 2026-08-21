@@ -1,0 +1,11 @@
+{
+  "ok": 10,
+  "fail": 0,
+  "skip": 0,
+  "limit": 10,
+  "need": "/tmp/gulp-vs-neu-20260820-143848/need_neu_cv_with_fs_dir.tsv",
+  "mem_thresh": 88,
+  "cpu_thresh": 88,
+  "throttle_sleep": 30,
+  "ended": "2026-08-20T18:32:33"
+}

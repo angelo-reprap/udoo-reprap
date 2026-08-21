@@ -1,0 +1,898 @@
+{
+  "personal": {
+    "aid": "AID-kb_2.5.3.0",
+    "first_name": "Karsten",
+    "last_name": "Behling",
+    "birth_year": 1962,
+    "location": "Regionen & Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,",
+    "availability": "01.07.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1998,
+    "headline": "Software-Entwicklung: Java ( J2EE, J2SE, Swing ); Frontend- Entwicklung; Web- Anwendungen und Portale; C/C++; Embedded Systems ( SmartCard / JavaCard ); Zutrittskontroll- und Zeiterfassungssysteme",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 2,
+    "skills": 316,
+    "certifications": 0,
+    "education": 3,
+    "experience": 29,
+    "industries": 8,
+    "focus_areas": 21,
+    "focus_experience": 42,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diplom Ingenieur FH",
+      "institution": "Fachhochschule Berlin",
+      "period": "1987 - 1994",
+      "education_type": "course"
+    },
+    {
+      "degree": "Studium der Nachrichtentechnik",
+      "institution": "Fachhochschule der DBP - Berlin",
+      "period": "1983 - 1986",
+      "education_type": "course"
+    },
+    {
+      "degree": "Abitur",
+      "institution": "Gesamtschule in Berlin Spandau",
+      "period": "1975 - 1982",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Banken",
+    "Versicherungen",
+    "Telekommunikation",
+    "eCommerce",
+    "Industrie und Handel",
+    "Logistik",
+    "Lager- & Warenwirtschaft",
+    "Logistik, Lager- & Warenwirtschaft"
+  ],
+  "focus_areas": [
+    "Software-Entwicklung: Java ( J2EE",
+    "J2SE",
+    "Swing ); Frontend- Entwicklung; Web- Anwendungen und Portale; C/C++;",
+    "Embedded Systems ( SmartCard / JavaCard ); Zutrittskontroll- und Zeiterfassungssysteme Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Qualitätsmanagement / Qualitätssicherung / Test Hardware-Entwicklung Engineering / IT-nahe Ingenieurdienstleistungen 1969 - 1975 Grundschule in Berlin Neukölln 1975 - 1982 Gesamtschule in Berlin Spand",
+    "1987 - 1994",
+    "Studium der Technischen Informatik/Informatik an der Fachhochschule Berlin Abschluß: Diplom Ingenieur FH 1995 - 1997 Befristete Arbeitsverhältnisse bei Siemens, VW-Gedas sowie als tech. Ingenieur / Be",
+    "Seit 1997",
+    "Selbständiger Dipl. Ingenieur",
+    "Weiterbildung und",
+    "Software-Entwicklung: Java (J2EE, J2SE, Swing)",
+    "Frontend-Entwicklung",
+    "Web-Anwendungen und Portale",
+    "C/C++",
+    "Embedded Systems (SmartCard / JavaCard)",
+    "Zutrittskontroll- und Zeiterfassungssysteme",
+    "Software-Entwicklung / Programmierung",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Hardware-Entwicklung",
+    "Engineering / IT-nahe Ingenieurdienstleistungen"
+  ],
+  "focus_experience": [
+    {
+      "name": "Erfahrung mit folgenden Produkten:",
+      "category": "product_standard"
+    },
+    {
+      "name": "WATCOM C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visual Studio",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Visual C/C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Borland JBuilder",
+      "category": "product_standard"
+    },
+    {
+      "name": "Borland C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "ANT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Symantec VisualCafe",
+      "category": "product_standard"
+    },
+    {
+      "name": "ILOG JView",
+      "category": "product_standard"
+    },
+    {
+      "name": "ILOG JRules",
+      "category": "product_standard"
+    },
+    {
+      "name": "JFormdesigner",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQLDeveloper",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQLNavigator 5.5",
+      "category": "product_standard"
+    },
+    {
+      "name": "OWB Repository Browser",
+      "category": "product_standard"
+    },
+    {
+      "name": "OWB Design Center",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architekur:",
+      "category": "product_standard"
+    },
+    {
+      "name": "- OOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOP",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2EE",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2SE",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2EE Technologien:",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "JMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "JNDI",
+      "category": "product_standard"
+    },
+    {
+      "name": "JNI",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCRE",
+      "category": "product_standard"
+    },
+    {
+      "name": "JCVM",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenCard",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2SE Technologien:",
+      "category": "product_standard"
+    },
+    {
+      "name": "JFC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Swing",
+      "category": "product_standard"
+    },
+    {
+      "name": "RMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Applets",
+      "category": "product_standard"
+    },
+    {
+      "name": "Networking",
+      "category": "product_standard"
+    },
+    {
+      "name": "Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOA",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "09/2013 - 11/2012",
+      "company": "DB Systel GmbH / Deutsche Bahn AG",
+      "role": "",
+      "title": "DB Systel GmbH / Deutsche Bahn AG, Frankfurt/Main",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "08/2013 - 12/2013",
+      "company": "GfK Retail and Technology GmbH",
+      "role": "",
+      "title": "GfK Retail and Technology GmbH, Nürnberg",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "12/2011 - 06/2012",
+      "company": "Volkswagen AG",
+      "role": "",
+      "title": "AMS – Application Management Service 3rdLevel",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "08/2011 - 11/2011",
+      "company": "DB Systel GmbH / Deutsche Bahn AG",
+      "role": "",
+      "title": "DB Systel GmbH / Deutsche Bahn AG, Frankfurt/Main",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "09/2010 - 06/2011",
+      "company": "DB Systel GmbH / Deutsche Bahn AG",
+      "role": "",
+      "title": "DB Systel GmbH / Deutsche Bahn AG, Frankfurt/Main",
+      "activities": 9,
+      "technologies": 25
+    },
+    {
+      "period": "06/2010- 07/2010",
+      "company": "ParcIT GmbH",
+      "role": "",
+      "title": "IFRS - Kundengeschäftsbewertung",
+      "activities": 8,
+      "technologies": 14
+    },
+    {
+      "period": "11/2009- 04/2010",
+      "company": "Commerzbank AG",
+      "role": "",
+      "title": "Commerzbank AG, Frankfurt/Main",
+      "activities": 8,
+      "technologies": 19
+    },
+    {
+      "period": "03/2008 - 03/2009",
+      "company": "Volkswagen AG",
+      "role": "",
+      "title": "AMS - Application Management Service in der Beschaffung",
+      "activities": 7,
+      "technologies": 21
+    },
+    {
+      "period": "11/2007 - 02/2008",
+      "company": "NCR GmbH",
+      "role": "",
+      "title": "NCR - Kassensystem / DeutschlandCard",
+      "activities": 8,
+      "technologies": 14
+    },
+    {
+      "period": "03/2007 - 10/2007",
+      "company": "DB Systems GmbH / Deutsche Bahn AG",
+      "role": "",
+      "title": "DB Systems GmbH / Deutsche Bahn AG, Frankfurt/Main",
+      "activities": 8,
+      "technologies": 20
+    },
+    {
+      "period": "07/2006 - 12/2006",
+      "company": "Volkswagen AG",
+      "role": "",
+      "title": "Volkswagen AG, Wolfsburg",
+      "activities": 8,
+      "technologies": 12
+    },
+    {
+      "period": "04/2006 - 05/2006",
+      "company": "GmbH, Konstanz",
+      "role": "",
+      "title": "PLM (Product Lifecycle Management) Service - System",
+      "activities": 12,
+      "technologies": 15
+    },
+    {
+      "period": "01/2006 - 02/2006",
+      "company": "EDS GmbH",
+      "role": "",
+      "title": "CRM (Customer Relation Management) - System",
+      "activities": 8,
+      "technologies": 12
+    },
+    {
+      "period": "06/2005 - 12/2005",
+      "company": "Volkswagen AG",
+      "role": "",
+      "title": "Volkswagen AG, Wolfsburg",
+      "activities": 11,
+      "technologies": 10
+    },
+    {
+      "period": "05/2005 - 06/2005",
+      "company": "Quatico Solutions AG",
+      "role": "Java/J2EE/JMS-Entwickler",
+      "title": "Java/J2EE/JMS- Entwickler bei der Quatico Solutions AG (CH)",
+      "activities": 8,
+      "technologies": 12
+    },
+    {
+      "period": "09/2004 - 11/2004",
+      "company": "Nexus Telecom AG",
+      "role": "Java-Entwickler",
+      "title": "Java- Entwickler bei der Nexus Telecom AG (CH)",
+      "activities": 7,
+      "technologies": 16
+    },
+    {
+      "period": "03/2004 - 08/2004",
+      "company": "I.S.I.B - Software",
+      "role": "",
+      "title": "Auftragsarbeit für die I.S.I.B - Software (CH)",
+      "activities": 7,
+      "technologies": 18
+    },
+    {
+      "period": "09/2003 - 02/2004",
+      "company": "Xionet AG",
+      "role": "C / C++ Entwickler",
+      "title": "C / C++ Entwickler bei der Xionet AG",
+      "activities": 7,
+      "technologies": 10
+    },
+    {
+      "period": "08/2003 - 09/2003",
+      "company": "T-Mobil",
+      "role": "Berater",
+      "title": "Berater bei T-Mobil",
+      "activities": 6,
+      "technologies": 8
+    },
+    {
+      "period": "02/2003 - 08/2003",
+      "company": "I.S.I.B - Software (CH)",
+      "role": "",
+      "title": "Auftragsarbeit für I.S.I.B - Software (CH)",
+      "activities": 8,
+      "technologies": 20
+    },
+    {
+      "period": "01/2002 - 01/2003",
+      "company": "Giesecke & Devrient",
+      "role": "Test-Ingenieur",
+      "title": "Test- Ingenieur bei Giesecke & Devrient",
+      "activities": 3,
+      "technologies": 14
+    },
+    {
+      "period": "06/2001 - 11/2001",
+      "company": "Integris GmbH",
+      "role": "Berater / Java-Entwickler",
+      "title": "Berater / Java- Entwickler bei der Integris GmbH",
+      "activities": 5,
+      "technologies": 20
+    },
+    {
+      "period": "04/2001 - 05/2001",
+      "company": "IMD Mannheimer AG Holding",
+      "role": "Entwickler",
+      "title": "Entwickler bei der IMD Mannheimer AG Holding",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "01/2001 - 03/2001",
+      "company": "DPlus - Telecommunications GmbH",
+      "role": "Java-Entwickler",
+      "title": "Java- Entwickler bei der DPlus - Telecommunications GmbH",
+      "activities": 7,
+      "technologies": 15
+    },
+    {
+      "period": "09/2000 - 11/2000",
+      "company": "Debis",
+      "role": "Java-Entwickler",
+      "title": "Java- Entwickler bei der Debis",
+      "activities": 7,
+      "technologies": 14
+    },
+    {
+      "period": "02/2000 - 08/2000",
+      "company": "BEA Systems",
+      "role": "Berater",
+      "title": "Berater bei der BEA Systems",
+      "activities": 8,
+      "technologies": 23
+    },
+    {
+      "period": "04/1999 - 02/2000",
+      "company": "Lucent Technologies",
+      "role": "Test-Ingenieur",
+      "title": "Test- Ingenieur bei Lucent Technologies",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "11/1998 - 02/1999",
+      "company": "PSB GmbH",
+      "role": "C- Entwickler",
+      "title": "C- Entwickler bei der PSB GmbH",
+      "activities": 7,
+      "technologies": 5
+    },
+    {
+      "period": "09/1998 - 11/1998",
+      "company": "PSB GmbH",
+      "role": "C- Entwickler",
+      "title": "Hochdynamisches Waren- und Verteilzentrum",
+      "activities": 7,
+      "technologies": 9
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenerfassungsterminals Kaba-Benzing siehe weitere Anmerkungen",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "embedded Systeme",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Mikrocontroller",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SPS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Kaba-Benzing (Zeiterfassungs-",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Zutrittskontroll-",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Betriebsdatenerfassungsterminals)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.8
+    },
+    {
+      "name": "Englisch anzeigen",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.8
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.8
+    },
+    {
+      "name": "Dos",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux 9.0 AMD64 : Grundkenntnisse",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler 8051 & 80537 Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Delphi Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Fortran",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ObjectView",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.82
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Datenbanken",
+      "weight": 0.95
+    },
+    {
+      "name": "MS-Word",
+      "category_name": "Sonstige Skills",
+      "weight": 0.9
+    },
+    {
+      "name": "MS- Excel",
+      "category_name": "Sonstige Skills",
+      "weight": 0.95
+    },
+    {
+      "name": "Pascal Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python Grundkenntnisse",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tcl/Tk",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Sonstige Kenntnisse",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Technologiekenntnisse in OOA",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "OOD",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "OOP",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Kenntnisse in den Middleware-Technologien EJB und Web Services",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Certifizierungen",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "2000",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "BEA - Weblogic Development 4.5",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "BEA - Weblogic Administration 4.5 / 5.1",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "2001",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "ILOG - JRules 3.5",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "############################################",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Stammdaten (Auszug)",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Personen-ID 45045",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Wohnort 135xx Berlin",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Deutschland",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Jahrgang 1962",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Staatsbürgerschaft deutsch",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Stundensatz 65 EUR",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "verhandelbar",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Verfügbar ab 01.07.20 zu 100%",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Vor-Ort-Einsatz 100% möglich",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Profil erstellt am 19.11.02",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Profil zuletzt geändert am 01.03.20",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Lesen von Projektanfragen > 5 Tage [00]Direktkontakt",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "Kommentar_schreiben Profil angezeigt am 22.01.2020 19:33:01",
+      "category_name": "Spezielle Konzepte",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-Office Produkte ( Word",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Excel",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Access)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft PowerPoint",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Visio",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Test-",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "HEW (Hitachi Embedded Workshop)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "HDI (Hitachi Debugging Interface)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "IFDSim (Interface Device Simulator)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "JUnit",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Repositorys",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "MKS ( Source Integrity )",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Clear Case",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CMSynergy 6.4",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    }
+  ]
+}

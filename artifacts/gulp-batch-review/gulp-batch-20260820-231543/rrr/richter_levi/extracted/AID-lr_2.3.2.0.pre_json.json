@@ -1,0 +1,1947 @@
+{
+  "metadata": {
+    "aid": "AID-lr_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "richter_levi",
+    "first_name": "Levi",
+    "last_name": "Richter",
+    "headline": "Java J(2)EE Entwickler",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:55:08.400197"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Levi",
+      "last_name": "Richter",
+      "birth_year": 1970,
+      "languages": [
+        {
+          "name": "apache-maven-3.6.1",
+          "level": ""
+        },
+        {
+          "name": "Arabisch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Deutsch Fließend in",
+          "level": ""
+        }
+      ],
+      "availability": "23.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "604xx Frankfurt am Main, Deutschland",
+      "location": "604xx Frankfurt am Main, Deutschland",
+      "edv_experience_since": 1988,
+      "headline": "Java J(2)EE Entwickler"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DAO",
+        "DB2",
+        "JDBC",
+        "Microsoft SQL Datenbank",
+        "MS SQL Server",
+        "MySQL",
+        "ODBC",
+        "Oracle 10g",
+        "11g",
+        "Database 10g",
+        "Datenbank 11g",
+        "Oracle Database 12c Enterprise Edition",
+        "Release 12.1.0.2.0 - 64bit Production",
+        "Oracle SQl Developer Version 17.4.0.355"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Drucker HP",
+        "Plotter",
+        "Scanner"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Dos",
+        "Linux Redhat",
+        "MS-DOS",
+        "Unix",
+        "Windows 7",
+        "10",
+        "XP",
+        "Xubuntu"
+      ],
+      "programming_languages": [
+        "ABAP",
+        "ABAP4",
+        "Ajax",
+        "C",
+        "CSS",
+        "Design Patterns",
+        "EDIFACT",
+        "EJB3.1",
+        "Hibernate",
+        "J2EE",
+        "J2SE(2",
+        "8)",
+        "Java-Swing",
+        "Vaadin",
+        "Java",
+        "Java Server Faces (JSF)",
+        "JSF-Beans",
+        "RichFaces",
+        "PrimeFaces",
+        "Java Server Pages (JSP)",
+        "JavaScript",
+        "EjB",
+        "Java7/8",
+        "Java8",
+        "JAX-RS",
+        "JEE",
+        "JPA",
+        "JQuery",
+        "JSF 2.2.17",
+        "JSON",
+        "JSP",
+        "JUnit 4.12",
+        "J(2)EE 6.0",
+        "log4j-2.3",
+        "mockito-all Version 2.0.2-beta",
+        "Spring",
+        "SQL",
+        "Struts",
+        "UML",
+        "WSDL",
+        "(X)HTML",
+        "XML",
+        "XSLT"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2020-01 - 2020-12",
+        "company": "Statistisches Bundesamt",
+        "title": "Zensus2021, Wiesbaden",
+        "role": "JEE-Entwickler",
+        "technologies": [
+          "version 14.3.0",
+          "GIT version 2.26.0.windows.1",
+          "GitLab",
+          "Community Edition",
+          "WinSCP Version 5.15.3 (Build 9730)",
+          "Notepad++ v6.3.1",
+          "Windows 10 Pro",
+          "Java8"
+        ],
+        "activities": [
+          "Teilnahme am Projekt Zensus2021 (Volks- und Wohnungszählung), RDB",
+          "(ReferenzDatenBestand), Web-Applikation für die statistische Analyse der Anschriften und Personen in Deutschland.",
+          "Aufgaben:",
+          "Architektur.",
+          "Entwicklung der einzelnen Module Back- und Frontend.",
+          "Testautomatisierung.",
+          "Dokumentationen.",
+          "Skills: Java8, J(2)EE 7.0, EJB3.1, CDI 1.2, JSF 2.2., PrimeFaces 6.1, omnifaces-2.5.1, hibernate-5.1.15.Final-redhat-1, log4j-1.2.17, slf4j- log4j12-1.7.26, apache-maven-3.6.1, Gradle-6.7.1, JUnit 4.12, mockito-all"
+        ]
+      },
+      {
+        "period": "2019-07 - 2019-12",
+        "company": "ITZBund (Informationstechnikzentrum Bund)",
+        "title": "Projekt (GemFA), Bonn",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java7/8",
+          "J(2)EE 6.0",
+          "EJB3.1",
+          "JSF 2.2.17",
+          "PrimeFaces 5.3",
+          "UML-Modellierung UMLet version 12.2",
+          "GIT version 2.21.0.windows.1",
+          "0.7",
+          "WinSCP Version 5.15.3 (Build 9730)",
+          "Notepad++ v6.8.2",
+          "Windows 10"
+        ],
+        "activities": [
+          "Teilnahme am Projekt (GemFA), Web-Applikation für die Finanzbehörden in Deutschland.",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Testautomatisierung",
+          "Dokumentationen",
+          "4.3.11-Final, log4j-2.3, apache-maven-3.6.1, JUnit 4.12, mockito-all",
+          "Version 2.0.2-beta, SoapUI 5.3.0, WebSphere Application Server V8.5.5,",
+          "Eclipse Photon June 2018, Oracle Database 12c Enterprise Edition Release"
+        ]
+      },
+      {
+        "period": "2018-06 - 2019-06",
+        "company": "VR-Smart-Finanz (eh. VR-Leasing)",
+        "title": "Diverse Projekte 1 Monat, Eschborn",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java7/8",
+          "J(2)EE 7.0",
+          "EJBs",
+          "JSF 1.2",
+          "PrimeFaces 6.0",
+          "hibernatecore 4.2.21",
+          "9365)",
+          "Splunk 7.0.5",
+          "Notepad++ v7.6.5",
+          "Windows 7 Professional"
+        ],
+        "activities": [
+          "Teilnahme an mehreren Projekten (PA Prozessautomatisierung, POK Paket und Obligo Konditionen, StumBG Steuerumgehungsbekämpfungsgesetzt) für mehrere Web-Applikationen (LOS Leasing Online System und ANIS Antrag",
+          "Nachbearbeitung Information System).",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Testautomatisierung",
+          "Dokumentationen hibernate-commons-annotations-5.0.1.Final, hibernate-core-5.0.12.Final, hibernateentitymanager- 5.0.12.Final, hibernate-jpa-2.1-api-1.0.0Final,",
+          "Entity-Beans, WebServices (JAX-WS, JAX-B), JMS, log4j-1.2.17, Ant, JUnit",
+          "4.12, mockito-all Version 1.9.5, SoapUI 5.3.0, Oracle WebLogic Server 12c"
+        ]
+      },
+      {
+        "period": "2017-07 - 2018-06",
+        "company": "Bundeskriminalamt",
+        "title": "Projekt Verfahrenskontrolle-Applikation, Wiesbaden",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java-1.8",
+          "J(2)EE 7.0",
+          "EJBs",
+          "JSF 2.2",
+          "PrimeFaces 6.0",
+          "OmniFaces",
+          "1.14",
+          "WinSCP 5.1.7",
+          "Notepad++v7.3.3",
+          "Windows 7 Enterprise",
+          "Microsoft Office"
+        ],
+        "activities": [
+          "Teilnahme am Projekt Verfahrenskontrolle-Applikation (VFKA, Web- Applikation) für die Kontrolle und Konfiguration der Systeme, die aus Warteschlangen und Services bestehen.",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Testautomatisierung",
+          "Dokumentationen hibernate-core 4.2.21, hibernate-commons-annotations 4.0.2.Final, hibernate-entitymanager 4.2.21, Entity-Beans, Apache-Maven-3.5.2,",
+          "TestNG 6.14.2, mockito-all Version 1.9.5, slf4j Version 1.7.25, WebLogic",
+          "Server 12c, Apache Tomcat 8.5.24, NetBeans IDE 8.2, Eclipse Mars.1",
+          "Release (4.5.1), Oracle Datenbank 11g, SQL Developer version"
+        ]
+      },
+      {
+        "period": "2016-12 - 2017-06",
+        "company": "W&W Informatik GmbH",
+        "title": "Projekt Web-Applikation, Ludwigsburg",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java-1.7",
+          "J(2)EE",
+          "spring-core 4.2.2.RELEASE",
+          "spring-context",
+          "Notepad++v6.9.2",
+          "Windows 8.1 Enterprise",
+          "Microsoft Office"
+        ],
+        "activities": [
+          "Teilnahme am Projekt Web-Applikation für die Verwaltung der Versicherungsaufträge (AuftragsTyp, Datum, OrdnungsbegriffTyp, Status, etc.).",
+          "Architektur",
+          "Entwicklung der einzelnen Module Backend",
+          "Entwicklung der WebServices Testautomatisierung",
+          "Dokumentationen",
+          "RELEASE, spring-context-support 4.2.2.RELEASE, spring-beans 4.2.2.",
+          "RELEASE, spring-jms 4.2.2.RELEASE, spring-webmvc 4.2.2.RELEASE, spring-tx 4.2.2.RELEASE, spring-orm 4.2.2.RELEASE, spring-aop 4.2.2.",
+          "RELEASE, spring-web 4.2.2.RELEASE, spring-jdbc 4.2.2.RELEASE, spring- ldap-core 21.0.RELEASE, WebServices (cxf-java2ws-plugin), RESTful"
+        ]
+      },
+      {
+        "period": "2016-06 - 2016-09",
+        "company": "Siemens AG",
+        "title": "Projekt Web-Applikation, Erlangen",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java-8",
+          "J(2)EE",
+          "spring-aspects",
+          "spring-beans",
+          "spring-context",
+          "Communicator Version 3.5.69",
+          "Windows 10",
+          "Microsoft Office"
+        ],
+        "activities": [
+          "Teilnahme am Projekt Web-Applikation für die Verwaltung der Energie- Projekte (Project Name, Country, Region, Main Fuels, Backup Fuel, etc.).",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Testautomatisierung context-support, spring-core, spring-expression, spring-jdbc, spring-orm, spring-tx, spring-web, spring-test), Vaadin Version 3.0.0, Hibernate 4.3.7.",
+          "Final, Entity-Beans, Apache-Maven-3.3.9, JUnit 4.11, log4j 1.2.17, Tomcat",
+          "Version 7.0, Eclipse Neon, Oracle Datenbank 11g, Oracle SQL Developer",
+          "Version 4.1.3.20, ER/Studio Data Architect Version 16.0.2, GIT Version",
+          "2.4.1, SourceTree Version 1.8.3.0, Jira, Putty, WinSCP Version 5.5.3,"
+        ]
+      },
+      {
+        "period": "2016-04 - 2016-08",
+        "company": "Deutsche Bank",
+        "title": "Projekt Web-Applikation, Frankfurt am Main",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java-8",
+          "J(2)EE",
+          "Spring Version 4.2.2.RELEASE",
+          "JSF2.0",
+          "JSFBeans",
+          "TeamViewer Version 11.0",
+          "Notepad++v6.9.1",
+          "Windows 10",
+          "Microsoft"
+        ],
+        "activities": [
+          "Teilnahme am Projekt Web-Applikation für die Verwaltung der elektronischen Schlüssel.",
+          "Architektur",
+          "Frontend Entwicklung",
+          "Hibernate4.1.1.Final, Apache-Maven-3.3.9, log4j 1.2.17, Tomcat Version",
+          "7.0, Eclipse Mars Version 4.5.2, Oracle Datenbank 11g, GIT Version 2.8.1,",
+          "Office."
+        ]
+      },
+      {
+        "period": "2014-05 - 2016-04",
+        "company": "Telekom (T-Systems) International GmbH",
+        "title": "Teilnahme an mehreren Projekten, Erfurt",
+        "role": "EE-Architekt & JEE-Entwickler",
+        "technologies": [
+          "Java 1.8.0_11",
+          "J(2)EE",
+          "WebServices JAXB 2.2.3",
+          "XSD",
+          "WSDL",
+          "Spring",
+          "Notepad++v6.5.3",
+          "Windows 7",
+          "Windows Server 2008 R2 Standard"
+        ],
+        "activities": [
+          "OCR-Projekt:",
+          "Tausende elektronische Dokumente werden täglich durch Benutzung eines Tools (OpenText Capture Document Reader, Abk. OCR),",
+          "Dokumentenmanagementsystem (DMS), bearbeitet.",
+          "Aufgaben:",
+          "Migration eines bestehenden Systems zu einem Neuen, um die Kosten zu sparen.",
+          "Optimierung und Erweiterung einer bestehenden JEE-Applikation",
+          "(Für die Bearbeitung der elektronischen Dokumente), um die Kosten zu sparen und die Performanz zu verbessern."
+        ]
+      },
+      {
+        "period": "2014-01 - 2014-04",
+        "title": "Familienphase und Weiterbildung, Frankfurt am Main",
+        "role": "JEE-Architekt & JEE-Entwickler",
+        "technologies": [
+          "Java",
+          "J(2)EE",
+          "Spring Version 4.0.4",
+          "JSF2.2",
+          "JSF-Beans",
+          "Hibernate4.1.1",
+          "Datenbank 11g",
+          "VitrualBox.Version 4.2.12",
+          "Notepad++v6.3.1",
+          "Windows 7"
+        ],
+        "activities": [
+          "Familienphase und Weiterbildung (JSF 2.2, Spring 4.0.4 und Selenium)",
+          "Lernen",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Final, Ant 1.8.1, Design Patterns, log4j 1.2.16, RSA-Modelling-UML-Tool,",
+          "JBoss 7.1.1 Application Server Version 8.0.0.5, Eclipse Kepler, Oracle",
+          "Microsoft Office."
+        ],
+        "company": "Weiterbildung"
+      },
+      {
+        "period": "2013-05 - 2013-12",
+        "company": "IBM",
+        "title": "Projekt \"SEPA\", Chemnitz",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java",
+          "J(2)EE",
+          "Spring Version 3.1.1 RELEASE",
+          "TestNG",
+          "JSF1.2",
+          "JSF-Beans",
+          "VitrualBox.Version 4.2.12",
+          "Notepad++v6.3.1",
+          "Xubuntu",
+          "Windows 7"
+        ],
+        "activities": [
+          "Eine Web-Applikation für ein grosses Projekt \"SEPA\" wurde entwickelt.",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Bugs fixen",
+          "Test und Dokumentation",
+          "Hibernate4.1.1.Final, Ant 1.8.1, Design Patterns, log4j 1.2.16, RSA- Modelling-UML-Tool, WebSphere Application Server Version 8.0.0.5,",
+          "Eclipse IBM Rational Software Architect (RSA) Version 8.0.4.1, Eclipse",
+          "Helios Build id: 20110218-0911, SubVersion (SVN) Version 3.0.1, Oracle"
+        ]
+      },
+      {
+        "period": "2013-01 - 2013-04",
+        "company": "Eigenes Projekt",
+        "title": "Web-Applikation, Frankfurt am Main",
+        "role": "JEE-Architekt & JEE-Entwickler",
+        "technologies": [
+          "Java",
+          "J(2)EE",
+          "JSF2.0",
+          "JSF-Beans",
+          "PrimeFaces 3.3.1",
+          "Ajax",
+          "CSS"
+        ],
+        "activities": [
+          "Eine Web-Applikation für Internet Makler wird entwickelt.",
+          "Architektur",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Bugs fixen",
+          "Test und Dokumentation",
+          "JavaScript, JQuery, Hibernate3.3.1, Ant 1.8.1, Design Patterns, JUnitTest",
+          "4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss5.1.0, Subversion",
+          "(SVN), Eclipse Helios, PLSQL-Datenbank-Browser-v7.15, Oracle Database"
+        ]
+      },
+      {
+        "period": "2012-10 - 2012-12",
+        "company": "Fa. Daimler",
+        "title": "Web-Applikationen",
+        "role": "Entwickler",
+        "technologies": [
+          "Java1.6.0_35",
+          "J(2)EE",
+          "JSF-2.1.2",
+          "JSF-Beans",
+          "EJB3.1",
+          "REST",
+          "JAXRS",
+          "JSON"
+        ],
+        "activities": [
+          "Mitarbeiten in mehreren Web-Applikationen (Backend, Update, DCC und Async) für Upload und Download der Dateien durch Benutzung der REST- Technologie für Autos-Mieten (Car2Go) und die Bearbeitung der Requests (Anfragen) von einem mobilen Gerät (TCU-Unit) und von mobilem Telefon.",
+          "JBoss-7.1.1.Final für Windows und Unix Platforms konfigurieren",
+          "Modulierung",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Bugs fixen.",
+          "Test und Dokumentation",
+          "GSON-2.0, CDI, PrimeFaces-3.4.1, Ajax, CSS, JavaScript, JQuery,",
+          "EclipseLink-2.4.1, JPA, Apache-Maven-3.0.4, Apache-ant-1.8.4, Design"
+        ]
+      },
+      {
+        "period": "2012-09 - 2012-10",
+        "company": "Fa. Dürr",
+        "title": "Web-Applikation",
+        "role": "Entwickler (freiberuflich)",
+        "technologies": [
+          "JavaScript",
+          "J(2)EE",
+          "JSF2.0",
+          "JSF-Beans",
+          "PrimeFaces 3.4",
+          "Ajax",
+          "CSS"
+        ],
+        "activities": [
+          "Eine Web-Applikation für Autolackierung wird entwickelt.",
+          "Erstellung der Composite Komponente vom JSF",
+          "Modulierung",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Bugs fixen",
+          "Test und Dokumentation",
+          "JQuery, Hibernate3.3.1, Maven-3.0.3, Ant-1.8.2, Design Patterns,",
+          "JUnitTest 4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss-6.0,"
+        ]
+      },
+      {
+        "period": "2012-04 - 2012-09",
+        "company": "Eigenes Projekt",
+        "title": "Web-Applikation, Frankfurt am Main",
+        "role": "JEE-Architekt & JEE-Entwickler",
+        "technologies": [
+          "Java",
+          "J(2)EE",
+          "JSF2.0",
+          "JSF-Beans",
+          "PrimeFaces 3.3.1",
+          "Ajax",
+          "CSS"
+        ],
+        "activities": [
+          "Eine Web-Applikation für Online Shop für Klamotten wird entwickelt.",
+          "Modulierung",
+          "Entwicklung der einzelnen Module Back- und Frontend",
+          "Bugs fixen",
+          "Test und Dokumentation",
+          "JavaScript, JQuery, Hibernate3.3.1, Ant 1.8.1, Design Patterns, JUnitTest",
+          "4, log4j 1.2.12, Enterprise Architect 8.0 UML-Tool, JBoss5.1.0, Subversion",
+          "(SVN), Eclipse Helios, PLSQL-Datenbank-Browser-v7.15, Oracle Database"
+        ]
+      },
+      {
+        "period": "2011-02 - 2012-03",
+        "company": "Fa. Siemens",
+        "title": "Diverse Projekte 2 Monate",
+        "role": "Entwickler",
+        "technologies": [
+          "Java",
+          "J(2)EE",
+          "JSF1.2",
+          "EJB3.1",
+          "JSF-Beans",
+          "RichFaces 3.3",
+          "Ajax"
+        ],
+        "activities": [
+          "Bei Siemens habe ich in 3 Projekten gearbeitet:",
+          "Elektronisches Personalarchiv:",
+          "Alle Mitarbeiter bei Siemens haben Dokumente, diese werden durch dieses",
+          "Projekt elektronisch verwaltet. Fast das ganze Projekt (Front- und Backend) wurde von mir alleine in 2 Sprachen Deutsch und Englisch entwickelt.",
+          "Migration der 5 großen Projekte von alten Technologien (Java1.4, Oracle 8,",
+          "JBoss3.5.1) zu neuen Technologien (Java1.6, Oracle 11g, JBoss5.1.0) und Entfernung eines alten Frameworks."
+        ]
+      },
+      {
+        "period": "2010-05 - 2010-10",
+        "company": "McCann",
+        "title": "Web-Applikation, Frankfurt am Main",
+        "role": "JEE-Entwickler (freiberuflich)",
+        "technologies": [
+          "Java",
+          "JEE",
+          "WebServices jaxb 2.1",
+          "wsdl4j 1.6.1",
+          "Spring 2.5.6",
+          "Design",
+          "TimeSheet 6.7",
+          "Clairty",
+          "Linux Red Hat 6",
+          "Putty",
+          "WindowsXP",
+          "Microsoft"
+        ],
+        "activities": [
+          "Die Firma McCann entwickelt momentan eine Web-Applikation für Konfiguration der Autos. Entwicklung der einzelnen Module Backend",
+          "Entwicklung der Web Services",
+          "Bugs fixen Backend und Frontend",
+          "Architektur",
+          "Test und Dokumentation der Softwaremodule Patterns, JUnitTest 3.8 u. 4, log4j 1.2.12, Enterprise Architect 8.0 UML- Tool, Subversion (SVN), soapUI 3.6.1, Tomcat 6.0.29, TortoiseSVN 1.6.8,",
+          "Eclipse Helios, PLSQL und SQLyog - Datenbank-Browser, v7.15, MySQL",
+          "Jdbc-Connector 5.1.7, Oracle 10g, MySQL Server 5.0.77, Jira",
+          "(Backtracking) 4.1, Confluence 3.1, Deployment-Tool: Hudson, Web"
+        ]
+      },
+      {
+        "period": "2010-03 - 2010-05",
+        "company": "Fa. SoftMethod",
+        "title": "Web-Applikationen Entwicklung",
+        "role": "Entwickler",
+        "technologies": [
+          "J2EE",
+          "Ant",
+          "Eclipse 3.5",
+          "Apache LDAP-Browser",
+          "Oracle",
+          "Windows 7",
+          "Sun Virtual Box",
+          "Linux Ubuntu 9.1",
+          "Linux Red Hat"
+        ],
+        "activities": [
+          "Vodafone und Arcor haben zwei verschiede Web-Applikationen. Eine neue Web-Applikation wird entwickelt, sodass die zwei Applikationen nur diese neue Web-Applikation werden, sodass der Benutzer nur einmal einloggen und nur einmal ausloggen kann, das ist das sogenannte Single Signe On",
+          "(SSO).",
+          "Aufgaben:",
+          "Installieren und Konfigurieren der folgenden Technologien:",
+          "Bea WebLogic 9.2 MP3.",
+          "Apache Tomcat 6.0.20 als Application-Server.",
+          "Apache Tomcat 2.0 als HTTP-Dispatcher-Server.",
+          "OpenSSO Enterprise Edition 8.0."
+        ]
+      },
+      {
+        "period": "2009-10 - 2010-02",
+        "company": "Fa. DSS",
+        "title": "Entwicklung Web",
+        "role": "Entwickler",
+        "technologies": [
+          "J2EE",
+          "Servlets",
+          "EJB 2.1",
+          "Spring 2.5.6",
+          "WebServices",
+          "WSDL",
+          "Hibernate 3.0",
+          "Redhat Linux",
+          "PSPad",
+          "Open Office",
+          "Windows Vista"
+        ],
+        "activities": [
+          "Eine Web-Applikation wurde für Deutsche Telekom entwickelt um die Domains zu verwalten. Entwicklung der Web-Services für diese Applikation mit Java (Backend).",
+          "Aufgaben:",
+          "Modulierung.",
+          "Erstellen der Dokumentationen XSD, SOAP, Design Patterns, JUnit 3.8, Maven 2.2.1, Eclipse 3.5, SVN",
+          "Repository, Apache Tomcat 6.0.20, JBoss 5.1.0, MagicDraw 16.5 (UML- Tool), Oracle 10g Datenbank, SQL, SQuirrel SQL",
+          "3.0.2, (Datenbankverwaltungstool), Apache Tomcat 6.0.20, JBoss 4.2.2,"
+        ]
+      },
+      {
+        "period": "2009-09 - 2009-10",
+        "title": "SAP Kurs",
+        "role": "alfatraining",
+        "technologies": [
+          "SAP NetWeaver 2004",
+          "ABAP",
+          "SAP TEC",
+          "BC"
+        ],
+        "activities": [
+          "Development Consultant SAP NetWeaver 2004 – Applikcation Development",
+          "Focus ABAP SAP® ERP 6.0 Focus ABAP Form 2007 mit folgenden Modulen:",
+          "SAPTEC: Grundlagen des SAP Web AS.",
+          "BC 400: ABAP Workbench Grundlagen.",
+          "BC 430: ABAP Dictionary.",
+          "ADM 940: Einführung in das Berechtigungskonzept mit SAP.",
+          "BC 410: Entwicklung und Benutzerdialoge",
+          "Weitere Projekte gern auf Anfrage."
+        ]
+      }
+    ],
+    "industries": [
+      "Software",
+      "Finanz/Banking",
+      "Automotive",
+      "Telekommunikation",
+      "Versicherungen",
+      "Handel & Einkauf",
+      "Output Management",
+      "Dokumentenmanagementsystem (DMS)"
+    ],
+    "focus_areas": [
+      "Java J(2)EE Entwickler",
+      "Software-Entwicklung / Programmierung",
+      "Engineering / IT-nahe Ingenieurdienstleistungen 09/1997 11/2004 Institution: Johann-Wolfgang-Goethe Universität Frankfurt am Main, Fachrichtung: Informatik mit Nebenfach Physik.",
+      "Abschluss: Diplom-Informatiker.",
+      "Weiterbildungen",
+      "09/2009 10/2009: SAP Kurs; alfatraining",
+      "Development Consultant SAP NetWeaver 2004 Applikcation Development Focus ABAP SAP® ERP 6.0. Focus ABAP Form 2007 mit folgenden Modulen:",
+      "SAPTEC: Grundlagen des SAP Web AS.",
+      "BC 400: ABAP Workbench Grundlagen.",
+      "BC 430: ABAP Dictionary.",
+      "ADM 940: Einführung in das Berechtigungskonzept mit SAP.",
+      "BC 410: Entwicklung und Benutzerdialoge.",
+      "Skills: SAP NetWeaver 2004, ABAP, SAP TEC, BC.",
+      "07/2009 09/2009",
+      "Java Kurs (J2SE 1.6, J2EE 1.5, Servlets, RMI, JNLP, Eclipse 3.5, Windows XP) 09/1996 07/1997 Deutsch Sprachkurs, Studienkolleg an der Uni-Leipzig, Abschluss: Zeugnis über die Deutsche Sprachprüfung mit der Spezialisierungsrichtung Fachsprache Naturwissenschaften/ Technik."
+    ],
+    "focus_experience": [
+      {
+        "name": "Ant 1.8.1",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "1.8.2",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "LDAP-Browser",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Tomcat 6.0.20",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "ant 1.8.4",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Apache ant 1.9.4",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Maven 3.0.4",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Maven 3.2.3",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Maven 3.3.9",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Atlassian Confluence 3.1",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Wiki 4.2.11",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "BeanShell bsh-2.0b4",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "CDI",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Citrix Receiver Version 4.4",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Clairty",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "DB2 Datenbank",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Deployment-Tool: Hudson",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Derby Datenbank",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Design Patterns",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "DoKuStar Design Studio 4.3",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "dom4j",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "EasyMock 3.1",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "3.5",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Helios",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Helios Build",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "IBM Rational",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "Software Architect (RSA) Version",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Eclipse 8.0.4.1",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Kepler",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Luna",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Mars Version",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "4.5.2",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Mars.1 Release (4.5.1)",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Neon",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "3.7.2-Indigo-SR2",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Link 2.4.1",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Eclipse4.13",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "EJB 2.1",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "3.1",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Enterprise Architect 8.0 UML-Tool",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Version 12",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Full",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "10.00.1009.8",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Entity-Beans",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "ER/Studio Data Architect Version 16.0.2",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "GIT Version 2.4.1",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "2.8.1",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "GlassFish-3.1.2",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Groovy 2.4",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "GSON-2.0",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "3.0",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "4.3.7.Final",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "commons-annotations",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Hibernate 4.0.2.Final",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "core 4.2.21",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "entitymanager",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "4.2.21",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "3.3.1",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "4.1.1.Final",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "HP ALM - Quality Center 12.01",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "IBM MQ",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "J(2)EE",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Java 1.8.0_11",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "1.7",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "1.6.0_35",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "4.2.2",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "5.1.0",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "7.1.1 Application Server",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "JBoss Version 8.0.0.5",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "6.0",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "7.1.1.Final",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "3.5.1",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "JDBC-Connector",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "jEdit 5.1.0",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Jenkins (Hudson) 1.478",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "1.609.1",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "ver. 1.651.3",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Jira (Backtracking) 4.1",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "5.1.6",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "JMeter 2.11",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "JSF 2.1.2",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Beans",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "1.2",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "2.0",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "2.2",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "JUnit 3.8",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "4.11",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "JUnitTest 3.8",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "4.12",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "LDAP",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Linux Red Hat 6",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "Ubuntu 9.1",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "log4j 1.2.12",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "1.2.16",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "1.2.17",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "MagicDraw 16.5 (UML-Tool)",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "17.0.1 (UML-Tool)",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Mantis 1.1.8",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Maven 2.2.1",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "3.0.3",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Microsoft Office",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Outlook",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Microsoft Office Professional Plus 2016",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "mockito-all Version 1.10.19",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "MySQL Jdbc-Connector 5.1.7",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "Server 5.0.77",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Notepad++ v6.1.8",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "v6.3.1",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "v6.5.3",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "v6.9.1",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "v6.9.2",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Notepad++ v6.8.2",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Office Communicator Version 3.5.69",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Open Office",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "OpenSSO Enterprise Edition 8.0",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "OpenText Capture Document Reader",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "(DOKuStar Professional) 3.6",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Oracle 10g Datenbank",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Oracle SQL Developer V4.0.3",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Version 3.1.07",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "Version",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "4.1.3.20",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Oracle VM Jenkins (Hudson) 1.504",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "PLSQL und SQLyog - Datenbank-Browser",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "PLSQL-Datenbank-Browser-v7.15",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "Polarion Build: 3.9.1.20150623-2040",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Policy Agent 3.0",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "PrimeFaces 3.3.1",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "3.4",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "3.4.1",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "PSPad",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "Putty",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "PuTTY Release 0.7",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "Quantum Datenbank-Browser",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "Rational Team Concert (RTC) Version 4.0",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "RecoStar Design Studio",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Remedy",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "RESTful Services (JAX-RS)",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "RichFaces 3.3",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "RSA-Modelling-UML-Tool",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "SAP NetWeaver 2004",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "SAP TEC",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "SCRUM",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "Selenium 2.45.0",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "Servlets",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "slf4j Version 1.7.13",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "soapUI 3.6.1",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "5.0.0",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "5.3.0",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "SoapUI 5.3.0",
+        "category": "product_standard",
+        "sort_order": 152
+      },
+      {
+        "name": "SourceTree Version 1.8.3.0",
+        "category": "product_standard",
+        "sort_order": 153
+      },
+      {
+        "name": "Spring Version 4.1.1.RELEASE (spring-aop)",
+        "category": "product_standard",
+        "sort_order": 154
+      },
+      {
+        "name": "Spring 2.5.6",
+        "category": "product_standard",
+        "sort_order": 155
+      },
+      {
+        "name": "Spring Version 3.1.1 RELEASE",
+        "category": "product_standard",
+        "sort_order": 156
+      },
+      {
+        "name": "4.0.4",
+        "category": "product_standard",
+        "sort_order": 157
+      },
+      {
+        "name": "4.1.1",
+        "category": "product_standard",
+        "sort_order": 158
+      },
+      {
+        "name": "4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 159
+      },
+      {
+        "name": "spring-aop 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 160
+      },
+      {
+        "name": "spring-aspects",
+        "category": "product_standard",
+        "sort_order": 161
+      },
+      {
+        "name": "spring-beans 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 162
+      },
+      {
+        "name": "spring-context 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 163
+      },
+      {
+        "name": "support",
+        "category": "product_standard",
+        "sort_order": 164
+      },
+      {
+        "name": "spring-core 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 165
+      },
+      {
+        "name": "spring-expression",
+        "category": "product_standard",
+        "sort_order": 166
+      },
+      {
+        "name": "spring-jdbc 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 167
+      },
+      {
+        "name": "spring-jms 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 168
+      },
+      {
+        "name": "spring-ldap-core 21.0.RELEASE",
+        "category": "product_standard",
+        "sort_order": 169
+      },
+      {
+        "name": "spring-orm 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 170
+      },
+      {
+        "name": "spring-test",
+        "category": "product_standard",
+        "sort_order": 171
+      },
+      {
+        "name": "spring-tx 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 172
+      },
+      {
+        "name": "spring-web 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 173
+      },
+      {
+        "name": "spring-webmvc 4.2.2.RELEASE",
+        "category": "product_standard",
+        "sort_order": 174
+      },
+      {
+        "name": "SQL Workbench Build 116",
+        "category": "product_standard",
+        "sort_order": 175
+      },
+      {
+        "name": "SQuirreL SQL Client Version 3.5.2",
+        "category": "product_standard",
+        "sort_order": 176
+      },
+      {
+        "name": "Squirrel-SQL-v3.4.0",
+        "category": "product_standard",
+        "sort_order": 177
+      },
+      {
+        "name": "Subversion (SVN) Version 3.0.1",
+        "category": "product_standard",
+        "sort_order": 178
+      },
+      {
+        "name": "Sun Directory Server",
+        "category": "product_standard",
+        "sort_order": 179
+      },
+      {
+        "name": "Sun Virtual Box",
+        "category": "product_standard",
+        "sort_order": 180
+      },
+      {
+        "name": "SVN Repository",
+        "category": "product_standard",
+        "sort_order": 181
+      },
+      {
+        "name": "Sybase ASE 15.03",
+        "category": "product_standard",
+        "sort_order": 182
+      },
+      {
+        "name": "TeamViewer Version 11.0",
+        "category": "product_standard",
+        "sort_order": 183
+      },
+      {
+        "name": "TestNG 6.9.12",
+        "category": "product_standard",
+        "sort_order": 184
+      },
+      {
+        "name": "6.0.29",
+        "category": "product_standard",
+        "sort_order": 185
+      },
+      {
+        "name": "Version 7.0",
+        "category": "product_standard",
+        "sort_order": 186
+      },
+      {
+        "name": "Tortoise",
+        "category": "product_standard",
+        "sort_order": 187
+      },
+      {
+        "name": "TortoiseSVN 1.6.8",
+        "category": "product_standard",
+        "sort_order": 188
+      },
+      {
+        "name": "1.7.14",
+        "category": "product_standard",
+        "sort_order": 189
+      },
+      {
+        "name": "v1.6.17",
+        "category": "product_standard",
+        "sort_order": 190
+      },
+      {
+        "name": "UltraEdit-v17.30.0.1002",
+        "category": "product_standard",
+        "sort_order": 191
+      },
+      {
+        "name": "v7.15",
+        "category": "product_standard",
+        "sort_order": 192
+      },
+      {
+        "name": "Vaadin Version 3.0.0",
+        "category": "product_standard",
+        "sort_order": 193
+      },
+      {
+        "name": "Version 3.0.53.0",
+        "category": "product_standard",
+        "sort_order": 194
+      },
+      {
+        "name": "Virtual Client (VC)",
+        "category": "product_standard",
+        "sort_order": 195
+      },
+      {
+        "name": "VitrualBox 4.2.12",
+        "category": "product_standard",
+        "sort_order": 196
+      },
+      {
+        "name": "Web TimeSheet 6.7",
+        "category": "product_standard",
+        "sort_order": 197
+      },
+      {
+        "name": "WebEx Konferenz",
+        "category": "product_standard",
+        "sort_order": 198
+      },
+      {
+        "name": "WebLogic 9.2 MP3",
+        "category": "product_standard",
+        "sort_order": 199
+      },
+      {
+        "name": "WebServices (cxf-java2ws-plugin)",
+        "category": "product_standard",
+        "sort_order": 200
+      },
+      {
+        "name": "jaxb 2.1",
+        "category": "product_standard",
+        "sort_order": 201
+      },
+      {
+        "name": "JAXB",
+        "category": "product_standard",
+        "sort_order": 202
+      },
+      {
+        "name": "2.2.3",
+        "category": "product_standard",
+        "sort_order": 203
+      },
+      {
+        "name": "WebSphere Application Server Liberty Profile",
+        "category": "product_standard",
+        "sort_order": 204
+      },
+      {
+        "name": "Version 8.0.0.5",
+        "category": "product_standard",
+        "sort_order": 205
+      },
+      {
+        "name": "Windows 10 Enterprise 2016 LTSB",
+        "category": "product_standard",
+        "sort_order": 206
+      },
+      {
+        "name": "Windows 8.1 Enterprise",
+        "category": "product_standard",
+        "sort_order": 207
+      },
+      {
+        "name": "Windows Server 2008 R2 Standard",
+        "category": "product_standard",
+        "sort_order": 208
+      },
+      {
+        "name": "Windows Vista",
+        "category": "product_standard",
+        "sort_order": 209
+      },
+      {
+        "name": "WindowsXP",
+        "category": "product_standard",
+        "sort_order": 210
+      },
+      {
+        "name": "WinSCP Version 5.5.3",
+        "category": "product_standard",
+        "sort_order": 211
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 212
+      },
+      {
+        "name": "Atlassian Jira v7.13.0",
+        "category": "product_standard",
+        "sort_order": 213
+      },
+      {
+        "name": "Citrix Receiver für Web 2019",
+        "category": "product_standard",
+        "sort_order": 214
+      },
+      {
+        "name": "ITSM-Framework WebSelfService Version 3.4",
+        "category": "product_standard",
+        "sort_order": 215
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 216
+      },
+      {
+        "name": "Fachlicher Java-Entwickler",
+        "category": "product_standard",
+        "sort_order": 217
+      }
+    ],
+    "education": [],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Fax",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HTTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LDAP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design mit UML",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Eclipse Photon June 2018",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Entwicklung mit J(2)EE",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "GIT version 2.21.0.windows.1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "hibernate-4.3.11-Final",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Maven Sonar Version 2.7.1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PrimeFaces 5.3",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UML-Modellierung UMLet version 12.2",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "WebSphere Application Server V8.5.5",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "rest-technologie",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "lightweight",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "modelio",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "xdoclet-1.2.3",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "eclipse-3.7.2-indigo-sr2",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "entity-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "modelling-uml-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "winscp-5.1.0",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "apache-maven-3.2.3",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "plsql-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "eclipselink",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "eclipselink-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "tortoisesvn-v1.6.17",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "hibernate-core-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "apache-maven-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "gson-",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:55:08.400208",
+    "source_file": "",
+    "steps_completed": [
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "BRANCHEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei '2014-05 - 2016-04'",
+        "AUTO_SKILLS: +16 in skill_ablage"
+      ],
+      "coverage_percent": 85.65573770491804,
+      "auto_added_skills": 16,
+      "integrity_ok": true
+    }
+  }
+}

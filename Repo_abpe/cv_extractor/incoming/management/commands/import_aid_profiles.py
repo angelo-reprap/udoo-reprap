@@ -165,130 +165,152 @@ class Command(BaseCommand):
         stats = {'total': 0, 'ok': 0, 'error': 0, 'skip': 0, 'no_pdf': 0}
         t_start = time.time()
 
-        for letter_dir in sorted(base_dir.iterdir()):
-            if not letter_dir.is_dir():
-                continue
-            if letter_dir.name in SKIP_DIRS:
-                continue
-            if letter_filter and letter_dir.name != letter_filter:
-                continue
+        def process_person(person_dir: Path) -> None:
+            """Eine Person importieren (mutiert stats)."""
+            if limit and stats['total'] >= limit:
+                return
 
-            for person_dir in sorted(letter_dir.iterdir()):
-                if not person_dir.is_dir():
-                    continue
-                if person_dir.name in ('neu',) or person_dir.name in SKIP_PERSON_DIRS:
-                    continue
-                if person_dir.name.lower().startswith('neuer ordner'):
-                    continue
-                if dir_filter and person_dir.name != dir_filter:
-                    continue
-                if limit and stats['total'] >= limit:
-                    break
-
-                pdf = get_best_pdf(person_dir)
-                if not pdf:
-                    stats['no_pdf'] += 1
-                    continue
-
-                dir_name = person_dir.name
-                first_name, last_name = name_from_dir(dir_name)
-                stats['total'] += 1
-
-                if skip_existing:
-                    if Consultant.objects.filter(consultant_dir=dir_name).exists():
-                        stats['skip'] += 1
-                        continue
-
+            pdf = get_best_pdf(person_dir)
+            if not pdf:
+                stats['no_pdf'] += 1
                 self.stdout.write(
-                    f'  [{stats["total"]:4d}] {first_name} {last_name}'
-                    f' ← {pdf.name}'
+                    f'  (kein AID-*.pdf in {person_dir})'
+                )
+                return
+
+            dir_name = person_dir.name
+            first_name, last_name = name_from_dir(dir_name)
+            stats['total'] += 1
+
+            if skip_existing:
+                if Consultant.objects.filter(consultant_dir=dir_name).exists():
+                    stats['skip'] += 1
+                    return
+
+            self.stdout.write(
+                f'  [{stats["total"]:4d}] {first_name} {last_name}'
+                f' ← {pdf.name}'
+            )
+
+            if dry_run:
+                stats['ok'] += 1
+                return
+
+            try:
+                dest_path = upload_base / pdf.name
+                shutil.copy2(str(pdf), str(dest_path))
+
+                rel_path = dest_path.relative_to(
+                    Path(settings.BASE_DIR) / 'data'
                 )
 
-                if dry_run:
-                    stats['ok'] += 1
-                    continue
-
-                try:
-                    dest_path = upload_base / pdf.name
-                    shutil.copy2(str(pdf), str(dest_path))
-
-                    rel_path = dest_path.relative_to(
-                        Path(settings.BASE_DIR) / 'data'
+                # WICHTIG: Signal start_pipeline_on_new_pdf startet bei
+                # status='uploaded' automatisch Celery. Deshalb:
+                #   --sync  → status=processing (kein Signal), dann sync call
+                #   async   → status=uploaded, NUR Signal (kein .delay())
+                if sync_mode:
+                    upload = UploadedPDF.objects.create(
+                        file=str(rel_path),
+                        filename=pdf.name,
+                        first_name=first_name,
+                        last_name=last_name,
+                        target_directory=dir_name,
+                        action_type='aid_import',
+                        status='processing',
                     )
-
-                    # WICHTIG: Signal start_pipeline_on_new_pdf startet bei
-                    # status='uploaded' automatisch Celery. Deshalb:
-                    #   --sync  → status=processing (kein Signal), dann sync call
-                    #   async   → status=uploaded, NUR Signal (kein .delay())
-                    if sync_mode:
-                        upload = UploadedPDF.objects.create(
-                            file=str(rel_path),
-                            filename=pdf.name,
-                            first_name=first_name,
-                            last_name=last_name,
-                            target_directory=dir_name,
-                            action_type='aid_import',
-                            status='processing',
+                    result = process_pdf_task(upload.id)
+                    if result.get('success'):
+                        neu = person_dir / 'neu' / 'cv'
+                        neu_pdfs = (
+                            sorted(neu.glob('AID-*.pdf'))
+                            if neu.is_dir() else []
                         )
-                        result = process_pdf_task(upload.id)
-                        if result.get('success'):
-                            neu = person_dir / 'neu' / 'cv'
-                            neu_pdfs = (
-                                sorted(neu.glob('AID-*.pdf'))
-                                if neu.is_dir() else []
+                        if neu_pdfs:
+                            stats['ok'] += 1
+                            self.stdout.write(
+                                f"    ✅ {result.get('aid', '?')}"
                             )
-                            if neu_pdfs:
-                                stats['ok'] += 1
-                                self.stdout.write(
-                                    f"    ✅ {result.get('aid', '?')}"
-                                )
-                                files = sorted(
-                                    p.name for p in neu.iterdir() if p.is_file()
-                                )
-                                self.stdout.write(
-                                    f"    📁 neu/cv: {', '.join(files)}"
-                                )
-                            else:
-                                # Pipeline OK, aber Publish fehlt → kein Import-OK
-                                stats['error'] += 1
-                                self.stdout.write(
-                                    f"    ❌ {result.get('aid', '?')} — "
-                                    f"Pipeline OK, aber kein neu/cv AID-*.pdf "
-                                    f"unter {neu}"
-                                )
-                                self.stderr.write(
-                                    self.style.ERROR(
-                                        f'no_neu_cv: {dir_name} '
-                                        f'(aid={result.get("aid", "?")})'
-                                    )
-                                )
+                            files = sorted(
+                                p.name for p in neu.iterdir() if p.is_file()
+                            )
+                            self.stdout.write(
+                                f"    📁 neu/cv: {', '.join(files)}"
+                            )
                         else:
+                            # Pipeline OK, aber Publish fehlt → kein Import-OK
                             stats['error'] += 1
                             self.stdout.write(
-                                f"    ❌ {result.get('error', '?')[:100]}"
+                                f"    ❌ {result.get('aid', '?')} — "
+                                f"Pipeline OK, aber kein neu/cv AID-*.pdf "
+                                f"unter {neu}"
+                            )
+                            self.stderr.write(
+                                self.style.ERROR(
+                                    f'no_neu_cv: {dir_name} '
+                                    f'(aid={result.get("aid", "?")})'
+                                )
                             )
                     else:
-                        UploadedPDF.objects.create(
-                            file=str(rel_path),
-                            filename=pdf.name,
-                            first_name=first_name,
-                            last_name=last_name,
-                            target_directory=dir_name,
-                            action_type='aid_import',
-                            status='uploaded',  # Signal startet Celery einmal
-                        )
-                        stats['ok'] += 1
+                        stats['error'] += 1
                         self.stdout.write(
-                            '    ⏳ Signal → Celery → upload.html → neu/cv/'
+                            f"    ❌ {result.get('error', '?')[:100]}"
                         )
+                else:
+                    UploadedPDF.objects.create(
+                        file=str(rel_path),
+                        filename=pdf.name,
+                        first_name=first_name,
+                        last_name=last_name,
+                        target_directory=dir_name,
+                        action_type='aid_import',
+                        status='uploaded',  # Signal startet Celery einmal
+                    )
+                    stats['ok'] += 1
+                    self.stdout.write(
+                        '    ⏳ Signal → Celery → upload.html → neu/cv/'
+                    )
 
-                except Exception as e:
-                    stats['error'] += 1
-                    self.stdout.write(f'    ❌ {str(e)[:100]}')
-                    logger.exception(f'Import {dir_name}: {e}')
+            except Exception as e:
+                stats['error'] += 1
+                self.stdout.write(f'    ❌ {str(e)[:100]}')
+                logger.exception(f'Import {dir_name}: {e}')
 
-            if limit and stats['total'] >= limit:
-                break
+        # Gezielter Import: --letter + --dir → direkten Pfad öffnen
+        # (kein letter_dir.iterdir() — CIFS listet frisch erzeugte Ordner oft nicht)
+        if letter_filter and dir_filter:
+            person_dir = base_dir / letter_filter / dir_filter
+            self.stdout.write(f'Direkt:   {person_dir}')
+            if not person_dir.is_dir():
+                self.stderr.write(self.style.ERROR(
+                    f'Person-Dir fehlt oder kein Verzeichnis: {person_dir}'
+                ))
+                stats['no_pdf'] += 1
+            else:
+                process_person(person_dir)
+        else:
+            for letter_dir in sorted(base_dir.iterdir()):
+                if not letter_dir.is_dir():
+                    continue
+                if letter_dir.name in SKIP_DIRS:
+                    continue
+                if letter_filter and letter_dir.name != letter_filter:
+                    continue
+
+                for person_dir in sorted(letter_dir.iterdir()):
+                    if not person_dir.is_dir():
+                        continue
+                    if person_dir.name in ('neu',) or person_dir.name in SKIP_PERSON_DIRS:
+                        continue
+                    if person_dir.name.lower().startswith('neuer ordner'):
+                        continue
+                    if dir_filter and person_dir.name != dir_filter:
+                        continue
+                    if limit and stats['total'] >= limit:
+                        break
+                    process_person(person_dir)
+
+                if limit and stats['total'] >= limit:
+                    break
 
         dur = time.time() - t_start
         self.stdout.write(f"\n{'=' * 50}")

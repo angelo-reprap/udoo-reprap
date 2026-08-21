@@ -1,0 +1,406 @@
+{
+  "metadata": {
+    "aid": "AID-jf_5.2.4.0",
+    "version": "5.2.4.0",
+    "consultant_dir": "frank_juergen",
+    "first_name": "Juergen",
+    "last_name": "Frank",
+    "headline": "Microwave-Plannning (PDH, SDH, IP), Fixed-Network-Planning, Parameter- Planning (IP), Project-Management Radio-Networks (GSM, UMTS, LTE)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:29:24.007172"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Juergen",
+      "last_name": "Frank",
+      "birth_year": 1965,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend (2 Jahre Tätigkeit in",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (Grundkenntnisse)",
+          "level": ""
+        },
+        {
+          "name": "Latein (Großes Latinum)",
+          "level": ""
+        }
+      ],
+      "availability": "01.10.19 zu 100%, Vor-Ort-Einsatz 80% möglich",
+      "location": "D8, Österreich, Schweiz, außerhalb D/A/CH im Umkreis von: München",
+      "wohnort": "817xx München, Deutschland",
+      "headline": "Microwave-Plannning (PDH, SDH, IP), Fixed-Network-Planning, Parameter- Planning (IP), Project-Management Radio-Networks (GSM, UMTS, LTE)"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Filemaker Grundkenntnisse",
+        "Ascii/X - Terminals VT-100",
+        "X-Windows",
+        "X-Darwin"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Dos MS-DOS 3.3",
+        "6.2",
+        "DR-DOS",
+        "Mac OS 6.0.5 bis OS-X (10.10.3)",
+        "Novell 2.12 - 4.01",
+        "PalmOS 3.0 bis 4.1",
+        "Unix Sun OS (Solaris)",
+        "Mac OS X",
+        "Windows 3.11 bis 8.1"
+      ],
+      "programming_languages": [
+        "Basic Grundkenntnisse",
+        "Fortran Fortran 77 Grundkenntnisse",
+        "Maschinensprachen Z80 Assembler",
+        "Scriptsprachen AppleScript + FileMaker Grundkenntnisse",
+        "TeX",
+        "LaTeX Grundkenntnisse"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "12.95 - 5.96",
+        "company": "Großklinikum",
+        "title": "Projekt : Projektleitung",
+        "role": "Projekt : Projektleitung",
+        "activities": [
+          "Campusweite strukturierte Verkabelung",
+          "ATM-Netz",
+          "Hardware : IBM-ACS, div. ATM-Komponenten"
+        ]
+      },
+      {
+        "period": "3.96 - 4.96",
+        "company": "Messegesellschaft",
+        "title": "Projekt : Planung",
+        "role": "Projekt : Planung",
+        "activities": [
+          "strukturiertes, campusweites Verkabelungssystem",
+          "Kostenschätzung aktive Komponenten",
+          "Hardware : IBM-ACS, 3Com Switches"
+        ]
+      },
+      {
+        "period": "5.96 - 11.96",
+        "company": "Energieversorgungsunternehmen",
+        "title": "Projekt : Unterstützung bei Produktauswahl und Netzkonzeption",
+        "role": "Projekt : Unterstützung bei Produktauswahl und Netzkonzeption",
+        "activities": [
+          "für das stadtweite ATM-Netz",
+          "Hardware : ATM- und TokenRing-Komponenten",
+          "Netzkonzeption"
+        ]
+      },
+      {
+        "period": "3.98",
+        "company": "Technischer Gebäudeausrüster",
+        "title": "Projekt : Planung aktive Netzwerkkomponenten",
+        "role": "Projekt : Planung aktive Netzwerkkomponenten",
+        "activities": [
+          "Hardware : N-Base Komponenten"
+        ]
+      },
+      {
+        "period": "5.99 - 7.99",
+        "company": "Festnetzbetreiber",
+        "title": "Projekt : LWL-Trassenplanung, Koordinierung mit Genehmigungsbehörden",
+        "role": "Projekt : LWL-Trassenplanung, Koordinierung mit",
+        "activities": [
+          "Projekt : LWL-Trassenplanung, Koordinierung mit Genehmigungsbehörden"
+        ]
+      },
+      {
+        "period": "2.00 - 09-00",
+        "company": "TETRA-Betreiber",
+        "title": "Projekt : Richtfunk- und Festnetzplanung",
+        "role": "Projekt : Richtfunk- und Festnetzplanung",
+        "activities": [
+          "Projekt : Richtfunk- und Festnetzplanung"
+        ]
+      },
+      {
+        "period": "10.00 - 11.01",
+        "company": "E-Plus Mobilfunk GmbH & Co. KG",
+        "title": "Planungsbüro Stuttgart",
+        "role": "Planungsbüro Stuttgart",
+        "activities": [
+          "Planungsbüro Stuttgart"
+        ]
+      },
+      {
+        "period": "05.03 - 02.17",
+        "company": "E-Plus Mobilfunk GmbH & Co. KG - Planungsbüro Stuttgart",
+        "title": "Alcatel-Lucent Network Services GmbH,",
+        "role": "Alcatel-Lucent Network Services GmbH,",
+        "activities": [
+          "GUs von E-Plus Mobilfunk GmbH & Co. KG",
+          "E-Plus Mobilfunk GmbH & Co. KG - Region Süd (München)",
+          "Projekt : PM, sowie Richtfunk- und Festnetzplanung SDH/PDH für GSM, UMTS",
+          "+ LTE, LOS-Tests, IP-Planung, Ethernet-Microwave (Engineering, Konfiguration),",
+          "Parameterplanung IP (UMTS, LTE)"
+        ]
+      },
+      {
+        "period": "02.17 - heute",
+        "company": "AS Bayern",
+        "title": "Projekt : Richtfunk- und Festnetzplanung für TETRA, LOS- Tests, IP- Tests, IP-",
+        "role": "Projekt : Richtfunk- und Festnetzplanung für TETRA, LOS-Tests, IP-",
+        "activities": [
+          "Planung, Ethernet-Microwave (Engineering, Konfiguration), Parameterplanung IP",
+          "(UMTS, LTE)",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekt Richtfunk und Festnetzplanung, von 10/00 - 11/01 Referenz durch E-Plus Mobilfunk GmbH&Co. KG, regionale Netzplanung \"Richtfunkplanung PDH/SDH im 15-38 GHz Bereich, Kapazitätsplanungen, LOS-Tests, Standortbegehungen mit Infrastrukturplanungen, Dokumentation, Visualisierung von Richtfunkstrecken\" Alle Referenzen sind durch GULP bestätigt.",
+          "Sonstige Anmerkungen: Als Ingenieur bin ich sehr flexibel und kann mich kurzfristig in nahezu jeden Aufgabenbereich einarbeiten.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]"
+        ]
+      }
+    ],
+    "industries": [
+      "Autobranche",
+      "Versicherungen",
+      "Banken",
+      "Reisebranche",
+      "Netzbetreiber"
+    ],
+    "focus_areas": [
+      "Microwave-Plannning (PDH",
+      "Fixed-Network-Planning",
+      "Parameter- Planning (IP)",
+      "UMTS",
+      "LTE)",
+      "Beratung / Consulting",
+      "Microwave-Plannning (PDH, SDH, IP)",
+      "Parameter-Planning (IP, UMTS, LTE)",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Engineering / IT-nahe Ingenieurdienstleistungen"
+    ],
+    "focus_experience": [
+      {
+        "name": "ISO/OSI Schichtenmodell",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Netzwerk-Hardware",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "ISDN",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "VSAT: Datenkommunikation über Satelliten",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Richtfunkplanung mit IQ-Link (ComSearch)",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Festnetzplanung",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Planung komplexer IP-Netze (einschließlich Infrastruktur)",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "VSAT",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "IQ-Link (ComSearch)",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "IP-Netze",
+        "category": "product_standard",
+        "sort_order": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diplom-Ingenieur (Fachhochschule)",
+        "institution": "FH Frankfurt am Main",
+        "period": "1985-1989",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Richtfunk und Festnetzplanung, von 10/00 - 11/01\nReferenz durch E-Plus Mobilfunk GmbH&Co. KG, regionale Netzplanung\n\"Richtfunkplanung PDH/SDH im 15-38 GHz Bereich, Kapazitätsplanungen, LOS-Tests, Standortbegehungen mit Infrastrukturplanungen, Dokumentation, Visualisierung von Richtfunkstrecken\"\nAlle Referenzen sind durch GULP bestätigt.\n\nSonstige Anmerkungen:\nAls Ingenieur bin ich sehr flexibel und kann mich kurzfristig in nahezu jeden Aufgabenbereich einarbeiten.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "AppleTalk jahrelanger Nutzer",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "obsolet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ATM An Schulung am EANTC teilgenommen",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet IEEE 802.3",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "FDDI X3T9.5",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN E-DSS1",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell Netware 2.12-4.01",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Packet-Radio lizensierter Funkamateur (Klasse 2)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "APRS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP ja",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "auch MPLS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "VLANs etc",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring IEEE 802.5",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EAGLE Grundkenntnisse",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TARGET 3001! Grundkenntnisse",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:29:24.007185",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [],
+      "coverage_percent": 70.58823529411765,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

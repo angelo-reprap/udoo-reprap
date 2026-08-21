@@ -56,8 +56,12 @@ PHRASE_TO_LABEL: Dict[str, str] = {
     "rolle im projekt": "PROJECT",
     "aufgaben im projekt": "PROJECT",
     "eingesetzte produkte": "PROJECT",
-    "regionen & länder": "FOCUS_EXP",
-    "regionen & laender": "FOCUS_EXP",
+    "regionen & länder": "PERSONAL",
+    "regionen & laender": "PERSONAL",
+    "persönliche stärken": "OTHER",
+    "persoenliche staerken": "OTHER",
+    "sonstige anmerkungen": "OTHER",
+    "sonstiges": "OTHER",
 }
 
 # Sichere First-Word → Label (keine Einwort-Risiken wie top/meine/software)
@@ -122,11 +126,15 @@ FIRST_WORD_TO_LABEL: Dict[str, str] = {
     "technologien": "SKILLS",
     "frameworks": "SKILLS",
     "framework": "SKILLS",
-    # FOCUS_EXP
+    # FOCUS_EXP — nur Produkte/Standards/Erfahrungen (nicht Einsatzort!)
     "produkte": "FOCUS_EXP",
     "erfahrungen": "FOCUS_EXP",
-    "einsatzort": "FOCUS_EXP",
-    "regionen": "FOCUS_EXP",
+    # PERSONAL — Einsatzort / Regionen (= Consultant.location)
+    "einsatzort": "PERSONAL",
+    "regionen": "PERSONAL",
+    # OTHER
+    "sonstiges": "OTHER",
+    "referenzen": "OTHER",
     # PROJECT
     "projekte": "PROJECT",
     "projekt": "PROJECT",
@@ -146,7 +154,6 @@ FIRST_WORD_TO_LABEL: Dict[str, str] = {
     "systemumgebung": "PROJECT",
     "projektumgebung": "PROJECT",
     "period": "PROJECT",
-    "referenzen": "EXPERIENCE",
 }
 
 # Zu riskant als alleiniges First-Word (nur Phrase)
@@ -183,11 +190,15 @@ SECTION_SPLIT_PATTERNS: List[Tuple[str, str]] = [
     ("SKILLS", r"Software\s*/\s*Tools(?:\s*/\s*Methoden)?"),
     ("SKILLS", r"Kenntnisse"),
     ("FOCUS_EXP", r"Produkte\s*/\s*Standards\s*/\s*Erfahrungen"),
-    ("FOCUS_EXP", r"Einsatzort"),
-    ("FOCUS_EXP", r"Regionen(?:\s*&\s*L[aä]nder)?"),
+    ("PERSONAL", r"Einsatzort"),
+    ("PERSONAL", r"Regionen(?:\s*&\s*L[aä]nder)?"),
     ("PERSONAL", r"Stammdaten(?:\s*\(Auszug\))?"),
     ("PERSONAL", r"Personendaten"),
     ("PERSONAL", r"Bemerkungen"),
+    ("OTHER", r"Sonstiges"),
+    ("OTHER", r"Sonstige\s+Anmerkungen"),
+    ("OTHER", r"Persönliche\s+Stärken"),
+    ("OTHER", r"Referenzen"),
     ("OTHER", r"Kommentar"),
 ]
 

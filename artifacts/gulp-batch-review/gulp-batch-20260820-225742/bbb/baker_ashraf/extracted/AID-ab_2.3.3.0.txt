@@ -1,0 +1,262 @@
+AID: AID-ab_2.3.3.0
+Name: Ashraf Baker
+Headline: Architektur, Entwicklung, Business Analyse, Spring, JEE, Microservices, Kafka, Security, OWASP, JPA/Hibernate, Webservices (Restful & SOAP)
+Ort: Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Wohnort: 602x Larnaka, Griechenland
+Jahrgang: 1971
+Verfügbar: 02.03.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2001
+Sprachen: Arabisch Muttersprache, Deutsch sehr gut, English sehr gut, Arabisch (Muttersprache), Deutsch (sehr gut), Englisch (sehr gut)
+
+FACHBEREICHE:
+Architektur
+Entwicklung
+Business Analyse
+Spring
+Microservices
+Kafka
+Security
+OWASP
+JPA/Hibernate
+Webservices (Restful & SOAP)
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Solution Architekt, Anwendung Architekt, Senior Software-Entwickler, Business Analyst, Trainer Okt. 1995 - Jun. 2002 Studium der Informatik mit Nebenfach Betriebswirtschaftslehre an der Goethe-Universität Frankfurt am Main.
+Abschluss: Diplom-Informatiker (Dipl.-Inf.) Note: 1.9
+JEE
+Projektmanagement / -leitung / Organisation / Koordination
+Solution Architekt, Anwendung Architekt, Senior Software-Entwickler, Business Analyst, Trainer
+Apache-Kafka 2.2
+Kafka-Client
+-REST
+Spring 5.2
+Spring-Boot 2.2
+Spring-Kafka 2.3
+
+BRANCHEN:
+Bildung / Schulung / Training
+Hochschulen / Forschungseinrichtungen
+IT / Internet / EDV
+IT-Dienstleister / Rechenzentrum
+Telekommunikation / Mobilfunk
+Bank / Finanzinstitut / Bausparkasse / Kreditwirtschaft / Wertpapiere / Börse / Versicherungen
+
+PROJEKTE:
+  11/2018 - 12/2019 |  | Spring-Kafka Spezialist
+    - Aufgaben: o Design und Implementierung einer Kafka-API für den asynchronen Austausch von Nachrichtenströme zwischen Microservices o Erstellung von Spring-Boot Autokonfigurationen für Kafka-Clients
+    - Beschreibung:
+    - Design und Implementierung einer Kafka-API für die asynchrone Kommunikation in Microservice-Architektur
+    Techs: Kafka, Spring Boot, Microservices, ChainedTransactionManager, Avro, Jackson-ObjectMapper, Kafka-Streams, Kafka-Connectors, Zookeeper
+  02/2015 - 08/2018 |  | Architekt, Konzeptionist
+    - Aufgaben:
+    - Beschreibung:
+    - Design und Implementierung einer Microservices-Architektur für ein System zur Abwicklung von Wahlen
+    Techs: Flyway, Windows 7
+  12/2013 - 11/2014 |  | Technischer Architekt, Requirements Engineer
+    - Aufgaben:
+    - Beschreibung:
+    - Architekturentwurf und Design von SOA-Services für die Berechnung von Leasingsangeboten und die Verwaltung von Kundenstammdaten.
+    Techs: 1.7, Jenkins 1.5, Mantis 1.2, Tortoise, XMind, Windows 7, Enterprise Architect
+  04/2013 - 07/2013 |  | Senior Analyst der Fachkonzeption
+    - Aufgaben:
+    - Beschreibung:
+    - Weiterentwicklung eines virtuellen Arbeitsmarkts und einer JobBörse, Umstellung einer Enterprise Applikation auf neue Technologien
+    Techs: Tortoise, Windows 7, Spring, Maven
+  05/2012 - 01/2013 |  | Senior Entwickler mit Architekturkenntnissen (SCRUM-Team)
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung eines RCP- und Rest-basierten Preiserfassungssystems
+    Techs: Architect, SQL-Modeler, Maven, SVN, JRebel, Jenkins, Windows, JEE, EJB, JP QL
+  02/2011 - 06/2011 |  | Senior Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Weiterentwicklung eines Swing/JEE-basierten Applikation
+    Techs: Jira, Bugzilla, Hudson, Eclipse, Maven, SVN, Linux, Windows 7, Swing, JEE
+  11/2010 - 01/2011 |  | Entwickler/Deployment Manager
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung einer JSF-basierten graphischen Oberfläche
+    Techs: ANT, soapUI, JUnit, CVS, Linux, JSF, Webservices, WebLogic, Oracle, SQL
+  01/2010 - 07/2010 |  | Architekt, Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Architekturdesign und Implementierung eines Reversauktionssystems zur Beschaffung von Elektroteilen
+    Techs: Architect, JUnit, Windows Vista
+  05/2008 - 12/2009 |  | Projektleiter, Architekt, Entwickler
+    - of Algorithms)
+    - Aufgaben:
+    - Beschreibung:
+    Techs: Java-Core -Swing, Java3D, XML, WebStart, Eclipse, Ant, Junit, LaTeX, Windows XP
+  03/2007 - 03/2008 |  | Technischer Projektleiter, Entwickler, Designer
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung von Self-Assessments zur Einschätzung der Studierfähigkeit und zur Prognostizierung von Studienerfolg
+    Techs: Adobe Flash Professional, Dreamweaver, Windows XP
+  05/2005 - 02/2007 |  | Architekt, Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Design und Implementierung eines web-basierten Pigment Explorers zur Simulation von Farbpigmenteffekten
+    Techs: ActionScript, Flash, HTML, JavaScript, CSS, Adobe Flash, Fireworks, Dreamweaver, Enterprise Architect
+  08/2004 - 03/2005 |  | Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung eines J2EE-basierten Systems zur zentralen Verwaltung von Lernmaterialien
+    Techs: Struts, EJB 2.5, JDBC, WebLogic, Oracle, JUnit, Eclipse, Windows XP
+  01/2004 - 07/2004 |  | Teamleiter, Entwickler, Designer
+    - Aufgaben:
+    - Beschreibung:
+    - Entwicklung von Web-Formularen (FrontEnd-Entwicklung mit Datenbankanbindung)
+    Techs: Eclipse-PHP-Plugin, Zend, Dreamweaver, Windows 2000, Servlets/JSP, Struts, JavaScript, HTML, CSS, SQL
+  09/2002 - 12/2003 |  | Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Konzeption und Implementierung eines XPDL-basierten Workflow-Managementsystems für die graphische Modellierung, Design und Bearbeitung von Geschäftsprozessen
+    Techs: JUnit, Windows 2000, Java, Swing, JGraph, XML, XSLT, JAXP, DOM, SAX
+  11/2001 - 06/2002 |  | Entwickler
+    - Aufgaben:
+    - Beschreibung:
+    - Entwurf und Implementierung eines Konzeptes zur Evolution von XML-Schemata in XML-Datenbanken
+    Techs: JUnit, Windows 2000, Java, XML-Schema, DTD, XSLT, Xpath, JAXP, DOM, SAX
+
+SKILLS:
+  database: B-Tree ++, DAO +++, JDBC +++, MySQL +++, Oracle ++, PostgreSQL, SQL +++
+  operating_system: Unix, Windows CE
+  programming_languages: C++ ++, Delphi ++, Fortran ++, Java +++, JavaScript +++, PHP +++, Python ++
+  special_skill: ANT, Maven, Continuous Integration, Jenkins, Versionierungssysteme, GIT, Subversion (SVN), Codequalität, Sonar, Tätigkeiten während des Studiums, SIRONE-Programmierer bei Deutsche VerkehrsBank AG in Frankfurt am Main, Delphi-Programmierer bei Omnilink Internet Service Center in Frankfurt am, Main, VBA (Excel-Makros) Programmierer bei Deutsche Beteiligungsgesellschaft, DBG in Frankfurt am Main, Reparatur von Cisco-Routern bei der Telemation Netzwerk AG in Oberursel, Tutor für das Java-Programmierpraktikum am Fachbereich Informatik, Tutor für die Vorlesung Praktische Informatik I am Fachbereich, Informatik, Erteilung von Mathematik-Nachhilfeunterricht an Schüler und, Wirtschaftsstudenten
+
+SKILL-ABLAGE:
+CORBA, RPC, SMTP, TCP/IP, Windows Netzwerk, spring, jee, microservices, kafka, security, owasp, jpa/hibernate, webservices, restful, soap, http, active, zookeeper-, kafka-broker-, owasp-, weblogic-, top10, office, tools, programmiersprachen, datenbanken, betriebssysteme, assessment-tests, goethe-, self-, arabisch, deutsch, muttersprache
+
+AUSBILDUNG:
+Okt. 1995 - Jun. 2002 | Diplom-Informatiker (Dipl.-Inf.) | Goethe-Universität Frankfurt am Main  [course]
+
+ZERTIFIKATE:
+2012:
+Oracle Certified Developer, Java EE 6 Web Services Developer (OCEWSD6)
+2010:
+Sun Certified Enterprise Architect (SCEA)
+2003:
+Sun Certified Web Components Developer--Servlets & JSPs (SCWCD)
+2002:
+Sun Certified Java Programmer (SCJP)
+2000:
+Software AG Certification: Developing of business applications in Bolero
+(Software AG)
+
+FOCUS_EXP:
+  Confluence  [product_standard]
+  Git  [product_standard]
+  IntelliJ  [product_standard]
+  Jenkins  [product_standard]
+  Jira  [product_standard]
+  Scrum  [product_standard]
+  Fachkenntnisse:  [product_standard]
+  Java (Java-Core  [product_standard]
+  Swing  [product_standard]
+  Java3D  [product_standard]
+  RMI)  [product_standard]
+  JEE (Servlets  [product_standard]
+  JSP  [product_standard]
+  JSF  [product_standard]
+  EJB  [product_standard]
+  Spring  [product_standard]
+  JAX-WS  [product_standard]
+  JAX-RS  [product_standard]
+  JMS  [product_standard]
+  SAAJ  [product_standard]
+  JTA  [product_standard]
+  JPA/Hibernate)  [product_standard]
+  XML-Technologien (XML-Schema  [product_standard]
+  XSLT  [product_standard]
+  XPath  [product_standard]
+  DOM  [product_standard]
+  SAX  [product_standard]
+  StAX  [product_standard]
+  JAXP  [product_standard]
+  JAXB  [product_standard]
+  XML-Spy)  [product_standard]
+  Datenbank-Technologien  [product_standard]
+  ( JDBC  [product_standard]
+  Oracle  [product_standard]
+  Oracle Text  [product_standard]
+  PL/SQL  [product_standard]
+  MySQL)  [product_standard]
+  Web-Services (Rest  [product_standard]
+  SOAP  [product_standard]
+  WSDL)  [product_standard]
+  WebLogic  [product_standard]
+  Jboss  [product_standard]
+  Glassfish  [product_standard]
+  Tomcat  [product_standard]
+  Eclipse  [product_standard]
+  JDeveloper  [product_standard]
+  Maven  [product_standard]
+  ANT  [product_standard]
+  Hudson  [product_standard]
+  JUnit  [product_standard]
+  SVN  [product_standard]
+  JEE-Design Patterns  [product_standard]
+  GoF-Design Patterns  [product_standard]
+  UML  [product_standard]
+  Sparx Enterprise Architect  [product_standard]
+  OOD  [product_standard]
+  Web-Technologien (PHP  [product_standard]
+  HTML  [product_standard]
+  JavaScript  [product_standard]
+  JSON  [product_standard]
+  CSS  [product_standard]
+  Flash  [product_standard]
+  ActionScript 3)  [product_standard]
+  SpringSource Suit Tool  [product_standard]
+  SOA  [product_standard]
+  Security  [product_standard]
+  Python.  [product_standard]
+  Architekturen:  [product_standard]
+  Client-Server  [product_standard]
+  N-Tier  [product_standard]
+  Application Server:  [product_standard]
+  Entwicklungsumgebungen:  [product_standard]
+  NetBeans  [product_standard]
+  JEE/J2EE-Technologie:  [product_standard]
+  Servlets  [product_standard]
+  JPA  [product_standard]
+  JASON  [product_standard]
+  Frameworks:  [product_standard]
+  Struts  [product_standard]
+  Log4j  [product_standard]
+  XML-Technologie:  [product_standard]
+  XML-Schema  [product_standard]
+  XML-Spy  [product_standard]
+  Persistence APIs:  [product_standard]
+  Hibernate  [product_standard]
+  EclipseLink  [product_standard]
+  Web Services  [product_standard]
+  WSDL  [product_standard]
+  RESTful  [product_standard]
+  soapUI  [product_standard]
+  Programmierpardigmen:  [product_standard]
+  OOP  [product_standard]
+  AOP  [product_standard]
+  Prozedural  [product_standard]
+  Modellierung:  [product_standard]
+  * OOP  [product_standard]
+  OOA  [product_standard]
+  Design Patterns:  [product_standard]
+  Build und Deployment  [product_standard]
+  Schwerpunkte  [product_standard]
+  Apache-Kafka 2.2  [product_standard]
+  Kafka-Client  [product_standard]
+  REST  [product_standard]
+  Spring 5.2  [product_standard]
+  Spring-Boot 2.2  [product_standard]
+  Spring-Kafka 2.3  [product_standard]
+  Java  [product_standard]
+  Java-Core  [product_standard]
+  RMI  [product_standard]
+  JEE  [product_standard]
+  JDBC  [product_standard]
+  MySQL  [product_standard]
+  PHP  [product_standard]
+  ActionScript 3  [product_standard]
+  Python  [product_standard]

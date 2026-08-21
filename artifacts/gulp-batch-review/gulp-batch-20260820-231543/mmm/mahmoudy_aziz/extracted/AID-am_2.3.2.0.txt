@@ -1,0 +1,98 @@
+AID: AID-am_2.3.2.0
+Name: Aziz Mahmoudy
+Headline: Java, C#, Python, Javascript, Selenium, Docker, VirtualBox, Hyper-V, Linux, Windows, Data Analytics, Ansible, SoapUI, Jmeter, Gatling
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,
+Wohnort: 816xx München, Deutschland
+Jahrgang: 1976
+Verfügbar: 03.12.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2012
+Sprachen: English Understanding, Speaking, Writing: Proficient, French Mother
+
+FACHBEREICHE:
+Java
+Python
+Javascript
+Selenium
+Docker
+VirtualBox
+Hyper-V
+Linux
+Windows
+Data Analytics
+Ansible
+SoapUI
+Jmeter
+Gatling
+Bachelor in Network Service Administration, University of Limoges, France
+Associate's degree in Economy, Management and Accountancy, University of Strasbourg, France
+High school diploma in Information System, High School Schooch, Strasbourg, France
+
+BRANCHEN:
+
+PROJEKTE:
+  03/2020 - 07/2020 | Allianz | Software Developer
+    - Aufgaben:
+    - Artifacts Source Code Versioning/Releasing Tools implementation
+    - AWS provisioning and deployment for DB2 based applications
+    Techs: Java, Ansible, Terraform, AWS, Amazon EC2
+  04/2019 - 12/2019 | Kapsch | Integration tester
+    - Aufgaben:
+    - Test automation for Web applications, SOAP APIs and REST APIs
+    - Selenium Grid/Nodes configuration
+  05/2018 - 02/2019 | Siemens, Germany | Contractor
+    - Aufgaben:
+    - Test automation framework for Web application and REST API
+    - Selenium Grid/Nodes configuration
+  11/2017 - 04/2018 | Cubic Telecom | Contractor, Software Development Engineer in Test
+    - Aufgaben:
+    - Test automation framework for Web application and REST API
+    - Selenium Grid/nodes configuration
+  05/2017 - 10/2017 | Intel | Software Development Engineer in Test
+    - Aufgaben:
+    - Implementation of a Java / Selenium test automation framework for Web application
+    - Selenium Grid and Selenium nodes configuration
+  01/2017 - 02/2017 | Amido | Software Development Engineer in Test
+    - Aufgaben:
+    - Java / Selenium test automation framework for Web application:
+    - Eclipse
+  09/2015 - 10/2016 | Callsign | Software Development Engineer in Test
+    - Aufgaben:
+    - Documentations (on Confluence) and bug tracking in the bug management system
+    - (on Jira)
+  02/2015 - 08/2015 | Xanadu | Contractor, Software Development Engineer in Test
+    - Aufgaben:
+    - Documentations (on Confluence) and bug tracking in the bug management system
+    - (on Jira)
+  05/2014 - 12/2014 | Fidelity Investment | Contractor, Software Development Engineer in Test
+    - Aufgaben:
+    - Review of test specifications and test coverage on HP Quality Center
+    - Documentations (on Ribbit) and bug tracking in the bug management system
+  09/2013 - 12/2013 | Houghton Mifflin Harcourt | Contractor, Software Development Engineer in Test
+    - Aufgaben:
+    - Java / Selenium test automation framework for Web application:
+    - JBoss Arquillian Graphene
+  04/2012 - 08/2013 | Groupon | Contractor, Software Development Engineer in Test
+    - Aufgaben:
+    - Review of test specifications and test coverage (on Testlink)
+    - Documentations (on Confluence) and tracking errors in the error management system (on Jira)
+
+SKILLS:
+  programming_languages: C#, CSS, HTML, Java, Javascript, Python, Scala, Typescript
+
+SKILL-ABLAGE:
+
+
+FOCUS_EXP:
+  .Net core  [product_standard]
+  Akka Scala  [product_standard]
+  Amazon EC2  [product_standard]
+  Angular  [product_standard]
+  Ansible  [product_standard]
+  AWS  [product_standard]
+  Django  [product_standard]
+  Gitlab  [product_standard]
+  Jira  [product_standard]
+  Microsoft Azure  [product_standard]
+  Selenium WebDriver  [product_standard]
+  SpringBoot  [product_standard]
+  Terraform  [product_standard]

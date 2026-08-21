@@ -1,0 +1,1484 @@
+{
+  "metadata": {
+    "aid": "AID-kb_2.5.3.0",
+    "version": "2.5.3.0",
+    "consultant_dir": "behling_karsten",
+    "first_name": "Karsten",
+    "last_name": "Behling",
+    "headline": "Software-Entwicklung: Java ( J2EE, J2SE, Swing ); Frontend- Entwicklung; Web- Anwendungen und Portale; C/C++; Embedded Systems ( SmartCard / JavaCard ); Zutrittskontroll- und Zeiterfassungssysteme",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T11:05:14.150014"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Karsten",
+      "last_name": "Behling",
+      "birth_year": 1962,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        }
+      ],
+      "availability": "01.07.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "Regionen & Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,",
+      "wohnort": "135xx Berlin, Deutschland",
+      "headline": "Software-Entwicklung: Java ( J2EE, J2SE, Swing ); Frontend- Entwicklung; Web- Anwendungen und Portale; C/C++; Embedded Systems ( SmartCard / JavaCard ); Zutrittskontroll- und Zeiterfassungssysteme",
+      "edv_experience_since": 1998
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "DB2",
+        "JDBC",
+        "MS SQL Server",
+        "ODBC",
+        "Oracle",
+        "SQL"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Datenerfassungsterminals Kaba-Benzing siehe weitere Anmerkungen",
+        "embedded Systeme",
+        "Mikrocontroller",
+        "PC",
+        "SPS",
+        "Kaba-Benzing (Zeiterfassungs-",
+        "Zutrittskontroll-",
+        "Betriebsdatenerfassungsterminals)"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [
+        "MS-Word",
+        "MS- Excel",
+        "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+        "Englisch anzeigen",
+        "Ethernet"
+      ],
+      "operating_system": [
+        "Dos",
+        "MS-DOS",
+        "OS/2",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Windows",
+        "Linux 9.0 AMD64 : Grundkenntnisse"
+      ],
+      "programming_languages": [
+        "Assembler 8051 & 80537 Grundkenntnisse",
+        "Basic",
+        "C",
+        "C++",
+        "dBase Grundkenntnisse",
+        "Delphi Grundkenntnisse",
+        "Fortran",
+        "Java",
+        "JavaScript",
+        "ObjectView",
+        "Pascal Grundkenntnisse",
+        "Perl Grundkenntnisse",
+        "Python Grundkenntnisse",
+        "Shell",
+        "Tcl/Tk"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [
+        "Sonstige Kenntnisse",
+        "Technologiekenntnisse in OOA",
+        "OOD",
+        "OOP",
+        "Kenntnisse in den Middleware-Technologien EJB und Web Services",
+        "Certifizierungen",
+        "2000",
+        "BEA - Weblogic Development 4.5",
+        "BEA - Weblogic Administration 4.5 / 5.1",
+        "2001",
+        "ILOG - JRules 3.5",
+        "############################################",
+        "Stammdaten (Auszug)",
+        "Personen-ID 45045",
+        "Wohnort 135xx Berlin",
+        "Deutschland",
+        "Jahrgang 1962",
+        "Staatsbürgerschaft deutsch",
+        "Stundensatz 65 EUR",
+        "verhandelbar",
+        "Verfügbar ab 01.07.20 zu 100%",
+        "Vor-Ort-Einsatz 100% möglich",
+        "Profil erstellt am 19.11.02",
+        "Profil zuletzt geändert am 01.03.20",
+        "Lesen von Projektanfragen > 5 Tage [00]Direktkontakt",
+        "Kommentar_schreiben Profil angezeigt am 22.01.2020 19:33:01"
+      ],
+      "special_skill": [
+        "MS-Office Produkte ( Word",
+        "Excel",
+        "Access)",
+        "Microsoft PowerPoint",
+        "Microsoft Visio",
+        "Test-",
+        "HEW (Hitachi Embedded Workshop)",
+        "HDI (Hitachi Debugging Interface)",
+        "IFDSim (Interface Device Simulator)",
+        "JUnit",
+        "Repositorys",
+        "CVS",
+        "Subversion",
+        "MKS ( Source Integrity )",
+        "Clear Case",
+        "CMSynergy 6.4",
+        "Peregrine Service Center",
+        "Application (Web-) Server",
+        "BEA WebLogic 4.5/5.1",
+        "BEA WebLogic 8.1.4",
+        "RAD 6.0",
+        "Apache 2.0",
+        "Tomcat",
+        "JBoss",
+        "Open Source",
+        "OpenCRX ( CRM )",
+        "Chipkarten / Chipkartenterminals",
+        "Administration / Konfiguration",
+        "Kaba Benzing B-Comm",
+        "Betriebssysteme Dos",
+        "Programmiersprachen Assembler 8051 & 80537 Grundkenntnisse",
+        "Datenbanken Access",
+        "Datenkommunikation Ethernet",
+        "Internet",
+        "Intranet",
+        "ISO/OSI",
+        "LAN",
+        "LAN Manager",
+        "PC-Anywhere",
+        "TCP/IP",
+        "Windows Netzwerk",
+        "Hardware Datenerfassungsterminal Kaba-Benzing siehe weitere Anmerkungen",
+        "s",
+        "Aus- und Weiterbildung",
+        "1969 - 1975",
+        "Grundschule in Berlin Neukölln",
+        "1975 - 1982",
+        "Gesamtschule in Berlin Spandau",
+        "Abschluß : Abitur",
+        "1983 - 1986",
+        "Studium der Nachrichtentechnik an der Fachhochschule der DBP - Berlin",
+        "abgebrochen",
+        "1987 - 1994",
+        "Studium der Technischen Informatik/Informatik an der Fachhochschule Berlin",
+        "Abschluß: Diplom Ingenieur FH",
+        "1995 - 1997",
+        "Befristete Arbeitsverhältnisse bei Siemens",
+        "VW-Gedas",
+        "sowie als tech. Ingenieur / Berater in einem Sicherheitsunternehmen",
+        "Seit 1997",
+        "Selbständiger Dipl. Ingenieur",
+        "Weiterbildung und",
+        "MS Word",
+        "MS Excel",
+        "Repositories : Subversion",
+        "09/2013 - 11/2012 DB Systel GmbH / Deutsche Bahn AG",
+        "Frankfurt/Main",
+        "Projekt : Android-Schnittstellenentwicklung SEGA",
+        "Aufgabe : Entwicklung einer REST- Schnittstelle",
+        "Tech. Umgebung",
+        "Betriebssystem : Windows 7",
+        "Web / Portal-Server: JBoss 6.0",
+        "Datenbank : DB2",
+        "Programmiersprache : Java 1.6",
+        "J2EE Technologien",
+        "J2SE Technologien",
+        "Tools (IDEs) : Eclipse 3.6",
+        "WinSCP",
+        "PuTTY",
+        "Enterprise Architekt",
+        "PlugIns",
+        "Terminalsysteme",
+        "Office",
+        "Lotus Notes",
+        "12/2011 - 06/2012 Volkswagen AG",
+        "Wolfsburg",
+        "Projekt : AMS Application Management Service 3rdLevel",
+        "Aufgabe : Anwender Support",
+        "Datenbank : Oracle 10",
+        "J2SE Technologien : RCP Rich Client Plattform",
+        "Hibernate",
+        "Enterprise",
+        "Architekt",
+        "HP Quality Center",
+        "PSC6",
+        "PlugIns : CheckClipse",
+        "SubClipse",
+        "08/2011 - 11/2011 DB Systel GmbH / Deutsche Bahn AG",
+        "Projekt : EPA - Elektronische Platzreservierung",
+        "Aufgabe : Entwicklung eines RCP-Prototypen zur Ablösung",
+        "der bestehenden",
+        "Hostmasken",
+        "Das Projekt wurde gem. dem DB-Standard umgesetzt",
+        "Referenzarchitektur BahnNet",
+        "Referenzbauplan JEE",
+        "Referenzbauplan Rich Client",
+        "GUI Design",
+        "Layoutdesign für Druck und Reports",
+        "Betriebssystem : Windows Vista",
+        "Web / Portal-Server",
+        "Datenbank",
+        "Architekt PlugIns : CheckClipse",
+        "EMF",
+        "GEF",
+        "GMF",
+        "================================================="
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "09/2013 - 11/2012",
+        "title": "DB Systel GmbH / Deutsche Bahn AG, Frankfurt/Main",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Lotus Notes",
+          "Windows 7",
+          "JBoss 6.0",
+          "DB2",
+          "Java 1.6"
+        ],
+        "activities": [
+          "Projekt : Android-Schnittstellenentwicklung – SEGA",
+          "Aufgabe : Entwicklung einer REST- Schnittstelle",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows 7",
+          "Web / Portal-Server: JBoss 6.0",
+          "Datenbank : DB2",
+          "Programmiersprache : Java 1.6",
+          "J2EE Technologien :"
+        ],
+        "company": "DB Systel GmbH / Deutsche Bahn AG",
+        "industry": "Verkehr / Logistik",
+        "location": "Frankfurt/Main"
+      },
+      {
+        "period": "08/2013 - 12/2013",
+        "title": "GfK Retail and Technology GmbH, Nürnberg",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Unix Shell",
+          "IBM InfoSphere MDM CS",
+          "Windows 7"
+        ],
+        "activities": [
+          "Projekt : IBM InfoSphere MDM CS - GfK_AutoCat",
+          "Aufgabe : Unix Shell und IBM InfoSphere MDM CS Programmierung",
+          "Regelerstellung für das GfK_AutoCat - System",
+          "Scripterstellung für : automatischen Daten Im- und Export.",
+          "Datenfilter erstellen",
+          "Reporterstellung",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows 7",
+          "Scripterstellung für automatischen Daten Im- und Export"
+        ],
+        "company": "GfK Retail and Technology GmbH",
+        "industry": "Marktforschung",
+        "location": "Nürnberg"
+      },
+      {
+        "period": "12/2011 - 06/2012",
+        "title": "AMS – Application Management Service 3rdLevel",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Windows 7",
+          "JBoss 6.0",
+          "Oracle 10",
+          "DB2",
+          "Java 1.6"
+        ],
+        "activities": [
+          "Projekt : AMS – Application Management Service 3rdLevel",
+          "Aufgabe : Anwender Support",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows 7",
+          "Web / Portal-Server: JBoss 6.0",
+          "Datenbank : Oracle 10, DB2",
+          "Programmiersprache : Java 1.6",
+          "J2EE Technologien :"
+        ],
+        "company": "Volkswagen AG",
+        "industry": "Automotive",
+        "location": "Wolfsburg"
+      },
+      {
+        "period": "08/2011 - 11/2011",
+        "title": "DB Systel GmbH / Deutsche Bahn AG, Frankfurt/Main",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Lotus Notes",
+          "RCP",
+          "JEE"
+        ],
+        "activities": [
+          "Projekt : EPA - Elektronische Platzreservierung",
+          "Aufgabe : Entwicklung eines RCP-Prototypen zur Ablösung der bestehenden Hostmasken.",
+          "Das Projekt wurde gem. dem DB-Standard umgesetzt.",
+          "Referenzarchitektur BahnNet",
+          "Referenzbauplan JEE",
+          "Referenzbauplan Rich Client",
+          "GUI Design",
+          "Layoutdesign für Druck und Reports"
+        ],
+        "company": "DB Systel GmbH / Deutsche Bahn AG",
+        "industry": "Verkehr / Logistik",
+        "location": "Frankfurt/Main"
+      },
+      {
+        "period": "09/2010 - 06/2011",
+        "title": "DB Systel GmbH / Deutsche Bahn AG, Frankfurt/Main",
+        "technologies": [
+          "Betriebssystem : Windows Vista",
+          "z/OS",
+          "Linux",
+          "Office Tools : MS",
+          "Word",
+          "MS Excel",
+          "Lotus Notes",
+          "Apache",
+          "JBoss",
+          "DB2",
+          "Java 1.6",
+          "ANT 1.7.0",
+          "XML",
+          "RCP Rich Client Plattform",
+          "Eclipse 3.3",
+          "WinSCP",
+          "PuTTY",
+          "Hibernate",
+          "Enterprise Architekt",
+          "CheckClipse",
+          "PMD",
+          "LeetchFTP",
+          "SubClipse",
+          "DBViewer",
+          "Subversion"
+        ],
+        "activities": [
+          "Projekt : KTR - Dialoge ml",
+          "Das bestehende System KTR - Dialoge mußte in eine neue Systemumgebung migriert werden um es um auch internationalen Geschäftsbereichen zur Verfügung stellen zu können.",
+          "Geschäftsbereichen zur Verfügung stellen zu können.",
+          "Dazu war es auch notwendig das System mehrsprachig auszulegen.",
+          "Sodaß jeder Anwender die Dialoge in seiner bevorzugten Sprache angezeigt bekommt.",
+          "Auswahl der einzusetzenden Architektur",
+          "Erstellen von Dokumente (Architekturbeschreibung etc.)",
+          "Realisierung der Zugriffssteuerung auf das System und die Dialoge Realisierung der BusinessLogic zum bereitstellen von Daten für die Dialoge Realisierung notwendiger Mechanismen zur Betriebsführung",
+          "Realisierung des Datenbankzugriffs"
+        ],
+        "company": "DB Systel GmbH / Deutsche Bahn AG",
+        "industry": "Transport/Logistik",
+        "location": "Frankfurt/Main"
+      },
+      {
+        "period": "06/2010- 07/2010",
+        "title": "IFRS - Kundengeschäftsbewertung",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Windows XP",
+          "DB2",
+          "Java 1.5",
+          "Java 1.6",
+          "XML",
+          "Swing",
+          "Eclipse Galileo",
+          "PuTTY",
+          "WinSCP",
+          "Enterprise Architect",
+          "Jira",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : IFRS - Kundengeschäftsbewertung",
+          "Aufgabe : Umsetzung der Anforderungen an den IFRS-Rechenkern zur Bilanzierung gem. des IFRS (International Finacial Reporting Standards)innerhalb eines Prototypen.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows XP",
+          "Web / Portal-Server:",
+          "Datenbank : DB2",
+          "Programmiersprache : Java 1.5 /1.6",
+          "J2EE Technologien : XML"
+        ],
+        "company": "ParcIT GmbH",
+        "location": "Köln"
+      },
+      {
+        "period": "11/2009- 04/2010",
+        "title": "Commerzbank AG, Frankfurt/Main",
+        "technologies": [
+          "Betriebssystem : Windows XP",
+          "AIX",
+          "Office Tools : MS Word",
+          "Excel",
+          "IBM Websphere Application Server 7.0",
+          "DB2",
+          "Java 1.5",
+          "Java 1.6",
+          "XML",
+          "Swing",
+          "RAD 7.0",
+          "Eclipse 3.2",
+          "PuTTY",
+          "WinSCP",
+          "Rumba",
+          "HP Quality Center",
+          "IBM WebSphere DataStage and QualityStage Director",
+          "IBM Rational ClearCase",
+          "IBM InfoSphere MDM Server"
+        ],
+        "activities": [
+          "Projekt : KonzernPerson 2.0",
+          "Aufgabe : KonzernPerson 2.0 ist das Stammdatensystem für Partner der Commerzbank. Im Kern basiert KonzernPerson2.0 auf den IBM InfoSphere MDM Server.",
+          "Mit Version 2.0 wird KonzernPerson der aktive, juristische Bestand.",
+          "Gleichzeitig werden die Partnerdaten der Dresdner Bank (PAD) in KonzernPerson und das bestehende KonzernPerson 0.9 in das neue System migriert.",
+          "System migriert.",
+          "Die einzelnen Komponenten sind über unterschiedliche Plattformen verteilt. Die Aufgabe in der Modul- Integration (MIT) ist die Zusammenführung der einzelnen Komponenten und Probleme frühzeitig zu erkennen.",
+          "Tech. Umgebung",
+          "Web / Portal-Server: IBM Websphere Application Server 7.0"
+        ],
+        "company": "Commerzbank AG",
+        "industry": "Banken",
+        "location": "Frankfurt/Main"
+      },
+      {
+        "period": "03/2008 - 03/2009",
+        "title": "AMS - Application Management Service in der Beschaffung",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Windows XP",
+          "IBM Websphere Application Server 6.1",
+          "Oracle 10g",
+          "Java 1.4",
+          "SQL-Developer",
+          "XML",
+          "Swing",
+          "RAD 6.0",
+          "Eclipse 3.2",
+          "SQL-Navigator5.5",
+          "OWB Repository Browser",
+          "OWB Design Center",
+          "Oracle Enterprise Manager",
+          "CVS",
+          "Subversion",
+          "CMSynergy6.4",
+          "CMSynergy for Develper",
+          "ChangeSynergy",
+          "Peregrine Service Center"
+        ],
+        "activities": [
+          "Projekt : AMS - Application Management Service in der Beschaffung Aufgabe : -Bereitstellung von Portal-Applikationen,",
+          "Bearbeiten von ChangeRequests, Backendprogrammierung.",
+          "Datenbereitstellung für das Konzernbedarfs Management,",
+          "Reporterstellung, Umsetzung von ChangeRequests,",
+          "Datenbankanpassungen und -programmierung",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows XP"
+        ],
+        "company": "Volkswagen AG",
+        "industry": "Automotive",
+        "location": "Wolfsburg"
+      },
+      {
+        "period": "11/2007 - 02/2008",
+        "title": "NCR - Kassensystem / DeutschlandCard",
+        "technologies": [
+          "Betriebssystem : Windows 2000",
+          "Linux",
+          "Office Tools : MS Word",
+          "MS Excel",
+          "Java 1.5",
+          "ANT 1.7.0",
+          "XML",
+          "Swing",
+          "Eclipse 3.2",
+          "VMWare",
+          "NCR - Kassensystem",
+          "CVS",
+          "Subversion",
+          "VersionControl"
+        ],
+        "activities": [
+          "Projekt : NCR - Kassensystem / DeutschlandCard",
+          "Aufgabe : Umsetzung von ChangeRequests, Backendprogrammierung,",
+          "Modulentwicklung für die DeutschlandCard Tech. Umgebung",
+          "Web / Portal-Server:",
+          "Datenbank :",
+          "Programmiersprache : Java 1.5, ANT 1.7.0",
+          "J2EE Technologien : XML",
+          "J2SE Technologien : Swing"
+        ],
+        "company": "NCR GmbH",
+        "location": "Augsburg"
+      },
+      {
+        "period": "03/2007 - 10/2007",
+        "title": "DB Systems GmbH / Deutsche Bahn AG, Frankfurt/Main",
+        "technologies": [
+          "Betriebssystem : Windows 2000",
+          "z/OS",
+          "Linux",
+          "Office Tools : MS",
+          "Word",
+          "MS Excel",
+          "IBM-WebServer",
+          "Java 1.5",
+          "ANT 1.7.0",
+          "XML",
+          "Swing",
+          "JCreator",
+          "Eclipse 3.2",
+          "CheckClipse",
+          "PMD",
+          "Putty",
+          "LeetchFTP",
+          "SubClipse",
+          "CVS",
+          "Subversion"
+        ],
+        "activities": [
+          "Projekt : KTR - Dialoge",
+          "Aufgabe : Umstellung der bestehenden Entwicklungsumgebung von JCreator auf Eclipse.",
+          "Re-Design des Buildprozesses. Neuerstellung von entsprechenden build-Scripten.",
+          "Erstellung einer Programmierrichtlinie für das Projekt KTR.",
+          "Erstellung einer Dokumentation zur neuen Entwicklungsumgebung.",
+          "Mitarbeiterschulung / Einarbeitung in die neue Entwicklungs- umgebung.",
+          "Umstellung des vorhandenen CVS- Repositories auf Subversion.",
+          "Tech. Umgebung"
+        ],
+        "company": "DB Systems GmbH / Deutsche Bahn AG",
+        "industry": "Transport/Logistik",
+        "location": "Frankfurt/Main"
+      },
+      {
+        "period": "07/2006 - 12/2006",
+        "title": "Volkswagen AG, Wolfsburg",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "MS Project",
+          "Windows XP",
+          "IBM Websphere Application Server 5.0",
+          "Oracle",
+          "Java",
+          "XML",
+          "Swing",
+          "RAD 6.0",
+          "JFormDesigner",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : SAGA 2",
+          "Aufgabe : Neu- und Weiterentwicklung des Volkswagen Gewährleistungs- systems SAGA / 2.",
+          "Neuentwicklung von Client-Komponenten, Integrationstest und Dokumentation.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows XP",
+          "Web / Portal-Server: IBM Websphere Application Server 5.0",
+          "Datenbank : Oracle",
+          "Programmiersprache : Java"
+        ],
+        "company": "Volkswagen AG",
+        "industry": "Automotive",
+        "location": "Wolfsburg"
+      },
+      {
+        "period": "04/2006 - 05/2006",
+        "title": "PLM (Product Lifecycle Management) Service - System",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "MS Project",
+          "Windows XP",
+          "IBM Websphere Application Server 5.0",
+          "DB/2 8.1",
+          "Java",
+          "JMS",
+          "JXPATH",
+          "JAXB",
+          "XML",
+          "RAD 6.0",
+          "Borland Together Architect",
+          "MQ Series",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : PLM ( Product Lifecycle Management ) Service - System",
+          "Aufgabe : Entwicklung und Realisierung eines PLM Service - Systems zur Aufbereitung und Verteilung von Daten, die sowohl in Backend- und Clientsytememen produziert werden.",
+          "Client :",
+          "Clientschnittstelle zur Anlieferung von Daten",
+          "Mapping der eingehenden Daten von ECM- nach VDA-Format.",
+          "Erzeugung eines \"Request_Initial_Ecr\"",
+          "Abspeichern des \"Request_Initial_Ecr\" in einer PLM Datenbank",
+          "Query auf die PLM Datenbank um Respond Messages auf einen ECR abzurufen.",
+          "Den \"Request_Initial_Ecr\" einem nachgelagerten System (hier ein CDB - System) über eine Message Queue zur Verfügung stellen.",
+          "Backendschnittstelle zur Auslieferung der Daten",
+          "Analyse der eingehenden Daten und Erzeugung folgender Messages: o Notify_Initial_Ecr_Accepted o Notify_Initial_Ecr_Rejected o Notify_Ecr_Approval o Notify_Ecr_Update",
+          "Abspeichern der Message in einer PLM Datenbank"
+        ],
+        "company": "GmbH, Konstanz",
+        "location": "Konstanz"
+      },
+      {
+        "period": "01/2006 - 02/2006",
+        "title": "CRM (Customer Relation Management) - System",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "MS Project",
+          "Windows XP",
+          "Oracle Application Server",
+          "Oracle 9i",
+          "Java",
+          "XML",
+          "Swing",
+          "Eclipse 3.1",
+          "Borland Together Architect",
+          "Subversion"
+        ],
+        "activities": [
+          "Projekt : CRM ( Customer Relation Management ) - System",
+          "Aufgabe : Entwicklung und Realisierung von Swing GUI`s für ein CRM System zur Verwaltung von Personendaten.",
+          "Im FB \"Person\" wurden folgende GUI`s und Funktionalitäten entwickelt und realisiert: Person anlegen, Plausibilitätsprüfung, Validierung der Eingabe",
+          "Person suchen, Plausibilitätsprüfung, Validierung der Eingabe",
+          "Validierung der Eingabe Person suchen",
+          "Person ändern, Plausibilitätsprüfung, Validierung der Eingabe",
+          "Person löschen, Plausibilitätsprüfung, Validierung der Eingabe",
+          "Datenbankzugriff"
+        ],
+        "company": "EDS GmbH",
+        "location": "Hamburg"
+      },
+      {
+        "period": "06/2005 - 12/2005",
+        "title": "Volkswagen AG, Wolfsburg",
+        "technologies": [
+          "Office Tools : MS Word",
+          "MS Excel",
+          "MS Project",
+          "Windows XP",
+          "IBM Websphere Portal Server 6.0",
+          "Oracle 9i",
+          "Java",
+          "JSF",
+          "RAD 6.0",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : Produktions & Engineering Portal",
+          "Aufgabe : Entwicklung und Realisierung eines Portals für den Fachbereich Produktion.",
+          "Im Bereich dieses pPortals ( Produktions Portal ) war ich mit folgenden Aufgaben betraut :",
+          "Anforderungsanalyse von eventuellen Änderungen",
+          "UseCase Modellierung",
+          "Lastenheft Erstellung",
+          "Pflichtenheft Erstellung",
+          "Portlet Design",
+          "Abklärung über die Wiederverwendbarkeit von Produkten",
+          "Abstimmung mit dem Fachbereich",
+          "First Level Support"
+        ],
+        "company": "Volkswagen AG",
+        "industry": "Automotive",
+        "location": "Wolfsburg"
+      },
+      {
+        "period": "05/2005 - 06/2005",
+        "title": "Java/J2EE/JMS- Entwickler bei der Quatico Solutions AG (CH)",
+        "activities": [
+          "Projekt : MeteoSchweiz / DataDispatcher",
+          "Aufgabe : Entwurf und Implementierung eines DataDispatcher zur Auf- bereitung und Verteilung von binären Files mit Meta- informationen, die in Backendsystemen produziert und an verschiedene Zielsysteme ausgeliefert werden.",
+          "Konzeption, Entwurf und Implementierung eines Web Front- ends zur Konfiguration von Filtern und Subscribern sowie zur Überwachung der Subscriber. Konzeption, Entwurf und Implementierung von Fehler- behandlungsroutinen.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows 2000",
+          "Web-/App- Server : BEA WebLogic 8.1.4 openSource :",
+          "Datenbank : Oracle 9i",
+          "Programmiersprache : Java 1.4.x"
+        ],
+        "company": "Quatico Solutions AG",
+        "role": "Java/J2EE/JMS-Entwickler",
+        "technologies": [
+          "Windows 2000",
+          "BEA WebLogic 8.1.4",
+          "Oracle 9i",
+          "Java 1.4.x",
+          "JMS",
+          "EJB",
+          "JSP",
+          "JDBC",
+          "XML",
+          "BEA WebLogic Workshop",
+          "MS-Word",
+          "J2EE"
+        ]
+      },
+      {
+        "period": "09/2004 - 11/2004",
+        "title": "Java- Entwickler bei der Nexus Telecom AG (CH)",
+        "technologies": [
+          "Betriebssystem : Windows 2000",
+          "Linux 9.1 pro",
+          "Sun Solaris",
+          "jBoss 3.2.5",
+          "Tomcat 5.0",
+          "openCRX",
+          "openMDX",
+          "Oracle 9i",
+          "Java 1.4.x",
+          "EJB",
+          "JSP",
+          "JDBC",
+          "XML",
+          "Eclipse 3.0",
+          "MS-Word",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : NexusCRM / DBS 5.0",
+          "Konzeption, Entwurf, Implementierung und Test eines auf dem opensourceCRM- Tools, openCRX, basierenden GUI`s als Dateninterface für den DBS 5.0 Billing Server.",
+          "Tech. Umgebung",
+          "Web-/App- Server : jBoss 3.2.5, Tomcat 5.0 openSource : openCRX, openMDX",
+          "Datenbank : Oracle 9i",
+          "Programmiersprache : Java 1.4.x",
+          "J2EE Technologien : EJB, JSP, JDBC, XML"
+        ],
+        "company": "Nexus Telecom AG",
+        "industry": "Telekommunikation",
+        "role": "Java-Entwickler"
+      },
+      {
+        "period": "03/2004 - 08/2004",
+        "title": "Auftragsarbeit für die I.S.I.B - Software (CH)",
+        "technologies": [
+          "Betriebssystem : Windows 2000",
+          "Linux 9.0 pro",
+          "jBoss 3.2.5",
+          "Tomcat 5.0",
+          "Oracle 8i",
+          "MS-Access",
+          "Java 1.4.x",
+          "EJB",
+          "JDBC",
+          "JNI",
+          "Swing",
+          "Applets",
+          "JBuilder 6.0",
+          "B-Comm",
+          "ODBC",
+          "Kaba-Benzing",
+          "MS-Word",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : TIMEGATE - FP",
+          "Aufgabe : Integration von biometrischen Datenlesern in die bestehende TIMEGATE Applikation.",
+          "Konzeption, Entwurf einer Web-fähigen TIMEGATE Applikation.",
+          "Tech. Umgebung",
+          "Web-/App- Server : jBoss 3.2.5, Tomcat 5.0",
+          "Datenbank : Oracle 8i, MS- Access",
+          "Programmiersprache : Java 1.4.x"
+        ],
+        "company": "I.S.I.B - Software",
+        "industry": "Software",
+        "location": "CH"
+      },
+      {
+        "period": "09/2003 - 02/2004",
+        "title": "C / C++ Entwickler bei der Xionet AG",
+        "technologies": [
+          "Office Tools : MS-Word",
+          "MS- Excel",
+          "Windows XP",
+          "C++",
+          "Visual Studio 6.0",
+          "VisualC 7.0",
+          "Jacade",
+          "Doxygen",
+          "MS-Excel",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : SECCOS 5.0",
+          "Aufgabe : Konzeption, Entwurf, Implementierung und Test von Standard- kommandos für ein auf der SECCOS 5.0 Spezifikation basierenden Chipkarten Betriebssystems.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows XP",
+          "Programmiersprache : C / C++",
+          "Tools (IDE) : Visual Studio 6.0, VisualC 7.0, Jacade, Doxygen",
+          "Repository : CVS"
+        ],
+        "company": "Xionet AG",
+        "role": "C / C++ Entwickler"
+      },
+      {
+        "period": "08/2003 - 09/2003",
+        "title": "Berater bei T-Mobil",
+        "technologies": [
+          "Office Tools : MS-Word",
+          "MS- Excel",
+          "MS- Access",
+          "Windows NT 4.0",
+          "MS-Access",
+          "MS-SQL",
+          "Ansi SQL",
+          "MS-Excel"
+        ],
+        "activities": [
+          "Projekt : Umzug T-Center",
+          "Aufgabe : Konzeption, Entwurf und Implementierung von SQL- Abfragen zum Listenund Labeldruck.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows NT 4.0",
+          "Datenbank : MS- Access",
+          "Programmiersprache : MS- SQL, Ansi SQL"
+        ],
+        "company": "T-Mobil",
+        "industry": "Telekommunikation",
+        "role": "Berater"
+      },
+      {
+        "period": "02/2003 - 08/2003",
+        "title": "Auftragsarbeit für I.S.I.B - Software (CH)",
+        "technologies": [
+          "Betriebssystem : Windows 2000",
+          "Linux 9.0 pro",
+          "Office Tools :",
+          "MS-Word",
+          "MS- Excel",
+          "Oracle 8i",
+          "MS-Access",
+          "Java 1.4.x",
+          "EJB",
+          "JDBC",
+          "JNI",
+          "Swing",
+          "Applets",
+          "JBuilder 6.0",
+          "B-Comm",
+          "ODBC",
+          "Kaba-Benzing",
+          "Towitoko",
+          "MS-Excel",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : TIMEGATE - C / CL",
+          "Aufgabe : Konzeption, Entwurf und Implementierung einer Java basierenden Applikation zur Zeiterfassung und Zugangskontrolle mit integrierter Personalverwaltung.",
+          "In der ersten Phase des Projektes wurden Terminals und Kartenleser für kontaktlose und kontaktbehaftete Chipkarten eingesetzt.",
+          "Tech. Umgebung",
+          "Datenbank : Oracle 8i, MS- Access",
+          "Programmiersprache : Java 1.4.x",
+          "J2EE Technologien : EJB, JDBC, JNI",
+          "J2SE Technologien : Swing, Applets"
+        ],
+        "company": "I.S.I.B - Software (CH)",
+        "industry": "Software"
+      },
+      {
+        "period": "01/2002 - 01/2003",
+        "title": "Test- Ingenieur bei Giesecke & Devrient",
+        "technologies": [
+          "Office Tools : MS-Word",
+          "MS- Excel",
+          "Windows NT 4.0",
+          "Oracle 8i",
+          "EJB",
+          "JDBC",
+          "Swing",
+          "JBuilder 6.0",
+          "HEW (Hitachi Embedded Workshop)",
+          "HDI (Hitachi Debugging Interface)",
+          "IFDSim (Interface Device Simulator)",
+          "MS-Excel",
+          "MKS - Source Integrity",
+          "Java"
+        ],
+        "activities": [
+          "Projekt : Jaguar",
+          "Konzeption, Entwurf und Implementierung von Testkonzepten und Testdefinitionen regressionsfähiger Modultests für: Cache Layer, Crypto Algorithmus, Transaction Security, Deletion of Objects",
+          "Tech. Umgebung"
+        ],
+        "company": "Giesecke & Devrient",
+        "role": "Test-Ingenieur"
+      },
+      {
+        "period": "06/2001 - 11/2001",
+        "title": "Berater / Java- Entwickler bei der Integris GmbH",
+        "technologies": [
+          "Betriebssystem : Sun Solaris",
+          "Windows NT 4.0",
+          "Office Tools :",
+          "MS-Word",
+          "MS- Excel",
+          "BEA WebLogic 5.1",
+          "Oracle 8i",
+          "Java 1.3.x",
+          "Java 1.2.2",
+          "EJB",
+          "JDBC",
+          "Swing",
+          "Applets",
+          "JBuilder 5.0",
+          "ILOG JView",
+          "ILOG JRules",
+          "MapInfo",
+          "Oracle Spatial",
+          "MS-Excel",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : EIS / ECS Faultmanagement und Alarm Correlation",
+          "Konzeption, Entwurf eines grafischen Executive Information Systems (EIS) zur Darstellung geografischer Hintergrundbilder, aktueller Zustände von SDH-Netzwerkelementen, Zustandsänderungen von SDH-Netzwerkelementen.",
+          "Konzeption, Entwurf und Implementierung eines Event Correlation Systems (ECS) zur Filterung von SDH Alarmmeldungen.",
+          "Tech. Umgebung",
+          "Web-/App- Server : BEA WebLogic 5.1"
+        ],
+        "company": "Integris GmbH",
+        "role": "Berater / Java-Entwickler"
+      },
+      {
+        "period": "04/2001 - 05/2001",
+        "title": "Entwickler bei der IMD Mannheimer AG Holding",
+        "technologies": [
+          "Office Tools : MS-Word",
+          "MS- Excel",
+          "Windows NT 4.0",
+          "MS SQL Server 7.0",
+          "Java 1.3.x",
+          "JDBC",
+          "IBM VisualAge 3.4",
+          "ODBC",
+          "MS-Excel"
+        ],
+        "activities": [
+          "Projekt : Automatisiertes FTP",
+          "Aufgabe : Konzeption, Entwurf, Implementierung und Test eines automatischen FTP -Batchprozesses zur Datenübertragung.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows NT 4.0",
+          "Datenbank : MS SQL Server 7.0",
+          "Programmiersprache : Java 1.3.x",
+          "J2EE Technologien : JDBC",
+          "Tools (IDE) : IBM VisualAge 3.4, ODBC"
+        ],
+        "company": "IMD Mannheimer AG Holding",
+        "role": "Entwickler"
+      },
+      {
+        "period": "01/2001 - 03/2001",
+        "title": "Java- Entwickler bei der DPlus - Telecommunications GmbH",
+        "technologies": [
+          "Office Tools : MS-Word",
+          "MS- Excel",
+          "Windows NT 4.0",
+          "BEA WebLogic 5.1",
+          "Oracle 8i",
+          "Java 1.1.7b",
+          "Java 1.2.2",
+          "EJB",
+          "JDBC",
+          "JNI",
+          "Swing",
+          "Applets",
+          "JDeveloper",
+          "SQL-Navigator",
+          "MS-Excel"
+        ],
+        "activities": [
+          "Projekt : iHAP",
+          "Komponenten für ein Internet basierendes Auftrags- verwaltungssystem für Mobilfunkanträge : automatische Schufaanfrage automatischer Datenimport",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows NT 4.0",
+          "Web-/App- Server : BEA WebLogic 5.1",
+          "Datenbank : Oracle 8i",
+          "Programmiersprache : Java 1.1.7b, Java 1.2.2"
+        ],
+        "company": "DPlus - Telecommunications GmbH",
+        "industry": "Telekommunikation",
+        "role": "Java-Entwickler"
+      },
+      {
+        "period": "09/2000 - 11/2000",
+        "title": "Java- Entwickler bei der Debis",
+        "technologies": [
+          "Office Tools : MS-Word",
+          "MS- Excel",
+          "Windows NT 4.0",
+          "BEA WebLogic 4.5",
+          "Oracle 8i",
+          "Java 1.1.7b",
+          "Java 1.2.2",
+          "EJB",
+          "JDBC",
+          "Swing",
+          "Applets",
+          "JBuilder 3.0",
+          "MS-Excel",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : Pegasus",
+          "Projektunterstützung bei der Entwicklung eines Produktdaten-Servers für die Deutsche Telekom.",
+          "Implementierung div. Komponenten im Businesslogic- Bereich gem. Projektleiter.",
+          "Tech. Umgebung",
+          "Betriebssystem : Windows NT 4.0",
+          "Web-/App- Server : BEA WebLogic 4.5",
+          "Datenbank : Oracle 8i"
+        ],
+        "company": "Debis",
+        "role": "Java-Entwickler"
+      },
+      {
+        "period": "02/2000 - 08/2000",
+        "title": "Berater bei der BEA Systems",
+        "technologies": [
+          "Betriebssystem : Sun Solaris",
+          "Windows NT 4.0",
+          "Office Tools :",
+          "MS-Word",
+          "MS- Excel",
+          "BEA WebLogic 4.5.1",
+          "BEA WebLogic 5.1",
+          "Oracle 8i",
+          "Java 1.1.7b",
+          "Java 1.2.2",
+          "EJB",
+          "JDBC",
+          "JNDI",
+          "JNI",
+          "JSP",
+          "XML",
+          "JFC",
+          "Swing",
+          "Applets",
+          "VisualCafé 3.0",
+          "JBuilder 3.0",
+          "MS-Excel",
+          "CVS"
+        ],
+        "activities": [
+          "Projekt : BEA WebLogic 4.5.1 / 5.1",
+          "Aufgabe : Kundenunterstützung bei der Installation und Administration des WLS 4.5.1 / 5.1 sowie bei Projekten im WLS- Umfeld.",
+          "Tech. Umgebung",
+          "Web-/App- Server : BEA WebLogic 4.5.1 / 5.1",
+          "Datenbank : Oracle 8i",
+          "Programmiersprache : Java 1.1.7b, Java 1.2.2",
+          "J2EE Technologien : EJB, JDBC, JNDI, JNI, JSP, XML",
+          "J2SE Technologien : JFC, Swing, Applets"
+        ],
+        "company": "BEA Systems",
+        "role": "Berater"
+      },
+      {
+        "period": "04/1999 - 02/2000",
+        "title": "Test- Ingenieur bei Lucent Technologies",
+        "activities": [
+          "Projekt : WaveStar W10G",
+          "Aufgabe : Konzeption, Entwurf und Implementierung von Testkonzepten und Testdefinitionen regressionsfähiger Tests für Start-Up und Equipment Management Module des STM-64 System (OC-192)",
+          "Tech. Umgebung",
+          "Betriebssystem : Sun Solaris 8",
+          "Programmiersprache : C / C++",
+          "Tools (IDE) : TCL / TK",
+          "Office Tools : Framemaker",
+          "Repository : ClearCase"
+        ],
+        "company": "Lucent Technologies",
+        "industry": "Telekommunikation",
+        "role": "Test-Ingenieur",
+        "technologies": [
+          "Sun Solaris 8",
+          "ClearCase",
+          "TK",
+          "Framemaker",
+          "C++",
+          "TCL"
+        ]
+      },
+      {
+        "period": "11/1998 - 02/1999",
+        "title": "C- Entwickler bei der PSB GmbH",
+        "technologies": [
+          "Betriebssystem : Windows NT 4.0",
+          "Windows Cluster Server",
+          "Oracle 7.2",
+          "SQL",
+          "Delphi 3.0"
+        ],
+        "activities": [
+          "Projekt : Lager- und Kommissioniersystem",
+          "Aufgabe : Konzeption, Entwurf und Implementierung von C- Steuer- programmen für Regalbediengeräte (RBG`s) für ein Tiefkühl- kompaktlager.",
+          "Konzeption und Entwurf des Einlager-, Auslager- und Kommissionierprozesses.",
+          "Tech. Umgebung",
+          "Datenbank : Oracle 7.2",
+          "Programmiersprache : C, SQL",
+          "Tools (IDE) : Delphi 3.0"
+        ],
+        "company": "PSB GmbH",
+        "role": "C- Entwickler"
+      },
+      {
+        "period": "09/1998 - 11/1998",
+        "title": "Hochdynamisches Waren- und Verteilzentrum",
+        "technologies": [
+          "Betriebssystem : Windows NT 4.0",
+          "OpenVMS",
+          "Office Tools : MSWord",
+          "MS- Excel",
+          "Oracle 7.2",
+          "SQL",
+          "Delphi 3.0",
+          "MS-Word",
+          "MS-Excel"
+        ],
+        "activities": [
+          "Projekt : Hochdynamisches Waren- und Verteilzentrum",
+          "Aufgabe : Modifizierung von C- Steuerprogrammen der eingesetzten Regalbediengeräte (RBG`s).",
+          "Optimierung des Materialflusssystems bzgl. Einlager-, Auslagersequenz und gleichmäßige Warenverteilung im Lager.",
+          "Tech. Umgebung",
+          "Datenbank : Oracle 7.2",
+          "Programmiersprache : C, SQL",
+          "Tools (IDE) : Delphi 3.0"
+        ],
+        "company": "PSB GmbH",
+        "role": "C- Entwickler"
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Versicherungen",
+      "Telekommunikation",
+      "eCommerce",
+      "Industrie und Handel",
+      "Logistik",
+      "Lager- & Warenwirtschaft",
+      "Logistik, Lager- & Warenwirtschaft"
+    ],
+    "focus_areas": [
+      "Software-Entwicklung: Java ( J2EE",
+      "J2SE",
+      "Swing ); Frontend- Entwicklung; Web- Anwendungen und Portale; C/C++;",
+      "Embedded Systems ( SmartCard / JavaCard ); Zutrittskontroll- und Zeiterfassungssysteme Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Qualitätsmanagement / Qualitätssicherung / Test Hardware-Entwicklung Engineering / IT-nahe Ingenieurdienstleistungen 1969 - 1975 Grundschule in Berlin Neukölln 1975 - 1982 Gesamtschule in Berlin Spandau Abschluß : Abitur 1983 - 1986 Studium der Nachrichtentechnik an der Fachhochschule der DBP - Berlin abgebrochen.",
+      "1987 - 1994",
+      "Studium der Technischen Informatik/Informatik an der Fachhochschule Berlin Abschluß: Diplom Ingenieur FH 1995 - 1997 Befristete Arbeitsverhältnisse bei Siemens, VW-Gedas sowie als tech. Ingenieur / Berater in einem Sicherheitsunternehmen.",
+      "Seit 1997",
+      "Selbständiger Dipl. Ingenieur",
+      "Weiterbildung und",
+      "Software-Entwicklung: Java (J2EE, J2SE, Swing)",
+      "Frontend-Entwicklung",
+      "Web-Anwendungen und Portale",
+      "C/C++",
+      "Embedded Systems (SmartCard / JavaCard)",
+      "Zutrittskontroll- und Zeiterfassungssysteme",
+      "Software-Entwicklung / Programmierung",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Hardware-Entwicklung",
+      "Engineering / IT-nahe Ingenieurdienstleistungen"
+    ],
+    "focus_experience": [
+      {
+        "name": "Erfahrung mit folgenden Produkten:",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "WATCOM C++",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Microsoft Visual Studio",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Microsoft Visual C/C++",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Borland JBuilder",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Borland C++",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Symantec VisualCafe",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "ILOG JView",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "ILOG JRules",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "JFormdesigner",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "SQLDeveloper",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "SQLNavigator 5.5",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "OWB Repository Browser",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "OWB Design Center",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Architekur:",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "- OOA",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "OOP",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "J2SE",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "J2EE Technologien:",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "JMS",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "JNDI",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "JNI",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "JCRE",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "JCVM",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "OpenCard",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "J2SE Technologien:",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "JFC",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "RMI",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Applets",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Networking",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Office",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "OOA",
+        "category": "product_standard",
+        "sort_order": 41
+      }
+    ],
+    "education": [
+      {
+        "degree": "Abitur",
+        "institution": "Gesamtschule in Berlin Spandau",
+        "period": "1975 - 1982",
+        "education_type": "course"
+      },
+      {
+        "degree": "Studium der Nachrichtentechnik",
+        "institution": "Fachhochschule der DBP - Berlin",
+        "period": "1983 - 1986",
+        "education_type": "course"
+      },
+      {
+        "degree": "Diplom Ingenieur FH",
+        "institution": "Fachhochschule Berlin",
+        "period": "1987 - 1994",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T11:05:14.150026",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→1998"
+      ],
+      "coverage_percent": 94.75,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

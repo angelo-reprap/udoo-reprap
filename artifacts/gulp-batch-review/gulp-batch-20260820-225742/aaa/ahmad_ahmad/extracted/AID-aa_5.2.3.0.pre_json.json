@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "aid": "AID-aa_5.2.3.0",
+    "version": "5.2.3.0",
+    "consultant_dir": "ahmad_ahmad",
+    "first_name": "Ahmad",
+    "last_name": "Ahmad",
+    "headline": "Cisco CCIE x2 R&S, Datacenter #27895 IP/MPLS Service Provider Backbones L2/L3 MPLS VPNs, IP Muticast, Nexus, ASR9000 Juniper, Alcate-Lucent",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:01:02.480324"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Ahmad",
+      "last_name": "Ahmad",
+      "languages": [
+        {
+          "name": "Arabic Native",
+          "level": ""
+        },
+        {
+          "name": "English good",
+          "level": ""
+        },
+        {
+          "name": "German Fluent",
+          "level": ""
+        },
+        {
+          "name": "Arabisch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (gut)",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (fließend)",
+          "level": ""
+        }
+      ],
+      "availability": "01.04.20 zu 5%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "104xx Berlin, Deutschland",
+      "headline": "Cisco CCIE x2 R&S, Datacenter #27895 IP/MPLS Service Provider Backbones L2/L3 MPLS VPNs, IP Muticast, Nexus, ASR9000 Juniper, Alcate-Lucent",
+      "edv_experience_since": 2001
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Juniper)",
+        "Design and Implementation of Cisco Nexus 7K",
+        "and Nexus 1000v",
+        "consisting of Cisco"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [
+        "and Troubleshooting of IP/MPLS Backbone"
+      ],
+      "operating_system": [],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "5K",
+        "2K",
+        "Alcatel-lucent"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "03/2012 - heute",
+        "company": "Xantaro Deutschland GmbH",
+        "title": "Senior Consultant Service Providers, Berlin , Germany",
+        "technologies": [
+          "Juniper)",
+          "Design and Implementation of Cisco Nexus 7K",
+          "Cisco Nexus 5K",
+          "Cisco Nexus 2K",
+          "and Nexus 1000v",
+          "ISIS",
+          "MPLS",
+          "BGP",
+          "EVPN",
+          "Fibre Channel",
+          "FCoE",
+          "Cisco UCS",
+          "FabricPath",
+          "vPC+",
+          "Cisco ACI",
+          "Cisco Nexus 1000v"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Introducing of new technologies in service provider network",
+          "Design of ISIS/MPLS and BGP-based backbone routing concepts",
+          "Implementation of Native Fibre Channel and FCoE in Data Center (Cisco)",
+          "Deployment of Cisco UCS in Data Center",
+          "Configuration and Troubleshooting of FabricPath and vPC+ Domains",
+          "Basic Knowledge of Cisco ACI (Application Centric Infrastructure)",
+          "EVPN"
+        ],
+        "role": "Senior Consultant Service Providers",
+        "location": "Berlin"
+      },
+      {
+        "period": "02/2011 - 02/2012",
+        "company": "Vodafone Kabel Deutschland GmbH",
+        "title": "Senior Network Engineer, Berlin , Germany",
+        "activities": [
+          "Aufgaben:",
+          "Alcatel-lucent and Huawei)",
+          "===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "role": "Senior Network Engineer",
+        "location": "Berlin",
+        "technologies": [
+          "Alcatel-Lucent",
+          "Huawei"
+        ]
+      },
+      {
+        "period": "04/2007 - 01/2011",
+        "company": "M-net Telekommunikations GmbH",
+        "title": "Senior Network Engineer / Project Manager, Munich , Germany",
+        "technologies": [
+          "and Troubleshooting of IP/MPLS Backbone",
+          "consisting of Cisco",
+          "Alcatel-lucent",
+          "Juniper",
+          "ADVA",
+          "GPON",
+          "FTTH",
+          "FTTB",
+          "VPN",
+          "Multicast",
+          "QoS",
+          "HSI",
+          "VoIP",
+          "IPTV"
+        ],
+        "activities": [
+          "Aufgaben: working at M-net in the area of IP Networking (Planning, Design, Implementation juniper and ADVA routers and switches). I was responsible for the endto-end solutions in converged triple play (HSI, VoIP, IPTV) networks, national and international MPLS VPNs, IP and VPNs Multicast and of the end-to-end QoS solutions. I was the technical project manager of the Bit-Stream Access-Network",
+          "I also led the multilateral cooperation talks and workshops with Deutsche Telekom and a various of others city carriers, which should be result in the specification of the interfaces, transport services and technical parameters needed for a wholesale Bitstream access product",
+          "Deutsche Telekom and a various of others city carriers, which should be result in the specification of the interfaces, transport services and technical parameters needed for a wholesale Bitstream access product.",
+          "===================================================== =========================="
+        ],
+        "industry": "Telekommunikation",
+        "role": "Senior Network Engineer / Project Manager",
+        "location": "Munich, Germany"
+      },
+      {
+        "period": "02/2006 - 11/2006",
+        "company": "MeidaTeamIT",
+        "title": "Network Academy Student, Berlin , Germany",
+        "activities": [
+          "Aufgaben:",
+          "Cisco Systems Academy program CCNA / CCNP",
+          "The Cisco CCNA network associate certification validates the ability to install, configure, operate, and troubleshoot medium-size routed and switched networks, including implementation and verification of connections to remote sites in a WAN. This certification includes basic mitigation of security threats, introduction to wireless networking concepts and terminology, and performance-based skills. It also includes (but is not limited to) the use of these protocols: IP, Enhanced Interior Gateway Routing Protocol (EIGRP), Serial",
+          "Line Interface Protocol Frame Relay, Routing Information Protocol Version 2",
+          "(RIPv2), VLANs, Ethernet, access control lists (ACLs).",
+          "CCNP certification validates a network professional's ability to install, configure and troubleshoot converged local and wide area networks with 100 to",
+          "500 or more nodes. Network Professionals who achieve the CCNP have demonstrated the knowledge and skills required to manage the routers and switches that form the network core, as well as edge applications that integrate voice, wireless, and security into the network.",
+          "===================================================== =========================="
+        ],
+        "role": "Network Academy Student",
+        "location": "Berlin, Germany",
+        "technologies": [
+          "Cisco",
+          "CCNA",
+          "CCNP",
+          "IP",
+          "EIGRP",
+          "Frame Relay",
+          "RIPv2",
+          "VLANs",
+          "Ethernet",
+          "ACLs"
+        ]
+      },
+      {
+        "period": "05/2001 - heute",
+        "company": "Fraunhofer Institute for open communications systems",
+        "title": "NGN R&D, Berlin , Germany",
+        "activities": [
+          "Aufgaben:",
+          "Department of Integrated Mobile Systems",
+          "R&D in the field of VoIP and Next Generation Networks",
+          "Development of a voicemail system for VoIP communication inclusive reception system and operation interfaces.",
+          "Development of a conference reservation system for VoIP applications.",
+          "Development of simulation models for the evaluation of new concepts for data exchange in mobile environments.",
+          "During this time I worked on various research projects relating to Next Generations Networks (NGN), QoS, multimedia communication, VoIP and security.",
+          "Generations Networks (NGN), QoS, multimedia communication, VoIP and security. I was a member of the iptel.org project which has resulted in the development of the widely used SIP Express Router."
+        ],
+        "industry": "Forschung und Entwicklung",
+        "location": "Berlin, Germany",
+        "technologies": [
+          "VoIP",
+          "NGN",
+          "QoS",
+          "SIP Express Router"
+        ]
+      }
+    ],
+    "industries": [],
+    "focus_areas": [
+      "Cisco CCIE x2 R&S",
+      "Datacenter #27895 IP/MPLS Service Provider Backbones L2/L3 MPLS VPNs",
+      "IP Muticast",
+      "Nexus",
+      "ASR9000 Juniper",
+      "Alcate-Lucent"
+    ],
+    "focus_experience": [
+      {
+        "name": "Extensive Experience in Design and Deployment of robust redundant and scalable",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "IP networks",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "IP/MPLS based L2/L3 VPN Services and Data Center Environments",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "IP/MPLS",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "L2/L3 VPN",
+        "category": "product_standard",
+        "sort_order": 4
+      }
+    ],
+    "education": [
+      {
+        "degree": "Dipl. Ing. (FH) Technische Informatik",
+        "institution": "Beuth University of Appleid Sciences, Berlin (Germany)",
+        "period": "10/1993 - 04/2002",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:01:02.480335",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2001"
+      ],
+      "coverage_percent": 84.83870967741936,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

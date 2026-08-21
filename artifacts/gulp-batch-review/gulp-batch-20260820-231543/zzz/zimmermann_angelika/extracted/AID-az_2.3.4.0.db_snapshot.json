@@ -1,0 +1,858 @@
+{
+  "personal": {
+    "aid": "AID-az_2.3.4.0",
+    "first_name": "Angelika",
+    "last_name": "Zimmermann",
+    "birth_year": 1965,
+    "location": "748xx Fahrenbach, Deutschland",
+    "availability": "11.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1998,
+    "headline": ".NET Classic/Core C# Windows Desktop (XAML, WPF, Winforms, WCF), ASP.NET Core , MVC, TypeScript, Node, Angular, Oracle / MS SQL Server, Azure)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 0,
+    "skills": 108,
+    "certifications": 0,
+    "education": 1,
+    "experience": 38,
+    "industries": 9,
+    "focus_areas": 3,
+    "focus_experience": 22,
+    "other_content": 1
+  },
+  "languages": [],
+  "education": [
+    {
+      "degree": "Diplom Informatikerin FH",
+      "institution": "FH Mannheim",
+      "period": "1994",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Elektro",
+    "Versicherung",
+    "Textil",
+    "allgemein kaufmännische Branche",
+    "Handwerker",
+    "Fitness",
+    "Automobil",
+    "Logistik",
+    "Lebensmittel"
+  ],
+  "focus_areas": [
+    ".NET Classic/Core C# Windows Desktop (XAML WPF Winforms WCF) ASP.NET Core MVC TypeScript Node Angular Oracle / MS SQL Server Azure) Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Dokumentation / DTP 1994 Studium der Informatik an der FH Mannheim Abschluss: Diplom Informatikerin FH"
+  ],
+  "focus_experience": [
+    {
+      "name": "ASP.NET Core",
+      "category": "product_standard"
+    },
+    {
+      "name": "ASP.NET MVC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aurelia",
+      "category": "product_standard"
+    },
+    {
+      "name": "DevExpress",
+      "category": "product_standard"
+    },
+    {
+      "name": "Infragistic NetAdvantage",
+      "category": "product_standard"
+    },
+    {
+      "name": "JavaScript",
+      "category": "product_standard"
+    },
+    {
+      "name": "List & Label",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "Node.js",
+      "category": "product_standard"
+    },
+    {
+      "name": "Silverlight",
+      "category": "product_standard"
+    },
+    {
+      "name": "Telerik",
+      "category": "product_standard"
+    },
+    {
+      "name": "TypeScript",
+      "category": "product_standard"
+    },
+    {
+      "name": "VBA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Basic",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Studio .NET seit 2002",
+      "category": "product_standard"
+    },
+    {
+      "name": "VSTO",
+      "category": "product_standard"
+    },
+    {
+      "name": "WCF",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows seit 3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "WPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "XAML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Angular",
+      "category": "product_standard"
+    },
+    {
+      "name": "NgRx",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "2021-06 - 2021-09",
+      "company": "",
+      "role": "Software-Architekt",
+      "title": "Architektur Konzeption und Umsetzung im Bereich Front-End für ein Projektplanung-System im Automotiv",
+      "activities": 17,
+      "technologies": 0
+    },
+    {
+      "period": "2021-01 - 2021-06",
+      "company": "",
+      "role": "Software-Entwickler",
+      "title": "Weiterentwicklung im Bereich Back-Office für ein Ticketing System im Verkehrsbereich (Software- System im Verkehrsbereich (Software-",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "2020-10 - 2020-12",
+      "company": "",
+      "role": "Software-Architekt und Entwickler",
+      "title": "Prototyperstellung einer Web-App (Software-Architektur u. Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web, Remote",
+      "activities": 16,
+      "technologies": 0
+    },
+    {
+      "period": "2020-06 - 2020-09",
+      "company": "",
+      "role": "Software-Architekt und Entwickler",
+      "title": "Prototyperstellung einer Web-App (Software-Architektur u. Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web, Remote",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "2019-11 - 2020-05",
+      "company": "",
+      "role": "Software-Architekt und Entwickler",
+      "title": "Entwicklung eines Windows Service für den automatisierten Bestellvorgang im Discounterbereich",
+      "activities": 17,
+      "technologies": 0
+    },
+    {
+      "period": "2019-04 - 2020-05",
+      "company": "",
+      "role": "Software-Architekt und Entwickler",
+      "title": "Entwicklung eines WPF Programmes für die 2 Monate Temperaturmessung von Lötanlagen im",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "2017-10 - 2019-03",
+      "company": "",
+      "role": "Software-Entwickler",
+      "title": "Wörterbuch- und Übersetzungsanwendung für den 6 Monate internationalen Handel im Automotivbereich (C#/.NET/ internationalen Handel im Automotivbereich (C#/.NET/",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "2017-02 - 2017-09",
+      "company": "",
+      "role": "Software-Architekt und Entwickler",
+      "title": "Erstellung eines responsiven Ticket- und Eventmanagement Web-Portal im Bildungsbereich",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "2016-07 - 2017-01",
+      "company": "",
+      "role": "",
+      "title": "Logistikprogramme für den Einkauf (Zentral und Länder) im Lebensmittelbereich",
+      "activities": 9,
+      "technologies": 4
+    },
+    {
+      "period": "2015-04 - 2016-06",
+      "company": "",
+      "role": "Software-Architekt und Entwickler",
+      "title": "Erstellung einer Prüflabor-Anwendung zur Generierung 3 Monate von Prüfaufträgen und Prüfberichten im",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "2012-03 - 2015-04",
+      "company": "",
+      "role": "Architekt/Entwickler",
+      "title": "Produktive Anwendung für die Lagerhaltung im 2 Monate Discounterbereich",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "2012-11 - 2013-05",
+      "company": "",
+      "role": "",
+      "title": "Neu-Implementation einer Vertragsverwaltung im Discounterbereich (C#/.NET)",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "2011-07 - 2012-03",
+      "company": "",
+      "role": "",
+      "title": "Zeiterfassungssystem in C# / ASP.NET - Fraunhofer- Institut für System- und Innovationsforschung",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "2009-09 - 2010-03",
+      "company": "",
+      "role": "",
+      "title": "Internes Verrechnungsprogramm für die Vorsteuer in der Lebensmittelbranche (C#/.NET/WPF/WCF)",
+      "activities": 9,
+      "technologies": 4
+    },
+    {
+      "period": "2008-08 - 2014-11",
+      "company": "",
+      "role": "",
+      "title": "Logistikprogramme für den Einkauf (Zentral und Länder) 4 Monate im Lebensmittelbereich",
+      "activities": 6,
+      "technologies": 4
+    },
+    {
+      "period": "2008-05 - 2008-07",
+      "company": "",
+      "role": "",
+      "title": "Reiseticketmanagement-System in ASP.NET / C# - Fraunhofer-Institut für System- und",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "2008-04 - 2008-05",
+      "company": "",
+      "role": "",
+      "title": "WebShop-System in ASP.NET / C#- ACE – Auto Club Deutschland",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "2008-01 - 2008-05",
+      "company": "",
+      "role": "",
+      "title": "Terminplaner in .NET / C# - Hector System – Fitnessbranche",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "2008-03 - 2008-04",
+      "company": "",
+      "role": "",
+      "title": "Anforderungsmanagement in ASP.NET / C# - Parker – Automotive",
+      "activities": 1,
+      "technologies": 3
+    },
+    {
+      "period": "2008-01 - 2008-03",
+      "company": "",
+      "role": "",
+      "title": "KFZ-Versicherung-Webportal in ASP.NET / C# - Asstel –",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "2007-06 - 2007-12",
+      "company": "",
+      "role": "",
+      "title": "Controlling/ Reporting in .NET / C#",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "2007-04 - 2007-05",
+      "company": "",
+      "role": "",
+      "title": "Outlook-Addin HAM/SPAM in .NET / C#",
+      "activities": 3,
+      "technologies": 1
+    },
+    {
+      "period": "07/2006 – 08/2006",
+      "company": "",
+      "role": "",
+      "title": "Outlook-Addin / VB.NET",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "2006-06 - 2007-07",
+      "company": "",
+      "role": "",
+      "title": "KFZ-Versicherung-Webportal in ASP.NET / Winforms / 2 Monate C#",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "03/2004 – 02/2007",
+      "company": "",
+      "role": "",
+      "title": "Terminplaner in .NET / C# & VB.NET",
+      "activities": 6,
+      "technologies": 1
+    },
+    {
+      "period": "07/2003 – 06/2004",
+      "company": "",
+      "role": "",
+      "title": "CRM-Vereinsverwaltungs-System / VB.NET",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "06/2003 – 06/2003",
+      "company": "",
+      "role": "",
+      "title": "Addin und Erweiterung KHK OfficeLine 3.x / VB6",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "05/2003 – 06/2003",
+      "company": "",
+      "role": "",
+      "title": "Eurotreuhand / VB6",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "04/2003 – 04/2003",
+      "company": "",
+      "role": "",
+      "title": "Datenaustauschsprogramm / VB6",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "03/2003 – 03/2003",
+      "company": "",
+      "role": "",
+      "title": "Datenschnittstelle für eine Templateverwaltung / VB6",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "01/2003 – 02/2003",
+      "company": "",
+      "role": "",
+      "title": "PPS/ERP-System - Wartung und Erweiterung / Access - VBA",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "10/2002 – 12/2002",
+      "company": "",
+      "role": "",
+      "title": "Benutzerhandbücher und Onlinehilfe für myFactory",
+      "activities": 2,
+      "technologies": 0
+    },
+    {
+      "period": "03/2001 – 05/2002",
+      "company": "",
+      "role": "",
+      "title": "web-Kaufmann – myFactory / VB6-ASP",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "02/2001 – 02/2001",
+      "company": "",
+      "role": "",
+      "title": "Firewall-Konzeption",
+      "activities": 1,
+      "technologies": 1
+    },
+    {
+      "period": "11/2000 – 02/2001",
+      "company": "",
+      "role": "",
+      "title": "Internet-Zugangsprogramm / C++",
+      "activities": 2,
+      "technologies": 3
+    },
+    {
+      "period": "05/2000 – 11/2000",
+      "company": "",
+      "role": "",
+      "title": "Projektmanagement / VB6 – VBA / C++",
+      "activities": 4,
+      "technologies": 11
+    },
+    {
+      "period": "08/1999 – 10/1999",
+      "company": "",
+      "role": "",
+      "title": "SAP-Schnittstelle für ein Labor-System / C++",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "10/1998 – 06/2000",
+      "company": "",
+      "role": "",
+      "title": "Warenwirtschaftssystem / VB6",
+      "activities": 7,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "BDE",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "B-Tree",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DAO",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "HerCules",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Interbase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Watcom SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Amiga OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "iOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "TOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows CE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Clipper",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Delphi",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Objective C",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Paradox",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TypeScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "VB.NET",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Studio 2019",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Resharper",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CodeMaid",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "und Visual Studio Code",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "und PrimeNg als 3 rd Party Tool",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "mit Jira",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Team-Versionskontrollsysteme: Git",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Build-System: AzureDevOps",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Team: 10+",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "=================================================",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "MFC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "VB6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "VBA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "MS Projekt",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "MS SQL Server 7",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "mstest",
+      "category_name": "Testing Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "powerdesigner",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "unicode",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "http",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "foundation",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "import",
+      "category_name": "Datenbanken",
+      "weight": 0.38
+    },
+    {
+      "name": "observer",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "AjaxControlToolkit",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "EnterpriseLib",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Linux oder mittels",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "RASAPI32-Library",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Sheridan VB Assist 5.2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "unity.",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "sqldelveloper/sqlplus",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "oracle-schnittstelle",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "EDIFACT",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Fax",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBios",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "parallele Schnittstelle",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "PC-Anywhere",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RS232",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Netzwerk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Winsock",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "XML",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

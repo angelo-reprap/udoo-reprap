@@ -1,0 +1,349 @@
+{
+  "personal": {
+    "aid": "AID-hs_1.1.3.0",
+    "first_name": "Helmut",
+    "last_name": "Soppa",
+    "birth_year": 1967,
+    "location": "844xx Dorfen, Deutschland",
+    "availability": "20.08.15 zu 0%, Vor-Ort-Einsatz 0% möglich",
+    "edv_experience_since": 1985,
+    "headline": "Netzwerk Administrator",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 31,
+    "certifications": 0,
+    "education": 1,
+    "experience": 1,
+    "industries": 0,
+    "focus_areas": 34,
+    "focus_experience": 23,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch",
+      "level": ""
+    },
+    {
+      "name": "Thai",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Autodidakt",
+      "institution": "",
+      "period": "seit 1985",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "LAN, LAN Manager",
+    "NetBeui",
+    "NetBios",
+    "Packet-Radio",
+    "Router",
+    "RS232",
+    "SMTP",
+    "SNMP",
+    "TCP/IP",
+    "Windows Netzwerk",
+    "allgemeine Internetprotokolle:",
+    "TCP/IP, HTTP, FTP, SMTP, SNMP, etc.",
+    "Firewalls: Checkpoint, Nokia IP330, IPChains, Linux generics..",
+    "Gauntlet",
+    "Emailsysteme: Netscape Enterprise, Linux generic..",
+    "OS: SUN, Linux, W2000, WIN-NT, IBM, Unix derivate..",
+    "Netzwerk Administrator",
+    "Software-Entwicklung / Programmierung",
+    "bevorzugt",
+    "Autodidakt seit 1985. Hardware IBM Comp. SUN, RS6000, DEC..",
+    "MS-DOS",
+    "SUN OS, Solaris",
+    "Unix",
+    "Windows",
+    "ODBC",
+    "Oracle",
+    "Alpha",
+    "CD-Writer / Brenner",
+    "Digital",
+    "IBM RS6000",
+    "Modem",
+    "SUN, IBM-Comp. RS6000, Ethernet",
+    "Internet, Intranet",
+    "ISDN"
+  ],
+  "focus_experience": [
+    {
+      "name": "allgemeine Internetprotokolle:",
+      "category": "product_standard"
+    },
+    {
+      "name": "TCP/IP",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "FTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "SMTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "SNMP",
+      "category": "product_standard"
+    },
+    {
+      "name": "etc",
+      "category": "product_standard"
+    },
+    {
+      "name": "Firewalls: Checkpoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nokia IP330",
+      "category": "product_standard"
+    },
+    {
+      "name": "IPChains",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux generics",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gauntlet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Emailsysteme: Netscape Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux generic",
+      "category": "product_standard"
+    },
+    {
+      "name": "OS: SUN",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "W2000",
+      "category": "product_standard"
+    },
+    {
+      "name": "WIN-NT",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unix derivate",
+      "category": "product_standard"
+    },
+    {
+      "name": "Checkpoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "Netscape Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "SUN",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Unix - Administration (SUN Solaris,Novell-Suse)",
+      "company": "",
+      "role": "",
+      "title": "Unix - Administration (SUN Solaris,Novell-Suse)",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "ODBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Alpha",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Bus",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Digital",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM RS6000",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM-Comp. RS6000",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Ethernet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Fax",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Internet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Intranet",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "ISDN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "LAN Manager",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBeui",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "NetBios",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Packet-Radio",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Router",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "RS232",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SMTP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "SNMP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "TCP/IP",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Netzwerk",
+      "category_name": "Datenkommunikation",
+      "weight": 0.38
+    }
+  ]
+}

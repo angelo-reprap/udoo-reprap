@@ -1,0 +1,269 @@
+{
+  "personal": {
+    "aid": "AID-am_2.3.2.0",
+    "first_name": "Aziz",
+    "last_name": "Mahmoudy",
+    "birth_year": 1976,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+    "availability": "03.12.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2012,
+    "headline": "Java, C#, Python, Javascript, Selenium, Docker, VirtualBox, Hyper-V, Linux, Windows, Data Analytics, Ansible, SoapUI, Jmeter, Gatling",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 11,
+    "certifications": 0,
+    "education": 0,
+    "experience": 11,
+    "industries": 0,
+    "focus_areas": 17,
+    "focus_experience": 13,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "English Understanding",
+      "level": ""
+    },
+    {
+      "name": "Speaking",
+      "level": ""
+    },
+    {
+      "name": "Writing: Proficient",
+      "level": ""
+    },
+    {
+      "name": "French Mother",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [],
+  "focus_areas": [
+    "Java",
+    "Python",
+    "Javascript",
+    "Selenium",
+    "Docker",
+    "VirtualBox",
+    "Hyper-V",
+    "Linux",
+    "Windows",
+    "Data Analytics",
+    "Ansible",
+    "SoapUI",
+    "Jmeter",
+    "Gatling",
+    "Bachelor in Network Service Administration, University of Limoges, France",
+    "Associate's degree in Economy, Management and Accountancy, University of Strasbourg, France",
+    "High school diploma in Information System, High School Schooch, Strasbourg, France"
+  ],
+  "focus_experience": [
+    {
+      "name": ".Net core",
+      "category": "product_standard"
+    },
+    {
+      "name": "Akka Scala",
+      "category": "product_standard"
+    },
+    {
+      "name": "Amazon EC2",
+      "category": "product_standard"
+    },
+    {
+      "name": "Angular",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ansible",
+      "category": "product_standard"
+    },
+    {
+      "name": "AWS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Django",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gitlab",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jira",
+      "category": "product_standard"
+    },
+    {
+      "name": "Microsoft Azure",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium WebDriver",
+      "category": "product_standard"
+    },
+    {
+      "name": "SpringBoot",
+      "category": "product_standard"
+    },
+    {
+      "name": "Terraform",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "03/2020 - 07/2020",
+      "company": "Allianz",
+      "role": "Software Developer",
+      "title": "Build Tools Development, München",
+      "activities": 5,
+      "technologies": 5
+    },
+    {
+      "period": "04/2019 - 12/2019",
+      "company": "Kapsch",
+      "role": "Integration tester",
+      "title": "Integration testing, Austria",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2018 - 02/2019",
+      "company": "Siemens, Germany",
+      "role": "Contractor",
+      "title": "Test Automation and Data Analytics",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "11/2017 - 04/2018",
+      "company": "Cubic Telecom",
+      "role": "Contractor, Software Development Engineer in Test",
+      "title": "Software Development in Test, Dublin, Ireland",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "05/2017 - 10/2017",
+      "company": "Intel",
+      "role": "Software Development Engineer in Test",
+      "title": "Software Development in Test, Munich, Germany",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "01/2017 - 02/2017",
+      "company": "Amido",
+      "role": "Software Development Engineer in Test",
+      "title": "Software Development in Test, London, UK",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "09/2015 - 10/2016",
+      "company": "Callsign",
+      "role": "Software Development Engineer in Test",
+      "title": "Software Development in Test, London, UK",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "02/2015 - 08/2015",
+      "company": "Xanadu",
+      "role": "Contractor, Software Development Engineer in Test",
+      "title": "Software Development in Test, Cork, Ireland",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "05/2014 - 12/2014",
+      "company": "Fidelity Investment",
+      "role": "Contractor, Software Development Engineer in Test",
+      "title": "Software Development in Test, Galway, Ireland",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2013 - 12/2013",
+      "company": "Houghton Mifflin Harcourt",
+      "role": "Contractor, Software Development Engineer in Test",
+      "title": "Software Development in Test, Dublin, Ireland",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04/2012 - 08/2013",
+      "company": "Groupon",
+      "role": "Contractor, Software Development Engineer in Test",
+      "title": "Software Development in Test, Berlin, Germany",
+      "activities": 8,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "CSS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "HTML",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Javascript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Scala",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Typescript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ansible",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Terraform",
+      "category_name": "DevOps Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "AWS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "Amazon EC2",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

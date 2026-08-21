@@ -1,0 +1,1763 @@
+{
+  "personal": {
+    "aid": "AID-mh_5.2.4.0",
+    "first_name": "Mohammed",
+    "last_name": "Hanif",
+    "birth_year": 1956,
+    "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, außerhalb D/A/CH",
+    "availability": "30.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1977,
+    "headline": "IT Cyber Security, SIEM, ISMS, ISO27001, Telematics Autosar, OBDII, CAN LIN. Cryptography Signature, encryption, SoC, CyptoCell, Hypervisor VMM",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 8,
+    "skills": 188,
+    "certifications": 0,
+    "education": 2,
+    "experience": 15,
+    "industries": 221,
+    "focus_areas": 27,
+    "focus_experience": 227,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Urdu",
+      "level": ""
+    },
+    {
+      "name": "Hindi",
+      "level": ""
+    },
+    {
+      "name": "Finnisch",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Ein wenig",
+      "level": ""
+    },
+    {
+      "name": "Englisch Fluent",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (Ein wenig)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (Fluent)",
+      "level": ""
+    },
+    {
+      "name": "Urdu/Hindi",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. (Hon) Applied Science with Computing",
+      "institution": "Kingston University, England",
+      "period": "09/1979 - 07/1982",
+      "education_type": "course"
+    },
+    {
+      "degree": "M.Sc. (part time) in Software Engineering",
+      "institution": "Oxford University, England",
+      "period": "09/1996 - 09/1998",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Telecommunication - for 25 Years:",
+    "Alcatel",
+    "Nokia",
+    "Siemens",
+    "Ericsson and Intel.",
+    "Project Management",
+    "PMI",
+    "ISTQB",
+    "CCMI",
+    "Prince II",
+    "Agile",
+    "SCRUM",
+    "ITIL",
+    "Microsoft Lvnc",
+    "Exchange",
+    "Active Directory",
+    "Cisco Enterprise",
+    "SW System Specification",
+    "Test Specifications",
+    "ISEB",
+    "Software Architecture",
+    "System/Functional Testing",
+    "Integration",
+    "Test Executions",
+    "and Acceptance",
+    "Quality Centre",
+    "Trouble-Ticketing Systems",
+    "SLA",
+    "OLA",
+    "SOW",
+    "KPI",
+    "BGF ACME SBC",
+    "CSCF",
+    "HSS",
+    "MGCF/SGF",
+    "PSTN",
+    "2G/3G Mobile",
+    "QALoad",
+    "QARunner",
+    "LoadRunner",
+    "WinRunner",
+    "Test Director(TD)",
+    "Cisco Call Manager V7.x",
+    "V8.x",
+    "CUBE",
+    "Routers",
+    "Gateways Firewalls",
+    "Avaya CM 5.x",
+    "Alcatel F700 R7.x",
+    "F750 R9.x",
+    "Cisco Voip PABX",
+    "CUME",
+    "CheckPoint & ISG Juniper Firewalls",
+    "Cisco Secure Manager NetScreen Security Manager",
+    "BGP",
+    "OSPF",
+    "EIGRP",
+    "QoS",
+    "VoIP",
+    "VPN (SSL",
+    "IPSec)",
+    "Firewalling",
+    ".NET Platform",
+    "Jenkins",
+    "GIT",
+    "Linux",
+    "Jira",
+    "Juniper Firewalls SRX240",
+    "EX3200",
+    "EX4200",
+    "Junos",
+    "JNCIP/JNCIE/JNCIS Level",
+    "Android",
+    "WinCE",
+    "Google APP",
+    "Sun Solaris",
+    "Unix",
+    "C++",
+    "Unix Shell Programming",
+    "J2SE",
+    "J2EE",
+    "J2ME",
+    "CLDC MIDP",
+    "Java",
+    "XML",
+    "HTML",
+    "HTTP JavaScript",
+    "GSM",
+    "GPRS(L2/L3: RLC/MAC",
+    "MM/GMM)",
+    "3G UMTS (Protocols)",
+    "BEA WebLogic",
+    "JSP",
+    "Servlet",
+    "JDBC",
+    "RMI",
+    "Java Web Server",
+    "3GPP R5",
+    "IMS",
+    "SIP",
+    "RNC",
+    "PS Core Networks",
+    "Object Oriented (OO) Analysis and Design",
+    "ASN.1",
+    "GDMO.....",
+    "BroadBand IP",
+    "Routing/Signalling Protocols",
+    "BGP-4",
+    "IS-IS",
+    "RIP",
+    "IPv4",
+    "IPv6",
+    "VPN",
+    "UMTS",
+    "MPLS",
+    "DiffServ",
+    "SDH, ATM, IP , ISDN, PSTN, DSL, xDSL",
+    "Telecommunications",
+    "PDH",
+    "SDH",
+    "ITU",
+    "ISO",
+    "TMN",
+    "POTS",
+    "ISDN",
+    "V5.2 ..",
+    "Software Process Improvement (SPI)",
+    "ISO9001",
+    "IEEE",
+    "CMM ....",
+    "TTCN/Telelogic, Rational",
+    "RequisitePro",
+    "Rumbaugh",
+    "Shlaer-Meler",
+    "Booch Rational Rose/C++",
+    "QAC++",
+    "OODBMS ....",
+    "HP UX",
+    "APIs",
+    "XMP/XOM",
+    "CMOT",
+    "CMISE",
+    "UML",
+    "Rational Rose",
+    "SDL/SDT",
+    "Structured Analysis/Design",
+    "Formal Methods: Z",
+    "Yourdon(real time)",
+    "SSADM",
+    "OSF Motif",
+    "Windows",
+    "HPopenView 6.x",
+    "HPQC",
+    "HP ALM test suite",
+    "Oracle Database (RDBM)",
+    "V8.0",
+    "SQL*Plus",
+    "PL/SQL",
+    "ProC ......",
+    "Test tools",
+    "Test bed",
+    "Generic Test Harness",
+    "PowerPilot",
+    "TestNet",
+    "MS Office 98",
+    "Windows NT 4.0 Microsoft Project",
+    "ClearCase Multisite",
+    "MS Excel",
+    "Unix/Sun Solaris",
+    "OS Symbian 7.0",
+    "Series 60",
+    "Series 90",
+    "EPOC C++",
+    "MMS",
+    "Metrowerks CodeWarrior, CM Synergy PVCS",
+    "OmniTracker",
+    "Catapult",
+    "and Pegasus",
+    "DOORS",
+    "SOAP",
+    "Rational Suite: RUP",
+    "Rational Rose(UML)",
+    "Robot",
+    "ClearCase",
+    "ClearQuest",
+    "Security Safety standards ISO26262",
+    "ISO27001",
+    "IEC61508",
+    "CAN, OBU, OBD-II, AUTOSAR, CATIA V5,",
+    "Infotainment",
+    "CAN LIN",
+    "OBD; API",
+    "AUTOSAR",
+    "CANoe",
+    "CANalyzer",
+    "GNU Tool chain",
+    "Eclipse IDE",
+    "Lauterbach",
+    "Win CE",
+    "Cygwin",
+    "Moses",
+    "SDE",
+    "SDK",
+    "SDP",
+    "RTP",
+    "CME",
+    "Windows Mobile OS",
+    "Cisco CCM 7.1",
+    "Avaya CM",
+    "IP-PABX",
+    "NGN",
+    "VoIP SIP Trunking",
+    "SS7",
+    "Agilent Signaling analyzer",
+    "Rhode Schwarz",
+    "LLDM LTE MA Trace Analysis, QXD , WinCE,",
+    "IRAT IOT",
+    "Artemis",
+    "Mobile Analysier (2G 3G LTE Stack Analysis)",
+    "Telecommunication",
+    "Telematics Automotive and Automotive security"
+  ],
+  "focus_areas": [
+    "IT Cyber Security",
+    "SIEM",
+    "ISMS",
+    "ISO27001",
+    "Telematics Autosar",
+    "OBDII",
+    "CAN LIN. Cryptography Signature",
+    "encryption",
+    "CyptoCell",
+    "Hypervisor VMM",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Coaching / Schulung / Training",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Hardware-Entwicklung Engineering / IT-nahe Ingen",
+    "System Software Design/Architecture and Development",
+    "Networking",
+    "Cloud",
+    "Telecom and Automotive",
+    "CAN LIN",
+    "Cryptography Signature",
+    "SoC",
+    "Projektmanagement / -leitung / Organisation / Koordination",
+    "Administration / Support",
+    "Qualitätsmanagement / Qualitätssicherung / Test",
+    "Dokumentation / DTP",
+    "Hardware-Entwicklung",
+    "Engineering / IT-nahe Ingenieurdienstleistungen"
+  ],
+  "focus_experience": [
+    {
+      "name": "SOFTWARE AND HARDWARE EXPERIENCE",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Project Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "PMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISTQB",
+      "category": "product_standard"
+    },
+    {
+      "name": "CCMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Prince II",
+      "category": "product_standard"
+    },
+    {
+      "name": "Agile",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCRUM",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITIL",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Microsoft Lvnc",
+      "category": "product_standard"
+    },
+    {
+      "name": "Exchange",
+      "category": "product_standard"
+    },
+    {
+      "name": "Active Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "* SW System Specification",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test Specifications",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISEB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Software",
+      "category": "product_standard"
+    },
+    {
+      "name": "Architecture",
+      "category": "product_standard"
+    },
+    {
+      "name": "* System/Functional Testing",
+      "category": "product_standard"
+    },
+    {
+      "name": "Integration",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test Executions",
+      "category": "product_standard"
+    },
+    {
+      "name": "and Acceptance",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Quality Centre",
+      "category": "product_standard"
+    },
+    {
+      "name": "Trouble-Ticketing Systems",
+      "category": "product_standard"
+    },
+    {
+      "name": "SLA",
+      "category": "product_standard"
+    },
+    {
+      "name": "OLA",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOW",
+      "category": "product_standard"
+    },
+    {
+      "name": "KPI",
+      "category": "product_standard"
+    },
+    {
+      "name": "* BGF ACME SBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "CSCF",
+      "category": "product_standard"
+    },
+    {
+      "name": "HSS",
+      "category": "product_standard"
+    },
+    {
+      "name": "MGCF/SGF",
+      "category": "product_standard"
+    },
+    {
+      "name": "PSTN",
+      "category": "product_standard"
+    },
+    {
+      "name": "2G/3G Mobile",
+      "category": "product_standard"
+    },
+    {
+      "name": "* QALoad",
+      "category": "product_standard"
+    },
+    {
+      "name": "QARunner",
+      "category": "product_standard"
+    },
+    {
+      "name": "LoadRunner",
+      "category": "product_standard"
+    },
+    {
+      "name": "WinRunner",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test Director(TD)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Cisco Call Manager V7.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "V8.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "CUBE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Routers",
+      "category": "product_standard"
+    },
+    {
+      "name": "Gateways Firewalls",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Avaya CM 5.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "Alcatel F700 R7.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "F750 R9.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Cisco Voip PABX",
+      "category": "product_standard"
+    },
+    {
+      "name": "CUME",
+      "category": "product_standard"
+    },
+    {
+      "name": "CheckPoint & ISG Juniper Firewalls",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco Secure Manager NetScreen Security Manager",
+      "category": "product_standard"
+    },
+    {
+      "name": "* BGP",
+      "category": "product_standard"
+    },
+    {
+      "name": "OSPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "EIGRP",
+      "category": "product_standard"
+    },
+    {
+      "name": "QoS",
+      "category": "product_standard"
+    },
+    {
+      "name": "VoIP",
+      "category": "product_standard"
+    },
+    {
+      "name": "VPN (SSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "IPSec)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Firewalling",
+      "category": "product_standard"
+    },
+    {
+      "name": "* .NET Platform",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins",
+      "category": "product_standard"
+    },
+    {
+      "name": "GIT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jira",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Juniper Firewalls SRX240",
+      "category": "product_standard"
+    },
+    {
+      "name": "EX3200",
+      "category": "product_standard"
+    },
+    {
+      "name": "EX4200",
+      "category": "product_standard"
+    },
+    {
+      "name": "Junos",
+      "category": "product_standard"
+    },
+    {
+      "name": "* JNCIP/JNCIE/JNCIS Level",
+      "category": "product_standard"
+    },
+    {
+      "name": "Android",
+      "category": "product_standard"
+    },
+    {
+      "name": "WinCE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google APP",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Sun Solaris",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unix",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unix Shell Programming",
+      "category": "product_standard"
+    },
+    {
+      "name": "* J2SE",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2EE",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2ME",
+      "category": "product_standard"
+    },
+    {
+      "name": "CLDC MIDP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTTP JavaScript",
+      "category": "product_standard"
+    },
+    {
+      "name": "* GSM",
+      "category": "product_standard"
+    },
+    {
+      "name": "GPRS(L2/L3: RLC/MAC",
+      "category": "product_standard"
+    },
+    {
+      "name": "MM/GMM)",
+      "category": "product_standard"
+    },
+    {
+      "name": "3G UMTS (Protocols)",
+      "category": "product_standard"
+    },
+    {
+      "name": "* BEA WebLogic",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Servlet",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "RMI",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Web Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "* 3G",
+      "category": "product_standard"
+    },
+    {
+      "name": "3GPP R5",
+      "category": "product_standard"
+    },
+    {
+      "name": "IMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SIP",
+      "category": "product_standard"
+    },
+    {
+      "name": "RNC",
+      "category": "product_standard"
+    },
+    {
+      "name": "PS Core Networks",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Object Oriented (OO) Analysis and Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "ASN.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "GDMO",
+      "category": "product_standard"
+    },
+    {
+      "name": "* BroadBand IP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Routing/Signalling Protocols",
+      "category": "product_standard"
+    },
+    {
+      "name": "BGP-4",
+      "category": "product_standard"
+    },
+    {
+      "name": "IS-IS",
+      "category": "product_standard"
+    },
+    {
+      "name": "RIP",
+      "category": "product_standard"
+    },
+    {
+      "name": "* IPv4",
+      "category": "product_standard"
+    },
+    {
+      "name": "IPv6",
+      "category": "product_standard"
+    },
+    {
+      "name": "VPN",
+      "category": "product_standard"
+    },
+    {
+      "name": "UMTS",
+      "category": "product_standard"
+    },
+    {
+      "name": "MPLS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DiffServ",
+      "category": "product_standard"
+    },
+    {
+      "name": "* SDH",
+      "category": "product_standard"
+    },
+    {
+      "name": "ATM",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISDN",
+      "category": "product_standard"
+    },
+    {
+      "name": "DSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "xDSL",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Telecommunications",
+      "category": "product_standard"
+    },
+    {
+      "name": "PDH",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDH",
+      "category": "product_standard"
+    },
+    {
+      "name": "ITU",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO",
+      "category": "product_standard"
+    },
+    {
+      "name": "TMN",
+      "category": "product_standard"
+    },
+    {
+      "name": "POTS",
+      "category": "product_standard"
+    },
+    {
+      "name": "V5.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Software Process Improvement (SPI)",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO9001",
+      "category": "product_standard"
+    },
+    {
+      "name": "IEEE",
+      "category": "product_standard"
+    },
+    {
+      "name": "CMM",
+      "category": "product_standard"
+    },
+    {
+      "name": "* TTCN/Telelogic",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational",
+      "category": "product_standard"
+    },
+    {
+      "name": "RequisitePro",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Rumbaugh",
+      "category": "product_standard"
+    },
+    {
+      "name": "Shlaer-Meler",
+      "category": "product_standard"
+    },
+    {
+      "name": "Booch Rational Rose/C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "QAC++",
+      "category": "product_standard"
+    },
+    {
+      "name": "OODBMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* HP UX",
+      "category": "product_standard"
+    },
+    {
+      "name": "APIs",
+      "category": "product_standard"
+    },
+    {
+      "name": "XMP/XOM",
+      "category": "product_standard"
+    },
+    {
+      "name": "CMOT",
+      "category": "product_standard"
+    },
+    {
+      "name": "CMISE",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Rose",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDL/SDT",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Structured Analysis/Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Formal Methods: Z",
+      "category": "product_standard"
+    },
+    {
+      "name": "Yourdon(real time)",
+      "category": "product_standard"
+    },
+    {
+      "name": "SSADM",
+      "category": "product_standard"
+    },
+    {
+      "name": "* OSF Motif",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows",
+      "category": "product_standard"
+    },
+    {
+      "name": "HPopenView 6.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "HPQC",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP ALM test suite",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Oracle Database (RDBM)",
+      "category": "product_standard"
+    },
+    {
+      "name": "V8.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "SQL*Plus",
+      "category": "product_standard"
+    },
+    {
+      "name": "PL/SQL",
+      "category": "product_standard"
+    },
+    {
+      "name": "ProC",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Test tools",
+      "category": "product_standard"
+    },
+    {
+      "name": "Test bed",
+      "category": "product_standard"
+    },
+    {
+      "name": "Generic Test Harness",
+      "category": "product_standard"
+    },
+    {
+      "name": "PowerPilot",
+      "category": "product_standard"
+    },
+    {
+      "name": "TestNet",
+      "category": "product_standard"
+    },
+    {
+      "name": "* MS Office 98",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows NT 4.0 Microsoft Project",
+      "category": "product_standard"
+    },
+    {
+      "name": "* ClearCase Multisite",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Excel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Unix/Sun Solaris",
+      "category": "product_standard"
+    },
+    {
+      "name": "* OS Symbian 7.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Series 60",
+      "category": "product_standard"
+    },
+    {
+      "name": "Series 90",
+      "category": "product_standard"
+    },
+    {
+      "name": "EPOC C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "MMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Metrowerks CodeWarrior",
+      "category": "product_standard"
+    },
+    {
+      "name": "CM Synergy PVCS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Linux",
+      "category": "product_standard"
+    },
+    {
+      "name": "OmniTracker",
+      "category": "product_standard"
+    },
+    {
+      "name": "Catapult",
+      "category": "product_standard"
+    },
+    {
+      "name": "and Pegasus",
+      "category": "product_standard"
+    },
+    {
+      "name": "DOORS",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Rational Suite: RUP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Rose(UML)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Robot",
+      "category": "product_standard"
+    },
+    {
+      "name": "ClearCase",
+      "category": "product_standard"
+    },
+    {
+      "name": "ClearQuest",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Security Safety standards ISO26262",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISO27001",
+      "category": "product_standard"
+    },
+    {
+      "name": "IEC61508",
+      "category": "product_standard"
+    },
+    {
+      "name": "* CAN",
+      "category": "product_standard"
+    },
+    {
+      "name": "OBU",
+      "category": "product_standard"
+    },
+    {
+      "name": "OBD-II",
+      "category": "product_standard"
+    },
+    {
+      "name": "AUTOSAR",
+      "category": "product_standard"
+    },
+    {
+      "name": "CATIA V5",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Infotainment",
+      "category": "product_standard"
+    },
+    {
+      "name": "CAN LIN",
+      "category": "product_standard"
+    },
+    {
+      "name": "OBD; API",
+      "category": "product_standard"
+    },
+    {
+      "name": "CANoe",
+      "category": "product_standard"
+    },
+    {
+      "name": "CANalyzer",
+      "category": "product_standard"
+    },
+    {
+      "name": "* GNU Tool chain",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse IDE",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lauterbach",
+      "category": "product_standard"
+    },
+    {
+      "name": "Win CE",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Cygwin",
+      "category": "product_standard"
+    },
+    {
+      "name": "Moses",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDE",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDK",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDP",
+      "category": "product_standard"
+    },
+    {
+      "name": "RTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "CME",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows Mobile OS",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Cisco CCM 7.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "Avaya CM",
+      "category": "product_standard"
+    },
+    {
+      "name": "IP-PABX",
+      "category": "product_standard"
+    },
+    {
+      "name": "NGN",
+      "category": "product_standard"
+    },
+    {
+      "name": "VoIP SIP Trunking",
+      "category": "product_standard"
+    },
+    {
+      "name": "SS7",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Agilent Signaling analyzer",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rhode Schwarz",
+      "category": "product_standard"
+    },
+    {
+      "name": "* LLDM LTE MA Trace Analysis",
+      "category": "product_standard"
+    },
+    {
+      "name": "QXD",
+      "category": "product_standard"
+    },
+    {
+      "name": "* IRAT IOT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Artemis",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mobile Analysier (2G 3G LTE Stack Analysis)",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "08/2015 - heute",
+      "company": "Visteon Electrons",
+      "role": "Cyber Security SW Architecture Consultant, Karlsruhe Germany",
+      "title": "Cyber Security SW Architecture Consultant, Karlsruhe Germany",
+      "activities": 9,
+      "technologies": 7
+    },
+    {
+      "period": "11/2013 - 08/2015",
+      "company": "Delphi - Europe Germany",
+      "role": "Network System Security Architect Lead",
+      "title": "Data Centre hosting environment",
+      "activities": 11,
+      "technologies": 45
+    },
+    {
+      "period": "08/2010 - 11/2012",
+      "company": "Intel Mobile Communications Munich Germany",
+      "role": "",
+      "title": "Cloud Data Centre",
+      "activities": 8,
+      "technologies": 79
+    },
+    {
+      "period": "08/2008 - 08/2010",
+      "company": "Belgacom Brussels Belgium",
+      "role": "",
+      "title": "Routers & Catalysts, Belgium",
+      "activities": 8,
+      "technologies": 26
+    },
+    {
+      "period": "10/2006 - 08/2008",
+      "company": "Ericsson Nuremberg Germany",
+      "role": "",
+      "title": "Ericsson",
+      "activities": 12,
+      "technologies": 17
+    },
+    {
+      "period": "05/2005 - 10/2006",
+      "company": "Nokia Siemens Networks",
+      "role": "Project Test Manager",
+      "title": "Integration Manager, Ulm, Germany",
+      "activities": 5,
+      "technologies": 8
+    },
+    {
+      "period": "01/2002 - 01/2005",
+      "company": "Integration Manager",
+      "role": "Test Project manager",
+      "title": "responsible to manage SW development, Helsink, Finland",
+      "activities": 7,
+      "technologies": 4
+    },
+    {
+      "period": "07/2001 - 01/2002",
+      "company": "Ericsson Eurolab",
+      "role": "Senior Test and Integration Engineer",
+      "title": "Senior Test and Integration Engineer",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "05/2000 - 07/2001",
+      "company": "Tellabs, Oy",
+      "role": "Senior Software Engineer",
+      "title": "Senior Software Engineer",
+      "activities": 11,
+      "technologies": 10
+    },
+    {
+      "period": "08/1996 - 05/2000",
+      "company": "NOKIA -Telecommunications",
+      "role": "",
+      "title": "System Concepts groups",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/1990 - 08/1996",
+      "company": "ALCATEL",
+      "role": "",
+      "title": "Management and Telecommunication",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "11/1988 - 10/1990",
+      "company": "ICL Bracknell",
+      "role": "",
+      "title": "design and implement",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "09/1986 - 11/1988",
+      "company": "BRITISH AEROSPACE PLC",
+      "role": "",
+      "title": "design and implementation",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "02/1984 - 09/1986",
+      "company": "BONAR BRENTFORD ELECTRIC LTD",
+      "role": "",
+      "title": "integrate a 3 Phase Full Bridge Rectifier",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "07/1977 - 09/1979",
+      "company": "BAUGHANS LTD",
+      "role": "",
+      "title": "production/ automation",
+      "activities": 5,
+      "technologies": 0
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "Firewall concept",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CheckPoint",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Firewall",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "balancing and F5",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "system is based on Cisco",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco ASA",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Junipers Firewall SRX 240",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "(Juniper)",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "I Configured setup with Juniper",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "administration and configuring Cisco",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper ME/EX Junos",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco Firewalls",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Routers SRX-240H",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Gateways and Infiniband fabrics over F5 Load",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper MX/EX",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco router with optimized Clusters for Load balancing",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper 4500",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco IOS",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco Switching/",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Routing Catalyst",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "and Checkpoint. Protocols used during",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CheckPoint (Network",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Security) Cisco HighEnd Router",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Other Cisco network devices were Routers &",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "based on Cisco",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "on Cisco Call Manager",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "participated in Juniper",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Juniper Junos",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco Load balancers",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Cisco",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "VPN",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.8
+    },
+    {
+      "name": "employing blocks such Zone Models",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Intrusion",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "INTEGRITY) were running on SoC",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "ARM Trusted Firmware",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Execution",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Centres",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "with all related routers and switches",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "load",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "in Cloud Foundry compliance toolset",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Blade",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "using Virtualization VMware Hypervisor",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "and EX series for",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Reverse Proxy",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Remote Access",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "DHCP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "IP addressing",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "APN",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "API development",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Integration REST/SOAP",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "MIL",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Android",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "QNX",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "firewalls (Netscreen)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "NET",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Junipers routers. I",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "provided 2nd",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "AAA",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Switches &",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Balancer",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "ACE",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Layer 2: 802.1x",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Layer 3. ASA",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "PIX",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "ACS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "for all",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "coming",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "from NSN",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Ericsson",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Alcatel Lucent",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CAT6k5",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "processes: Linux",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Clearcase",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CME",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CM Synegy",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "GIT",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "DebugMux",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    }
+  ]
+}

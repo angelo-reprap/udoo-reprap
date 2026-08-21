@@ -1,0 +1,230 @@
+AID: AID-az_2.3.3.0
+Name: Alexander Zubok
+Headline: Java Entwicklung, C/C++, C#, PHP, Javascript, VBA, Vaadin, Spring, JQuery, Oracle, HTML5, VBA
+Ort: D7, außerhalb D/A/CH
+Wohnort: 704xx Deutschland, Deutschland
+Jahrgang: 1979
+Verfügbar: 01.03.21 zu 0%, Vor-Ort-Einsatz 5% möglich
+EDV seit: 2009
+Sprachen: Deutsch fließend, Englisch fließend, Hebraeisch gut, Russisch
+
+FACHBEREICHE:
+Java Entwicklung
+C/C++
+Javascript
+Vaadin
+Spring
+JQuery
+Oracle
+HTML5
+Software und Hardwareentwickler
+Unternehmen: Rubikontechnologie
+Ort: Smolensk/Russland
+Aufgaben:
+Entwicklung eine Geräte für Influenceradiation Messen
+Entwicklung eine Software für Forschunggeräte
+Mikrochipsfuntersuchung von den Firmen Infinion, Motorolla und Dallassemiconduktor
+Systemumgebung und Sprachen:
+Design Lab (CAD), C/C++, MS Office, MS Visio, VC++, AVR Studio, AVR-Assembler Moscow Power Engineering University, Moskau 09/2003 - 02/2004: Diplomarbeit Untersuchung von Radiatioseinflüssen an Mikrochips Branche: Luft-und Raumfahrtindustrie
+
+BRANCHEN:
+Finanzen
+Industrie
+Grosshandel
+Einzelhandel
+Fremdhandel
+Automotiv
+
+PROJEKTE:
+  09/2020 - 02/2021 | T-Systems AG (Deutsche Telekom it solutions) | Fullstack-Softwareentwickler und Devops Freiberufler
+    - Aufgaben:
+    - Entwicklen Integrationskomponente für DASPU System vom Bosch: C#, VS Cde,
+    - .Net, Restsharp, JSON, JS
+    Techs: Projekte im Bereich Java EE — Java, JSF, Infrasturukture: SVN, EJB, Maven, Nexus, Jenkins, Groovy, Pipeline, Ant
+  09/2019 - 06/2020 | Allianz AG | Fullstack-Softwareentwickler
+    - Aufgaben:
+    - Projekte im Bereich Java EE für CI/CD— Java, Vaadin, Git, Spring, Siring
+    - Boot, Eclipse, Eclipse Spring tool Suite, Rest, Artifactory, Jenkins,
+    Techs: Produkte (Artifactory, Distribution, MissionControl, Xray, Ansible), Git, Jenkins, Nginx, AWS, Atlassian JIRA
+  01/2019 - 04/2019 | Daimler AG | Fullstack Entwickler
+    - Aufgaben:
+    - Entwicklung (Unterstützung) eigene CRM Websoftware EPACE basierte auf Java und Struts, testen und weiterbilden andere Kollegien, Unterstützung alte CRM
+    - TiOnline
+    Techs: Kafka/Zookeeper, Angular 6/Angular JS, Angular 6, Maven, Linux, Tomcat, Ant, Grunt, Java, Spring-Boot
+  06/2018 - 12/2018 | ITEOS | Fullstack-Softwareentwickler Freiberufler
+    - Aufgaben:
+    - Entwicklung (Unterstützung) eigene CRM Websoftware basierte auf Java und Struts, testen und weiterbilden andere Kollegien
+    - Projekte im Bereich Java EE – Meldit (Java EE, IntelliJ Idea, Git, Maven,
+  03/2018 - 05/2018 | Thales AG | Fullstack-Softwareeinwickler
+    - Aufgaben:
+    - Entwicklung (Unterstützung) eigene CAD Software basierte auf C#, und WPF, testen, Analyse machen
+    - Projekte im Bereich C# mit interne CAD-System (.Net, Atlassian (Git,
+  12/2017 - 03/2018 | VMT GmbH | Fullstack-Softwareeinwickler
+    - Aufgaben:
+    - Entwicklung (Unterstützung) eigene CAD-System fuer Tunneln projektieren und steuer an Tunnelbaumaschinen, Hilfe fuer Raporten entwickeln und technisches
+    - Überstzung auf Russisch, Kommunikation mit russischen Fachkräfte
+  08/2017 - 11/2017 | Autolive GmbH | Backend-Entwiclker
+    - Aufgaben:
+    - Plugins für Daten aus Radaren und Cameras von Auto bearbeiten
+    - Projekte im Bereich Java EE (Java EE, Net Beans, Git, Jenkins, Unit test,
+    Techs: Maven, Nexus), J2EE, Net Beans, Git, Jenkins, Unit test, Groovy, Microservices
+  03/2017 - 06/2017 | DAT Ag | Fullstack-Softwareeinwickler, Architekt
+    - Aufgaben:
+    - Entwicklung Frontend, Weiterentwicklung System valuate Pro und SD3 für Auto-Bewertungen
+    - Projekte im Bereich Java EE (Java EE, Intelli JIdea, Rest/JSON(JAX-RS),
+  12/2016 - 01/2017 | EQS | Fullstack-Softwareeinwickler
+    - Aufgaben:
+    - Entwicklung Frontend
+    - Projekte im Bereich Java EE (Java EE, Ecclipse, Vaadin, Gwt, Hibernate,
+  09/2016 - 11/2016 | KVWL | Backend-Softwareentwickler
+    - Aufgaben:
+    - Entwicklung Backend. DB-Deisgn
+    - J2EE, Ecclipse, Hibernate, Spring, Maven, XML, SVN, Unit test. Rest/JSON(STAX,
+  06/2016 - 11/2016 | KVWL | Softwareeinwickler
+    - Aufgaben:
+    - Entwicklung Bluetooth-Treiber
+    - Projekte im Bereich Java EE (Java EE, Ecclipse, Vaadin, Gwt, Hibernate,
+  05/2015 - 03/2016 | Estos GmbH | Softwareeinwickler
+    - C/C++, VS 2012, Win Dbg
+    - ===================================================== ==========================
+  04/2015 - 04/2016 | Estos GmbH | Softwareentwickler
+    - Aufgaben:
+    - Projekte im Bereich C/C++ - Kernel Mode und User mode
+    - Unterstützung und Erweiterung Procall Project
+  04/2015 - 06/2015 | Estos GmbH | Softwareeinwickler
+    - Aufgaben:
+    - Weiterentwicklung Communicationssoftware (Untersuchung Stun und Turn Servers von verschiedene Providers)
+    - Entwicklung Frontend
+  03/2015 - 03/2016 | EEB | Softwareeinwickler
+    - Aufgaben:
+    - Entwicklung Backend
+    - Java, Spring, Eclipse, PL/SQL
+  10/2014 - 01/2015 | S1NN GmbH | Softwareeinwickler
+    - Aufgaben:
+    - Entwicklung Frontend
+    - JS, HTML5, Jlinter, Ecclipse. Jquery, Google Closer ===================================================== ==========================
+  02/2014 - 08/2014 | EEB GmbH | Softwarearchitekt
+    - Aufgaben:
+    - Entwicklung Software-Konzept und GUI, Übersetzung auf Tschechisch. Technische
+    - Documentation schreiben
+  11/2013 - 01/2014 | EEB GmbH, Daimler AG | Softwarearchitekt
+    - Aufgaben:
+    - Entwicklung Software-Konzept und Performance. Technische Dokumentation schreiben
+    - Java, Eclipse, MySql, Ejb, WebSphere
+  09/2013 - 11/2013 | EEB GmbH, Daimler AG | Softwarearchitekt, Softwareentwickler
+    - Aufgaben:
+    - Entwicklung Software-Konzept und GUI. Technische Dokumentation schreiben
+    - C#, Nentities, .Net, Winforms, Google API, MySQL ===================================================== ==========================
+  02/2013 - 03/2013 |  | Softwareentwickler
+    - Aufgaben:
+    - Code refaktoring, anpassen Mailkontoverwaltung-System zuum neuen Service
+    - PHP, My SQL, Apache2, Eclispe, MVC, SVN, Sybase Power Designer ===================================================== ==========================
+  01/2013 - 10/2013 | EEB GmbH, PAL-IHKEEB GmbH, PAL-IHK | Softwareentwickler, Datenbankarchitekt
+    - Aufgaben:
+    - Entwicklung Datenbank-Desing, Software-Konzept und Software-GUI. Technische
+    - Dokumentation schreiben
+  03/2011 - 09/2011 | Carbacan mbH, Cabtec | Softwareentwickler
+    - Aufgaben:
+    - Konvertieren CAD-Dateien und zeichnen auf Timage-Palette, Konvertieren und errechnen DGN-Komponenten und GUI-Entwicklung
+    - Delphi XE, VC++, MySql, Microstation, Hedit, Gold-Soft CAD Komponenten ===================================================== ==========================
+  07/2009 - 09/2009 | Payment Technologies GmbH | Softwareentwickler
+    - Aufgaben:
+    - Entwicklung ein Process für Daten convertieren.
+    - Führung aus die Kundendaten prüfen und Daten korrigieren
+
+SKILLS:
+  database: DB2, Maria DB, Mongo DB, Ms Access, MSSql, MySql, Oracle, Postgre
+  framework: Toad, Query Analyser, Visual Studio, SVN, XDebug, Systemadministrator, Netzwerkadministration, OracleDBA, MsSqlDBA, Apache, Tomcat, IT-Projektmanagement, UML, Datenbankprojektierung
+  hardware: Altera, AVR Studio, DesignLab (CAD), PCad
+  operating_system: DOS, Linux, Unix Debian, Windows
+  programming_languages: Ajax, Angular 6, Ansible, C#, C/C++, Delphi, Groovy, HTML/CSS, Intelli JIdea, Java 8, EE, J2EE, JPA, Struts 2.0, Javascript JQuery, JSON, Angular JS 2.0, Oracle/SQL, PHP, PL/SQL, React JS, T-SQL, Type Script, VBA, VC++
+
+SKILL-ABLAGE:
+Hibernate, HQL, SQL, Design/Entwicklung/Konstruktion, CAD, Eclipse, Metamil, Microstation, Power Designer, Spring Data, Berechnung/Simulation/Versuch/Validierung, JAX-RS), JUnit, Protractor, SOAP UI, Unit test, assembler, avr-, active
+
+FOCUS_EXP:
+  Artifactory  [product_standard]
+  Atlassian JIRA  [product_standard]
+  Confluence  [product_standard]
+  AWS  [product_standard]
+  Cake PHP  [product_standard]
+  Cloud Foundry  [product_standard]
+  Delphi XE  [product_standard]
+  Distribution  [product_standard]
+  Docker  [product_standard]
+  Eclipse  [product_standard]
+  Eclipse Spring tool Suite  [product_standard]
+  Ejb  [product_standard]
+  Git  [product_standard]
+  Gold-Soft CAD Komponenten  [product_standard]
+  Google API  [product_standard]
+  Closer  [product_standard]
+  Gradle  [product_standard]
+  Hedit  [product_standard]
+  Jenkins  [product_standard]
+  Jlinter  [product_standard]
+  JSF  [product_standard]
+  Kafka  [product_standard]
+  Maven  [product_standard]
+  MissionControl  [product_standard]
+  MVC  [product_standard]
+  Nentities  [product_standard]
+  Nexus  [product_standard]
+  Nginx  [product_standard]
+  OpenShift  [product_standard]
+  PayPal-API  [product_standard]
+  PaySafe-API  [product_standard]
+  Rest  [product_standard]
+  Restsharp  [product_standard]
+  Scrum  [product_standard]
+  Spring Boot  [product_standard]
+  Sybase Power Designer  [product_standard]
+  VS 2010  [product_standard]
+  2012  [product_standard]
+  Code  [product_standard]
+  Webmin  [product_standard]
+  WebSphere  [product_standard]
+  Win Dbg  [product_standard]
+  Winforms  [product_standard]
+  X-Commerce  [product_standard]
+  XML  [product_standard]
+  Xray  [product_standard]
+  ZooKeeper  [product_standard]
+  Mitarbeiter im Bereich Systementwicklung/ Softwareentwicklung  [product_standard]
+  Über 10 Jahre Berufserfahrung in der Softwareeinführung  [product_standard]
+  * Sicher in Java EE  [product_standard]
+  C/C++  [product_standard]
+  PHP  [product_standard]
+  Delphi und Datenbanken  [product_standard]
+  * Fundierte Kenntnisse in Webentwicklung Vaadin  [product_standard]
+  Spring  [product_standard]
+  Hibernate  [product_standard]
+  WPF  [product_standard]
+  Magento  [product_standard]
+  Xcommerce  [product_standard]
+  Zend und GWT  [product_standard]
+  Fundierte Kenntnisse in Embedded und Win32/64 so wie Win-API  [product_standard]
+  Zusammenarbeit mit Kollegen aus verschiedenen Branchen auch auf  [product_standard]
+  internationaler Ebene  [product_standard]
+  Fliessend Deutsch und English in Wort und Schrift  [product_standard]
+  IT-Technologien:  [product_standard]
+  * Web: Jquery  [product_standard]
+  J2EE  [product_standard]
+  Node.js  [product_standard]
+  Java Servlet  [product_standard]
+  JSP  [product_standard]
+  Zend-Framework  [product_standard]
+  HTTP/HTTPS  [product_standard]
+  * Win: .Net  [product_standard]
+  VCL  [product_standard]
+  MFC  [product_standard]
+  Win API  [product_standard]
+  OLE  [product_standard]
+  * DB: JDBC  [product_standard]
+  DAO  [product_standard]
+  ADO  [product_standard]
+
+SONSTIGES:
+Sonstige Anmerkungen:
+ausländische Kunden immer gerne
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]

@@ -1,0 +1,400 @@
+⚠️ Prompt nicht gefunden: main_extract_personal → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    PERSONAL: ❌ leer
+⚠️ Prompt nicht gefunden: main_extract_fachbereiche → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    FACHBEREICHE: ❌ leer
+⚠️ Prompt nicht gefunden: main_extract_schulungen → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    SCHULUNGEN: ❌ leer
+    BRANCHEN: ✅
+    branchen gemerged: seed=6 + llm → 6
+    focus_experience aus Regex-Seed: 80 Einträge
+  PROJEKTE: 23 einzeln parallel...
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+INFO 2026-08-21 00:14:31,427 main_pipeline_controller [MainPipeline] pre_json: 23 Projekte, 16 skill_ablage
+INFO 2026-08-21 00:14:31,427 main_pipeline_controller [MainPipeline] Schritt 4b: Post-Processor
+INFO 2026-08-21 00:14:31,429 main_post_processor [MainPostProcessor] START: 23 Projekte
+INFO 2026-08-21 00:14:31,431 main_post_processor   [PostProcessor] EDV seit: 2009
+INFO 2026-08-21 00:14:31,461 main_post_processor   [PostProcessor] PDF Tokens: 510
+INFO 2026-08-21 00:14:31,462 main_post_processor   [PostProcessor] Extrahierte Tokens: 480
+INFO 2026-08-21 00:14:31,462 main_post_processor   [PostProcessor] Coverage: 93.3% (476/510)
+INFO 2026-08-21 00:14:31,462 main_post_processor   [PostProcessor] Fehlende Tokens: 33
+INFO 2026-08-21 00:14:33,944 main_post_processor   [PostProcessor] LLM: 3 Skills, 0 Produkte
+INFO 2026-08-21 00:14:33,944 main_post_processor   [PostProcessor] +3 Skills in skill_ablage
+INFO 2026-08-21 00:14:33,944 main_post_processor [MainPostProcessor] FERTIG: coverage=93.3% | fixes=3 | auto_skills=3
+INFO 2026-08-21 00:14:33,944 main_pipeline_controller [MainPipeline] Post-Processor: coverage=93.3% | fixes=3 | auto_skills=3
+INFO 2026-08-21 00:14:33,944 main_pipeline_controller [MainPipeline] skill_ablage nach PostProcessor: 19
+INFO 2026-08-21 00:14:33,944 main_pipeline_controller [MainPipeline] Schritt 5: DB-Import
+INFO 2026-08-21 00:14:33,945 main_extracted_to_db ✅ MainExtractedToDB initialisiert
+INFO 2026-08-21 00:14:33,945 main_db_importer [MainDbImporter] import_from_prejson: Alexander Zubok
+INFO 2026-08-21 00:14:33,945 main_db_importer   Projekte: 23 | skill_ablage: 19
+INFO 2026-08-21 00:14:34,026 versioning Version reserviert: zubok_alexander v1.0.0.0
+INFO 2026-08-21 00:14:35,649 aid_generator LLM Klassifikation: {'role_code': 2, 'landscape_code': 3, 'level_code': 3}
+INFO 2026-08-21 00:14:35,649 aid_generator AID generiert: AID-az_2.3.3.0
+INFO 2026-08-21 00:14:35,649 aid_generator   Rolle:      Entwickler (2)
+INFO 2026-08-21 00:14:35,649 aid_generator   Landschaft: Web/Software (3)
+INFO 2026-08-21 00:14:35,649 aid_generator   Level:      Experte (3)
+INFO 2026-08-21 00:14:35,649 aid_generator   Verzeichnis:zubok_alexander
+INFO 2026-08-21 00:14:35,650 main_db_importer   pre_json: data/extracted/zubok_alexander/AID-az_2.3.3.0.pre_json.json
+INFO 2026-08-21 00:14:35,804 main_extracted_to_db 💾 MainExtractedToDB: Speichere AID-az_2.3.3.0
+INFO 2026-08-21 00:14:36,059 main_extracted_to_db    - Skills gespeichert: 53 Einträge
+INFO 2026-08-21 00:14:36,194 main_extracted_to_db ✅ Daten gespeichert für AID-az_2.3.3.0
+INFO 2026-08-21 00:14:36,195 main_extracted_to_db    - Projekte:         23
+INFO 2026-08-21 00:14:36,196 main_extracted_to_db    - Skills:           53
+INFO 2026-08-21 00:14:36,196 main_extracted_to_db    - Zertifikate:      0
+INFO 2026-08-21 00:14:36,197 main_extracted_to_db    - Ausbildung:       0
+INFO 2026-08-21 00:14:36,198 main_extracted_to_db    - Schulungen:       0
+INFO 2026-08-21 00:14:36,198 main_extracted_to_db    - Focus Experience: 80
+INFO 2026-08-21 00:14:36,199 main_extracted_to_db    - Branchen:         6
+INFO 2026-08-21 00:14:36,199 main_extracted_to_db    - Fachbereiche:     17
+INFO 2026-08-21 00:14:36,199 main_extracted_to_db    - Sonstiges:        1
+INFO 2026-08-21 00:14:36,199 main_extracted_to_db    - Headline:         Java Entwicklung, C/C++, C#, PHP, Javascript, VBA, Vaadin, Spring, JQuery, Oracle, HTML5, VBA
+INFO 2026-08-21 00:14:36,199 main_extracted_to_db    - Degree:           
+INFO 2026-08-21 00:14:36,453 main_db_importer   Tech-Counter Projekte: 38 Technologien
+INFO 2026-08-21 00:14:36,453 main_db_importer   skill_ablage: +18 Zusatz-Skills
+INFO 2026-08-21 00:14:36,453 main_db_importer   Tech-Counter gesamt: 56 einzigartige Technologien
+INFO 2026-08-21 00:14:36,453 main_db_importer   71 Skills aus PDF-Layout vorkategorisiert
+INFO 2026-08-21 00:14:36,453 main_db_importer   35 Projekt-Skills via Normalizer
+INFO 2026-08-21 00:14:36,453 main_skill_normalizer   SkillNormalizer START: 35 Projekt-Skills
+INFO 2026-08-21 00:14:36,453 main_skill_normalizer   Schritt 1 (pre_json): 0 bekannt → 35 uebrig
+INFO 2026-08-21 00:14:38,275 main_skill_normalizer   Schritt 2 (TrainingTerm): 27 gefunden → 8 uebrig
+INFO 2026-08-21 00:14:38,287 main_skill_normalizer   Schritt 3 (unbekannt): 8 → 'Sonstige Skills'
+INFO 2026-08-21 00:14:38,287 main_skill_normalizer   unknown_skills fuer Self-Learning: ['Projekte im Bereich Java EE — Java|AID-az_2.3.3.0.exp_95682.Zubok.Alexander', 'Infrasturukture: SVN|AID-az_2.3.3.0.exp_95682.Zubok.Alexander', 'Restsharp|AID-az_2.3.3.0.exp_95682.Zubok.Alexander', 'Produkte (Artifactory|AID-az_2.3.3.0.exp_95683.Zubok.Alexander', 'MissionControl|AID-az_2.3.3.0.exp_95683.Zubok.Alexander']
+INFO 2026-08-21 00:14:38,287 main_skill_normalizer   SkillNormalizer FERTIG: 35 Skills kategorisiert, 8 unbekannt
+INFO 2026-08-21 00:14:38,294 main_db_importer   Gesamt: 56 Skills (21 aus PDF, 35 via Normalizer)
+INFO 2026-08-21 00:14:44,081 main_skill_normalizer   save_to_db: +49 neu, 1 aktualisiert
+INFO 2026-08-21 00:14:44,081 main_db_importer   SkillNormalizer: +49 Skills, 1 aktualisiert
+INFO 2026-08-21 00:14:44,081 main_db_importer   8 unbekannte Skills → Self-Learning Task
+INFO 2026-08-21 00:14:44,139 main_db_importer   db_snapshot: data/extracted/zubok_alexander/AID-az_2.3.3.0.db_snapshot.json
+INFO 2026-08-21 00:14:44,188 cv_display_utils Offline-HTML Assets eingebettet: css, js, logo
+INFO 2026-08-21 00:14:44,270 aid_profile_publish Publish HTML offline-fähig: /mnt/public/Berater/AID_profile/zzz/zubok_alexander/neu/cv/AID-az_2.3.3.0.html
+INFO 2026-08-21 00:14:46,397 aid_profile_publish Publish neu/cv: AID-az_2.3.3.0 → /mnt/public/Berater/AID_profile/zzz/zubok_alexander/neu/cv (3 Dateien)
+INFO 2026-08-21 00:14:46,397 html_generator AID-Profile publiziert: AID-az_2.3.3.0 → /mnt/public/Berater/AID_profile/zzz/zubok_alexander/neu/cv
+INFO 2026-08-21 00:14:46,427 cv_display_utils Offline-HTML Assets eingebettet: css-fallback, js-fallback, logo
+INFO 2026-08-21 00:14:46,468 main_db_importer   HTML: AID-az_2.3.3.0
+INFO 2026-08-21 00:14:46,568 main_db_importer   TXT: data/extracted/zubok_alexander/AID-az_2.3.3.0.txt
+INFO 2026-08-21 00:14:46,569 search_enricher SearchEnricher fuer AID-az_2.3.3.0
+INFO 2026-08-21 00:14:46,822 search_enricher ES indexiert: AID-az_2.3.3.0
+INFO 2026-08-21 00:14:46,822 search_enricher SearchEnricher abgeschlossen fuer AID-az_2.3.3.0
+INFO 2026-08-21 00:14:47,159 self_learning_pipeline Self-Learning (sync) fuer AID-az_2.3.3.0
+INFO 2026-08-21 00:14:47,421 self_learning_pipeline Self-Learning (sync) abgeschlossen: 22 neu, 80 aktualisiert, 0 Prompts
+INFO 2026-08-21 00:14:47,476 main_pipeline_controller [MainPipeline] FERTIG: AID-az_2.3.3.0
+INFO 2026-08-21 00:14:47,511 signals Job 3606 abgeschlossen: AID-az_1.0.0.4.pdf
+INFO 2026-08-21 00:14:47,605 tasks ============================================================
+INFO 2026-08-21 00:14:47,605 tasks ✅ AID-az_2.3.3.0 | Alexander Zubok | erfolgreich angelegt
+INFO 2026-08-21 00:14:47,605 tasks    Dauer: 40s | Projekte: 23 | Skills: 102
+INFO 2026-08-21 00:14:47,605 tasks ============================================================
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 20: ✅ (regex/seed-fallback)
+    Projekt 14: ✅ (regex/seed-fallback)
+    Projekt 18: ✅ (regex/seed-fallback)
+    Projekt 13: ✅ (regex/seed-fallback)
+    Projekt 19: ✅ (regex/seed-fallback)
+    Projekt 17: ✅ (regex/seed-fallback)
+    Projekt 15: ✅ (regex/seed-fallback)
+    Projekt 16: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 21: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+    Projekt 26: ✅ (regex/seed-fallback)
+    Projekt 22: ✅ (regex/seed-fallback)
+    Projekt 29: ✅ (regex/seed-fallback)
+    Projekt 24: ✅ (regex/seed-fallback)
+    Projekt 25: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+    Projekt 33: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 23: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+    Projekt 31: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+    Projekt 32: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 27: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+
+    Projekt 28: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 30: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 35: ✅ (regex/seed-fallback)
+⚠️ Prompt nicht gefunden: main_extract_experience → connection to server at "127.0.0.1", port 5432 failed: FATAL:  tut mir leid, schon zu viele Verbindungen
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  die verbleibenden Verbindungen sind für Superuser auf Nicht-Replikationsverbindungen reserviert
+
+    Projekt 34: ✅ (regex/seed-fallback)
+  23 Projekte extrahiert (seed=23, fill=23)
+  SKILLS: 6 Gruppe(n) → skill_ablage...
+    Betriebssysteme: 4 Skills (Regex)
+    Programmiersprachen: 25 Skills (Regex)
+    Datenbanken: 8 Skills (Regex)
+    Hardware: 4 Skills (Regex)
+    Frameworks und Bibliotheken: 14 Skills (Regex)
+    Datenkommunikation: 16 Skills (Regex)
+    71 Skills → skill_ablage (mit Kategorie)
+    skills befüllt: 5 Kategorien, skill_ablage Rest: 16
+    ✅ AID-az_2.3.3.0
+    📁 neu/cv: AID-az_2.3.3.0.docx, AID-az_2.3.3.0.html, AID-az_2.3.3.0.pdf
+
+==================================================
+ERGEBNIS nach 41s (0.7 min):
+  Versucht:     1
+  Gestartet:    1
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+OK zzz/zubok_alexander → AID-az_2.3.3.0.pdf (46s)
+
+─── [93] ggg/glas_oliver_fritz (gulp_id=103796 len=104962) ───
+NEED=/tmp/gulp-batch-20260820-231543/one_glas_oliver_fritz.tsv FAILS= TXT_DIR= OUT_DIR= LIMIT=1 EXECUTE=1
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-21 00:14:53,582 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-21 00:14:53,582 search_service ✅ SearchService initialisiert
+INFO 2026-08-21 00:14:53,942 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-21 00:14:54,019 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-21 00:14:54,019 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-21 00:14:54,020 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-21 00:14:54,077 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-21 00:14:54,078 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-21 00:14:54,080 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-21 00:14:54,082 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-21 00:14:54,083 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-21 00:14:54,083 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-21 00:14:54,083 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-21 00:14:54,083 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-21 00:14:54,085 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-21 00:14:54,086 apps    Status: yellow
+INFO 2026-08-21 00:14:54,086 apps    Cluster: docker-cluster
+INFO 2026-08-21 00:14:54,086 apps    Build: default
+INFO 2026-08-21 00:14:54,088 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-21 00:14:54,088 apps    📊 Dokumente: 22
+INFO 2026-08-21 00:14:54,088 apps    📦 Größe: 0.06 MB
+INFO 2026-08-21 00:14:54,088 apps    📝 Felder: 13
+INFO 2026-08-21 00:14:54,088 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-21 00:14:54,105 apps 📊 Synchronisations-Status:
+INFO 2026-08-21 00:14:54,106 apps    🗄️  DB Profile: 1
+INFO 2026-08-21 00:14:54,111 apps    🗄️  DB Versionen: 0
+INFO 2026-08-21 00:14:54,111 apps    🔍 ES Versionen: 22
+INFO 2026-08-21 00:14:54,111 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-21 00:14:54,111 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-21 00:14:54,111 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-21 00:14:54,111 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-21 00:14:54,111 apps    📊 Index: VORHANDEN
+INFO 2026-08-21 00:14:54,111 apps    📈 ES-Dokumente: 22
+INFO 2026-08-21 00:14:54,111 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-21 00:14:54,111 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-21 00:14:54,112 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-21 00:14:54,116 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-21 00:14:54,116 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-21 00:14:54,116 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-21 00:14:54,117 signals ✅ ai_cv_training Signals geladen und bereit
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+2 objects could not be automatically imported:
+
+  djangocms_versioning.datastructures.SnippetVersion
+  djangocms_versioning.datastructures.PageContentVersion
+
+251 objects imported automatically (use -v 2 for details).
+
+jobs_candidates=1 EXECUTE=True AID_ROOT=/mnt/public/Berater/AID_profile
+keywords=v1.3-final
+  clean: experience=26 snapshot=94328 aid=AID-og_1.0.0.4
+OK glas_oliver_fritz chars=104962 sections=18 experience=26 aid=AID-og_1.0.0.4
+  → /mnt/public/Berater/AID_profile/ggg/glas_oliver_fritz/AID-og_1.0.0.4.pdf
+{
+  "execute": true,
+  "jobs_ok": 1,
+  "fail": 0,
+  "skip": 0,
+  "version_tag": "1.0.0.4",
+  "keywords": "v1.3-final",
+  "aid_root": "/mnt/public/Berater/AID_profile",
+  "web_urls": []
+}
+LOG=/tmp/gulp-batch-20260820-231543/convert-glas_oliver_fritz
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-21 00:14:55,650 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-21 00:14:55,651 search_service ✅ SearchService initialisiert
+INFO 2026-08-21 00:14:55,991 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-21 00:14:56,063 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-21 00:14:56,064 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-21 00:14:56,064 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-21 00:14:56,119 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-21 00:14:56,120 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-21 00:14:56,122 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-21 00:14:56,123 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-21 00:14:56,124 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-21 00:14:56,124 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-21 00:14:56,124 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-21 00:14:56,124 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-21 00:14:56,127 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-21 00:14:56,127 apps    Status: yellow
+INFO 2026-08-21 00:14:56,127 apps    Cluster: docker-cluster
+INFO 2026-08-21 00:14:56,127 apps    Build: default
+INFO 2026-08-21 00:14:56,129 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-21 00:14:56,129 apps    📊 Dokumente: 22
+INFO 2026-08-21 00:14:56,129 apps    📦 Größe: 0.06 MB
+INFO 2026-08-21 00:14:56,129 apps    📝 Felder: 13
+INFO 2026-08-21 00:14:56,130 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-21 00:14:56,145 apps 📊 Synchronisations-Status:
+INFO 2026-08-21 00:14:56,145 apps    🗄️  DB Profile: 1
+INFO 2026-08-21 00:14:56,145 apps    🗄️  DB Versionen: 0
+INFO 2026-08-21 00:14:56,145 apps    🔍 ES Versionen: 22
+INFO 2026-08-21 00:14:56,145 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-21 00:14:56,145 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-21 00:14:56,145 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-21 00:14:56,145 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-21 00:14:56,145 apps    📊 Index: VORHANDEN
+INFO 2026-08-21 00:14:56,145 apps    📈 ES-Dokumente: 22
+INFO 2026-08-21 00:14:56,145 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-21 00:14:56,145 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-21 00:14:56,145 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-21 00:14:56,148 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-21 00:14:56,148 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-21 00:14:56,148 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-21 00:14:56,149 signals ✅ ai_cv_training Signals geladen und bereit
+INFO 2026-08-21 00:14:56,263 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-21 00:14:56,566 db_enricher DBEnricher initialisiert
+INFO 2026-08-21 00:14:56,566 extracted_to_db ✅ ExtractedToDB initialisiert (mit get_or_create)
+INFO 2026-08-21 00:14:56,566 master_json_builder ✅ MasterJsonBuilder initialisiert
+INFO 2026-08-21 00:14:56,567 self_learning_pipeline SelfLearningPipeline initialisiert
+INFO 2026-08-21 00:14:56,567 skill_graph_builder SkillGraphBuilder initialisiert
+INFO 2026-08-21 00:14:56,567 word2vec_matcher ✅ Word2VecMatcher initialisiert
+INFO 2026-08-21 00:14:56,567 word2vec_matcher ✅ Doc2VecMatcher initialisiert
+INFO 2026-08-21 00:14:56,567 search_enricher SearchEnricher initialisiert
+INFO 2026-08-21 00:14:56,690 aid_generator AIDGenerator (LLM-basiert) initialisiert
+INFO 2026-08-21 00:14:56,691 block_labeler BlockLabeler initialisiert
+INFO 2026-08-21 00:14:56,693 pipeline Pipeline initialisiert mit 28 Skill-Kategorien
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+⚠️  Using default ElasticSearch host: http://localhost:9200
+=== AID-Profil Import ===
+Basis:    /mnt/public/Berater/AID_profile (exists=True)
+Limit:    alle
+Letter:   ggg
+Dir:      glas_oliver_fritz
+Dry-run:  False
+Sync:     True
+Skip existing: False
+
+==================================================
+ERGEBNIS nach 0s (0.0 min):
+  Versucht:     0
+  Gestartet:    0
+  Fehler:       0
+  Übersprungen: 0
+  Ohne PDF:     0
+  Outputs:      {letter}/{nachname_vorname}/neu/cv/
+FAIL no neu/cv pdf glas_oliver_fritz after import
+{
+  "ok": 79,
+  "fail": 12,
+  "skip": 2,
+  "limit": 100,
+  "need": "/tmp/gulp-vs-neu-20260820-231458/need_neu_cv_with_fs_dir.tsv",
+  "mem_thresh": 82,
+  "cpu_thresh": 85,
+  "throttle_sleep": 45,
+  "ended": "2026-08-21T00:15:02"
+}
+
+======== FERTIG ok=79 fail=12 skip=2 ========
+Log: /tmp/gulp-batch-20260820-231543/batch.log
+TSV: /tmp/gulp-batch-20260820-231543/result.tsv

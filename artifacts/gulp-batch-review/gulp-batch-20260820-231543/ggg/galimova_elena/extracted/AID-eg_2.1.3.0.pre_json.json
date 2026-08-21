@@ -1,0 +1,1152 @@
+{
+  "metadata": {
+    "aid": "AID-eg_2.1.3.0",
+    "version": "2.1.3.0",
+    "consultant_dir": "galimova_elena",
+    "first_name": "Elena",
+    "last_name": "Galimova",
+    "headline": "Entwicklung für Applikationsserver, SOA (JBOSS, Oracle), Mobile Systeme (Java, C++),Embedded Geräte(C#, C++)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:31:12.869315"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Elena",
+      "last_name": "Galimova",
+      "birth_year": 1960,
+      "languages": [
+        {
+          "name": "Deutsch verhandlungssicher",
+          "level": ""
+        },
+        {
+          "name": "Englisch Grundkenntnisse",
+          "level": ""
+        },
+        {
+          "name": "Lesen und",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (verhandlungssicher)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Grundkenntnisse)",
+          "level": ""
+        },
+        {
+          "name": "Russisch (Muttersprache)",
+          "level": ""
+        }
+      ],
+      "availability": "12.01.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "840xx Ergoldsbach, Deutschland",
+      "location": "840xx Ergoldsbach, Deutschland",
+      "headline": "Entwicklung für Applikationsserver, SOA (JBOSS, Oracle), Mobile Systeme (Java, C++),Embedded Geräte(C#, C++)",
+      "edv_experience_since": 2007
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "BTrieve",
+        "MS SQL Server 5",
+        "Microsoft SQL Server Compact",
+        "MySQL 5",
+        "Oracle Oracle 9",
+        "10",
+        "11",
+        "SQL SQL II",
+        "PL/SQL",
+        "SQLite"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Datenerfassungsterminals Symbol",
+        "Handheld Products",
+        "Telxon",
+        "Emulatoren Mobiles",
+        "Smartphones",
+        "Hardware entwickelt Digitale Schaltungen"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Dos",
+        "PalmOS 3.x",
+        "4.x",
+        "5.x",
+        "Unix Linux",
+        "AIX",
+        "Android",
+        "Windows NT 4.0",
+        "2000",
+        "XP",
+        "Windows Vista",
+        "Windows 7",
+        "Windows CE Pocket PC",
+        "Windows Mobile",
+        "3.0-6.0"
+      ],
+      "programming_languages": [
+        "ABAP4 Gute Kenntnisse",
+        "C# Sehr gute Kenntnisse",
+        "C++ Sehr gute Kenntnisse",
+        "CodeWarrior Palm",
+        "Java Java 1.3-1.6",
+        "J2ME",
+        "J2EE",
+        "J2SDK",
+        "Swing",
+        "AWT",
+        "WTK",
+        "JSF",
+        "JSP",
+        "JavaScript Sehr gute Kenntnisse",
+        "Perl Gute Kenntnisse",
+        "PL/SQL Sehr gute Kenntnisse",
+        "Qt",
+        "Hibernate",
+        "Beans (Managed",
+        "POJO",
+        "...)"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "01/2014",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Anwendungsentwickler/in ABAP mit SAP Netweaver 7.0",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Abschluss: \"SAP Certified Development Associate - ABAP with SAP NetWeaver",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "7.0\"",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "SAP Certified Development Associate - ABAP with SAP NetWeaver 7.0",
+        "issuer": "SAP",
+        "date_obtained": "01/2014",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "2018-2017",
+        "title": "Java-Backend-Entwicklung",
+        "activities": [
+          "Branche: Versicherung",
+          "Einsatz",
+          "Programmierung, Entwicklung, Konzept, Tests, Dokumentation",
+          "Zielplattform",
+          "Pivotal Cloud Foundry",
+          "Umfang",
+          "Erstellung der Interfaces entsprechend WSDLs, SOAP, REST Schnittstellen, Apache CXF, Spring",
+          "Framework, Refactoring, Cloud Programmierung, Unterstützung vom Server Migration, Erstellung von Unittests, Tests mit SoapUI und Postman."
+        ]
+      },
+      {
+        "period": "2011 – 2012",
+        "title": "Entwicklung von Programmen für Nautopilot 5000.",
+        "activities": [
+          "Branche: Marine Navigation",
+          "Einsatz",
+          "Programmierung, Entwicklung, Konzept, Fehleranalyse, Tests",
+          "Zielplattform",
+          "Nautopilot 5000",
+          "Umfang",
+          "Erstellung von Dialogen zur Anzeige und Verarbeitung von Daten auf einem Embedded Device in einem Multithreaded-Umfeld.Konfiguration von und Entwicklung mit Qt unter MCVS 2005."
+        ],
+        "industry": "Marine Navigation",
+        "technologies": [
+          "Nautopilot 5000",
+          "Qt",
+          "MCVS 2005"
+        ]
+      },
+      {
+        "period": "2010 – 2011",
+        "title": "Erstellung von Enterprise Service Bus Projekten mit BPEL.",
+        "activities": [
+          "Branche: Sozialversicherung",
+          "Einsatz",
+          "Spezifikation, Programmierung, Tests.",
+          "Zielplattform",
+          "Oracle SOA Suite 10.1.3.5",
+          "Umfang",
+          "Erstellung der Interfaces entsprechend WSDLs. Zwischenspeicherung der Daten.",
+          "Erstellung von Tests mit der Testsuite Programmiersprache",
+          "Webservice, WSDL, BPEL, Java/Java SE (J2EE),PL/SQL"
+        ],
+        "industry": "Sozialversicherung",
+        "technologies": [
+          "Oracle SOA Suite 10.1.3.5",
+          "Webservice",
+          "WSDL",
+          "BPEL",
+          "Java",
+          "Java SE (J2EE)",
+          "PL/SQL"
+        ]
+      },
+      {
+        "period": "2009 – 2010",
+        "title": "Erstellung eines JBoss Portlet Portals als Default Portlet Handler für diverse Portlets.",
+        "activities": [
+          "Branche: Sozialversicherung",
+          "Einsatz",
+          "Konzeption, Software Konfiguration, Programmierung, Tests",
+          "Zielplattform",
+          "JBoss Portlet 2.7.1",
+          "Umfang",
+          "Erstellung des Basisportals als JBoss default Portal. Header zum Verwalten und Steuern der Portlets. Diverse Portlets."
+        ],
+        "industry": "Sozialversicherung",
+        "technologies": [
+          "JBoss Portlet 2.7.1"
+        ]
+      },
+      {
+        "period": "2007 – 2008",
+        "title": "Auftragsabwicklung für Mobiltelefone und PDA.",
+        "technologies": [
+          "Windows CE 3",
+          "4 (Pocket PC",
+          "Windows Mobile)",
+          "Java SE (J2ME)",
+          "C++",
+          "Windows CE 4"
+        ],
+        "activities": [
+          "Einsatz",
+          "Programmierung, Testpläne, Test, Design von Komponenten",
+          "Zielplattform",
+          "Mobiltelefone (Sony Ericsson, Nokia, Siemens) / PDA",
+          "Umfang",
+          "Ablaufdialoge, Maskenerstellung, Datenbehandlung, Datenkommunikation",
+          "Java /Java SE (J2ME) / C++"
+        ]
+      }
+    ],
+    "industries": [
+      "Marine Navigation",
+      "Sozialversicherung",
+      "IT-Service",
+      "Medizintechnik",
+      "Transport & Logistik",
+      "Bauindustrie",
+      "Servicemanagement",
+      "Post-Umfeld"
+    ],
+    "focus_areas": [
+      "Entwicklung für Applikationsserver",
+      "SOA (JBOSS",
+      "Oracle)",
+      "Mobile Systeme (Java",
+      "C++)",
+      "Embedded Geräte(C#",
+      "Software-Entwicklung / Programmierung",
+      "Softwareentwicklung, Fehleranalyse, Tests Seit 23 Jahren professionelle Softwareentwicklung bei vielfältigen Aufgabestellungen.",
+      "Studium der Elektrotechnik",
+      "Abschluss: Dipl.-Ing. (FH)",
+      "SOA (JBOSS, Oracle)",
+      "Mobile Systeme (Java, C++)",
+      "Embedded Geräte (C#, C++)",
+      "Softwareentwicklung, Fehleranalyse, Tests"
+    ],
+    "focus_experience": [
+      {
+        "name": "Systemarchitektur",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Konzeption OOD",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "ARIS",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Multithreading- und Multiprozess-Systeme",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Wiederverwendbarer Code",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Reale Trennung von Oberfläche",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Daten und",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Kommunikation",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Standardisierung der Entwicklung und der Codierung. Integration",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "externer Komponenten wie GPS-Receiver",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Elektronikkomponenten",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Signalgeber",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Barcodescanner",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Mobiltelefone",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Drucker",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Mobiles /Desktop",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Trennung von Darstellung",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Daten und Kommunikation. Kommunikationssysteme",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Spezifikation interner Schnittstellen. Wiederverwendbare Module. Verwendung",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "von",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Standards. Erstellung von Bibliotheken und API's. Steuerung von",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "Hardwarekomponenten.",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Technologien für mobile Geräte",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": ".NET Compact",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Java2ME",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Windows Forms",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Windows API",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "STL",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Palm API",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "diverse",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "proprietäre APIs",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Technologien für Web und Middleware",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "J2EE",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Faclets",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Portlets",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "JSF SAP",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "JSON",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Apache CXF",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Applikation Server",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "JBoss AS",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "WebLogic Server",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Entwicklungswerkzeuge",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "Netbeans",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "JDeveloper",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "SQLDeveloper",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Microsoft (.NET",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Visual Studio)",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "Metrowerks CodeWarrior",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Protokolle / Kommunikation",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "TCP/IP",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "socket",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "HTTP / HTTPS",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "WAP",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "SMTP",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "POP3",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "FTP",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "GPRS",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "UMTS",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "GSM/DATA",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "(V110)",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "SMS",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "GPS",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Bluetooth",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "IRDA",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Modems (AT-Befehle)",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "RS232/V24",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Konfigurationsmanagement",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Subversion",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Team Foundation Server 2010",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Visual SourceSafe",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Kontinuierliche Integration",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Cloud Foundry",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Pivotal",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Programmierparadigma",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Fehlerverwaltung",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Bugzilla",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "UML-Werkzeug",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Innovator",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Office",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "Word",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "OpenOffice",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "Excel",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Mobile Geräte",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "Industriegeräte/ ruggedized devices",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Z.B.: Nautopilot 5000",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Symbol",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Handheld Products",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Honeywell",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Intermec (Norand)",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Telxon",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Tablet PC",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Staplerterminals",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Motorola",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "Consumer devices/ PDA",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Samsung Galaxy",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "HPC",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "T-Mobile",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Palm",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Handspring",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Sony",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Mobiltelephone",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Siemens",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "SonyEricsson",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Nokia",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "htc",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "=================================================",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "==============================",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Berufserfahrung",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "Seit 2006",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "Deutschland",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Freiberuflerin als Softwareentwicklerin.",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "Entwicklung von Programmen im den Bereichen Transportlogistik",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "Marine",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "Navigation",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Sozialversicherung",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "Lagerlogistik",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "Zeiterfassung",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "Post- Umfeld",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "Gastronomie",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "1999 - 2005",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "Festangestellte Softwareentwicklerin.",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "Entwicklung von Standardprogrammen sowie kundenspezifische Applikationen im",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "den",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "Bereichen Logistik",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Servicemanagement und Zeiterfassung",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "Der Schwerpunkt der Arbeit lag bei der Softwareentwicklung für mobile",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "Endgeräte.",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "1998",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "Entwicklung von Programmen für Krankenkassen.",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "1982 - 1994",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "St.Petersburg",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "Elektronikingenieurin.",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "Entwicklung von Hardwarekomponenten und Software.",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "GPS-Receiver",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "SAP",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "Microsoft (.NET, Visual Studio)",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "GSM/DATA (V110)",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "Nautopilot 5000",
+        "category": "product_standard",
+        "sort_order": 152
+      }
+    ],
+    "education": [
+      {
+        "degree": "Dipl.-Ing. (FH) Elektrotechnik",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet SOAP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RMI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Packet-Radio GPRS",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "802.11",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "W-Lan",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Proprietäre ProtokolleBluetooth",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "IRDA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SOAP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:31:12.869329",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "ZERTIFIKATE",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2007"
+      ],
+      "coverage_percent": 89.77900552486187,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

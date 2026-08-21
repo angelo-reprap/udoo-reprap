@@ -1,0 +1,2053 @@
+{
+  "metadata": {
+    "aid": "AID-og_2.3.2.0",
+    "version": "2.3.2.0",
+    "consultant_dir": "glas_oliver_fritz",
+    "first_name": "Oliver Fritz",
+    "last_name": "Glas",
+    "headline": "Java Software engineer and architect for OAS3, REST API, microservices, Spring Boot and Golang",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-21T11:06:17.940931"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Oliver Fritz",
+      "last_name": "Glas",
+      "birth_year": 1968,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch fließend",
+          "level": ""
+        },
+        {
+          "name": "FranzösischGrundkenntnisse",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (fließend)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (Grundkenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "13.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "wohnort": "805x Zürich, Schweiz",
+      "location": "805x Zürich, Schweiz",
+      "headline": "Java Software engineer and architect for OAS3, REST API, microservices, Spring Boot and Golang",
+      "edv_experience_since": 2003
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access Gute Kenntnisse",
+        "Apache Derby Guten Kenntnissem Projekterfahrungen",
+        "Google Cloud Datastore",
+        "Google Cloud Firestore",
+        "Java DB (HSQLDB)",
+        "JDBC",
+        "MS SQL Server Gute Kenntnisse",
+        "MySQL",
+        "ODBC",
+        "Oracle Gute Kenntnisse",
+        "DBA Projekterfahrungen",
+        "Oracle DB",
+        "SQL Gute Kenntnisse",
+        "Elasticsearch",
+        "PostgreSQL. Messaging",
+        "Data streaming Data-Streaming mit",
+        "Apache Kafka (Producer & Consumer API) Entwicklung eines Java Kafka Clients",
+        "Modellierung und Deserialisierung von Kafka-Nachrichten. DevOps Erstellen von",
+        "Dockerfiles für die Erstellung von Docker Images. Kubernetes-Konfiguration mit",
+        "Helm. Jenkins-Bereitstellung in Azure Kubernetes (AKS). Migration einiger Jenkins-",
+        "Aufgaben zu Azure DevOps. Entwickeln Sie eine CD-Pipeline in Azure DevOps",
+        "um",
+        "die Spring Boot-Anwendung automatisch in Azure App Service und Azure",
+        "Kubernetes Service (AKS) bereitzustellen. Entwicklung mit Tilt",
+        "Docker und",
+        "Minikube (Kubernetes). Frontend Entwicklung von Frontend-Funktionen mit",
+        "Angular (10) und Typescript. Verwendung von Angular Reactive Forms für",
+        "dynamische Datenbindung und Formularvalidierung. Client-seitige",
+        "Fehlerbehandlung",
+        "die die allgemeine Benutzerfreundlichkeit und Datenintegrität",
+        "verbessert. Angular Material-Komponenten und benutzerdefiniertes SCSS für",
+        "visuell ansprechende",
+        "konsistente und reaktionsfähige Benutzeroberflächen",
+        "die",
+        "sich an verschiedene Geräte und Bildschirmgrößen anpassen. Erstellung neuer",
+        "Angular Seiten für Kundenfeedback. Konfiguration für Keycloak (Clients",
+        "Clientscope). Integration der Authentifizierung mit OAuth2",
+        "JWT. Python Skripting",
+        "Python Clients für REST API (Elasticsearch). Soziales Agile Entwicklung mit Scrum",
+        "Pair programming"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "AIX",
+        "BEA Weblogic Server",
+        "Google Cloud",
+        "HPUX",
+        "Linux Red Hat",
+        "Linux RedHat LPIC-1",
+        "Microsoft MCP Windows2000 Server und WS NT 4.0",
+        "MS-DOS",
+        "MVS",
+        "OS/390",
+        "Novell CNE",
+        "NetWare 4.11",
+        "OS/2",
+        "SUN OS",
+        "Solaris",
+        "Unix",
+        "Unix/Linux",
+        "Windows Server 2000",
+        "2003",
+        "2008",
+        "2012",
+        "2012 R2",
+        "Windows Server 2012 R2"
+      ],
+      "programming_languages": [
+        "Angular",
+        "Angular JS",
+        "Assembler Grundkenntnisse",
+        "C Gute Grundkenntnisse",
+        "C++ Gute Grundkenntnisse",
+        "Content Repository API for Java",
+        "Technology",
+        "Excel-VBA",
+        "Go Experte",
+        "Projekterfahrung",
+        "Java Experte",
+        "umfangreiche Projekterfahrung",
+        "Java API for REST Services",
+        "Java spring Boot",
+        "Java 1.6",
+        "Java 1.7",
+        "Java 1.8",
+        "Java 8",
+        "JavaScript Experte",
+        "JEE",
+        "JSON",
+        "J2EE",
+        "Linux Shell",
+        "Linux Shell Scripting",
+        "Oracle/SQL",
+        "Perl Gute Kenntnisse",
+        "Projekterfahrungen",
+        "PHP Gute Kenntnisse",
+        "PL/SQL Grundkenntnisse",
+        "Scala",
+        "Shell Unix Shell",
+        "Powershell",
+        "Umfangreiche",
+        "TypeScript",
+        "VBA",
+        "VBS",
+        "VB Umfangreiche Projektkenntnisse",
+        "VBScript",
+        "Windows Powershell"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "2022-07 - 2023-01",
+        "title": "Microservice Entwicklung, Bern",
+        "role": "Spring Boot, Golang Entwickler",
+        "technologies": [
+          "Golang",
+          "Openapi",
+          "JavaScript",
+          "XML Schema",
+          "GORM",
+          "OAS3",
+          "Asciidoc",
+          "Data"
+        ],
+        "activities": [
+          "Entwicklung und Anpassung von Golang Microservices.",
+          "Bugfixing.",
+          "Senden und Empfangen von Messages mit RabbitMQ.",
+          "Auswertung von Nachrichten mit Implementierung der Businesslogik (JSON, XML).",
+          "QA Tests mit Postman Collections zur Validierung vom Message Schema",
+          "(XSD).",
+          "Technische Dokumentation (OpenAPI, Confluence, Asciidoc, DTCW).",
+          "Perfomanceprüfung der SQLs, die durch GORM generiert werden."
+        ]
+      },
+      {
+        "period": "2022-03 - 2022-06",
+        "company": "Regierungsbehörden",
+        "title": "Mehrere Teilzeitprojekte mit Spring und API Design, Bern, Köln",
+        "role": "Java & Python & Golang Microservice Entwickler, DevOps",
+        "technologies": [
+          "Golang 1.16",
+          "Gin Webserver",
+          "Java 11",
+          "Java Spring Boot 2.58",
+          "OAS3"
+        ],
+        "activities": [
+          "Spring Boot, API Design",
+          "Spring Boot mit API First und OpenAPI.",
+          "Validierung von Buchungen.",
+          "Integrationtest mit Karate und Idaithalam (BDD).",
+          "Authentifizierung mit JWT Token in Go.",
+          "Frontend mit Angular.",
+          "Einbindung Kafka Client in Spring.",
+          "Kafka Consumer Konfiguration."
+        ]
+      },
+      {
+        "period": "2021-08 - 2022-03",
+        "company": "Dr. Gueldener Gruppe",
+        "title": "Kundenportal, Full Stack, REST API Webservice, Remote",
+        "role": "Entwickler, DevOps",
+        "technologies": [
+          "Java 8",
+          "11",
+          "17",
+          "Java Spring Boot 1.5.9/2.58",
+          "Swagger",
+          "OAS3",
+          "OpenAPI"
+        ],
+        "activities": [
+          "Spring Boot Microservice Entwicklung.",
+          "Java Deployment mit Jenkins.",
+          "Entwicklung OpenAPI Spezifikationen.",
+          "Erstellung und Testen der Spring Dockerfiles.",
+          "Bau der Docker Images.",
+          "Jenkins Deployment.",
+          "Lokale Entwicklung mit Tilt, Docker und Minikube (Kubernetes).",
+          "Upgrade Spring Boot von 1.59 auf 2.58."
+        ]
+      },
+      {
+        "period": "2021-01 - 2021-06",
+        "company": "AXA Winterthur",
+        "title": "Entwicklung Spring API Backend, Winterthur",
+        "role": "Java Webservice Entwickler, API Design",
+        "technologies": [
+          "Spring Boot",
+          "API First",
+          "REST API",
+          "Kafka",
+          "Hibernate",
+          "AWS",
+          "Wiremock"
+        ],
+        "activities": [
+          "Entwicklung Spring Boot mit API First Prinzip.",
+          "Entwicklung der REST API Services für das IdentityAccess",
+          "Management (IAM).",
+          "Erstellung der API Spezifikation für Microservices mit OAS3.",
+          "API First Prinzip mit Openapi-Tools als Maven Plugin.",
+          "Erstellung automatisierter Tests mit Idaithalam",
+          "Testautomatisierung mit JUnit 5 und Mockito.",
+          "Systemtests mit Wiremock."
+        ]
+      },
+      {
+        "period": "2020-01 - 2023-01",
+        "company": "Public",
+        "title": "Opensource Projekte 1 Monat, Opensource",
+        "role": "Java, Testautomatisierung, API Entwickler",
+        "technologies": [
+          "OpenAPI",
+          "Postman",
+          "Newman CLI",
+          "Idaithalam",
+          "Docker",
+          "Jenkins"
+        ],
+        "activities": [
+          "Opensource Projekt: QA Automatisierung, OpenAPI, API First",
+          "Automatisierung von REST API Tests mit API First (OpenAPI).",
+          "Auswertung und prozessierung von Postman Collections.",
+          "Automatisierung mit Postman CLI (Newman).",
+          "Anpassungen und Bugfixing von Idaithalam.",
+          "Erstellung einer Serverversion von Idaithalam.",
+          "Erstellung einer Library zum Generieren von OAS3 Dokumenten.",
+          "OAS3 Generierung mit Yaml Properties oder Exceldaten."
+        ]
+      },
+      {
+        "period": "2020-06 - 2020-12",
+        "company": "Landesbank BW",
+        "title": "REST API Directory (API Portal), Stuttgart",
+        "role": "Full-Stack Entwickler",
+        "technologies": [
+          "Java 8",
+          "Java 11",
+          "Java Spring Boot",
+          "Camunda IBM Workflows",
+          "APIOMAT",
+          "Jenkins (Groovy)",
+          "Apache Kafka",
+          "JIRA",
+          "Oracle DB",
+          "Linux RedHat",
+          "DevOps"
+        ],
+        "activities": [
+          "Entwicklung REST API Directory, API Management mit APIOMAT.",
+          "Frontend Angular 7 Entwicklung mit Typescript.",
+          "Anbindung Angular an LDAP Benutzerverwaltung.",
+          "Validierung von REST API Spezifikationen nach OAS 3.0.2 und Swagger.",
+          "Bearbeitung der API Spezifikationen mit Swagger Editor und Swaggerhub.",
+          "Automatisierung von Java Spring Boot Server Stubs mit Openapi",
+          "Generator gemäss OAS 3.0.0.",
+          "Anpassung und Entwicklung eines neuen Generators für Openapitools (Java Opensource)."
+        ]
+      },
+      {
+        "period": "2019-06 - 2020-06",
+        "company": "HCOB",
+        "title": "ARCHITEKTUR, TRANSITION MANAGEMENT 1 Monat, Kiel",
+        "role": "IT Architektur, Full Stack Development",
+        "technologies": [
+          "Java 8",
+          "SAP",
+          "Camunda",
+          "IBM Workflows",
+          "REST API",
+          "Oracle DB",
+          "JDBC",
+          "Java"
+        ],
+        "activities": [
+          "Transition Projekt, IT Architektur",
+          "Übernahme (Outsourcing) von Anwendungen.",
+          "HR Unterstützung, Rekrutierung und Betreuung neuer Mitarbeiter",
+          "Entwicklung und Administration von Java Anwendungen mit SAP",
+          "Schnittstellen zu SAP DM, CML, BA und BW.",
+          "Auswertung und Weiterverarbeitung von SAP Export (sRDI, XML)",
+          "Daten.",
+          "Weiterentwicklung der Banken Software mit Multi Threading und Java 8 Streams zur Perfomanceverbesserung."
+        ]
+      },
+      {
+        "period": "2019-10 - 2020-01",
+        "company": "Clive",
+        "title": "DEVOPS ENTWICKLUNG, DOCKER GOLANG, Remote",
+        "technologies": [
+          "Golang",
+          "Docker",
+          "Angular JS",
+          "Node.js",
+          "AWS Amazon Cloud",
+          "REST",
+          "API",
+          "Linux",
+          "Webtechnologien"
+        ],
+        "activities": [
+          "Clive Software, Angular JS, Docker Entwicklung & DevOps für Portainer",
+          "Anpassung von Portainer (portainer.io) zur Steuerung",
+          "(Dashboard) von Docker Containern.",
+          "Web Frontend mit Angular (Components, Web Services).",
+          "Kommunikation von Angular mit REST API Calls zum Backend mit Golang Microservices.",
+          "Erstellung von Docker Dateien für Docker Images.",
+          "Administration von Docker Containern.",
+          "Erstellen (Build) von Docker Images (AWS EKS)."
+        ]
+      },
+      {
+        "period": "2019-04 - 2019-05",
+        "company": "Energy From Waste",
+        "title": "JAVA ARCHITEKTUR ANALYSE",
+        "technologies": [
+          "Windows 10",
+          "Java 8 JVM",
+          "Java 7 JVM",
+          "Teamviewer",
+          "Tras",
+          "eDoc"
+        ],
+        "activities": [
+          "Java JVM Analyse",
+          "Analyse der Enterprise Java Architektur.",
+          "Erstellung einer technischen Dokumentation mit Darstellung der verschiedenen Probleme.",
+          "Analyse der von Support Tickets in Hinblick auf Java.",
+          "Analyse der Java Speicherverwaltung (Garbage Collector).",
+          "Analyse der Unterschiede der JVM Versionen, sowohl von der Version (7 & 8) als auch hinsichtlich Client - Server Modus.",
+          "Remote Analyse der Windows Clients mit Teamviewer.",
+          "Ausarbeitung und Präsentierung von Lösungsmöglichkeiten."
+        ],
+        "role": "JAVA ARCHITEKTUR ANALYSE"
+      },
+      {
+        "period": "2018-11 - 2019-03",
+        "company": "MediaMarktSaturn",
+        "title": "JAVA SPRING BOOT ENTWICKLUNG, REST API, CLOUD, München",
+        "role": "Java & Cloud Architekt",
+        "technologies": [
+          "Windows",
+          "Google Cloud",
+          "Java Spring Boot",
+          "API First",
+          "OAS3",
+          "Swagger"
+        ],
+        "activities": [
+          "Java REST API Architektur und Entwicklung",
+          "Erstellung von REST API Guidelines als Programmier-Richtlinien für Entwickler.",
+          "Spezifizierung einer REST API mit Swaggerhub nach OAS2",
+          "Standard.",
+          "Entwicklung von Java Microservices zur Verarbeitung von JSON",
+          "Objekten, Validierung der Objekte und Schicken von JSON",
+          "Responseobjekten.",
+          "Entwicklung nach API First, BDD, TDD."
+        ]
+      },
+      {
+        "period": "2018-09 - 2018-11",
+        "company": "Versicherung",
+        "title": "JAVA FRONTEND ENTWICKLUNG, Zurich",
+        "role": "Java / Go Entwickler, Teamleiter",
+        "technologies": [
+          "Windows",
+          "Java 8",
+          "Spring",
+          "Maven",
+          "Git",
+          "H2 database",
+          "Angular"
+        ],
+        "activities": [
+          "Java Spring MVC Entwicklung (Eclipse, Git und Maven).",
+          "Teamleitung und Verteilung von Arbeitsaufgaben.",
+          "Organisation von Teambesprechungen.",
+          "Architekturplanung und Unterstützung der Implementierung. Entwicklung einer H2 in-Memory Datenbank",
+          "Entwicklung von Frontend Komponenten mit Angular 5, CSS",
+          "Agile Entwicklung mit Scrum."
+        ]
+      },
+      {
+        "period": "2017-06 - 2018-08",
+        "company": "Dresdner Bank",
+        "title": "JAVA REPOSITORY MIGRATION 3 Monate, Zürich",
+        "role": "Teilprojektleiter",
+        "technologies": [
+          "Windows",
+          "Linux",
+          "Java",
+          "Active Directory",
+          "Cloud",
+          "Service",
+          "Virtualisierung"
+        ],
+        "activities": [
+          "Java IT Architektur",
+          "Migration von Java Repository (Projektverwaltung) und Elias",
+          "(Java Schwachstellen Monitoring) von einer AD Domain zu einer anderen AD Domain.",
+          "Entwicklung einer Benutzerabfrage mit Java über AD.",
+          "Planung, Organisation, Führung externer Arbeitskräfte,",
+          "Erstellung der Migrationsdokumentation sowie Installation und Konfiguration.",
+          "Erstellung von Powershell Scripten für Überprüfung von AD Usern, sowie der betroffenen Java Projekte.",
+          "Architektur Planung und Organisation der Einführung neuer",
+          "Anwendungen. Insbesondere FileCloud, Service Virtualisierung,"
+        ]
+      },
+      {
+        "period": "2017-02 - 2017-06",
+        "company": "Bahn",
+        "title": "JAVA SPRING AUF GOOGLE CLOUD, Zürich",
+        "role": "Planung und Entwicklung mit Java / J2EE / REST API",
+        "technologies": [
+          "VBA",
+          "Cloud Datastore Excel Addin",
+          "Custom UI Editor",
+          "GCP",
+          "REST API",
+          "Java Spring"
+        ],
+        "activities": [
+          "Entwicklung eines REST API Java Backend.",
+          "Datenbank auf Cloud mit Datastore und JPA.",
+          "Frontend mit Angular 5 (Typescript, CSS, HTML).",
+          "Entwicklung der REST API Schnittstelle von Excel zu Java mit http POST.",
+          "Entwicklung von einem Excel Addin für die Erfassung von Arbeitszeiten.",
+          "Berechnung von Tarif Zuschlägen, Spesen, Ferien- Abwesenheiten,",
+          "Fehltage, Sonderzulagen usw.",
+          "Unterstützung mit Google Cloud zur Datenspeicherung (REST API mit Java Backend).",
+          "Remote Datenverarbeitung mit J2EE und Cloud"
+        ]
+      },
+      {
+        "period": "2016-05 - 2016-12",
+        "company": "Credit Suisse",
+        "title": "ENTWICKLUNG JAVA / VBA, Zürich",
+        "role": "Datenmigration, Tool Entwicklung",
+        "technologies": [
+          "Java",
+          "VBA Excel 2010",
+          "VBS",
+          "Custom UI Editor",
+          "Client",
+          "Windows Server 2012",
+          "JIRA"
+        ],
+        "activities": [
+          "Entwicklung von Migrations Tools und Automatisierung für Bank Migration und Testmanagement",
+          "Entwicklung von Tools zur automatisierten Datenauswertung von Bank Anwendungen (TDC, Finacle Treasury, Front Arena).",
+          "Entwicklung von API Schnittstellen mit Java und VBA",
+          "(Datenexport).",
+          "Entwicklung von automatisch erstellten Reports für Migration von Bank SSI.",
+          "Automatisierte Auswertung von Murex Daten zur möglichen manuellen Nachbearbeitung.",
+          "Aktive Mitarbeit im Testteam zur Unterstützung der Automatisierung von Reports.",
+          "Aufbau von Windows Servern mit FTP Server für Datentransfer."
+        ]
+      },
+      {
+        "period": "2014-03 - 2016-03",
+        "company": "Bank (Credit Suisse)",
+        "title": "Java Application Plattform Management 1 Monat, Zürich",
+        "role": "DevOps Linux / Java",
+        "technologies": [
+          "Java",
+          "J2EE",
+          "Java DB (HSQLDB)",
+          "JSF",
+          "Angular JS",
+          "JSON",
+          "BEA",
+          "Weblogic",
+          "Apache Velocity",
+          "JIRA",
+          "Confluence",
+          "Linux Red Hat",
+          "Linux Shell Scripting"
+        ],
+        "activities": [
+          "Betreuung einer standardisierten Java Plattform für mehrere hundert Java Enterprise Anwendungen.",
+          "DevOps Tätigkeiten, Deployment Überwachung und Troubleshooting,",
+          "Automatisierung von Builds mit Teamcity.",
+          "Programmmierung von Datenimporten für eine Web GUI (JSF,",
+          "Javascript AngularJS) mit Datenanalyse und Reporterstellung mit Design Pattern MVC (Model View Controler).",
+          "Transformierung und Zusammeführung von Exceldaten in eine Java Datenbank unter Verwendung von Apache Metamodel mit Joins über mehrere Exceldateien.",
+          "Java Sourcecode Reviews zur Perfomanceverbesserung, Vermeidung von Memory Leaks und Problembehebung von JVM Problemen.",
+          "Optimierung von JVM Parametern für Memory und Perfomance."
+        ]
+      },
+      {
+        "period": "2013-10 - 2013-12",
+        "title": "Javascript Schnittstellen Programmierung mit Siebel EAI, Frankfurt",
+        "role": "Javascript Entwickler mit Siebel EAI",
+        "technologies": [
+          "Javascript",
+          "XML",
+          "XSLT",
+          "Java 1.7",
+          "Siebel EAI",
+          "IBM MQ"
+        ],
+        "activities": [
+          "Siebel EAI Intergration Component Anpassungen.",
+          "CRM Desktop Formulardaten customizing. Behebung der Synchronisierungsfehler mit Siebel EAI. XML bearbeitung,",
+          "Anpassen der Javascript Business Logik.",
+          "Deployment und publizieren der XML Dateien.",
+          "Import der XML Daten mit Entwicklung eines MQ Client in Java für Siebel EAI."
+        ]
+      },
+      {
+        "period": "2013-08 - 2013-09",
+        "company": "Finanzdienstleistung",
+        "title": "Java Entwicklung für Siebel Migration, Zug",
+        "role": "Java Entwickler",
+        "technologies": [
+          "Java 1.6",
+          "JSF (Primefaces)",
+          "HTML",
+          "CSS",
+          "Javascript",
+          "JDBC",
+          "Hibernate",
+          "MS"
+        ],
+        "activities": [
+          "Erstellung eines Frontend mit Java JSF (Primefaces) im MVC",
+          "Design.",
+          "Dateneingabe über Webgui, Eintragen von Daten für die Projektplanung.",
+          "Administration von Infrastruktur. Datenanbindung über JDBC und Hibernate mit einer MS SQL Server Datenbank.",
+          "Benutzerverwaltung mit LDAP und Spring Security.",
+          "Unterstützung der Migrationaufgaben von Siebel 8.1.1.7 auf 8.1.1.11.",
+          "Entwicklung einer Automatisierung des IRM (Incremental",
+          "Repository Merge), upgrade der Binaries auf 8.1.1.11.",
+          "Datenbankuprade auf 8.1.1.11. Compile des neuen SRF, Deployment auf andere Umgebungen."
+        ]
+      },
+      {
+        "period": "2010-09 - 2013-07",
+        "company": "Finanzen, Bank",
+        "title": "Java / J2EE Entwicklung, System Mangement 11 Monate, Zürich",
+        "role": "Java Entwickler",
+        "technologies": [
+          "Windows (2003",
+          "2008)",
+          "AIX",
+          "Linux Red Hat",
+          "Java 1.6",
+          "JEE",
+          "JSF",
+          "HTML",
+          "CSS",
+          "Javascript",
+          "Perl",
+          "Linux Shell",
+          "Windows Powershell",
+          "Windows"
+        ],
+        "activities": [
+          "Administration von Siebel 8.0 und 8.1: Installation,",
+          "Konfiguration, Deployment auf AIX.",
+          "Automatisierung der Siebel installation (silent install) inkl.",
+          "Konfiguration für verteilte Umgebungen.",
+          "Datenbank Migration von Siebel 8.0.0.9 auf 8.1.1.10. Upgrade der Software auf Siebel 8.1.1.10.",
+          "Konfiguration und installation von Siebel Monitoring Systemen.",
+          "Oracle Datenbank: export und import von Datenbanken, SQL, OEM, performance Anpassungen.",
+          "Produktmanagement nach Scrum."
+        ]
+      },
+      {
+        "period": "2010-02 - 2010-09",
+        "company": "Telekommunikation (Telekom Deutschland)",
+        "title": "Entwicklung Java für Monitoring, Siebel Administration",
+        "activities": [
+          "Betrieb von Siebel, Erstellung und Lösung von Troubletickets.",
+          "Problem Analysen.",
+          "Deployments mit ADM u.a.",
+          "Aufbau einer Testumgebung mit Siebel und Nagios (Monitoring inkl. grafischer Darstellung für Performance Analysen).",
+          "Weiterentwicklung des Nagios Plugin mit Java.",
+          "Konfiguration und Erweiterung des Loadbalancing mit Resonate.",
+          "Installation und Administration Resonate.",
+          "BEA Weblogic Server Administration."
+        ]
+      },
+      {
+        "period": "2009-02 - 2009-11",
+        "company": "Pharmazie (Boehringer)",
+        "title": "Portalbetrieb (Java), Siebel EAI Entwicklung, Oracle DBA",
+        "technologies": [
+          "Linux Enterprise Red Hat",
+          "Windows2003",
+          "Windows2008",
+          "Oracle",
+          "9i"
+        ],
+        "activities": [
+          "Architekturberatung, Infrastrukturplanung, Implementierung",
+          "Siebel Enterprise.",
+          "Konzepterstellung der Migration von Siebel Enterprise auf eine verteilte und multilinguale Umgebung.",
+          "Installation und Konfiguration der neuen Siebel Enterprise",
+          "Umgebungen in einer zentralen Lokation, mit den Versionen Siebel 7.8 und Siebel 8.1.",
+          "Konzept für Siebel Anwendungsmonitoring",
+          "Siebel Remote Konfigurationsoptimierung für Remoteclients mit verteilten Daten, Troubleshooting, automatisierte Migration der Siebel Clients.",
+          "Oracle DBA: Datenbankadministration, Datenexport / import,"
+        ]
+      },
+      {
+        "period": "2007-02 - 2008-12",
+        "company": "Telekommunikation (Telekom Deutschland), IBM",
+        "title": "Java Entwicklung mit Siebel EAI 11 Monate",
+        "technologies": [
+          "AIX",
+          "Siebel 7.8.2.5",
+          "Nagios",
+          "Tomcat",
+          "JBOSS",
+          "Ajax",
+          "Siebel EAI",
+          "MQSeries"
+        ],
+        "activities": [
+          "Entwicklung einer Siebel EAI Schnittstelle mit Web GUI für die Automatisierung von Siebel Benutzerdaten Export / Import zwischen verschiedenen Siebel Enterprise Umgebungen.",
+          "Entwicklung eines MQ client mit Java für Siebel EAI,",
+          "Integration Components, Datamapping, Java Data Bean.",
+          "Siebel Tools für Anpassungen an Siebel Applets und Views.",
+          "Web GUI mit Java Servlet, JSP, Tomcat, JDBC, JDOM XML, IBM",
+          "Websphere MQ, Ajax.",
+          "Weiterentwicklung des Siebel Monitoringsystems (Nagios).",
+          "Entwicklung einer weiteren Web 2.0 Anwendung (J2EE, Hibernate,"
+        ]
+      },
+      {
+        "period": "2005-11 - 2006-12",
+        "company": "Systemhaus, Energie (RWE)",
+        "title": "Perl Entwicklung Monitoring, Implementierung 2 Monate",
+        "technologies": [
+          "Solaris",
+          "Siebel 7.8.2.3",
+          "Nagios",
+          "Perl",
+          "Shell Scripting"
+        ],
+        "activities": [
+          "Implementierung Siebel Enterprise in einer verteilten",
+          "Umgebungen.",
+          "Entwicklung und Implementierung von Siebel Anwendungsmonitoring",
+          "(Nagios) mit Perl mit Komponentenüberwachung, Filesystem-,",
+          "Mountpointmonitoring und Logfileauswertung.",
+          "Installation, Konfiguration, Administration von Siebel.",
+          "Durchführung und Automatisierung von Deployments mit EAI, EIM.",
+          "Troubleshooting. Perfomanceanalysen mit Siebel SARM."
+        ]
+      },
+      {
+        "period": "2005-09 - 2005-10",
+        "company": "Dienstleister Transport",
+        "title": "Siebel Third Level Support",
+        "technologies": [
+          "Windows XP",
+          "2000",
+          "2003",
+          "ca. 10 Server",
+          "ca. 1000 Clients"
+        ],
+        "activities": [
+          "Durchführung und Automatisierung von Deployments, Siebel",
+          "Administration, Konfiguration Fehleranalyse.",
+          "Releasemanagement mit Qualitätskontrolle.",
+          "Installation, konfiguration und administration der Deploymentautomatisierung (ADP, ADM, EIM)"
+        ]
+      },
+      {
+        "period": "2005-06 - 2005-08",
+        "company": "Bank",
+        "title": "Installation Siebel mit Solaris Cluster",
+        "technologies": [
+          "Siebel",
+          "Solaris",
+          "ca. 400 Clients"
+        ],
+        "activities": [
+          "Planung von Architekture und Ressourcen (Hardwareanforderungen)",
+          "Installation von Siebel in einer Solaris 8 Cluster Umgebung",
+          "Konfiguration Siebel Remote mit verteilten Daten"
+        ]
+      },
+      {
+        "period": "2005-02 - 2005-06",
+        "company": "Automobil (Mercedes)",
+        "title": "Datawarehouse, Java Schnittstellenprogrammierung",
+        "technologies": [
+          "Cognos ReportNet",
+          "Java",
+          "Eclipse",
+          "DB2",
+          "VBA",
+          "Aqua Data Studio",
+          "SunOne"
+        ],
+        "activities": [
+          "Administration von ReportNet. Organisation von Kunden",
+          "Anforderungen",
+          "Lösungsentwicklung mit der SDK Schnittstelle von ReportNet (CRN",
+          "SDK, Java, Eclipse)",
+          "Automatische Verifizierung aller CRN Berichte, automatisierter",
+          "XML Auszug aller CRN Berichte, automatisierte testweise",
+          "Berichterstellung und Speicherung als Datei",
+          "Ausführung und Anpassung von DB2 SQL Scripten, DB2"
+        ]
+      },
+      {
+        "period": "2003-09 - 2005-01",
+        "company": "Pharmazie (Aventis)",
+        "title": "Siebel CRM / Datawarehouse Third Level Support 5 Monate",
+        "technologies": [
+          "(PDF",
+          "Excel)",
+          "Oracle 9.2",
+          "Toad",
+          "ERWin",
+          "Testdirector",
+          "MS Access",
+          "MS Loadbalancer",
+          "MS",
+          "SMTP",
+          "Visual Source Safe",
+          "PC DUO",
+          "UC4",
+          "SAP",
+          "Informatica",
+          "Windows 2000",
+          "Server",
+          "Cluster",
+          "Advanced Server u. Client",
+          "HP-UX",
+          "Ca. 70 Server",
+          "Windows XP Prof",
+          "NT 4.0 u. Win2000 Server",
+          "Solaris",
+          "ca. 50 Server"
+        ],
+        "activities": [
+          "Konzepterstellung, Planung und Umsetzung für Security,",
+          "Infrastruktur und Architektur vom Datawarehouse (Cognos,",
+          "Informatica, UC4, SAP)",
+          "Analyse der Hardwareanforderungen, Bestellung und Organisation der Serverinstallationen Aufbau einer verteilten Umgebung von Cognos ReportNet mit MS",
+          "Loadbalancer und Cognos Clusterverfahren. Perfomanceanalysen und Troubleshooting",
+          "Planung und Verteilung von Hardware an neue Siebel Enterprise",
+          "Umgebungen",
+          "Durchführung der Datenbefüllung, Konfiguration von Siebel"
+        ]
+      }
+    ],
+    "industries": [
+      "Banken",
+      "Finanzdienstleister",
+      "sonstige Dienstleister",
+      "Großhandel",
+      "Pharmazie",
+      "Automobil",
+      "Systemhaus",
+      "Telekommunikation",
+      "Energie"
+    ],
+    "focus_areas": [
+      "Java Software engineer and architect for OAS3 REST API microservices Spring Boot and Golang Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Full Stack Entwickler (Java, Golang, React, Angular), Docker, REST API und Linux / DevOps.",
+      "Bern",
+      "Java Software engineer and architect for OAS3",
+      "REST API",
+      "microservices",
+      "Spring Boot and Golang",
+      "Software-Entwicklung / Programmierung",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Full Stack Entwickler (Java, Golang, React, Angular), Docker, REST API und Linux / DevOps",
+      "PC, AS/400, RS6000, IBM Großrechner, MS Windows, OS/2, OS/400, AIX, MVS/ESA, Novell Netware 3.x, Netware 4.x, Windows NT Net Core Technologies (LAN, WAN, Ethernet, Tokenring), DNS, WINS, DHCP, TCP/IP, C++"
+    ],
+    "focus_experience": [
+      {
+        "name": "3-Tier Architektur",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Agile Softwareentwicklung",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Apache Kafka",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "apache maven",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Apache Metamodel",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Apache POI",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Apache Tomcat",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Apache Velocity",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "API First",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "APIGEE",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Apiomat",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Atlassian Confluence",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Atlassian JIRA Agile",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "AWS",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "AWS EC2",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "AWS ECS",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "AWS Repository",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "CA Testdaten Management",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "Camunda BPM",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "Cloud",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Custom UI Editor",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Devops Cloud",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Docker",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Eclipse 3.7",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Filecloud",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "FTPS Server und Client",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "GitHub",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Google App Engine",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Google Cloud",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Google Cloud Appengine",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "Google Cloud Firestore",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "Google Datastore",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Gradle",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "IBM MQ.",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "ini4j",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "IntelliJ",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "IntelliJ IDEA",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Java AWT",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "Java Servlets",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Java springboot",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "JBOSS",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "JetBrains IntelliJ IDEA",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "JPA Eclipselink",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "JSF (Primefaces)",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Kubernetes",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "LDAP",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "log4j",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "Microsoft Azure",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "MS Office",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "MS Office 365",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "MVC",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Nagios",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "NSCA Client (Nagios) mit Netzwerk Socket Client Server Verbindung",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "OAuth",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "OpenAPI",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "SAP HANA",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "SAP NetWeaver Developer Studio",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Service Virtualisierung",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Siebel EAI",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Soap UI",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Spring Boot",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Spring core 3.1",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "SpringFramework",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "SwaggerHub",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "VBA Excel 2010",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Visual Studio Code",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "WLS",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "XML",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Webtechnologie",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "REST API",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "OpenAPI 2.0",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "OpenAPI 3.0",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "HTML5",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "DOM",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "Javascript",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Ajax (Dojo",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Ext2",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "(Sencha)",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "JQuery)",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "DHTML",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "XHTML",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Weitere Sprachen",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "VBA",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Perl",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Shell (Bash)",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Entwicklungstools",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Eclipse3.3",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Java SDK",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "MS Visual Studio",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "CodeChargeStudio",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Unix",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Shells",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Batch",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "Visual Source Safe ClearCase",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Subversion (SVN)",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Enterprise CRM",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "Siebel CRM Versionen 7.5",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "7.8",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "8.0.0.9",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "8.1.1.10",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "8.1.1.11",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Mit Siebel Java API und EAI.",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "BI Datawarehouse",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Cognos ReportNet",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "mit Cognos Java SDK Schnitttelle",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "Datenbanktools:",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Toad",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "Oracle (DBA Studio",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "Enterprise Manager",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "SQL Plus",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "Client",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "TNS)",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "Aquadatastudio",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "Datenbankschnittstellen",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "ADO",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "DAO",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "ODBC",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "JPA",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "EclipseLink",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "AS/400",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "RS6000",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "IBM Großrechner",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "MS Windows",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "OS/2",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "OS/400",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "AIX",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "MVS/ESA",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "Novell Netware",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "3.x",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "Netware 4.x",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "Windows NT Net Core Technologies (LAN",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "WAN",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "Ethernet",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "Tokenring)",
+        "category": "product_standard",
+        "sort_order": 152
+      },
+      {
+        "name": "DNS",
+        "category": "product_standard",
+        "sort_order": 153
+      },
+      {
+        "name": "WINS",
+        "category": "product_standard",
+        "sort_order": 154
+      },
+      {
+        "name": "DHCP",
+        "category": "product_standard",
+        "sort_order": 155
+      },
+      {
+        "name": "TCP/IP",
+        "category": "product_standard",
+        "sort_order": 156
+      },
+      {
+        "name": "C++",
+        "category": "product_standard",
+        "sort_order": 157
+      },
+      {
+        "name": "Zertifikate:",
+        "category": "product_standard",
+        "sort_order": 158
+      },
+      {
+        "name": "LInux: LPIC-1",
+        "category": "product_standard",
+        "sort_order": 159
+      },
+      {
+        "name": "Microsoft: MCP",
+        "category": "product_standard",
+        "sort_order": 160
+      },
+      {
+        "name": "Novell: CNE",
+        "category": "product_standard",
+        "sort_order": 161
+      },
+      {
+        "name": "SVN",
+        "category": "product_standard",
+        "sort_order": 162
+      },
+      {
+        "name": "Google Cloud Architecting",
+        "category": "product_standard",
+        "sort_order": 163
+      },
+      {
+        "name": "Java Spring Boot",
+        "category": "product_standard",
+        "sort_order": 164
+      },
+      {
+        "name": "Private Weiterbildungen:",
+        "category": "product_standard",
+        "sort_order": 165
+      },
+      {
+        "name": "Java 8",
+        "category": "product_standard",
+        "sort_order": 166
+      },
+      {
+        "name": "Go in Google Cloud",
+        "category": "product_standard",
+        "sort_order": 167
+      },
+      {
+        "name": "############################################",
+        "category": "product_standard",
+        "sort_order": 168
+      },
+      {
+        "name": "Englisch anzeigen",
+        "category": "product_standard",
+        "sort_order": 169
+      },
+      {
+        "name": "Stammdaten (Auszug):",
+        "category": "product_standard",
+        "sort_order": 170
+      },
+      {
+        "name": "[Photo]",
+        "category": "product_standard",
+        "sort_order": 171
+      },
+      {
+        "name": "Personen-ID 103796",
+        "category": "product_standard",
+        "sort_order": 172
+      },
+      {
+        "name": "Wohnort 805x Zürich",
+        "category": "product_standard",
+        "sort_order": 173
+      },
+      {
+        "name": "Schweiz",
+        "category": "product_standard",
+        "sort_order": 174
+      },
+      {
+        "name": "Jahrgang 1968",
+        "category": "product_standard",
+        "sort_order": 175
+      },
+      {
+        "name": "Staatsbürgerschaft Deutsch",
+        "category": "product_standard",
+        "sort_order": 176
+      },
+      {
+        "name": "Stundensatz 100 EUR",
+        "category": "product_standard",
+        "sort_order": 177
+      },
+      {
+        "name": "Verfügbar ab 13.06.21 zu 100%",
+        "category": "product_standard",
+        "sort_order": 178
+      },
+      {
+        "name": "Vor-Ort-Einsatz 100% möglich",
+        "category": "product_standard",
+        "sort_order": 179
+      },
+      {
+        "name": "Profil erstellt am 18.12.09",
+        "category": "product_standard",
+        "sort_order": 180
+      },
+      {
+        "name": "Profil zuletzt geändert am 22.05.21",
+        "category": "product_standard",
+        "sort_order": 181
+      },
+      {
+        "name": "Lesen von Projektanfragen 0",
+        "category": "product_standard",
+        "sort_order": 182
+      },
+      {
+        "name": "5 Tage [09]Direktkontakt",
+        "category": "product_standard",
+        "sort_order": 183
+      },
+      {
+        "name": "Kommentar_schreiben Profil angezeigt am 01.06.2021 14:49:00",
+        "category": "product_standard",
+        "sort_order": 184
+      },
+      {
+        "name": "Ajax (Dojo, Ext2 (Sencha), JQuery)",
+        "category": "product_standard",
+        "sort_order": 185
+      },
+      {
+        "name": "Unix Shells",
+        "category": "product_standard",
+        "sort_order": 186
+      },
+      {
+        "name": "Siebel CRM Versionen 7.5, 7.8, 8.0.0.9, 8.1.1.10,8.1.1.11",
+        "category": "product_standard",
+        "sort_order": 187
+      },
+      {
+        "name": "Siebel Java API",
+        "category": "product_standard",
+        "sort_order": 188
+      },
+      {
+        "name": "Cognos Java SDK Schnitttelle",
+        "category": "product_standard",
+        "sort_order": 189
+      },
+      {
+        "name": "Oracle (DBA Studio, Enterprise Manager, SQL Plus, Client, TNS)",
+        "category": "product_standard",
+        "sort_order": 190
+      },
+      {
+        "name": "Confluent",
+        "category": "product_standard",
+        "sort_order": 191
+      }
+    ],
+    "education": [
+      {
+        "degree": "LPIC1",
+        "institution": "",
+        "period": "2018-01 – 2018-08",
+        "education_type": "course"
+      },
+      {
+        "degree": "Coursera Kurs",
+        "institution": "",
+        "period": "2019-01 – 2019-03",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Confluent",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Ethernet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISO/OSI",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Kafka",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "LAN Manager",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Message Queuing",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBeui",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "NetBios",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Novell",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "PC-Anywhere",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "REST API",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RFC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SNMP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Token Ring",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Winsock",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Design/Entwicklung/Konstruktion",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OpenAPI 2.0",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "OpenAPI 3.0",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Swagger",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Änderungs-Management",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ITIL",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Scrum",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Personalverantwortung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "HR Personalverwaltung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "helm",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "terraform",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "nodejs",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "tracing",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "apis",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "framework",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "ci/cd-pipelines",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "datastore",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "visio",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-21T11:06:17.940943",
+    "source_file": "",
+    "steps_completed": [
+      "OTHER",
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus TITLE: 'JAVA ARCHITEKTUR ANALYSE'",
+        "EDV_SEIT: None→2003",
+        "AUTO_SKILLS: +9 in skill_ablage"
+      ],
+      "coverage_percent": 56.79398872886663,
+      "auto_added_skills": 9,
+      "integrity_ok": false
+    }
+  }
+}

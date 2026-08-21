@@ -1,0 +1,941 @@
+{
+  "personal": {
+    "aid": "AID-or_2.3.3.0",
+    "first_name": "Oliver",
+    "last_name": "Runte",
+    "birth_year": 1972,
+    "location": "D4 im Umkreis von: Dortmund (100 km)",
+    "availability": "09.01.20 zu 40%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 2008,
+    "headline": "Anwendungs-/ Web-Entwicklung auf Basis von Java EE, Spring, Angular, Python und Django. JEE, EJB3. x, JSF, JPA, CDI, Hibernate, JMS, Spring, Spring Web",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 101,
+    "certifications": 32,
+    "education": 0,
+    "experience": 20,
+    "industries": 10,
+    "focus_areas": 8,
+    "focus_experience": 37,
+    "other_content": 0
+  },
+  "languages": [
+    {
+      "name": "Französisch",
+      "level": ""
+    },
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch Fließend",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [
+    {
+      "name": "10/06",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "SCSA Sun Certified System Administrator for Solaris 10 OS",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "LPIC-3 Linux Professional Institute Certified Level 3",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "01/05",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CLE Certified Linux Engineer",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "03/04",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "LPIC-2 Linux Professional Institute Certified Level 2",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "04/03",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CNE 6 Certified Novell Engineer (Netware 6)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "03/03",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MCP Windows XP Professional",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "11/02",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "LPIC-1 Linux Professional Institute Certified Level 1",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "01/02",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CCNP Cisco Certified Network Professional",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "12/00",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CCNA Cisco Certified Network Associate",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "10/00",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MCNE Master Certified Novell Engineer",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "09/00",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CNS Certified Novell Specialist (TCP/IP)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CNS Certified Novell Specialist (Bordermanager)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "03/00",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CNE 5 Certified Novell Engineer (Netware 5)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "02/00",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MCSE Microsoft Certified Systems Engineer",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "10/99",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CNE 4 Certified Novell Engineer (Netware 4)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "06/99",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "MCP Microsoft Certified Professional (TCP/IP)",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "03/99",
+      "date_obtained": "",
+      "issuer": ""
+    },
+    {
+      "name": "CNA Certified Novell Administrator",
+      "date_obtained": "",
+      "issuer": ""
+    }
+  ],
+  "industries": [
+    "EDV",
+    "IT-Dienstleister",
+    "Chemie",
+    "Metallverarbeitung",
+    "Automotive",
+    "Banken",
+    "Versicherungen",
+    "Handel",
+    "Flughafen/ Luftfahrt",
+    "Behörden"
+  ],
+  "focus_areas": [
+    "Anwendungs-/ Web-Entwicklung auf Basis von Java EE Spring Angular Python und Django. JEE EJB3. x JSF JPA CDI Hibernate JMS Spring Web Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Administration / Support",
+    "Schulungen und Weiterbildung:",
+    "1999",
+    "EDV-Netzwerk-Techniker (IHK)",
+    "1998",
+    "EDV-Service-Techniker (IHK)"
+  ],
+  "focus_experience": [
+    {
+      "name": "Active Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache Webserver",
+      "category": "product_standard"
+    },
+    {
+      "name": "Cisco Router",
+      "category": "product_standard"
+    },
+    {
+      "name": "CMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Django",
+      "category": "product_standard"
+    },
+    {
+      "name": "Docker",
+      "category": "product_standard"
+    },
+    {
+      "name": "Drupal",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "EclipseLink",
+      "category": "product_standard"
+    },
+    {
+      "name": "Glassfish",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate",
+      "category": "product_standard"
+    },
+    {
+      "name": "Icinga",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Swing",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss AS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jetty",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSF",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kerberos",
+      "category": "product_standard"
+    },
+    {
+      "name": "LDAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Liferay Portal",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lucene",
+      "category": "product_standard"
+    },
+    {
+      "name": "Nginx",
+      "category": "product_standard"
+    },
+    {
+      "name": "Novell e-Directory",
+      "category": "product_standard"
+    },
+    {
+      "name": "REST",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring Security",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring WebFlow",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring-Framework",
+      "category": "product_standard"
+    },
+    {
+      "name": "Subversion",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat",
+      "category": "product_standard"
+    },
+    {
+      "name": "Verzeichnisdienste",
+      "category": "product_standard"
+    },
+    {
+      "name": "Virtualisierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "VMware",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebLogic",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "01/2019 - 06/2020",
+      "company": "IHK GfI",
+      "role": "Entwickler",
+      "title": "Java EE Entwicklung, Dortmund",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "06/2018 - 12/2018",
+      "company": "DEVK",
+      "role": "Entwickler",
+      "title": "Portalentwicklung, Köln",
+      "activities": 8,
+      "technologies": 13
+    },
+    {
+      "period": "01/2018 - 06/2018",
+      "company": "NWB Verlag",
+      "role": "Entwickler",
+      "title": "Java EE Entwicklung, Herne, Westfalen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2017 - 12/2017",
+      "company": "Lemonbeat GmbH",
+      "role": "DevOps",
+      "title": "Projekt- und Beratungsleistung im Bereich Linux und IoT, Dortmund",
+      "activities": 9,
+      "technologies": 16
+    },
+    {
+      "period": "12/2016 - 12/2016",
+      "company": "Stadt Münster (citeq)",
+      "role": "Beratung, Support",
+      "title": "Single Sign On Intranet, Münster",
+      "activities": 8,
+      "technologies": 7
+    },
+    {
+      "period": "12/2014 - 01/2017",
+      "company": "DEVK",
+      "role": "DevOps",
+      "title": "DevOps Competence Centre Java (CCJava), Köln",
+      "activities": 8,
+      "technologies": 11
+    },
+    {
+      "period": "10/2014 - 10/2014",
+      "company": "Stadt Münster (citeq)",
+      "role": "Beratung/ Support/ Entwicklung",
+      "title": "Single Sign On Intranet, Münster",
+      "activities": 7,
+      "technologies": 9
+    },
+    {
+      "period": "10/2013 - 10/2014",
+      "company": "arvato Bertelsmann",
+      "role": "Admin Unix/ Linux",
+      "title": "Systemadministration Unix/ Linux, Gütersloh",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "04/2013 - 09/2013",
+      "company": "Vodafone",
+      "role": "Entwickler",
+      "title": "Portalentwicklung, Ratingen",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "12/2012 - 02/2013",
+      "company": "Sapa AB",
+      "role": "Beratung, Support",
+      "title": "Einführung System Monitoring, Drunen",
+      "activities": 8,
+      "technologies": 3
+    },
+    {
+      "period": "12/2012 - 12/2012",
+      "company": "Sapa AB",
+      "role": "Entwickler",
+      "title": "Entwicklung Web Service, Remote (Finspång)",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "10/2012 - 03/2013",
+      "company": "arvato Bertelsmann",
+      "role": "Admin Unix/ Linux",
+      "title": "Systemadministration Unix/ Linux, Gütersloh",
+      "activities": 8,
+      "technologies": 9
+    },
+    {
+      "period": "05/2012 - 12/2012",
+      "company": "Talanx Bancassurance",
+      "role": "Systemadministration",
+      "title": "Systemadministration Solaris, Hilden",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "03/2012 - 03/2012",
+      "company": "Sapa AB",
+      "role": "Beratung, Support",
+      "title": "Einführung Single Sign-On, Drunen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "02/2012 - 09/2012",
+      "company": "DEVK",
+      "role": "Systemadministration",
+      "title": "Systemadministration Java Application Server, Köln",
+      "activities": 7,
+      "technologies": 6
+    },
+    {
+      "period": "10/2011 - 12/2011",
+      "company": "Metro Systems GmbH",
+      "role": "Beratung, Support",
+      "title": "E-Commerce, Düsseldorf",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "03/2011 - 07/2011",
+      "company": "GAD",
+      "role": "Beratung, Support",
+      "title": "Aufbau eBusiness-Plattform, Münster",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "01/2010 - 06/2010",
+      "company": "GAD",
+      "role": "Admin",
+      "title": "Betrieb und Support, Münster",
+      "activities": 8,
+      "technologies": 8
+    },
+    {
+      "period": "01/2009 - 12/2017",
+      "company": "Sapa AB",
+      "role": "Entwicklung, Betrieb (DevOps)",
+      "title": "Portalentwicklung, Drunen",
+      "activities": 14,
+      "technologies": 13
+    },
+    {
+      "period": "03/2008 - 12/2008",
+      "company": "Sapa AB",
+      "role": "Beratung, Support",
+      "title": "Applikationsmigration Windows, Linux, Unix und weitere, Drunen",
+      "activities": 9,
+      "technologies": 9
+    }
+  ],
+  "other_content": [],
+  "skills_sample": [
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "PostgreSQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "FreeBSD",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "macOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "NetWare",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OpenBSD",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "RedHat Enterprise Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUSE Linux Enterprise Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Angular",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Groovy",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java JEE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript Angular",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Perl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PHP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python Django",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ruby Rails",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Shell",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tcl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Python",
+      "category_name": "Programmiersprachen",
+      "weight": 0.78
+    },
+    {
+      "name": "Django",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "AMQP",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.38
+    },
+    {
+      "name": "Celery",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Spring Boot",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.6
+    },
+    {
+      "name": "LDAP",
+      "category_name": "Identity Management",
+      "weight": 0.6
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.95
+    },
+    {
+      "name": "Scrum",
+      "category_name": "Methoden",
+      "weight": 0.38
+    },
+    {
+      "name": "RabbitMQ",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.38
+    },
+    {
+      "name": "RedHat Enterprise",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows)",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Apache Webserver",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.78
+    },
+    {
+      "name": "CI/CD",
+      "category_name": "Datenbanken",
+      "weight": 0.85
+    },
+    {
+      "name": "Ansible",
+      "category_name": "DevOps Tools",
+      "weight": 0.68
+    },
+    {
+      "name": "Elixir",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "C/ C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Debian",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Ubuntu",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Windows Server",
+      "category_name": "Betriebssysteme",
+      "weight": 0.7
+    },
+    {
+      "name": "Cisco Router",
+      "category_name": "Hardware",
+      "weight": 0.47
+    },
+    {
+      "name": "Nginx",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Jenkins",
+      "category_name": "CI/CD Tools",
+      "weight": 0.68
+    },
+    {
+      "name": "Tomcat",
+      "category_name": "Datenbanken",
+      "weight": 0.9
+    },
+    {
+      "name": "Novell",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Active",
+      "category_name": "Sonstige Skills",
+      "weight": 0.85
+    },
+    {
+      "name": "Ruby",
+      "category_name": "Programmiersprachen",
+      "weight": 0.47
+    },
+    {
+      "name": "Foreman",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "Spring Security",
+      "category_name": "Frameworks und Bibliotheken",
+      "weight": 0.38
+    },
+    {
+      "name": "Verzeichnisdienste",
+      "category_name": "Identity Management",
+      "weight": 0.38
+    },
+    {
+      "name": "Kerberos",
+      "category_name": "Security Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "Windows Server 2012 R2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Apache Tomcat 7",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Linux Cluster",
+      "category_name": "Netzwerkprotokolle",
+      "weight": 0.47
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.7
+    },
+    {
+      "name": "Virtualisierung",
+      "category_name": "Sonstige Skills",
+      "weight": 0.7
+    },
+    {
+      "name": "SUSE Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.47
+    },
+    {
+      "name": "Enterprise Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.47
+    },
+    {
+      "name": "AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "VMware",
+      "category_name": "Sonstige Skills",
+      "weight": 0.6
+    },
+    {
+      "name": "Red Hat Enterprise Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Monitoring",
+      "category_name": "Monitoring Tools",
+      "weight": 0.6
+    },
+    {
+      "name": "Icinga",
+      "category_name": "Monitoring Tools",
+      "weight": 0.38
+    },
+    {
+      "name": "SUSE Linux Enterprise",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Red Hat",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Enterprise Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.6
+    },
+    {
+      "name": "Xen",
+      "category_name": "Virtualisierung",
+      "weight": 0.38
+    },
+    {
+      "name": "JBoss EAP",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Apache Tomcat",
+      "category_name": "IT-Infrastruktur",
+      "weight": 0.75
+    },
+    {
+      "name": "Server",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "Identity Management",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "RedHat",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Oracle 10g",
+      "category_name": "Datenbanken",
+      "weight": 0.85
+    },
+    {
+      "name": "Hybris",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "OpenAM",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "CMS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.38
+    },
+    {
+      "name": "Enterprise",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+AID: AID-ja_1.1.3.2
+Name: Jens Arnold
+Headline: Netzwerk Administraton und Support (OS/2, Windows NT); Datenbank Administration und Programmierung
+Ort: Deutschland
+Verfügbar: 01.07.2010 zu 75%, Vor-Ort-Einsatz zu 75% möglich
+EDV seit: 1995
+Sprachen: Deutsch: Heimatsprache, Englisch: in Wort und Schrift, Russisch: in, Deutsch (Muttersprache), Englisch (in Wort und Schrift), Russisch (in Wort und Schrift)
+
+FACHBEREICHE:
+Netzwerk Administraton und Support (OS/2 Windows NT); Datenbank Administration und Programmierung Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Netzwerk Administration und Support (OS/2, Windows NT)
+Datenbank Administration und Programmierung
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Dokumentation / DTP
+
+BRANCHEN:
+
+PROJEKTE:
+  k.A. | Daimler-Chrysler in Stuttgart Möhringen und Untertürkheim | Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-
+    - Die Aufgabe war die bestehenden Windows NT 4.0 Clients auf das Jahr 2000 und den Euro vorzubereiten. Hierzu war es nötig Service Pack 4 aufzu- spielen. Gleichzeitig wurde die Domäne umgestellt. Hardwareumrüstungen wie z.B. die Erweiterung des Arbeitsspeichers und den Einbau von Sound- karten wurden genauso vorgenommen.
+    - Desweiteren wurde im Laufe des Rollouts ebenfalls verschiedene Software (von Acrobat Reader bis Office
+    - 97) installiert.· Meine spezielle Haupttätigkeit lag hierbei im Troubleshooting von Problemen die im Laufe des Rollouts auftraten.
+    Techs: Windows NT 4.0, Service Pack 4, Acrobat Reader, Office 97, DB2, OS/2, Notes
+  k.A. | RWSO Stuttgart | Client-Migration im RWSO (Rechenzentrum der württembergischen Sparkassenorganisation)
+    - Pack 4 (hauptsächlich Dualboot-Maschinen). Die OS/2 Migration erfolgte mittels Softwareverteilung über TED-Client und NVDM. NT musste händisch migriert werden.
+    - Support einer Bank mit mehreren Instituten
+    - Komplettservice für OS/2 Warp 3.0 und 4.0, NT 4.0, verschiedene sparkasseninterne Anwendungen (SEFIS, OLISS u.s.w.), 3270 und Office Anwendungen
+    Techs: OS/2 Warp 3.0, Windows NT, Fix Pack 36, Service Pack 4, TED-Client, NVDM, OS/2 Warp 4.0, NT 4.0, SEFIS, OLISS
+  k.A. | Sparkassen- und Berliner Bank | Troubleshooter
+    - Die einzelnen Clients mussten per CC-Server neu auf Warp 4 verteilt werden (inkl. Netzanbindung - Tokenring), dies geschah allerdings erst nachdem die Server händisch umgestellt wurden.
+    - Netzanbindung - Tokenring), dies geschah allerdings erst nachdem die Server händisch umgestellt wurden. Wie auch bei Daimler- Chrysler wurde ich hierbei nach kurzer Zeit als Troubleshooter verwendet.
+    - Wie auch bei Daimler-Chrysler wurde ich hierbei nach kurzer Zeit als Troubleshooter verwendet.
+    Techs: OS/2 Warp 3, OS/2 Warp 4, CC-Server, Tokenring
+  k.A. |  | User-Help-Desk im RWSO Stuttgart
+    - Hier begleitete ich mehrere Aufgaben auf einmal.
+    - Meine Hauptaufgabe war der Support von einer Bank mit mehreren
+    - Instituten. Hier wurde ein Komplettservice, zu dem z.B. OS/2 Warp 3.0 und 4.0, NT 4.0, verschiedene sparkasseninterne Anwendungen (SEFIS,
+  k.A. | FIDUCIA AG Kahrsruhe für genossenschaftliche Banken | Tätigkeiten bei FIDUCIA AG Kahrsruhe für genossenschaftliche Banken
+    - Migration der vorhandenen Token-Ring-Netzwerktopologie zu Ethernet
+    - Installation von OS/2 und Windows NT Arbeitsplätzen inkl. Anwendungen wie z.B. Lotus Notes, SmartSuite, MS Office, Personal-Communication ...). Installation und Tausch von Gateways, Datenbank-, Print- und Notes-Servern
+    - Administration von OS/2 Servern
+    Techs: Token-Ring, Ethernet, OS/2, Windows NT, Lotus Notes, SmartSuite, MS Office, Personal-Communication, NetFinity, Afro
+  k.A. |  | Datenbankanbindungen DB2, Bankleitzahlen, Userberechtigungen u.s.w.). Telefonischer Support für Banken-Administratoren bei System- und Anwendungs-
+    - problemen (OS/2, NT, Notes, verschiedene Buchungs- und Bankenanwendungen).
+    - Serverzentralisierung und -konsolidierung (Anbindung kleiner und mittlerer
+    - Bankenzweigstellen über Standleitungen an die jeweilige Hauptstelle)(Referenz liegt vor, bitte anfordern)
+  k.A. |  | Datenbank-Lösung zum Unterschriften Scannen für Lotus Notes inkl. Alt-Daten-
+    - Notes inkl. Alt-Daten-
+    Techs: Lotus Notes
+  k.A. |  | Übernahme aus ein bestehenden DB/2 Datenbank
+    - Programmierung einer Datenbank für Kunden-Unterschriften
+    - Umsetzung verschiedenster Kundenwünsche (z.B. Prüfziffernberechnungen, Freigabemanagment u.s.w.)
+    - Freigabemanagment u.s.w.). Implementierung der Schnittstelle zwischen TWAIN-Treiber und Lotus Notes
+    Techs: DB/2, Lotus Notes, TWAIN
+
+SKILL-ABLAGE:
+Ethernet: tieferes Know-How, IBM LAN Server: tieferes Know-How, Internet, Intranet: tieferes Know-How, ISDN: gutes Know-How, LAN, LAN Manager: gutes Know-How, NetBeui, NetBios, Novell, OS/2 Netzwerk: tieferes Know-How, PC-Anywhere: gutes Know-How, Router: Grundkenntnisse, TCP/IP: tieferes Know-How, Token Ring: tieferes Know-How, Windows Netzwerk: tieferes Know-How, X.400 X.25 X.225 X.75...: Grundlagen

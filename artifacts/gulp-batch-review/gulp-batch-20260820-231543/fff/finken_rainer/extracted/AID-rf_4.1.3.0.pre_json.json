@@ -1,0 +1,321 @@
+{
+  "metadata": {
+    "aid": "AID-rf_4.1.3.0",
+    "version": "4.1.3.0",
+    "consultant_dir": "finken_rainer",
+    "first_name": "Rainer",
+    "last_name": "Finken",
+    "headline": "Senior Berater Asset Management / SAP PM, Projektleiter, Entwicklerkoordinator ABAP Objects, Interkultureller Coach",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:28:50.615680"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Rainer",
+      "last_name": "Finken",
+      "birth_year": 1964,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "Verhandlungssicher",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Verhandlungssicher)",
+          "level": ""
+        }
+      ],
+      "availability": "04.07.16 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+      "wohnort": "237xx Bad Segeberg, Deutschland",
+      "headline": "Senior Berater Asset Management / SAP PM, Projektleiter, Entwicklerkoordinator ABAP Objects, Interkultureller Coach"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Anwender Windows 8",
+        "ABAP Objects",
+        "Routinierter Umgang mit relationalen Datenbanken und SQL",
+        "Allgemeine Hardwarekenntnisse",
+        "Nutzung IDocs",
+        "Remote Calls für SAP Programmierung"
+      ],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: BASF Schwarzheide GmbH (Chemische Industrie)",
+        "title": "BASF Schwarzheide GmbH (Chemische Industrie)",
+        "activities": [
+          "Seit 08/2015:",
+          "SAP PM Beratung und Mitarbeit in einem Erweiterungsprojekt",
+          "Neugestaltung der Instandhaltungsaufträge Planung, Koordination und Durchführung Functional Test (FT) und User Acceptance Test (UAT)",
+          "Erstellung der Schulungsunterlagen Selbstständige Durchführung der Schulungen Vorbereitung der Massenbearbeitungen im Cutover, z.B. Anpassung der Abrechnungsvorschrift GoLive Support"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Aditya Birla (Chemische Industrie)",
+        "title": "Aditya Birla (Chemische Industrie)",
+        "activities": [
+          "05/2014 07/2014",
+          "Zuständiger SAP-PM-Berater für den Standort Hannover in einer weltweiten SAP-Einführung.",
+          "Eingeführt werden die Instandhaltungsprozesse mit PM-Meldungen,",
+          "Wartungsplänen und PM-Aufträgen.",
+          "Besondere Ausprägungen: Allgemeine Instandhaltungsvorgänge,",
+          "Störungen, Modifikationen, Stillstandsplanung, Vorbeugende",
+          "Instandhaltung, Eichung, Ersatzteilinstandhaltung,",
+          "Investitionsaufträge."
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Entwicklung einer Benutzeroberfläche in SAP ERP für die",
+        "title": "Entwicklung einer Benutzeroberfläche in SAP ERP für die Installation",
+        "activities": [
+          "von Zählgeräten mit komplexen Messkonzepten im Rahmen eines systemübergreifenden Konzepts (IS-U, SAP PM, Mobile), Umsetzung durch User-Exit zur Instandhaltungsmeldung, Programmiersprache ABAP Objects",
+          "Rollen:",
+          "Entwickler",
+          "Coaching ABAP Objects",
+          "04/2012 12/2012",
+          "Erweiterung der SAP PM Listauswertungen, i.e.",
+          "Erweiterung der Standardlisttransaktionen für Stammdaten"
+        ]
+      },
+      {
+        "period": "Projektbeschreibung: Konzeption und Entwicklung der Schnittstelle für das",
+        "title": "Konzeption und Entwicklung der Schnittstelle für das",
+        "activities": [
+          "Konzeption und Entwicklung der Schnittstelle für das Abschaltmanagement zwischen SAP PM und dem Netzleitsystem",
+          "Rollen:",
+          "Projektleiter",
+          "Leiter eines 4-köpfigen Projektteams"
+        ],
+        "role": "Projektleiter, Leiter eines 4-köpfigen Projektteams",
+        "technologies": [
+          "ABAP",
+          "ALE",
+          "IDoc",
+          "PI"
+        ]
+      },
+      {
+        "period": "Rolle / Position: Trainer",
+        "title": "Fortlaufend Support und Kleinprojekte SAP PM",
+        "role": "Trainer",
+        "activities": [
+          "Mittelfristplanung für die Wartung von Strom- und Gasnetzen",
+          "Schnittstellenprogrammierung für Stammdaten",
+          "Technologie:",
+          "ABAP Objects",
+          "Rollen:",
+          "Projektleiter",
+          "Erstellung der Angebote Moderator Konzept-Workshops",
+          "Erstellung der Konzepte Entwickler",
+          "Fortlaufend Support und Kleinprojekte SAP PM"
+        ],
+        "technologies": [
+          "ABAP Objects"
+        ]
+      },
+      {
+        "period": "Rolle / Position: Entwickler",
+        "title": "Support IRD Sondervertragsabrechnung",
+        "role": "Entwickler",
+        "activities": [
+          "Technologie: Delta Cobol",
+          "ENBW (als externer Berater)",
+          "04/2002 08/2004",
+          "Einführung SAP PM für Rohrnetze",
+          "Rollen",
+          "Entwickler",
+          "Supporter",
+          "Energieaktiengesellschaft Mitteldeutschland (als externer Berater)"
+        ]
+      }
+    ],
+    "industries": [
+      "Chemische Industrie",
+      "Energiewirtschaft",
+      "Gesundheitswesen",
+      "Gemeinnützige Vereine"
+    ],
+    "focus_areas": [
+      "Senior Berater Asset Management / SAP PM Projektleiter Entwicklerkoordinator ABAP Objects Interkultureller Coach",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Beratung",
+      "Asset Management für Strom- und Gasnetze",
+      "Instandhaltung",
+      "Fach- und IT-Konzeption",
+      "Qualitätssicherung der Implementierung",
+      "Training",
+      "Cutover",
+      "Post Golive Support",
+      "Projektmanagement",
+      "(Teil-)projektleitung",
+      "Angebotserstellung",
+      "Projekt Set-Up",
+      "Projektcontrolling",
+      "Coaching",
+      "Entwicklung",
+      "Koordination des Entwicklerteams",
+      "Schulung",
+      "Qualitätssicherung",
+      "Diplommathematiker",
+      "Projektleitung"
+    ],
+    "focus_experience": [
+      {
+        "name": "SAP ERP",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "insbesondere PM",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "weitere FI",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "RE-FX",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "17 Jahre Berufserfahrung auf diesem Gebiet",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "SAP PM",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "SAP FI",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "SAP CO",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "SAP MM",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "SAP SD",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "SAP RE-FX",
+        "category": "product_standard",
+        "sort_order": 10
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diplommathematiker",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": []
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:28:50.615694",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei 'Projektbeschreibung: Entwicklung einer Benutzeroberfläche in SAP ERP für die'"
+      ],
+      "coverage_percent": 77.77777777777779,
+      "auto_added_skills": 0,
+      "integrity_ok": false
+    }
+  }
+}

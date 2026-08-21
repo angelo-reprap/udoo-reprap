@@ -1,0 +1,209 @@
+AID: AID-hr_3.1.4.0
+Name: Holger Rauch
+Headline: Senior Berater / technical lead TCP/IP Networking, Linux/Unix, open source, JEE Application Server, Continuous Integration (CI)
+Ort: 910xx Erlangen, Deutschland
+Wohnort: 910xx Erlangen, Deutschland
+Jahrgang: 1973
+Verfügbar: 03.06.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 1998
+Sprachen: Deutsch Muttersprache, Fließend und verhandlungssicher in Wort und
+
+FACHBEREICHE:
+Senior Berater / technical lead TCP/IP Networking Linux/Unix open source JEE Application Server Continuous Integration (CI) Software-Entwicklung / Programmierung
+Beratung / Consulting
+Coaching / Schulung / Training
+Projektmanagement / -leitung / Organisation / Koordination Administration / Support Engineering / IT-nahe Ingenieurdienstleistungen Wochenend-Pendeln ermöglicht (einfache Strecke in max. 4,5 Std. zu bewältigen) sowie 70 000 EUR brutto/Jahr.
+09/1999 - 07/2001: Fachinformatiker Fachrichtung Anwendungsentwicklung Abschluss: Software-Entwickler, System- und Netzwerk-Administrator Institution: HEITEC AG, Erlangen, Note: befriedigend.
+Entwurf und Ausarbeitung von zwei Kurseinheiten, Erwerb der Zertifikate für den IBM Certified Advanced Technical Expert RS/6000 AIX V4.2 08/199601/1997: 1. Praxissemester Siemens AG, Bereich Medizinische Technik, Erlangen.
+Entwicklung einer Test-Software für Computer-Tomographen und Pflege von Test-Spezifikationen Weiterbildung
+ISTQB Certified Tester Foundation Level
+IBM Certified Advanced Technical Expert RS/6000 AIX V4.2 Besuchte Kurse
+QFTest Workshop
+BEA Weblogic 9/10 System Administration
+Embedded Linux und Treiber
+TREND Workshop
+J2EE und EJB Konzepte
+XML-Kompakt (Teil I und II)
+Objektorientierte Analyse und Design mit der UML
+AIX Systemadministration für Fortgeschrittene
+Zertifizierungs-Workshop für AIX-Fachzertifikate
+JAVA Programmierung unter AIX
+AIX TCP/IP Connectivity
+AIX Systemadministration I und II (mit Praktikum)
+Senior Berater / technical lead TCP/IP Networking
+Linux/Unix
+open source
+JEE Application Server
+Continuous Integration (CI)
+Software-Entwicklung / Programmierung
+Projektmanagement / -leitung / Organisation / Koordination
+Administration / Support
+Engineering / IT-nahe Ingenieurdienstleistungen
+
+BRANCHEN:
+Informationstechnologie
+Luft- und Raumfahrt
+Öffentlicher Dienst
+Bin jedoch auch offen für andere/weitere Branchen
+
+PROJEKTE:
+  03/2019 - 12/2019 |  | pEpMQPlugin/pEpConnector
+    - Aufgaben:
+    - Verschlüsselung von SWIFT Nachrichten in Java auf Basis von IBM MQ message queues und Quarkus framework durch Integration der pEp library
+    - (Pretty Easy Privacy) library (genauere Ausführungen wg. NDA nicht möglich)
+  04/2018 - 04/2019 | Bundesagentur für Arbeit | Senior-Architekt für Identity Management
+    - Aufgaben:
+    - Ausarbeitung von Ausschreibungs-Kriterien für den Vergleich von Identity-Management-Lösungen aus dem Open-Source Umfeld; Evaluierung dieser Lösungen und Integration in die bestehende Infrastruktur- und Architektur- Landschaft insbesondere auch unter Berücksichtigung von Sicherheits- Aspekten; Ziel: eine zentrale Lösung für alle Fachverfahren zur Ausstellung von JSON Web Tokens
+    - (JWTs) unter Einbeziehung von SPNEGO AuthN, div. Datenbanken für AuthZ sowie der WESPE (Web Service Policy Enforcement) private custom claims und OAuth2.0/ OpenID Connect als zentrale Schnittstelle:
+  02/2018 - 04/2018 |  | Arbeits-Ausfall infolge Unfalls
+    - ===================================================== ==========================
+  10/2017 - 02/2018 | Marktforschung | Berater & Entwickler
+    - Vereinfachung des JavaScript-Build-Anteils innerhalb des Gradle plugin
+    - Aufgaben:
+    - Update von ca. 2.5 Jahre alten AngularJS 1.4/1.5-Anwendungen auf aktuelle
+  06/2017 - 12/2017 | Bank | Berater, Architekt & Entwickler für Automatisierung sowie
+    - DevOps
+    - Aufgaben:
+    - Automatisierung der Anlage von Kafka topics über Service Now und Jenkins auf Basis der Verwendung von REST APIs in Verbindung mit Jenkins jobs und Ansible playbooks:
+  11/2016 - 06/2017 | FNT GmbH, Ellwangen | Berater und Sub team lead für cloud infrastructure & DevOps
+    - Experte für CI/CD, application containerization und Cloud-Architektur von microservices. Einführung von CI/CD, application containerization auf Basis von Docker und orchestration mit Kubernetes mit Ceph als verteiltem Dateisystem für das Projekt Command NXG nach SCRUM-Methodik:
+    - Aufgaben:
+    - Beratung/Unterstützung beim Aufbau von build und delivery pipelines mit Jenkins job DSL und Groovy
+    Techs: Chef, Ansible, Saltstack
+  05/2015 - 11/2016 | Bundesagentur für Arbeit, Nürnberg | CI- und Migrations-Experte
+    - Aufgaben:
+    - CI und CD für das Projekt APOK (Anwendungs-Portal Online-Kunde), Migration der VAMauf die BA-Standard-Architektur sowie von Continuous Integration und Continuous Delivery für das Projekt APOK:
+    - Durchführung von Lifecycle-Maßnahmen für WLS und WLS domains, JDK, Maven
+  07/2013 - 04/2015 | Bundesagentur für Arbeit, Nürnberg | Berater für DevOps
+    - Aufgaben:
+    - JEE-Migrations-Experte für das Verfahren VAM (Virtueller ArbeitsMarkt; > 600
+    - Service-Center; ca. 100 000 Benutzer; ca. 13 Mio Seiten-Zugriffe/Tag) bei der Bundesagentur für Arbeit im IT-Systemhaus:
+    Techs: Applikations-Betrieb, Linux, Jenkins, WLS, web services
+  12/2012 - 07/2013 | Intel Mobile Communications, München | CI-Experte, Entwickler & Berater für DevOps
+    - Aufgaben:
+    - Continuous Integration Experte
+    - Englischsprachige Anleitung einer internationalen Support-Mannschaft für den technischen support im Git/Gerrit/Jenkins-Umfeld
+  02/2012 - 08/2012 | CLEAR IT GmbH | Build & Deployment- sowie IT-Infrastruktur-Manager
+    - Aufgaben:
+    - Build & Deployment-/IT-Infrastruktur-Management in einem Projekt für einen Großkunden im öffentlichen Sektor:
+    - Koordination mit den technischen Einheiten bzgl. OS- und sonstiger
+  11/2011 - 02/2012 |  | arbeitssuchend
+    - ===================================================== ==========================
+  07/2011 - 10/2011 |  | Ambulante OPs inkl. Reha-Maßnahmen bzw. Nachuntersuchungen
+    - ===================================================== ==========================
+    - Nachuntersuchungen
+  02/2009 - 05/2011 | Luftfahrt | diverse
+    - Aufgaben:
+    - Konzeption, Implementierung und Dokumentation eines Firmen-Netzwerks inkl.
+    - Umstellung und Beschaffung:
+    Techs: (Debian Linux, KVM
+  04/2008 - 10/2008 | Informationstechnologie | Systemadministrator und IT-Sicherheitsbeauftragter fur
+    - Aufgaben:
+    - Administration der zentralen FreeBSD server des Netzwerks der HEITEC AG (SMTP
+    - (Postfix), IMAP (imap-uw), POP3 (qpopper), LDAP (OpenLDAP), HTTP proxy (Squid),
+    Techs: HTTP (Xitami, Apache), firewall (IPFW), VPN (KAME, Racoon, OpenVPN), DNS, Linux und, Oracle
+  09/2004 - 05/2011 | Luftfahrt | Technischer release manager, Administrator und Entwickler
+    - Aufgaben:
+    - Eine Lösung für die nationale Luftfahrtbehörde des jeweiligen Landes, mit der die amtsinternen Abläufe vollständig in elektronischer Form abgewickelt werden können.
+    - Die Anwendung besteht server-seitig aus 50 JEE-Komponenten (entity beans, session beans, servlets).
+  07/2003 - 10/2003 | Informationstechnologie | diverse
+    - Aufgaben:
+    - Für die Administration einer Anwendung zur Steuerung von Kraftwerken war eine speziell angepaßte Linux-Distribution auf Basis von SuSE 8.2 zu erstellen.
+    - Anforderungen waren u. a.: keine Multimedia-Programme
+  10/2002 - 08/2004 | Informationstechnologie | diverse
+    - Aufgaben:
+    - Es handelt sich um eine Portal-Lösung für die optoelektronische Archivierung von Dokumenten der verschiedenen Referate bei der Landeshauptstadt München.
+    - Hierbei liefert die HEITEC AG das Backend-System in Form einer Server- Komponente zur Ansteuerung der Datenbank Tamino XML Server. Ziel dieser
+  08/2001 - 10/2001 | Luftfahrt | Single-Source-Publishing-Lösung
+    - Aufgaben:
+    - Im Rahmen des Projekts EMPIC-FCL3 R wurde firmenintern zwecks der Erzeugung mehrerer Ziel-Formate sowie der Versions-Kontrolle des Quelltextes eine Single-Source-Publishing-Lösung benötigt. Diese Lösung wurde auf Basis der Doc Book XML DTD sowie den DSSSL und XSL stylesheets entworfen und implementiert. Als DSSSL processor kamen Jade und Openjade, als XSL processor
+    - Saxon zum Einsatz.
+  08/2000 - 09/2002 | Luftfahrt | EMPIC-FCL3
+    - Aufgaben:
+    - Software zur flugmedizinischen Tauglichkeitsprüfung von Piloten nach einem internationalen Standard der Joint Aviation Authorities (JAA). Dieses Online- Formular-System vereinfacht und vereinheitlicht den Ablauf der Tauglichkeitsprüfung von Piloten zwischen den untersuchenden Ärzten und der nationalen Behörde.
+    - Funktion im Projekt
+  11/1999 - 07/2000 | Informationstechnologie | Netzwerk-Administration
+    - Aufgaben:
+    - Administration des heterogenen Abteilungs-Netzwerks der HEITEC AG (fünf Linux bzw.
+    - Solaris server, 20 clients). Bereitgestellte Dienste: WWW (Apache), SSH,
+  09/1999 - 07/2000 | Informationstechnologie | SARA+med®
+    - Aufgaben:
+    - Client-/Server-System unter Unix zur Realisierung von digitalen Patientenakten.
+    - Das System gestattet es, die Daten von Patienten und ihrer Krankengeschichte einschließlich eingescannter Dokumente (Befunde, Röntgenbilder, etc.) zu verwalten und innerhalb eines Klinikums allen Fachabteilungen gemäß ihren
+  04/1998 - 08/1998 | Informationstechnologie | Schulungsunterlagen
+    - Aufgaben:
+    - Für die IBM Deutschland Informationssysteme GmbH, Bereich UNIX/AIX wurden für den Kurs AIX TCP/IP Connectivity zwei Kurseinheiten entworfen und erstellt, davon eine zum Thema Subnetting und eine weitere zur IBM Network Station. Die Kurseinheiten sind seitdem fester Bestandteil dieses Kurses. Desweiteren wurden
+    - Übungen überarbeitet und ergänzt.
+
+SKILLS:
+  database: ArangoDB NoSQL, Cassandra NoSQL, Elasticsearch NoSQL, Firebird Relational, InterBase Relational, MongoDB NoSQL, MySQL Relational, Oracle Relational, PostgreSQL Relational, Redis NoSQL, Tamino XML Server Relational
+  hardware: Fujitsu Siemens Prime- Power, HP ProCurve switches, ProLiant DL 100er- und 300er-, Serie, Storage- Works 1/8 G2 autoloader, IBM RS/6000, Standard-PCs, Sun SPARC
+  operating_system: AFS OpenAFS; dies ist eigentlich kein Betriebs- sondern ein verteiltes, Dateisystem, AIX, FreeBSD, HP-UX Grundkenntnisse bis gute Kenntnisse, je nach Schwerpunkt, benötigt aber, Auffrischung, Linux auch embedded; primär Debian, Mac OS in bezug auf Mac OS X gute Kenntnisse, OS/2 Grundkenntnisse, SUN OS, Gute Kenntnisse, benötigt aber Auffrischung, Solaris, Unix Linux und FreeBSD: sehr gute Kenntnisse, AIX gute Kenntnisse
+  programming_languages: Compiler, C/C++ (GNU), Go, Java, Swift, Rust, Transpiler, Typescript, Interpreter, Perl, shell (bash, zsh), Python, Ruby, SQL, Lua, NodeJS, WWW, HTML, CSS/LESS/SASS, XML, XSLT, DTD, W3C Schema, Relax NG Schema
+  special_skill: Allgemein: Unix command line tools, Build: make, Ant, Maven, Gradle, Grunt für Java, Gulp, Brunch, Broccoli, für JavaScript, Memory debugging: valgrind, mpatrol, Insure++, Purify, Continuous Integration: CruiseControl, Hudson, Jenkins, zentralisiert: CVS, Subversion (Zugriff über plain svn und Apache), verteilt: Mercurial, Git, Sonstige: RCS, Storage Management, Konfiguration von NAS (inkl. SW RAID bzw. RAID controller), div. Logical-Volume-Manager-Implementierungen (AIX und Linux LVM, Veritas, ZFS), Dokumentationswerkzeuge und -Formate, Markup-basiert: LATEX (LATEX 2e, LuaLATEX, XELATEX), PlantUML, DocBook, Asciidoc, markdown, Swagger, DTP: FrameMaker, Interleaf, Office: StarOffice/OpenOffice, Protokolle und TCP/IP-Anwendungen
+
+SKILL-ABLAGE:
+ATM Grundkenntnisse, Ethernet Grundkenntnisse, Internet, Intranet Gute bis sehr gute Kenntnisse, ISDN Grundkenntnisse, RS232 Grundkenntnisse, SMTP Gute Kenntnisse (in Verbindung mit Postfix), TCP/IP Gute Kenntnisse, Design/Entwicklung/Konstruktion, UML
+
+FOCUS_EXP:
+  JBoss Application Server  [product_standard]
+  Together  [product_standard]
+  Virtual Box  [product_standard]
+  Architektur  [product_standard]
+  Microservices  [product_standard]
+  clean code  [product_standard]
+  GoF patterns  [product_standard]
+  Identity Management  [product_standard]
+  WSO2 Identity Server  [product_standard]
+  Keycloak  [product_standard]
+  Apereo CAS  [product_standard]
+  OpenID Connect  [product_standard]
+  OAuth2.0  [product_standard]
+  Methodik  [product_standard]
+  SCRUM  [product_standard]
+  Kanban  [product_standard]
+  Virtualisierung  [product_standard]
+  OpenVZ  [product_standard]
+  QEMU/KVM  [product_standard]
+  VMWare Workstation  [product_standard]
+  VirtualBox  [product_standard]
+  * containerization (Docker  [product_standard]
+  rkt)  [product_standard]
+  Cloud-Technologie-Stacks  [product_standard]
+  * Private cloud infrastructure basierend auf OpenStack  [product_standard]
+  OpenShift  [product_standard]
+  Mesos/  [product_standard]
+  Marathon/DC-OS  [product_standard]
+  Kubernetes  [product_standard]
+  Verteilte Datei-Systeme  [product_standard]
+  OpenAFS  [product_standard]
+  Ceph  [product_standard]
+  Editoren/IDEs  [product_standard]
+  vim  [product_standard]
+  emacs  [product_standard]
+  Eclipse  [product_standard]
+  IntelliJ  [product_standard]
+  Aufgabenbereiche  [product_standard]
+  RZ- und technische IT-Leitung inkl. Beschaffung und sizing  [product_standard]
+  IT-Architekt  [product_standard]
+  Mentoring  [product_standard]
+  Fachlich-technische Personalführung  [product_standard]
+  Projektplanung und -leitung  [product_standard]
+  Technical consultant  [product_standard]
+  Technischer Redakteur für single source publishing toolchain  [product_standard]
+  * Erstellung von Konzepten  [product_standard]
+  Spezifikationen  [product_standard]
+  Dokumentationen  [product_standard]
+  Schulungsunterlagen  [product_standard]
+  * System- und Netzwerk-Konzeption  [product_standard]
+  -Implementation  [product_standard]
+  -Administration und -  [product_standard]
+  Dokumentation  [product_standard]
+  * Weiterbildung von Mitarbeitern im Bereich der FreeBSD-  [product_standard]
+  Linux- und  [product_standard]
+  Oracle- Administration  [product_standard]
+  Auswahl von Open-Source-Biblitheken und -Werkzeugen  [product_standard]
+  Software-Entwicklung (Entwurf und Implementierung von mehrschichtigen  [product_standard]
+  Anwendungen auf Basis von UML mit CASE tools)  [product_standard]
+  Technisches release management  [product_standard]
+  Kundenbetreuung  [product_standard]

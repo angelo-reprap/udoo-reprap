@@ -1,0 +1,1349 @@
+{
+  "metadata": {
+    "aid": "AID-ab_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "baker_ashraf",
+    "first_name": "Ashraf",
+    "last_name": "Baker",
+    "headline": "Architektur, Entwicklung, Business Analyse, Spring, JEE, Microservices, Kafka, Security, OWASP, JPA/Hibernate, Webservices (Restful & SOAP)",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:05:24.540370"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Ashraf",
+      "last_name": "Baker",
+      "birth_year": 1971,
+      "languages": [
+        {
+          "name": "Arabisch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Deutsch sehr gut",
+          "level": ""
+        },
+        {
+          "name": "English sehr gut",
+          "level": ""
+        },
+        {
+          "name": "Arabisch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (sehr gut)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (sehr gut)",
+          "level": ""
+        }
+      ],
+      "availability": "02.03.20 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "Österreich, Schweiz, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9",
+      "wohnort": "602x Larnaka, Griechenland",
+      "headline": "Architektur, Entwicklung, Business Analyse, Spring, JEE, Microservices, Kafka, Security, OWASP, JPA/Hibernate, Webservices (Restful & SOAP)",
+      "edv_experience_since": 2001
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "B-Tree ++",
+        "DAO +++",
+        "JDBC +++",
+        "MySQL +++",
+        "Oracle ++",
+        "PostgreSQL",
+        "SQL +++"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Unix",
+        "Windows CE"
+      ],
+      "programming_languages": [
+        "C++ ++",
+        "Delphi ++",
+        "Fortran ++",
+        "Java +++",
+        "JavaScript +++",
+        "PHP +++",
+        "Python ++"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "ANT",
+        "Maven",
+        "Continuous Integration",
+        "Jenkins",
+        "Versionierungssysteme",
+        "GIT",
+        "Subversion (SVN)",
+        "Codequalität",
+        "Sonar",
+        "Tätigkeiten während des Studiums",
+        "SIRONE-Programmierer bei Deutsche VerkehrsBank AG in Frankfurt am Main",
+        "Delphi-Programmierer bei Omnilink Internet Service Center in Frankfurt am",
+        "Main",
+        "VBA (Excel-Makros) Programmierer bei Deutsche Beteiligungsgesellschaft",
+        "DBG in Frankfurt am Main",
+        "Reparatur von Cisco-Routern bei der Telemation Netzwerk AG in Oberursel",
+        "Tutor für das Java-Programmierpraktikum am Fachbereich Informatik",
+        "Tutor für die Vorlesung Praktische Informatik I am Fachbereich",
+        "Informatik",
+        "Erteilung von Mathematik-Nachhilfeunterricht an Schüler und",
+        "Wirtschaftsstudenten"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "2012:",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Oracle Certified Developer, Java EE 6 Web Services Developer (OCEWSD6)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "2010:",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Sun Certified Enterprise Architect (SCEA)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "2003:",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Sun Certified Web Components Developer--Servlets & JSPs (SCWCD)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "2002:",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Sun Certified Java Programmer (SCJP)",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "2000:",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Software AG Certification: Developing of business applications in Bolero",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "(Software AG)",
+        "issuer": "",
+        "date_obtained": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "11/2018 - 12/2019",
+        "title": "GROW",
+        "role": "Spring-Kafka Spezialist",
+        "activities": [
+          "Aufgaben: o Design und Implementierung einer Kafka-API für den asynchronen Austausch von Nachrichtenströme zwischen Microservices o Erstellung von Spring-Boot Autokonfigurationen für Kafka-Clients",
+          "Beschreibung:",
+          "Design und Implementierung einer Kafka-API für die asynchrone Kommunikation in Microservice-Architektur",
+          "Synchronisation von Kafka- und Datenbank Transaktionen mittels ChainedTransactionManager",
+          "ChainedTransactionManager o Konzeption und Implementierung einer Lösung für das Kafka-Exactly-Once- Problem o Implementierung eines Dead-Letter-Mechanismus für die Aussteuerung, Korrektur und erneuten Zustellung von „Dead-Letters“ o Implementierung eins Microservices für die Korrektur von Dead Letters o Implementierung eines Mechanismus zur Verarbeitung von Nachrichten in einer festgelegten Reihenfolge o Implementierung von Kafka-Consumern, -ErrorHandler, Retry-Mechanismen,",
+          "Interceptoren und Filtern o Implementierung von Kafka-Streams und Connectors für Datenmigration o Kafka Training/Schulung für Entwickler und Administratoren o Nachrichten Versionierung mittels Avro und Jackson-ObjectMapper o Erstellung von einheitlichen Konfigurationen für Topics, Producers,",
+          "Consumer und Broker o Unterstützung des Betriebs beim Aufsetzen eins Kafka-Broker-Zookeeper- Clusters o Upgrade der Spring-Boot-Version der Microservices von 1.5.x auf 2.2.x o Kafka Training/Schulung für Entwickler und Administratoren"
+        ],
+        "technologies": [
+          "Kafka",
+          "Spring Boot",
+          "Microservices",
+          "ChainedTransactionManager",
+          "Avro",
+          "Jackson-ObjectMapper",
+          "Kafka-Streams",
+          "Kafka-Connectors",
+          "Zookeeper"
+        ]
+      },
+      {
+        "period": "02/2015 - 08/2018",
+        "title": "WA 2017 (Wahlagenda 2017)",
+        "role": "Architekt, Konzeptionist",
+        "technologies": [
+          "Flyway",
+          "Windows 7"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Design und Implementierung einer Microservices-Architektur für ein System zur Abwicklung von Wahlen",
+          "Design von Microservices nach der Domain-Driven-Design-Methode unter Anwendung von Entwurfsmustern und Einhaltung von Designprinzipien und nicht funktionalen Anforderungen",
+          "Anwendung von Entwurfsmustern und Einhaltung von Designprinzipien und nicht funktionalen Anforderungen",
+          "Erstellung von technischen Konzepten (Offline-Fähigkeit-, Sicherheit- nach OWASP-Top10, Rollen&Rechte-, Monitoring-Konzept, Fehlerbehandlung, Logging)",
+          "Logging)"
+        ]
+      },
+      {
+        "period": "12/2013 - 11/2014",
+        "title": "EFIS (Effizientes Informationssystem)",
+        "role": "Technischer Architekt, Requirements Engineer",
+        "technologies": [
+          "1.7",
+          "Jenkins 1.5",
+          "Mantis 1.2",
+          "Tortoise",
+          "XMind",
+          "Windows 7",
+          "Enterprise Architect"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Architekturentwurf und Design von SOA-Services für die Berechnung von Leasingsangeboten und die Verwaltung von Kundenstammdaten.",
+          "Anforderungserhebung gemäß IREB (International Requirements Engineering Board)",
+          "Board)",
+          "Modellierung der funktionalen Anforderungen in USE-Case-, Aktivitäts-, Zustands- und Klassendiagrammen im Enterprise Architect",
+          "Zustands- und Klassendiagrammen im Enterprise Architect"
+        ]
+      },
+      {
+        "period": "04/2013 - 07/2013",
+        "title": "VerBIS (Vermittlung- und Beratungsinformationssystem)",
+        "role": "Senior Analyst der Fachkonzeption",
+        "technologies": [
+          "Tortoise",
+          "Windows 7",
+          "Spring",
+          "Maven"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Weiterentwicklung eines virtuellen Arbeitsmarkts und einer JobBörse, Umstellung einer Enterprise Applikation auf neue Technologien",
+          "Entwicklung von Spring- Beans für die Persistence- und Backend-Schicht",
+          "Model Driven Development (MDD)",
+          "Optimierung der Projekt-POM-Struktur Implementierung von Maven-Plugins",
+          "Lösen von teamübergreifenden technischen Problemen"
+        ]
+      },
+      {
+        "period": "05/2012 - 01/2013",
+        "title": "MAPIS (Markant Price Information System)",
+        "role": "Senior Entwickler mit Architekturkenntnissen (SCRUM-Team)",
+        "technologies": [
+          "Architect",
+          "SQL-Modeler",
+          "Maven",
+          "SVN",
+          "JRebel",
+          "Jenkins",
+          "Windows",
+          "JEE",
+          "EJB",
+          "JP QL",
+          "Webservices",
+          "REST",
+          "Jersey",
+          "JAX-RS",
+          "SOAP",
+          "JAX-WS",
+          "Hibernate"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Entwicklung eines RCP- und Rest-basierten Preiserfassungssystems",
+          "Konzeption und Implementierung von SOAP und Restful Webservices in JEE",
+          "Integration von externen Webservices in einer Drei-Schichten-Architektur",
+          "UML-Visualisierung von Architekturen",
+          "JEE (EJB/JP QL), Webservices (REST/Jersey/JAX-RS/SOAP/JAX-WS), Hibernate,"
+        ]
+      },
+      {
+        "period": "02/2011 - 06/2011",
+        "title": "SSE (Service and Support Environment)",
+        "role": "Senior Entwickler",
+        "technologies": [
+          "Jira",
+          "Bugzilla",
+          "Hudson",
+          "Eclipse",
+          "Maven",
+          "SVN",
+          "Linux",
+          "Windows 7",
+          "Swing",
+          "JEE",
+          "EJB",
+          "JPA QL",
+          "Hibernate",
+          "Webservices",
+          "JUnit",
+          "JBoss",
+          "Sybase-SQL"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Weiterentwicklung eines Swing/JEE-basierten Applikation",
+          "Anbindung von externen Services an einem Swing-Client",
+          "GUI-Erweiterung (MVC-Design)",
+          "Swing, JEE (EJB/JPA QL), Hibernate, Webservices, JUnit, JBoss, Sybase-SQL, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2010 - 01/2011",
+        "title": "Rollen-basierte Oberfläche",
+        "role": "Entwickler/Deployment Manager",
+        "technologies": [
+          "ANT",
+          "soapUI",
+          "JUnit",
+          "CVS",
+          "Linux",
+          "JSF",
+          "Webservices",
+          "WebLogic",
+          "Oracle",
+          "SQL",
+          "SOA-Architektur",
+          "JDeveloper",
+          "Hudson"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Entwicklung einer JSF-basierten graphischen Oberfläche",
+          "Implementierung einer Schnittstelle zum Zugriff auf SOAP-basierte Webservices",
+          "JSF, Webservices, WebLogic, Oracle, SQL, SOA-Architektur, JDeveloper, Hudson,",
+          "Bereitstellung des Datenmodels für das View und den Controller WebLogic-Deployment unter Einsatz von ANT, Hudson und CVS"
+        ]
+      },
+      {
+        "period": "01/2010 - 07/2010",
+        "title": "RAS (Reverse Auction System)",
+        "role": "Architekt, Entwickler",
+        "technologies": [
+          "Architect",
+          "JUnit",
+          "Windows Vista"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Architekturdesign und Implementierung eines Reversauktionssystems zur Beschaffung von Elektroteilen",
+          "Entwurf und Implementierung einer Drei-Schichten-Architektur für ein skalierbares Reversauktionssystem, das die folgenden nicht-funktionalen Anforderungen erfüllen soll: o System-uptime 99,9% während der Hauptgeschäftszeiten o Für 95% aller Requests soll die durchschnittliche Antwortzeit weniger als fünf Sekunden betragen und darf für keine Anfrage eine Grenze von zehn Sekunden überschreiten o Das System soll skalierbar sein",
+          "Anforderungen erfüllen soll: o System-uptime 99,9% während der Hauptgeschäftszeiten o Für 95% aller Requests soll die durchschnittliche Antwortzeit weniger als fünf Sekunden betragen und darf für keine Anfrage eine Grenze von zehn Sekunden überschreiten o Das System soll skalierbar sein",
+          "Erstellung eines Domain Object Models",
+          "Erstellung von Use-Case-, Klassen-, Komponenten- und Deplyomentdiagrammen"
+        ]
+      },
+      {
+        "period": "05/2008 - 12/2009",
+        "title": "3D-Visian (Three-dimensional Visual Simulation and Animation of Algorithms)",
+        "role": "Projektleiter, Architekt, Entwickler",
+        "technologies": [
+          "Java-Core -Swing",
+          "Java3D",
+          "XML",
+          "WebStart",
+          "Eclipse",
+          "Ant",
+          "Junit",
+          "LaTeX",
+          "Windows XP"
+        ],
+        "activities": [
+          "of Algorithms)",
+          "Aufgaben:",
+          "Beschreibung:",
+          "Konzeption und Implementierung einer Plattform für die Visualisierung der Funktionsweise und Laufzeit von Algorithmen mittels 3D-Simulationen",
+          "Projektleitung",
+          "Implementierung eines Code-Generators als Eclipse-Plug-In zur automatischen Generierung von dreidimensionalen Algorithmensimulationen",
+          "Implementierung einer Algorithmenvisualisierungsplattform zur Animation von Algorithmen und Datenstrukturen"
+        ]
+      },
+      {
+        "period": "03/2007 - 03/2008",
+        "title": "Self-Assessment",
+        "role": "Technischer Projektleiter, Entwickler, Designer",
+        "technologies": [
+          "Adobe Flash Professional",
+          "Dreamweaver",
+          "Windows XP"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Entwicklung von Self-Assessments zur Einschätzung der Studierfähigkeit und zur Prognostizierung von Studienerfolg",
+          "Rekrutierung, Schulung und Anleitung von Entwicklern für die Mitarbeit am Projekt",
+          "Entwicklung einer 3-Schichten-Architektur zur Erstellung von fachübergreifenden Self-Assessment-Tests",
+          "Implementierung der Architektur in den o.g. Technologien",
+          "Design eines Flash-basieren Front-Ends"
+        ]
+      },
+      {
+        "period": "05/2005 - 02/2007",
+        "title": "PIEX (Pigment Explorer)",
+        "role": "Architekt, Entwickler",
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Design und Implementierung eines web-basierten Pigment Explorers zur Simulation von Farbpigmenteffekten",
+          "Entwurf der Architektur für die Anwendung Entwicklung eines Farbpigment-Simulators in ActionScript",
+          "ActionScript, Flash, HTML, JavaScript, CSS, Adobe Flash, Fireworks,",
+          "Dreamweaver, Enterprise Architect",
+          "===================================================== =========================="
+        ],
+        "technologies": [
+          "ActionScript",
+          "Flash",
+          "HTML",
+          "JavaScript",
+          "CSS",
+          "Adobe Flash",
+          "Fireworks",
+          "Dreamweaver",
+          "Enterprise Architect"
+        ]
+      },
+      {
+        "period": "08/2004 - 03/2005",
+        "title": "J2EE-Projekt",
+        "role": "Entwickler",
+        "technologies": [
+          "Struts",
+          "EJB 2.5",
+          "JDBC",
+          "WebLogic",
+          "Oracle",
+          "JUnit",
+          "Eclipse",
+          "Windows XP"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Entwicklung eines J2EE-basierten Systems zur zentralen Verwaltung von Lernmaterialien",
+          "Front- und Backendentwicklung in Struts und EJB 2.5 ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "01/2004 - 07/2004",
+        "title": "Web-Formulare",
+        "role": "Teamleiter, Entwickler, Designer",
+        "technologies": [
+          "Eclipse-PHP-Plugin",
+          "Zend",
+          "Dreamweaver",
+          "Windows 2000",
+          "Servlets/JSP",
+          "Struts",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "SQL"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Entwicklung von Web-Formularen (FrontEnd-Entwicklung mit Datenbankanbindung)",
+          "Rekrutierung, Schulung und Anleitung von PHP- und Struts-Entwicklern",
+          "Schulung von Projektmitarbeitern",
+          "Design und Implementierung eines Web-FrontEnds und Data Access Objects (DAOs) für die Datenbankanbindung",
+          "(DAOs) für die Datenbankanbindung Servlets/JSP (Struts), PHP, JavaScript, HTML, CSS, SQL, MySQL, Eclipse,"
+        ]
+      },
+      {
+        "period": "09/2002 - 12/2003",
+        "title": "MAP",
+        "role": "Entwickler",
+        "technologies": [
+          "JUnit",
+          "Windows 2000",
+          "Java",
+          "Swing",
+          "JGraph",
+          "XML",
+          "XSLT",
+          "JAXP",
+          "DOM",
+          "SAX",
+          "XPDL",
+          "Eclipse"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Konzeption und Implementierung eines XPDL-basierten Workflow-Managementsystems für die graphische Modellierung, Design und Bearbeitung von Geschäftsprozessen",
+          "Entwicklung einer Rich-Client-Applikation zur graphischen Modellierung von Geschäftsprozessen",
+          "Implementierung einer XPDL-Import/Export-Schnittstelle zur Visualisierung/Speicherung von Geschäftsprozessen",
+          "Java-Core -Swing, JGraph, XML, XSLT, JAXP, DOM, SAX, XPDL, Eclipse, XML-Spy, ===================================================== =========================="
+        ]
+      },
+      {
+        "period": "11/2001 - 06/2002",
+        "title": "XML-Schemaevolution",
+        "role": "Entwickler",
+        "technologies": [
+          "JUnit",
+          "Windows 2000",
+          "Java",
+          "XML-Schema",
+          "DTD",
+          "XSLT",
+          "Xpath",
+          "JAXP",
+          "DOM",
+          "SAX",
+          "Eclipse",
+          "XML-Spy"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Beschreibung:",
+          "Entwurf und Implementierung eines Konzeptes zur Evolution von XML-Schemata in XML-Datenbanken",
+          "Protypische Erweiterung der Tamino XML-Datenbank um eine Komponente zur Schemaevolution",
+          "Transformation von XML-Dokumenten in XSLT",
+          "Java, XML, XML-Schema, DTD, XSLT, Xpath, JAXP, DOM, SAX, Eclipse, XML-Spy, ===================================================== =========================="
+        ]
+      }
+    ],
+    "industries": [
+      "Bildung / Schulung / Training",
+      "Hochschulen / Forschungseinrichtungen",
+      "IT / Internet / EDV",
+      "IT-Dienstleister / Rechenzentrum",
+      "Telekommunikation / Mobilfunk",
+      "Bank / Finanzinstitut / Bausparkasse / Kreditwirtschaft / Wertpapiere / Börse / Versicherungen"
+    ],
+    "focus_areas": [
+      "Architektur",
+      "Entwicklung",
+      "Business Analyse",
+      "Spring",
+      "Microservices",
+      "Kafka",
+      "Security",
+      "OWASP",
+      "JPA/Hibernate",
+      "Webservices (Restful & SOAP)",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Solution Architekt, Anwendung Architekt, Senior Software-Entwickler, Business Analyst, Trainer Okt. 1995 - Jun. 2002 Studium der Informatik mit Nebenfach Betriebswirtschaftslehre an der Goethe-Universität Frankfurt am Main.",
+      "Abschluss: Diplom-Informatiker (Dipl.-Inf.) Note: 1.9",
+      "JEE",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Solution Architekt, Anwendung Architekt, Senior Software-Entwickler, Business Analyst, Trainer",
+      "Apache-Kafka 2.2",
+      "Kafka-Client",
+      "-REST",
+      "Spring 5.2",
+      "Spring-Boot 2.2",
+      "Spring-Kafka 2.3"
+    ],
+    "focus_experience": [
+      {
+        "name": "Confluence",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "Git",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "IntelliJ",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Jenkins",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Jira",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Fachkenntnisse:",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Java (Java-Core",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Swing",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "Java3D",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "RMI)",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "JEE (Servlets",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "JSP",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "JSF",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "EJB",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Spring",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "JAX-WS",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "JAX-RS",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "JMS",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "SAAJ",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "JTA",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "JPA/Hibernate)",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "XML-Technologien (XML-Schema",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "XSLT",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "XPath",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "DOM",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "SAX",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "StAX",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "JAXP",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "JAXB",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "XML-Spy)",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "Datenbank-Technologien",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "( JDBC",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Oracle",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "Oracle Text",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "PL/SQL",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "MySQL)",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "Web-Services (Rest",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "SOAP",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "WSDL)",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "WebLogic",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Jboss",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Glassfish",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "Tomcat",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "JDeveloper",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Maven",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "ANT",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "Hudson",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "JUnit",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "SVN",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "JEE-Design Patterns",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "GoF-Design Patterns",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "UML",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Sparx Enterprise Architect",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "OOD",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "Web-Technologien (PHP",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "HTML",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "JavaScript",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "JSON",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "CSS",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Flash",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "ActionScript 3)",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "SpringSource Suit Tool",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "SOA",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "Security",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Python.",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "Architekturen:",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "Client-Server",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "N-Tier",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "Application Server:",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "Entwicklungsumgebungen:",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "NetBeans",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "JEE/J2EE-Technologie:",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "Servlets",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "JPA",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "JASON",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "Frameworks:",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "Struts",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "Log4j",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "XML-Technologie:",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "XML-Schema",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "XML-Spy",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Persistence APIs:",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "Hibernate",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "EclipseLink",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Web Services",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "WSDL",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "RESTful",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "soapUI",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "Programmierpardigmen:",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "OOP",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "AOP",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Prozedural",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "Modellierung:",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "* OOP",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "OOA",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Design Patterns:",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Build und Deployment",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Apache-Kafka 2.2",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Kafka-Client",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "REST",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Spring 5.2",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Spring-Boot 2.2",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Spring-Kafka 2.3",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "Java",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Java-Core",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "RMI",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "JEE",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "JDBC",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "MySQL",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "PHP",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "ActionScript 3",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Python",
+        "category": "product_standard",
+        "sort_order": 114
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diplom-Informatiker (Dipl.-Inf.)",
+        "institution": "Goethe-Universität Frankfurt am Main",
+        "period": "Okt. 1995 - Jun. 2002",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "CORBA",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RPC",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "SMTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Windows Netzwerk",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "spring",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "jee",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "microservices",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "kafka",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "security",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "owasp",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "jpa/hibernate",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "webservices",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "restful",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "soap",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "http",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "active",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "zookeeper-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "kafka-broker-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "owasp-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "weblogic-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "top10",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "office",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "tools",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "programmiersprachen",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "datenbanken",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "betriebssysteme",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "assessment-tests",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "goethe-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "self-",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "arabisch",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "deutsch",
+        "category": "Sonstige Skills"
+      },
+      {
+        "name": "muttersprache",
+        "category": "Sonstige Skills"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:05:24.540382",
+    "source_file": "",
+    "steps_completed": [
+      "SCHULUNGEN",
+      "BRANCHEN",
+      "FACHBEREICHE",
+      "PERSONAL",
+      "ZERTIFIKATE",
+      "FOCUS_EXP",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "EDV_SEIT: None→2001",
+        "AUTO_SKILLS: +28 in skill_ablage"
+      ],
+      "coverage_percent": 92.45901639344262,
+      "auto_added_skills": 28,
+      "integrity_ok": true
+    }
+  }
+}

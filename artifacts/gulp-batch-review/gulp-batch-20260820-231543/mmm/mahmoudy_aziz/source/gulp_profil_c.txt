@@ -1,0 +1,466 @@
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_181093 | Profil in
+Englisch anzeigen
+
+
+Stammdaten (Auszug):
+
+Personen-ID                181093
+  
+Wohnort                    816xx München, Deutschland
+Jahrgang                   1976
+Staatsbürgerschaft         french
+Stundensatz                75 EUR
+Verfügbar ab               03.12.20 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         05.10.17
+Profil zuletzt geändert am 18.12.20
+Lesen von Projektanfragen  > 5 Tage [00]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 08.01.2021 09:51:21
+
+Fachlicher Schwerpunkt:
+Java, C#, Python, Javascript, Selenium, Docker, VirtualBox, Hyper-​V, Linux,
+Windows, Data Analytics, Ansible, SoapUI, Jmeter, Gatling
+
+Position:
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+    * Bachelor in Network Service Administration, University of Limoges, France
+    * Associate's degree in Economy, Management and Accountancy, University of
+      Strasbourg, France
+    * High school diploma in Information System, High School Schooch,
+      Strasbourg, France
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz, außerhalb D/A/CH
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Fremdsprachen:
+English Understanding, Speaking, Writing: Proficient
+French  Mother tongue
+German  Understanding, Speaking, Writing: Independent
+
+
+Programmiersprachen:
+C#          
+CSS         
+HTML        
+Java        
+Javascript  
+Python      
+Scala       
+Typescript  
+
+
+Produkte/Standards/Erfahrungen:
+.Net core           
+Akka Scala          
+Amazon EC2          
+Angular             
+Ansible             
+AWS                 
+Django              
+Gitlab              
+Jira                
+Microsoft Azure     
+Selenium WebDriver  
+SpringBoot          
+Terraform           
+
+Projekte:
+03/2020 - 07/2020: Build Tools Development
+ 
+Einsatzort:         München
+Rolle:              Software Developer
+Kunde:              Allianz
+ 
+Aufgaben:
+ 
+    * Artifacts Source Code Versioning/Releasing Tools implementation
+    * AWS provisioning and deployment for DB2 based applications  
+ 
+Eingesetzte Produkte:
+ 
+Java, Ansible, Terraform, AWS, Amazon EC2
+===============================================================================
+04/2019 - 12/2019: Integration testing
+ 
+Einsatzort:         Austria
+Rolle:              Integration tester
+Kunde:              Kapsch
+ 
+Aufgaben:
+ 
+Test automation for Web applications, SOAP APIs and REST APIs
+    * Selenium Grid/Nodes configuration
+    * Web UI test implementation with Python / Robot Framework
+    * Web API test implementation with SOAPUI and Groovy scripts
+    * Test Framework containers implementation with Docker
+    * Network traffic analysis with Wireshark
+ 
+Performance test
+    * Load tests implementation with JMeter / Groovy scripts
+ 
+Azure Cloud Provisioning and deployment automation
+    * Ansible playbook script implementation for Azure Cloud provisioning
+    * Docker image/registry management
+    * Powershell tasks scripts implementation
+    * Continuous Integration and Deployment jobs configuration
+ 
+Gitlab build job administration
+    * Build runners creation and implementation
+    * Build task implementation and administration
+    * Git project repository administration
+ 
+Authentication system configuration
+    * Keycloak server setup
+    * Clients and Users configuration
+===============================================================================
+05/2018 - 02/2019: Test Automation and Data Analytics
+ 
+Rolle:              Contractor
+Kunde:              Siemens, Germany
+ 
+Aufgaben:
+ 
+Test automation framework for Web application and REST API
+    * Selenium Grid/Nodes configuration
+    * Web UI test implementation with Typescript / Protractor / Cucumber-JS
+    * Web UI &amp; API test implementation with Python / Robot Framework
+    * Test Framework containers implementation with Docker
+    * Eclipse
+ 
+Test automation framework for Android Mobile Application
+    * Test implementation with UIAutomator / Python / Robot Framework
+    * Test Framework containers implementation with Docker
+      Data Analytics Portal Implementation
+    * Frontend implementation with Angular 5 / ngx-Bootstrap
+    * Backend implementation with Restify / Node.js / MongoDB
+    * Platform containers implementation with Docker
+    * VSCode
+ 
+Gitlab build job administration
+    * Build runners creation and implementation
+    * Build task implementation and administration
+    * Git project repository administration
+===============================================================================
+11/2017 - 04/2018: Software Development in Test
+ 
+Einsatzort:         Dublin, Ireland
+Rolle:              Contractor, Software Development Engineer in Test
+Kunde:              Cubic Telecom
+ 
+Aufgaben:
+ 
+Test automation framework for Web application and REST API
+    * Selenium Grid/nodes configuration
+    * Web UI test implementation with C# / Nunit
+    * Jira Zephir API client implementation for automated Jira test case
+      results management
+    * Visual Studio
+ 
+Nuget packages implementation and management
+    * Nuget package utilities implementation
+    * Nuget package build and plublishing to repository configuration
+ 
+Test performance framework
+    * Test performance framework implementation with Gatling, Scala and Maven
+    * Web console with Graphite setup
+ 
+Visual Studio Team Services test plan job design
+    * Powershell tasks scripts implementation
+    * Continuous Integration jobs configuration
+ 
+Docker resources automated management with Azure Cloud services
+    * Docker resources automated managenent with Azure CLI
+    * Azure resources monitoring
+===============================================================================
+05/2017 - 10/2017: Software Development in Test
+ 
+Einsatzort:         Munich, Germany
+Rolle:              Software Development Engineer in Test
+Kunde:              Intel
+ 
+Aufgaben:
+ 
+Implementation of a Java / Selenium test automation framework for Web
+application
+    * Selenium Grid and Selenium nodes configuration
+    * UI test implementation
+    * RESTful API test implementation
+    * Maven
+    * Junit
+    * Eclipse
+ 
+Jenkins test plan job design:
+    * Tasks scripts implementation
+    * Jobs configuration
+    * Java Maven test projects configuration
+ 
+Windows Hyper-V test environment virtualization design and implementation:
+    * Windows 10 VM build automation with Hyper-V and Powershell
+    * Windows 10 VM authentication configuration with Active Directory
+    * Windows 10 VM deployment and management on Windows server 2012
+    * Powershell test script implementation
+===============================================================================
+01/2017 - 02/2017: Software Development in Test
+ 
+Einsatzort:         London, UK
+Rolle:              Software Development Engineer in Test
+Kunde:              Amido
+ 
+Aufgaben:
+ 
+Java / Selenium test automation framework for Web application:
+    * Selenium
+    * JUnit
+    * Eclipse
+ 
+Java security test automation for authentication protocols:
+    * Forgerock OpenAM
+    * OpenID Connect
+ 
+Jenkins continuous integration server job plan design:
+    * Tasks scripts implementation
+    * Jobs configuration
+    * Java Maven test projects
+ 
+Docker test Linux environment set up:
+    * Tomcat based module image build configuration
+    * Container build and execution script implementation
+    * LDAP &amp; OpenDJ server set up and configuration
+    * Docker container configuration with Docker Compose
+    * Docker container orchestration with Docker Swarm
+    * Microsoft Azure Container Service configuration
+===============================================================================
+09/2015 - 10/2016: Software Development in Test
+ 
+Einsatzort:         London, UK
+Rolle:              Software Development Engineer in Test
+Kunde:              Callsign
+ 
+Aufgaben:
+ 
+Documentations (on Confluence) and bug tracking in the bug management system
+(on Jira)
+ 
+Java / Selenium test automation framework for Web application:
+    * CouchbaseDB client
+    * Selenium HQ
+    * JUnit 4
+    * Eclipse
+ 
+Java security test automation for authentication protocols:
+    * SAML
+    * OpenID Connect
+ 
+Bamboo continuous integration server job plan design:
+    * Tasks scripts implementation
+    * Jobs configuration
+    * Java Maven test projects
+ 
+Vagrant/Docker test Linux environment set up:
+    * Tomcat based module image build configuration
+    * Container build and execution script implementation
+    * LDAP server set up and configuration
+ 
+Windows server test Linux environment set up:
+    * Windows server 2012 set up and configuration
+    * Active Directory server set up and configuration
+    * Powershell test script implementation
+ 
+Windows client application test automation on Python / Java based framework::
+    * Sikulix API client implementation
+    * Java/Python wrapper implementation
+    * Acceptance and BDD test framework with Python &amp; Robot Framework
+ 
+Android applications test automation with Appium:
+    * Implementation and extension of test coverage on Native Android
+      applications
+    * Integration of behaviour oriented testing through Cucumber
+    * Set up of Selenium test server machines
+    * Set up of Docker Images to run Appium tests on real android devices &amp;
+      emulators
+    * Configuration of Jenkins test plans
+    * Configuration of Docker virtual test machines for Jenkins server
+===============================================================================
+02/2015 - 08/2015: Software Development in Test
+ 
+Einsatzort:         Cork, Ireland
+Rolle:              Contractor, Software Development Engineer in Test
+Kunde:              Xanadu
+ 
+Aufgaben:
+ 
+Documentations (on Confluence) and bug tracking in the bug management system
+(on Jira)
+ 
+Java Web application development of a messaging rules configuration system:
+    * Spring MVC
+    * Kafka
+    * AngularJS
+    * Bootstrap
+    * Eclipse / VSCode
+ 
+Python test automation framework implementation for betting backend
+applications:
+    * Python Nose test framework
+    * JSON client creation for web API
+    * Kafka client
+    * Test report Java client connected to TestRail API
+    * acceptance and BDD test framework with Robot Framework
+ 
+Performance monitoring:
+    * JMX
+    * Jolokia
+ 
+Linux test server system configuration:
+    * Python/Virtualenv
+    * Java and Maven
+    * SpringXD
+    * Kafka/Zookeeper
+    * MongoDB
+ 
+Node.js / MongoDB betting data monitoring system development:
+    * MongoDB
+    * Node.js
+    * AngularJS
+ 
+Bamboo continuous integration server jobs plan design:
+    * Tasks scripts implementation
+    * jobs configuration
+ 
+Agile development methodologies including Extreme Programming and Scrum
+    * focus on automated testing
+    * pair programming
+    * simple design
+    * scrum board follow-up
+    * retrospective meeting organization
+===============================================================================
+05/2014 - 12/2014: Software Development in Test
+ 
+Einsatzort:         Galway, Ireland
+Rolle:              Contractor, Software Development Engineer in Test
+Kunde:              Fidelity Investment
+ 
+Aufgaben:
+ 
+    * Review of test specifications and test coverage on HP Quality Center
+    * Documentations (on Ribbit) and bug tracking in the bug management system
+      (on Jira)
+ 
+Java test automation framework for financial and trading applications:
+    * Maven 3 projects
+    * TestNG
+    * Selenium WebDriver (Web browser UI testing)
+    * HTML Unit (UI headless testing)
+    * SSH client creation, based on Jsch library (remote server and system
+      testing)
+    * JSON and SOAP client (web API testing)
+    * Test report Java client connected to HP Quality Center API
+
+.NET test automation framework for financial and trading data streaming SDK:
+    * NuGet
+    * NUnit
+    * .NET TCP/IP streaming client
+    * .NET test report client connected to HP Quality Center API
+ 
+Windows server 2012 and Linux test server system configuration:
+    * Java and Maven
+    * Jenkins slave engine
+    * remote Selenium server
+    * Eclipse
+ 
+Jenkins continuous integration server jobs plan design:
+    * Tasks scripts implementation
+    * Jobs configuration
+    * Java Maven test projects and .NET Nunit test projects
+ 
+Automic UC4 with Jenkins server integration system implementation:
+    * UC4 script
+    * Windows Powershell script
+    * UC4 deployment module
+    * UC4 client implementation connected to Jenkins API
+ 
+Agile development methodologies including Extreme Programming and Scrum:
+    * focus on automated testing
+    * pair programming
+    * simple design
+===============================================================================
+09/2013 - 12/2013: Software Development in Test
+ 
+Einsatzort:         Dublin, Ireland
+Rolle:              Contractor, Software Development Engineer in Test
+Kunde:              Houghton Mifflin Harcourt
+ 
+Aufgaben:
+ 
+Java / Selenium test automation framework for Web application:
+    * JBoss Arquillian Graphene
+    * Selenium HQ
+    * JUnit
+    * Eclipse
+ 
+Jenkins continuous integration server jobs plan design:
+    * Tasks scripts implementation
+    * Jobs configuration
+    * Java Maven test projects
+===============================================================================
+04/2012 - 08/2013: Software Development in Test
+ 
+Einsatzort:         Berlin, Germany
+Rolle:              Contractor, Software Development Engineer in Test
+Kunde:              Groupon
+ 
+Aufgaben:
+ 
+    * Review of test specifications and test coverage (on Testlink)
+    * Documentations (on Confluence) and tracking errors in the error
+      management system (on Jira)
+ 
+Java / Selenium test automation framework for Web applications:
+    * Selenium HQ
+    * JBehave for the BDD stack
+    * JUnit 4
+    * Salesforce API client application
+    * JDBC for Postgresql database
+ 
+Mobile native applications test automation framework for Android &amp; iOS:
+    * Implementation and extension of test coverage on Native Android
+      applications:
+          o for Andoid: JUnit 3, ADB and Android Test Agent
+          o for iOS: Frank iOS test framework
+    * Integration of behaviour oriented testing through Cucumber
+    * Configuration of Jenkins test plans
+    * Configuration of test slave machines for Jenkins server for running real
+      Android/iOS devices and emulators
+ 
+GUI test reports module development for TestLink (Test Management System):
+    * PHP5.3
+    * Javascript framework Ext JS 4
+ 
+End client test report notification application development (back end data
+from TestLink API):
+    * iPhone client
+          o iOS5 native application
+          o storyboards based
+    * HTML5 client
+          o Javascript framework Jquery
+===============================================================================
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_181093 | Profil in
+Englisch anzeigen
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 19.12.2020 01:04:05
+© Copyright 1996-2020 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

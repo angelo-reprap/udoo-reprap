@@ -234,6 +234,10 @@ class MainPipelineController:
                 # Experience-Seed (Format A/B/bpf) — Fill mergt fehlende Perioden nach
                 projekte = aid_regex_extractor._extract_projekte(full_text_clean) or []
                 aid_extracted['experience'] = projekte
+                # Sonstiges / Referenzen / Stärken → other (nicht Experience)
+                aid_extracted['other'] = (
+                    aid_regex_extractor._extract_other(full_text_clean) or []
+                )
                 # Format-A/B: Skills aus Projekten nur wenn weder Tabellen noch Allgemeine Kenntnisse
                 if not aid_skill_categories and projekte:
                     harvested = aid_regex_extractor._harvest_skills_from_projects(projekte)

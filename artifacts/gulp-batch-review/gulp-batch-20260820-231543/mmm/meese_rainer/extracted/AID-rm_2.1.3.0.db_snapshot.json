@@ -1,0 +1,1325 @@
+{
+  "personal": {
+    "aid": "AID-rm_2.1.3.0",
+    "first_name": "Rainer",
+    "last_name": "Meese",
+    "birth_year": 1960,
+    "location": "D2, D3, D4, D5, D6, D7",
+    "availability": "01.02.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": 1978,
+    "headline": "Senior-Berater, Anforderungsanalyse, Konzeption, Datenmodellierung, Entwicklung, Versicherung, Bank, Handel, Industrie, Host, Client-Server",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 4,
+    "skills": 125,
+    "certifications": 0,
+    "education": 0,
+    "experience": 46,
+    "industries": 7,
+    "focus_areas": 14,
+    "focus_experience": 118,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend",
+      "level": ""
+    },
+    {
+      "name": "Französischgut",
+      "level": ""
+    },
+    {
+      "name": "Spanisch Grundkenntnisse",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Versicherungen",
+    "Banken",
+    "Handel",
+    "Finanzdienstleister",
+    "Behörden",
+    "Automobil",
+    "Vertrieb"
+  ],
+  "focus_areas": [
+    "Senior-Berater",
+    "Anforderungsanalyse",
+    "Konzeption",
+    "Datenmodellierung",
+    "Entwicklung",
+    "Versicherung",
+    "Bank",
+    "Handel",
+    "Industrie",
+    "Host",
+    "Client-Server",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Administration / Support Qualitätsmanagement / Qualitätssicherung / Test Dokumentation / DTP Abitur Datenverarbeitungskaufmann IHK Organisati"
+  ],
+  "focus_experience": [
+    {
+      "name": "AbendAid",
+      "category": "product_standard"
+    },
+    {
+      "name": "ADPS",
+      "category": "product_standard"
+    },
+    {
+      "name": "AFP",
+      "category": "product_standard"
+    },
+    {
+      "name": "agile Entwicklungsmethoden",
+      "category": "product_standard"
+    },
+    {
+      "name": "Changeman",
+      "category": "product_standard"
+    },
+    {
+      "name": "Clarity",
+      "category": "product_standard"
+    },
+    {
+      "name": "Clear Case",
+      "category": "product_standard"
+    },
+    {
+      "name": "Client/Server",
+      "category": "product_standard"
+    },
+    {
+      "name": "Confluence",
+      "category": "product_standard"
+    },
+    {
+      "name": "CVS",
+      "category": "product_standard"
+    },
+    {
+      "name": "DCF",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design und Programmierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "DevOps",
+      "category": "product_standard"
+    },
+    {
+      "name": "DOPiX",
+      "category": "product_standard"
+    },
+    {
+      "name": "Eclipse",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "Endevor",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise Architect",
+      "category": "product_standard"
+    },
+    {
+      "name": "ERwin",
+      "category": "product_standard"
+    },
+    {
+      "name": "File AID",
+      "category": "product_standard"
+    },
+    {
+      "name": "FTP",
+      "category": "product_standard"
+    },
+    {
+      "name": "GUI",
+      "category": "product_standard"
+    },
+    {
+      "name": "HP ALM",
+      "category": "product_standard"
+    },
+    {
+      "name": "HTML",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Content Manager OnDemand for z/OS Version 2.1 und 7.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "IMS DB/DC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Innovator",
+      "category": "product_standard"
+    },
+    {
+      "name": "ISIS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jira",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kafka",
+      "category": "product_standard"
+    },
+    {
+      "name": "Kanban",
+      "category": "product_standard"
+    },
+    {
+      "name": "Librarian",
+      "category": "product_standard"
+    },
+    {
+      "name": "Maestro II",
+      "category": "product_standard"
+    },
+    {
+      "name": "Micro Focus Net Express",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Powerpoint",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Visio",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS Visual Studio 2010",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS-Office",
+      "category": "product_standard"
+    },
+    {
+      "name": "MS-Project",
+      "category": "product_standard"
+    },
+    {
+      "name": "OAM",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOD",
+      "category": "product_standard"
+    },
+    {
+      "name": "OOP",
+      "category": "product_standard"
+    },
+    {
+      "name": "OPC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Oracle Forms",
+      "category": "product_standard"
+    },
+    {
+      "name": "phasenorientiertes Vorgehensmodell",
+      "category": "product_standard"
+    },
+    {
+      "name": "Qualitätssicherung",
+      "category": "product_standard"
+    },
+    {
+      "name": "RAD 6.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "Rational Rose",
+      "category": "product_standard"
+    },
+    {
+      "name": "RDZ",
+      "category": "product_standard"
+    },
+    {
+      "name": "Realia Cobol-Workbench",
+      "category": "product_standard"
+    },
+    {
+      "name": "Roscoe",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAMBA",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAP R2: RF",
+      "category": "product_standard"
+    },
+    {
+      "name": "SCLM",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDF",
+      "category": "product_standard"
+    },
+    {
+      "name": "SDF II",
+      "category": "product_standard"
+    },
+    {
+      "name": "Smartfile",
+      "category": "product_standard"
+    },
+    {
+      "name": "SOA",
+      "category": "product_standard"
+    },
+    {
+      "name": "Strobe",
+      "category": "product_standard"
+    },
+    {
+      "name": "strukturierte Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Struts",
+      "category": "product_standard"
+    },
+    {
+      "name": "Swing",
+      "category": "product_standard"
+    },
+    {
+      "name": "SWT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Toad for Oracle",
+      "category": "product_standard"
+    },
+    {
+      "name": "TSO",
+      "category": "product_standard"
+    },
+    {
+      "name": "TSO/ISPF",
+      "category": "product_standard"
+    },
+    {
+      "name": "UC4",
+      "category": "product_standard"
+    },
+    {
+      "name": "UDS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Age",
+      "category": "product_standard"
+    },
+    {
+      "name": "VisualGen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Vollie",
+      "category": "product_standard"
+    },
+    {
+      "name": "WebSphere",
+      "category": "product_standard"
+    },
+    {
+      "name": "Win 32",
+      "category": "product_standard"
+    },
+    {
+      "name": "WSAD 5.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML Schema",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML Spy",
+      "category": "product_standard"
+    },
+    {
+      "name": "XML-Spy",
+      "category": "product_standard"
+    },
+    {
+      "name": "Xpeditor",
+      "category": "product_standard"
+    },
+    {
+      "name": "XSLT",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrungen im Bereich:",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Konzeption",
+      "category": "product_standard"
+    },
+    {
+      "name": "Realisierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Objektorientierte Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "Programmierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Ereignisgesteuerte",
+      "category": "product_standard"
+    },
+    {
+      "name": "visuelle",
+      "category": "product_standard"
+    },
+    {
+      "name": "strukturierte Programmierung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenbanken Design",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Visual Age Generator",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "o IBM WebSphere",
+      "category": "product_standard"
+    },
+    {
+      "name": "o Java 6.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "J2EE",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "o C",
+      "category": "product_standard"
+    },
+    {
+      "name": "C++",
+      "category": "product_standard"
+    },
+    {
+      "name": "Windows",
+      "category": "product_standard"
+    },
+    {
+      "name": "MFC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Studio",
+      "category": "product_standard"
+    },
+    {
+      "name": "o SAS Base",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAS Macro",
+      "category": "product_standard"
+    },
+    {
+      "name": "Enterprise Guide",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Content Manager 8.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM Content Manager OnDemand 8.2",
+      "category": "product_standard"
+    },
+    {
+      "name": "SWT Generator",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufgabenbereiche",
+      "category": "product_standard"
+    },
+    {
+      "name": "Projektleitung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Objektorientierte Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Ereignisgesteuerte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Visual Age Generator",
+      "category": "product_standard"
+    },
+    {
+      "name": "IBM WebSphere",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java 6.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAS Base",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "07/2019 - 12/2020",
+      "company": "Versicherung",
+      "role": "Konzeption, Anwendungsentwicklung",
+      "title": "Versicherung Haftpflicht Kraftfahrt kommunal und privat, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2016 - 06/2019",
+      "company": "Versicherung",
+      "role": "Business-Analyse",
+      "title": "Versicherung Provision, NRW",
+      "activities": 8,
+      "technologies": 1
+    },
+    {
+      "period": "03/2014 - 03/2016",
+      "company": "Krankenversicherung",
+      "role": "Projektleitung, Business Analyse",
+      "title": "Krankenversicherung Rechnungswesen, Bestandsverwaltung, BW",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "04/2012 - 02/2014",
+      "company": "Versicherung",
+      "role": "Bsiness Analyse, Realisierung",
+      "title": "Versicherung Leben Rechenkern, Migration Bestand, NRW",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04/2010 - 03/2012",
+      "company": "Versicherung",
+      "role": "Anforderungsanalyse, Realisierung",
+      "title": "Versicherung Dokumentenmanagement, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2009 - 03/2010",
+      "company": "Versicherung",
+      "role": "Konzeption, Realisierung",
+      "title": "Versicherung Feuer Industrie, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/2007 - 03/2008",
+      "company": "",
+      "role": "Projektleitung",
+      "title": "Bausparkasse Riester-Rente, NRW",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "09/2006 - 03/2007",
+      "company": "Bank",
+      "role": "Konzeption, Realisierung",
+      "title": "Bank Darlehensbuchhaltung, Bestandsverwaltung, Hessen",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04/2005 - 08/2006",
+      "company": "Versicherung",
+      "role": "Konzeption, Datenmodellierung, Entwicklung",
+      "title": "Versicherung Bürokommunikation, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09/2004 - 03/2005",
+      "company": "Bank",
+      "role": "Systementwicklung, Administaration",
+      "title": "Bank Dokumentenmanagement, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/2002 - 06/2004",
+      "company": "Finanzdienstleister",
+      "role": "Konzeption, Datenmodellierung, Entwicklung",
+      "title": "Finanzdienstleister Kreditkarten-Systeme, Hessen",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01/2000 - 06/2002",
+      "company": "Handel",
+      "role": "Konzeption, Datenmodellierung, Systementwicklung",
+      "title": "Handel Warenwirtschaft, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04/1998 - 12/1999",
+      "company": "Versicherung",
+      "role": "Analyse, Datenmodellierung, Entwicklung",
+      "title": "Versicherung Bestandsverwaltung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10/1996 - 03/1998",
+      "company": "Bank",
+      "role": "Systementwicklung",
+      "title": "Bank Kreditprüfung, Darlehen, NRW",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07/1995 - 09/1996",
+      "company": "Versicherung",
+      "role": "Systementwicklung",
+      "title": "Versicherung Partnersystem, NRW",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "07/1994 - 06/1995",
+      "company": "Versicherung",
+      "role": "Anwendungsentwicklung",
+      "title": "Versicherung Kraftfahrt, NRW",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "10/1993 - 06/1994",
+      "company": "Bank",
+      "role": "Anwendungsentwicklung",
+      "title": "Bank Inkasso, Bayern",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01/1990 - 09/1993",
+      "company": "Lebensversicherung",
+      "role": "Projektleitung, Konzeption und Entwicklung",
+      "title": "Lebensversicherung Bestand. Provision, NRW",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "05/1989 - 12/1989",
+      "company": "Marine",
+      "role": "Anwendungsentwicklung",
+      "title": "Marine Materialverwaltung",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "01/1988 - 04/1989",
+      "company": "Versicherung",
+      "role": "Konzeption, Datenmodellierung, Entwicklung",
+      "title": "Versicherung Provision, NRW",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "06/1985 - 12/1987",
+      "company": "Büromaschinen",
+      "role": "Systemanalyse, Softwareentwicklung",
+      "title": "Büromaschinen Vertrieb, Logistik, Provision, NRW",
+      "activities": 8,
+      "technologies": 10
+    },
+    {
+      "period": "08/1978 - 05/1985",
+      "company": "Versicherung",
+      "role": "Projektleitung, Anforderungsanalyse, Entwicklung",
+      "title": "Versicherung Vermögensverwaltung, NRW",
+      "activities": 9,
+      "technologies": 5
+    },
+    {
+      "period": "07.19 - dato",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04.16 - dato",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "03.13 - 03.16",
+      "company": "",
+      "role": "Branche: Krankenversicherung",
+      "title": "Branche: Krankenversicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04.10 - 12.12",
+      "company": "",
+      "role": "Branche: Lebensversicherung",
+      "title": "Branche: Lebensversicherung",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "01.09 - 03.10",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04.08 - 12.08",
+      "company": "",
+      "role": "Branche: Bausparkasse",
+      "title": "Branche: Bausparkasse",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "04.07 - 03.08",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09.06 - 03.07",
+      "company": "",
+      "role": "Branche: Bank",
+      "title": "Branche: Bank",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "04.05 - 08.06",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "09.04 - 03.05",
+      "company": "",
+      "role": "Branche: Bank",
+      "title": "Branche: Bank",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "07.02 - 06.04",
+      "company": "",
+      "role": "Branche: Finanzdienstleistung",
+      "title": "Branche: Finanzdienstleistung",
+      "activities": 8,
+      "technologies": 6
+    },
+    {
+      "period": "01.00 - 06.02",
+      "company": "",
+      "role": "Branche: Handel",
+      "title": "Branche: Handel",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "04.98 - 12.99",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10.96 - 03.98",
+      "company": "",
+      "role": "Branche: Bank",
+      "title": "Branche: Bank",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "07.95 - 09.96",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "07.94 - 06.95",
+      "company": "",
+      "role": "Branche: Bank",
+      "title": "Branche: Bank",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "10.93 - 06.94",
+      "company": "",
+      "role": "Branche: Bank",
+      "title": "Branche: Bank",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "10.91 - 09.93",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "10.90 - 09.91",
+      "company": "",
+      "role": "Branche: Automotive",
+      "title": "Branche: Automotive",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "01.90 - 09.90",
+      "company": "",
+      "role": "Branche: Krankenversicherung",
+      "title": "Branche: Krankenversicherung",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "05.89 - 12.89",
+      "company": "",
+      "role": "Branche: Marine",
+      "title": "Branche: Marine",
+      "activities": 5,
+      "technologies": 0
+    },
+    {
+      "period": "01.88 - 04.89",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 6,
+      "technologies": 0
+    },
+    {
+      "period": "06.85 - 12.87",
+      "company": "",
+      "role": "Branche: Büromaschinen",
+      "title": "Branche: Büromaschinen",
+      "activities": 7,
+      "technologies": 0
+    },
+    {
+      "period": "08.78 - 05.85",
+      "company": "",
+      "role": "Branche: Versicherung",
+      "title": "Branche: Versicherung",
+      "activities": 9,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Sonstige Anmerkungen:\nReferenzen auf Anfrage\nSeite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]",
+      "content_type": "text",
+      "source": "aid_regex_sonstiges"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Adabas",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DL/1",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "IMS DB / DC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "ISAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL-Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle 10g",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Stored Procedures",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "VSAM",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Ascii/X - Terminals",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "AS/400",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Atari",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Bus",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "CD-Writer / Brenner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Datenerfassungsterminals",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Drucker",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Emulatoren",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Macintosh",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Modem",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Rational",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Scanner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Siemens Großrechner",
+      "category_name": "Hardware",
+      "weight": 0.8
+    },
+    {
+      "name": "Administration AIX",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "BS2000",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Dos",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM ISPF",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MS-DOS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "MVS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/390",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "OS/2",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "SUN OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Solaris",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "USS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "VSE",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "z/OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Abap",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ABAP4",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ADF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Assembler",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "C++",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CList",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cobol 3.2",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CSP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Delta",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Easytrieve",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Easytrieve Plus",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 1.4",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 1.5",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java 1.6",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAXB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JCL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "J2EE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Lotus Notes Script",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Natural",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": ".net",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/SQL",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL/1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PL1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Powerbuilder",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "QMF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Rexx",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ROCHADE",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RPG",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,1927 @@
+{
+  "metadata": {
+    "aid": "AID-gc_4.2.4.0",
+    "version": "4.2.4.0",
+    "consultant_dir": "canpolat_goekhan",
+    "first_name": "Goekhan",
+    "last_name": "Canpolat",
+    "headline": "Projektleiter | Interim Manager & Teamleiter | Transformation & Adoption | Infrastruktur & Software Rollout | Service Delivery & Integration",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:23:02.543970"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Goekhan",
+      "last_name": "Canpolat",
+      "birth_year": 1972,
+      "languages": [
+        {
+          "name": "Deutsch Native",
+          "level": ""
+        },
+        {
+          "name": "Englisch Business Fluent",
+          "level": ""
+        },
+        {
+          "name": "FranzösischBusiness Fluent",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Business Fluent)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (Business Fluent)",
+          "level": ""
+        }
+      ],
+      "availability": "16.08.21 zu 100%, Vor-Ort-Einsatz 80% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz,",
+      "wohnort": "688xx Bartenheim la Chaussée, Frankreich (komplett)",
+      "headline": "Projektleiter | Interim Manager & Teamleiter | Transformation & Adoption | Infrastruktur & Software Rollout | Service Delivery & Integration",
+      "edv_experience_since": 2008
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "CMDB",
+        "ETL",
+        "Lotus Notes",
+        "MS Access",
+        "MS SQL Database",
+        "MySQL",
+        "Postgres",
+        "SQLite"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "Cisco 35xx",
+        "CyberX",
+        "Fortigate",
+        "Fortinet",
+        "Watchguard",
+        "Wintel"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Microsoft Windows",
+        "Ubuntu",
+        "Windows Server",
+        "Windows 10"
+      ],
+      "programming_languages": [],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [
+        "MS Project Jira & Confluence MS Visio - MS Office Suite SharePoint",
+        "Clarity PPM - Google gSuite - UML BPMN HPSM HPALM - HPUFT"
+      ],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "PMP (Project Management Professional)",
+        "issuer": "PMI",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "PRINCE2 Foundation",
+        "issuer": "AXELOS",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "CMS (Certified Agile Scrum Master)",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "ITIL v3 Foundation",
+        "issuer": "AXELOS",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "ICE Silver (IQP + Crystal + Excellence)",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Microsoft Certified System Engineer",
+        "issuer": "Microsoft",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Microsoft Certified System Administrator",
+        "issuer": "Microsoft",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Microsoft Certified Professional",
+        "issuer": "Microsoft",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Certified Software Developer",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "Data Integrity im GxP regulierten Umfeld",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      },
+      {
+        "name": "GAMP 5 basics",
+        "issuer": "",
+        "date_obtained": "",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "03/2020 - 04/2021",
+        "title": "Content & Collaboration - Adoption & OCM, Schweiz",
+        "role": "Agile Coach - Scrum Master",
+        "activities": [
+          "Aufgaben:",
+          "Als Senior Projektmanager führe, befähige und diene ich einem 20 köpfigen internationalen Team an 4 verschiedenen Standorten, mit dem Ziel dem Unternehmen einen erkennbaren Mehrwert zu leisten.",
+          "Das Ziel dieses Transformationsprojektes ist es weltweit über 7000 Benutzer auf neue Software Tools, die in einer komplexen IT-Umgebung bereitstellt werden, zu migrieren und anzupassen.",
+          "Scrum, Agile, OCM, Transformation, Change Management, Communication, SAFe,",
+          "Eingesetzte Produkte:",
+          "Google, Microsoft Office, Smartsheet, Trello ===================================================== =========================="
+        ],
+        "location": "Schweiz",
+        "technologies": [
+          "Scrum",
+          "Agile",
+          "OCM",
+          "Transformation",
+          "Change Management",
+          "Communication",
+          "SAFe",
+          "ADKAR",
+          "Google",
+          "Microsoft Office",
+          "Smartsheet",
+          "Trello"
+        ]
+      },
+      {
+        "period": "10/2018 - 01/2020",
+        "title": "Interim Business IT Leiter / Projektleiter",
+        "role": "Interim Business IT Leiter / Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Doppelfunktion als Abteilungsleiter Business IT und Projektleiter. o Coach, Leiter Business IT:",
+          "Fachliche und disziplinarische Leitung der IT-Abteilung; acht Mitarbeiter, drei Standorten",
+          "Mitarbeiter, drei Standorten",
+          "# Aufbau und Reorganisation der IT-Abteilung, inkl. Einstellung und Coaching",
+          "# Entwicklung und Umsetzung der IT Strategien und Projekte des Unternehmens # Ganzheitliche Verantwortung für den Betrieb der Geschäftsapplikationen # Optimierung und Implementierung relevanter ITIL Prozesse",
+          "# Proaktive Ausrichtung der Geschäftsapplikationen an strategischen und operativen Bedarfen",
+          "# Sicherstellung der gültigen und gesetzlichen Bestimmungen;"
+        ]
+      },
+      {
+        "period": "08/2017 - 08/2018",
+        "company": "Novartis AG",
+        "title": "IT Security Projekt, Sanierung und Stärkung der, Schweiz, Deutschland, Prag, USA",
+        "role": "Multi-Projektleiter / Stream Lead for IT Security",
+        "activities": [
+          "Qualifizieren und Rollout eines passiven Monitoring Systems um Anomalien in Netzwerken der Produktionsstätten zu identifizieren, und Aufbau des dazugehörigen Security Services mit Anschluss an SOC (Security Operations Center)",
+          "Aufgaben:",
+          "Projekte:",
+          "Planung, Konzipierung und Rollout/Cutover der Netzwerksegmentierung in verschiedene Layer (Office, Production, Control) um Schwachstellen zu reduzieren",
+          "Center)",
+          "Entwicklung eines temporären Asset Management Software (SDLC) für alle Produktions- und Kontrollsysteme (LIMS, MES, PLC, SCADA) im regulierten",
+          "Produktions- und Kontrolsysteme (LIMS, MES, PLC, SCADA) im regulierten"
+        ],
+        "industry": "Pharma",
+        "location": "Schweiz, Deutschland, Prag, USA",
+        "technologies": [
+          "LIMS",
+          "MES",
+          "PLC",
+          "SCADA",
+          "SOC"
+        ]
+      },
+      {
+        "period": "04/2017 - 05/2018",
+        "company": "ancyradesktop.com",
+        "title": "Development & Rollout von aPaaS (Application Platform as a, Frankreich, Österreich, Türkei",
+        "role": "Cloud Consultant - Projektleiter",
+        "activities": [
+          "Service) im Cloud",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Agile Projektleitung; Planung, Programmierung und Rollout eines Cloud basierendes aPaaS / SaaS (Application Plattform as a Service Plattform) auf der Benutzer, ohne programmieren zu müssen, Web basierende Business Applikationen erstellen und benutzen können.",
+          "Anforderungsanalyse und Martkforschung",
+          "Agile, Kanban Projektmanagement",
+          "Organisieren und Leiten von regelmässigen Scrum Meetings",
+          "Erstellen des Projekt- und Business Plans"
+        ],
+        "industry": "IT-Dienstleistungen"
+      },
+      {
+        "period": "02/2017 - 07/2017",
+        "company": "Stepcom GmbH",
+        "title": "EDI Projektleiter; Aufbau eines EDI Systems und Einbindung, Switzerland",
+        "role": "EDI Project Manager - Product Owner",
+        "activities": [
+          "der EDI Partner",
+          "Geschäftsstelle: EDI B2B Kundenintegration",
+          "Branche: IT-Dienstleistungen",
+          "Aufgaben:",
+          "Integrieren der B2B Kunden und Partner in EDI Prozesse damit sie als Teil deren Supply Chain Management Prozesse Bestellungen, Inventuren und Rechnungstellungen elektronisch abgewickelt werden können.",
+          "Supply Chain Management Prozesse Bestellungen, Inventuren und Rechnungstellungen elektronisch abgewickelt werden können.",
+          "Kommunizieren mit den Business Partnern und als Interface zwischen den Partien agieren",
+          "Sammeln und Definieren der Requirements Planen und Ausführen der EDI Message Mappings, Integrieren und Testen"
+        ],
+        "industry": "IT-Dienstleistungen",
+        "location": "Switzerland"
+      },
+      {
+        "period": "06/2016 - 01/2017",
+        "company": "Roche Pharma",
+        "title": "Daten Migration und Konsolidierung von DMS Systemen, Schweiz",
+        "role": "Workstream Lead - Senior Projekt Manager",
+        "activities": [
+          "Geschäftsstelle: IT Service Operations DevOps",
+          "Branche: Pharma",
+          "Aufgaben:",
+          "Workstream Leiter von MCoE “Migration Center of Excellence” als Teil eines globalen Programms, für weltweit über 70K Benutzer. Mit der Grundidee die Lizensierungs- und Operationskosten der HP Storage auf ein Minimum zu reduzieren und die DMS Landschaft zu harmonisieren. Betroffen waren Millionen von Dokumenten auf verschiedenen Legacy Systemen auf neue Validierte und Qualifizierte DMS Systeme zu migrieren.",
+          "Das Ziel meines Workstreams war es die Prozesse für die Migration zu definieren, die Tools zu programmieren und die Migrationen, in Absprache mit den Stakeholdern und Benutzern und den jeweiligen Regionen der Welt, durchzuführen.",
+          "Definieren und Aufnahme der Anforderungen für ETL (Extraction, Transformation, Load)",
+          "Transformation, Load)",
+          "Validieren der ETL Prozesse"
+        ],
+        "industry": "Pharma",
+        "location": "Schweiz",
+        "technologies": [
+          "HP Storage",
+          "ETL"
+        ]
+      },
+      {
+        "period": "11/2015 - 01/2017",
+        "company": "Roche Pharma",
+        "title": "Integration von iBPMS Business Process Management System und, Schweiz",
+        "role": "Project Manager - Business Analyst",
+        "activities": [
+          "Geschäftsstelle: IT Technology, Service & Operations",
+          "Branche: Pharma",
+          "Aufgaben:",
+          "Gesamtprojektleiter für die Integration eines externen Cloud Systems mit Cooporateinternem Document Management System, SharePoint.",
+          "Analysieren von Ist-Zustand",
+          "Sammeln und Defnieren von Soll-Zustand",
+          "Leiten eines RFI / RFP und Asuwalh der Technologie Koordinieren und Kommunizieren mit externen Technologie- und Leistungsanbietern leiten der Durchführung von Vendor Risk Assessment"
+        ],
+        "industry": "Pharma",
+        "location": "Schweiz",
+        "technologies": [
+          "iBPMS",
+          "Cloud",
+          "SharePoint",
+          "DMS"
+        ]
+      },
+      {
+        "period": "06/2015 - 01/2017",
+        "company": "Roche Pharma",
+        "title": "Erstellen eines „Automated Testing Services“ für Enterprise, Schweiz, Deutschland, USA, Polen",
+        "role": "Senior Projektleiter IT",
+        "activities": [
+          "Erstellen eines „Automated Testing Services“ für Enterprise Web Applikationen / Software",
+          "Aufgaben:",
+          "Integrieren eines externen Cloud basierenden Business Process Management Systems ins konzerneigene Document Management System über Proxy / Restful API",
+          "Systems ins konzerneigene Document Management System über Proxy / Restful",
+          "Harmonisieren der File Systeme; Migration von 32 Mio. Dokumenten von legacy Systemen auf neue DMS"
+        ],
+        "industry": "Pharma",
+        "technologies": [
+          "Cloud",
+          "Business Process Management",
+          "Document Management System",
+          "Proxy",
+          "Restful API",
+          "File Systeme",
+          "DMS"
+        ]
+      },
+      {
+        "period": "06/2015 - 05/2016",
+        "company": "Roche Pharma",
+        "title": "Operating System Clients Life Cycle Agility and Automated, Switzerland",
+        "role": "Projektleiter",
+        "technologies": [
+          "Windows 10",
+          "MS Project",
+          "ALM",
+          "HP UFT"
+        ],
+        "activities": [
+          "Erstellen eines konzernweiten Automated Testing Services um Enterprise Systemumgebung: Windows 10, MS Project, ALM, HP ALM, HP UFT",
+          "Geschäftsstelle: IT Service Operations DevOps",
+          "Branche: Pharma",
+          "Aufgaben:",
+          "Projekt mit zwei Hauptbereichen:",
+          "Entwickeln eines agilen Prozesses um die Client Rollouts, in einer kürzeren Zeit zu planen, testen, zu deployen und den Aufwand der Korrekturen zu reduzieren. Diente als Input für das Windows 10 & MAC El Capitan Rollout Projekt",
+          "Capitan Rollout Projekt"
+        ],
+        "industry": "Pharma",
+        "location": "Schweiz"
+      },
+      {
+        "period": "02/2015 - 03/2015",
+        "company": "Novartis Pharma AG",
+        "title": "CMDB ITTP Migration, Schweiz",
+        "role": "Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Projektleiter für die Migration der Asset CI (Configuration Items) von Legacy nach neuen CMDB und Change Management Tool. Die Configuration Items sind Hardware Komponenten, Support Gruppen, Change Implementers und Approvers.",
+          "Hardware Komponenten, Support Gruppen, Change Implementers und Approvers.",
+          "Sicherstellen der Mitwirkung und Koordinieren der Application Owner in USA und Tschechien",
+          "Sicherstellen, dass Trainings für das neue Tool absolviert sind",
+          "Koordinieren des Aufnahme der CIs im QA (Testumfeld)",
+          "Koordinieren des Aufnahme ins produktive Umfeld",
+          "Kommunikation und Reporting"
+        ],
+        "industry": "Pharma",
+        "location": "Schweiz",
+        "technologies": [
+          "CMDB",
+          "Change Management Tool"
+        ]
+      },
+      {
+        "period": "09/2014 - 02/2015",
+        "company": "Pharma Konzern",
+        "title": "Migration und Retrofitting von Rechnenzentren, Schweiz",
+        "role": "Project Manager - Business Analyst",
+        "activities": [
+          "Aufgaben:",
+          "Rechenzentrum Migration, Move bzw. Lift & Shift: Integration, Qualifizierung und Hardening mehrerer europäischer Rechenzentren eines Partners mit Vblock und Nutanix, in die unternehmenseigene Struktur und IT Services, in Abstimmung mit der globalen Datacenter Gruppenstrategie und Richtlinien im streng reguliertem GAMP/GxP Umfeld",
+          "GAMP/GxP Umfeld",
+          "Anforderungen:",
+          "Planung und Entwicklung des Prozesses für die Konsolidiereung von sech Rechnzentren, um die Operationskosten zu reduzieren.",
+          "Virtualisieren und/oder Migration von über 240 Enterprise Applikationen",
+          "Reduzieren von 32 Serverddn, Konsolidieren der Infrastruktur Services und Stillegung von drei regionalen Rechnezentren.",
+          "Reduzieren von 32 Servern, Konsolidieren der Infrastruktur Services und Stillegung von drei regionalen Rechenzentren."
+        ],
+        "industry": "Pharma",
+        "location": "Schweiz",
+        "technologies": [
+          "Vblock",
+          "Nutanix",
+          "GAMP",
+          "GxP"
+        ]
+      },
+      {
+        "period": "09/2014 - 12/2014",
+        "company": "Novartis Pharma AG",
+        "title": "Upgrade der Site & Building Access IAM Systemen, Switzerland",
+        "role": "Technical Project Manager",
+        "technologies": [
+          "Windows Server",
+          "Wintel",
+          "MS Project",
+          "Oracle Data Guard",
+          "MSSQL"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Responsible for the upgrade of access control system, used by over 30k registered users.",
+          "Lead project team 7 PAX",
+          "Plan execution of infrastructure upgrade, including qualification of iGlobe Wintel servers, Oracle Data Guard and MSSQL servers.",
+          "Coordinate service providers IBM and HCL",
+          "Ensure seamless transition of operation from IBM to HCL",
+          "Support and track required training completions and rollout of new service",
+          "Risk, time and stakeholder management"
+        ],
+        "industry": "Pharma",
+        "location": "Switzerland"
+      },
+      {
+        "period": "06/2013 - 11/2014",
+        "company": "Novartis Pharma AG",
+        "title": "Next Generation Network / Wireless LAN (WLAN) , Global, Schweiz",
+        "role": "Technischer Projektleiter",
+        "technologies": [
+          "Cisco Catalyst",
+          "WLAN Router",
+          "MS Project"
+        ],
+        "activities": [
+          "Upgrade",
+          "Aufgaben:",
+          "Gesamtprojektleitung für Proof of Concept, Planung und Rollout der Harmonisierung von Wireless LAN Backend und Frontend Infrastruktur für weltweit über 100 Lokationen.",
+          "Koordinieren der externen Dienstleister British Telecom",
+          "Leiten der Ausschreibung und Evaluierung der RFP/RFI Sicherstellen dass Anforderungen gesammelt und definiert sind",
+          "Erstellen eines WLAN Services (Service Blueprint) und SLA",
+          "Erstellen des Architekturkonzepts Sicherstellen des Proof of Concepts, basierend auf den Anforderungen und User Stories",
+          "Definieren der Monitoring und Reporting Fähigkeiten"
+        ],
+        "industry": "Pharma",
+        "location": "Global, Schweiz"
+      },
+      {
+        "period": "06/2013 - 08/2014",
+        "company": "Novartis Pharma AG",
+        "title": "Support the Deployment of ITIL based Service Integration and, Basel",
+        "role": "Senior Project Manager",
+        "activities": [
+          "Support the Deployment of ITIL based Service Integration and Management Processes",
+          "Geschäftsstelle: Global IT Infrastructure Services - Business Services",
+          "Unternehmensgröße: > 1000",
+          "Branche: Pharma",
+          "Aufgaben:",
+          "The SIAM (Service Integration and Management) Program scope is to overview and support all 9 underpinning projects about on-boarding, ITTP (IT tools and processes)",
+          "Facilitating the communication, training and deployment of the processes.",
+          "In particular the 5 SOX relevant processes."
+        ],
+        "industry": "Pharma",
+        "location": "Basel",
+        "technologies": [
+          "ITIL",
+          "SIAM",
+          "SOX"
+        ]
+      },
+      {
+        "period": "05/2013 - 04/2015",
+        "company": "Novartis Pharma AG",
+        "title": "Multi-Project Manager IT / Workstream Lead",
+        "role": "Senior Projektleiter",
+        "activities": [
+          "Aufgaben:",
+          "Projekte:",
+          "WLAN Upgrade PM: Proof of Concept und Planung der Harmonisierung der weltweiten Wireless LAN Backend und Frontend Infrastruktur für weltweit über 100 Lokationen und Aufbau deren Services (SLA, Operational Handbook)",
+          "Infrastruktur Upgrade-Projektes für ein Gebäude Access Control System, dass täglich von über 30k registrierten Benutzern verwendet wird",
+          "Projektleiter im “Service Integration & Management Programm”, mit 9",
+          "Projektleiter im \"Service Integration & Management Programm\", mit 9 Projekten; Support in der Einführung neuer IT Prozesse und Tools",
+          "Verantwortlichkeiten:",
+          "Führung und Koordination internationaler Projektteams mit bis zu 30 PAX",
+          "Multi-Project Manager IT / Workstream Lead"
+        ],
+        "industry": "Pharma",
+        "technologies": [
+          "WLAN",
+          "Access Control System"
+        ]
+      },
+      {
+        "period": "08/2012 - 05/2013",
+        "company": "Gazprom Germania GmbH",
+        "title": "Infrastruktur Upgrade; Server und Clients, Berlin, Istanbul",
+        "role": "Technical Project Manager - Consultant",
+        "technologies": [
+          "Juniper",
+          "MS Exchange",
+          "Windows Server 2008 R2",
+          "Active Directory Domain Service",
+          "Directory Domain Service",
+          "Cisco ASA",
+          "Watchguard",
+          "Cisco Catalyst"
+        ],
+        "activities": [
+          "Geschäftsstelle: IT Technology und Service Operations",
+          "Branche: Energieversorgung",
+          "Aufgaben:",
+          "Infrastruktur Projektleiter für die Tochtergesellschaft eines Energie Unternehmens.",
+          "Verantwortlich für die Erneuerung der kompletten ICT Infrastruktur, inklusive Rechenzentrum, Client Infrastruktur, Netzwerk, Sicherheit, IT Richtlinien & Prozesse.",
+          "Infrastruktur, inklusive Rechenzentrum, Client Infrastruktur, Netzwerk,",
+          "Sicherheit, IT Richtlinien & Prozesse.",
+          "Projektleitung von Konzeptionierung bis Inbetriebnahme"
+        ],
+        "industry": "Energieversorgung",
+        "location": "Berlin, Istanbul"
+      },
+      {
+        "period": "07/2008 - 07/2012",
+        "company": "Europäische Kommission EC",
+        "title": "Europäische Aufbau und Entwicklungshilfe, Zypern",
+        "role": "IT Manager / Consultant",
+        "technologies": [
+          "Fortigate",
+          "Firewall",
+          "Windows Server",
+          "Ubuntu",
+          "ip tables"
+        ],
+        "activities": [
+          "Geschäftsstelle: Entwicklungshilfe",
+          "Branche: Beratung",
+          "Aufgaben:",
+          "Key IT Experte in European Union Program Support Office in einer 259 Mio. Euro Entwicklungshilfe für den wirtschaftlichen Aufbau in Nord-Zypern.",
+          "Entwicklungshilfe für den wirtschaftlichen Aufbau in Nord-Zypern.",
+          "Anforderung:",
+          "Sicherstellen der optimalen Erfüllung von allen IT Leistungen, mit Fokus auf Systemverfügbarkeit, pro-aktive Identifikation der möglichen Probleme und deren Lösungen, unter Berücksichtigung des zur Verfügung stehenden budgetären Rahmens und der zutreffenden Beschaffungsregeln nach EU Vorgaben.",
+          "Lösungen, unter Berücksichtigung des zur Verfügung stehenden budgetären Rahmens und der zutreffenden Beschaffungsregeln nach EU Vorgaben."
+        ],
+        "industry": "Entwicklungshilfe",
+        "location": "Zypern"
+      }
+    ],
+    "industries": [
+      "Pharma Industrie - Life Sience",
+      "Energie (Gas und Strom)",
+      "EU / Staatlich / Government",
+      "IT Solution Provider",
+      "Entwicklungshilfe",
+      "Logistik & Transportwesen",
+      "Haushalt- und Konsumgüter",
+      "E-Commerce"
+    ],
+    "focus_areas": [
+      "Projektleiter | Interim Manager & Teamleiter | Transformation & Adoption | Infrastruktur & Software Rollout | Service Delivery & Integration",
+      "Beratung / Consulting",
+      "Visual Basic",
+      "Delphi",
+      "SDLC",
+      "================================================= ============================== 02/2002 - 05/2002: MCSA / MCSE (Microsoft Certified System Engineer) Abschluss: Microsoft Certified System Engineer Institution: TOKEN Education Center, Istanbul Schwerpunkt: Install, configure and manage a",
+      "Microsoft SAL Database Server",
+      "Microsoft Windows 2000 Enterprise Server",
+      "Microsoft Exchange Server",
+      "Microsoft Active Directory /GPO/ LDAP",
+      "PMP (Project Management Professional, PMI/PMBOK)",
+      "PRINCE2 Foundation",
+      "CMS (Certified Agile Scrum Master)",
+      "ITIL v3 Foundation",
+      "ICE Silver (IQP + Crystal + Excellence)",
+      "Microsoft Certified System Engineer",
+      "Microsoft Certified System Administrator",
+      "Microsoft Certified Professional",
+      "Certified Software Developer",
+      "Data Integrity im GxP regulierten Umfeld",
+      "GAMP 5 basics",
+      "Projektleitung",
+      "Interim Management",
+      "Teamleitung",
+      "Transformation & Adoption",
+      "Infrastruktur & Software Rollout",
+      "Service Delivery & Integration",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Administration / Support",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Dokumentation / DTP",
+      "Rollout, Transition & Transformation von Infrastruktur (Netzwerk, Server, Clients, COTS)",
+      "Cloud-Integrationen, Interface, Web Services und API Proxy",
+      "Migration von Infrastruktur, Rechenzentren und Applikationen",
+      "Software development & SDLC (agile scrum, V Modell & Waterfall)",
+      "Datenmigration, ETL",
+      "Beratung und Aufbau Service Management, Optimieren von ITSM Prozessen",
+      "Lastenheften, Ausschreibungen, RFI, RFP, Vertragsmanagement",
+      "Steuerung von Dienstleistern",
+      "Fachliche und disziplinarische Teamleitung",
+      "Leitung der IT Service und Operation",
+      "Projektplanung, Controlling, Überwachung Termine & Meilensteine",
+      "RAID Management (Risiko, Assumptions, Issues, Dependencies)",
+      "Erstellen und Präsentieren von Berichten und Entscheidungsvorlagen",
+      "Quality Assurance & Change-Management / CAB",
+      "Starke & transparente Kommunikation",
+      "Erstellen von Business Case und Project Charter bzw. Project Brief & PID",
+      "Stakeholder Management und Schnittstelle zwischen Business und IT",
+      "Kosten-, Ressourcen-, Scope und Time-Management",
+      "Anforderungsmanagement, Business-, GAP- und Impact-Analyse",
+      "Eskalationsmanagement, Konfliktmanagement, Durchsetzungsvermögen",
+      "Vorbereitung, Führung und Moderation von Workshops",
+      "Beratung, Coaching und Knowhow-Transfer",
+      "Agile",
+      "Budget Planning",
+      "CSV",
+      "Data Center Move",
+      "Infrastruktur",
+      "Konflikt Management",
+      "Konsolidierung",
+      "Migration",
+      "Problemanalyse",
+      "Risk-Management",
+      "SAT",
+      "Scrum",
+      "Stakeholder Management",
+      "Test Management",
+      "Test Plan",
+      "UAT",
+      "Validierung",
+      "Validierungsplan",
+      "V-Modell",
+      "Waterfall",
+      "Qualifizieren, Transformation und Rollout von Infrastruktur (Netzwerk Komponenten & Server Systeme)",
+      "Definieren und Validieren von Prozessen",
+      "Leiten von SDLC Projekten für Enterprise Applikationen und Software",
+      "Erstellen, Integrieren und Transformieren von IT Services",
+      "Migrieren von Rechenzentren / Data Centre",
+      "Data Migration, ETL (z.B. millionen Dokumente von mehreren Legacy Systemen auf neue DMS Technologien)",
+      "Operations Management",
+      "Programmanagement",
+      "Projektmanagement",
+      "Service Management",
+      "Hiring",
+      "Interview",
+      "Resource Management",
+      "Team Building"
+    ],
+    "focus_experience": [
+      {
+        "name": "Active Directory Domain Service",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "ALM",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Anforderungsanalyse",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Anforderungsmanagement",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Application Virtualization",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Asset Management System",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "Atlassian Confluence",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Atlassian JIRA",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "Ausschreibung",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "BMC-Remedy",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Business Analyse",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Business Analysis",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Certified ICE (IQP & Chrystal Excellence)",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Change Management",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Cisco ASA",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Cisco Catalyst",
+        "category": "product_standard",
+        "sort_order": 15
+      },
+      {
+        "name": "Cisco Switch",
+        "category": "product_standard",
+        "sort_order": 16
+      },
+      {
+        "name": "Clarity",
+        "category": "product_standard",
+        "sort_order": 17
+      },
+      {
+        "name": "CMS",
+        "category": "product_standard",
+        "sort_order": 18
+      },
+      {
+        "name": "cost analysis",
+        "category": "product_standard",
+        "sort_order": 19
+      },
+      {
+        "name": "CSM (Certified Agile Scrum Master)",
+        "category": "product_standard",
+        "sort_order": 20
+      },
+      {
+        "name": "CyberX",
+        "category": "product_standard",
+        "sort_order": 21
+      },
+      {
+        "name": "Data Integrity in GxP environments",
+        "category": "product_standard",
+        "sort_order": 22
+      },
+      {
+        "name": "Data Security",
+        "category": "product_standard",
+        "sort_order": 23
+      },
+      {
+        "name": "Data-Migration",
+        "category": "product_standard",
+        "sort_order": 24
+      },
+      {
+        "name": "DataCenter",
+        "category": "product_standard",
+        "sort_order": 25
+      },
+      {
+        "name": "Datenarchivierung",
+        "category": "product_standard",
+        "sort_order": 26
+      },
+      {
+        "name": "DMS",
+        "category": "product_standard",
+        "sort_order": 27
+      },
+      {
+        "name": "Documentum D2",
+        "category": "product_standard",
+        "sort_order": 28
+      },
+      {
+        "name": "Erfahrung im Pharma Umfeld.",
+        "category": "product_standard",
+        "sort_order": 29
+      },
+      {
+        "name": "Erfahrung in EU finanzierte Projekteund Prozeduren",
+        "category": "product_standard",
+        "sort_order": 30
+      },
+      {
+        "name": "vor allem in",
+        "category": "product_standard",
+        "sort_order": 31
+      },
+      {
+        "name": "Entwicklungshilfe.",
+        "category": "product_standard",
+        "sort_order": 32
+      },
+      {
+        "name": "Erfahrung mit SOX",
+        "category": "product_standard",
+        "sort_order": 33
+      },
+      {
+        "name": "GxP",
+        "category": "product_standard",
+        "sort_order": 34
+      },
+      {
+        "name": "GAMP",
+        "category": "product_standard",
+        "sort_order": 35
+      },
+      {
+        "name": "GDM",
+        "category": "product_standard",
+        "sort_order": 36
+      },
+      {
+        "name": "GMM",
+        "category": "product_standard",
+        "sort_order": 37
+      },
+      {
+        "name": "GLM",
+        "category": "product_standard",
+        "sort_order": 38
+      },
+      {
+        "name": "Escalation Management",
+        "category": "product_standard",
+        "sort_order": 39
+      },
+      {
+        "name": "Eskalationsmanagement",
+        "category": "product_standard",
+        "sort_order": 40
+      },
+      {
+        "name": "Firewall",
+        "category": "product_standard",
+        "sort_order": 41
+      },
+      {
+        "name": "Fortigate",
+        "category": "product_standard",
+        "sort_order": 42
+      },
+      {
+        "name": "gDrive Google Enterprise Drive",
+        "category": "product_standard",
+        "sort_order": 43
+      },
+      {
+        "name": "HP ALM",
+        "category": "product_standard",
+        "sort_order": 44
+      },
+      {
+        "name": "IAM Prozesse",
+        "category": "product_standard",
+        "sort_order": 45
+      },
+      {
+        "name": "Infrastruktur",
+        "category": "product_standard",
+        "sort_order": 46
+      },
+      {
+        "name": "ISO 9001: 2000 Quality Management",
+        "category": "product_standard",
+        "sort_order": 47
+      },
+      {
+        "name": "ITIL v3",
+        "category": "product_standard",
+        "sort_order": 48
+      },
+      {
+        "name": "JIRA",
+        "category": "product_standard",
+        "sort_order": 49
+      },
+      {
+        "name": "Juniper",
+        "category": "product_standard",
+        "sort_order": 50
+      },
+      {
+        "name": "Livelink",
+        "category": "product_standard",
+        "sort_order": 51
+      },
+      {
+        "name": "Livelink OpenText",
+        "category": "product_standard",
+        "sort_order": 52
+      },
+      {
+        "name": "Microsoft Office",
+        "category": "product_standard",
+        "sort_order": 53
+      },
+      {
+        "name": "Microsoft Sharepoint",
+        "category": "product_standard",
+        "sort_order": 54
+      },
+      {
+        "name": "MS Exchange",
+        "category": "product_standard",
+        "sort_order": 55
+      },
+      {
+        "name": "MS Powerpoint",
+        "category": "product_standard",
+        "sort_order": 56
+      },
+      {
+        "name": "MS Project",
+        "category": "product_standard",
+        "sort_order": 57
+      },
+      {
+        "name": "MS Visio",
+        "category": "product_standard",
+        "sort_order": 58
+      },
+      {
+        "name": "Pega",
+        "category": "product_standard",
+        "sort_order": 59
+      },
+      {
+        "name": "PMP",
+        "category": "product_standard",
+        "sort_order": 60
+      },
+      {
+        "name": "Power Point",
+        "category": "product_standard",
+        "sort_order": 61
+      },
+      {
+        "name": "Powerpoint",
+        "category": "product_standard",
+        "sort_order": 62
+      },
+      {
+        "name": "Proxy",
+        "category": "product_standard",
+        "sort_order": 63
+      },
+      {
+        "name": "Prozessentwicklung",
+        "category": "product_standard",
+        "sort_order": 64
+      },
+      {
+        "name": "RAID",
+        "category": "product_standard",
+        "sort_order": 65
+      },
+      {
+        "name": "Server Virtualisierung",
+        "category": "product_standard",
+        "sort_order": 66
+      },
+      {
+        "name": "SharePoint",
+        "category": "product_standard",
+        "sort_order": 67
+      },
+      {
+        "name": "SLA",
+        "category": "product_standard",
+        "sort_order": 68
+      },
+      {
+        "name": "Smartsheet",
+        "category": "product_standard",
+        "sort_order": 69
+      },
+      {
+        "name": "System Administration",
+        "category": "product_standard",
+        "sort_order": 70
+      },
+      {
+        "name": "System Engineering",
+        "category": "product_standard",
+        "sort_order": 71
+      },
+      {
+        "name": "Unified Wireless Network",
+        "category": "product_standard",
+        "sort_order": 72
+      },
+      {
+        "name": "Use Cases",
+        "category": "product_standard",
+        "sort_order": 73
+      },
+      {
+        "name": "vBlock",
+        "category": "product_standard",
+        "sort_order": 74
+      },
+      {
+        "name": "Vendor Assessment",
+        "category": "product_standard",
+        "sort_order": 75
+      },
+      {
+        "name": "Virtualisierung",
+        "category": "product_standard",
+        "sort_order": 76
+      },
+      {
+        "name": "VMware",
+        "category": "product_standard",
+        "sort_order": 77
+      },
+      {
+        "name": "VPN",
+        "category": "product_standard",
+        "sort_order": 78
+      },
+      {
+        "name": "WAN/LAN",
+        "category": "product_standard",
+        "sort_order": 79
+      },
+      {
+        "name": "Watchguard",
+        "category": "product_standard",
+        "sort_order": 80
+      },
+      {
+        "name": "WLAN Router",
+        "category": "product_standard",
+        "sort_order": 81
+      },
+      {
+        "name": "Workshopleitung",
+        "category": "product_standard",
+        "sort_order": 82
+      },
+      {
+        "name": "Skills:",
+        "category": "product_standard",
+        "sort_order": 83
+      },
+      {
+        "name": "* Präsentieren von Berichten",
+        "category": "product_standard",
+        "sort_order": 84
+      },
+      {
+        "name": "Entscheidungsvorlagen",
+        "category": "product_standard",
+        "sort_order": 85
+      },
+      {
+        "name": "Klare Kommunikation und Stakeholder Management",
+        "category": "product_standard",
+        "sort_order": 86
+      },
+      {
+        "name": "* RAID Management (Risk",
+        "category": "product_standard",
+        "sort_order": 87
+      },
+      {
+        "name": "Assumption",
+        "category": "product_standard",
+        "sort_order": 88
+      },
+      {
+        "name": "Issues and Decisions)",
+        "category": "product_standard",
+        "sort_order": 89
+      },
+      {
+        "name": "* Kosten",
+        "category": "product_standard",
+        "sort_order": 90
+      },
+      {
+        "name": "Ressourcen und Time Management",
+        "category": "product_standard",
+        "sort_order": 91
+      },
+      {
+        "name": "Change-Management und Quality Assurance",
+        "category": "product_standard",
+        "sort_order": 92
+      },
+      {
+        "name": "Konfliktmanagement",
+        "category": "product_standard",
+        "sort_order": 93
+      },
+      {
+        "name": "Anforderungsmanagement und Business Cases",
+        "category": "product_standard",
+        "sort_order": 94
+      },
+      {
+        "name": "Test Management (Dev > QA > Prod)",
+        "category": "product_standard",
+        "sort_order": 95
+      },
+      {
+        "name": "GAP Analyse",
+        "category": "product_standard",
+        "sort_order": 96
+      },
+      {
+        "name": "Self Starter",
+        "category": "product_standard",
+        "sort_order": 97
+      },
+      {
+        "name": "Team Player",
+        "category": "product_standard",
+        "sort_order": 98
+      },
+      {
+        "name": "Durchsetzungsvermögen",
+        "category": "product_standard",
+        "sort_order": 99
+      },
+      {
+        "name": "Aufgabenbereiche",
+        "category": "product_standard",
+        "sort_order": 100
+      },
+      {
+        "name": "Migration / Transition / Transformation",
+        "category": "product_standard",
+        "sort_order": 101
+      },
+      {
+        "name": "Program Management",
+        "category": "product_standard",
+        "sort_order": 102
+      },
+      {
+        "name": "Project Management",
+        "category": "product_standard",
+        "sort_order": 103
+      },
+      {
+        "name": "Projektleiter",
+        "category": "product_standard",
+        "sort_order": 104
+      },
+      {
+        "name": "Projektplanung",
+        "category": "product_standard",
+        "sort_order": 105
+      },
+      {
+        "name": "RFP / RFI",
+        "category": "product_standard",
+        "sort_order": 106
+      },
+      {
+        "name": "Risiko Management",
+        "category": "product_standard",
+        "sort_order": 107
+      },
+      {
+        "name": "Risikomanagement",
+        "category": "product_standard",
+        "sort_order": 108
+      },
+      {
+        "name": "Risk Management",
+        "category": "product_standard",
+        "sort_order": 109
+      },
+      {
+        "name": "SDLC",
+        "category": "product_standard",
+        "sort_order": 110
+      },
+      {
+        "name": "Service Integration",
+        "category": "product_standard",
+        "sort_order": 111
+      },
+      {
+        "name": "Software Rollout",
+        "category": "product_standard",
+        "sort_order": 112
+      },
+      {
+        "name": "System und Prozess Validierung",
+        "category": "product_standard",
+        "sort_order": 113
+      },
+      {
+        "name": "Teamlead",
+        "category": "product_standard",
+        "sort_order": 114
+      },
+      {
+        "name": "Teamleiter",
+        "category": "product_standard",
+        "sort_order": 115
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 116
+      },
+      {
+        "name": "* Rollout",
+        "category": "product_standard",
+        "sort_order": 117
+      },
+      {
+        "name": "Transition & Transformation von Infrastruktur (Netzwerk",
+        "category": "product_standard",
+        "sort_order": 118
+      },
+      {
+        "name": "Server",
+        "category": "product_standard",
+        "sort_order": 119
+      },
+      {
+        "name": "Clients",
+        "category": "product_standard",
+        "sort_order": 120
+      },
+      {
+        "name": "COTS)",
+        "category": "product_standard",
+        "sort_order": 121
+      },
+      {
+        "name": "* Cloud-Integrationen",
+        "category": "product_standard",
+        "sort_order": 122
+      },
+      {
+        "name": "Interface",
+        "category": "product_standard",
+        "sort_order": 123
+      },
+      {
+        "name": "Web Services und API Proxy",
+        "category": "product_standard",
+        "sort_order": 124
+      },
+      {
+        "name": "* Migration von Infrastruktur",
+        "category": "product_standard",
+        "sort_order": 125
+      },
+      {
+        "name": "Rechenzentren und Applikationen",
+        "category": "product_standard",
+        "sort_order": 126
+      },
+      {
+        "name": "* Software development & SDLC (agile scrum",
+        "category": "product_standard",
+        "sort_order": 127
+      },
+      {
+        "name": "V Modell & Waterfall)",
+        "category": "product_standard",
+        "sort_order": 128
+      },
+      {
+        "name": "* Datenmigration",
+        "category": "product_standard",
+        "sort_order": 129
+      },
+      {
+        "name": "ETL",
+        "category": "product_standard",
+        "sort_order": 130
+      },
+      {
+        "name": "* Beratung und Aufbau Service Management",
+        "category": "product_standard",
+        "sort_order": 131
+      },
+      {
+        "name": "Optimieren von ITSM Prozessen",
+        "category": "product_standard",
+        "sort_order": 132
+      },
+      {
+        "name": "* Lastenheften",
+        "category": "product_standard",
+        "sort_order": 133
+      },
+      {
+        "name": "Ausschreibungen",
+        "category": "product_standard",
+        "sort_order": 134
+      },
+      {
+        "name": "RFI",
+        "category": "product_standard",
+        "sort_order": 135
+      },
+      {
+        "name": "RFP",
+        "category": "product_standard",
+        "sort_order": 136
+      },
+      {
+        "name": "Vertragsmanagement",
+        "category": "product_standard",
+        "sort_order": 137
+      },
+      {
+        "name": "Steuerung von Dienstleiteistern",
+        "category": "product_standard",
+        "sort_order": 138
+      },
+      {
+        "name": "Fachliche und disziplinarische Teamleitung",
+        "category": "product_standard",
+        "sort_order": 139
+      },
+      {
+        "name": "Leitung der IT Service und Operation",
+        "category": "product_standard",
+        "sort_order": 140
+      },
+      {
+        "name": "* Projektplanung",
+        "category": "product_standard",
+        "sort_order": 141
+      },
+      {
+        "name": "Controlling",
+        "category": "product_standard",
+        "sort_order": 142
+      },
+      {
+        "name": "Überwachung Termine & Meilensteine",
+        "category": "product_standard",
+        "sort_order": 143
+      },
+      {
+        "name": "* RAID Management (Risiko",
+        "category": "product_standard",
+        "sort_order": 144
+      },
+      {
+        "name": "Assumptions",
+        "category": "product_standard",
+        "sort_order": 145
+      },
+      {
+        "name": "Issues",
+        "category": "product_standard",
+        "sort_order": 146
+      },
+      {
+        "name": "Dependencies)",
+        "category": "product_standard",
+        "sort_order": 147
+      },
+      {
+        "name": "Erstellen und Präsentieren von Berichten und Entscheidungsvorlagen",
+        "category": "product_standard",
+        "sort_order": 148
+      },
+      {
+        "name": "Quality Assurance & Change-Management / CAB",
+        "category": "product_standard",
+        "sort_order": 149
+      },
+      {
+        "name": "* Starke & transparente Kommunikation",
+        "category": "product_standard",
+        "sort_order": 150
+      },
+      {
+        "name": "Erstellen von Business Case und Project Charter bzw. Project Brief & PID",
+        "category": "product_standard",
+        "sort_order": 151
+      },
+      {
+        "name": "Stakeholder Management und Schnittstelle zwischen Business und IT",
+        "category": "product_standard",
+        "sort_order": 152
+      },
+      {
+        "name": "* Kosten-",
+        "category": "product_standard",
+        "sort_order": 153
+      },
+      {
+        "name": "Ressourcen-",
+        "category": "product_standard",
+        "sort_order": 154
+      },
+      {
+        "name": "Scope und Time-Management",
+        "category": "product_standard",
+        "sort_order": 155
+      },
+      {
+        "name": "* Anforderungsmanagement",
+        "category": "product_standard",
+        "sort_order": 156
+      },
+      {
+        "name": "Business-",
+        "category": "product_standard",
+        "sort_order": 157
+      },
+      {
+        "name": "GAP- und Impact-Analyse",
+        "category": "product_standard",
+        "sort_order": 158
+      },
+      {
+        "name": "* Eskalationsmanagement",
+        "category": "product_standard",
+        "sort_order": 159
+      },
+      {
+        "name": "* Vorbereitung",
+        "category": "product_standard",
+        "sort_order": 160
+      },
+      {
+        "name": "Führung und Moderation von Workshops",
+        "category": "product_standard",
+        "sort_order": 161
+      },
+      {
+        "name": "* Beratung",
+        "category": "product_standard",
+        "sort_order": 162
+      },
+      {
+        "name": "Coaching und Knowhow-Transfer",
+        "category": "product_standard",
+        "sort_order": 163
+      },
+      {
+        "name": "Zertifikate & Fortbildung:",
+        "category": "product_standard",
+        "sort_order": 164
+      },
+      {
+        "name": "* PMP (Project Management Professional",
+        "category": "product_standard",
+        "sort_order": 165
+      },
+      {
+        "name": "PMI)",
+        "category": "product_standard",
+        "sort_order": 166
+      },
+      {
+        "name": "ITILv3 Foundation",
+        "category": "product_standard",
+        "sort_order": 167
+      },
+      {
+        "name": "PRINCE2 Foundation",
+        "category": "product_standard",
+        "sort_order": 168
+      },
+      {
+        "name": "Data Integrity im GxP regulierten Umfeld",
+        "category": "product_standard",
+        "sort_order": 169
+      },
+      {
+        "name": "GAMP5 basics & CSV",
+        "category": "product_standard",
+        "sort_order": 170
+      },
+      {
+        "name": "ICE Silver Project Management",
+        "category": "product_standard",
+        "sort_order": 171
+      },
+      {
+        "name": "Microsoft Certified System Engineer",
+        "category": "product_standard",
+        "sort_order": 172
+      },
+      {
+        "name": "Certified Software Developer",
+        "category": "product_standard",
+        "sort_order": 173
+      },
+      {
+        "name": "Ethical Hacker (training)",
+        "category": "product_standard",
+        "sort_order": 174
+      },
+      {
+        "name": "Agile",
+        "category": "product_standard",
+        "sort_order": 175
+      },
+      {
+        "name": "Budget Planning",
+        "category": "product_standard",
+        "sort_order": 176
+      },
+      {
+        "name": "CSV",
+        "category": "product_standard",
+        "sort_order": 177
+      },
+      {
+        "name": "Data Center Move",
+        "category": "product_standard",
+        "sort_order": 178
+      },
+      {
+        "name": "Instrastruktur",
+        "category": "product_standard",
+        "sort_order": 179
+      },
+      {
+        "name": "Konflikt Management",
+        "category": "product_standard",
+        "sort_order": 180
+      },
+      {
+        "name": "Konsolidierung",
+        "category": "product_standard",
+        "sort_order": 181
+      },
+      {
+        "name": "Migration",
+        "category": "product_standard",
+        "sort_order": 182
+      },
+      {
+        "name": "Problemanalyse",
+        "category": "product_standard",
+        "sort_order": 183
+      },
+      {
+        "name": "Risk-Management",
+        "category": "product_standard",
+        "sort_order": 184
+      },
+      {
+        "name": "SAT",
+        "category": "product_standard",
+        "sort_order": 185
+      },
+      {
+        "name": "Scrum",
+        "category": "product_standard",
+        "sort_order": 186
+      },
+      {
+        "name": "Stakeholder management",
+        "category": "product_standard",
+        "sort_order": 187
+      },
+      {
+        "name": "Teamleitung",
+        "category": "product_standard",
+        "sort_order": 188
+      },
+      {
+        "name": "Test Management",
+        "category": "product_standard",
+        "sort_order": 189
+      },
+      {
+        "name": "Test Plan",
+        "category": "product_standard",
+        "sort_order": 190
+      },
+      {
+        "name": "UAT",
+        "category": "product_standard",
+        "sort_order": 191
+      },
+      {
+        "name": "Validierung",
+        "category": "product_standard",
+        "sort_order": 192
+      },
+      {
+        "name": "Validierungsplan",
+        "category": "product_standard",
+        "sort_order": 193
+      },
+      {
+        "name": "V-Modell",
+        "category": "product_standard",
+        "sort_order": 194
+      },
+      {
+        "name": "Waterfall",
+        "category": "product_standard",
+        "sort_order": 195
+      },
+      {
+        "name": "Fachliche",
+        "category": "product_standard",
+        "sort_order": 196
+      },
+      {
+        "name": "* Qualifizieren",
+        "category": "product_standard",
+        "sort_order": 197
+      },
+      {
+        "name": "Transformation und Rollout von Infrastruktur",
+        "category": "product_standard",
+        "sort_order": 198
+      },
+      {
+        "name": "(Netzwerk Komponenten & Server Systeme)",
+        "category": "product_standard",
+        "sort_order": 199
+      },
+      {
+        "name": "Definieren und Validieren von Prozesse",
+        "category": "product_standard",
+        "sort_order": 200
+      },
+      {
+        "name": "Leiten von SDLC Projekten für Enterprise Applikationen und Software",
+        "category": "product_standard",
+        "sort_order": 201
+      },
+      {
+        "name": "* Erstellen",
+        "category": "product_standard",
+        "sort_order": 202
+      },
+      {
+        "name": "Integrieren und Transformieren von IT Services",
+        "category": "product_standard",
+        "sort_order": 203
+      },
+      {
+        "name": "Migrieren von Rechenzentren / Data Centre",
+        "category": "product_standard",
+        "sort_order": 204
+      },
+      {
+        "name": "* Data Migration",
+        "category": "product_standard",
+        "sort_order": 205
+      },
+      {
+        "name": "ETL (z.B. millionen Dokumente von mehreren Legacy",
+        "category": "product_standard",
+        "sort_order": 206
+      },
+      {
+        "name": "Systemen auf neue DMS Technologien)",
+        "category": "product_standard",
+        "sort_order": 207
+      },
+      {
+        "name": "Managementerfahrung in Unternehmen:",
+        "category": "product_standard",
+        "sort_order": 208
+      },
+      {
+        "name": "Operations Management",
+        "category": "product_standard",
+        "sort_order": 209
+      },
+      {
+        "name": "Programmanagement",
+        "category": "product_standard",
+        "sort_order": 210
+      },
+      {
+        "name": "Projektmanagement",
+        "category": "product_standard",
+        "sort_order": 211
+      },
+      {
+        "name": "Service Management",
+        "category": "product_standard",
+        "sort_order": 212
+      },
+      {
+        "name": "Personalverantwortung:",
+        "category": "product_standard",
+        "sort_order": 213
+      },
+      {
+        "name": "Hiring",
+        "category": "product_standard",
+        "sort_order": 214
+      },
+      {
+        "name": "Interview",
+        "category": "product_standard",
+        "sort_order": 215
+      },
+      {
+        "name": "Resource Management",
+        "category": "product_standard",
+        "sort_order": 216
+      },
+      {
+        "name": "Team Building",
+        "category": "product_standard",
+        "sort_order": 217
+      },
+      {
+        "name": "Team Lead",
+        "category": "product_standard",
+        "sort_order": 218
+      }
+    ],
+    "education": [
+      {
+        "degree": "PRINCE2 Foundation Certification",
+        "institution": "Master of Projects",
+        "period": "01/2020 - 01/2020",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Agile Product Owner",
+        "institution": "ICANN",
+        "period": "11/2019 - 11/2019",
+        "education_type": "course"
+      },
+      {
+        "degree": "Data Integrity im GxP Umfeld",
+        "institution": "Reinach Schweiz",
+        "period": "02/2016 - 02/2016",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Scrum Master",
+        "institution": "EXIN, Basel",
+        "period": "05/2013 - 05/2013",
+        "education_type": "course"
+      },
+      {
+        "degree": "ICE Silver (IQP + Crystal + Excellence)",
+        "institution": "Novartis Pharma AG, Basel",
+        "period": "05/2013 - 05/2013",
+        "education_type": "course"
+      },
+      {
+        "degree": "SCCM",
+        "institution": "Bilgi IT Education, Istanbul",
+        "period": "06/2012 - 06/2012",
+        "education_type": "course"
+      },
+      {
+        "degree": "Brevet de Technicien Superieur",
+        "institution": "Academie Nancy, Frankreich",
+        "period": "10/2010 - 10/2011",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Project Management Professional (PMP)",
+        "institution": "TU Istanbul",
+        "period": "05/2011 - 05/2011",
+        "education_type": "course"
+      },
+      {
+        "degree": "Management Information System (MIS)",
+        "institution": "Academy Nancy, Frankreich",
+        "period": "08/2010 - 05/2011",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Ethical Hacker - IT Security",
+        "institution": "BGA Security, Istanbul",
+        "period": "04/2011 - 04/2011",
+        "education_type": "course"
+      },
+      {
+        "degree": "ITIL Foundation",
+        "institution": "LC Istanbul",
+        "period": "05/2010 - 05/2010",
+        "education_type": "course"
+      },
+      {
+        "degree": "VMWare Server 3.0",
+        "institution": "Internal, Saint-Avold",
+        "period": "06/2006 - 06/2006",
+        "education_type": "course"
+      },
+      {
+        "degree": "Certified Software Developer",
+        "institution": "TOKEN Education Center, Istanbul",
+        "period": "08/2001 - 06/2002",
+        "education_type": "course"
+      },
+      {
+        "degree": "Microsoft Certified System Engineer",
+        "institution": "TOKEN Education Center, Istanbul",
+        "period": "02/2002 - 05/2002",
+        "education_type": "course"
+      },
+      {
+        "degree": "Hochschulreife",
+        "institution": "Kaufmännische Berufsschule, Bibreach",
+        "period": "09/1992 - 06/1994",
+        "education_type": "course"
+      },
+      {
+        "degree": "Mittlere Reife / Fachschulreife",
+        "institution": "Technische Berufsschule, Bibreach",
+        "period": "08/1990 - 06/1992",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "EDI (Electronic Data Interchange)",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Odette FTP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "RAID Management",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UML",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:23:02.543982",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "PERSONAL",
+      "FOCUS_EXP",
+      "ZERTIFIKATE",
+      "FACHBEREICHE",
+      "SCHULUNGEN",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 6→5 bei '06/2015 - 01/2017'",
+        "EDV_SEIT: None→2008"
+      ],
+      "coverage_percent": 92.1875,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

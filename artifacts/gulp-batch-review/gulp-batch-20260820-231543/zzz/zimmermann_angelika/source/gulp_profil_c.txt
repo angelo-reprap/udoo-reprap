@@ -1,0 +1,1296 @@
+.NET Classic/Core C# Windows Desktop (XAML,  WPF, Winforms,
+WCF), ASP.NET Core , MVC, TypeScript, Node, Angular, Oracle / MS
+SQL Server, Azure)
+Top-Skills: .NET Core, Datenbanken, Angular, WPF,
+UWP, XAML, Winforms, .NET Classic, WCF,
+C++, Node.js, HTML(5), JavaScript,
+TypeScript, ASP.NET, Oracle/SQL, Microsoft
+SQL Server, PostgreSQL, Microsoft Azure
+Verfügbar ab: 01.07.2023
+verfügbar zu: 100 %
+davon vor Ort: 100 %
+Stundensatz: 75,00 EUR
+Einsatzort
+Regionen &amp; Länder: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Remote-Einsatz: Remote jederzeit möglich
+Kontaktwunsch: Ich möchte bevorzugt für Projekte in diesen Einsatzorten kontaktiert
+werden.
+Projekte
+2021-06 - 2021-09 Architektur Konzeption und Umsetzung im Bereich
+4 Monate Front-End für ein Projektplanung-System im Automotiv
+Bereich (Software- Entwicklung mit Angular/TypeScript,
+C#/ASP.NET Core und MS SQL-Server)
+Rolle: Software-Architekt
+Projektinhalte:
+    •  Architektur Konzeption und Umsetzung im Frontend mittels
+     ?Angular, Nx, MonoRepo, NgRx und Modul Federation.
+    •  Gestaltung und Umsetzung von attraktiven Bedienoberflächen auf
+     ?Basis moderner Technologien (PrimeNg)
+    •  Optimierung von Abläufen (z.B. Einführung Front-End
+     ?Integrationstests mit Docker und SQL-Server Image)
+    •  Konzeption von neuen Anforderungen in Form von Storys
+    •  Unterstützung, Coaching und Code Review im Team
+    •  Umsetzung von nicht-funktionalen Verbesserungen im
+17.02.2023 1 von 14
+     ?Softwareprodukt
+    •  Tools: Visual Studio 2019, Resharper, CodeMaid, und Visual
+     ?Studio Code und PrimeNg als 3 rd Party Tool.
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen mit Jira
+    •  Team-Versionskontrollsysteme: Git
+    •  Build-System: AzureDevOps
+    •  Team: 10+
+2021-01 - 2021-06 Weiterentwicklung im Bereich Back-Office für ein
+6 Monate Ticketing System im Verkehrsbereich (Software-
+Entwicklung mit C#/ASP.NET Classic/Core,
+WindowsServices und Oracle 12)
+Rolle: Software-Entwickler
+Projektinhalte:
+    •  Erweiterungen von Ticketingapplikationen (Web, WinFroms und
+     ?WebAPI) zwischen Ticketsystem und Fremdsystemen.
+    •  Weiterentwicklung von bestehenden .net classic WindowsServices
+     ?und Applikationen unter Windows 10
+    •  Integrationstest mit Postman/Newman und Powershell-Scripten
+    •  Tools: Visual Studio 2019, Resharper, CodeMaid, und Visual
+     ?Studio Code. Sowie DevExpress als 3 rd Party Tool.
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen mit Jira
+    •  Team-Versionskontrollsysteme: Git
+    •  Build-System: TeamCity
+    •  Team: 7+
+2020-10 - 2020-12 Weiterentwicklung von Microservices für eine
+3 Monate Kommunikationsplattform im Medizinsichen Bereich
+(Software- Entwicklung mit C#/ASP.NET Core 3.1 Web
+API, RabbitMQ und PostgreSQL)
+Rolle: Software-Entwickler
+Projektinhalte:
+    •   Weiterentwicklung von bestehenden .net core Microservices auf
+     ?Linux und Windows Zielplattform und WebAPI mit IdentityServer 4
+     ?und TopShelf Windows Service Library unter Hilfe von Postman
+    •   Konfiguration RabbitMQ unter Windows zum Aufbau eines
+     ?Installationsprogramms unter WPF
+    •  Aufbau einer Health-Tool Library unter .NET Core zur
+     ?Überprüfungen der gesamten Kommunikationsplattform
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen mit Jira
+    •  Team-Versionskontrollsysteme: Plastic SCM
+    •  Build-System: TeamCity
+    •  Team: 8
+17.02.2023 2 von 14
+2020-06 - 2020-09 Prototyperstellung einer Web-App (Software-Architektur
+4 Monate u. Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web
+API und MS SQL-Server)
+Rolle: Software-Architekt und Entwickler
+Einsatzort: Remote
+Projektinhalte:
+    •  Erstellung und Implementierung eines Datenmodel für
+     ?den Prototypen
+    •  Backend Implementierung mit ASP.NET Core 3.1 Web-RESTApi
+    •  Entityframework, Swagger, Outh2/JWT, ASP.NET Identity, xUnit,
+     ?Postman/Insomnia.rest
+    •   Identity Server 4
+    •  Frontend Applikation mit Angular 10
+    •  Syncfusion Components, Bootstrap4, ngrx, nx, Jest, Cypres
+2019-11 - 2020-05 Entwicklung eines Windows Service für den
+7 Monate automatisierten Bestellvorgang im Discounterbereich
+(C#/.NET Classic/Oracle 12)
+Rolle: Software-Entwickler
+Projektinhalte:     •  Aufbau einer der Software-Architektur für einen klassischen
+     ?Windows Service
+    •  Extraktion von Abfragen aus einem „legacy“ Gutpa Modul für den
+     ?Form basierenden Bestellvorgang.
+    •  Implementierung des Windows Service mit C#
+    •  Erstellung eines DAL mit PL/SQL Package inkl. eigenem OR-Mapper
+     ?in C#
+    •  Reporting-Tool: List&amp;Label 17
+    •  Team-Versionskontrollsysteme: Azure Git-Repo (trunc-based mit
+     ?pull request)
+2019-04 - 2020-05 Entwicklung eines WPF Programmes für die
+1 Jahr 2 Monate Temperaturmessung von Lötanlagen im
+Maschinenbaubereich (Software-
+Architektur/C#/WPF/.NET Core 3.1/C-
+Rolle: Software-Architekt und Entwickler
+Projektinhalte:     •  Daten- und Funktionsanalyse des Alt-Programms in Win32-C++.
+    •  Erstellung und Implementierung eines Datenmodels aufgrund der
+     ?Alt-Anwendung und neuen erweiterten Anforderungen.
+    •  Datenbankmodel Entwicklung (Database-First) für PostgreSQL 11
+     ?und SQL-Server 2017/2019 und Azure Database, sowie Update
+     ?Funktionen
+    •  Entwerfen einer Software-Architektur für die Anwendungen mit
+     ?Prism (IoC Unity) mit C# und VS 2019, sowie EF und linq2db.
+    •  Extraktion von wichtigen Funktionslogiken aus der Altanwendung
+17.02.2023 3 von 14
+     ?und Re-implementierung in C#
+    •  Aufbau von Funktionslogik und Businesslogik, sowie
+     ?Implementierung der WPF-Ansichten und deren Integration.
+    •  Aufbau und Implementation der Applikation als .NET 4.7 Classic.
+     ?Im laufenden Projekt Migration nach .NET Core 3.0 (schon mit
+     ?Preview Version).
+    •  Aufbereitung und Beschreibung von speziellen WPF-Controls für
+     ?eine externes UX-Team.
+    •  Aufbau einer Architektur eines Monitoring System zur
+     ?Überwachung der Lötprozesse in der Lötanlage mit einer
+     ?Time-Series Datenbank, nach Auswahl folgender TS-DB Prometheus,
+     ?InfluxDb und PostgreSQL Extension mit einem .NET Core
+     ?ServiceWoker und MQTT.
+    •  Aufbau einer Architektur für ein Dashboard-System in Angular 9
+     ?(Front-End) und ASP.NET Core 3.1 WebAPI (Back-End).
+    •  Tools: Visual Studio 2019, AzureDevops-Git (dev-based mit pull
+     ?request), Sourcetree, Resharper, CodeMaid, und OzTools. Sowie
+     ?SciChart als 3rd Party Tool.
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen
+    •  Team-Versionskontrollsysteme: Azure Git-Repo (dev-based mit
+     ?pull request)
+    •  Team: 3
+2017-10 - 2019-03 Wörterbuch- und Übersetzungsanwendung für den
+1 Jahr 6 Monate internationalen Handel im Automotivbereich (C#/.NET/
+Winforms/WPF/Angular 5+/ASP.NET Core 2.+
+Rolle: Software-Entwickler
+Projektinhalte:     •  Implementierung eines responsiven und dynamischen Web-Portals
+     ?in TypeScript 2.4+ mit dem JavaScript-Framework Angular 5,
+     ?sowie Erstellung einer Web-API mittels ASP.NET Core 2.+ in C#
+     ?unter Visual Studio Code und Visual Studio 2017
+    •  Implementierung neuer Anforderungen, Fehlerbereinigungen und
+     ?Refactoring eines legacy Programms in C# von .NET 2.0 auf .NET
+     ?4.7 unter VS 2017 mit Winforms / WPF, Syncfusion und einer MS
+     ?SQL-Server 2016 Datenbank.
+    •  Angular Entwicklung unter TypeScript mit Syncfusion,
+     ?Erweiterungen von Gulp-Tasks, sowie Unittest mit Jasmine und
+     ?Wallaby.
+    •  ASP.NET Core RESTFul Webservice (WebAPI) Entwicklung mit
+     ?Autofac, Automapper und Unittest mit xTest und Moq, sowie
+     ?Swagger.
+    •  Erweiterungen von Processformularen in Winforms / WPF (MVVM)
+    •  Performance Verbesserungen im C# Source Code, wie auch im T-SQL
+     ?Abfragen und LinqToSQL
+    •  Erstellen und Erweiterung von T-SQL Proceduren
+    •  Umstellung der Schnittstellen für Excelreports über Syncfusion
+    •  Datenbank-Redesign mit MS SQL-Server 2016
+    •  Tools: Visual Studio 2017, Git, Sourcetree, Resharper,
+     ?CodeMaid, OzTools und Syncfusion, nodejs, visual studio code
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen
+    •  Team: 1
+17.02.2023 4 von 14
+2017-02 - 2017-09 Erstellung eines responsiven Ticket- und
+8 Monate Eventmanagement Web-Portal im Bildungsbereich
+(JavaScript-MVVM-Framework Aurelia und ASP.NET Core
+1.1)
+Rolle: Software-Architekt und Entwickler
+Projektinhalte:     •  Implementierung neuer Anforderungen für ein responsives
+     ?Web-Portal (Mobil First) in TypeScript 2.3 mit dem
+     ?JavaScript-MVVM-Framework Aurelia, sowie Erstellung einer
+     ?Web-API mittels ASP.NET Core 1.1 in C# unter Visual Studio Code
+     ?und Visual Studio 2017
+    •  Aufbau eines Teams-Versionskontrollsystems für Continuous
+     ?Integration und Deployment mit dem TFS 2017 inkl. WebServer,
+     ?Git Repositiory (TFS und Bitbucket), sowie Einrichtung von
+     ?Build und Deployment Tasks.
+    •  Aurelia Entwicklung unter TypeScript mit KendoUI, Erweiterungen
+     ?von Gulp-Tasks, sowie Unittest mit Jasmine und Wallaby.
+    •  ASP.NET Core RESTFul Webservice Entwicklung mit Autofac und
+     ?Automapper und Unittest mit xTest und Moq.
+    •  Schnittstellenimplementierung von Zahlungssystemen
+     ?(Lastschrift, Kreditkarte und Paypal)
+    •  Projektplanungstool Jira mit iceTime und ActivityTimeline
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen
+2016-07 - 2017-01 Logistikprogramme für den Einkauf (Zentral und Länder)
+7 Monate im Lebensmittelbereich
+(C#/.NET/WinForms/WPF/WCF)
+Projektinhalte:     •  Implementierung neuer Anforderungen und Erweiterung zweier
+     ?Logistikprogramme in C# mit .NET 4.5 unter VS 2012 / 2015 mit
+     ?Infragistic unter Winforms / WPF und einer Oracle Datenbank 11
+     ?und 12
+    •  Erweiterung des WCF Webservice
+    •  Erstellen und Erweiterung von PL/SQL Packages
+    •  Erweiterung des internen Processablaufs zwischen den beiden
+     ?Programmen, um verschiedene Thematiken (z.B. Aussenlager)
+    •  Erweiterungen von Processformularen in Winforms/ WPF (MVVM)
+    •  Schnittstellen für Excelreports über Syncfusion
+    •  Refactoring einzelner Module
+    •  Unittest mit MSTest und Mocks
+    •  Team-Versionskontrollsysteme: VS 2012 mit Team Foundation
+     ?Server TFS inkl. Kanban-Board
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen
+Kenntnisse: Infragistic 8 bis 12, List&amp;Label 11 bis 18, Syncfusion 2010, Tobitfax,
+Resharper, SQLDelveloper/SQLPlus
+2015-04 - 2016-06 Erstellung einer Prüflabor-Anwendung zur Generierung
+1 Jahr 3 Monate von Prüfaufträgen und Prüfberichten  im
+Automationbereich (C#/.NET)
+17.02.2023 5 von 14
+Rolle: Software-Architekt und Entwickler
+Projektinhalte:     •  Erstellung eines Pflichtenheftes auf Basis von Anforderungen
+     ?aus dem Prüffeld (System- und Anforderungsanalyse)
+    •  Aufbau einer Software-Architektur
+    •  Daten-Datenbank Design mit MS SQL Server 2014
+    •  Implementierung der Desktop-Anwendung mit C# / WPF / Prism und
+     ?EntityFramework mit 3rd Party Bibliothek Telerik unter VS 2015
+    •  Implementierung der Web-Anwendung mit C# / ASP.NET MVC /
+     ?ASP.NET WebAPI / JavaScript / HTML / JQuery und EntityFramework
+     ?mit 3rd Party Bibliothek Telerik
+    •  Team-Versionskontrollsysteme: TFS / Visual Studio Online
+2012-03 - 2015-04 Produktive Anwendung für die Lagerhaltung im
+3 Jahre 2 Monate Discounterbereich
+(C/C++/C#/.NET/WPF/WCF/ASP.NET MVC)
+Rolle: Architekt/Entwickler
+Projektinhalte:     •  Technische Projektleitung
+    •  Migration des Datenbanksystems von mySQL auf Oracle 10/11
+    •  Migration von Teilprojekten von C++ nach C#, unteranderem eines
+     ?WebService für den Wawi-Datenabgleich
+    •  Teilprojekte in C++Builder 5, später RAD C++Builder XE 6 (VCL)
+     ?und in VS 2013 (wxWidgets)
+    •  Programmerweiterungen nach Fachbereichsanforderungen
+    •  Zusatzprogramm und Schnittstelle zur Einstellung / Verkauf von
+     ?Artikeln in einem eBay Auktionsprogramm, Zugriff über eine SOAP
+     ?Schnittstelle in C++
+    •  Implementation eines täglichen Windowsservices in C#/WCF (VS
+     ?2013) zum Bestandsdatenabgleich
+    •  Umstellung auf RAD C++Builder XE6 incl. OCI
+     ?(Oracle-Schnittstelle)
+    •  Aufwandsanalyse zur Umstellung von AnsiCode auf UniCode, sowie
+     ?32 Bit auf 64 Bit
+    •  Implementation eines Administrations- und eines
+     ?Steuerungsprogramm für Palettenlagerhaltung in C#/WPF (VS 2013)
+    •  Implementierung einer Web-Anwendung für Staplersteuerung mit C#
+     ?/ ASP.NET MVC / ASP.NET WebAPI / JavaScript / HTML / JQuery
+    •  Team-Versionskontrollsysteme: TFS
+2008-08 - 2014-11 Logistikprogramme für den Einkauf (Zentral und Länder)
+6 Jahre 4 Monate im Lebensmittelbereich
+(C#/.NET/WinForms/WPF/WCF)
+Projektinhalte:     •  Aufbau, Implementation und Wartung zweier Logistikprogramme in
+     ?C# mit .NET 2.0 bis 4.5 unter VS 2005 bis VS 2013 mit
+     ?Infragistic unter Winforms / WPF und einer Oracle Datenbank
+     ?10/11
+    •  Erstellung eines DAL mit PL/SQL inkl. eigenem OR-Mapper in C#
+    •  Processformulare für Schemaerstellung, Dispo-Verarbeitung /
+     ?Lieferantenbestellung und Spediteur Anbindung
+    •  EDI-Schnittstelle, Vergabe von Direktlogistiken und einer
+     ?Forecasting Bestellschnittstelle in PLSQL
+    •  Erweiterungen von Processformularen in WPF (MVVM)
+17.02.2023 6 von 14
+    •  Schnittstellen für Excelreports über Infragistic
+    •  Faxberichte (Tobitfax) über List&amp;Label
+    •  Einlesen von geschützten Exceldateien über Interop und
+     ?Syncfusion
+    •  WCF Service für eine Schnittstelle zur zentralen
+     ?Einkaufsdatenbank mit vordefinierten XSD Schemadateien über die
+     ?WCF Service Factory Modeling Edition zum Import von relevanten
+     ?Daten
+    •  Programmaufbau mit Patterns: Singelton, MVP, MVVM, Observer,
+     ?Interfaces, sowie Enterprise Library für Exceptionhandling und
+     ?Unity
+    •  Unittest mit MSTest und Mocks
+    •  Team-Versionskontrollsysteme: Subversion mit TortoiseSVN und
+     ?Ankh unter VS 2005/2008, ab VS 2010 mit Team Foundation Server
+     ?TFS. BuildServer mit CruiseControl.NET ( Continuous Integration
+     ?), später TFS
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen
+Kenntnisse: Infragistic 8 bis 12, List&amp;Label 11 bis 18, Syncfusion 2010, Tobitfax,
+Resharper, SQLDelveloper/SQLPlus und PowerDesigner
+2012-11 - 2013-05 Neu-Implementation einer Vertragsverwaltung im
+7 Monate Discounterbereich (C#/.NET)
+Projektinhalte:     •  Aufbau und Implementation eines DAL, sowie eines Windowsservice
+     ?zur Vertragserstellung in PDF aufgrund eines Web-Interviews in
+     ?VS 2010/2013 mit C# und Oracle 10/11, sowie LL 18
+2011-07 - 2012-03 Zeiterfassungssystem in C# / ASP.NET -  Fraunhofer-
+9 Monate Institut für System- und Innovationsforschung
+Projektinhalte:     •  Konzeption, Erstellung und Implementierung eines
+     ?Zeiterfassungsmanagementsystems in C# / Winforms und ASP.NET
+     ?mit .NET 4 unter VS 2010
+Kenntnisse: MS SQL Server 2008, Zugriff mittels Linq, SQLite
+2009-09 - 2010-03 Internes Verrechnungsprogramm für die Vorsteuer  in
+7 Monate der Lebensmittelbranche (C#/.NET/WPF/WCF)
+Projektinhalte:     •  Aufbau eines Windowsservice zur Überwachung eines anderen
+     ?Windowsservice mittels WCF und async Operationen, sowie
+     ?eMail-SMTP Benachrichtigung
+    •  Erstellung einer Überprüfung von SAP-Elementen, Verbuchungen
+     ?von Belegen, Abfrage gebuchter Positionen über RFC Funktionen
+     ?mittels ERPConnect.          
+    •  Implementation von WPF Views zur Auswahl und Darstellung von
+     ?Protokollen
+    •  Berichte mit List&amp;Label
+    •  Softwareentwicklung nach agilen Methoden und iterative
+     ?Entwicklungszyklen unter VS 2008 mit VB.NET und C# unter NET
+     ?3.51 mit WPF und WCF. Datenbanksystem mit Oracle 10g r2, DAL
+17.02.2023 7 von 14
+     ?mit Entity Framework und LinqToEntities, sowie  Enterprise
+     ?Library für Exceptionhandling und Unity.               
+    •  Team-Versionskontrollsysteme: Team Foundation Server TFS
+Kenntnisse: Prism 2 (CAG), Infragistic 9, List&amp;Label 14, ERPConnect
+2008-05 - 2008-07 Reiseticketmanagement-System in ASP.NET / C# -
+3 Monate Fraunhofer-Institut für System- und
+Innovationsforschung
+Projektinhalte:     •  Konzeption, Erstellung und Implementierung eines
+     ?Reiseticketmanagement-System in C# unter VS 2008 (NET 2.0) mit
+     ?C#, SQL Server 2005, Active Directory und Exchange Server
+Kenntnisse: Redemption, WebGrid, MS EnterpriseLib, MS AJAX und AjaxControlToolkit
+2008-04 - 2008-05 WebShop-System in ASP.NET / C#-  ACE – Auto Club
+2 Monate Deutschland
+Projektinhalte:     •  Erstellung eines WebShops (ACE-Vorteilswelt) für ACE unter VS
+     ?2008 (NET 3.5) mit C# und SQL 2005  und Linq
+Kenntnisse: DevExpress Enterprise, MS EnterpriseLib, MS AJAX
+2008-01 - 2008-05 Terminplaner in .NET / C# -  Hector System –
+5 Monate Fitnessbranche
+Projektinhalte:     •  Erweiterung des Terminplaners für die Fitnessbranche unter VS
+     ?2003 (VB.NET) und SQL Server 2000.
+    •  Neues ASP.NET Addon für Terminsuche über das Internet in VB.NET
+     ?mit VS 2008 / NET 3.5 und SQL Server 2005
+Kenntnisse: DevExpress-WinSuite/DXperience Enterprise, XML, Enterprise-Lib
+Gravitybox, Windows Installer, Visual Studio Tools für Office (Excel
+Schnittstelle und Outlook Addin) 2003 und 2005, LLBLGen (DAL), Access
+2000 bis Access 2003, Subversion für Source-Code-Verwaltung
+2008-03 - 2008-04 Anforderungsmanagement in ASP.NET / C# - Parker –
+2 Monate Automotive
+Projektinhalte:     •  Erstellung eines Anforderungsmanagement für einen
+     ?Automotiv-Zulieferer (Parker) unter VS 2008 (NET 2.0) mit
+     ?VB.NET und SQL Server 2005 und NET 3.0 WF.
+Kenntnisse: DevExpress Enterprise, MS EnterpriseLib, MS AJAX
+2008-01 - 2008-03 KFZ-Versicherung-Webportal in ASP.NET / C# -  Asstel –
+3 Monate Versicherung
+17.02.2023 8 von 14
+Projektinhalte:     •  Erstellung eines KFZ-WebPortal (Asstel) für die Kampagne
+     ?credit4me (Fortis) unter VS 2008 (NET 3.5) mit C# und SQL 2005
+    •  Erstellen eines WCF-Dienstes
+Kenntnisse: DevExpress Enterprise, MS EnterpriseLib, MS AJAX
+2007-06 - 2007-12 Controlling/ Reporting in .NET / C#
+7 Monate
+Projektinhalte:     •  Datenanalyse und Berichts-Erstellung eines ASP.NET(1.1) und
+     ?eines WinForm-Projektes (NET 2.0 C#) zur Generierung von
+     ?Controlling-Excel- und PDF-Reports  unter VS.NET 2003 /2005 mit
+     ?ASP.NET (C# und Ajax, JavaScript) und SQL Server 2005
+Kenntnisse: Enterprise Library, Infragistics Netadvantage 2007 Vol 1, Syncfusion XlsIO,
+Reporting Service und Subversion
+2006-06 - 2007-07 KFZ-Versicherung-Webportal in ASP.NET / Winforms /
+1 Jahr 2 Monate C#
+Projektinhalte:     •  Erstellung eines KFZ-Versicherungs- und Finanzierungs-portal
+     ?inkl. Umstellung von ASP.NET 1.1 / SQL 2000 auf ASP.NET 2.0 /
+     ?SQL Server 2005 (mit DevExpress Enterprise) in ASP.NET / C#
+    •  Implementierung einer Back-End-Office Webanwendungen zur
+     ?Verwaltung der Versicherungsdaten aus dem KFZ-Portals als
+     ? Winforms-Verwaltungsanwendungen in C#
+2007-04 - 2007-05 Outlook-Addin HAM/SPAM in .NET / C#
+2 Monate
+Projektinhalte:     •  Erstellung eines Outlook-Addin für Abfrage nach SPAM und HAM
+     ?aufgrund der Email-Informationen unter VS.NET 2005 mit VB.NET
+     ?und Visual Studio Tool für Office 2005 sowie mit Outlook 2003
+     ?und 2007 und Redemption-Library.
+    •  Fertigung eines Installer für das automatische Setup inkl. CAS,
+     ?Custom-Actions, Installer Klassen und Bedingungen.
+Kenntnisse: Redemption-Library
+03/2004 – 02/2007     Terminplaner in .NET / C# &amp; VB.NET
+    •  Konzeption und Implementierung des Terminplaners für die Fitnessbranche unter VS 2003
+     ?/ 2005 mit VB.NET &amp; C# / SQL Server 2000/2005
+    •  Datenmigration von Access/VBA nach MS SQL Server/.NET
+    •  Integration einer ASP Anwendung in die Winforms-Anwendung
+    •  Tools: DevExpress-WinSuite / DXperience Enterprise, XML, Enterprise-Lib Gravitybox,
+     ?Windows Installer, Visual Studio Tools für Office (Excel Schnittstelle und Outlook
+     ?Addin) 2003 und 2005, LLBLGen (DAL), Access 2000 bis Access 2003, Subversion
+    •  Team: 4
+ 
+07/2006 – 08/2006     Outlook-Addin / VB.NET
+    •  Erstellung eines Gateways über Outlook-Addin mit Zugriff auf einen Exchange-Server zur
+     ?Ablage von Email-Informationen in eine festgelegte Struktur (XML-Definition) unter
+     ?VS.NET 2005 mit VB.NET
+    •  Fertigung eines Installer für das automatische Setup inkl. CAS, Custom-Actions,
+     ?Installer Klassen und Bedingungen.
+17.02.2023 9 von 14
+    •  Tools: Visual Studio Tool für Office 2005 Outlook 2003, Exchange Server 2003 SP2, XML,
+     ?Redemption-Library und SQL Server 2005
+ 
+07/2003 – 06/2004     CRM-Vereinsverwaltungs-System / VB.NET    
+    •  Entwicklung eines CRM-Vereinsverwaltungssystems für einen Basketball-Europaligsten
+     ?unter VS 2003 mit VB.NET / SQL Server 2000 und List &amp; Label 9
+ 
+06/2003 – 06/2003     Addin und Erweiterung KHK OfficeLine 3.x / VB6
+    •  Erweiterung, Umstellung (2.x auf 3.x) und Addin-Programmierung einer KHK OfficeLine
+     ?3.x Anwendung für die Textilbranche
+ 
+05/2003 – 06/2003     Eurotreuhand / VB6
+    •  Erstellung eines Verwaltungsprogramms für das Versicherungswesen mit Visual Basic 6 /
+     ?Access-Datenbank und List&amp;Label
+ 
+ 04/2003 – 04/2003     Datenaustauschsprogramm / VB6
+    •  Erstellung eines Datenaustausch- und Abgleichsprogramms zwischen Filialen und einer
+     ?Hauptverwaltung
+ 
+03/2003 – 03/2003     Datenschnittstelle für eine Templateverwaltung / VB6
+    •  Erstellung einer Datenschnittstelle für ein Dokumentensystem mittels Templates
+ 
+01/2003 – 02/2003     PPS/ERP-System - Wartung und Erweiterung / Access - VBA
+    •  Erweiterung und Wartung eines PPS/ERP-System mit Access 2000 und VBA
+ 
+10/2002 – 12/2002     Benutzerhandbücher und Onlinehilfe für myFactory  
+    •  Erstellen von vier Benutzerhandbücher (900 Seiten), sowie Hilfetexte für das Programm
+     ?web-Kaufmann / myFactory in den Bereichen ERP, CRM, B2B und webFiliale.
+    •  Erstellen eines Onlinehilfe-Systems unter Benutzung der vier zuvor geschriebenen
+     ?Benutzerhandbücher (900 Seiten)  für das Programm web-Kaufmann / myFactory in den
+     ?Bereichen ERP, CRM, B2B und webFiliale.
+ 
+03/2001 – 05/2002     web-Kaufmann – myFactory / VB6-ASP
+    •  Entwicklung einer skalierbaren kaufmännischen Three-Tier-Lösung. Schwerpunkt CRM inkl.
+     ?einer Vertragsverwaltung unter VB6 / ASP mit MS SQL Server 2000
+    •  Tools: Visual Studio 6 (VS InterDev und VB 6)
+    •  Internet Information Service (Web-Server)
+    •  Team: 6
+ 
+02/2001 – 02/2001     Firewall-Konzeption       
+    •  Erstellung einer Konzeption für ein Firewall unter Windows NT/2000, Linux oder mittels
+     ?einer Hardware-Lösung.
+ 
+11/2000 – 02/2001     Internet-Zugangsprogramm / C++
+    •  Erstellung eines Internet-Server-Provider-Dialers inkl. Installationsprogramm
+    •  Tools: MFC und RASAPI32-Library
+ 
+05/2000 – 11/2000     Projektmanagement / VB6 – VBA / C++
+    •  Entwicklung eines Projekmanagements Frontends für MS Projekt  inkl. Formularen,
+     ?Analysestatements, Berichten  sowie eines NT-Dienstes mit MS SQL Server 7
+    •  Tools: Crystal Report 7, VS-FlexGrid 6, DBI Toolbox 4, Sheridan VB Assist 5.2, VB
+     ?Partner 6, Virtual Print Engine Professional 3.1
+ 
+ 08/1999 – 10/1999     SAP-Schnittstelle für ein Labor-System           / C++
+    •  Entwicklung einer Schnittstelle zum Einlesen von Patientendaten aus dem SAP-System für
+     ?die weitere Verarbeitung in einem Labor-EDV-Programm
+ 
+10/1998 – 06/2000     Warenwirtschaftssystem / VB6
+    •  Betriebliche Systemanalyse, Konzeption, Pflichtenhefterstellung und Entwicklung des
+     ?Programms mit Formularen und Berichten unter VB5/6 mit einer Access 97 Datenbank
+    •  Internet-Auftritt - Web-Seiten Konzeption und Erstellung
+17.02.2023 10 von 14
+    •  Tools: APEX True Tools, List&amp;Label 5/6,VS-OCX, Olectra Chart, TextControl, RoboHelp,
+     ?InstallShield Express
+ 
+Vor der freiberuflichen Tätigkeit:  Leiterin der Software-Entwicklung,
+    •  Koordination und Programmier-Leitung für das B.I.T.-System
+     ?(Bäckerei-Informations-Technologie)
+    •  Software-Entwickler Schulung und Betreuung der Mitarbeiter
+    •  Anwendungsentwicklung unter Delphi 3.0 unter Windows 95 und Windows NT 4.0 für
+     ?Einzelplatz, Netzwerk und Client/Server-Bereich
+Branchen
+Elektro, Versicherung, Textil, allgemein kaufmännische Branche, Handwerker, Fitness, Automobil,
+Logistik, Lebensmittel
+Sprachen
+Deutsch
+Englisch
+Kompetenzen
+Produkte / Standards / ASP.NET Core
+Erfahrungen / Methoden
+ASP.NET MVC
+Aurelia
+DevExpress
+Infragistic NetAdvantage
+JavaScript
+List &amp; Label
+MS Office
+Node.js
+Silverlight
+Telerik
+TypeScript
+VBA
+Visual Basic
+17.02.2023 11 von 14
+Visual Studio .NET seit 2002
+VSTO
+WCF
+Windows seit 3.0
+WPF
+XAML
+Angular
+NgRx
+Nx
+Betriebssysteme Amiga OS
+iOS
+Mac OS
+MS-DOS
+Novell
+TOS
+Unix
+Windows
+Windows CE
+Programmiersprachen Basic
+C
+C#
+C++
+Clipper
+dBase
+Delphi
+Objective C
+Paradox
+Pascal
+PHP
+VB.NET
+17.02.2023 12 von 14
+JavaScript
+TypeScript
+Datenbanken Access
+B-Tree
+BDE
+DAO
+HerCules
+Interbase
+ISAM
+JDBC
+MS SQL Server
+MySQL
+ODBC
+Oracle
+Paradox
+SQL
+Sybase
+Watcom SQL
+xBase
+Datenkommunikation EDIFACT
+Ethernet
+Fax
+ISDN
+NetBios
+Novell
+parallele Schnittstelle
+PC-Anywhere
+RS232
+TCP/IP
+Windows Netzwerk
+17.02.2023 13 von 14
+Winsock
+ 
+Aus- und Weiterbildung
+1994
+Studium der Informatik an der FH Mannheim
+Abschluss: Diplom Informatikerin FH 
+17.02.2023 14 von 14
+
+############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_51836
+
+
+Stammdaten (Auszug):
+[Photo]
+Personen-ID                51836
+  
+Wohnort                    748xx Fahrenbach, Deutschland
+Jahrgang                   1965
+Staatsbürgerschaft         deutsch
+Stundensatz                75 EUR
+Verfügbar ab               11.10.21 zu 100%, Vor-Ort-Einsatz 100% möglich
+Profil erstellt am         15.06.03
+Profil zuletzt geändert am 12.10.21
+Lesen von Projektanfragen  0,5 Tage [09]Direktkontakt
+
+Kommentar:
+Kommentar_schreiben Profil angezeigt am 21.10.2021 16:36:28
+
+Fachlicher Schwerpunkt:
+.NET Classic/Core C# Windows Desktop (XAML, WPF, Winforms, WCF), ASP.NET Core ,
+MVC, TypeScript, Node, Angular, Oracle / MS SQL Server, Azure)
+
+Position:
+Software-Entwicklung / Programmierung
+Beratung / Consulting
+Projektmanagement / -leitung / Organisation / Koordination
+Dokumentation / DTP
+Festanstellung kommt derzeit nicht in Betracht, nur freiberufliche Mitarbeit
+
+Ausbildung:
+1994
+Studium der Informatik an der FH Mannheim
+Abschluss: Diplom Informatikerin FH 
+
+Einsatzort:
+Regionen:
+D0, D1, D2, D3, D4, D5, D6, D7, D8, D9
+Ich möchte BEVORZUGT für die o. g. Einsatzorte kontaktiert werden.
+
+Betriebssysteme:
+Amiga OS    
+iOS         
+Mac OS      
+MS-DOS      
+Novell      
+TOS         
+Unix        
+Windows     
+Windows CE  
+
+
+Programmiersprachen:
+Basic        
+C            
+C#           
+C++          
+Clipper      
+dBase        
+Delphi       
+JavaScript   
+Objective C  
+Paradox      
+Pascal       
+PHP          
+TypeScript   
+VB.NET       
+
+
+Datenbanken:
+Access         
+BDE            
+B-Tree         
+DAO            
+HerCules       
+Interbase      
+ISAM           
+JDBC           
+MS SQL Server  
+MySQL          
+ODBC           
+Oracle         
+Paradox        
+SQL            
+Sybase         
+Watcom SQL     
+xBase          
+
+
+Datenkommunikation:
+EDIFACT                  
+Ethernet                 
+Fax                      
+ISDN                     
+NetBios                  
+Novell                   
+parallele Schnittstelle  
+PC-Anywhere              
+RS232                    
+TCP/IP                   
+Windows Netzwerk         
+Winsock                  
+
+
+Produkte/Standards/Erfahrungen:
+ASP.NET Core              
+ASP.NET MVC               
+Aurelia                   
+DevExpress                
+Infragistic NetAdvantage  
+JavaScript                
+List &amp; Label              
+MS Office                 
+Node.js                   
+Silverlight               
+Telerik                   
+TypeScript                
+VBA                       
+Visual Basic              
+Visual Studio .NET       seit 2002
+VSTO                      
+WCF                       
+Windows                  seit 3.0
+WPF                       
+XAML                      
+Angular                   
+NgRx                      
+Nx                        
+
+Branchen:
+Elektro, Versicherung, Textil, allgemein kaufmännische Branche, Handwerker,
+Fitness, Automobil, Logistik, Lebensmittel
+
+Projekte:
+06/2021 - 09/2021: Architektur Konzeption und Umsetzung im Bereich Front-End
+für ein Projektplanung-System im Automotiv Bereich (Software- Entwicklung mit
+Angular/TypeScript, C#/ASP.NET Core und MS SQL-Server)
+ 
+Rolle:              Software-Architekt
+ 
+Aufgaben:
+ 
+ 
+    * Architektur Konzeption und Umsetzung im Frontend mittels Angular, Nx,
+      MonoRepo, NgRx und Modul Federation.
+    * Gestaltung und Umsetzung von attraktiven Bedienoberflächen auf Basis
+      moderner Technologien (PrimeNg)
+    * Optimierung von Abläufen (z.B. Einführung Front-End Integrationstests mit
+      Docker und SQL-Server Image)
+    * Konzeption von neuen Anforderungen in Form von Storys
+    * Unterstützung, Coaching und Code Review im Team
+    * Umsetzung von nicht-funktionalen Verbesserungen im Softwareprodukt
+    * Tools: Visual Studio 2019, Resharper, CodeMaid, und Visual Studio Code
+      und PrimeNg als 3 rd Party Tool.
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+      mit Jira
+    * Team-Versionskontrollsysteme: Git
+    * Build-System: AzureDevOps
+    * Team: 10+
+ 
+===============================================================================
+01/2021 - 06/2021: Weiterentwicklung im Bereich Back-Office für ein Ticketing
+System im Verkehrsbereich (Software- Entwicklung mit C#/ASP.NET Classic/Core,
+WindowsServices und Oracle 12)
+ 
+Rolle:              Software-Entwickler
+ 
+Aufgaben:
+ 
+ 
+    * Erweiterungen von Ticketingapplikationen (Web, WinFroms und WebAPI)
+      zwischen Ticketsystem und Fremdsystemen.
+    * Weiterentwicklung von bestehenden .net classic WindowsServices und
+      Applikationen unter Windows 10
+    * Integrationstest mit Postman/Newman und Powershell-Scripten
+    * Tools: Visual Studio 2019, Resharper, CodeMaid, und Visual Studio Code.
+      Sowie DevExpress als 3 rd Party Tool.
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+      mit Jira
+    * Team-Versionskontrollsysteme: Git
+    * Build-System: TeamCity
+    * Team: 7+
+ 
+===============================================================================
+10/2020 - 12/2020: Weiterentwicklung von Microservices für eine
+Kommunikationsplattform im Medizinsichen Bereich (Software- Entwicklung mit C#/
+ASP.NET Core 3.1 Web API, RabbitMQ und PostgreSQL)
+ 
+Rolle:              Software-Entwickler
+ 
+Aufgaben:
+ 
+ 
+    *  Weiterentwicklung von bestehenden .net core Microservices auf Linux und
+      Windows Zielplattform und WebAPI mit IdentityServer 4 und TopShelf
+      Windows Service Library unter Hilfe von Postman
+    *  Konfiguration RabbitMQ unter Windows zum Aufbau eines
+      Installationsprogramms unter WPF
+    * Aufbau einer Health-Tool Library unter .NET Core zur Überprüfungen der
+      gesamten Kommunikationsplattform
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+      mit Jira
+    * Team-Versionskontrollsysteme: Plastic SCM
+    * Build-System: TeamCity
+    * Team: 8
+ 
+===============================================================================
+06/2020 - 09/2020: Prototyperstellung einer Web-App (Software-Architektur u.
+Entwicklung mit C#/Angular/ASP.NET Core 3.1 Web API und MS SQL-Server)
+ 
+Einsatzort:         Remote
+Rolle:              Software-Architekt und Entwickler
+ 
+Aufgaben:
+ 
+ 
+    * Erstellung und Implementierung eines Datenmodel für den Prototypen
+    * Backend Implementierung mit ASP.NET Core 3.1 Web-RESTApi
+    * Entityframework, Swagger, Outh2/JWT, ASP.NET Identity, xUnit, Postman/
+      Insomnia.rest
+    *  Identity Server 4
+    * Frontend Applikation mit Angular 10
+    * Syncfusion Components, Bootstrap4, ngrx, nx, Jest, Cypres
+ 
+===============================================================================
+11/2019 - 05/2020: Entwicklung eines Windows Service für den automatisierten
+Bestellvorgang im Discounterbereich (C#/.NET Classic/Oracle 12)
+ 
+Rolle:              Software-Entwickler
+ 
+Aufgaben:
+ 
+    * Aufbau einer der Software-Architektur für einen klassischen Windows
+      Service
+    * Extraktion von Abfragen aus einem „legacy“ Gutpa Modul für den Form
+      basierenden Bestellvorgang.
+    * Implementierung des Windows Service mit C#
+    * Erstellung eines DAL mit PL/SQL Package inkl. eigenem OR-Mapper in C#
+    * Reporting-Tool: List&amp;Label 17
+    * Team-Versionskontrollsysteme: Azure Git-Repo (trunc-based mit pull
+      request)
+===============================================================================
+04/2019 - 05/2020: Entwicklung eines WPF Programmes für die Temperaturmessung
+von Lötanlagen im Maschinenbaubereich (Software-Architektur/C#/WPF/.NET Core
+3.1/C-Win32/Angular/Azure)
+ 
+Rolle:              Software-Architekt und Entwickler
+ 
+Aufgaben:
+ 
+    * Daten- und Funktionsanalyse des Alt-Programms in Win32-C++.
+    * Erstellung und Implementierung eines Datenmodels aufgrund der Alt-
+      Anwendung und neuen erweiterten Anforderungen.
+    * Datenbankmodel Entwicklung (Database-First) für PostgreSQL 11 und SQL-
+      Server 2017/2019 und Azure Database, sowie Update Funktionen
+    * Entwerfen einer Software-Architektur für die Anwendungen mit Prism (IoC
+      Unity) mit C# und VS 2019, sowie EF und linq2db.
+    * Extraktion von wichtigen Funktionslogiken aus der Altanwendung und Re-
+      implementierung in C#
+    * Aufbau von Funktionslogik und Businesslogik, sowie Implementierung der
+      WPF-Ansichten und deren Integration.
+    * Aufbau und Implementation der Applikation als .NET 4.7 Classic. Im
+      laufenden Projekt Migration nach .NET Core 3.0 (schon mit Preview
+      Version).
+    * Aufbereitung und Beschreibung von speziellen WPF-Controls für eine
+      externes UX-Team.
+    * Aufbau einer Architektur eines Monitoring System zur Überwachung der
+      Lötprozesse in der Lötanlage mit einer Time-Series Datenbank, nach
+      Auswahl folgender TS-DB Prometheus, InfluxDb und PostgreSQL Extension mit
+      einem .NET Core ServiceWoker und MQTT.
+    * Aufbau einer Architektur für ein Dashboard-System in Angular 9 (Front-
+      End) und ASP.NET Core 3.1 WebAPI (Back-End).
+    * Tools: Visual Studio 2019, AzureDevops-Git (dev-based mit pull request),
+      Sourcetree, Resharper, CodeMaid, und OzTools. Sowie SciChart als 3rd
+      Party Tool.
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+    * Team-Versionskontrollsysteme: Azure Git-Repo (dev-based mit pull request)
+    * Team: 3
+===============================================================================
+10/2017 - 03/2019: Wörterbuch- und Übersetzungsanwendung für den
+internationalen Handel im Automotivbereich (C#/.NET/ Winforms/WPF/Angular 5+/
+ASP.NET Core 2.+
+ 
+Rolle:              Software-Entwickler
+ 
+Aufgaben:
+ 
+    * Implementierung eines responsiven und dynamischen Web-Portals in
+      TypeScript 2.4+ mit dem JavaScript-Framework Angular 5, sowie Erstellung
+      einer Web-API mittels ASP.NET Core 2.+ in C# unter Visual Studio Code und
+      Visual Studio 2017
+    * Implementierung neuer Anforderungen, Fehlerbereinigungen und Refactoring
+      eines legacy Programms in C# von .NET 2.0 auf .NET 4.7 unter VS 2017 mit
+      Winforms / WPF, Syncfusion und einer MS SQL-Server 2016 Datenbank.
+    * Angular Entwicklung unter TypeScript mit Syncfusion, Erweiterungen von
+      Gulp-Tasks, sowie Unittest mit Jasmine und Wallaby.
+    * ASP.NET Core RESTFul Webservice (WebAPI) Entwicklung mit Autofac,
+      Automapper und Unittest mit xTest und Moq, sowie Swagger.
+    * Erweiterungen von Processformularen in Winforms / WPF (MVVM)
+    * Performance Verbesserungen im C# Source Code, wie auch im T-SQL Abfragen
+      und LinqToSQL
+    * Erstellen und Erweiterung von T-SQL Proceduren
+    * Umstellung der Schnittstellen für Excelreports über Syncfusion
+    * Datenbank-Redesign mit MS SQL-Server 2016
+    * Tools: Visual Studio 2017, Git, Sourcetree, Resharper, CodeMaid, OzTools
+      und Syncfusion, nodejs, visual studio code
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+    * Team: 1
+===============================================================================
+02/2017 - 09/2017: Erstellung eines responsiven Ticket- und Eventmanagement
+Web-Portal im Bildungsbereich (JavaScript-MVVM-Framework Aurelia und ASP.NET
+Core 1.1)
+ 
+Rolle:              Software-Architekt und Entwickler
+ 
+Aufgaben:
+ 
+    * Implementierung neuer Anforderungen für ein responsives Web-Portal (Mobil
+      First) in TypeScript 2.3 mit dem JavaScript-MVVM-Framework Aurelia, sowie
+      Erstellung einer Web-API mittels ASP.NET Core 1.1 in C# unter Visual
+      Studio Code und Visual Studio 2017
+    * Aufbau eines Teams-Versionskontrollsystems für Continuous Integration und
+      Deployment mit dem TFS 2017 inkl. WebServer, Git Repositiory (TFS und
+      Bitbucket), sowie Einrichtung von Build und Deployment Tasks.
+    * Aurelia Entwicklung unter TypeScript mit KendoUI, Erweiterungen von Gulp-
+      Tasks, sowie Unittest mit Jasmine und Wallaby.
+    * ASP.NET Core RESTFul Webservice Entwicklung mit Autofac und Automapper
+      und Unittest mit xTest und Moq.
+    * Schnittstellenimplementierung von Zahlungssystemen (Lastschrift,
+      Kreditkarte und Paypal)
+    * Projektplanungstool Jira mit iceTime und ActivityTimeline
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+===============================================================================
+07/2016 - 01/2017: Logistikprogramme für den Einkauf (Zentral und Länder) im
+Lebensmittelbereich (C#/.NET/WinForms/WPF/WCF)
+ 
+ 
+Aufgaben:
+ 
+    * Implementierung neuer Anforderungen und Erweiterung zweier
+      Logistikprogramme in C# mit .NET 4.5 unter VS 2012 / 2015 mit Infragistic
+      unter Winforms / WPF und einer Oracle Datenbank 11 und 12
+    * Erweiterung des WCF Webservice
+    * Erstellen und Erweiterung von PL/SQL Packages
+    * Erweiterung des internen Processablaufs zwischen den beiden Programmen,
+      um verschiedene Thematiken (z.B. Aussenlager)
+    * Erweiterungen von Processformularen in Winforms/ WPF (MVVM)
+    * Schnittstellen für Excelreports über Syncfusion
+    * Refactoring einzelner Module
+    * Unittest mit MSTest und Mocks
+    * Team-Versionskontrollsysteme: VS 2012 mit Team Foundation Server TFS
+      inkl. Kanban-Board
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+ 
+Kenntnisse:
+ 
+Infragistic 8 bis 12, List&amp;Label 11 bis 18, Syncfusion 2010, Tobitfax,
+Resharper, SQLDelveloper/SQLPlus
+===============================================================================
+04/2015 - 06/2016: Erstellung einer Prüflabor-Anwendung zur Generierung von
+Prüfaufträgen und Prüfberichten  im Automationbereich (C#/.NET)
+ 
+Rolle:              Software-Architekt und Entwickler
+ 
+Aufgaben:
+ 
+    * Erstellung eines Pflichtenheftes auf Basis von Anforderungen aus dem
+      Prüffeld (System- und Anforderungsanalyse)
+    * Aufbau einer Software-Architektur
+    * Daten-Datenbank Design mit MS SQL Server 2014
+    * Implementierung der Desktop-Anwendung mit C# / WPF / Prism und
+      EntityFramework mit 3rd Party Bibliothek Telerik unter VS 2015
+    * Implementierung der Web-Anwendung mit C# / ASP.NET MVC / ASP.NET WebAPI /
+      JavaScript / HTML / JQuery und EntityFramework mit 3rd Party Bibliothek
+      Telerik
+    * Team-Versionskontrollsysteme: TFS / Visual Studio Online
+===============================================================================
+03/2012 - 04/2015: Produktive Anwendung für die Lagerhaltung im
+Discounterbereich (C/C++/C#/.NET/WPF/WCF/ASP.NET MVC)
+ 
+Rolle:              Architekt/Entwickler
+ 
+Aufgaben:
+ 
+    * Technische Projektleitung
+    * Migration des Datenbanksystems von mySQL auf Oracle 10/11
+    * Migration von Teilprojekten von C++ nach C#, unteranderem eines
+      WebService für den Wawi-Datenabgleich
+    * Teilprojekte in C++Builder 5, später RAD C++Builder XE 6 (VCL) und in VS
+      2013 (wxWidgets)
+    * Programmerweiterungen nach Fachbereichsanforderungen
+    * Zusatzprogramm und Schnittstelle zur Einstellung / Verkauf von Artikeln
+      in einem eBay Auktionsprogramm, Zugriff über eine SOAP Schnittstelle in
+      C++
+    * Implementation eines täglichen Windowsservices in C#/WCF (VS 2013) zum
+      Bestandsdatenabgleich
+    * Umstellung auf RAD C++Builder XE6 incl. OCI (Oracle-Schnittstelle)
+    * Aufwandsanalyse zur Umstellung von AnsiCode auf UniCode, sowie 32 Bit auf
+      64 Bit
+    * Implementation eines Administrations- und eines Steuerungsprogramm für
+      Palettenlagerhaltung in C#/WPF (VS 2013)
+    * Implementierung einer Web-Anwendung für Staplersteuerung mit C# / ASP.NET
+      MVC / ASP.NET WebAPI / JavaScript / HTML / JQuery
+    * Team-Versionskontrollsysteme: TFS
+===============================================================================
+08/2008 - 11/2014: Logistikprogramme für den Einkauf (Zentral und Länder) im
+Lebensmittelbereich (C#/.NET/WinForms/WPF/WCF)
+ 
+ 
+Aufgaben:
+ 
+    * Aufbau, Implementation und Wartung zweier Logistikprogramme in C# mit
+      .NET 2.0 bis 4.5 unter VS 2005 bis VS 2013 mit Infragistic unter Winforms
+      / WPF und einer Oracle Datenbank 10/11
+    * Erstellung eines DAL mit PL/SQL inkl. eigenem OR-Mapper in C#
+    * Processformulare für Schemaerstellung, Dispo-Verarbeitung /
+      Lieferantenbestellung und Spediteur Anbindung
+    * EDI-Schnittstelle, Vergabe von Direktlogistiken und einer Forecasting
+      Bestellschnittstelle in PLSQL
+    * Erweiterungen von Processformularen in WPF (MVVM)
+    * Schnittstellen für Excelreports über Infragistic
+    * Faxberichte (Tobitfax) über List&amp;Label
+    * Einlesen von geschützten Exceldateien über Interop und Syncfusion
+    * WCF Service für eine Schnittstelle zur zentralen Einkaufsdatenbank mit
+      vordefinierten XSD Schemadateien über die WCF Service Factory Modeling
+      Edition zum Import von relevanten Daten
+    * Programmaufbau mit Patterns: Singelton, MVP, MVVM, Observer, Interfaces,
+      sowie Enterprise Library für Exceptionhandling und Unity
+    * Unittest mit MSTest und Mocks
+    * Team-Versionskontrollsysteme: Subversion mit TortoiseSVN und Ankh unter
+      VS 2005/2008, ab VS 2010 mit Team Foundation Server TFS. BuildServer mit
+      CruiseControl.NET ( Continuous Integration ), später TFS
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+ 
+Kenntnisse:
+ 
+Infragistic 8 bis 12, List&amp;Label 11 bis 18, Syncfusion 2010, Tobitfax,
+Resharper, SQLDelveloper/SQLPlus und PowerDesigner
+===============================================================================
+11/2012 - 05/2013: Neu-Implementation einer Vertragsverwaltung im
+Discounterbereich (C#/.NET)
+ 
+ 
+Aufgaben:
+ 
+    * Aufbau und Implementation eines DAL, sowie eines Windowsservice zur
+      Vertragserstellung in PDF aufgrund eines Web-Interviews in VS 2010/2013
+      mit C# und Oracle 10/11, sowie LL 18
+===============================================================================
+07/2011 - 03/2012: Zeiterfassungssystem in C# / ASP.NET -  Fraunhofer-Institut
+für System- und Innovationsforschung
+ 
+ 
+Aufgaben:
+ 
+    * Konzeption, Erstellung und Implementierung eines
+      Zeiterfassungsmanagementsystems in C# / Winforms und ASP.NET mit .NET 4
+      unter VS 2010
+ 
+Kenntnisse:
+ 
+MS SQL Server 2008, Zugriff mittels Linq, SQLite
+===============================================================================
+09/2009 - 03/2010: Internes Verrechnungsprogramm für die Vorsteuer  in der
+Lebensmittelbranche (C#/.NET/WPF/WCF)
+ 
+ 
+Aufgaben:
+ 
+    * Aufbau eines Windowsservice zur Überwachung eines anderen Windowsservice
+      mittels WCF und async Operationen, sowie eMail-SMTP Benachrichtigung
+    * Erstellung einer Überprüfung von SAP-Elementen, Verbuchungen von Belegen,
+      Abfrage gebuchter Positionen über RFC Funktionen mittels
+      ERPConnect.          
+    * Implementation von WPF Views zur Auswahl und Darstellung von Protokollen
+    * Berichte mit List&amp;Label
+    * Softwareentwicklung nach agilen Methoden und iterative Entwicklungszyklen
+      unter VS 2008 mit VB.NET und C# unter NET 3.51 mit WPF und WCF.
+      Datenbanksystem mit Oracle 10g r2, DAL mit Entity Framework und
+      LinqToEntities, sowie  Enterprise Library für Exceptionhandling und
+      Unity.               
+    * Team-Versionskontrollsysteme: Team Foundation Server TFS
+ 
+Kenntnisse:
+ 
+Prism 2 (CAG), Infragistic 9, List&amp;Label 14, ERPConnect
+===============================================================================
+05/2008 - 07/2008: Reiseticketmanagement-System in ASP.NET / C# - Fraunhofer-
+Institut für System- und Innovationsforschung
+ 
+ 
+Aufgaben:
+ 
+    * Konzeption, Erstellung und Implementierung eines Reiseticketmanagement-
+      System in C# unter VS 2008 (NET 2.0) mit C#, SQL Server 2005, Active
+      Directory und Exchange Server
+ 
+Kenntnisse:
+ 
+Redemption, WebGrid, MS EnterpriseLib, MS AJAX und AjaxControlToolkit
+===============================================================================
+04/2008 - 05/2008: WebShop-System in ASP.NET / C#-  ACE  Auto Club Deutschland
+ 
+ 
+Aufgaben:
+ 
+    * Erstellung eines WebShops (ACE-Vorteilswelt) für ACE unter VS 2008 (NET
+      3.5) mit C# und SQL 2005  und Linq
+ 
+Kenntnisse:
+ 
+DevExpress Enterprise, MS EnterpriseLib, MS AJAX
+===============================================================================
+01/2008 - 05/2008: Terminplaner in .NET / C# -  Hector System  Fitnessbranche
+ 
+ 
+Aufgaben:
+ 
+    * Erweiterung des Terminplaners für die Fitnessbranche unter VS 2003
+      (VB.NET) und SQL Server 2000.
+    * Neues ASP.NET Addon für Terminsuche über das Internet in VB.NET mit VS
+      2008 / NET 3.5 und SQL Server 2005
+ 
+Kenntnisse:
+ 
+DevExpress-WinSuite/DXperience Enterprise, XML, Enterprise-Lib Gravitybox,
+Windows Installer, Visual Studio Tools für Office (Excel Schnittstelle und
+Outlook Addin) 2003 und 2005, LLBLGen (DAL), Access 2000 bis Access 2003,
+Subversion für Source-Code-Verwaltung
+===============================================================================
+03/2008 - 04/2008: Anforderungsmanagement in ASP.NET / C# - Parker  Automotive
+ 
+ 
+Aufgaben:
+ 
+    * Erstellung eines Anforderungsmanagement für einen Automotiv-Zulieferer
+      (Parker) unter VS 2008 (NET 2.0) mit VB.NET und SQL Server 2005 und NET
+      3.0 WF.
+ 
+Kenntnisse:
+ 
+DevExpress Enterprise, MS EnterpriseLib, MS AJAX
+===============================================================================
+01/2008 - 03/2008: KFZ-Versicherung-Webportal in ASP.NET / C# -  Asstel 
+Versicherung
+ 
+ 
+Aufgaben:
+ 
+    * Erstellung eines KFZ-WebPortal (Asstel) für die Kampagne credit4me
+      (Fortis) unter VS 2008 (NET 3.5) mit C# und SQL 2005
+    * Erstellen eines WCF-Dienstes
+ 
+Kenntnisse:
+ 
+DevExpress Enterprise, MS EnterpriseLib, MS AJAX
+===============================================================================
+06/2007 - 12/2007: Controlling/ Reporting in .NET / C#
+ 
+ 
+Aufgaben:
+ 
+    * Datenanalyse und Berichts-Erstellung eines ASP.NET(1.1) und eines
+      WinForm-Projektes (NET 2.0 C#) zur Generierung von Controlling-Excel- und
+      PDF-Reports  unter VS.NET 2003 /2005 mit ASP.NET (C# und Ajax,
+      JavaScript) und SQL Server 2005
+ 
+Kenntnisse:
+ 
+Enterprise Library, Infragistics Netadvantage 2007 Vol 1, Syncfusion XlsIO,
+Reporting Service und Subversion
+===============================================================================
+06/2006 - 07/2007: KFZ-Versicherung-Webportal in ASP.NET / Winforms / C#
+ 
+ 
+Aufgaben:
+ 
+    * Erstellung eines KFZ-Versicherungs- und Finanzierungs-portal inkl.
+      Umstellung von ASP.NET 1.1 / SQL 2000 auf ASP.NET 2.0 / SQL Server 2005
+      (mit DevExpress Enterprise) in ASP.NET / C#
+    * Implementierung einer Back-End-Office Webanwendungen zur Verwaltung der
+      Versicherungsdaten aus dem KFZ-Portals als  Winforms-
+      Verwaltungsanwendungen in C#
+===============================================================================
+04/2007 - 05/2007: Outlook-Addin HAM/SPAM in .NET / C#
+ 
+ 
+Aufgaben:
+ 
+    * Erstellung eines Outlook-Addin für Abfrage nach SPAM und HAM aufgrund der
+      Email-Informationen unter VS.NET 2005 mit VB.NET und Visual Studio Tool
+      für Office 2005 sowie mit Outlook 2003 und 2007 und Redemption-Library.
+    * Fertigung eines Installer für das automatische Setup inkl. CAS, Custom-
+      Actions, Installer Klassen und Bedingungen.
+ 
+Kenntnisse:
+ 
+Redemption-Library
+===============================================================================
+03/2004  02/2007     Terminplaner in .NET / C# &amp; VB.NET
+    * Konzeption und Implementierung des Terminplaners für die Fitnessbranche
+      unter VS 2003 / 2005 mit VB.NET &amp; C# / SQL Server 2000/2005
+    * Datenmigration von Access/VBA nach MS SQL Server/.NET
+    * Integration einer ASP Anwendung in die Winforms-Anwendung
+    * Tools: DevExpress-WinSuite / DXperience Enterprise, XML, Enterprise-Lib
+      Gravitybox, Windows Installer, Visual Studio Tools für Office (Excel
+      Schnittstelle und Outlook Addin) 2003 und 2005, LLBLGen (DAL), Access
+      2000 bis Access 2003, Subversion
+    * Team: 4
+ 
+07/2006  08/2006     Outlook-Addin / VB.NET
+    * Erstellung eines Gateways über Outlook-Addin mit Zugriff auf einen
+      Exchange-Server zur Ablage von Email-Informationen in eine festgelegte
+      Struktur (XML-Definition) unter VS.NET 2005 mit VB.NET
+    * Fertigung eines Installer für das automatische Setup inkl. CAS, Custom-
+      Actions, Installer Klassen und Bedingungen.
+    * Tools: Visual Studio Tool für Office 2005 Outlook 2003, Exchange Server
+      2003 SP2, XML, Redemption-Library und SQL Server 2005
+ 
+07/2003  06/2004     CRM-Vereinsverwaltungs-System / VB.NET    
+    * Entwicklung eines CRM-Vereinsverwaltungssystems für einen Basketball-
+      Europaligsten unter VS 2003 mit VB.NET / SQL Server 2000 und List &amp; Label
+      9
+ 
+06/2003  06/2003     Addin und Erweiterung KHK OfficeLine 3.x / VB6
+    * Erweiterung, Umstellung (2.x auf 3.x) und Addin-Programmierung einer KHK
+      OfficeLine 3.x Anwendung für die Textilbranche
+ 
+05/2003  06/2003     Eurotreuhand / VB6
+    * Erstellung eines Verwaltungsprogramms für das Versicherungswesen mit
+      Visual Basic 6 / Access-Datenbank und List&amp;Label
+ 
+ 04/2003  04/2003     Datenaustauschsprogramm / VB6
+    * Erstellung eines Datenaustausch- und Abgleichsprogramms zwischen Filialen
+      und einer Hauptverwaltung
+ 
+03/2003  03/2003     Datenschnittstelle für eine Templateverwaltung / VB6
+    * Erstellung einer Datenschnittstelle für ein Dokumentensystem mittels
+      Templates
+ 
+01/2003  02/2003     PPS/ERP-System - Wartung und Erweiterung / Access - VBA
+    * Erweiterung und Wartung eines PPS/ERP-System mit Access 2000 und VBA
+ 
+10/2002  12/2002     Benutzerhandbücher und Onlinehilfe für myFactory  
+    * Erstellen von vier Benutzerhandbücher (900 Seiten), sowie Hilfetexte für
+      das Programm web-Kaufmann / myFactory in den Bereichen ERP, CRM, B2B und
+      webFiliale.
+    * Erstellen eines Onlinehilfe-Systems unter Benutzung der vier zuvor
+      geschriebenen Benutzerhandbücher (900 Seiten)  für das Programm web-
+      Kaufmann / myFactory in den Bereichen ERP, CRM, B2B und webFiliale.
+ 
+03/2001  05/2002     web-Kaufmann  myFactory / VB6-ASP
+    * Entwicklung einer skalierbaren kaufmännischen Three-Tier-Lösung.
+      Schwerpunkt CRM inkl. einer Vertragsverwaltung unter VB6 / ASP mit MS SQL
+      Server 2000
+    * Tools: Visual Studio 6 (VS InterDev und VB 6)
+    * Internet Information Service (Web-Server)
+    * Team: 6
+ 
+02/2001  02/2001     Firewall-Konzeption       
+    * Erstellung einer Konzeption für ein Firewall unter Windows NT/2000, Linux
+      oder mittels einer Hardware-Lösung.
+ 
+11/2000  02/2001     Internet-Zugangsprogramm / C++
+    * Erstellung eines Internet-Server-Provider-Dialers inkl.
+      Installationsprogramm
+    * Tools: MFC und RASAPI32-Library
+ 
+05/2000  11/2000     Projektmanagement / VB6  VBA / C++
+    * Entwicklung eines Projekmanagements Frontends für MS Projekt  inkl.
+      Formularen, Analysestatements, Berichten  sowie eines NT-Dienstes mit MS
+      SQL Server 7
+    * Tools: Crystal Report 7, VS-FlexGrid 6, DBI Toolbox 4, Sheridan VB Assist
+      5.2, VB Partner 6, Virtual Print Engine Professional 3.1
+ 
+ 08/1999  10/1999     SAP-Schnittstelle für ein Labor-System           / C++
+    * Entwicklung einer Schnittstelle zum Einlesen von Patientendaten aus dem
+      SAP-System für die weitere Verarbeitung in einem Labor-EDV-Programm
+ 
+10/1998  06/2000     Warenwirtschaftssystem / VB6
+    * Betriebliche Systemanalyse, Konzeption, Pflichtenhefterstellung und
+      Entwicklung des Programms mit Formularen und Berichten unter VB5/6 mit
+      einer Access 97 Datenbank
+    * Internet-Auftritt - Web-Seiten Konzeption und Erstellung
+    * Tools: APEX True Tools, List&amp;Label 5/6,VS-OCX, Olectra Chart,
+      TextControl, RoboHelp, InstallShield Express
+ 
+Vor der freiberuflichen Tätigkeit:  Leiterin der Software-Entwicklung,
+    * Koordination und Programmier-Leitung für das B.I.T.-System (Bäckerei-
+      Informations-Technologie)
+    * Software-Entwickler Schulung und Betreuung der Mitarbeiter
+    * Anwendungsentwicklung unter Delphi 3.0 unter Windows 95 und Windows NT
+      4.0 für Einzelplatz, Netzwerk und Client/Server-Bereich
+
+Sonstige Anmerkungen:
+ 
+
+Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang]
+
+
+
+Recherche | Suchergebnis | Kontaktieren | Anfragen_an_ID_51836
+
+
+  GULP Information Services übernimmt keine Gewähr für die Richtigkeit der hier
+gemachten Angaben.
+Seite generiert am 13.10.2021 00:41:17
+© Copyright 1996-2021 GULP Information Services GmbH,
+Landsberger Straße 187, D-80687 München, Tel. +49-89-500316-0, Fax +49-89-
+500316-999, E-Mail info@gulp.de

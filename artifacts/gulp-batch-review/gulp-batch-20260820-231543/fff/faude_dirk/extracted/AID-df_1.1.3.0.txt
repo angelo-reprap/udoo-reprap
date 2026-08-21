@@ -1,0 +1,360 @@
+AID: AID-df_1.1.3.0
+Name: Dirk Faude
+Headline: MSI-Paketierung / Softwarepaketierung / SW-Deployment / SW- Verteilung / SW- Rollout / System- / Desktop- / Server- / Clientmanagement / Clientengineering / Clientdesign / Qualitätssicherung
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, Österreich, Schweiz
+Wohnort: 704xx Stuttgart, Deutschland
+Jahrgang: 1969
+Verfügbar: 02.01.21 zu 80%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 2000
+Sprachen: Deutsch Muttersprache, Englisch, Deutsch (Muttersprache)
+
+FACHBEREICHE:
+MSI-Paketierung / Softwarepaketierung / SW-Deployment / SW-Verteilung / SW-Rollout / System- / Desktop- / Server- / Clientmanagement / Clientengineering / Clientdesign / Qualitätssicherung
+Beratung / Consulting
+Coaching / Schulung / Training
+Abschluß Sommer 2000.
+MSI-Paketierung
+Softwarepaketierung
+SW-Deployment
+SW-Verteilung
+SW-Rollout
+Systemmanagement
+Desktopmanagement
+Servermanagement
+Clientmanagement
+Clientengineering
+Clientdesign
+Qualitätssicherung
+Beratung
+Consulting
+Coaching
+Schulung
+Training
+Qualitätsmanagement
+Test
+Software Deployment
+Softwareverteilung
+Integrationstest
+Funktionstest
+Troubleshooting
+System- und Qualitätstest
+Fehleranalyse
+Fehlerbehebung
+Administration
+2nd und 3rd Level Support
+Softwarerollout
+Softwaremanagement
+Site-Administration
+Erstellung von Installations-Paketen
+Scripting
+Inventarisierung
+Remotemanagement
+Snapshot
+MSI
+Silent
+original Setup
+Unattended
+Imaging
+Repackaging
+Patchintegration
+Testing
+Analyse
+
+BRANCHEN:
+Forschung und Entwicklung
+Systemhaus
+IT Dienstleistung
+Immobilien
+Automotive
+Versicherung
+Internet-Dienstleistung
+Gewerkschaft
+Justiz
+Pharmazie
+Post
+Automatisierung
+Automobilbranche
+Bank
+Großhandel
+Informationstechnologie & -dienste
+Feinmechanisch-optische Industrie
+Energieversorgung
+
+PROJEKTE:
+  Oktober 2011 laufend |  | Branche: Energiedienstleistungen (EnBW AG)
+    - Beschreibung:
+    - Analyse, Beratung, Spezifikation und Aufwandsabschätzung der zu erstellenden Pakete (Client und Server) anhand von Referenzinstallationen in Zusammenarbeit mit den Verantwortlichen / dem Team Implementierung (Proof of Concept) von komplexen Serversystemen (z.B.
+    - Finanzsoftware, CAD, Document Management Systeme, 3-Tier Umgebungen,
+    Techs: Paketen nach Windows 7(64Bit), sowie Windows 2003 Paketen, nach Windows, InstallShield, InstEd, BeyondCompare, Windows XP (32Bit), Windows 7, (64Bit), Windows 2003
+  November 2010 Oktober 2011 |  | Branche: Informationstechnologie & -dienste (Siemens AG, IT
+    - Services)
+    - Beschreibung:
+    - Selbständige Analyse und Abschätzung von Paketierungsaufwand anhand von Fragekatalogen.
+    Techs: VBSEdit, Windows 7 (64bit), Windows XP Proffesional, MS, Office 2010
+  Dezember 2009 Oktober 2010 (60%) |  | Branche: Großhandel, (Magazine zum Globus AG, Informatik)
+    - Beschreibung:
+    - Paketierung von Softwareverteilungspaketen für Clients und Kassensysteme
+    - (TCPOS) in einer hochkomplexen IT-Umgebung (über 100 Deploymentserver in CH, AU sowie 25000 Clients).
+    Techs: Scripting, Windows XP Professional, VBScript, WinInstall, VMWare, versch, Wise Package Studio, WinDiff
+  September 2008 Mai 2009 |  | Branche: Automobilbranche, (Daimler AG, MOS/EE Prüftechnik)
+    - Beschreibung:
+    - Tests von SW-Komponenten / MSI-Paketen (Funktion, Installierbarkeit,
+    - Anforderungen, Qualifizierung, Fehler).
+    Techs: MS Windows XP Professional, NISP, KonfigMaster II, VNC, Daimler Update
+  Januar 2008 April 2008 |  | Branche: Informationstechnologie & -dienste (Siemens AG, IT
+    - Services)
+    - Beschreibung:
+    - Paketieren / Erstellen von MSI-Paketen, anhand von Vorgaben.
+    Techs: Wise Package Studio, MSI, MS Windows XP Professional, MS, Word, HTML, CSS
+  April 2007 Dezember 2007; April 2008 September 2008 |  | Branche: Automatisierung (Siemens AG) / Post (Schweizerische
+    - Beschreibung:
+    - Erstellen und Modifizieren von Testkonzepten und plänen für Schnittstellen-, Integrations- und Regressionstests.
+    - Organisieren und Durchführen von Funktions-, Abnahme- und Qualitätstests mit dem Kunden. Koordination von Testteams.
+    Techs: Center, Perfect Tracker, PLS (Prozeß Leit System), Oracle 10g, MS Windows, 2000 Professional, MS Windows 2000 Server, MS PowerPoint, MS, Access
+  November 2006 April 2007 |  | Branche: IT-Dienstleistung (Unisys GmbH) / Pharmazie
+    - Justiz
+    - (Bayerische Justiz)
+    - Beschreibung:
+    Techs: Aufbau, Clients, Windows 2003 Server), VBS, MSI Script, Windows XP Professional, Windows 2003, AutoIt, WinDiff
+  August 2006 - November 2006 |  | Branche: Gewerkschaft im Auftrag eines Kunden (syscovery AG)
+    - Beschreibung:
+    - Deutschlandweiter HW- und SW-Rollout. Teamleitung von Rolloutteams von bis zu 6 Technikern.
+    - Selbstständige Vorbereitung, Organisation, Koordination und Planung der Standorte.
+    Techs: Empirum, Windows XP Professional, Windows 2003, SafeBoot, MS Office
+  Juni 2003 August 2006 |  | Branche: Forschung und Entwicklung (Fraunhofer TEG)
+    - Projekt: Überarbeitung/Migration/Erweiterung einer firmeninternen Oracle- Access-Datenbank zur betriebswirtschaftlichen Verwaltung / Schnittstellenprogrammierung CRM
+    - Beschreibung:
+    - Analyse des Fachkonzepts, Datenmodells und Datenbestands in einer Oracle
+    Techs: Server/Client, Oracle 9i Server/Client, Windows 2003 Server, MS Visio, OnCommand CCM 4.6/5.4, CCM iCommand 3.0, Windows NT/2000/2003, Server, Windows NT/2000/XP Clients, OnCommand Remote
+  Mai 2001 - Mai 2003 |  | Projekt: Entwicklung Tool "Anforderungsvergleich
+    - Branche: IT Dienstleistung (deron GmbH)
+    - Beschreibung:
+    - Konzeption und Realisierung einer zweisprachigen Applikation zum Erstellen von Benchmarks.
+    Techs: Benchmark, MS Access 2000, MS Excel 2000, VBA, SQL, Windows 2000 Prof, Windows XP Prof), OnCommand CCM 5.1, CCM DevStudio, PackageImportTool 2.0
+  Juli 2000 - April 2001 |  | Branche: Forschung und Entwicklung (Fraunhofer TEG)
+    - Projekt: Implementierung Web-Dienst "Verfügbarkeitsmanagement
+    - Beschreibung:
+    - Aufbau einer Testumgebung mit den Applikationen TomCat, Apache.CORBA und Java.
+
+SKILLS:
+  database: Access, JDBC, MySQL, ODBC, Oracle, SQL, Da sich die Datenbanksysteme ähneln, können Kenntnisse über andere DB-, Systeme, binnen kurzer Zeit angeeignet werden
+  hardware: Bus Profibus, CAN, CD-Writer /, Brenner, Drucker, HP, Industrie- Güdel, Roboter, Iomega, Modem, NEC Flat Sorting Machine, Compaq, IBM, Dell, Fujitsu Siemens, Siemens Panel, Siemens Rack, PC Toshiba, Hörbiger Prüfcomputer (ISTK, Porty 2000, FS97), K2L PC, Kunze PC, Mohr PC, Plotter, Scanner, Soundkarten, SPS, Steuer und Siemens, Regelsysteme, BIO HDD, SCSI, IDE, USB, SATA, Siemens Letter Sorting Machine, Siemens Fördertechnik, Gilgen Fördertechnik, Rohde & Schwarz SMU 200A Vector Signal Generator, Rohde & Schwarz CMU 200 Universal Radio Communication Tester
+  operating_system: DOS / MS-DOS, Windows (3.x, 95, NT, 2000, XP, Vista, 7(64bit)):, Sehr tiefgreifende Kenntnisse (Installation, Konfiguration, Unattended, Patchintegration, Systemadministration, Registry, Treiberintegration, Imaging ..), Windows NT / 2000 / 2003 / 2008 / 2K8R2 Server, Tiefgreifende Kenntnisse (Installation, Verwaltung ), Novell Client, Grundkenntnisse Linux
+  programming_languages: Basic VBA, VBS, C Grundkenntnisse, C++ Grundkenntnisse, Java Grundkenntnisse, JavaScript Grundkenntnisse, Makrosprachen Symantec CCM Paketerstellung für autom. Softwareverteilung, MSI-Packaging, Snapshot, Silent, Scripting, PHP Grundkenntnisse, PL/SQL Grundkenntnisse, Scriptsprachen Batchprogrammierung unter Windows, Symantec LiveState, Skriptierung, JavaScript, VBScript, MSI-Script, Wise-Script, SQL: MySQL, MS SQL, MS Access, Da sich die Paketierung bei den meisten Tools stark ähnelt, stellt ein, Versionssprung, oder das Aneignen von anderen Paketierungstools absolut kein, Problem dar und erfolgt innerhalb sehr kurzer Zeit
+
+SKILL-ABLAGE:
+Ethernet, Fax, Internet, Intranet, ISDN, LAN, LAN Manager, NetBios, Novell, parallele Schnittstelle, PC-Anywhere, Router, SMTP, TCP/IP, Windows Netzwerk, WLAN, NetOp, OnCommandRemote, VNC, Netmeeting, Datenkommunikation nur als Profi Anwender, Bisher keine Erfahrungen in der Datenkommunikationsprogrammierung, Design/Entwicklung/Konstruktion
+
+AUSBILDUNG:
+bis Sommer 2000 | Fachinformatiker Fachrichtung Anwendungsentwicklung  [course]
+
+ZERTIFIKATE:
+ITIL V2 Foundation
+Wise Package Studio
+Oracle 9i Spezial
+Visual Basic
+VB-
+Script
+VBA
+XML
+MySQL/SQL
+Java
+JDBC
+Linux
+PHP
+JavaScript
+CCM Softwareintegration
+CCM Administration
+ZENworks Desktops
+AdminStudio Advanced
+
+FOCUS_EXP:
+  Erfahrungen in:  [product_standard]
+  o Paketerstellung von original Setup  [product_standard]
+  Silent  [product_standard]
+  Snapshot  [product_standard]
+  Unattended  [product_standard]
+  MSI-Paketierung  [product_standard]
+  Repackaging  [product_standard]
+  Imaging  [product_standard]
+  Response  [product_standard]
+  ISS  [product_standard]
+  Wise  [product_standard]
+  MSI  [product_standard]
+  Script  [product_standard]
+  Custom Action  [product_standard]
+  Services  [product_standard]
+  ODBC  [product_standard]
+  Antwortdateien  [product_standard]
+  MST  [product_standard]
+  MSP  [product_standard]
+  Rollouts / Softwareverteilung / Software Deployment / Migrationen  [product_standard]
+  von W95/W98/NT/W2K/WXP Systeme auf W2K/WXP/W7 Systeme /  [product_standard]
+  Pilotsysteme  [product_standard]
+  Planung und Aufbau Clientmanagementsysteme /  [product_standard]
+  Softwaremanagementsysteme / Testszenarien und Testsysteme / Piloten  [product_standard]
+  Systemintegration / Systemmanagement / Desktopmanagement /  [product_standard]
+  Engineering  [product_standard]
+  Durchführung von Troubleshooting / System- und Qualitätstest /  [product_standard]
+  Fehleranalyse / Fehlerbehebung  [product_standard]
+  o Organisation  [product_standard]
+  Koordination und Ausführung von Qualitäts-  [product_standard]
+  Funktions-  [product_standard]
+  Anwendungs- und Schnittstellentests  [product_standard]
+  Batchprogrammierung / Windows-Scripting / VB-Scripting  [product_standard]
+  Technische Dokumentation / Konzeption / Planung  [product_standard]
+  Webprogrammierung / Webserver  [product_standard]
+  Datenbankschnittstellen / Datenbankprogrammierung  [product_standard]
+  Aufbau Datenbanksysteme / Datenbankmanagement / Datenbankdesign  [product_standard]
+  Erfahrungen mit folgenden Produkten:  [product_standard]
+  o Wise Package Studio  [product_standard]
+  InstallShield  [product_standard]
+  AdminStudio  [product_standard]
+  ORCA  [product_standard]
+  OfficeResourceKit  [product_standard]
+  Adobe Customization Wizard  [product_standard]
+  WinInstall LE  [product_standard]
+  SecEdit  [product_standard]
+  Salamander  [product_standard]
+  ICE  [product_standard]
+  RegMon  [product_standard]
+  Regedit  [product_standard]
+  FileMon  [product_standard]
+  WinDiff  [product_standard]
+  AutoIt  [product_standard]
+  PackageManager  [product_standard]
+  DevStudio  [product_standard]
+  CommandCenter  [product_standard]
+  MSI Logfile  [product_standard]
+  Viewer  [product_standard]
+  Process Monitor  [product_standard]
+  BeyondCompare (Paketierung)  [product_standard]
+  o Softwareverteilung  [product_standard]
+  OnCommand CCM  [product_standard]
+  iCommand CCM  [product_standard]
+  Symantec LiveState  [product_standard]
+  Delivery  [product_standard]
+  Empirum Matrix42  [product_standard]
+  LANDesk  [product_standard]
+  SDMC  [product_standard]
+  LOBA (Software  [product_standard]
+  Deployment)  [product_standard]
+  o ONCommand Remote  [product_standard]
+  PCAnywhere  [product_standard]
+  NetOp  [product_standard]
+  Netmeeting  [product_standard]
+  Remote Desktop  [product_standard]
+  VNC  [product_standard]
+  Live Meeting  [product_standard]
+  Live Messenger (Remote)  [product_standard]
+  o Centennial Discovery  [product_standard]
+  Symantec Discovery  [product_standard]
+  PC-Info  [product_standard]
+  (Inventarisierung)  [product_standard]
+  o Norton Ghost  [product_standard]
+  Acronis True Image (Imaging)  [product_standard]
+  o Vmware  [product_standard]
+  vSphere  [product_standard]
+  Citrix  [product_standard]
+  Xen (Virtualisierung)  [product_standard]
+  o WinPE  [product_standard]
+  BartPE  [product_standard]
+  o Word  [product_standard]
+  Excel  [product_standard]
+  Access  [product_standard]
+  PowerPoint  [product_standard]
+  VBA  [product_standard]
+  MS Office  [product_standard]
+  Project  [product_standard]
+  Visio  [product_standard]
+  SAP  [product_standard]
+  o MS Visual Studio  [product_standard]
+  MS Visual Basic  [product_standard]
+  PHP-Editoren  [product_standard]
+  HTML-Editoren  [product_standard]
+  JBuilder  [product_standard]
+  UltraEdit  [product_standard]
+  SystemScripter  [product_standard]
+  VBS Edit  [product_standard]
+  o Oracle-Server  [product_standard]
+  -Clients  [product_standard]
+  Oracle-Tools  [product_standard]
+  MySQL  [product_standard]
+  o ODBC  [product_standard]
+  JDBC  [product_standard]
+  o Crystal Reports  [product_standard]
+  SAS  [product_standard]
+  EMiner  [product_standard]
+  Cognos TM1  [product_standard]
+  o Apache WebServer  [product_standard]
+  TomCat  [product_standard]
+  Terminal Server Clients  [product_standard]
+  Citrix Metaframe  [product_standard]
+  o McAfee VirusScan Enterprise  [product_standard]
+  McAfee Agent  [product_standard]
+  McAfee Anti-Spyware  [product_standard]
+  Enterprise  [product_standard]
+  AntiVir  [product_standard]
+  o MS IE  [product_standard]
+  Netscape Communicator  [product_standard]
+  Firefox  [product_standard]
+  Maxthon  [product_standard]
+  o MS Outlook  [product_standard]
+  Lotus Notes  [product_standard]
+  Eudora  [product_standard]
+  Novell Netware Client  [product_standard]
+  o AutoCAD  [product_standard]
+  Autodesk Inventor  [product_standard]
+  Pro/ENGINEER  [product_standard]
+  Rhinoceros  [product_standard]
+  SolidWorks  [product_standard]
+  Origin  [product_standard]
+  o AD  [product_standard]
+  GPO  [product_standard]
+  o Sanctuary  [product_standard]
+  Centennial DeviceWall  [product_standard]
+  Vital Agent  [product_standard]
+  o Mercury TestDirector  [product_standard]
+  Mercury Quality Center  [product_standard]
+  HelpLine  [product_standard]
+  Echolon  [product_standard]
+  o NISP  [product_standard]
+  KPS  [product_standard]
+  X-Line  [product_standard]
+  K-Line (Prüfsoftware Daimler)  [product_standard]
+  o SDMC  [product_standard]
+  LOBA  [product_standard]
+  CATSetup  [product_standard]
+  CAT-Client  [product_standard]
+  USM (Individual SW Siemens)  [product_standard]
+  AutoCAD  [product_standard]
+  eM-Plant  [product_standard]
+  em-Workplace  [product_standard]
+  RobCAD  [product_standard]
+  Wise Package Studio  [product_standard]
+  MSI Logfile Viewer  [product_standard]
+  BeyondCompare  [product_standard]
+  Symantec LiveState Delivery  [product_standard]
+  ONCommand Remote  [product_standard]
+  Live Messenger  [product_standard]
+  Centennial Discovery  [product_standard]
+  Norton Ghost  [product_standard]
+  Acronis True Image  [product_standard]
+  Vmware  [product_standard]
+  Xen  [product_standard]
+  WinPE  [product_standard]
+  Word  [product_standard]
+  MS Visual Studio  [product_standard]
+  Oracle-Server  [product_standard]
+  Oracle-Clients  [product_standard]
+  Crystal Reports  [product_standard]
+  Apache WebServer  [product_standard]
+  McAfee VirusScan Enterprise  [product_standard]
+  McAfee Anti-Spyware Enterprise  [product_standard]
+  MS IE  [product_standard]
+  MS Outlook  [product_standard]
+  Sanctuary  [product_standard]
+  Mercury TestDirector  [product_standard]
+  NISP  [product_standard]
+  K-Line  [product_standard]
+  USM  [product_standard]

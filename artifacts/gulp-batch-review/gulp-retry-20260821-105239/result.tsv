@@ -1,0 +1,4 @@
+status	contact_id	gulp_id	letter	dir	pdf	note	secs
+FAIL	12956	45045	bbb	behling_karsten		no_neu_cv	4
+OK	21369	71589	sch	schroeder_wolfgang	AID-ws_2.3.4.0.pdf	ok	39
+FAIL	15328	103796	ggg	glas_oliver_fritz		no_neu_cv	4

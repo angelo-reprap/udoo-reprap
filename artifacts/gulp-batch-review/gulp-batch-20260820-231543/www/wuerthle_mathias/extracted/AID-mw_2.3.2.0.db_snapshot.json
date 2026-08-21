@@ -1,0 +1,885 @@
+{
+  "personal": {
+    "aid": "AID-mw_2.3.2.0",
+    "first_name": "Mathias",
+    "last_name": "Wuerthle",
+    "birth_year": 1975,
+    "location": "Regionen & Länder: D4, D5",
+    "availability": "01.01.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": null,
+    "headline": "Java, J2SE, JEE, J2EE, Java EE",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 3,
+    "skills": 73,
+    "certifications": 0,
+    "education": 0,
+    "experience": 18,
+    "industries": 11,
+    "focus_areas": 9,
+    "focus_experience": 74,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch Muttersprache",
+      "level": ""
+    },
+    {
+      "name": "Englisch fließend",
+      "level": ""
+    },
+    {
+      "name": "FranzösischGrundkenntnisse",
+      "level": ""
+    }
+  ],
+  "education": [],
+  "certifications": [],
+  "industries": [
+    "Logistik",
+    "Versicherung",
+    "Assistance",
+    "Finanzdienstleister",
+    "Softwarehersteller",
+    "Elektrotechnik",
+    "Universitätsklinikum",
+    "E-Learning",
+    "Industrie",
+    "Behörde",
+    "Universität"
+  ],
+  "focus_areas": [
+    "Java",
+    "J2SE",
+    "J2EE",
+    "Java EE",
+    "Software-Entwicklung / Programmierung",
+    "Beratung / Consulting",
+    "Projektmanagement / -leitung / Organisation / Koordination Software Entwicklung: OOA, OOD, OOP mit Java/J2EE/JEE/Java EE Einsatz von (OO-)Design-Patterns.",
+    "Studium des Wirtschaftsingenieurwesens mit der Fachrichtung Informatik/ Operations Research an der Universität Karlsruhe.",
+    "Abschluss als Dipl.-Wi.-Ing."
+  ],
+  "focus_experience": [
+    {
+      "name": "Erfahrungen im Bereich:",
+      "category": "product_standard"
+    },
+    {
+      "name": "Multi-Tier-Entwicklung mittels JEE / J2EE / Java EE / Spring / REST / SOAP",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Entwicklung für BEA WebLogic (5.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "6.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "6.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "7.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "8.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "9.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "10.x) im Cluster",
+      "category": "product_standard"
+    },
+    {
+      "name": "JBoss",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tomcat und verschiedene weitere Web-Container",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Erfahrung mit den gängigen Java APIs und Bibliotheken: EJB 1.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB 2.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "2.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB 3.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "EJB 3.1",
+      "category": "product_standard"
+    },
+    {
+      "name": "OpenEJB",
+      "category": "product_standard"
+    },
+    {
+      "name": "JPA 1.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "JPA 2.0",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDBC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Querydsl",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSR 303 (Bean",
+      "category": "product_standard"
+    },
+    {
+      "name": "Validation)",
+      "category": "product_standard"
+    },
+    {
+      "name": "JMS",
+      "category": "product_standard"
+    },
+    {
+      "name": "JMX",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSP",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Servlet",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java Web Start",
+      "category": "product_standard"
+    },
+    {
+      "name": "Swing",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAXP sowie",
+      "category": "product_standard"
+    },
+    {
+      "name": "JDOM",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAXB",
+      "category": "product_standard"
+    },
+    {
+      "name": "XMLBeans",
+      "category": "product_standard"
+    },
+    {
+      "name": "SAXON",
+      "category": "product_standard"
+    },
+    {
+      "name": "JUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "EasyMock",
+      "category": "product_standard"
+    },
+    {
+      "name": "Mockito",
+      "category": "product_standard"
+    },
+    {
+      "name": "PowerMockito",
+      "category": "product_standard"
+    },
+    {
+      "name": "Groovy/",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spock",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jemmy",
+      "category": "product_standard"
+    },
+    {
+      "name": "JSF (JavaServer Faces)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Struts",
+      "category": "product_standard"
+    },
+    {
+      "name": "Tiles",
+      "category": "product_standard"
+    },
+    {
+      "name": "Log4j",
+      "category": "product_standard"
+    },
+    {
+      "name": "Logback",
+      "category": "product_standard"
+    },
+    {
+      "name": "Apache CXF",
+      "category": "product_standard"
+    },
+    {
+      "name": "(SOAP)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hibernate 3.x und 4.x",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring",
+      "category": "product_standard"
+    },
+    {
+      "name": "Spring MVC",
+      "category": "product_standard"
+    },
+    {
+      "name": "Thymeleaf",
+      "category": "product_standard"
+    },
+    {
+      "name": "Velocity",
+      "category": "product_standard"
+    },
+    {
+      "name": "Google",
+      "category": "product_standard"
+    },
+    {
+      "name": "Guice",
+      "category": "product_standard"
+    },
+    {
+      "name": "JAX-RS (Jersey und RESTEasy)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Entwicklung von Multi-Threaded Java Swing Anwendungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Testgetriebene Entwicklung mit JUnit",
+      "category": "product_standard"
+    },
+    {
+      "name": "Groovy/Spock",
+      "category": "product_standard"
+    },
+    {
+      "name": "(Swing)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Selenium (Web)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Geb",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erstellung von Build-Systemen mit Apache Maven und Apache Ant",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Einführung von Continuous Integration und Delivery mittels TeamCity",
+      "category": "product_standard"
+    },
+    {
+      "name": "Hudson/",
+      "category": "product_standard"
+    },
+    {
+      "name": "Jenkins und Vagrant",
+      "category": "product_standard"
+    },
+    {
+      "name": "Behebung von Speicher- und Performance-Problemen bei Server-Anwendungen (u.",
+      "category": "product_standard"
+    },
+    {
+      "name": "a. mit JProbe und YourKit)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Dokumentenerstellung mit BDoc",
+      "category": "product_standard"
+    },
+    {
+      "name": "- Agile Entwicklung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Scrum",
+      "category": "product_standard"
+    },
+    {
+      "name": "Coaching von Mitarbeitern",
+      "category": "product_standard"
+    },
+    {
+      "name": "Protokolle OAuth 1.0a/ OAuth 2.0/ OpenID",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Entwicklung eines Co-Registrierungs-Prozesses in",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung eines Co-Registrierungs-Prozesses in",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 20,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung eines in den E-Postbrief integrierten",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung eines in den E-Postbrief integrierten",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung einer externen Schnittstelle für den",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung einer externen Schnittstelle für den",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 14,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung einer Software für",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung einer Software für",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung einer Software für Privatpersonen-",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung einer Software für Privatpersonen- auskünfte (CTC)",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung einer Software für Wirtschafts-",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung einer Software für Wirtschafts-",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung und Refactoring/Weiterentwicklung des",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung und Refactoring/Weiterentwicklung des",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 16,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Migration der Anwendung von BEA WebLogic 7.0",
+      "company": "",
+      "role": "",
+      "title": "Migration der Anwendung von BEA WebLogic 7.0",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Funktion im Projekt",
+      "company": "",
+      "role": "",
+      "title": "Funktion im Projekt",
+      "activities": 25,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung eines Unternehmensportals mit",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung eines Unternehmensportals mit",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung des E-Learning Produktionssystem IC.on.",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung des E-Learning Produktionssystem IC.on.",
+      "activities": 4,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Referenzen:\nProjekt Diverse Software-Entwicklungen auf J2EE-Basis und Projektleitung von 02/00 - 12/02\nReferenz durch Geschäftsführer eines Softwarehauses mit 25 Mitarbeitern vom 16.12.02\n\"Der Consultant war in der Zeit vom 17.2.2000 bis zum 15.12.2002 als Projektleiter und Softwareentwickler in unserer Firma beschäftigt. Der Consultant war von Beginn an maßgeblich an der Konzeption und Realisierung der Server-Architektur unserer Projekte beteiligt. Er entwickelte eigenständig und sehr erfolgreich große Teile des Systemkerns unseres 'Futuna Business Servers'. Dieser ist ein Enterprise Application Framework, für das die Technologien J2EE und XML eingesetzt werden. Als Laufzeitumgebung kamen BEA WebLogic und Oracle unter Windows NT, Solaris und Linux zum Einsatz. Später wechselte er in die Arbeitsgruppe, welche die dynamische Web-Darstellung des 'Futuna Business Servers' mit den Technologien JSP, Java Servlet, XML und XSL entwickelt, um dort für einen Versionssprung neue Konzepte und neue Technologien, wie z. B. Struts, in die Web-Schicht einzuführen. Diese haben sich sehr bewährt und sind noch heute im Einsatz. Nach dem Ausscheiden des GUI-Teamleiters übernahm er dessen Position und war grundlegend daran beteiligt, ein neues Framework für die grafische Benutzeroberfläche zu entwickeln, welches sich bis heute als sehr stabil und performant erweist. Dieses Framework basiert auf den Technologien Swing, XML und Java Web Start. Durch seine Arbeit in allen drei Teilbereichen der Entwicklung hat er umfassende Kenntnisse erworben, welche ihn zum Bindeglied und Ansprechpartner zwischen den Abteilungen mit Überblick über das gesamte System machten. Auf Grund dieser Erfahrung wurde er die Projektleitung für die Erstellung des Informationsportals 'Universitätsklinikum Aachen' übertragen. Durch seine umfangreiche Erfahrung war es ihm möglich, dieses Projekt zügig und termingerecht mit sehr großem Erfolg abzuschließen. Dies geschah zur vollsten Zufriedenheit aller Beteiligten. Der Consultant betreute unseren Auszubildenden über seine gesamte Lehrzeit hinweg. Er verstand es, diesen stets zu motivieren und ihn gleichzeitig zu fordern. Dabei setzte er seine sehr guten Fachkenntnisse erfolgreich in dessen Berufsausbildung ein, woraufhin dieser seine Prüfung mit sehr gutem Erfolg absolvierte. Der Consultant war stets hoch motiviert und zeichnete sich durch sehr viel Eigeninitiative und innovative Ideen aus. Er war jederzeit bereit und fähig, neue Projekte durch konstruktive Vorschläge zu unterstützen und bei deren Realisierung den entscheidenden Beitrag zu leisten. Der Consultant zeichnete sich bei der Erledigung seiner Aufgaben immer durch Gewissenhaftigkeit, Engagement und Selbstständigkeit aus. Er erwies sich als pflichtbewusster und zuverlässiger Mitarbeiter, der seine Aufgaben stets sehr zielstrebig, zügig und außerordentlich erfolgreich erledigte. Die Qualität seiner Arbeit war immer sehr hoch. Sein Auftreten bei Kunden war jederzeit sehr sicher und überzeugend. Wir waren mit seinen Leistungen stets außerordentlich zufrieden. Wegen seiner freundlichen, aktiven und kooperativen Wesensart war er bei der Unternehmensleitung und den Kollegen gleichermaßen sehr anerkannt und beliebt. Er verlässt uns auf eigenen Wunsch, um sein Studium des Wirtschaftsingenieurwesens an der Universität Karlsruhe mit seiner Diplomarbeit abzuschließen. Wir bedauern, mit Ihm eine ausgezeichnete Führungskraft zu verlieren, und danken ihm für die stets …\n\nReferenzen:\nProjekt Diverse Software-Entwicklungen auf J2EE-Basis und Projektleitung von 02/00 - 12/02\nReferenz durch Geschäftsführer eines Softwarehauses mit 25 Mitarbeitern vom 16.12.02\n\"Der Consultant war in der Zeit vom 17.2.2000 bis zum 15.12.2002 als Projektleiter und Softwareentwickler in unserer Firma beschäftigt. Der Consultant war von Beginn an maßgeblich an der Konzeption und Realisierung der Server-Architektur unserer Projekte beteiligt. Er entwickelte eigenständig und sehr erfolgreich große Teile des Syst",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Access",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "xBase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Mac OS",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Unix",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Windows",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    },
+    {
+      "name": "Basic",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "dBase",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB 1.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB 2.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB 2.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB 3.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EJB 3.1",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "OpenEJB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "1.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JPA 2.0",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JDBC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Querydsl",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSR 303 (Bean Validation)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JMS",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JMX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Servlet",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Web Start",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Swing",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAXP",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "sowie JDOM",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAXB",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "XMLBeans",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAXON",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JUnit",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "EasyMock",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Java Mockito",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "PowerMockito",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Groovy/Spock",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Jemmy",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Geb",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JSF",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "(JavaServer Faces)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Struts",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Tiles",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Log4j",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Logback",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "CXF (SOAP)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Hibernate 3.x und 4.x",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring MVC",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Thymeleaf",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Velocity",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Google Guice",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JAX-RS (Jersey und",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "RESTEasy)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "JavaScript",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Modula-2",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Objective C Cocoa",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "TeX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "LaTeX",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "ToolBook (OpenScript)",
+      "category_name": "Programmiersprachen",
+      "weight": 0.8
+    },
+    {
+      "name": "Intellij IDEA",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "Eclipse",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "CVS",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "DBVisualizer",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "YourKit",
+      "category_name": "Sonstige Skills",
+      "weight": 0.8
+    },
+    {
+      "name": "jmeter",
+      "category_name": "Programmiersprachen",
+      "weight": 0.38
+    },
+    {
+      "name": "ejb/hibernate/spring",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "ejb/hibernate/google",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    },
+    {
+      "name": "xmlbeans/xml",
+      "category_name": "Sonstige Skills",
+      "weight": 0.38
+    }
+  ]
+}

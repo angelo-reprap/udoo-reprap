@@ -1,0 +1,457 @@
+{
+  "metadata": {
+    "aid": "AID-dd_2.1.5.0",
+    "version": "2.1.5.0",
+    "consultant_dir": "delatron_dieter",
+    "first_name": "Dieter",
+    "last_name": "Delatron",
+    "headline": "Relationale Datenbanken (Oracle Zertifizierungen), PL/SQL, Forms",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:24:35.136525"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Dieter",
+      "last_name": "Delatron",
+      "birth_year": 1958,
+      "languages": [
+        {
+          "name": "Deutsch",
+          "level": ""
+        },
+        {
+          "name": "Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch",
+          "level": ""
+        },
+        {
+          "name": "gute Kenntnisse",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (gute Kenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "01.02.13 zu 100%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb",
+      "wohnort": "905xx Zirndorf, Deutschland",
+      "headline": "Relationale Datenbanken (Oracle Zertifizierungen), PL/SQL, Forms"
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Access",
+        "private Kenntnisse",
+        "Informix",
+        "Grundkenntnisse",
+        "MS SQL Server",
+        "Oracle",
+        "OCA und OCP sowie langjährige Projekterfahrungen",
+        "ISAM",
+        "LEASY",
+        "ODBC",
+        "aktuelles Projekt",
+        "SESAM",
+        "SQL",
+        "langjährige Projekterfahrungen",
+        "UDS/IDMS",
+        "Oracle Database Administrator Certified Associate (OCA)",
+        "Oracle Certified Professional Internet Application Developer",
+        "Oracle Forms Developer Rel. 6i (OCP)"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [
+        "PC",
+        "Siemens Großrechner"
+      ],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "BS2000",
+        "Erfahrungen > 10 Jahre",
+        "Windows",
+        "Grundkenntnisse Linux (SUSE)"
+      ],
+      "programming_languages": [
+        "Assembler",
+        "liegt sehr lange zurück!",
+        "Basic",
+        "C",
+        "C++",
+        "Cobol",
+        "Java",
+        "aktuelles Projekt. Erfahrungen > 1 Jahr",
+        "JavaScript",
+        "Delta",
+        "Perl",
+        "PL/SQL",
+        "Oracle Zertifiziert und langjährige Praxis",
+        "Siron"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [
+      {
+        "name": "Oracle Certified Associate (OCA) seit 25.07.03",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Oracle Certified Professional (OCP) seit 26.09.03",
+        "issuer": "",
+        "date_obtained": ""
+      },
+      {
+        "name": "Oracle Certified Associate (OCA)",
+        "issuer": "Oracle",
+        "date_obtained": "07/2003",
+        "expiry_date": ""
+      },
+      {
+        "name": "Oracle Certified Professional (OCP)",
+        "issuer": "Oracle",
+        "date_obtained": "09/2003",
+        "expiry_date": ""
+      }
+    ],
+    "experience": [
+      {
+        "period": "Projektbeschreibung: Schnittstellen",
+        "title": "Schnittstellen",
+        "activities": [
+          "Schnittstellen"
+        ]
+      },
+      {
+        "period": "Firma/Institut: Postbank Bonn",
+        "company": "Postbank Bonn",
+        "title": "Providermanagement",
+        "activities": [
+          "ORACLE / PL/SQL Projekt wurde vom Kunden aus Kostengründen beendet.",
+          "05/08 - 11/08"
+        ]
+      },
+      {
+        "period": "Firma/Institut: EDS Itellium Nürnberg",
+        "company": "EDS Itellium Nürnberg",
+        "title": "New Features 1 Hostablösung Auftragsschreibung / Bedarfsüberwachung",
+        "activities": [
+          "Im Projekt Providermanagement (Teilprojekt Mandantenvorbereitung) werden grundsätzlich alle Funktionalitäten angepasst welche, die Mandantenfähigkeit betreffen und die es ermöglichen einen Mandanten auf verschiedenen Ebenen innerhalb der logistischen Systeme",
+          "Primondo produktiv zu setzen.",
+          "Tätigkeit: Erzeugen Packages mit PL/SQL, entwickeln Forms mit Forms",
+          "Builder,",
+          "Anlegen Tabellen, Index, Indices, Trigger, Synonyme usw.",
+          "Systemumfeld: Oracle 10g, Forms Builder Version 10.1.2.0.2, TOAD 9.1,",
+          "PVCS (Serena ChangeMan Version Manager V.8.1.2), Sybase PowerDesigner",
+          "09/07 - 04/08"
+        ]
+      },
+      {
+        "period": "Firma/Institut: EDS Itellium Nürnberg",
+        "company": "EDS Itellium Nürnberg",
+        "activities": [
+          "Beschreibung: Migration Cobol / Assembler Programme nach Oracle",
+          "PL/SQL.",
+          "Das Projekt \"New Features Stufe 1\" ist Teilprojekt des Projektes \"New",
+          "Features WaWi Host Ablösung\" das zum Ziel hat, die warenwirtschaftlichen HOST",
+          "Features besteht aus 6 Teilprojekten, die \"Stufen\" genannt werden.",
+          "Die Stufe 1, zu der der hier beschriebene Themenkomplex gehört, beschäftigt sich mit Transport Dispo / EDIFACT",
+          "Import Export Routinen und Pflegemasken"
+        ],
+        "title": "New Features Stufe 1",
+        "industry": "IT-Dienstleistungen",
+        "location": "Nürnberg",
+        "technologies": [
+          "Cobol",
+          "Assembler",
+          "Oracle",
+          "PL/SQL",
+          "EDIFACT"
+        ]
+      },
+      {
+        "period": "Firma/Institut: europet Benelux Nürnberg",
+        "company": "europet Benelux Nürnberg",
+        "title": "Infosystem Informationssystem für Messeauftritt sowie Katalog (auf CD).",
+        "technologies": [
+          "Systemumfeld: Windows XP",
+          "Java",
+          "Borland JBuilder X",
+          "iText",
+          "MS"
+        ],
+        "activities": [
+          "Stammdaten (Adressen, Kunden, Lieferanten, Vertreter, Artikel) werden über eine Java-Oberfläche verwaltet.",
+          "Die Daten werden aus der Produktions-DB (Informix) in eine MS-SQL Server DB übernommen.",
+          "Mit dem Java Programm sind Neuanlagen, änderungen sowie Löschungen über spezielle Berechtigungen möglich. über individuelle Selektionskriterien werden die Auswertungen im PDF-Format erstellt (mit iText).",
+          "Mit dem Programm können die Listen per Adobe Reader gelesen, gedruckt sowie via Email versendet werden.",
+          "Der Einsatz dieser neuen Benutzeroberfläche ist auf einem",
+          "Linux-Server vorgesehen.",
+          "SQL-Server.",
+          "11/03 - 05/04"
+        ]
+      },
+      {
+        "period": "Firma/Institut: europet Benelux Nürnberg",
+        "company": "europet Benelux Nürnberg",
+        "title": "WVLS Warenverkehrs-Leitsystem",
+        "technologies": [
+          "Java",
+          "Borland"
+        ],
+        "activities": [
+          "Die verschiedenen Produktbereiche können über Buttons ausgewählt und Detailinformationen abgerufen werden.",
+          "Die Messeversion holt die Daten aus einer SQL-Server DB und die CD-Version arbeitet mit internen Dateien.",
+          "JBuilder X, Informix und MS SQL-Server.",
+          "08/00 - 09/02"
+        ]
+      },
+      {
+        "period": "Firma/Institut: Siemens Business Services",
+        "company": "Siemens Business Services",
+        "title": "MAZURKA/ADREMA Marktorientierte Zielgruppenwerbung unter Einbezug von Rahmenmöglichkeiten und Adressen",
+        "technologies": [
+          "Oracle"
+        ],
+        "activities": [
+          "Das Warenverkehrs-Leitsystem WVLS ermittelt die Transportkosten der beauftragten Spediteure und übernimmt die Abrechnung. Weiterbelastung der Transportkosten an verursachende Versandstellen.",
+          "Sendungsverfolgung (Tracking & Tracing) via Intranet, später auch via",
+          "Internet.",
+          "Meine Aufgabe bestand in der Entwicklung verschiedener C sowie Perl",
+          "Module.",
+          "Ein weiterer Schwerpunkt war die Datenbank Oracle. Hier schrieb ich verschiedene SQL-Scripte sowie PL/SQL Routinen.",
+          "Perl, Edifact.",
+          "07/95 - 07/00"
+        ]
+      },
+      {
+        "period": "Firma/Institut: Siemens Business Services",
+        "company": "Siemens Business Services",
+        "title": "Neues Vergütungssystem Teilprojekte: Ertragsblatt und Vergleichsrechnung",
+        "activities": [
+          "Konzeption und Realisierung von Programmerweiterungen im Dialog sowie im Batchteil nach DIN EN ISO 9001.",
+          "Integriert wurde z.B.: die APA-Drucktechnik sowie die Selektion aus einer ORACLE-DB.",
+          "Auch wurden verschiedene WORD-Formulare mittels VBA entwickelt.",
+          "Das Systemfeld bestand aus den Komponenten: SIEMENS BS2000, UTM-D,",
+          "SESAM, LEASY, ORACLE, COBOL.",
+          "06/94 - 06/95"
+        ]
+      },
+      {
+        "period": "Firma/Institut: GERLING Versicherung Köln",
+        "company": "GERLING Versicherung Köln",
+        "title": "MAZURKA/ADREMA Marktorientierte Zielgruppenwerbung unter Einbezug von Rahmenmöglichkeiten und Adressen.",
+        "activities": [
+          "Zuerst wurde die Systemanalyse durchgeführt; d. h. die fachlichen Anforderungen wurden funktional und datenorientiert analysiert.",
+          "Im Rahmen der nachfolgenden Modellierung wurde nach der ER-Methode das logische Datenmodell entwickelt und die Programmvorgabe geschrieben. Die Dokumentation erfolgte dabei mittels SEtec und Maestro II.",
+          "Danach wurden die Module codiert, getestet und für die Produktion vorbereitet.",
+          "09/92 - 05/94"
+        ]
+      },
+      {
+        "period": "Firma/Institut: SIEMENS",
+        "company": "SIEMENS",
+        "title": "AUFBAU Auftragsabwicklung im Bauteilevertrieb.",
+        "activities": [
+          "Dialog- und Batcherweiterungen sowie Konzept und Realisierung neuer",
+          "Postrichtlinien.",
+          "03/91 - 08/92"
+        ]
+      },
+      {
+        "period": "Firma/Institut: SIEMENS",
+        "company": "SIEMENS",
+        "title": "KOSA Kosten-Sammlung und Abrechnung.",
+        "activities": [
+          "Auftragseingang im EDIFACT-Format realisieren (Konzept und Programmierung) sowie Umstellung von dezentralen UDS-DB's auf zentrale",
+          "SESAM-DB.",
+          "10/87 - 02/91"
+        ]
+      },
+      {
+        "period": "Firma/Institut: SIEMENS",
+        "company": "SIEMENS",
+        "title": "DESTI Dezentrale Stücklistenbearbeitung und Information.",
+        "activities": [
+          "04/87 - 09/87"
+        ]
+      },
+      {
+        "period": "Firma/Institut: SIEMENS",
+        "company": "SIEMENS",
+        "title": "KOSA Kosten-Sammlung und Abrechnung.",
+        "activities": [
+          "Schnittstellenprogrammierung SINIX/BS2000 in Assembler.",
+          "10/86 - 03/87"
+        ]
+      },
+      {
+        "period": "Firma/Institut: SIEMENS",
+        "company": "SIEMENS",
+        "title": "PROGü Programmplanung in der leitergebundenen übertragungstechnik.",
+        "activities": [
+          "Das Produkt KOSA dient der Unterstützung der Kostenüberwachung und Leistungsverrechnung der ZWD (Zentralabteilung Werbung und Design) sowie der Werbeabteilungen versch. Bereiche.",
+          "Außerdem beinhaltet es eine Budgetfortschreibung mit Soll-Ist-Vergleich.",
+          "07/85 - 09/86"
+        ]
+      }
+    ],
+    "industries": [
+      "Industrie",
+      "Versicherung",
+      "Handel"
+    ],
+    "focus_areas": [
+      "Relationale Datenbanken (Oracle Zertifizierungen) PL/SQL Forms Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "bevorzugt",
+      "Oracle",
+      "Relationale Datenbanken",
+      "PL/SQL",
+      "Forms",
+      "Software-Entwicklung / Programmierung"
+    ],
+    "focus_experience": [
+      {
+        "name": "Case Tool: Maestro II",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "QM : DIN EN ISO 9001",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Maestro II",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "DIN EN ISO 9001",
+        "category": "product_standard",
+        "sort_order": 3
+      }
+    ],
+    "education": [
+      {
+        "degree": "Oracle",
+        "institution": "",
+        "period": "",
+        "education_type": "course"
+      }
+    ],
+    "other": [],
+    "skill_ablage": [
+      {
+        "name": "Internet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Intranet",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Privat",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "TCP/IP",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "EDIFACT",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "mehrere Projekteinsätze",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "ISDN",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Router",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "UTM - Transdata",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:24:35.136540",
+    "source_file": "",
+    "steps_completed": [
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "FOCUS_EXP",
+      "FACHBEREICHE",
+      "ZERTIFIKATE",
+      "PERSONAL",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ACT: 8→7 bei 'Firma/Institut: EDS Itellium Nürnberg'"
+      ],
+      "coverage_percent": 90.16786570743405,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

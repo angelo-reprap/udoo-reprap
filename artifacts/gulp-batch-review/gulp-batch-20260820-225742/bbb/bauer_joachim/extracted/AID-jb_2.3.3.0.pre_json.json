@@ -1,0 +1,729 @@
+{
+  "metadata": {
+    "aid": "AID-jb_2.3.3.0",
+    "version": "2.3.3.0",
+    "consultant_dir": "bauer_joachim",
+    "first_name": "Joachim",
+    "last_name": "Bauer",
+    "headline": "Web-Architektur, Fullstack Java, JEE, Appliances, Enterprise Search",
+    "source": {
+      "type": "main_pipeline",
+      "filename": "",
+      "filesize": 0,
+      "import_id": "",
+      "import_date": "2026-08-20T23:07:28.901335"
+    },
+    "pipeline": {
+      "version": "6.0",
+      "step": "extraction",
+      "extractor": "main_pipeline",
+      "model": "deepseek-chat",
+      "self_learning": true
+    },
+    "duplicate_check": {
+      "exists": false,
+      "message": ""
+    },
+    "statistics": {
+      "total_categories": 0,
+      "has_personal": false,
+      "has_skills": false,
+      "has_experience": false
+    }
+  },
+  "extracted_data": {
+    "personal": {
+      "first_name": "Joachim",
+      "last_name": "Bauer",
+      "birth_year": 1966,
+      "languages": [
+        {
+          "name": "Deutsch Muttersprache",
+          "level": ""
+        },
+        {
+          "name": "Englisch Wort und Schrift",
+          "level": ""
+        },
+        {
+          "name": "Deutsch (Muttersprache)",
+          "level": ""
+        },
+        {
+          "name": "Englisch (Wort und Schrift)",
+          "level": ""
+        },
+        {
+          "name": "Französisch (Grundkenntnisse)",
+          "level": ""
+        }
+      ],
+      "availability": "01.04.21 zu 80%, Vor-Ort-Einsatz 100% möglich",
+      "location": "D3, D6, D9",
+      "wohnort": "977xx Motten / Bayern, Deutschland",
+      "headline": "Web-Architektur, Fullstack Java, JEE, Appliances, Enterprise Search",
+      "edv_experience_since": 1989
+    },
+    "skills": {
+      "architecture_pattern": [],
+      "business_software": [],
+      "ci_cd_tool": [],
+      "cloud_platform": [],
+      "communication_tool": [],
+      "database": [
+        "Postgres",
+        "Relationales DB-System u. diverse andere Technonlogien",
+        "SQL",
+        "SQL Server 2016 / VS / SSMS"
+      ],
+      "data_format": [],
+      "data_management": [],
+      "development_environment": [],
+      "devops_tool": [],
+      "documentation_tool": [],
+      "framework": [],
+      "hardware": [],
+      "identity_management": [],
+      "it_infrastructure": [],
+      "methodology": [],
+      "monitoring_tool": [],
+      "network_protocol": [],
+      "operating_system": [
+        "Debian",
+        "Glassfish 3 u. 4",
+        "IBM iSeries",
+        "Kubernetes",
+        "Linux",
+        "Microsoft Windows",
+        "Tomcat 8",
+        "Websphere 8",
+        "UNIX (Linux",
+        "HP-UX",
+        "SUN Solaris",
+        "IBM AIX)",
+        "OS/2",
+        "MS Windows 3.11",
+        "95",
+        "98",
+        "2000",
+        "NT",
+        "XP",
+        "MS DOS",
+        "MVS",
+        "DB/DC Systeme",
+        "MySQL",
+        "ORACLE",
+        "INFORMIX",
+        "IMS-DB/DC",
+        "DB2",
+        "MS-ACCESS"
+      ],
+      "programming_languages": [
+        "AngularJS",
+        "Docker",
+        "Eclipse-Link",
+        "IBM System Architect",
+        "Java",
+        "Java 7/8",
+        "JavaScript",
+        "JEE6/7",
+        "JPA",
+        "UML",
+        "Java/J2EE",
+        "C/C++",
+        "Perl mit Regular Expressions",
+        "PHP",
+        "ORACLE PL/SQL",
+        "Cobol",
+        "HTML/CGI/JavaScript",
+        "PL/I",
+        "EASY/REXX",
+        "Methoden/Werkzeuge",
+        "RAD6",
+        "WSAD",
+        "Forte",
+        "Eclipse",
+        "IBM VisualAge for Java",
+        "Rational Rose (OOA/OOD/UML)",
+        "Together J",
+        "Continuus",
+        "DB Visualizer",
+        "MS Visual C++",
+        "Oracle Designer/2000",
+        "Oracle Enterprise Manager",
+        "Symantec Café",
+        "SQL/Plus (Oracle/AIX)",
+        "CandleComandCenter (MQ)",
+        "Tkprof",
+        "TSCM",
+        "Toad",
+        "XPEDITER",
+        "Bibliotheken/API's",
+        "JAVA-XML (JAXP)",
+        "JAVA-MQSeries",
+        "TIBCO Rendezvous",
+        "Oracle-OCI",
+        "ODBC",
+        "TCP/IP-Sockets (IPV4",
+        "IPV6)",
+        "Besondere Kenntnisse",
+        "CMS phpNuke (ContentManagmentSystem)",
+        "DV-Projektmanagement",
+        "RTGSplus B2B",
+        "SwiftNetInteract",
+        "SwiftAllianceGateway",
+        "SwiftNetLink",
+        "XML",
+        "Socket-Programmierung",
+        "Oracle SQL-Performance-Tuning"
+      ],
+      "project_management": [],
+      "security_tool": [],
+      "soft_skill": [],
+      "special_concept": [],
+      "special_skill": [],
+      "testing_tool": [],
+      "version_control": [],
+      "virtualization": []
+    },
+    "certifications": [],
+    "experience": [
+      {
+        "period": "11/2020 - 03/2021",
+        "company": "Deutsche Bank",
+        "title": "Testmanager im Bereich Baufinanzierung, Frankfurt am Main",
+        "role": "Lead-Testmanager",
+        "activities": [
+          "Eingesetzte Produkte: msg Gillardon Marzipan ===================================================== ==========================",
+          "Testmanager im Bereich Baufinanzierung"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt am Main",
+        "technologies": [
+          "msg Gillardon Marzipan"
+        ]
+      },
+      {
+        "period": "04/2020 - 01/2021",
+        "company": "Lebenswerte Zukunft",
+        "title": "Entwicklung Online Marketing Konzept und Aufbau IT-, Hamburg - Berlin - Frankfurt",
+        "role": "IT Architekt",
+        "activities": [
+          "Architektur",
+          "Aufgaben:",
+          "Konzeption und Implementierung der IT-Infrastruktur; Aufbau eines Aufbau eines Verkaufssystems für Finanzprodukte",
+          "B2C Marketing, Cloud-Services",
+          "Eingesetzte Produkte:",
+          "Clickfunnels, Activecampaign, Zoho",
+          "===================================================== =========================="
+        ],
+        "location": "Hamburg - Berlin - Frankfurt",
+        "technologies": [
+          "Clickfunnels",
+          "Activecampaign",
+          "Zoho"
+        ]
+      },
+      {
+        "period": "08/2019 - 03/2020",
+        "company": "Projekt im Rahmen eines Systemhauses",
+        "title": "Prototyp Entwicklung Enterprise Search, Frankfurt am Main",
+        "role": "Software-Entwickler und Architekt",
+        "activities": [
+          "Aufgaben:",
+          "Entwicklung eines Prototypen basierend auf Open Source Software und Betrieb innerhalb einer IT-Firma.",
+          "Java, GitHub, Debian, Kubernetes, Docker, Elasticsearch",
+          "Eingesetzte Produkte:",
+          "Eclipse, Xcode",
+          "===================================================== =========================="
+        ],
+        "location": "Frankfurt am Main",
+        "technologies": [
+          "Java",
+          "GitHub",
+          "Debian",
+          "Kubernetes",
+          "Docker",
+          "Elasticsearch",
+          "Eclipse",
+          "Xcode"
+        ]
+      },
+      {
+        "period": "01/2017 - 11/2018",
+        "company": "Rentenbank Frankfurt",
+        "title": "SQL-Serverumstellung im OLAP-Bereich, Frankfurt am Main",
+        "role": "Qualitätssicherung",
+        "activities": [
+          "Aufgaben:",
+          "Qualitätssicherung der Serverumstellung, Erstellung von Reports, Beladen von OLAP-Würfeln, Realisierung von SSIS-Abläufen.",
+          "Business Intelligence / OLAP",
+          "Eingesetzte Produkte:",
+          "SQL Server 2016 / VS / SSMS",
+          "===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt am Main",
+        "technologies": [
+          "SQL Server 2016",
+          "VS",
+          "SSMS",
+          "OLAP",
+          "SSIS"
+        ]
+      },
+      {
+        "period": "04/2016 - 01/2017",
+        "company": "",
+        "title": "Eigen- und Weiterentwicklung eSport-manager.net",
+        "activities": [
+          "Aufgaben:",
+          "Browser-Game, Sport-Manager",
+          "Eigenentwicklung in sehr kleinem Team von der Idee bis zum GoLive",
+          "Eingesetzte Produkte:",
+          "Java, JavaScript, Html 5, Css3, Relationales DB-System u. diverse andere",
+          "Technonlogien, AngularJS",
+          "===================================================== ==========================",
+          "Eigen- und Weiterentwicklung eSport-manager.net"
+        ],
+        "industry": "Online Sport-Manager Game",
+        "technologies": [
+          "Java",
+          "JavaScript",
+          "Html 5",
+          "Css3",
+          "Relationales DB-System",
+          "AngularJS"
+        ],
+        "role": "Online Sport-Manager Game"
+      },
+      {
+        "period": "03/2014 - 08/2019",
+        "company": "Rentenbank",
+        "title": "Analyse, Design und Umsetzung von folgenden Projekten bzw., Frankfurt/Deutschland",
+        "activities": [
+          "Analyse, Design und Umsetzung von folgenden Projekten bzw. Modulen",
+          "Aufgaben:",
+          "Kreditanwendung",
+          "Darlehensrechner",
+          "Meldewesen (BAIS)",
+          "Murex-Handelssystem-Interface: Datentransformer",
+          "Rating-Plattform-Anbindung",
+          "Realisierung Projekt EMIR (Transaktionsregister RegisTR)"
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt",
+        "technologies": [
+          "BAIS",
+          "Murex",
+          "RegisTR"
+        ]
+      },
+      {
+        "period": "05/2013 - 02/2014",
+        "title": "Analyse, Design und Umsetzung gesetzlicher Vorgaben im",
+        "activities": [
+          "Analyse, Design und Umsetzung gesetzlicher Vorgaben im Rahmen der Emir-Verordnung u. a",
+          "Aufgaben:",
+          "OO Analyse",
+          "OO Design",
+          "Realisierung",
+          "Einsatz der Software Eingesetzte Produkte:",
+          "Java 7, JEE6, Eclipse, SVN, JPA, Eclipse-Link, UML, IBM System Architect,",
+          "Test"
+        ],
+        "technologies": [
+          "Java 7",
+          "JEE6",
+          "Eclipse",
+          "SVN",
+          "JPA",
+          "Eclipse-Link",
+          "UML",
+          "IBM System Architect"
+        ]
+      },
+      {
+        "period": "03/2013 - 03/2013",
+        "company": "Deutsche Bundesbank",
+        "title": "Analyse einer Java-Plugin-Komponente, Frankfurt/Deutschland",
+        "technologies": [
+          "Java",
+          "JNI",
+          "Websphere 8",
+          "Websphere-RAD 8",
+          "JCE",
+          "JCA",
+          "C/C++",
+          "Windows",
+          "SwiftNet Link 6.0/7.0",
+          "Swift Alliance Gateway",
+          "Swift WebStation 6.3",
+          "AIX"
+        ],
+        "activities": [
+          "Aufgaben:",
+          "Analyse eines Szenarios, Erarbeiten eines Lösungsvorschlages, Konzeption und Aufwandsschätzung, Formulierung eines Change-Requests.",
+          "Eingesetzte Produkte:",
+          "SwiftNet Link 6.0/7.0, Swift Alliance Gateway, Swift WebStation 6.3, AIX ===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt/Deutschland"
+      },
+      {
+        "period": "04/2012 - 12/2012",
+        "company": "KfW",
+        "title": "Projekt Basel III Webanwendungen für die Berechnung von, Frankfurt/Deutschland",
+        "activities": [
+          "Implementierung von Algorithmen für die Risikokennzahlenberechnung Eingesetzte Produkte:",
+          "Aufgaben:",
+          "Erweiterung und Realisierung einer Websphere Web-Anwendung",
+          "Java, JavaScript, KfW-internes Vorgangsserver- und Formularserver-Framework,",
+          "WebSphere 7, Rad 7, DB2, CMSynergy",
+          "===================================================== =========================="
+        ],
+        "industry": "Banken",
+        "location": "Frankfurt/Deutschland",
+        "technologies": [
+          "Java",
+          "JavaScript",
+          "WebSphere 7",
+          "Rad 7",
+          "DB2",
+          "CMSynergy"
+        ]
+      },
+      {
+        "period": "10/2011 - 03/2012",
+        "title": "Projekt Pflegeprogrammdateien Zwei Webanwendungen für die Pflege von Statistischen Daten und Nebenabreden",
+        "activities": [
+          "Pflege von Statistischen Daten und Nebenabreden",
+          "Aufgaben:",
+          "Design und Realisierung Websphere Web-Anwendung",
+          "Eingesetzte Produkte:",
+          "Java, JavaScript, Hibernate, JPA, KfW-internes Vorgangsserver- und Formularserver-Framework, WebSphere 7, Rad 7, DB2 ===================================================== =========================="
+        ],
+        "technologies": [
+          "Java",
+          "JavaScript",
+          "Hibernate",
+          "JPA",
+          "WebSphere 7",
+          "Rad 7",
+          "DB2"
+        ]
+      },
+      {
+        "period": "01/2011 - 09/2011",
+        "title": "Projekt Webanwendung Engagementübersicht: Aufbereitung eines",
+        "activities": [
+          "Aufbereitung eines Dokumentes mit den Daten aus der CashFlowRating-Datenbank (u. a. MIS-Ipex Datenbestand)",
+          "Datenbestand)",
+          "Aufgaben:",
+          "Design und Realisierung Websphere Web-Anwendung",
+          "Eingesetzte Produkte:",
+          "Java, Hibernate, JPA, WebSphere 7, Rad 7, DB2, Oracle ===================================================== =========================="
+        ],
+        "technologies": [
+          "Java",
+          "Hibernate",
+          "JPA",
+          "WebSphere 7",
+          "Rad 7",
+          "DB2",
+          "Oracle"
+        ]
+      },
+      {
+        "period": "10/2010 - 12/2010",
+        "title": "Projekt Meldewesen. Anlieferung von Daten aus",
+        "activities": [
+          "Anlieferung von Daten aus unterschiedlichen Quellsystemen (Summit, Darlehensbuchhaltung, Finanzbuchhaltung) an Samba Plus",
+          "Finanzbuchhaltung) an Samba Plus. (Projekt GroMiKv)",
+          "Aufgaben:",
+          "Design und Realisierung Java-Batch-Architektur",
+          "Eingesetzte Produkte:",
+          "Java, hausinternes Batch-Framework, JPA, WebSphere 6, Rad 7, DB2, Oracle ===================================================== =========================="
+        ],
+        "technologies": [
+          "Java",
+          "hausinternes Batch-Framework",
+          "JPA",
+          "WebSphere 6",
+          "Rad 7",
+          "DB2",
+          "Oracle"
+        ]
+      },
+      {
+        "period": "07/2009 - 09/2010",
+        "title": "Projektanbindung an bestehendes Dokument-Management-System (Projekt ModaLB) und neues Web-Projekt zur Übertragung von Umweltzertifikaten an das Umweltbundesamt (Projekt DEHSt)",
+        "technologies": [
+          "RAD7 (Rational Application Developer)",
+          "WebSphere 6",
+          "XAMP (Linux",
+          "IBM Hardware",
+          "TomCat 4+5+6",
+          "SUN Hardware",
+          "Apache-Webserver",
+          "mySQL-Datenbank",
+          "PHP)",
+          "Solaris",
+          "Oracle 9i",
+          "WebSphere MQ",
+          "WebSphere 4 + 5 (incl. Security-",
+          "HP-UX",
+          "AIX",
+          "Informix",
+          "Merva",
+          "Tivoli",
+          "TSO",
+          "MVS",
+          "XML",
+          "Java",
+          "Apache POI",
+          "CSS",
+          "CMSynergy",
+          "DB2"
+        ],
+        "activities": [
+          "(Projekt ModaLB) und neues Web-Projekt zur Übertragung von Umweltzertifikaten an das Umweltbundesamt (Projekt DEHSt)",
+          "Aufgaben:",
+          "Entwicklung Websphere 6 Anwendung (Internet)",
+          "Anbindung macrosInnovations DMS",
+          "Eingesetzte Produkte:",
+          "XML, Java, Apache POI, CSS, CMSynergy, DB2, Oracle, RAD7 (Rational Application ===================================================== ==========================",
+          "2/2006 06/2009"
+        ]
+      },
+      {
+        "period": "1991 - 1998",
+        "title": "Deutsche Börse Systems AG, Frankfurt/Main",
+        "technologies": [
+          "IBM AIX",
+          "Oracle DBMS",
+          "Windows NT",
+          "Cisco ISDN-Router 771",
+          "C/C++",
+          "HTML"
+        ],
+        "activities": [
+          "19971998",
+          "Neuer Markt",
+          "Design und Realisierung eines Clients zur dynamischen Generierung von HTML-Seiten zur Anzeige von Intraday-Kurs- und Statistikdaten",
+          "Implementierung des Systems auf einem Webserver",
+          "Methoden/Werkzeuge:",
+          "C/C++, HTML",
+          "Systeme:",
+          "1996 1998"
+        ],
+        "company": "Deutsche Börse Systems AG",
+        "industry": "Finanzdienstleistungen",
+        "location": "Frankfurt/Main"
+      },
+      {
+        "period": "1989 - 1990",
+        "title": "Nanz Zentrale Verwaltungsgesellschaft GmbH",
+        "activities": [
+          "1989 - 1990",
+          "Entwicklung eines zentralen Warenwirschaftssystems",
+          "Realisierung von Komponenten der Zugriffsschicht auf Basis einer relationalen Datenbank",
+          "Realisierung eines Unternehmenskalenders",
+          "Methoden/Werkzeuge:",
+          "PL/I, CSP, SQL",
+          "Systeme:",
+          "DOS/VSE, SQL/DS",
+          "Sonstiges",
+          "Referenzen:",
+          "Projekt Außenschnittstellen, 02/06 - 12/08 Referenz durch Prokurist, Finanzinstitut, vom 21.11.08 \"Der Consultant hat an einer Reihe von Projekten mitgewirkt. Durch sein tiefes Wissen in den Bereichen Wbsphere und Webentwicklung (von der Spezifikation bis zum Einsatz) hat er unser Team hervorragend unterstützt und beraten. Auch seine soziale Kompetenz und Professionalität haben sehr zur Erreichung des Projektzieles beigetragen, was ihn die Wertschätzung seiner Kollegen einbrachte. Deshalb möchten wir uns bei dem Berater für die erbrachte Leistung bedanken und wünschen ihm für die weiteren Projekte viel Erfolg und gutes Gelingen.\" Projekt Websphere-Migration v4 nach v5, Redesign Flash GUI, 10/04 - 01/06 Referenz durch Direktionsmitglied, Schweizerische Investmentbank (weltweit 15.000 MA), vom 15.12.05 \"Der Consultant hat in allen Projekten mit seinem Know-how und seiner engagierten Art sehr zum Erfolg der Projekte beigetragen. Er verfügt über ein profundes Wissen in Websphere und umfassende Kenntnisse in allen Phasen eines OO-Projektes von der Spezifikation bis hin zum Einsatz der Anwendung. Wir möchten uns beim Consultant für die erbrachte Leistung bedanken und ihn anderen Projektanbietern empfehlen. Seine freundliche und hilfsbereite Art sowie sein stets professionelles Verhalten wurden von Auftraggeber, Projektleiter und Kollegen gleichermassen geschätzt.\" Alle Referenzen sind durch GULP bestätigt.",
+          "Sonstige Anmerkungen: Für die letzten Projekte sind Referenzen in Papier-Form vorhanden.",
+          "Auf Anfrage sende ich Ihnen gerne die gewünschten Referenzen zu.",
+          "Seite_drucken [Seite_drucken] Zum_Seitenanfang [Zum_Seitenanfang] Englisch anzeigen"
+        ],
+        "company": "Nanz Zentrale Verwaltungsgesellschaft GmbH",
+        "technologies": [
+          "PL/I",
+          "CSP",
+          "SQL",
+          "DOS/VSE",
+          "SQL/DS"
+        ]
+      }
+    ],
+    "industries": [
+      "Finanzdienstleistungsbereich",
+      "Banken",
+      "Börse",
+      "Wertpapiergeschäft",
+      "Handelssysteme"
+    ],
+    "focus_areas": [
+      "Web-Architektur",
+      "Fullstack Java",
+      "Appliances",
+      "Enterprise Search",
+      "Software-Entwicklung / Programmierung",
+      "Beratung / Consulting",
+      "Coaching / Schulung / Training",
+      "Projektmanagement / -leitung / Organisation / Koordination Qualitätsmanagement / Qualitätssicherung / Test Engineering / IT-nahe Ingenieurdienstleistungen",
+      "Beratung Rapid Application Develoopment, Big Data, Beratung für Web-Apps und IT-Architekturen, Erstellung von Realisierungsvorschlägen, Lasten- und Pflichtenheften. Projektleitung und Unterstützung des Managements 1989 - 1990 Nanz Zentrale Verwaltungsgesellschaft GmbH 1989 - 1990 Entwicklung eines zentralen Warenwirschaftssystems",
+      "Realisierung von Komponenten der Zugriffsschicht auf Basis einer relationalen Datenbank",
+      "Realisierung eines Unternehmenskalenders Methoden/Werkzeuge: PL/I, CSP, SQL Systeme: DOS/VSE, SQL/DS",
+      "JEE",
+      "Projektmanagement / -leitung / Organisation / Koordination",
+      "Qualitätsmanagement / Qualitätssicherung / Test",
+      "Engineering / IT-nahe Ingenieurdienstleistungen",
+      "Beratung Rapid Application Develoopment",
+      "Big Data",
+      "Beratung für Web-Apps und IT-Architekturen",
+      "Erstellung von Realisierungsvorschlägen",
+      "Lasten- und Pflichtenhefte",
+      "Projektleitung und Unterstützung des Managements",
+      "Java-Technologien",
+      "Performante Suchdatenbanken",
+      "Web-Technologien"
+    ],
+    "focus_experience": [
+      {
+        "name": "Activecampaign",
+        "category": "product_standard",
+        "sort_order": 0
+      },
+      {
+        "name": "B2C Marketing",
+        "category": "product_standard",
+        "sort_order": 1
+      },
+      {
+        "name": "Clickfunnels",
+        "category": "product_standard",
+        "sort_order": 2
+      },
+      {
+        "name": "Css3",
+        "category": "product_standard",
+        "sort_order": 3
+      },
+      {
+        "name": "Eclipse",
+        "category": "product_standard",
+        "sort_order": 4
+      },
+      {
+        "name": "Elasticsearch",
+        "category": "product_standard",
+        "sort_order": 5
+      },
+      {
+        "name": "GitHub",
+        "category": "product_standard",
+        "sort_order": 6
+      },
+      {
+        "name": "Html 5",
+        "category": "product_standard",
+        "sort_order": 7
+      },
+      {
+        "name": "SVN",
+        "category": "product_standard",
+        "sort_order": 8
+      },
+      {
+        "name": "System Architect",
+        "category": "product_standard",
+        "sort_order": 9
+      },
+      {
+        "name": "Xcode",
+        "category": "product_standard",
+        "sort_order": 10
+      },
+      {
+        "name": "Zoho",
+        "category": "product_standard",
+        "sort_order": 11
+      },
+      {
+        "name": "Schwerpunkte",
+        "category": "product_standard",
+        "sort_order": 12
+      },
+      {
+        "name": "Java-Technologien",
+        "category": "product_standard",
+        "sort_order": 13
+      },
+      {
+        "name": "Performante Suchdatenbanken",
+        "category": "product_standard",
+        "sort_order": 14
+      },
+      {
+        "name": "Web-Technologien",
+        "category": "product_standard",
+        "sort_order": 15
+      }
+    ],
+    "education": [
+      {
+        "degree": "Entwicklung eines zentralen Warenwirtschaftssystems",
+        "institution": "Nanz Zentrale Verwaltungsgesellschaft GmbH",
+        "period": "1989 - 1990",
+        "education_type": "course"
+      }
+    ],
+    "other": [
+      {
+        "content": "Referenzen:\nProjekt Außenschnittstellen, 02/06 - 12/08\nReferenz durch Prokurist, Finanzinstitut, vom 21.11.08\n\"Der Consultant hat an einer Reihe von Projekten mitgewirkt. Durch sein tiefes Wissen in den Bereichen Wbsphere und Webentwicklung (von der Spezifikation bis zum Einsatz) hat er unser Team hervorragend unterstützt und beraten. Auch seine soziale Kompetenz und Professionalität haben sehr zur Erreichung des Projektzieles beigetragen, was ihn die Wertschätzung seiner Kollegen einbrachte. Deshalb möchten wir uns bei dem Berater für die erbrachte Leistung bedanken und wünschen ihm für die weiteren Projekte viel Erfolg und gutes Gelingen.\"\nProjekt Websphere-Migration v4 nach v5, Redesign Flash GUI, 10/04 - 01/06\nReferenz durch Direktionsmitglied, Schweizerische Investmentbank (weltweit 15.000 MA), vom 15.12.05\n\"Der Consultant hat in allen Projekten mit seinem Know-how und seiner engagierten Art sehr zum Erfolg der Projekte beigetragen. Er verfügt über ein profundes Wissen in Websphere und umfassende Kenntnisse in allen Phasen eines OO-Projektes von der Spezifikation bis hin zum Einsatz der Anwendung. Wir möchten uns beim Consultant für die erbrachte Leistung bedanken und ihn anderen Projektanbietern empfehlen. Seine freundliche und hilfsbereite Art sowie sein stets professionelles Verhalten wurden von Auftraggeber, Projektleiter und Kollegen gleichermassen geschätzt.\"\nAlle Referenzen sind durch GULP bestätigt.\n\nSonstige Anmerkungen:\nFür die letzten Projekte sind Referenzen in Papier-Form vorhanden.\nAuf Anfrage sende ich Ihnen gerne die gewünschten Referenzen zu.",
+        "content_type": "text",
+        "source": "pre_json",
+        "sort_order": 0
+      }
+    ],
+    "skill_ablage": [
+      {
+        "name": "Cloud-Services",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Websphere MQ",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "Berechnung/Simulation/Versuch/Validierung",
+        "category": "Datenkommunikation"
+      },
+      {
+        "name": "msg Gillardon Marzipan",
+        "category": "Datenkommunikation"
+      }
+    ]
+  },
+  "audit": {
+    "created_by": "main_pipeline",
+    "created_at": "2026-08-20T23:07:28.901347",
+    "source_file": "",
+    "steps_completed": [
+      "FOCUS_EXP",
+      "BRANCHEN",
+      "SCHULUNGEN",
+      "PERSONAL",
+      "FACHBEREICHE",
+      "OTHER",
+      "PROJECT",
+      "HEADER",
+      "SKILLS"
+    ],
+    "post_processor": {
+      "fixes": [
+        "ROLLE aus COMPANY: 'Online Sport-Manager Game'",
+        "ACT: 8→7 bei '04/2020 - 01/2021'",
+        "EDV_SEIT: None→1989"
+      ],
+      "coverage_percent": 92.93893129770993,
+      "auto_added_skills": 0,
+      "integrity_ok": true
+    }
+  }
+}

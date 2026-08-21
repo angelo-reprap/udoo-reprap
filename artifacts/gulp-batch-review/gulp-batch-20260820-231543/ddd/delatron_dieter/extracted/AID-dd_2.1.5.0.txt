@@ -1,0 +1,104 @@
+AID: AID-dd_2.1.5.0
+Name: Dieter Delatron
+Headline: Relationale Datenbanken (Oracle Zertifizierungen), PL/SQL, Forms
+Ort: D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, österreich, Schweiz, außerhalb
+Wohnort: 905xx Zirndorf, Deutschland
+Jahrgang: 1958
+Verfügbar: 01.02.13 zu 100%, Vor-Ort-Einsatz 100% möglich
+EDV seit: 
+Sprachen: Deutsch, Muttersprache, Englisch, gute Kenntnisse, Deutsch (Muttersprache), Englisch (gute Kenntnisse)
+
+FACHBEREICHE:
+Relationale Datenbanken (Oracle Zertifizierungen) PL/SQL Forms Software-Entwicklung / Programmierung
+Beratung / Consulting
+bevorzugt
+Oracle
+Relationale Datenbanken
+PL/SQL
+Forms
+Software-Entwicklung / Programmierung
+
+BRANCHEN:
+Industrie
+Versicherung
+Handel
+
+PROJEKTE:
+  Projektbeschreibung: Schnittstellen |  | Schnittstellen
+    - Schnittstellen
+  Firma/Institut: Postbank Bonn | Postbank Bonn | Providermanagement
+    - ORACLE / PL/SQL Projekt wurde vom Kunden aus Kostengründen beendet.
+    - 05/08 - 11/08
+  Firma/Institut: EDS Itellium Nürnberg | EDS Itellium Nürnberg | New Features 1 Hostablösung Auftragsschreibung / Bedarfsüberwachung
+    - Im Projekt Providermanagement (Teilprojekt Mandantenvorbereitung) werden grundsätzlich alle Funktionalitäten angepasst welche, die Mandantenfähigkeit betreffen und die es ermöglichen einen Mandanten auf verschiedenen Ebenen innerhalb der logistischen Systeme
+    - Primondo produktiv zu setzen.
+    - Tätigkeit: Erzeugen Packages mit PL/SQL, entwickeln Forms mit Forms
+  Firma/Institut: EDS Itellium Nürnberg | EDS Itellium Nürnberg | New Features Stufe 1
+    - Beschreibung: Migration Cobol / Assembler Programme nach Oracle
+    - PL/SQL.
+    - Das Projekt "New Features Stufe 1" ist Teilprojekt des Projektes "New
+    Techs: Cobol, Assembler, Oracle, PL/SQL, EDIFACT
+  Firma/Institut: europet Benelux Nürnberg | europet Benelux Nürnberg | Infosystem Informationssystem für Messeauftritt sowie Katalog (auf CD).
+    - Stammdaten (Adressen, Kunden, Lieferanten, Vertreter, Artikel) werden über eine Java-Oberfläche verwaltet.
+    - Die Daten werden aus der Produktions-DB (Informix) in eine MS-SQL Server DB übernommen.
+    - Mit dem Java Programm sind Neuanlagen, änderungen sowie Löschungen über spezielle Berechtigungen möglich. über individuelle Selektionskriterien werden die Auswertungen im PDF-Format erstellt (mit iText).
+    Techs: Systemumfeld: Windows XP, Java, Borland JBuilder X, iText, MS
+  Firma/Institut: europet Benelux Nürnberg | europet Benelux Nürnberg | WVLS Warenverkehrs-Leitsystem
+    - Die verschiedenen Produktbereiche können über Buttons ausgewählt und Detailinformationen abgerufen werden.
+    - Die Messeversion holt die Daten aus einer SQL-Server DB und die CD-Version arbeitet mit internen Dateien.
+    - JBuilder X, Informix und MS SQL-Server.
+    Techs: Java, Borland
+  Firma/Institut: Siemens Business Services | Siemens Business Services | MAZURKA/ADREMA Marktorientierte Zielgruppenwerbung unter Einbezug von Rahmenmöglichkeiten und Adressen
+    - Das Warenverkehrs-Leitsystem WVLS ermittelt die Transportkosten der beauftragten Spediteure und übernimmt die Abrechnung. Weiterbelastung der Transportkosten an verursachende Versandstellen.
+    - Sendungsverfolgung (Tracking & Tracing) via Intranet, später auch via
+    - Internet.
+    Techs: Oracle
+  Firma/Institut: Siemens Business Services | Siemens Business Services | Neues Vergütungssystem Teilprojekte: Ertragsblatt und Vergleichsrechnung
+    - Konzeption und Realisierung von Programmerweiterungen im Dialog sowie im Batchteil nach DIN EN ISO 9001.
+    - Integriert wurde z.B.: die APA-Drucktechnik sowie die Selektion aus einer ORACLE-DB.
+    - Auch wurden verschiedene WORD-Formulare mittels VBA entwickelt.
+  Firma/Institut: GERLING Versicherung Köln | GERLING Versicherung Köln | MAZURKA/ADREMA Marktorientierte Zielgruppenwerbung unter Einbezug von Rahmenmöglichkeiten und Adressen.
+    - Zuerst wurde die Systemanalyse durchgeführt; d. h. die fachlichen Anforderungen wurden funktional und datenorientiert analysiert.
+    - Im Rahmen der nachfolgenden Modellierung wurde nach der ER-Methode das logische Datenmodell entwickelt und die Programmvorgabe geschrieben. Die Dokumentation erfolgte dabei mittels SEtec und Maestro II.
+    - Danach wurden die Module codiert, getestet und für die Produktion vorbereitet.
+  Firma/Institut: SIEMENS | SIEMENS | AUFBAU Auftragsabwicklung im Bauteilevertrieb.
+    - Dialog- und Batcherweiterungen sowie Konzept und Realisierung neuer
+    - Postrichtlinien.
+    - 03/91 - 08/92
+  Firma/Institut: SIEMENS | SIEMENS | KOSA Kosten-Sammlung und Abrechnung.
+    - Auftragseingang im EDIFACT-Format realisieren (Konzept und Programmierung) sowie Umstellung von dezentralen UDS-DB's auf zentrale
+    - SESAM-DB.
+    - 10/87 - 02/91
+  Firma/Institut: SIEMENS | SIEMENS | DESTI Dezentrale Stücklistenbearbeitung und Information.
+    - 04/87 - 09/87
+  Firma/Institut: SIEMENS | SIEMENS | KOSA Kosten-Sammlung und Abrechnung.
+    - Schnittstellenprogrammierung SINIX/BS2000 in Assembler.
+    - 10/86 - 03/87
+  Firma/Institut: SIEMENS | SIEMENS | PROGü Programmplanung in der leitergebundenen übertragungstechnik.
+    - Das Produkt KOSA dient der Unterstützung der Kostenüberwachung und Leistungsverrechnung der ZWD (Zentralabteilung Werbung und Design) sowie der Werbeabteilungen versch. Bereiche.
+    - Außerdem beinhaltet es eine Budgetfortschreibung mit Soll-Ist-Vergleich.
+    - 07/85 - 09/86
+
+SKILLS:
+  database: Access, private Kenntnisse, Informix, Grundkenntnisse, MS SQL Server, Oracle, OCA und OCP sowie langjährige Projekterfahrungen, ISAM, LEASY, ODBC, aktuelles Projekt, SESAM, SQL, langjährige Projekterfahrungen, UDS/IDMS, Oracle Database Administrator Certified Associate (OCA), Oracle Certified Professional Internet Application Developer, Oracle Forms Developer Rel. 6i (OCP)
+  hardware: PC, Siemens Großrechner
+  operating_system: BS2000, Erfahrungen > 10 Jahre, Windows, Grundkenntnisse Linux (SUSE)
+  programming_languages: Assembler, liegt sehr lange zurück!, Basic, C, C++, Cobol, Java, aktuelles Projekt. Erfahrungen > 1 Jahr, JavaScript, Delta, Perl, PL/SQL, Oracle Zertifiziert und langjährige Praxis, Siron
+
+SKILL-ABLAGE:
+Internet, Intranet, Privat, TCP/IP, EDIFACT, mehrere Projekteinsätze, ISDN, Router, UTM - Transdata
+
+AUSBILDUNG:
+Oracle  [course]
+
+ZERTIFIKATE:
+Oracle Certified Associate (OCA) seit 25.07.03
+Oracle Certified Professional (OCP) seit 26.09.03
+07/2003 | Oracle Certified Associate (OCA) | Oracle
+09/2003 | Oracle Certified Professional (OCP) | Oracle
+
+FOCUS_EXP:
+  Case Tool: Maestro II  [product_standard]
+  QM : DIN EN ISO 9001  [product_standard]
+  Maestro II  [product_standard]
+  DIN EN ISO 9001  [product_standard]

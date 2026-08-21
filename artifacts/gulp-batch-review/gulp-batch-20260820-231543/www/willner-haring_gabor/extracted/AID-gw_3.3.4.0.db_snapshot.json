@@ -1,0 +1,798 @@
+{
+  "personal": {
+    "aid": "AID-gw_3.3.4.0",
+    "first_name": "Gabor",
+    "last_name": "Willner-haring",
+    "birth_year": 1971,
+    "location": "D6",
+    "availability": "01.06.21 zu 100%, Vor-Ort-Einsatz 100% möglich",
+    "edv_experience_since": null,
+    "headline": "Java-Berater/-Architekt, WM Schnittstelle, FIX Trading, Bank- Prozesse (Risikomanagement, Wertpapierhandel und Zahlungsverkehr, Reporting, Migrationen)",
+    "degree": "",
+    "nationality": "",
+    "email": "",
+    "phone": ""
+  },
+  "counts": {
+    "languages": 8,
+    "skills": 112,
+    "certifications": 0,
+    "education": 11,
+    "experience": 10,
+    "industries": 4,
+    "focus_areas": 11,
+    "focus_experience": 39,
+    "other_content": 1
+  },
+  "languages": [
+    {
+      "name": "Deutsch sehr gut",
+      "level": ""
+    },
+    {
+      "name": "Deutsch (sehr gut)",
+      "level": ""
+    },
+    {
+      "name": "Englisch (sehr gut)",
+      "level": ""
+    },
+    {
+      "name": "Englisch sehr gut",
+      "level": ""
+    },
+    {
+      "name": "Polnisch sehr gut",
+      "level": ""
+    },
+    {
+      "name": "Ungarisch sehr",
+      "level": ""
+    },
+    {
+      "name": "Polnisch (sehr gut)",
+      "level": ""
+    },
+    {
+      "name": "Ungarisch (sehr gut)",
+      "level": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "SAS System Application Development, SAS Basics, SAS Data Processing, SAS/AF module, SAS/SHARE and SAS/Connect - C/S Architecture, SAS OLAP++ and multidimensional facilities",
+      "institution": "SAS Institute, Polen",
+      "period": "Oktober 1996",
+      "education_type": "course"
+    },
+    {
+      "degree": "Business Process Reengineering Seminar",
+      "institution": "ICL Learning",
+      "period": "Mai 1997",
+      "education_type": "course"
+    },
+    {
+      "degree": "Projekt Management mit Anwendung von LBMS Methodologie",
+      "institution": "InfoViDE",
+      "period": "Juni 1997",
+      "education_type": "course"
+    },
+    {
+      "degree": "SCO UnixWare System Administration",
+      "institution": "EduSoft",
+      "period": "September 1997",
+      "education_type": "course"
+    },
+    {
+      "degree": "AS/400 System Basics",
+      "institution": "IBM Hungary",
+      "period": "Februar 1998",
+      "education_type": "course"
+    },
+    {
+      "degree": "AS/400 System Administration",
+      "institution": "IBM Hungary",
+      "period": "März 1998",
+      "education_type": "course"
+    },
+    {
+      "degree": "Java Programming (SL-275)",
+      "institution": "Sun Microsystems",
+      "period": "Mai 1999",
+      "education_type": "course"
+    },
+    {
+      "degree": "Enterprise Java Beans and Java Beans Seminar",
+      "institution": "Sun Microsystems",
+      "period": "Juni 1999",
+      "education_type": "course"
+    },
+    {
+      "degree": "Architecting and Designing J2EE Applications (SL-425)",
+      "institution": "Sun Microsystems",
+      "period": "September 2000",
+      "education_type": "course"
+    },
+    {
+      "degree": "Products and Processes of the Trading Environment",
+      "institution": "Dresdner Kleinwort",
+      "period": "Oktober 2006",
+      "education_type": "course"
+    },
+    {
+      "degree": "iSAQB® Certified Professional for Software Architecture",
+      "institution": "iSQI GmbH",
+      "period": "09/2018 - 09/2018",
+      "education_type": "course"
+    }
+  ],
+  "certifications": [],
+  "industries": [
+    "Versicherungs- und Finanzdienstleistungsumfeld",
+    "Automobilindustrie",
+    "Software-Hersteller",
+    "Banken"
+  ],
+  "focus_areas": [
+    "Java-Berater/-Architekt",
+    "WM Schnittstelle",
+    "FIX Trading",
+    "Bank-Prozesse (Risikomanagement",
+    "Wertpapierhandel und Zahlungsverkehr",
+    "Reporting",
+    "Migrationen)",
+    "Java Berater / Architekt, Coach",
+    "Technical Lead oder Projektleiter",
+    "Business Analyst",
+    "Bank-Prozesse (Risikomanagement, Wertpapierhandel und Zahlungsverkehr, Reporting, Migrationen)"
+  ],
+  "focus_experience": [
+    {
+      "name": "* Experte auf dem Gebiet der Analyse",
+      "category": "product_standard"
+    },
+    {
+      "name": "Design und Implementierung von",
+      "category": "product_standard"
+    },
+    {
+      "name": "Systemen und Geschäftskomponenten branchenunabhängig.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Fundierte Kenntnisse der Bankgeschäftsprozesse (insbesondere in Bereichen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Risk Management",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wertpapierhandel",
+      "category": "product_standard"
+    },
+    {
+      "name": "Zahlungsverkehr",
+      "category": "product_standard"
+    },
+    {
+      "name": "Reporting",
+      "category": "product_standard"
+    },
+    {
+      "name": "Portfoliobewertung nach GIPS) und Datenmigration. Kenntnis des",
+      "category": "product_standard"
+    },
+    {
+      "name": "Datenmodells von Core-Banking Systemen OBS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Avaloq",
+      "category": "product_standard"
+    },
+    {
+      "name": "Olympic",
+      "category": "product_standard"
+    },
+    {
+      "name": "Erfahrener Entwickler und Architekt von Java-/JEE -basierten Enterprise",
+      "category": "product_standard"
+    },
+    {
+      "name": "Applikationen",
+      "category": "product_standard"
+    },
+    {
+      "name": "wiederverwendbaren Geschäftskomponenten und Frameworks",
+      "category": "product_standard"
+    },
+    {
+      "name": "beruhend auf Best Practices und Design Patterns.",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Qualitätssicherung",
+      "category": "product_standard"
+    },
+    {
+      "name": "Durchführung von Code Reviews",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Erstellen von Fachkonzepten: Gesamt- und Teilarchitektur (UML+Word)",
+      "category": "product_standard"
+    },
+    {
+      "name": "Aufwandsschätzungen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Sicherheitskonzepte",
+      "category": "product_standard"
+    },
+    {
+      "name": "Teststrategien",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfassende Erfahrungen in Deployment und Optimierung von Web",
+      "category": "product_standard"
+    },
+    {
+      "name": "Applikationen. Konfiguration und Tuning von Applikation Servern.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfassende Kenntnisse über Open Source Lösungen. Durchführung von Open",
+      "category": "product_standard"
+    },
+    {
+      "name": "Source-Pilotprojekten",
+      "category": "product_standard"
+    },
+    {
+      "name": "Wirtschaftlichkeitsprüfung für Open Source-",
+      "category": "product_standard"
+    },
+    {
+      "name": "Lösungen.",
+      "category": "product_standard"
+    },
+    {
+      "name": "Einführung von Lösungen und Prozessen zur Unterstützung der agilen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Softwareentwicklung.",
+      "category": "product_standard"
+    },
+    {
+      "name": "* Fähigkeit Probleme souverän",
+      "category": "product_standard"
+    },
+    {
+      "name": "schnell und zuverlässig zu lösen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Persönliche Flexibilität und Engagement. Kenntnis des multinationalen",
+      "category": "product_standard"
+    },
+    {
+      "name": "Umfelds.",
+      "category": "product_standard"
+    },
+    {
+      "name": "OBS",
+      "category": "product_standard"
+    },
+    {
+      "name": "Java",
+      "category": "product_standard"
+    },
+    {
+      "name": "JEE",
+      "category": "product_standard"
+    },
+    {
+      "name": "UML",
+      "category": "product_standard"
+    },
+    {
+      "name": "Word",
+      "category": "product_standard"
+    }
+  ],
+  "experience": [
+    {
+      "period": "Projektbeschreibung: Avaloq-Migration der Bank Julius Bär / Kosmos Systems.",
+      "company": "Bank Julius Bär / Kosmos Systems",
+      "role": "Business Analyst, Senior Java Berater und Architekt",
+      "title": "Avaloq-Migration der Bank Julius Bär / Kosmos Systems.",
+      "activities": 8,
+      "technologies": 5
+    },
+    {
+      "period": "Projektbeschreibung: Design und Implementierung einer Lösung zur",
+      "company": "Bethmann Bank (ABN Amro)",
+      "role": "Senior Java Berater und Architekt (freiberuflich)",
+      "title": "Design und Implementierung einer Lösung zur Unterstützung des Beratungsprozeßes gem. WpHG",
+      "activities": 9,
+      "technologies": 11
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung von Service-Komponenten und Weiterentwicklung einer Swing-Anwendung",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung von Service-Komponenten und Weiterentwicklung einer Swing-Anwendung",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung einer Webapplikation zur Limitüberwachung im",
+      "company": "Dresdner Kleinwort (später Commerzbank)",
+      "role": "Senior Java Entwickler",
+      "title": "Entwicklung einer Webapplikation zur Limitüberwachung im Market Risk-Bereich - Market Risk-Bereich -",
+      "activities": 10,
+      "technologies": 11
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung einer Webapplikation zur Limitüberwachung im",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung einer Webapplikation zur Limitüberwachung im Credit Risk-Bereich",
+      "activities": 8,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Serverkomponenten (siehe Projekt Online Brokerage im",
+      "company": "",
+      "role": "",
+      "title": "Serverkomponenten (siehe Projekt Online Brokerage im Internet).",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Entwicklung des Zahlungsverkehrs und des",
+      "company": "",
+      "role": "",
+      "title": "Entwicklung des Zahlungsverkehrs und des Wertpapierhandels für Privatkunden.",
+      "activities": 9,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Software Support Engineer, ICL Poland",
+      "company": "",
+      "role": "",
+      "title": "Software Support Engineer, ICL Poland",
+      "activities": 4,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Software Support Engineer, ICL Poland",
+      "company": "",
+      "role": "",
+      "title": "Software Support Engineer, ICL Poland",
+      "activities": 1,
+      "technologies": 0
+    },
+    {
+      "period": "Projektbeschreibung: Programm Design, System Entwicklung, Dokumentation",
+      "company": "",
+      "role": "",
+      "title": "Programm Design, System Entwicklung, Dokumentation",
+      "activities": 4,
+      "technologies": 0
+    }
+  ],
+  "other_content": [
+    {
+      "content": "Zertifizierter Scrum Master und Software Architekt.",
+      "content_type": "text",
+      "source": "pre_json"
+    }
+  ],
+  "skills_sample": [
+    {
+      "name": "Cloud Computing",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microservices (Archtitecture)",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Spring Boot",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Netflix Tools (Eureka/Ribbon/ Zuul/",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Hystrix)",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Docker",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "FIX / Systemintegration",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "QuickFixJ",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "FIXimulator",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Apache Camel",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Entwicklungsumgebung",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "IntelliJ",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM RAD",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Applikationsserver",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "WildFly (vormals JBoss)",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle WebLogic",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "IBM Websphere",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Build / Automation / Continuous Integration",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Maven 3",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Ant",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Jenkins",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Sonar",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuum",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Archiva",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "CruiseControl",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Testen",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "JUnit",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "DBUnit",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "TestNG",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "JMeter",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Mockito",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Cucumber",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Jacoco",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Versionsverwaltung / Issue Tracking",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Git",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Subversion",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Microsoft Team Foundation Server",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "CVS",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Continuus",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Change",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Synergy",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Bugzilla",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Jira",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "HP Service Center",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "UML Tools",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "MagicDraw",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Enterprise Architect",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "TogetherJ und Rational Rose",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Reporting",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "FOP",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "StyleReport",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "iReport",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Jasper",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Andere Sprachen / Tools",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "C/C++",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Pascal",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Visual Basic/VBA",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS System (4GL",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS/FSP",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS/SHARE",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS/CONNECT",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS/EIS)",
+      "category_name": "Cloud-Plattformen",
+      "weight": 0.8
+    },
+    {
+      "name": "Oracle",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Sybase",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "DB2",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Informix",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MS SQL Server",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MySQL",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "SAS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "AS 400",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Distributed Caches",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "RMI",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "Message Queuing (JMS",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "MQSeries)",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "REST",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "HTTP",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "JSON",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "XStream",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "FIX Trading",
+      "category_name": "Datenbanken",
+      "weight": 0.8
+    },
+    {
+      "name": "UNIX (Linux",
+      "category_name": "Betriebssysteme",
+      "weight": 0.8
+    }
+  ]
+}

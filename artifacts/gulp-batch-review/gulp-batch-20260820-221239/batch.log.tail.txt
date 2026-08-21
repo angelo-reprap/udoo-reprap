@@ -1,0 +1,128 @@
+======== BATCH gulp → AID Pipeline ========
+Start: 2026-08-20T22:12:39+02:00 host=ucs5 pid=760690
+LIMIT=1 EXECUTE=1 MEM_THRESH=88 CPU_THRESH=88
+SWAP_THRESH=95 SWAP_MEM_COMBO=75 MIN_AVAIL_MB=1536
+THROTTLE_SLEEP=30 PAUSE_BETWEEN=2
+OUT_LOG=/tmp/gulp-batch-20260820-221239
+
+NEED=/tmp/gulp-need-beemers.tsv (2 Zeilen inkl. Header)
+
+─── [1] bbb/beemers_heiko (gulp_id=21374 len=15381) ───
+NEED=/tmp/gulp-batch-20260820-221239/one_beemers_heiko.tsv FAILS= TXT_DIR= OUT_DIR= LIMIT=1 EXECUTE=1
+/opt/abpe/venv311/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (7.4.0.post2)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+INFO 2026-08-20 22:12:39,918 search_service ✅ ElasticSearch verbunden (Version: 8.11.0)
+INFO 2026-08-20 22:12:39,918 search_service ✅ SearchService initialisiert
+INFO 2026-08-20 22:12:40,251 aid_generator ✅ AIDGenerator initialisiert mit Media-Integration
+INFO 2026-08-20 22:12:40,319 ollama_service 🚀 OllamaService UNLIMITED initialisiert mit Modell: qwen2.5:7b
+INFO 2026-08-20 22:12:40,320 aid_generator ✅ AIDGenerator für Pipeline initialisiert
+INFO 2026-08-20 22:12:40,320 cv_processor ✅ CVProcessorService initialisiert mit strukturierter DB
+INFO 2026-08-20 22:12:40,373 apps 🚀 Initialisiere ABpE Profile App...
+INFO 2026-08-20 22:12:40,374 signals ✅ ABpE Profile Signals registriert (v6.0)
+INFO 2026-08-20 22:12:40,376 signals ✅ ElasticSearch Health: yellow
+INFO 2026-08-20 22:12:40,377 signals 📊 v1 Index 'abpe_profile_versions': 22 Dokumente
+INFO 2026-08-20 22:12:40,378 signals 📊 v2 Index 'abpe_profiles_v2': 0 Dokumente
+INFO 2026-08-20 22:12:40,379 apps ✅ Signals erfolgreich registriert
+INFO 2026-08-20 22:12:40,379 apps 📡 0 Signal-Handler für Profile registriert
+INFO 2026-08-20 22:12:40,379 apps ✅ ElasticSearch Hosts aus Settings: ['http://localhost:9200']
+INFO 2026-08-20 22:12:40,381 apps ✅ ElasticSearch 8.11.0 ist erreichbar
+INFO 2026-08-20 22:12:40,381 apps    Status: yellow
+INFO 2026-08-20 22:12:40,381 apps    Cluster: docker-cluster
+INFO 2026-08-20 22:12:40,381 apps    Build: default
+INFO 2026-08-20 22:12:40,384 apps ✅ Index 'abpe_profile_versions' Status:
+INFO 2026-08-20 22:12:40,384 apps    📊 Dokumente: 22
+INFO 2026-08-20 22:12:40,384 apps    📦 Größe: 0.06 MB
+INFO 2026-08-20 22:12:40,384 apps    📝 Felder: 13
+INFO 2026-08-20 22:12:40,384 apps    ✅ Wichtige Felder vorhanden: 7/7
+/opt/abpe/venv311/lib/python3.11/site-packages/django/db/backends/utils.py:98: RuntimeWarning: Accessing the database during app initialization is discouraged. To fix this warning, avoid executing queries in AppConfig.ready() or when your app modules are imported.
+  warnings.warn(self.APPS_NOT_READY_WARNING_MSG, category=RuntimeWarning)
+INFO 2026-08-20 22:12:40,401 apps 📊 Synchronisations-Status:
+INFO 2026-08-20 22:12:40,401 apps    🗄️  DB Profile: 1
+INFO 2026-08-20 22:12:40,401 apps    🗄️  DB Versionen: 0
+INFO 2026-08-20 22:12:40,401 apps    🔍 ES Versionen: 22
+INFO 2026-08-20 22:12:40,401 apps    🔄 Sync-Ratio: 0.0%
+WARNING 2026-08-20 22:12:40,401 apps ⚠️  Geringe Synchronisation (0.0%) - möglicherweise fehlen Dokumente in ES
+INFO 2026-08-20 22:12:40,402 apps ✅ ABpE Profile App initialisiert:
+INFO 2026-08-20 22:12:40,402 apps    🔌 ElasticSearch: VERFÜGBAR
+INFO 2026-08-20 22:12:40,402 apps    📊 Index: VORHANDEN
+INFO 2026-08-20 22:12:40,402 apps    📈 ES-Dokumente: 22
+INFO 2026-08-20 22:12:40,402 apps    🏷️  ES-Version: 8.11.0
+INFO 2026-08-20 22:12:40,402 apps    💾 Index-Größe: 0.06 MB
+INFO 2026-08-20 22:12:40,402 apps 🚀 ABpE Profile App ist bereit für Operationen
+WARNING 2026-08-20 22:12:40,405 apps ⚠️  Intake Integration Signals nicht gefunden
+INFO 2026-08-20 22:12:40,405 apps ✅ IngestEmail App bereit mit Auto-Reply
+INFO 2026-08-20 22:12:40,406 apps ✅ ingest_pdf Signale geladen (automatischer Task-Start aktiviert)
+INFO 2026-08-20 22:12:40,406 signals ✅ ai_cv_training Signals geladen und bereit
+============================================================
+✅ LDAP Configuration loaded for UCS5
+✅ Server: ldap://ucs5.win.abcona.info
+✅ Base DN: dc=win,dc=abcona,dc=info
+============================================================
+✅ LDAP Authentication Backend aktiviert
+============================================================
+✅ ABpE SETTINGS GELADEN (modular)
+✅ Django Version: 5.2.9
+✅ Apps: 79 installiert
+✅ Environment: development
+✅ DEBUG: True
+✅ AUTH Backends: 2 aktiviert
+============================================================
+✅ ABpE Apps Package loaded (version 2.0.0)
+[MODELS] LDAP Modelle erfolgreich geladen
+[MODELS] Verfügbare Modelle: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ CompleteConsultantAdmin registriert
+[ADMIN] LDAP Admin-Views erfolgreich geladen
+[ADMIN] Verfügbare Admin-Views: LDAPUserSnapshot, LDAPGroupSnapshot, LDAPSyncLog
+✅ ABpE Search Admin - vereinfachte Version geladen (keine Models)
+✅ URL Import App ist bereit
+✅ CV Extractor bereit
+[SIGNALS] LDAP-Signals erfolgreich geladen
+2 objects could not be automatically imported:
+
+  djangocms_versioning.datastructures.SnippetVersion
+  djangocms_versioning.datastructures.PageContentVersion
+
+251 objects imported automatically (use -v 2 for details).
+
+jobs_candidates=1 EXECUTE=True AID_ROOT=/mnt/public/Berater/AID_profile
+keywords=v1.3-final
+  clean: experience=5 snapshot=13406 aid=AID-hb_1.0.0.0
+Traceback (most recent call last):
+  File "/opt/abpe/backend/manage.py", line 18, in <module>
+    main()
+  File "/opt/abpe/backend/manage.py", line 15, in main
+    execute_from_command_line(sys.argv)
+  File "/opt/abpe/venv311/lib/python3.11/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/opt/abpe/venv311/lib/python3.11/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/opt/abpe/venv311/lib/python3.11/site-packages/django/core/management/base.py", line 416, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/opt/abpe/venv311/lib/python3.11/site-packages/django/core/management/base.py", line 460, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/abpe/venv311/lib/python3.11/site-packages/django/core/management/commands/shell.py", line 257, in handle
+    exec(sys.stdin.read(), {**globals(), **self.get_namespace(**options)})
+  File "<string>", line 383, in <module>
+  File "/usr/lib/python3.11/shutil.py", line 436, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/usr/lib/python3.11/shutil.py", line 258, in copyfile
+    with open(dst, 'wb') as fdst:
+         ^^^^^^^^^^^^^^^
+OSError: [Errno 16] Device or resource busy: '/mnt/public/Berater/AID_profile/bbb/beemers_heiko/AID-hb_1.0.0.0.pdf'
+FAIL convert beemers_heiko
+{
+  "ok": 0,
+  "fail": 1,
+  "skip": 0,
+  "limit": 1,
+  "need": "/tmp/gulp-need-beemers.tsv",
+  "mem_thresh": 88,
+  "cpu_thresh": 88,
+  "throttle_sleep": 30,
+  "ended": "2026-08-20T22:12:43"
+}
+
+======== FERTIG ok=0 fail=1 skip=0 ========
+Log: /tmp/gulp-batch-20260820-221239/batch.log
+TSV: /tmp/gulp-batch-20260820-221239/result.tsv
