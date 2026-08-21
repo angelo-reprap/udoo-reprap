@@ -306,6 +306,209 @@ def skill_stats_from_pipeline(consultant) -> List[Dict]:
     return rows
 
 
+# CRM-Freitext-Felder für Wild-Gewichtung (SuiteCRM contacts_cstm + contacts.description)
+PROFILE_TEXT_FIELDS = (
+    'ogo_description_c',
+    'gulp_profil_c',
+    'freelancermap_profil_c',
+    'xing_profile_c',
+)
+
+
+def collect_wild_profile_text(cstm, contact=None) -> Tuple[str, List[str]]:
+    """
+    Sammelt *_profil / ogo Freitext (+ optional contacts.description).
+    Rückgabe: (combined_text, used_field_names).
+    Kurze URL-only Werte (< 80 Zeichen und http…) werden übersprungen.
+    """
+    parts: List[Tuple[str, str]] = []
+    used: List[str] = []
+
+    def _usable(raw: str) -> bool:
+        t = (raw or '').strip()
+        if len(t) < 80:
+            return False
+        # reine Profil-URL ohne Body
+        if t.lower().startswith('http') and len(t) < 200 and '\n' not in t and ' ' not in t.strip():
+            return False
+        return True
+
+    if cstm is not None:
+        for field in PROFILE_TEXT_FIELDS:
+            raw = getattr(cstm, field, None) or ''
+            if _usable(raw):
+                parts.append((field, raw.strip()))
+                used.append(field)
+    if contact is not None:
+        desc = getattr(contact, 'description', None) or ''
+        if _usable(desc):
+            parts.append(('description', desc.strip()))
+            used.append('description')
+
+    if not parts:
+        return '', []
+    text = '\n\n'.join(f'--- {name} ---\n{body}' for name, body in parts)
+    return text, used
+
+
+def resolve_consultant_for_contact(
+    *,
+    crm_id: str,
+    cstm=None,
+    contact=None,
+    Consultant=None,
+    RadarConsultantItem=None,
+):
+    """
+    Join Contact → Consultant (CV-Pipeline), beste verfügbare Brücke zuerst.
+
+    Returns: (consultant_or_None, join_via:str)
+      join_via: radar_fk | gulp_id_dir | gulp_id_aid | name | ''
+    """
+    from django.apps import apps
+    from django.db.models import Q
+
+    if Consultant is None:
+        try:
+            Consultant = apps.get_model('cv_extractor', 'Consultant')
+        except LookupError:
+            return None, ''
+    if RadarConsultantItem is None:
+        try:
+            RadarConsultantItem = apps.get_model('abpe_shaduler', 'RadarConsultantItem')
+        except LookupError:
+            RadarConsultantItem = None
+
+    crm_id = str(crm_id or '').strip()
+    pool = Consultant.objects.filter(
+        status__in=['completed', 'validated', 'profile_ready'],
+    ).exclude(aid__endswith='-en')
+
+    # 1) Radar-Brücke (expliziter FK)
+    if RadarConsultantItem is not None and crm_id:
+        radar = (
+            RadarConsultantItem.objects.filter(
+                crm_contact_id=crm_id,
+                deleted_at__isnull=True,
+                consultant_id__isnull=False,
+            )
+            .select_related('consultant')
+            .order_by('-updated_at')
+            .first()
+        )
+        if radar and radar.consultant_id:
+            c = radar.consultant
+            if c and not str(getattr(c, 'aid', '') or '').endswith('-en'):
+                return c, 'radar_fk'
+
+    gulp_id = ''
+    if cstm is not None:
+        gulp_id = str(getattr(cstm, 'gulp_id_c', None) or '').strip()
+
+    # 2) gulp_id ↔ consultant_dir / aid
+    if gulp_id:
+        hit = pool.filter(consultant_dir=gulp_id).order_by('-created_at').first()
+        if hit:
+            return hit, 'gulp_id_dir'
+        hit = pool.filter(aid=gulp_id).order_by('-created_at').first()
+        if hit:
+            return hit, 'gulp_id_aid'
+        # dir oft Pfad/Name mit gulp-id darin
+        hit = (
+            pool.filter(
+                Q(consultant_dir__icontains=gulp_id) | Q(aid__icontains=gulp_id)
+            )
+            .order_by('-created_at')
+            .first()
+        )
+        if hit:
+            return hit, 'gulp_id_contains'
+
+    # 3) schwacher Name-Match
+    first = (getattr(contact, 'first_name', None) or '').strip() if contact else ''
+    last = (getattr(contact, 'last_name', None) or '').strip() if contact else ''
+    if first and last and len(last) >= 2:
+        hit = (
+            pool.filter(first_name__iexact=first, last_name__iexact=last)
+            .order_by('-created_at')
+            .first()
+        )
+        if hit:
+            return hit, 'name'
+
+    return None, ''
+
+
+def weight_for_contact(
+    *,
+    crm_id: str,
+    cstm=None,
+    contact=None,
+    skills_watch: Optional[List[str]] = None,
+) -> Dict:
+    """
+    Prüfschleife pro Contact-ID:
+      1) CV-Pipeline-Gewichtung (ConsultantSkill.weight) wenn Join gelingt
+      2) sonst Wild-Gewichtung aus ogo / *_profil.c / description
+
+    Rückgabe dict mit weight_source, skill_stats, join_via, profil_fields, …
+    """
+    skills_watch = skills_watch or []
+    consultant, join_via = resolve_consultant_for_contact(
+        crm_id=crm_id, cstm=cstm, contact=contact,
+    )
+    first = (getattr(contact, 'first_name', None) or '') if contact else ''
+    last = (getattr(contact, 'last_name', None) or '') if contact else ''
+    full = f'{first} {last}'.strip()
+    gulp_id = str(getattr(cstm, 'gulp_id_c', None) or '') if cstm else ''
+
+    result: Dict = {
+        'crm_contact_id': str(crm_id),
+        'gulp_id': gulp_id,
+        'full_name': full,
+        'first_name': first,
+        'last_name': last,
+        'weight_source': 'none',
+        'join_via': join_via or '',
+        'aid': '',
+        'consultant_dir': '',
+        'profil_fields': [],
+        'body_text': '',
+        'skill_stats': [],
+    }
+
+    if consultant is not None:
+        stats = skill_stats_from_pipeline(consultant)
+        if stats:
+            body_parts = [
+                getattr(consultant, 'headline', None) or '',
+                full,
+                getattr(consultant, 'location', None) or '',
+                ' '.join(s['name'] for s in stats[:80]),
+            ]
+            result.update({
+                'weight_source': 'pipeline_cv',
+                'aid': getattr(consultant, 'aid', None) or '',
+                'consultant_dir': getattr(consultant, 'consultant_dir', None) or '',
+                'body_text': ' '.join(p for p in body_parts if p),
+                'skill_stats': stats[:80],
+            })
+            return result
+
+    text, used = collect_wild_profile_text(cstm, contact)
+    if text:
+        stats = skill_stats_from_wild_text(text, skills_watch)
+        result.update({
+            'weight_source': 'wild_profil',
+            'profil_fields': used,
+            'body_text': text,
+            'skill_stats': stats,
+        })
+        return result
+
+    return result
+
+
 def build_matching_doc(
     *,
     doc_id: str,
