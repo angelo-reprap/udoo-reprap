@@ -47,12 +47,18 @@ def _load_matching_settings():
 
 
 def _matching_shortlist_limit() -> int:
-    """Top-N nach Score (kein Zufall). settings matching.shortlist_limit, Default 20."""
+    """
+    Top-N nach Score. 0 = kein Limit (alle ≥ Schwellwert).
+    settings matching.shortlist_limit; Default 0.
+    """
     try:
-        n = int((_load_matching_settings().get('shortlist_limit') or 20))
+        raw = _load_matching_settings().get('shortlist_limit', 0)
+        n = int(0 if raw is None else raw)
     except (TypeError, ValueError):
-        n = 20
-    return max(1, min(n, 200))
+        n = 0
+    if n <= 0:
+        return 0
+    return max(1, min(n, 2000))
 
 
 # ============================================================

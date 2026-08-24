@@ -71,15 +71,26 @@ class MatchingEngine:
         Vollständiger Matching-Lauf für ein ProjectRequest.
         Gibt Liste von Dicts zurück — bereit für ProjectConsultant.
 
-        limit: Top-N nach Score (nicht Zufall). Default aus settings
-        matching.shortlist_limit, sonst 20.
+        limit: Top-N nach Score. 0 / None / settings shortlist_limit=0 → kein Limit
+        (alle Treffer ≥ min_score). Safety-Cap 2000.
         """
         if limit is None:
-            try:
-                limit = int((_cfg().get('shortlist_limit') or 20))
-            except (TypeError, ValueError):
-                limit = 20
-        limit = max(1, min(int(limit), 200))
+            raw = _cfg().get('shortlist_limit', None)
+            if raw is None:
+                limit = 0  # kein Limit
+            else:
+                try:
+                    limit = int(raw)
+                except (TypeError, ValueError):
+                    limit = 0
+        try:
+            limit = int(limit)
+        except (TypeError, ValueError):
+            limit = 0
+        # 0 oder negativ = unbegrenzt (nur Safety-Cap)
+        unlimited = limit <= 0
+        if not unlimited:
+            limit = max(1, min(limit, 2000))
 
         if min_score is None:
             min_score = project.shortlist_threshold or self.min_score
@@ -286,8 +297,11 @@ class MatchingEngine:
             f"es={sum(1 for r in scored if r.get('match_source')=='es')} "
             f"gulp={sum(1 for r in scored if r.get('match_source')=='gulp')} "
             f"flm={sum(1 for r in scored if r.get('match_source')=='flm')}) "
-            f"backoffice={len((external_meta or {}).get('backoffice') or [])}"
+            f"backoffice={len((external_meta or {}).get('backoffice') or [])} "
+            f"limit={'∞' if unlimited else limit}"
         )
+        if unlimited:
+            return scored[:2000]
         return scored[:limit]
 
     # ──────────────────────────────────────────────────────
@@ -334,7 +348,7 @@ class MatchingEngine:
                 return (0,)
 
         groups = defaultdict(list)
-        for c in qs.only('id', 'aid', 'consultant_dir', 'first_name', 'last_name', 'created_at')[:500]:
+        for c in qs.only('id', 'aid', 'consultant_dir', 'first_name', 'last_name', 'created_at')[:2000]:
             key = (c.consultant_dir or f"{c.last_name}_{c.first_name}").lower().strip()
             groups[key].append((c.id, c.aid, c.created_at))
 
@@ -354,7 +368,7 @@ class MatchingEngine:
             'statistics',
         )
 
-        return list(qs[:200])
+        return list(qs[:1000])
 
     # ──────────────────────────────────────────────────────
     # STUFE 1b — ES RECALL (Probe-Index, fail-open)

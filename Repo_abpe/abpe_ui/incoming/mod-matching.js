@@ -945,6 +945,20 @@ window.Matching = (function() {
 
                 const threshold = d.threshold || 0.5;
                 const srcCounts = d.source_counts || { db: 0, es: 0, gulp: 0, flm: 0 };
+                const boList = Array.isArray(d.backoffice) ? d.backoffice : [];
+                // Dropdown zählt Shortlist + Backoffice — sonst Gulp/FLM immer (0)
+                const boBySrc = { db: 0, es: 0, gulp: 0, flm: 0 };
+                boList.forEach(b => {
+                    const s = String(b.match_source || '').toLowerCase();
+                    if (Object.prototype.hasOwnProperty.call(boBySrc, s)) boBySrc[s] += 1;
+                });
+                const dropCounts = {
+                    db: (srcCounts.db || 0) + boBySrc.db,
+                    es: (srcCounts.es || 0) + boBySrc.es,
+                    gulp: (srcCounts.gulp || 0) + boBySrc.gulp,
+                    flm: (srcCounts.flm || 0) + boBySrc.flm,
+                };
+                const totalHits = (d.count || 0) + boList.length;
                 const projLabel = [d.project_number, d.project_title || d.title].filter(Boolean).join(' · ');
                 const _srcBadge = (src, linkStatus) => {
                     const s = String(src || 'db').toLowerCase();
@@ -992,19 +1006,19 @@ window.Matching = (function() {
                     <span id="threshold-count" style="font-size:10px;color:#888">
                         ${d.above_threshold} ${_t('matching.above_threshold_full')}
                     </span>
-                    <span style="font-size:10px;color:#94a3b8" title="Matching speichert die besten N nach Score (kein Zufall)">
-                        Top ${d.count || 0}${d.shortlist_limit ? ' / ' + d.shortlist_limit : ''}
+                    <span style="font-size:10px;color:#94a3b8" title="Alle Treffer ≥ Schwellwert (kein festes Top-N)">
+                        ${totalHits} Treffer
                     </span>
                     <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:8px">
                         ${_esc(_kiT('source_filter_label', 'Quelle'))}:
                         <select id="shortlist-source-filter"
                                 onchange="Matching.filterShortlistSource(this.value)"
                                 style="font-size:11px;padding:2px 6px;border:1px solid #cbd5e1;border-radius:4px;background:#fff">
-                            <option value="all">${_esc(_kiT('source_all', 'Alle'))} (${d.count || 0})</option>
-                            <option value="db">DB (${srcCounts.db || 0})</option>
-                            <option value="es">ES (${srcCounts.es || 0})</option>
-                            <option value="gulp">Gulp (${srcCounts.gulp || 0})</option>
-                            <option value="flm">FLM (${srcCounts.flm || 0})</option>
+                            <option value="all">${_esc(_kiT('source_all', 'Alle'))} (${totalHits})</option>
+                            <option value="db">DB (${dropCounts.db})</option>
+                            <option value="es">ES (${dropCounts.es})</option>
+                            <option value="gulp">Gulp (${dropCounts.gulp})</option>
+                            <option value="flm">FLM (${dropCounts.flm})</option>
                         </select>
                     </label>
                     <button type="button" class="matching-btn-sm"
@@ -1019,7 +1033,7 @@ window.Matching = (function() {
                 </div>`;
 
                 const extSt = d.external_stats || {};
-                const boN = d.backoffice_count || (d.backoffice || []).length || 0;
+                const boN = d.backoffice_count || boList.length || 0;
                 if (d.project_status === 'matching' && !(srcCounts.gulp || srcCounts.flm || boN)) {
                     html += `<div style="font-size:11px;color:#b45309;margin:6px 0 10px;padding:6px 8px;background:#fffbeb;border-radius:4px">
                         Matching läuft noch (Gulp/FLM kann 30–90 s dauern) — Shortlist aktualisiert sich automatisch.
@@ -1029,10 +1043,11 @@ window.Matching = (function() {
                         Extern: gulp=${extSt.gulp_raw || 0} flm=${extSt.flm_raw || 0}
                         · known=${(extSt.gulp_known || 0) + (extSt.flm_known || 0)}
                         · backoffice=${boN}
+                        <span style="color:#9a3412"> — Dropdown Gulp/FLM filtert auch Backoffice</span>
                     </div>`;
                 }
 
-                if (d.count === 0) {
+                if (d.count === 0 && boN === 0) {
                     html += `<div style="padding:30px;text-align:center;color:#888">
                         ${_t('matching.no_results')}<br>
                         <button class="matching-btn-primary" style="margin-top:10px"
@@ -1042,7 +1057,7 @@ window.Matching = (function() {
                     </div>`;
                 } else {
                     html += '<div id="shortlist-results">';
-                    for (const r of d.results) {
+                    for (const r of (d.results || [])) {
                         const scoreClass = r.overall_score >= 0.7 ? 'score-hi' :
                                            r.overall_score >= 0.5 ? 'score-mid' : 'score-lo';
                         const opacity = r.above_threshold ? '1' : '0.4';
@@ -1061,9 +1076,9 @@ window.Matching = (function() {
                             : '';
                         const badges = srcList.map(s => _srcBadge(s, linkSt)).join('');
                         html += `
-                        <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
+                        <div class="matching-card matching-hit" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
                              data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}"
-                             data-sources="${_escAttr(srcAttr)}"
+                             data-sources="${_escAttr(srcAttr)}" data-kind="shortlist"
                              data-rank="${r.rank || ''}" data-strength="${r.strength || 0}">
                             <div class="matching-score-box ${scoreClass}">
                                 ${pctLabel}%${strHint}
@@ -1101,19 +1116,18 @@ window.Matching = (function() {
                     html += '</div>';
                 }
 
-                // Backoffice: Gulp/FLM ohne anschreibbaren Bestandskontakt
-                const bo = d.backoffice || [];
-                if (bo.length) {
+                // Backoffice: Gulp/FLM — im Quellen-Dropdown mitgezählt + filterbar
+                if (boList.length) {
                     html += `
-                    <div style="margin-top:18px;padding-top:12px;border-top:1px dashed #cbd5e1">
-                      <div style="font-size:12px;font-weight:700;color:#9a3412;margin-bottom:8px">
-                        Backoffice — ${bo.length} Treffer ohne Kontakt / nicht im Bestand
+                    <div id="shortlist-backoffice-wrap" style="margin-top:18px;padding-top:12px;border-top:1px dashed #cbd5e1">
+                      <div id="shortlist-backoffice-title" style="font-size:12px;font-weight:700;color:#9a3412;margin-bottom:8px">
+                        Backoffice — <span id="shortlist-backoffice-count">${boList.length}</span> Treffer ohne Kontakt / nicht im Bestand
                         <span style="font-weight:500;color:#888;font-size:10px">
                           (kein Auto-CV-Update; manuell nachziehen)
                         </span>
                       </div>
                       <div id="shortlist-backoffice">`;
-                    for (const b of bo.slice(0, 40)) {
+                    for (const b of boList.slice(0, 200)) {
                         const eh = b.external_hit || {};
                         const src = (b.match_source || '').toLowerCase();
                         const url = eh.profil_url || '';
@@ -1131,7 +1145,10 @@ window.Matching = (function() {
                             unknown: 'nicht im Bestand',
                         })[b.reason] || _esc(b.reason || '');
                         html += `
-                        <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:.85;background:#fffbeb">
+                        <div class="matching-card matching-hit" data-kind="backoffice"
+                             data-source="${_escAttr(src)}" data-sources="${_escAttr(src)}"
+                             data-score="${b.external_overlap || 0}"
+                             style="display:flex;align-items:center;gap:8px;opacity:.85;background:#fffbeb">
                           <div style="min-width:52px;text-align:center;font-size:11px;font-weight:700;color:#9a3412">
                             ${b.external_overlap != null ? (b.external_overlap + '∩') : '—'}
                           </div>
@@ -1160,7 +1177,9 @@ window.Matching = (function() {
                     projectId: projectId,
                     threshold: threshold,
                     results: d.results || [],
+                    backoffice: boList,
                     source_counts: srcCounts,
+                    drop_counts: dropCounts,
                     project_number: d.project_number || '',
                     project_title: d.project_title || d.title || '',
                 };
