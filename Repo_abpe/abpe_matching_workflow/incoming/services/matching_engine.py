@@ -128,19 +128,35 @@ class MatchingEngine:
         logger.info(f"Stage1 ORM: {len(candidates)} Kandidaten für {project.project_number}")
 
         db_ids = {c.id for c in candidates}
-        es_extra = self._stage1_es_recall(project, required_skills, db_ids)
+        es_recall = self._stage1_es_recall(project, required_skills, db_ids)
+        es_extra = list(es_recall.get('extra') or [])
+        es_overlap_ids = set(es_recall.get('overlap_ids') or [])
         es_ids = {c.id for c in es_extra}
         if es_extra:
             candidates = list(candidates) + es_extra
-            logger.info(
-                f"Stage1 ES-Recall: +{len(es_extra)} → {len(candidates)} "
-                f"für {project.project_number}"
-            )
+        logger.info(
+            'Stage1 ES-Recall: hits=%s joined=%s new=%s overlap=%s skip=%s → candidates=%s',
+            es_recall.get('hits', 0),
+            es_recall.get('joined', 0),
+            len(es_extra),
+            len(es_overlap_ids),
+            es_recall.get('skip') or '-',
+            len(candidates),
+        )
 
         # Quellen-Tag (db / es; gulp/flm über External-Recall)
         source_by_id = {cid: 'db' for cid in db_ids}
         for cid in es_ids:
             source_by_id[cid] = 'es'
+        # ES hat Person auch gefunden, obwohl schon in ORM → Badge-Quellen anreichern
+        es_enrich: Dict[int, List[str]] = {}
+        for cid in es_overlap_ids:
+            if cid in source_by_id:
+                prev = source_by_id[cid]
+                sources = [prev] if prev else []
+                if 'es' not in sources:
+                    sources.append('es')
+                es_enrich[cid] = sources
 
         score_kw = dict(
             required_expanded=required_expanded,
@@ -185,7 +201,18 @@ class MatchingEngine:
         # 1) DB/ES zuerst scoren — Shortlist darf nicht an Gulp/FLM-Latenz hängen
         scored_by_id: Dict[int, Dict] = {}
         for c in candidates:
-            result = _score_one(c, source_by_id.get(c.id, 'db'))
+            src = source_by_id.get(c.id, 'db')
+            result = _score_one(c, src)
+            # ES-Overlap: Quelle anreichern (db+es), Primär bleibt db
+            if c.id in es_enrich:
+                sources = list(es_enrich[c.id])
+                result['match_sources'] = sources
+                result['match_source'] = sources[0] if sources else src
+                sd = result.get('skill_details') or {}
+                sd['match_sources'] = sources
+                sd['match_source'] = result['match_source']
+                sd['es_overlap'] = True
+                result['skill_details'] = sd
             if result['overall_score'] >= min_score:
                 scored_by_id[c.id] = result
 
@@ -294,7 +321,8 @@ class MatchingEngine:
             f"Stage2: {len(scored)} Treffer ≥ {min_score:.2f} "
             f"für {project.project_number} "
             f"(db={sum(1 for r in scored if r.get('match_source')=='db')} "
-            f"es={sum(1 for r in scored if r.get('match_source')=='es')} "
+            f"es_primary={sum(1 for r in scored if r.get('match_source')=='es')} "
+            f"es_any={sum(1 for r in scored if 'es' in (r.get('match_sources') or []))} "
             f"gulp={sum(1 for r in scored if r.get('match_source')=='gulp')} "
             f"flm={sum(1 for r in scored if r.get('match_source')=='flm')}) "
             f"backoffice={len((external_meta or {}).get('backoffice') or [])} "
@@ -374,16 +402,24 @@ class MatchingEngine:
     # STUFE 1b — ES RECALL (Probe-Index, fail-open)
     # ──────────────────────────────────────────────────────
 
-    def _stage1_es_recall(self, project, required_skills: List[str], existing_ids: Set[int]):
+    def _stage1_es_recall(self, project, required_skills: List[str], existing_ids: Set[int]) -> Dict[str, Any]:
         """
         Holt zusätzliche Kandidaten aus abpe_matching_profiles_probe (Contact-Docs).
-        Nur Docs mit aid / Name → Consultant. Fehler → leere Liste (ORM bleibt).
+        Returns:
+          extra: Consultants neu (nicht in existing_ids)
+          overlap_ids: Consultant-IDs die ES traf und schon in ORM waren
+          hits/joined/skip: Diagnose
         """
+        empty = {
+            'extra': [], 'overlap_ids': set(), 'hits': 0, 'joined': 0, 'skip': '',
+        }
         cfg = self.es_recall_cfg
         if cfg.get('enabled') is False:
-            return []
+            empty['skip'] = 'disabled'
+            return empty
         if not required_skills:
-            return []
+            empty['skip'] = 'no_skills'
+            return empty
 
         index = cfg.get('index') or 'abpe_matching_profiles_probe'
         size = int(cfg.get('size') or 50)
@@ -392,21 +428,23 @@ class MatchingEngine:
             from elasticsearch import Elasticsearch
         except Exception:
             logger.info('ES-Recall skip: elasticsearch-Paket fehlt')
-            return []
+            empty['skip'] = 'no_package'
+            return empty
 
         try:
             es = Elasticsearch(_es_hosts(), verify_certs=False, request_timeout=30)
             if not es.ping():
                 logger.warning('ES-Recall skip: ping failed')
-                return []
+                empty['skip'] = 'ping_failed'
+                return empty
             if not es.indices.exists(index=index):
                 logger.info('ES-Recall skip: Index %s fehlt', index)
-                return []
+                empty['skip'] = f'missing_index:{index}'
+                return empty
 
             q_skills = [s.lower() for s in required_skills[:8]]
             should = [{'term': {'skill_names': s}} for s in q_skills]
             should += [{'match': {'body_text': {'query': s, 'boost': 0.3}}} for s in q_skills]
-            # nested weight boost — optional, soft
             should.append({
                 'nested': {
                     'path': 'skill_weight_pairs',
@@ -433,11 +471,13 @@ class MatchingEngine:
             )
         except Exception as e:
             logger.warning('ES-Recall fehlgeschlagen: %s', e)
-            return []
+            empty['skip'] = f'error:{e}'
+            return empty
 
         hits = (res.get('hits') or {}).get('hits') or []
         if not hits:
-            return []
+            empty['skip'] = 'zero_hits'
+            return empty
 
         aids: List[str] = []
         dirs: List[str] = []
@@ -457,15 +497,14 @@ class MatchingEngine:
 
         from apps.cv_extractor.models import Consultant
 
-        found = {}
+        found: Dict[int, Any] = {}
         if aids:
             for c in Consultant.objects.filter(
                 aid__in=aids, status__in=['completed', 'validated']
             ).exclude(aid__endswith='-en').prefetch_related(
                 'skills__skill', 'industries__industry', 'statistics',
             ):
-                if c.id not in existing_ids:
-                    found[c.id] = c
+                found[c.id] = c
 
         if dirs:
             for c in Consultant.objects.filter(
@@ -473,10 +512,9 @@ class MatchingEngine:
             ).exclude(aid__endswith='-en').prefetch_related(
                 'skills__skill', 'industries__industry', 'statistics',
             ):
-                if c.id not in existing_ids and c.id not in found:
+                if c.id not in found:
                     found[c.id] = c
 
-        # Name-Fallback nur wenn eindeutig
         for fn, ln in name_pairs[:30]:
             qs = Consultant.objects.filter(
                 first_name__iexact=fn,
@@ -488,12 +526,19 @@ class MatchingEngine:
             c = qs.prefetch_related(
                 'skills__skill', 'industries__industry', 'statistics',
             ).first()
-            if c and c.id not in existing_ids and c.id not in found:
+            if c and c.id not in found:
                 found[c.id] = c
 
-        extra = list(found.values())
+        overlap_ids = {cid for cid in found if cid in existing_ids}
+        extra = [c for cid, c in found.items() if cid not in existing_ids]
         max_extra = int(cfg.get('max_extra') or 80)
-        return extra[:max_extra]
+        return {
+            'extra': extra[:max_extra],
+            'overlap_ids': overlap_ids,
+            'hits': len(hits),
+            'joined': len(found),
+            'skip': '',
+        }
 
     # ──────────────────────────────────────────────────────
     # STUFE 2 — SCORING
