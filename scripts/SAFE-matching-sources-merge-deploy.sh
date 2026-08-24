@@ -37,6 +37,12 @@ do
 done
 grep -q "matching_external_recall" "$SRC_MW/services/matching_engine.py" \
   || { echo "FAIL: Engine ohne external_recall"; exit 1; }
+grep -q "store_backoffice_on_project" "$SRC_MW/services/matching_engine.py" \
+  || { echo "FAIL: Engine ohne store_backoffice_on_project"; exit 1; }
+grep -q "ext_by_consultant" "$SRC_MW/services/matching_engine.py" \
+  || { echo "FAIL: Engine ohne Gulp/FLM-Enrichment (ext_by_consultant)"; exit 1; }
+grep -q "already_in_db" "$SRC_MW/services/matching_external_recall.py" \
+  || { echo "FAIL: external_recall ohne already_in_db"; exit 1; }
 grep -q "filterShortlistSource" "$SRC_UI" \
   || { echo "FAIL: UI ohne filterShortlistSource"; exit 1; }
 grep -q "shortlist-backoffice" "$SRC_UI" \
