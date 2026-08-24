@@ -68,6 +68,17 @@ print(f'  es_primary={sum(1 for r in results if _src(r)=="es")}  ← nur ES')
 print(f'  es_any={len(es_any)}  ← Badge enthält ES')
 print(f'  gulp={sum(1 for r in results if _src(r)=="gulp")} flm={sum(1 for r in results if _src(r)=="flm")}')
 
+# Diagnose: ES-Recall roh (auch unter Schwellwert)
+orm = eng._stage1_filter(p, eng._expand_with_synonyms(skills, include_related=True))
+recall = eng._stage1_es_recall(p, skills, {c.id for c in orm})
+print(
+    f"\nES-Recall roh: hits={recall.get('hits')} size={recall.get('size_requested')} "
+    f"joined={recall.get('joined')} new={len(recall.get('extra') or [])} "
+    f"overlap={len(recall.get('overlap_ids') or [])} "
+    f"aids={recall.get('aids')} crm_ids={recall.get('crm_ids')}"
+)
+print('Hinweis: Namazu-Radar (z.B. 538) ≠ Matching-ES-Index (andere Quelle/Limit).')
+
 print('\nES-only (max 15):')
 for r in es_only[:15]:
     c = r['consultant_cv']
