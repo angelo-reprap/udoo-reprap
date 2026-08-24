@@ -46,6 +46,15 @@ def _load_matching_settings():
         return {}
 
 
+def _matching_shortlist_limit() -> int:
+    """Top-N nach Score (kein Zufall). settings matching.shortlist_limit, Default 20."""
+    try:
+        n = int((_load_matching_settings().get('shortlist_limit') or 20))
+    except (TypeError, ValueError):
+        n = 20
+    return max(1, min(n, 200))
+
+
 # ============================================================
 # PORTAL-VIEWS (Template-Render)
 # ============================================================
@@ -384,12 +393,17 @@ def api_shortlist(request, project_id):
     """Shortlist-Ergebnisse für ein Projekt"""
     try:
         p         = get_object_or_404(ProjectRequest, id=project_id)
-        threshold = float(request.GET.get('threshold', p.shortlist_threshold))
+        threshold = float(request.GET.get('threshold', p.shortlist_threshold or 0.45))
         skill_names = _project_skill_names(p)
 
-        results = MatchResult.objects.filter(
-            project_request=p
-        ).select_related('consultant_cv').order_by('rank', '-overall_score')
+        try:
+            results = MatchResult.objects.filter(
+                project_request=p
+            ).select_related('consultant_cv').order_by('rank', '-overall_score')
+        except Exception:
+            results = MatchResult.objects.filter(
+                project_request=p
+            ).select_related('consultant_cv').order_by('-overall_score')
 
         # ProjectConsultant-IDs für Outreach/Mail (MatchResult.id ≠ PC.id)
         pc_by_cv = {
@@ -399,64 +413,105 @@ def api_shortlist(request, project_id):
             )
         }
 
+        def _as_dict(val):
+            return val if isinstance(val, dict) else {}
+
+        def _as_list(val, fallback=None):
+            if isinstance(val, list):
+                return list(val)
+            if isinstance(val, tuple):
+                return list(val)
+            if isinstance(val, str) and val.strip():
+                return [val.strip()]
+            return list(fallback or [])
+
         data = []
         source_counts = {'db': 0, 'es': 0, 'gulp': 0, 'flm': 0}
         for r in results:
-            c = r.consultant_cv
-            pc = pc_by_cv.get(c.id)
-            email = ''
             try:
-                email = (c.email or '').split(';')[0].strip()
-            except Exception:
+                c = r.consultant_cv
+                if c is None:
+                    continue
+                pc = pc_by_cv.get(c.id)
                 email = ''
-            sd = r.skill_details if isinstance(r.skill_details, dict) else {}
-            match_source = (sd.get('match_source') if sd else None) or None
-            if not match_source and pc is not None:
-                md = pc.match_details if isinstance(pc.match_details, dict) else {}
-                match_source = md.get('match_source')
-            match_source = str(match_source or 'db').lower().strip()
-            if match_source not in source_counts:
-                match_source = 'db'
-            source_counts[match_source] = source_counts.get(match_source, 0) + 1
-            match_sources = (sd.get('match_sources') if sd else None) or None
-            if not match_sources:
-                match_sources = [match_source]
-            crm_link_status = (sd.get('crm_link_status') if sd else None) or 'known'
-            data.append({
-                'id':             str(r.id),
-                'match_result_id': str(r.id),
-                'project_consultant_id': str(pc.id) if pc else None,
-                'pc_status':      pc.status if pc else None,
-                'consultant_id':  c.aid,
-                'name':           c.full_name,
-                'email':          email or (sd.get('crm_link') or {}).get('email') or '',
-                'phone':          (sd.get('crm_link') or {}).get('phone') or '',
-                'location':       c.location,
-                'availability':   c.availability,
-                'overall_score':  round(r.overall_score, 3),
-                'skill_score':    round(r.skill_score, 3),
-                'industry_score': round(r.industry_score, 3),
-                'rank':           r.rank,
-                'strength':       round(float(sd.get('strength') or 0), 3),
-                'coverage':       round(float(sd.get('coverage') or 0), 3),
-                'matched_skills': r.matched_skills,
-                'missing_skills': r.missing_skills,
-                'match_reason':   r.match_reason,
-                'match_source':   match_source,
-                'match_sources':  list(match_sources),
-                'crm_link_status': crm_link_status,
-                'profile_refresh_suggested': bool(sd.get('profile_refresh_suggested')),
-                'above_threshold': r.overall_score >= threshold,
-                'cv_editor_url':  f'/cv-extractor/editor/{c.aid}/',
-            })
+                try:
+                    email = (getattr(c, 'email', None) or '').split(';')[0].strip()
+                except Exception:
+                    email = ''
+                sd = _as_dict(r.skill_details)
+                crm = _as_dict(sd.get('crm_link'))
+                match_source = sd.get('match_source') or None
+                if not match_source and pc is not None:
+                    md = _as_dict(getattr(pc, 'match_details', None))
+                    match_source = md.get('match_source')
+                match_source = str(match_source or 'db').lower().strip()
+                if match_source not in source_counts:
+                    match_source = 'db'
+                source_counts[match_source] = source_counts.get(match_source, 0) + 1
+                match_sources = _as_list(sd.get('match_sources'), [match_source])
+                if not match_sources:
+                    match_sources = [match_source]
+                crm_link_status = sd.get('crm_link_status') or 'known'
+                try:
+                    strength = round(float(sd.get('strength') or 0), 3)
+                except (TypeError, ValueError):
+                    strength = 0.0
+                try:
+                    coverage = round(float(sd.get('coverage') or 0), 3)
+                except (TypeError, ValueError):
+                    coverage = 0.0
+                data.append({
+                    'id':             str(r.id),
+                    'match_result_id': str(r.id),
+                    'project_consultant_id': str(pc.id) if pc else None,
+                    'pc_status':      pc.status if pc else None,
+                    'consultant_id':  getattr(c, 'aid', '') or '',
+                    'name':           getattr(c, 'full_name', None) or (
+                        f"{getattr(c, 'first_name', '')} {getattr(c, 'last_name', '')}".strip()
+                    ) or getattr(c, 'aid', '') or '—',
+                    'email':          email or (crm.get('email') or ''),
+                    'phone':          crm.get('phone') or '',
+                    'location':       getattr(c, 'location', None) or '',
+                    'availability':   getattr(c, 'availability', None) or '',
+                    'overall_score':  round(float(r.overall_score or 0), 3),
+                    'skill_score':    round(float(r.skill_score or 0), 3),
+                    'industry_score': round(float(r.industry_score or 0), 3),
+                    'rank':           r.rank,
+                    'strength':       strength,
+                    'coverage':       coverage,
+                    'matched_skills': r.matched_skills or [],
+                    'missing_skills': r.missing_skills or [],
+                    'match_reason':   r.match_reason or '',
+                    'match_source':   match_source,
+                    'match_sources':  match_sources,
+                    'crm_link_status': crm_link_status,
+                    'profile_refresh_suggested': bool(sd.get('profile_refresh_suggested')),
+                    'above_threshold': float(r.overall_score or 0) >= threshold,
+                    'cv_editor_url':  f'/cv-extractor/editor/{getattr(c, "aid", "")}/',
+                })
+            except Exception as row_exc:
+                logger.warning('api_shortlist row skip %s: %s', getattr(r, 'id', '?'), row_exc)
+                continue
 
         # Backoffice-Liste (Gulp/FLM ohne Kontakt / unbekannt)
         backoffice = []
         ext_stats = {}
         er = p.extracted_requirements if isinstance(p.extracted_requirements, dict) else {}
         if isinstance(er, dict):
-            backoffice = list(er.get('_matching_backoffice') or [])
-            ext_stats = dict(er.get('_matching_external_stats') or {})
+            raw_bo = er.get('_matching_backoffice') or []
+            # Nur JSON-sichere Dicts
+            if isinstance(raw_bo, list):
+                for b in raw_bo:
+                    if isinstance(b, dict):
+                        backoffice.append(b)
+            ext_stats = er.get('_matching_external_stats') or {}
+            if not isinstance(ext_stats, dict):
+                ext_stats = {}
+
+        try:
+            shortlist_limit = _matching_shortlist_limit()
+        except Exception:
+            shortlist_limit = 20
 
         return Response({
             'success':   True,
@@ -469,7 +524,7 @@ def api_shortlist(request, project_id):
             'backoffice_count': len(backoffice),
             'external_stats': ext_stats,
             'project_status': getattr(p, 'status', '') or '',
-            'shortlist_limit': _matching_shortlist_limit(),
+            'shortlist_limit': shortlist_limit,
             # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
             'project_id':       str(p.id),
             'project_number':   p.project_number or '',
