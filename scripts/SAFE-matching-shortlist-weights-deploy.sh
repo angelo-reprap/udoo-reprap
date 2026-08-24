@@ -22,8 +22,8 @@ DST="$LIVE_MW/services/matching_engine.py"
 [[ -f "$SRC" ]] || { echo "FAIL: $SRC"; exit 1; }
 [[ -d "$LIVE_MW/services" ]] || { echo "FAIL: $LIVE_MW/services"; exit 1; }
 
-if ! grep -q "weighted_v3" "$SRC"; then
-  echo "FAIL: Repo matching_engine.py ohne weighted_v3"
+if ! grep -q "weighted_v4" "$SRC"; then
+  echo "FAIL: Repo matching_engine.py ohne weighted_v4"
   exit 1
 fi
 if ! grep -q "würde Blindlinge liefern" "$SRC"; then
