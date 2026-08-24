@@ -179,22 +179,27 @@ def classify_external_hits(
         cons = join.consultant
         if join.known and cons is not None and jd.get('can_contact'):
             cid = getattr(cons, 'id', None)
-            if cid in existing or cid in seen_consultants:
+            # Duplikate NICHT verwerfen — Engine reichert Quelle an.
+            # Hier nur Doppelungen innerhalb Gulp+FLM derselben Person vermeiden.
+            if cid in seen_consultants:
                 stats['skipped_dup_db'] += 1
                 return
             if cid:
                 seen_consultants.add(cid)
-            # Soft-Score aus Overlap (0..1) — echte Stage2-Score kommt im Engine-Merge
+            # Flag ob schon in ORM-Stage1
+            base['already_in_db'] = bool(cid in existing)
             cov = ov_n / max(len(skills), 1)
             known_results.append({
                 **base,
                 'consultant_cv': cons,
-                'overall_score': round(0.35 + 0.55 * cov, 4),  # Platzhalter, Engine scored neu
+                'overall_score': round(0.35 + 0.55 * cov, 4),
                 'skill_score': round(cov, 4),
                 'matched_skills': list(ov_skills),
                 'missing_skills': [s for s in skills if s.lower() not in ov_skills],
             })
             stats[f'{source}_known'] = stats.get(f'{source}_known', 0) + 1
+            if cid in existing:
+                stats['skipped_dup_db'] += 1  # informativ: war schon DB
             return
 
         # Backoffice: unbekannt ODER bekannt ohne Kontakt ODER ohne Consultant
