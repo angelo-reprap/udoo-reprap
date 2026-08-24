@@ -453,10 +453,16 @@ def api_shortlist(request, project_id):
                 match_source = str(match_source or 'db').lower().strip()
                 if match_source not in source_counts:
                     match_source = 'db'
-                source_counts[match_source] = source_counts.get(match_source, 0) + 1
                 match_sources = _as_list(sd.get('match_sources'), [match_source])
                 if not match_sources:
                     match_sources = [match_source]
+                # Jede Quelle einmal zählen (db+es → beide Dropdowns)
+                for s in match_sources:
+                    s = str(s or '').lower().strip()
+                    if s in source_counts:
+                        source_counts[s] += 1
+                    elif match_source == s:
+                        source_counts['db'] += 1
                 crm_link_status = sd.get('crm_link_status') or 'known'
                 try:
                     strength = round(float(sd.get('strength') or 0), 3)
