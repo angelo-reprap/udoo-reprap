@@ -45,11 +45,26 @@ if not ref:
         print(f'  {row.id}  {getattr(row, "project_number", "")}  skills={n}  {getattr(row, "title", "")[:60]}')
     raise SystemExit(0)
 
-p = (
-    ProjectRequest.objects.filter(id=ref).first()
-    or ProjectRequest.objects.filter(project_number=ref).first()
-    or ProjectRequest.objects.filter(title__icontains=ref).first()
-)
+import re
+import uuid as _uuid
+
+p = None
+# UUID-Lookup nur bei gültiger UUID — sonst ValidationError bei project_number
+if re.fullmatch(
+    r'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}',
+    ref,
+):
+    try:
+        _uuid.UUID(ref)
+        p = ProjectRequest.objects.filter(id=ref).first()
+    except (ValueError, TypeError):
+        p = None
+if p is None:
+    p = (
+        ProjectRequest.objects.filter(project_number=ref).first()
+        or ProjectRequest.objects.filter(project_number__iexact=ref).first()
+        or ProjectRequest.objects.filter(title__icontains=ref).first()
+    )
 if not p:
     print(f'FEHLER: Anfrage nicht gefunden: {ref!r}')
     raise SystemExit(1)
