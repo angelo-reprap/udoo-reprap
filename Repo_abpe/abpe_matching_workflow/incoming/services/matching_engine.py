@@ -56,7 +56,7 @@ class MatchingEngine:
         self.str_blend = float(s.get('skill_strength_blend', 0.55))
         # coverage^power: bei vielen Required-Skills (z.B. 10) sind 5/10 Treffer
         # sonst strukturell unter threshold 0.5 (w_req=0.5 + Neutrals ≈0.22).
-        self.coverage_power = float(s.get('skill_coverage_power', 0.75))
+        self.coverage_power = float(s.get('skill_coverage_power', 0.62))
         # Soft-Default-Gewicht wenn ConsultantSkill.weight fehlt
         self.default_skill_weight = float(s.get('default_skill_weight', 0.50))
         self.es_recall_cfg = dict(cfg.get('es_recall') or {})
@@ -95,8 +95,12 @@ class MatchingEngine:
             )
             return []
 
-        required_expanded = self._expand_with_synonyms(required_skills)
-        nice_expanded = self._expand_with_synonyms(nice_skills)
+        required_expanded = self._expand_with_synonyms(
+            required_skills, include_related=True,
+        )
+        nice_expanded = self._expand_with_synonyms(
+            nice_skills, include_related=True,
+        )
 
         candidates = self._stage1_filter(project, required_expanded)
         logger.info(f"Stage1 ORM: {len(candidates)} Kandidaten für {project.project_number}")
@@ -369,7 +373,10 @@ class MatchingEngine:
                 # Per-Skill-Synonyme (nicht die flache Gesamt-Liste) —
                 # sonst greifen Relationen ohne Substring-Überlappung (Java↔JVM) nicht.
                 if skill_l not in syn_cache:
-                    syn_cache[skill_l] = self._expand_with_synonyms([skill])
+                    # Scoring: nur echte Synonyme — "related" (Docker↔K8s) erzeugt False-Positives
+                    syn_cache[skill_l] = self._expand_with_synonyms(
+                        [skill], include_related=False,
+                    )
                 hit_name, hit_w = self._best_skill_hit(
                     skill_l, syn_cache[skill_l], consultant_weights
                 )
@@ -433,7 +440,7 @@ class MatchingEngine:
             'score': round(overall, 4),
             'match_reason': '',
             'skill_details': {
-                'mode': 'weighted_v3',
+                'mode': 'weighted_v4',
                 'coverage': round(coverage if required_original else 0.0, 4),
                 'coverage_eff': round(
                     (
@@ -526,31 +533,118 @@ class MatchingEngine:
         if name == req_norm or name in want:
             return 0
         name_tokens = self._skill_match_tokens(name)
-        # Token-Gleichheit nur für Labels (kein Prosa-Schnitt „dokumentation“)
         if not self._is_matchable_skill_label(name):
             return None
         primary = self._primary_token(req_norm)
-        # primäres Required-Token muss als Ganzes vorkommen
-        if primary and primary in name_tokens and primary in want:
+        # primäres Required-Token muss als Ganzes vorkommen (kein Generic)
+        if (
+            primary
+            and primary not in self._GENERIC_MATCH_TOKENS
+            and primary in name_tokens
+            and primary in want
+        ):
             if self._is_blocked_alias(req_norm, name):
                 return None
             return 1
         # weitere Want-Tokens ≥ 4 Zeichen als Whole-Word im Namen
         for tok in want:
-            if len(tok) < 4:
+            if len(tok) < 4 or tok in self._GENERIC_MATCH_TOKENS:
                 continue
+            # Generische Tokens dürfen nicht allein matchen (tools, test, …)
             if self._whole_word(tok, name):
                 if self._is_blocked_alias(req_norm, name):
                     return None
-                return 2
+                # Whole-word auf Consultant-Label: Token sollte „nah“ am Required sein
+                # (gleicher Primary oder Exact-Synonym-Label), sonst mercury testtools etc.
+                if tok == primary or tok == req_norm or tok in {
+                    self._primary_token(w) for w in want if ' ' not in w
+                }:
+                    return 2
         return None
 
+    _GENERIC_MATCH_TOKENS = frozenset({
+        'test', 'tools', 'tool', 'web', 'start', 'pipeline', 'pipelines',
+        'script', 'server', 'client', 'data', 'cloud', 'api', 'rpc',
+        'ide', 'framework', 'library', 'service', 'services',
+    })
+
+    # Bekannte Cross-Tech-False-Positives (auch bei DB-Synonym/Related)
+    _ALIAS_BLOCKS = {
+        'docker': frozenset({
+            'kubernetes', 'k8s', 'openshift', 'helm', 'rancher', 'aks', 'eks', 'gke',
+        }),
+        'kubernetes': frozenset({'docker', 'docker-compose', 'docker swarm'}),
+        'jenkins': frozenset({
+            'bitbucket', 'gitlab', 'github', 'gitea', 'svn', 'mercurial',
+        }),
+        'java': frozenset({'rpc', 'xml-rpc', 'json-rpc', 'grpc'}),
+        'groovy': frozenset({'jenkins'}),  # „jenkins (groovy)“ ok via exact name; pure jenkins≠groovy
+    }
+
+    @staticmethod
+    def _is_blocked_alias(req: str, name: str) -> bool:
+        """Bekannte False-Positives: java≠javascript, docker≠k8s, jenkins≠bitbucket."""
+        r = (req or '').strip().lower()
+        n = (name or '').strip().lower()
+        n_compact = n.replace(' ', '')
+
+        if r == 'java' or r.startswith('java '):
+            if 'javascript' in n_compact or 'typescript' in n_compact:
+                return True
+            if 'java' in n_compact and 'script' in n_compact:
+                return True
+
+        if r in ('js', 'javascript') and n == 'java':
+            return True
+
+        # Primary-Key der Request gegen Alias-Block des Match-Namens
+        req_primary = MatchingEngine._primary_token(r)
+        name_primary = MatchingEngine._primary_token(n)
+        # „jenkins (groovy)“ darf Groovy matchen
+        if req_primary == 'groovy' and 'groovy' in n:
+            return False
+        blocks = MatchingEngine._ALIAS_BLOCKS.get(req_primary) or MatchingEngine._ALIAS_BLOCKS.get(r)
+        if blocks:
+            if name_primary in blocks or n in blocks or n_compact in blocks:
+                return True
+            for b in blocks:
+                if MatchingEngine._whole_word(b, n):
+                    return True
+
+        if req_primary == 'groovy' and name_primary == 'jenkins' and 'groovy' not in n:
+            return True
+
+        return False
+
+    def _expand_with_synonyms(
+        self, skills: List[str], *, include_related: bool = False,
+    ) -> List[str]:
+        if not skills:
+            return []
+        try:
+            from apps.cv_extractor.models import SkillRelation
+            expanded = list(skills)
+            types = ['synonym', 'related'] if include_related else ['synonym']
+            relations = SkillRelation.objects.filter(
+                term_from__in=skills,
+                relation_type__in=types,
+            ).values_list('term_to', flat=True)
+            expanded += list(relations)
+            # Rückrichtung nur für echte Synonyme
+            relations_rev = SkillRelation.objects.filter(
+                term_to__in=skills,
+                relation_type='synonym',
+            ).values_list('term_from', flat=True)
+            expanded += list(relations_rev)
+            return list(set(expanded))
+        except Exception as e:
+            logger.warning(f"Synonym-Erweiterung fehlgeschlagen: {e}")
+            return skills
     @staticmethod
     def _primary_token(skill_l: str) -> str:
         s = (skill_l or '').strip().lower()
         if not s:
             return ''
-        # CI/CD → cicd bevorzugt
         compact = ''.join(ch for ch in s if ch.isalnum())
         if s in ('ci/cd', 'ci-cd') or compact == 'cicd':
             return 'cicd'
@@ -558,7 +652,6 @@ class MatchingEngine:
         parts = [p.strip().strip('.') for p in parts if p.strip()]
         if not parts:
             return compact or s
-        # längstes Teil-Token (nut.js → nut.js / nut)
         best = max(parts, key=len)
         if best.endswith('.js') and len(best) > 3:
             return best[:-3]
@@ -575,23 +668,8 @@ class MatchingEngine:
         ) is not None
 
     @staticmethod
-    def _is_blocked_alias(req: str, name: str) -> bool:
-        """Bekannte False-Positives: java≠javascript, etc."""
-        r = (req or '').strip().lower()
-        n = (name or '').strip().lower().replace(' ', '')
-        if r == 'java' or r.startswith('java ') or r == 'java':
-            if 'javascript' in n or n in ('javascript', 'typescript', 'javasript'):
-                return True
-            if 'java' in n and 'script' in n:
-                return True
-        if r in ('js', 'javascript') and n == 'java':
-            return True
-        return False
-
-    @staticmethod
     def _normalize_skill_label(raw: str) -> str:
         s = (raw or '').strip().lower()
-        # Bullet / Whitespace
         s = s.replace('\uf0b7', ' ').replace('', ' ')
         s = re.sub(r'\s+', ' ', s).strip(' .-•\t')
         return s
@@ -610,8 +688,7 @@ class MatchingEngine:
             'erstellung', 'migration', 'bereitstellung', 'konfiguration mit',
             'für die', ' mit ', ' und ', ' von ', ' einiger ', 'pipelines',
         )
-        # 'dokumentation' allein = kein Tech-Skill; Phrasen ebenso
-        if low == 'dokumentation' or low == 'documentation':
+        if low in ('dokumentation', 'documentation'):
             return False
         if any(j in low for j in junk) and low.count(' ') >= 1:
             return False
@@ -621,7 +698,7 @@ class MatchingEngine:
 
     @staticmethod
     def _skill_match_tokens(raw: str) -> Set[str]:
-        """Normalisierte Match-Tokens: 'CI/CD'→{ci/cd,ci,cd,cicd}, 'nut.js'→{nut.js,nut}."""
+        """Normalisierte Match-Tokens: 'CI/CD'→{ci/cd,cicd}, 'nut.js'→{nut.js,nut}."""
         s = (raw or '').strip().lower()
         if not s:
             return set()
@@ -638,7 +715,6 @@ class MatchingEngine:
                 out.add(part[:-3])
             if '.' in part:
                 out.add(part.replace('.', ''))
-        # zu kurze Tokens (ci, cd, js) nur behalten wenn Original kurz ist
         cleaned = set()
         for t in out:
             if len(t) >= 3 or t == s:
@@ -692,31 +768,6 @@ class MatchingEngine:
         if req in loc or loc in req:
             return 1.0
         return 0.2
-
-    # ──────────────────────────────────────────────────────
-    # SYNONYM-ERWEITERUNG
-    # ──────────────────────────────────────────────────────
-
-    def _expand_with_synonyms(self, skills: List[str]) -> List[str]:
-        if not skills:
-            return []
-        try:
-            from apps.cv_extractor.models import SkillRelation
-            expanded = list(skills)
-            relations = SkillRelation.objects.filter(
-                term_from__in=skills,
-                relation_type__in=['synonym', 'related'],
-            ).values_list('term_to', flat=True)
-            expanded += list(relations)
-            relations_rev = SkillRelation.objects.filter(
-                term_to__in=skills,
-                relation_type='synonym',
-            ).values_list('term_from', flat=True)
-            expanded += list(relations_rev)
-            return list(set(expanded))
-        except Exception as e:
-            logger.warning(f"Synonym-Erweiterung fehlgeschlagen: {e}")
-            return skills
 
     # ──────────────────────────────────────────────────────
     # HILFSMETHODEN
