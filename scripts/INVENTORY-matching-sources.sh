@@ -66,8 +66,19 @@ try:
         "uses_namazu": "namazu" in Path(
             sys.modules[MatchingEngine.__module__].__file__
         ).read_text(encoding="utf-8", errors="replace").lower(),
-        "data_source": "cv_extractor.Consultant + ConsultantSkill (ORM only)",
-        "formula": "overall = req*w_req + nice*w_nice + industry*w_ind + exp*w_exp + loc*w_loc",
+        "data_source": (
+            "cv_extractor.Consultant + ConsultantSkill.weight (ORM) "
+            "+ optional ES recall abpe_matching_profiles_probe"
+        ),
+        "skill_blends": {
+            "coverage": getattr(eng, "cov_blend", None),
+            "strength": getattr(eng, "str_blend", None),
+        },
+        "es_recall": getattr(eng, "es_recall_cfg", {}),
+        "formula": (
+            "req = cov_blend*coverage + str_blend*strength(ConsultantSkill.weight); "
+            "overall = req*w_req + nice*w_nice + industry*w_ind + exp*w_exp + loc*w_loc"
+        ),
     }
     print(json.dumps(engine_info, indent=2, ensure_ascii=False))
     report["sources"]["matching_engine"] = engine_info
