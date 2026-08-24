@@ -79,16 +79,26 @@ print(f'scoring blends: coverage={eng.cov_blend} strength={eng.str_blend}')
 print(f'es_recall: {json.dumps(eng.es_recall_cfg or {"enabled": "(default on)"}, ensure_ascii=False)}')
 print('=' * 64)
 
-results = eng.run(p, limit=limit)
-print(f'Treffer: {len(results)} (limit={limit})\n')
+results = eng.run(p, limit=limit, min_score=0.0)
+above = [r for r in results if r['overall_score'] >= float(p.shortlist_threshold or 0.5)]
+print(f'Top {len(results)} (min_score=0 diagnostisch); ≥ threshold: {len(above)}\n')
+# Coverage-Histogramm
+from collections import Counter
+cov_bucket = Counter()
+for r in results:
+    c = (r.get('skill_details') or {}).get('coverage') or 0
+    cov_bucket[round(float(c), 1)] += 1
+print('coverage_hist:', dict(sorted(cov_bucket.items())))
+print()
 for r in results:
     c = r['consultant_cv']
     sd = r.get('skill_details') or {}
     name = getattr(c, 'full_name', None) or f'{c.first_name} {c.last_name}'
+    mark = '✓' if r['overall_score'] >= float(p.shortlist_threshold or 0.5) else '·'
     print(
-        f"#{r.get('rank')}  score={r['overall_score']:.3f}  "
+        f"{mark}#{r.get('rank')}  score={r['overall_score']:.3f}  "
         f"skill={r['skill_score']:.3f} "
-        f"(cov={sd.get('coverage')} str={sd.get('strength')})  "
+        f"(cov={sd.get('coverage')} str={sd.get('strength')} q={sd.get('quality')})  "
         f"{name}  aid={getattr(c, 'aid', '')}"
     )
     mw = sd.get('matched_weights') or []

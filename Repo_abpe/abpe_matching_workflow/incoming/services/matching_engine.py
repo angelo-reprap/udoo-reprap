@@ -7,6 +7,7 @@ Direkt gegen cv_extractor.Consultant — Stufen:
 """
 import logging
 import json
+import re
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Set, Tuple
 
@@ -50,7 +51,7 @@ class MatchingEngine:
         self.w_exp = s.get('weight_experience', 0.10)
         self.w_loc = s.get('weight_location', 0.05)
         self.min_score = s.get('min_score_threshold', 0.30)
-        # Skill-Score: Anteil Treffer vs. Stärke (ConsultantSkill.weight)
+        # Skill-Score: Coverage × Gewichts-Modulation (kein Doppel-Penalty)
         self.cov_blend = float(s.get('skill_coverage_blend', 0.45))
         self.str_blend = float(s.get('skill_strength_blend', 0.55))
         # Soft-Default-Gewicht wenn ConsultantSkill.weight fehlt
@@ -347,13 +348,15 @@ class MatchingEngine:
         matched_weights = []  # (skill, c_weight, req_weight)
         coverage_num = 0.0
         coverage_den = 0.0
-        strength_sum = 0.0
+        strength_num = 0.0  # nur Treffer — Misses nicht nochmal als 0 einrechnen
+        strength_den = 0.0
         syn_cache: Dict[str, List[str]] = {}
 
         if not required_original:
             req_score = 0.0
             coverage = 0.0
             strength = 0.0
+            quality = 0.0
         else:
             for skill in required_original:
                 skill_l = skill.lower()
@@ -376,15 +379,23 @@ class MatchingEngine:
                         'request_weight': round(rw, 4),
                     })
                     coverage_num += rw
-                    strength_sum += hit_w * rw
+                    strength_num += hit_w * rw
+                    strength_den += rw
                 else:
                     missing_required.append(skill)
 
             coverage = coverage_num / max(coverage_den, 1e-9)
-            strength = strength_sum / max(coverage_den, 1e-9)
-            # Blend; Summe der Blends normalisieren falls Config unsauber
+            # Strength = Ø Gewicht nur unter den Treffern (Ranking-Signal).
+            # Misses stecken schon in coverage — sonst Doppel-Penalty → oft 0 Shortlist.
+            strength = (
+                strength_num / max(strength_den, 1e-9)
+            ) if strength_den > 0 else 0.0
             blend = max(self.cov_blend + self.str_blend, 1e-9)
-            req_score = (self.cov_blend * coverage + self.str_blend * strength) / blend
+            # req = coverage * (cov_anteil*1 + str_anteil*strength)
+            # → voller Treffer mit weight 1.0 ≈ altes binäres Coverage;
+            #   weight < 1 sortiert innerhalb gleicher Coverage nach unten.
+            quality = (self.cov_blend * 1.0 + self.str_blend * strength) / blend
+            req_score = coverage * quality
 
         matched_nice = [
             s for s in nice_expanded
@@ -419,9 +430,10 @@ class MatchingEngine:
             'score': round(overall, 4),
             'match_reason': '',
             'skill_details': {
-                'mode': 'weighted_v1',
+                'mode': 'weighted_v2',
                 'coverage': round(coverage if required_original else 0.0, 4),
                 'strength': round(strength if required_original else 0.0, 4),
+                'quality': round(quality if required_original else 0.0, 4),
                 'coverage_blend': self.cov_blend,
                 'strength_blend': self.str_blend,
                 'matched_required': matched_required,
@@ -463,28 +475,56 @@ class MatchingEngine:
         Beste (Name, Weight)-Treffer für ein Required-Skill inkl. seiner Synonyme.
         skill_synonyms: Ergebnis von _expand_with_synonyms([skill]) — inkl. Original.
         """
-        tokens = {skill_l}
-        for syn in skill_synonyms or []:
-            s = (syn or '').strip().lower()
-            if s:
-                tokens.add(s)
+        tokens = set()
+        for syn in [skill_l] + list(skill_synonyms or []):
+            for tok in self._skill_match_tokens(syn):
+                tokens.add(tok)
+        if not tokens:
+            return None, 0.0
 
         best_name = None
         best_w = -1.0
         for name, w in consultant_weights.items():
-            if name in tokens:
+            name_tokens = self._skill_match_tokens(name)
+            # exakt oder Token-Schnittmenge
+            if name in tokens or tokens & name_tokens:
                 if w > best_w:
                     best_name, best_w = name, w
                 continue
-            # Fuzzy: Token ist Teil des Consultant-Skill-Namens (oder umgekehrt)
+            # Fuzzy nur für Tokens ≥ 4 Zeichen (vermeidet "java"⊂"javascript"-Noise
+            # nicht vollständig, aber "ci"/"js" False-Positives)
             for tok in tokens:
-                if tok in name or name in tok:
+                if len(tok) < 4:
+                    continue
+                if tok in name or (len(name) >= 4 and name in tok):
                     if w > best_w:
                         best_name, best_w = name, w
                     break
         if best_name is None:
             return None, 0.0
         return best_name, best_w
+
+    @staticmethod
+    def _skill_match_tokens(raw: str) -> Set[str]:
+        """Normalisierte Match-Tokens: 'CI/CD'→{ci/cd,ci,cd,cicd}, 'nut.js'→{nut.js,nut}."""
+        s = (raw or '').strip().lower()
+        if not s:
+            return set()
+        out = {s}
+        # Satzzeichen → Split
+        compact = ''.join(ch for ch in s if ch.isalnum())
+        if compact and compact != s:
+            out.add(compact)
+        for part in re.split(r'[\s/|,;+]+', s):
+            part = part.strip().strip('.')
+            if not part:
+                continue
+            out.add(part)
+            if part.endswith('.js') and len(part) > 3:
+                out.add(part[:-3])
+            if '.' in part:
+                out.add(part.replace('.', ''))
+        return {t for t in out if t}
 
     # ──────────────────────────────────────────────────────
     # TEIL-SCORER
