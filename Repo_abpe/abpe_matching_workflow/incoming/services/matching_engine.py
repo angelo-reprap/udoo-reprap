@@ -482,18 +482,22 @@ class MatchingEngine:
         aids: List[str] = []
         dirs: List[str] = []
         name_pairs: List[Tuple[str, str]] = []
+        crm_ids: List[str] = []
         for h in hits:
             src = h.get('_source') or {}
             aid = (src.get('aid') or '').strip()
             cdir = (src.get('consultant_dir') or '').strip()
             fn = (src.get('first_name') or '').strip()
             ln = (src.get('last_name') or '').strip()
+            crm = str(src.get('crm_contact_id') or '').strip()
             if aid:
                 aids.append(aid)
             if cdir:
                 dirs.append(cdir)
             if fn and ln:
                 name_pairs.append((fn, ln))
+            if crm:
+                crm_ids.append(crm)
 
         from apps.cv_extractor.models import Consultant
 
@@ -515,11 +519,44 @@ class MatchingEngine:
                 if c.id not in found:
                     found[c.id] = c
 
+        # CRM-Contact → Consultant (Index ist Contact-zentriert; oft aid leer)
+        if crm_ids:
+            try:
+                from apps.abpe_shaduler.services import matching_weight_probe as mwp
+                from apps.abpe_crm.models import CrmContact, CrmContactCstm
+                for crm_id in list(dict.fromkeys(crm_ids))[:80]:
+                    contact = CrmContact.objects.filter(crm_id=crm_id).first()
+                    cstm = CrmContactCstm.objects.filter(contact_id=crm_id).first()
+                    cons, _via = mwp.resolve_consultant_for_contact(
+                        crm_id=crm_id, cstm=cstm, contact=contact,
+                    )
+                    if cons is None:
+                        continue
+                    if str(getattr(cons, 'aid', '') or '').endswith('-en'):
+                        continue
+                    if getattr(cons, 'status', '') not in (
+                        'completed', 'validated', 'profile_ready',
+                    ):
+                        # profile_ready oft vorhanden — für ES-Recall mitnehmen wenn completed/validated fehlen
+                        if getattr(cons, 'status', '') != 'profile_ready':
+                            continue
+                    if cons.id not in found:
+                        # Prefetch für Scoring
+                        cons = Consultant.objects.filter(id=cons.id).prefetch_related(
+                            'skills__skill', 'industries__industry', 'statistics',
+                        ).first() or cons
+                        if getattr(cons, 'status', '') in (
+                            'completed', 'validated', 'profile_ready',
+                        ):
+                            found[cons.id] = cons
+            except Exception as exc:
+                logger.debug('ES crm_contact join: %s', exc)
+
         for fn, ln in name_pairs[:30]:
             qs = Consultant.objects.filter(
                 first_name__iexact=fn,
                 last_name__iexact=ln,
-                status__in=['completed', 'validated'],
+                status__in=['completed', 'validated', 'profile_ready'],
             ).exclude(aid__endswith='-en')
             if qs.count() != 1:
                 continue
@@ -538,6 +575,8 @@ class MatchingEngine:
             'hits': len(hits),
             'joined': len(found),
             'skip': '',
+            'crm_ids': len(crm_ids),
+            'aids': len(aids),
         }
 
     # ──────────────────────────────────────────────────────
