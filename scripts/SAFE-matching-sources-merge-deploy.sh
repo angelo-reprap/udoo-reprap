@@ -68,6 +68,12 @@ deploy_one "$SRC_MW/services/matching_service.py" "$LIVE_MW/services/matching_se
 deploy_one "$SRC_MW/views.py" "$LIVE_MW/views.py" "$BAK/mw"
 deploy_one "$SRC_MW/tasks.py" "$LIVE_MW/tasks.py" "$BAK/mw"
 
+# Shortlist-Reset: MatchResult löschen via project_request=
+LIVE_SH_ROOT="${LIVE_SH%/services}"
+if [[ -f "$REPO/Repo_abpe/abpe_shaduler/incoming/views.py" && -d "$LIVE_SH_ROOT" ]]; then
+  deploy_one "$REPO/Repo_abpe/abpe_shaduler/incoming/views.py" "$LIVE_SH_ROOT/views.py" "$BAK/sh"
+fi
+
 # Gulp/FLM search_term/query (falls Repo neuer)
 if [[ -f "$SRC_SH/services/radar_berater_gulp.py" ]]; then
   deploy_one "$SRC_SH/services/radar_berater_gulp.py" "$LIVE_SH/services/radar_berater_gulp.py" "$BAK/sh"

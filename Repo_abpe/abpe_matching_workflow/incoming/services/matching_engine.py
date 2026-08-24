@@ -214,9 +214,26 @@ class MatchingEngine:
             if result['overall_score'] >= min_score:
                 scored.append(result)
 
-        scored.sort(key=lambda x: x['overall_score'], reverse=True)
+        def _rank_key(r: Dict) -> Tuple:
+            sd = r.get('skill_details') or {}
+            return (
+                float(r.get('overall_score') or 0),
+                float(sd.get('strength') or 0),
+                float(sd.get('coverage_eff') or sd.get('coverage') or 0),
+                float(r.get('skill_score') or 0),
+                float(r.get('experience_score') or 0),
+            )
+
+        scored.sort(key=_rank_key, reverse=True)
         for i, r in enumerate(scored):
             r['rank'] = i + 1
+            # Für stabile DB-Sortierung auch bei gleichen overall_score
+            r['rank_score'] = round(
+                float(r.get('overall_score') or 0)
+                + 0.01 * float((r.get('skill_details') or {}).get('strength') or 0)
+                + 0.001 * float((r.get('skill_details') or {}).get('coverage_eff') or 0),
+                6,
+            )
 
         logger.info(
             f"Stage2: {len(scored)} Treffer ≥ {min_score:.2f} "
@@ -572,6 +589,9 @@ class MatchingEngine:
                 w = self.default_skill_weight
             if w != w:  # NaN
                 w = self.default_skill_weight
+            # Skalen-Hygiene: 0–100 → 0–1; 1–5 → /5
+            if w > 1.5:
+                w = w / 100.0 if w > 5 else w / 5.0
             w = max(0.0, min(float(w), 1.0))
             if name not in out or w > out[name]:
                 out[name] = w

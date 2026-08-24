@@ -28,6 +28,8 @@ def run_matching_async(self, project_id: str):
                 skill_details['match_source'] = r['match_source']
             if r.get('match_sources') and 'match_sources' not in skill_details:
                 skill_details['match_sources'] = r['match_sources']
+            if r.get('rank_score') is not None:
+                skill_details['rank_score'] = r['rank_score']
             MatchResult.objects.create(
                 project_request  = project,
                 consultant_cv    = r['consultant_cv'],

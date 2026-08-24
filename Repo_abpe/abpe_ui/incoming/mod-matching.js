@@ -1015,6 +1015,20 @@ window.Matching = (function() {
                     </button>
                 </div>`;
 
+                const extSt = d.external_stats || {};
+                const boN = d.backoffice_count || (d.backoffice || []).length || 0;
+                if (d.project_status === 'matching' && !(srcCounts.gulp || srcCounts.flm || boN)) {
+                    html += `<div style="font-size:11px;color:#b45309;margin:6px 0 10px;padding:6px 8px;background:#fffbeb;border-radius:4px">
+                        Matching läuft noch (Gulp/FLM kann 30–90 s dauern) — Shortlist aktualisiert sich automatisch.
+                    </div>`;
+                } else if (boN || extSt.gulp_raw || extSt.flm_raw) {
+                    html += `<div style="font-size:10px;color:#64748b;margin:4px 0 8px">
+                        Extern: gulp=${extSt.gulp_raw || 0} flm=${extSt.flm_raw || 0}
+                        · known=${(extSt.gulp_known || 0) + (extSt.flm_known || 0)}
+                        · backoffice=${boN}
+                    </div>`;
+                }
+
                 if (d.count === 0) {
                     html += `<div style="padding:30px;text-align:center;color:#888">
                         ${_t('matching.no_results')}<br>
@@ -1031,11 +1045,19 @@ window.Matching = (function() {
                         const opacity = r.above_threshold ? '1' : '0.4';
                         const src = (r.match_source || 'db').toLowerCase();
                         const linkSt = r.crm_link_status || '';
+                        const pct = (r.overall_score * 100);
+                        const pctLabel = (Math.abs(pct - Math.round(pct)) < 0.05)
+                            ? pct.toFixed(0)
+                            : pct.toFixed(1);
+                        const strHint = (r.strength != null && r.strength > 0)
+                            ? `<div style="font-size:9px;color:#94a3b8">str ${(Number(r.strength)*100).toFixed(0)}%</div>`
+                            : '';
                         html += `
                         <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
-                             data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}">
+                             data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}"
+                             data-rank="${r.rank || ''}" data-strength="${r.strength || 0}">
                             <div class="matching-score-box ${scoreClass}">
-                                ${(r.overall_score*100).toFixed(0)}%
+                                ${pctLabel}%${strHint}
                             </div>
                             <div style="flex:1">
                                 <div style="font-weight:700;font-size:12px">${r.name}${_srcBadge(src, linkSt)}</div>
@@ -3045,8 +3067,10 @@ window.Matching = (function() {
                 alert(_t('matching.matching_started'));
                 const content = document.getElementById('content-shortlist');
                 if (content) content.dataset.loaded = '0';
-                // Matching läuft async — Shortlist mehrfach nachladen
-                const delays = [2000, 5000, 10000, 20000];
+                // Matching inkl. Gulp/FLM kann 30–90s dauern — länger nachladen
+                const delays = opts.reset
+                    ? [3000, 8000, 15000, 30000, 45000, 70000, 90000]
+                    : [2000, 5000, 10000, 20000];
                 delays.forEach(ms => {
                     setTimeout(() => {
                         const el = document.getElementById('content-shortlist');

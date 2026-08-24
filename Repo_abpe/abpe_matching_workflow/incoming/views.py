@@ -389,7 +389,7 @@ def api_shortlist(request, project_id):
 
         results = MatchResult.objects.filter(
             project_request=p
-        ).select_related('consultant_cv').order_by('-overall_score')
+        ).select_related('consultant_cv').order_by('rank', '-overall_score')
 
         # ProjectConsultant-IDs für Outreach/Mail (MatchResult.id ≠ PC.id)
         pc_by_cv = {
@@ -437,6 +437,8 @@ def api_shortlist(request, project_id):
                 'skill_score':    round(r.skill_score, 3),
                 'industry_score': round(r.industry_score, 3),
                 'rank':           r.rank,
+                'strength':       round(float(sd.get('strength') or 0), 3),
+                'coverage':       round(float(sd.get('coverage') or 0), 3),
                 'matched_skills': r.matched_skills,
                 'missing_skills': r.missing_skills,
                 'match_reason':   r.match_reason,
@@ -466,6 +468,7 @@ def api_shortlist(request, project_id):
             'backoffice': backoffice,
             'backoffice_count': len(backoffice),
             'external_stats': ext_stats,
+            'project_status': getattr(p, 'status', '') or '',
             # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
             'project_id':       str(p.id),
             'project_number':   p.project_number or '',
