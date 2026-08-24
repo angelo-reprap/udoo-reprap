@@ -129,8 +129,21 @@ def _run_bg(run, hex_color):
     shd.set(qn("w:color"), "auto"); shd.set(qn("w:fill"), hex_color.lstrip("#"))
     rPr.append(shd)
 
+# python-docx: keine Steuerzeichen außer \t \n \r (sonst ValueError XML compatible)
+_XML_UNSAFE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
+def _xml_safe(text) -> str:
+    """Text für DOCX/OOXML bereinigen (NULL/Kontrollzeichen → weg)."""
+    if text is None:
+        return ""
+    if not isinstance(text, str):
+        text = str(text)
+    return _XML_UNSAFE.sub("", text)
+
+
 def _r(para, text, font, size=10, bold=False, italic=False, color=None):
-    r = para.add_run(text)
+    r = para.add_run(_xml_safe(text))
     r.font.name = font; r.font.size = Pt(size)
     r.bold = bold; r.italic = italic
     r.font.color.rgb = _rgb(color) if color else _rgb("163258")
@@ -499,13 +512,13 @@ class CVBuilder:
             tab = OxmlElement("w:tab")
             tab.set(qn("w:val"), "right"); tab.set(qn("w:pos"), str(ex["tab_right_dxa"]))
             tabs.append(tab); pPr.append(tabs)
-            period = exp.get("period") or ""
+            period = _xml_safe(exp.get("period") or "")
             rd = p.add_run(period)
             rd.font.name=self.FONT; rd.font.size=Pt(ex["date_font_size_pt"])
             rd.bold=ex["date_bold"]; rd.font.color.rgb=_rgb(self.C["white"])
             _run_bg(rd, self.C["brand"])
             p.add_run("\t").font.size = Pt(ex["date_font_size_pt"])
-            rc = p.add_run(exp.get("company") or "")
+            rc = p.add_run(_xml_safe(exp.get("company") or ""))
             rc.font.name=self.FONT; rc.font.size=Pt(ex["client_font_size_pt"])
             rc.bold=ex["client_bold"]; rc.font.color.rgb=_rgb(self.C["brand"])
             if exp.get("role"):
@@ -556,7 +569,7 @@ class CVBuilder:
         p.paragraph_format.space_before = Pt(st["space_before_pt"])
         p.paragraph_format.space_after  = Pt(st["space_after_pt"])
         p.paragraph_format.keep_with_next = True
-        run = p.add_run(title)
+        run = p.add_run(_xml_safe(title))
         run.font.name = self.FONT
         run.font.size = Pt(st["font_size_pt"])
         run.bold = st["bold"]

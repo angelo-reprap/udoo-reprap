@@ -75,6 +75,46 @@ class MainExtractedToDB:
             text = text.replace(ch, '')
         return text.strip()
 
+    def _sanitize_edu_fields(self, degree: str, period: str) -> tuple:
+        """
+        period = kurzer Zeitraum. Lange Ausbildungszeilen gehören nach degree.
+        LLM/Regex legen manchmal die ganze Zeile in period → DataError/Müll.
+        """
+        d = (degree or '').strip()
+        p = (period or '').strip()
+        if not p:
+            return d, ''
+        looks_prose = bool(re.search(
+            r'(?i)(studium|bachelor|master|ausbildung|weiterbildung|'
+            r'fernstudium|fachinformatiker|fortbildungsverordnung)',
+            p,
+        ))
+        # Semester-Prosa → kurzer Zeitraum, Rest nach degree
+        m = re.search(
+            r'(?i)(?:seit\s+)?(?:sommer|winter)?semester\s+(\d{4})'
+            r'.{0,120}?(?:sommer|winter)?semester\s+(\d{4}(?:/\d{2,4})?)',
+            p,
+        )
+        if m and (looks_prose or len(p) > 40):
+            short = f'{m.group(1)}–{m.group(2)}'
+            rest = re.sub(
+                r'(?i)^seit\s+(?:sommer|winter)?semester\s+\d{4}\s*[,:]?\s*',
+                '', p,
+            )
+            rest = re.sub(
+                r'(?i),?\s*voraussichtlicher\s+abschluss\s+'
+                r'(?:sommer|winter)?semester\s+\d{4}(?:/\d{2,4})?\s*$',
+                '', rest,
+            ).strip(' ,;')
+            if rest and rest.lower() not in d.lower():
+                d = f'{d} {rest}'.strip() if d else rest
+            return d[:200], short[:200]
+        if len(p) > 50 and looks_prose:
+            if p.lower() not in d.lower():
+                d = f'{d} {p}'.strip() if d else p
+            return d[:200], ''
+        return d[:200], p[:200]
+
     def _skill(self, name: str, cat_name: str = '') -> Skill:
         if not name or len(name) < 2:
             return None
@@ -221,11 +261,12 @@ class MainExtractedToDB:
                 edu_type = 'degree'
             if str(edu_type).lower() in ('schulung', 'schulungen', 'training', 'kurs'):
                 edu_type = 'course'
+            degree, period = self._sanitize_edu_fields(degree, edu.get('period') or '')
             Education.objects.create(
                 consultant    = consultant,
                 degree        = degree[:200],
                 institution   = (edu.get('institution') or '')[:200],
-                period        = (edu.get('period') or '')[:100],
+                period        = period[:200],
                 description   = (edu.get('description') or '')[:500],
                 education_type= edu_type,
                 issuer        = (edu.get('issuer') or '')[:200],
@@ -257,7 +298,7 @@ class MainExtractedToDB:
                 continue
             exp_obj = Experience.objects.create(
                 consultant = consultant,
-                period     = (exp.get('period') or '')[:50],
+                period     = (exp.get('period') or '')[:200],
                 title      = (exp.get('title') or '')[:200],
                 company    = (exp.get('company') or '')[:200],
                 industry   = (exp.get('industry') or '')[:100],

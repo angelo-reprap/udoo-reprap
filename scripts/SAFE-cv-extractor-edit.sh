@@ -42,6 +42,7 @@ FILES=(
   services/main_pdf_extractor.py
   services/main_word_extractor.py
   services/main_labeler.py
+  services/url_fl_pdf_extractor.py
   management/commands/import_aid_profiles.py
   management/commands/compare_aid_neu_cv.py
   management/commands/cleanup_aid_test_imports.py

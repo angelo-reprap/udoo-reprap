@@ -4,11 +4,23 @@ Enthält alle XML/DOCX Aufbau-Methoden.
 Jedes Template-Layout erbt davon und überschreibt nur was anders ist.
 """
 import os
+import re
 from docx.shared import Pt, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+
+# python-docx: keine Steuerzeichen außer \t \n \r
+_XML_UNSAFE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
+def _xml_safe(text) -> str:
+    if text is None:
+        return ""
+    if not isinstance(text, str):
+        text = str(text)
+    return _XML_UNSAFE.sub("", text)
 
 
 def _hex_to_rgb(hex_str):
@@ -140,7 +152,7 @@ class WordBuilder:
     # ── Typo helpers ─────────────────────────────────────────
 
     def run(self, para, text, bold=False, italic=False, size=None, color=None):
-        r = para.add_run(text)
+        r = para.add_run(_xml_safe(text))
         r.font.name = self.FONT
         r.font.size = Pt(size or self.SZ)
         r.bold = bold; r.italic = italic
@@ -350,11 +362,11 @@ class WordBuilder:
         _cell_margin(cell, top=80, bottom=80, left=180, right=180)
 
         p = cell.paragraphs[0]
-        r_date = p.add_run((exp.get("period") or "") + "  ")
+        r_date = p.add_run(_xml_safe((exp.get("period") or "") + "  "))
         r_date.font.name = self.FONT; r_date.font.size = Pt(self.SZ_SM)
         r_date.bold = True; r_date.font.color.rgb = RGBColor(0xFF,0xFF,0xFF)
         _badge_bg(r_date, self.BLUE_HEX)
-        r_co = p.add_run("  " + (exp.get("company") or ""))
+        r_co = p.add_run(_xml_safe("  " + (exp.get("company") or "")))
         r_co.font.name = self.FONT; r_co.font.size = Pt(11)
         r_co.bold = True; r_co.font.color.rgb = self.BLACK
         p.paragraph_format.space_after = Pt(4)

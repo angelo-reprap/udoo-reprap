@@ -251,12 +251,28 @@ class FLPdfExtractor:
 
     @staticmethod
     def _load_api_key() -> str:
-        try:
-            return json.loads(
-                Path('settings.json').read_text()
-            )['ai_models']['deepseek']['api_key']
-        except Exception:
-            return 'sk-98572f9172bb4dd7a370f7340420dc2a'
+        """DeepSeek-Key nur aus settings.json — kein Hardcode-Fallback."""
+        candidates = (
+            Path('/opt/abpe/backend/settings.json'),
+            Path('settings.json'),
+        )
+        for settings_path in candidates:
+            try:
+                if not settings_path.is_file():
+                    continue
+                cfg = json.loads(settings_path.read_text(encoding='utf-8'))
+                key = (
+                    (cfg.get('ai_models') or {}).get('deepseek') or {}
+                ).get('api_key') or (cfg.get('api_keys') or {}).get('deepseek')
+                if key:
+                    return str(key).strip()
+            except Exception as e:
+                logger.debug('DeepSeek-Key aus %s nicht lesbar: %s', settings_path, e)
+        logger.error(
+            'DeepSeek API-Key fehlt in settings.json '
+            '(ai_models.deepseek.api_key / api_keys.deepseek) — kein Hardcode-Fallback'
+        )
+        return ''
 
     def _get_prompt(self, stage: str) -> Optional[str]:
         try:
