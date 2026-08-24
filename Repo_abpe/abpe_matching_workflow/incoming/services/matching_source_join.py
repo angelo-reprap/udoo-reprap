@@ -191,6 +191,54 @@ def _finish(
     )
 
 
+def _resolve_consultant_from_crm(contact, cstm=None, *, extra_email: str = '') -> Tuple[Any, str]:
+    """
+    Contact → Consultant über Radar/E-Mail/Name.
+    E-Mail bevorzugt aus CRM-Kanälen (_contact_channels), nicht nur Contact-Feldern.
+    """
+    if contact is None:
+        return None, ''
+    crm_id = str(getattr(contact, 'crm_id', '') or '').strip()
+    # 1) offizieller Probe-Resolver (Radar, gulp_id, Contact-Felder, Name)
+    try:
+        from apps.abpe_shaduler.services import matching_weight_probe as mwp
+        cons, via = mwp.resolve_consultant_for_contact(
+            crm_id=crm_id,
+            cstm=cstm,
+            contact=contact,
+        )
+        if cons is not None:
+            return cons, via or 'contact_consultant'
+    except Exception as exc:
+        logger.debug('resolve_consultant_for_contact: %s', exc)
+
+    pool = _consultant_pool()
+    # 2) E-Mail aus CRM-Kanälen / explizit
+    email = (extra_email or '').strip()
+    if not email and crm_id:
+        email, _phone = _contact_channels(crm_id)
+    if email and '@' in email:
+        hit = pool.filter(email__iexact=email).order_by('-created_at').first()
+        if hit:
+            return hit, 'crm_email'
+        # SuiteCRM-Mails können ;-getrennt im Consultant.email stehen
+        hit = pool.filter(email__icontains=email).order_by('-created_at').first()
+        if hit:
+            return hit, 'crm_email_contains'
+
+    # 3) eindeutiger Name im Consultant-Pool
+    first = (getattr(contact, 'first_name', None) or '').strip()
+    last = (getattr(contact, 'last_name', None) or '').strip()
+    if first and last and len(last) >= 2:
+        qs = pool.filter(first_name__iexact=first, last_name__iexact=last)
+        dirs = list(qs.values_list('consultant_dir', flat=True).distinct()[:5])
+        if len({(d or '').lower().strip() for d in dirs}) == 1:
+            hit = qs.order_by('-created_at').first()
+            if hit:
+                return hit, 'crm_name'
+    return None, ''
+
+
 def _gulp_id_variants(gid: str) -> List[str]:
     """CRM speichert gulp_id_c oft numerisch ohne führende Nullen."""
     g = str(gid or '').strip()
@@ -288,6 +336,16 @@ def resolve_gulp_hit(hit: Dict[str, Any]) -> JoinHit:
             hit_c = pool.filter(qdir).order_by('-created_at').first()
             if hit_c:
                 consultant, join_via = hit_c, 'gulp_id_dir_suffix'
+
+    # CRM-Kontakt → Consultant (Radar / E-Mail / Name) — bisher fehlte dieser Schritt bei Gulp
+    if consultant is None and contact is not None:
+        email_hint, _ = _contact_channels(str(getattr(contact, 'crm_id', '') or ''))
+        cons2, via2 = _resolve_consultant_from_crm(
+            contact, cstm, extra_email=email_hint,
+        )
+        if cons2 is not None:
+            consultant = cons2
+            join_via = via2 or join_via or 'gulp_id_c'
 
     if contact is None and consultant is None:
         return JoinHit(notes=[f'gulp_id={gid} unbekannt im Bestand'])
@@ -387,23 +445,21 @@ def resolve_flm_hit(hit: Dict[str, Any]) -> JoinHit:
             )
 
     consultant = None
+    cstm_for_link = None
+    if contact is not None and Cstm is not None:
+        cstm_for_link = Cstm.objects.filter(
+            contact_id=contact.crm_id
+        ).first() or getattr(contact, 'cstm', None)
     if contact is not None:
-        # optional Consultant über Name/E-Mail
-        try:
-            from apps.abpe_shaduler.services import matching_weight_probe as mwp
-            Cstm2 = Cstm
-            cstm_obj = None
-            if Cstm2 is not None:
-                cstm_obj = Cstm2.objects.filter(
-                    contact_id=contact.crm_id
-                ).first() or getattr(contact, 'cstm', None)
-            consultant, jv = mwp.resolve_consultant_for_contact(
-                contact, cstm_obj,
-            )
-            if consultant is not None and not join_via:
-                join_via = jv or 'contact_consultant'
-        except Exception as exc:
-            logger.debug('flm consultant join: %s', exc)
+        email_hint, _ = _contact_channels(str(getattr(contact, 'crm_id', '') or ''))
+        cons2, via2 = _resolve_consultant_from_crm(
+            contact, cstm_for_link, extra_email=email_hint,
+        )
+        if cons2 is not None:
+            consultant = cons2
+            if not join_via or join_via in ('name', 'flm_id', 'flm_slug'):
+                # join_via behalten wenn flm_*, aber CV-Pfad dokumentieren
+                join_via = f'{join_via}+{via2}' if join_via else via2
 
     if contact is None and consultant is None:
         return JoinHit(notes=[

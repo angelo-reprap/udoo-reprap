@@ -61,10 +61,11 @@ def _scan(source, hits):
         else:
             unknown += 1
             tag = 'UNK'
-        if len(samples) < 8 and (tag != 'UNK' or len(samples) < 3):
+        if len(samples) < 10 and (tag != 'UNK' or len(samples) < 3):
             samples.append(
                 f"  [{tag}] {mer._hit_display_name(h, jd.get('display_name') or '')} "
                 f"via={jd.get('join_via') or '-'} "
+                f"aid={jd.get('consultant_aid') or '-'} "
                 f"email={jd.get('email') or '-'} "
                 f"id={h.get('gulp_id') or h.get('fm_id')}"
             )
