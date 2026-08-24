@@ -20,7 +20,16 @@ def run_matching_async(self, project_id: str):
 
         results = MatchingEngine().run(project)
 
-        # MatchResult Datensätze anlegen
+        if not results:
+            logger.warning(
+                "[Task] Matching lieferte 0 Treffer für %s — bestehende MatchResults bleiben",
+                project.project_number,
+            )
+            project.status = 'matching'
+            project.save(update_fields=['status'])
+            return {'success': True, 'count': 0, 'kept_previous': True}
+
+        # Atomar ersetzen erst nach erfolgreichem Lauf mit Treffern
         MatchResult.objects.filter(project_request=project).delete()
         for r in results:
             skill_details = dict(r.get('skill_details') or {})

@@ -1099,20 +1099,11 @@ def api_matching_shortlist_reset(request, project_id):
 
     deleted_count, _ = qs.delete()
 
+    # MatchResults hier NICHT löschen.
+    # Sonst ist die Shortlist leer, bis Celery fertig ist — und bei Timeout/Fehler
+    # bleibt sie dauerhaft leer (Backoffice kann trotzdem schon geschrieben sein).
+    # Ersetzen macht run_matching_async / SAFE-matching-rematch-sync.sh atomar.
     match_results_deleted = 0
-    if MatchResult is not None:
-        try:
-            # MatchResult FK heißt project_request (nicht project)
-            match_results_deleted, _ = MatchResult.objects.filter(
-                project_request=project
-            ).delete()
-        except Exception:
-            try:
-                match_results_deleted, _ = MatchResult.objects.filter(
-                    project=project
-                ).delete()
-            except Exception:
-                match_results_deleted = 0
 
     skill_names = []
     try:

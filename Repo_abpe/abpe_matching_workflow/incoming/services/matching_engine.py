@@ -121,7 +121,54 @@ class MatchingEngine:
         for cid in es_ids:
             source_by_id[cid] = 'es'
 
-        # Gulp/FLM: bekannt+kontaktierbar mergen; Rest → Backoffice (kein Duplikat)
+        score_kw = dict(
+            required_expanded=required_expanded,
+            nice_expanded=nice_expanded,
+            required_original=required_skills,
+            req_weights=req_weights,
+            w_req=w_req, w_nice=w_nice, w_industry=w_industry,
+            w_exp=w_exp, w_loc=w_loc,
+        )
+
+        def _score_one(c, src='db', ext=None):
+            result = self._stage2_score(c, project, **{
+                'required_expanded': score_kw['required_expanded'],
+                'nice_expanded': score_kw['nice_expanded'],
+                'required_original': score_kw['required_original'],
+                'req_weights': score_kw['req_weights'],
+                'w_req': score_kw['w_req'],
+                'w_nice': score_kw['w_nice'],
+                'w_industry': score_kw['w_industry'],
+                'w_exp': score_kw['w_exp'],
+                'w_loc': score_kw['w_loc'],
+            })
+            sources = [src]
+            if isinstance(ext, dict) and ext.get('match_sources'):
+                sources = list(ext.get('match_sources') or [src])
+            result['match_source'] = src
+            result['match_sources'] = sources
+            sd = result.get('skill_details') or {}
+            sd['match_source'] = src
+            sd['match_sources'] = sources
+            if isinstance(ext, dict):
+                sd['crm_link'] = ext.get('crm_link')
+                sd['crm_link_status'] = ext.get('crm_link_status')
+                sd['profile_refresh_suggested'] = ext.get('profile_refresh_suggested')
+                sd['external_hit'] = ext.get('external_hit')
+                result['email'] = ext.get('email') or ''
+                result['phone'] = ext.get('phone') or ''
+                result['crm_link_status'] = ext.get('crm_link_status')
+            result['skill_details'] = sd
+            return result
+
+        # 1) DB/ES zuerst scoren — Shortlist darf nicht an Gulp/FLM-Latenz hängen
+        scored_by_id: Dict[int, Dict] = {}
+        for c in candidates:
+            result = _score_one(c, source_by_id.get(c.id, 'db'))
+            if result['overall_score'] >= min_score:
+                scored_by_id[c.id] = result
+
+        # 2) Gulp/FLM fail-open (nach DB-Score)
         external_meta = {'known_results': [], 'backoffice': [], 'stats': {}}
         ext_by_consultant: Dict[int, Dict[str, Any]] = {}
         try:
@@ -143,7 +190,6 @@ class MatchingEngine:
                     if cons is None:
                         continue
                     src = kr.get('match_source') or 'gulp'
-                    # Bereits in DB/ES: Quelle anreichern (db+gulp), nicht verwerfen
                     if cons.id in source_by_id:
                         prev = source_by_id[cons.id]
                         sources = []
@@ -151,20 +197,39 @@ class MatchingEngine:
                             sources.append(prev)
                         if src not in sources:
                             sources.append(src)
-                        # Primär-Badge: externe Quelle sichtbar machen
                         source_by_id[cons.id] = src
                         kr = dict(kr)
                         kr['match_sources'] = sources
                         kr['match_source'] = src
                         ext_by_consultant[cons.id] = kr
-                        # Duplikat-Statistik nur informativ
+                        # Badge auf bereits gescoretem Treffer aktualisieren
+                        if cons.id in scored_by_id:
+                            scored_by_id[cons.id]['match_source'] = src
+                            scored_by_id[cons.id]['match_sources'] = sources
+                            sd = scored_by_id[cons.id].get('skill_details') or {}
+                            sd['match_source'] = src
+                            sd['match_sources'] = sources
+                            sd['crm_link'] = kr.get('crm_link')
+                            sd['crm_link_status'] = kr.get('crm_link_status')
+                            sd['profile_refresh_suggested'] = kr.get(
+                                'profile_refresh_suggested'
+                            )
+                            sd['external_hit'] = kr.get('external_hit')
+                            scored_by_id[cons.id]['skill_details'] = sd
+                            scored_by_id[cons.id]['email'] = kr.get('email') or ''
+                            scored_by_id[cons.id]['phone'] = kr.get('phone') or ''
+                            scored_by_id[cons.id]['crm_link_status'] = kr.get(
+                                'crm_link_status'
+                            )
                         continue
-                    candidates.append(cons)
+                    # Neu aus Gulp/FLM → nachscoren
                     source_by_id[cons.id] = src
                     ext_by_consultant[cons.id] = kr
                     setattr(cons, '_matching_external', kr)
+                    result = _score_one(cons, src, kr)
+                    if result['overall_score'] >= min_score:
+                        scored_by_id[cons.id] = result
 
-                # Backoffice IMMER speichern (auch wenn leer → alte Liste löschen)
                 store_backoffice_on_project(
                     project,
                     external_meta.get('backoffice') or [],
@@ -182,37 +247,7 @@ class MatchingEngine:
             logger.exception('External-Recall fehlgeschlagen: %s', exc)
             self.last_external_meta = {'error': str(exc)}
 
-        scored = []
-        for c in candidates:
-            result = self._stage2_score(
-                c, project,
-                required_expanded, nice_expanded,
-                required_skills,
-                req_weights,
-                w_req=w_req, w_nice=w_nice, w_industry=w_industry,
-                w_exp=w_exp, w_loc=w_loc,
-            )
-            src = source_by_id.get(c.id, 'db')
-            ext = getattr(c, '_matching_external', None) or ext_by_consultant.get(c.id)
-            sources = [src]
-            if isinstance(ext, dict) and ext.get('match_sources'):
-                sources = list(ext.get('match_sources') or [src])
-            result['match_source'] = src
-            result['match_sources'] = sources
-            sd = result.get('skill_details') or {}
-            sd['match_source'] = src
-            sd['match_sources'] = sources
-            if isinstance(ext, dict):
-                sd['crm_link'] = ext.get('crm_link')
-                sd['crm_link_status'] = ext.get('crm_link_status')
-                sd['profile_refresh_suggested'] = ext.get('profile_refresh_suggested')
-                sd['external_hit'] = ext.get('external_hit')
-                result['email'] = ext.get('email') or ''
-                result['phone'] = ext.get('phone') or ''
-                result['crm_link_status'] = ext.get('crm_link_status')
-            result['skill_details'] = sd
-            if result['overall_score'] >= min_score:
-                scored.append(result)
+        scored = list(scored_by_id.values())
 
         def _rank_key(r: Dict) -> Tuple:
             sd = r.get('skill_details') or {}
@@ -227,7 +262,6 @@ class MatchingEngine:
         scored.sort(key=_rank_key, reverse=True)
         for i, r in enumerate(scored):
             r['rank'] = i + 1
-            # Für stabile DB-Sortierung auch bei gleichen overall_score
             r['rank_score'] = round(
                 float(r.get('overall_score') or 0)
                 + 0.01 * float((r.get('skill_details') or {}).get('strength') or 0)
