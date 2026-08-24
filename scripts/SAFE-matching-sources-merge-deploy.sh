@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# Deploy Matching Gulp/FLM-Merge (Join + Backoffice) — mit Backup.
+#
+# ucs5:
+#   cd /mnt/public/udoo-reprap
+#   git pull origin cursor/matching-shortlist-weights-1532
+#   bash scripts/SAFE-matching-sources-merge-prep.sh          # Backup + Diff
+#   bash scripts/SAFE-matching-sources-merge-deploy.sh
+#   supervisorctl restart abpe-django abpe-celery
+#   # Browser Ctrl+F5 → Shortlist → Erneut matchen
+#
+set -euo pipefail
+
+REPO="${REPO:-/mnt/public/udoo-reprap}"
+LIVE_MW="${LIVE_MW:-/opt/abpe/backend/apps/abpe_matching_workflow}"
+LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
+LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
+STATICFILES="${STATICFILES:-/opt/abpe/backend/staticfiles}"
+BACKUP_ROOT="${BACKUP_ROOT:-/opt/abpe/backups}"
+TS=$(date +%Y%m%d-%H%M%S)
+BAK="$BACKUP_ROOT/matching-sources-merge-deploy-$TS"
+
+SRC_MW="$REPO/Repo_abpe/abpe_matching_workflow/incoming"
+SRC_SH="$REPO/Repo_abpe/abpe_shaduler/incoming"
+SRC_UI="$REPO/Repo_abpe/abpe_ui/incoming/mod-matching.js"
+
+[[ -d "$SRC_MW/services" ]] || { echo "FAIL: $SRC_MW"; exit 1; }
+
+for f in \
+  services/matching_engine.py \
+  services/matching_source_join.py \
+  services/matching_external_recall.py \
+  services/matching_service.py \
+  views.py tasks.py
+do
+  [[ -f "$SRC_MW/$f" ]] || { echo "FAIL fehlt: $SRC_MW/$f"; exit 1; }
+done
+grep -q "matching_external_recall" "$SRC_MW/services/matching_engine.py" \
+  || { echo "FAIL: Engine ohne external_recall"; exit 1; }
+grep -q "filterShortlistSource" "$SRC_UI" \
+  || { echo "FAIL: UI ohne filterShortlistSource"; exit 1; }
+grep -q "shortlist-backoffice" "$SRC_UI" \
+  || { echo "FAIL: UI ohne Backoffice-Block"; exit 1; }
+
+mkdir -p "$BAK"/{mw,sh,ui}
+echo "Backup → $BAK"
+
+deploy_one() {
+  local src="$1" dst="$2" bakdir="$3"
+  mkdir -p "$(dirname "$dst")" "$bakdir"
+  if [[ -f "$dst" ]]; then
+    cp -a "$dst" "$bakdir/$(basename "$dst")"
+  fi
+  cp -a "$src" "$dst"
+  echo "OK $(basename "$src") → $dst"
+}
+
+deploy_one "$SRC_MW/services/matching_engine.py" "$LIVE_MW/services/matching_engine.py" "$BAK/mw"
+deploy_one "$SRC_MW/services/matching_source_join.py" "$LIVE_MW/services/matching_source_join.py" "$BAK/mw"
+deploy_one "$SRC_MW/services/matching_external_recall.py" "$LIVE_MW/services/matching_external_recall.py" "$BAK/mw"
+deploy_one "$SRC_MW/services/matching_service.py" "$LIVE_MW/services/matching_service.py" "$BAK/mw"
+deploy_one "$SRC_MW/views.py" "$LIVE_MW/views.py" "$BAK/mw"
+deploy_one "$SRC_MW/tasks.py" "$LIVE_MW/tasks.py" "$BAK/mw"
+
+# Gulp/FLM search_term/query (falls Repo neuer)
+if [[ -f "$SRC_SH/services/radar_berater_gulp.py" ]]; then
+  deploy_one "$SRC_SH/services/radar_berater_gulp.py" "$LIVE_SH/services/radar_berater_gulp.py" "$BAK/sh"
+fi
+if [[ -f "$SRC_SH/services/radar_berater_fl.py" ]]; then
+  deploy_one "$SRC_SH/services/radar_berater_fl.py" "$LIVE_SH/services/radar_berater_fl.py" "$BAK/sh"
+fi
+
+mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
+deploy_one "$SRC_UI" "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" "$BAK/ui"
+if [[ -d "$STATICFILES/abpe_ui/js/mod" ]]; then
+  deploy_one "$SRC_UI" "$STATICFILES/abpe_ui/js/mod/mod-matching.js" "$BAK/ui"
+fi
+
+find "$LIVE_MW" "$LIVE_SH" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+
+echo
+echo "Deploy fertig. Backup: $BAK"
+echo "  supervisorctl restart abpe-django abpe-celery"
+echo "  Browser Ctrl+F5 → Shortlist → Erneut matchen"
+echo "Restore: cp -a $BAK/mw/* $LIVE_MW/services/  (und views/tasks aus $BAK/mw)"

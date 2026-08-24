@@ -60,6 +60,7 @@ class MatchingEngine:
         # Soft-Default-Gewicht wenn ConsultantSkill.weight fehlt
         self.default_skill_weight = float(s.get('default_skill_weight', 0.50))
         self.es_recall_cfg = dict(cfg.get('es_recall') or {})
+        self.last_external_meta: Dict[str, Any] = {}
 
     # ──────────────────────────────────────────────────────
     # PUBLIC
@@ -115,10 +116,46 @@ class MatchingEngine:
                 f"für {project.project_number}"
             )
 
-        # Quellen-Tag (db / es; gulp/flm später)
+        # Quellen-Tag (db / es; gulp/flm über External-Recall)
         source_by_id = {cid: 'db' for cid in db_ids}
         for cid in es_ids:
             source_by_id[cid] = 'es'
+
+        # Gulp/FLM: bekannt+kontaktierbar mergen; Rest → Backoffice (kein Duplikat)
+        external_meta = {'known_results': [], 'backoffice': [], 'stats': {}}
+        try:
+            from .matching_external_recall import (
+                classify_external_hits,
+                store_backoffice_on_project,
+            )
+            ext_cfg = dict((_cfg().get('external_recall') or {}))
+            if ext_cfg.get('enabled') is not False:
+                external_meta = classify_external_hits(
+                    project,
+                    existing_consultant_ids=set(source_by_id.keys()),
+                    min_overlap=int(ext_cfg.get('min_overlap') or 1),
+                    gulp_pages=int(ext_cfg.get('gulp_pages') or 2),
+                    flm_pages=int(ext_cfg.get('flm_pages') or 2),
+                )
+                for kr in external_meta.get('known_results') or []:
+                    cons = kr.get('consultant_cv')
+                    if cons is None or cons.id in source_by_id:
+                        continue
+                    candidates.append(cons)
+                    source_by_id[cons.id] = kr.get('match_source') or 'gulp'
+                    # CRM-Link an Consultant hängen für Stage2-Nacharbeit
+                    setattr(cons, '_matching_external', kr)
+                self.last_external_meta = external_meta
+
+                logger.info(
+                    'Stage1 External: known=%s backoffice=%s stats=%s',
+                    len(external_meta.get('known_results') or []),
+                    len(external_meta.get('backoffice') or []),
+                    external_meta.get('stats'),
+                )
+        except Exception as exc:
+            logger.warning('External-Recall fehlgeschlagen: %s', exc)
+            self.last_external_meta = {}
 
         scored = []
         for c in candidates:
@@ -136,6 +173,15 @@ class MatchingEngine:
             sd = result.get('skill_details') or {}
             sd['match_source'] = src
             sd['match_sources'] = [src]
+            ext = getattr(c, '_matching_external', None)
+            if isinstance(ext, dict):
+                sd['crm_link'] = ext.get('crm_link')
+                sd['crm_link_status'] = ext.get('crm_link_status')
+                sd['profile_refresh_suggested'] = ext.get('profile_refresh_suggested')
+                sd['external_hit'] = ext.get('external_hit')
+                result['email'] = ext.get('email') or ''
+                result['phone'] = ext.get('phone') or ''
+                result['crm_link_status'] = ext.get('crm_link_status')
             result['skill_details'] = sd
             if result['overall_score'] >= min_score:
                 scored.append(result)
@@ -144,11 +190,16 @@ class MatchingEngine:
         for i, r in enumerate(scored):
             r['rank'] = i + 1
 
+        # Backoffice-Counts für Task/API
+        # (bereits in self.last_external_meta)
+
         logger.info(
             f"Stage2: {len(scored)} Treffer ≥ {min_score:.2f} "
             f"für {project.project_number} "
             f"(db={sum(1 for r in scored if r.get('match_source')=='db')} "
-            f"es={sum(1 for r in scored if r.get('match_source')=='es')})"
+            f"es={sum(1 for r in scored if r.get('match_source')=='es')} "
+            f"gulp={sum(1 for r in scored if r.get('match_source')=='gulp')} "
+            f"flm={sum(1 for r in scored if r.get('match_source')=='flm')})"
         )
         return scored[:limit]
 

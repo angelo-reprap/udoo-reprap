@@ -946,7 +946,7 @@ window.Matching = (function() {
                 const threshold = d.threshold || 0.5;
                 const srcCounts = d.source_counts || { db: 0, es: 0, gulp: 0, flm: 0 };
                 const projLabel = [d.project_number, d.project_title || d.title].filter(Boolean).join(' · ');
-                const _srcBadge = (src) => {
+                const _srcBadge = (src, linkStatus) => {
                     const s = String(src || 'db').toLowerCase();
                     const map = {
                         db:   { label: 'DB',   bg: '#e8f0fe', fg: '#163258', bd: '#93c5fd' },
@@ -955,10 +955,16 @@ window.Matching = (function() {
                         flm:  { label: 'FLM',  bg: '#f5f3ff', fg: '#5b21b6', bd: '#c4b5fd' },
                     };
                     const m = map[s] || map.db;
-                    return `<span class="matching-src-badge" title="Quelle: ${m.label}"
+                    let html = `<span class="matching-src-badge" title="Quelle: ${m.label}"
                         style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.03em;
                                padding:1px 6px;border-radius:3px;border:1px solid ${m.bd};
                                background:${m.bg};color:${m.fg};margin-left:6px;vertical-align:middle">${m.label}</span>`;
+                    if (linkStatus === 'known' && (s === 'gulp' || s === 'flm')) {
+                        html += `<span title="Im Bestand bekannt — Kontakt nutzbar"
+                            style="display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;
+                                   border:1px solid #86efac;background:#f0fdf4;color:#166534;margin-left:4px">bekannt</span>`;
+                    }
+                    return html;
                 };
                 let html = `
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
@@ -1024,6 +1030,7 @@ window.Matching = (function() {
                                            r.overall_score >= 0.5 ? 'score-mid' : 'score-lo';
                         const opacity = r.above_threshold ? '1' : '0.4';
                         const src = (r.match_source || 'db').toLowerCase();
+                        const linkSt = r.crm_link_status || '';
                         html += `
                         <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
                              data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}">
@@ -1031,7 +1038,7 @@ window.Matching = (function() {
                                 ${(r.overall_score*100).toFixed(0)}%
                             </div>
                             <div style="flex:1">
-                                <div style="font-weight:700;font-size:12px">${r.name}${_srcBadge(src)}</div>
+                                <div style="font-weight:700;font-size:12px">${r.name}${_srcBadge(src, linkSt)}</div>
                                 <div style="font-size:10px;color:#888">
                                     ${r.matched_skills?.slice(0,4).join(' · ')} · ${r.location || ''}
                                 </div>
@@ -1061,6 +1068,44 @@ window.Matching = (function() {
                         }
                     }
                     html += '</div>';
+                }
+
+                // Backoffice: Gulp/FLM ohne anschreibbaren Bestandskontakt
+                const bo = d.backoffice || [];
+                if (bo.length) {
+                    html += `
+                    <div style="margin-top:18px;padding-top:12px;border-top:1px dashed #cbd5e1">
+                      <div style="font-size:12px;font-weight:700;color:#9a3412;margin-bottom:8px">
+                        Backoffice — ${bo.length} Treffer ohne Kontakt / nicht im Bestand
+                        <span style="font-weight:500;color:#888;font-size:10px">
+                          (kein Auto-CV-Update; manuell nachziehen)
+                        </span>
+                      </div>
+                      <div id="shortlist-backoffice">`;
+                    for (const b of bo.slice(0, 40)) {
+                        const eh = b.external_hit || {};
+                        const src = (b.match_source || '').toLowerCase();
+                        const url = eh.profil_url || '';
+                        const nm = _esc(b.display_name || eh.name || '—');
+                        const ov = (b.external_overlap_skills || []).join(', ');
+                        html += `
+                        <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:.85;background:#fffbeb">
+                          <div style="min-width:52px;text-align:center;font-size:11px;font-weight:700;color:#9a3412">
+                            ${b.external_overlap != null ? (b.external_overlap + '∩') : '—'}
+                          </div>
+                          <div style="flex:1">
+                            <div style="font-weight:700;font-size:12px">${nm}${_srcBadge(src)}</div>
+                            <div style="font-size:10px;color:#888">
+                              ${ _esc(b.reason || '') }
+                              ${ov ? ' · ' + _esc(ov) : ''}
+                              ${eh.gulp_id ? ' · gulp=' + _esc(String(eh.gulp_id)) : ''}
+                              ${eh.fm_id ? ' · fm=' + _esc(String(eh.fm_id)) : ''}
+                            </div>
+                          </div>
+                          ${url ? `<a href="${_escAttr(url)}" target="_blank" rel="noopener" class="matching-btn-sm">Profil</a>` : ''}
+                        </div>`;
+                    }
+                    html += '</div></div>';
                 }
 
                 content.innerHTML = html;

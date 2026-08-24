@@ -421,6 +421,7 @@ def api_shortlist(request, project_id):
             match_sources = (sd.get('match_sources') if sd else None) or None
             if not match_sources:
                 match_sources = [match_source]
+            crm_link_status = (sd.get('crm_link_status') if sd else None) or 'known'
             data.append({
                 'id':             str(r.id),
                 'match_result_id': str(r.id),
@@ -428,7 +429,8 @@ def api_shortlist(request, project_id):
                 'pc_status':      pc.status if pc else None,
                 'consultant_id':  c.aid,
                 'name':           c.full_name,
-                'email':          email,
+                'email':          email or (sd.get('crm_link') or {}).get('email') or '',
+                'phone':          (sd.get('crm_link') or {}).get('phone') or '',
                 'location':       c.location,
                 'availability':   c.availability,
                 'overall_score':  round(r.overall_score, 3),
@@ -440,9 +442,19 @@ def api_shortlist(request, project_id):
                 'match_reason':   r.match_reason,
                 'match_source':   match_source,
                 'match_sources':  list(match_sources),
+                'crm_link_status': crm_link_status,
+                'profile_refresh_suggested': bool(sd.get('profile_refresh_suggested')),
                 'above_threshold': r.overall_score >= threshold,
                 'cv_editor_url':  f'/cv-extractor/editor/{c.aid}/',
             })
+
+        # Backoffice-Liste (Gulp/FLM ohne Kontakt / unbekannt)
+        backoffice = []
+        ext_stats = {}
+        er = p.extracted_requirements if isinstance(p.extracted_requirements, dict) else {}
+        if isinstance(er, dict):
+            backoffice = list(er.get('_matching_backoffice') or [])
+            ext_stats = dict(er.get('_matching_external_stats') or {})
 
         return Response({
             'success':   True,
@@ -451,6 +463,9 @@ def api_shortlist(request, project_id):
             'count':     len(data),
             'above_threshold': sum(1 for d in data if d['above_threshold']),
             'source_counts': source_counts,
+            'backoffice': backoffice,
+            'backoffice_count': len(backoffice),
+            'external_stats': ext_stats,
             # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
             'project_id':       str(p.id),
             'project_number':   p.project_number or '',
