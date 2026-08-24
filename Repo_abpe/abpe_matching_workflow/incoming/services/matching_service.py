@@ -72,10 +72,17 @@ class MatchingService:
                 'match_score':   match_details.get('score', 0),
                 'match_reason':  match_details.get('match_reason', ''),
                 'match_details': {
-                    **match_details,
+                    **{k: v for k, v in match_details.items()
+                       if k != 'consultant_cv' and not hasattr(v, '_meta')},
                     'calculated_at':   datetime.now().isoformat(),
                     'matched_skills':  match_details.get('matched_skills', []),
                     'missing_skills':  match_details.get('missing_skills', []),
+                    'match_source':    match_details.get('match_source') or (
+                        (match_details.get('skill_details') or {}).get('match_source')
+                    ) or 'db',
+                    'match_sources':   match_details.get('match_sources') or (
+                        (match_details.get('skill_details') or {}).get('match_sources')
+                    ) or ['db'],
                 },
                 'matched_by': 'system',
                 'status':     'identified',

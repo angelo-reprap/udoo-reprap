@@ -400,6 +400,7 @@ def api_shortlist(request, project_id):
         }
 
         data = []
+        source_counts = {'db': 0, 'es': 0, 'gulp': 0, 'flm': 0}
         for r in results:
             c = r.consultant_cv
             pc = pc_by_cv.get(c.id)
@@ -408,6 +409,18 @@ def api_shortlist(request, project_id):
                 email = (c.email or '').split(';')[0].strip()
             except Exception:
                 email = ''
+            sd = r.skill_details if isinstance(r.skill_details, dict) else {}
+            match_source = (sd.get('match_source') if sd else None) or None
+            if not match_source and pc is not None:
+                md = pc.match_details if isinstance(pc.match_details, dict) else {}
+                match_source = md.get('match_source')
+            match_source = str(match_source or 'db').lower().strip()
+            if match_source not in source_counts:
+                match_source = 'db'
+            source_counts[match_source] = source_counts.get(match_source, 0) + 1
+            match_sources = (sd.get('match_sources') if sd else None) or None
+            if not match_sources:
+                match_sources = [match_source]
             data.append({
                 'id':             str(r.id),
                 'match_result_id': str(r.id),
@@ -425,6 +438,8 @@ def api_shortlist(request, project_id):
                 'matched_skills': r.matched_skills,
                 'missing_skills': r.missing_skills,
                 'match_reason':   r.match_reason,
+                'match_source':   match_source,
+                'match_sources':  list(match_sources),
                 'above_threshold': r.overall_score >= threshold,
                 'cv_editor_url':  f'/cv-extractor/editor/{c.aid}/',
             })
@@ -435,6 +450,7 @@ def api_shortlist(request, project_id):
             'results':   data,
             'count':     len(data),
             'above_threshold': sum(1 for d in data if d['above_threshold']),
+            'source_counts': source_counts,
             # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
             'project_id':       str(p.id),
             'project_number':   p.project_number or '',

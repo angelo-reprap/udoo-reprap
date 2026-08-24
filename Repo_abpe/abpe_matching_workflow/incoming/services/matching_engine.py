@@ -105,13 +105,20 @@ class MatchingEngine:
         candidates = self._stage1_filter(project, required_expanded)
         logger.info(f"Stage1 ORM: {len(candidates)} Kandidaten für {project.project_number}")
 
-        es_extra = self._stage1_es_recall(project, required_skills, {c.id for c in candidates})
+        db_ids = {c.id for c in candidates}
+        es_extra = self._stage1_es_recall(project, required_skills, db_ids)
+        es_ids = {c.id for c in es_extra}
         if es_extra:
             candidates = list(candidates) + es_extra
             logger.info(
                 f"Stage1 ES-Recall: +{len(es_extra)} → {len(candidates)} "
                 f"für {project.project_number}"
             )
+
+        # Quellen-Tag (db / es; gulp/flm später)
+        source_by_id = {cid: 'db' for cid in db_ids}
+        for cid in es_ids:
+            source_by_id[cid] = 'es'
 
         scored = []
         for c in candidates:
@@ -123,6 +130,13 @@ class MatchingEngine:
                 w_req=w_req, w_nice=w_nice, w_industry=w_industry,
                 w_exp=w_exp, w_loc=w_loc,
             )
+            src = source_by_id.get(c.id, 'db')
+            result['match_source'] = src
+            result['match_sources'] = [src]
+            sd = result.get('skill_details') or {}
+            sd['match_source'] = src
+            sd['match_sources'] = [src]
+            result['skill_details'] = sd
             if result['overall_score'] >= min_score:
                 scored.append(result)
 
@@ -132,7 +146,9 @@ class MatchingEngine:
 
         logger.info(
             f"Stage2: {len(scored)} Treffer ≥ {min_score:.2f} "
-            f"für {project.project_number}"
+            f"für {project.project_number} "
+            f"(db={sum(1 for r in scored if r.get('match_source')=='db')} "
+            f"es={sum(1 for r in scored if r.get('match_source')=='es')})"
         )
         return scored[:limit]
 

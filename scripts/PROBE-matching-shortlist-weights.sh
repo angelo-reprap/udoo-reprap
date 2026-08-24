@@ -95,12 +95,13 @@ for r in results:
     sd = r.get('skill_details') or {}
     name = getattr(c, 'full_name', None) or f'{c.first_name} {c.last_name}'
     mark = '✓' if r['overall_score'] >= float(p.shortlist_threshold or 0.5) else '·'
+    src = r.get('match_source') or (sd.get('match_source') if sd else None) or 'db'
     print(
         f"{mark}#{r.get('rank')}  score={r['overall_score']:.3f}  "
         f"skill={r['skill_score']:.3f} "
         f"(cov={sd.get('coverage')} eff={sd.get('coverage_eff')} "
         f"str={sd.get('strength')} q={sd.get('quality')})  "
-        f"{name}  aid={getattr(c, 'aid', '')}"
+        f"[{src}] {name}  aid={getattr(c, 'aid', '')}"
     )
     mw = sd.get('matched_weights') or []
     if mw:

@@ -23,6 +23,11 @@ def run_matching_async(self, project_id: str):
         # MatchResult Datensätze anlegen
         MatchResult.objects.filter(project_request=project).delete()
         for r in results:
+            skill_details = dict(r.get('skill_details') or {})
+            if r.get('match_source') and 'match_source' not in skill_details:
+                skill_details['match_source'] = r['match_source']
+            if r.get('match_sources') and 'match_sources' not in skill_details:
+                skill_details['match_sources'] = r['match_sources']
             MatchResult.objects.create(
                 project_request  = project,
                 consultant_cv    = r['consultant_cv'],
@@ -34,8 +39,17 @@ def run_matching_async(self, project_id: str):
                 rank             = r['rank'],
                 matched_skills   = r['matched_skills'],
                 missing_skills   = r['missing_skills'],
+                skill_details    = skill_details,
                 calculated_by    = 'matching_engine',
             )
+
+            # ProjectConsultant mitsynchronisieren (Shortlist/Outreach)
+            try:
+                MatchingService.create_project_consultant(
+                    project, r['consultant_cv'], r,
+                )
+            except Exception as pc_exc:
+                logger.warning('ProjectConsultant sync: %s', pc_exc)
 
         project.status = 'matching'
         project.save(update_fields=['status'])

@@ -944,7 +944,22 @@ window.Matching = (function() {
                 }
 
                 const threshold = d.threshold || 0.5;
+                const srcCounts = d.source_counts || { db: 0, es: 0, gulp: 0, flm: 0 };
                 const projLabel = [d.project_number, d.project_title || d.title].filter(Boolean).join(' · ');
+                const _srcBadge = (src) => {
+                    const s = String(src || 'db').toLowerCase();
+                    const map = {
+                        db:   { label: 'DB',   bg: '#e8f0fe', fg: '#163258', bd: '#93c5fd' },
+                        es:   { label: 'ES',   bg: '#ecfdf5', fg: '#065f46', bd: '#6ee7b7' },
+                        gulp: { label: 'Gulp', bg: '#fff7ed', fg: '#9a3412', bd: '#fdba74' },
+                        flm:  { label: 'FLM',  bg: '#f5f3ff', fg: '#5b21b6', bd: '#c4b5fd' },
+                    };
+                    const m = map[s] || map.db;
+                    return `<span class="matching-src-badge" title="Quelle: ${m.label}"
+                        style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.03em;
+                               padding:1px 6px;border-radius:3px;border:1px solid ${m.bd};
+                               background:${m.bg};color:${m.fg};margin-left:6px;vertical-align:middle">${m.label}</span>`;
+                };
                 let html = `
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
                     <button type="button" class="matching-btn-sm" onclick="Matching.pickShortlistRequest()">
@@ -971,6 +986,18 @@ window.Matching = (function() {
                     <span id="threshold-count" style="font-size:10px;color:#888">
                         ${d.above_threshold} ${_t('matching.above_threshold_full')}
                     </span>
+                    <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:8px">
+                        ${_esc(_kiT('source_filter_label', 'Quelle'))}:
+                        <select id="shortlist-source-filter"
+                                onchange="Matching.filterShortlistSource(this.value)"
+                                style="font-size:11px;padding:2px 6px;border:1px solid #cbd5e1;border-radius:4px;background:#fff">
+                            <option value="all">${_esc(_kiT('source_all', 'Alle'))} (${d.count || 0})</option>
+                            <option value="db">DB (${srcCounts.db || 0})</option>
+                            <option value="es">ES (${srcCounts.es || 0})</option>
+                            <option value="gulp">Gulp (${srcCounts.gulp || 0})</option>
+                            <option value="flm">FLM (${srcCounts.flm || 0})</option>
+                        </select>
+                    </label>
                     <button type="button" class="matching-btn-sm"
                             title="${_escAttr(_kiT('rematch_title', 'Shortlist löschen und Matching neu starten'))}"
                             onclick="Matching.rematch('${projectId}')">
@@ -996,14 +1023,15 @@ window.Matching = (function() {
                         const scoreClass = r.overall_score >= 0.7 ? 'score-hi' :
                                            r.overall_score >= 0.5 ? 'score-mid' : 'score-lo';
                         const opacity = r.above_threshold ? '1' : '0.4';
+                        const src = (r.match_source || 'db').toLowerCase();
                         html += `
                         <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
-                             data-score="${r.overall_score}" data-id="${r.id}">
+                             data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}">
                             <div class="matching-score-box ${scoreClass}">
                                 ${(r.overall_score*100).toFixed(0)}%
                             </div>
                             <div style="flex:1">
-                                <div style="font-weight:700;font-size:12px">${r.name}</div>
+                                <div style="font-weight:700;font-size:12px">${r.name}${_srcBadge(src)}</div>
                                 <div style="font-size:10px;color:#888">
                                     ${r.matched_skills?.slice(0,4).join(' · ')} · ${r.location || ''}
                                 </div>
@@ -1042,9 +1070,11 @@ window.Matching = (function() {
                     projectId: projectId,
                     threshold: threshold,
                     results: d.results || [],
+                    source_counts: srcCounts,
                     project_number: d.project_number || '',
                     project_title: d.project_title || d.title || '',
                 };
+                Matching.filterShortlistSource('all');
             })
             .catch(e => {
                 if (loading) loading.style.display = 'none';
@@ -3275,13 +3305,32 @@ window.Matching = (function() {
         const t = val / 100;
         const el = document.getElementById('threshold-val');
         if (el) el.textContent = t.toFixed(2);
+        const srcSel = document.getElementById('shortlist-source-filter');
+        const src = srcSel ? srcSel.value : 'all';
         document.querySelectorAll('#shortlist-results .matching-card[data-score]').forEach(card => {
-            card.style.opacity = parseFloat(card.dataset.score) >= t ? '1' : '0.4';
+            const srcOk = (src === 'all' || (card.dataset.source || 'db') === src);
+            card.style.display = srcOk ? '' : 'none';
+            if (srcOk) {
+                card.style.opacity = parseFloat(card.dataset.score) >= t ? '1' : '0.4';
+            }
         });
         const above = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
-            .filter(c => parseFloat(c.dataset.score) >= t).length;
+            .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score) >= t).length;
         const cnt = document.getElementById('threshold-count');
         if (cnt) cnt.textContent = above + ' ' + _t('matching.above_threshold_full');
+        // „Alle anschreiben“-Zähler im Button aktualisieren
+        const sendBtn = document.querySelector('.matching-threshold-bar .matching-btn-primary');
+        if (sendBtn) {
+            sendBtn.textContent = _t('matching.btn_send_all_count') + ' (' + above + ') ↗';
+        }
+    }
+
+    function filterShortlistSource(src) {
+        const slider = document.getElementById('threshold-slider');
+        const val = slider ? slider.value : '45';
+        updateThreshold(val);
+        // noop — updateThreshold liest #shortlist-source-filter
+        void src;
     }
 
     function sendAllAboveThreshold() {
@@ -3294,7 +3343,7 @@ window.Matching = (function() {
         const slider = document.getElementById('threshold-slider');
         const t = slider ? (parseFloat(slider.value) / 100) : (cache.threshold || 0.45);
         const fromDom = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
-            .filter(c => parseFloat(c.dataset.score) >= t)
+            .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score) >= t)
             .map(c => {
                 const id = c.dataset.id;
                 const hit = (cache.results || []).find(r => r.id === id) || {};
@@ -3303,6 +3352,7 @@ window.Matching = (function() {
                     name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
                     score: parseFloat(c.dataset.score),
                     email: hit.email || '',
+                    match_source: hit.match_source || c.dataset.source || 'db',
                     matched_skills: hit.matched_skills || [],
                     match_reason: hit.match_reason || '',
                     consultant_id: hit.consultant_id || '',
@@ -5963,7 +6013,7 @@ window.Matching = (function() {
     return {
         init, applyI18n, switchTab, newRequest,
         openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
-        updateThreshold, sendAllAboveThreshold,
+        updateThreshold, filterShortlistSource, sendAllAboveThreshold,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
         outreachPolish, outreachReloadDraft, outreachSend,
         outreachPickEmail, outreachApplyEmail,
