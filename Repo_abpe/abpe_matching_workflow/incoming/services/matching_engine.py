@@ -66,13 +66,15 @@ class MatchingEngine:
     # PUBLIC
     # ──────────────────────────────────────────────────────
 
-    def run(self, project, limit: int = None, min_score: float = None) -> List[Dict]:
+    def run(self, project, limit: int = None, min_score: float = None,
+            skills_override: Optional[List] = None) -> List[Dict]:
         """
         Vollständiger Matching-Lauf für ein ProjectRequest.
         Gibt Liste von Dicts zurück — bereit für ProjectConsultant.
 
         limit: Top-N nach Score. 0 / None / settings shortlist_limit=0 → kein Limit
         (alle Treffer ≥ min_score). Safety-Cap 2000.
+        skills_override: optional Liste str|{name,weight} — statt project.required_skills
         """
         if limit is None:
             raw = _cfg().get('shortlist_limit', None)
@@ -102,12 +104,16 @@ class MatchingEngine:
         w_exp = getattr(project, 'weight_experience', None) or self.w_exp
         w_loc = getattr(project, 'weight_location', None) or self.w_loc
 
-        required_skills = self._skill_names(project.required_skills)
-        nice_skills = self._skill_names(project.nice_to_have_skills)
-        required_skills += list(project.extracted_technologies or [])
-        required_skills = list(dict.fromkeys(required_skills))  # stabil dedupe
-
-        req_weights = self._skill_request_weights(project.required_skills, required_skills)
+        if skills_override is not None:
+            required_skills = self._skill_names(skills_override)
+            req_weights = self._skill_request_weights(skills_override, required_skills)
+            nice_skills: List[str] = []
+        else:
+            required_skills = self._skill_names(project.required_skills)
+            nice_skills = self._skill_names(project.nice_to_have_skills)
+            required_skills += list(project.extracted_technologies or [])
+            required_skills = list(dict.fromkeys(required_skills))  # stabil dedupe
+            req_weights = self._skill_request_weights(project.required_skills, required_skills)
 
         if not required_skills and not nice_skills:
             logger.warning(
@@ -135,11 +141,14 @@ class MatchingEngine:
         if es_extra:
             candidates = list(candidates) + es_extra
         logger.info(
-            'Stage1 ES-Recall: hits=%s joined=%s new=%s overlap=%s skip=%s → candidates=%s',
+            'Stage1 ES-Recall: hits=%s joined=%s new=%s overlap=%s '
+            'aids=%s crm_ids=%s skip=%s → candidates=%s',
             es_recall.get('hits', 0),
             es_recall.get('joined', 0),
             len(es_extra),
             len(es_overlap_ids),
+            es_recall.get('aids', 0),
+            es_recall.get('crm_ids', 0),
             es_recall.get('skip') or '-',
             len(candidates),
         )
