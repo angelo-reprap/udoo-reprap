@@ -54,10 +54,13 @@ for kr in (meta.get('known_results') or [])[:10]:
 print('\nBackoffice (max 10):')
 for b in (meta.get('backoffice') or [])[:10]:
     eh = b.get('external_hit') or {}
+    sk = ', '.join((eh.get('skills') or [])[:3])
     print(
         f"  [{b.get('match_source')}] {b.get('display_name') or eh.get('name')}  "
         f"reason={b.get('reason')}  ov={b.get('external_overlap')}  "
-        f"gulp={eh.get('gulp_id') or '-'} fm={eh.get('fm_id') or '-'}"
+        f"email={b.get('email') or '-'}  "
+        f"gulp={eh.get('gulp_id') or '-'} fm={eh.get('fm_id') or '-'}  "
+        f"skills={sk or '-'}"
     )
 # verify persisted
 p.refresh_from_db()
