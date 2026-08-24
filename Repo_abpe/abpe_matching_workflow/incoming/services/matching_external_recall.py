@@ -54,6 +54,33 @@ def _search_term(skills: List[str]) -> str:
     return ' '.join(skills[:6]) if skills else ''
 
 
+def _hit_display_name(hit: Dict[str, Any], join_display: str = '') -> str:
+    """Lesbarer Name: CRM/Join > echter Name > Titel > Skills > Platzhalter."""
+    from .matching_source_join import clean_display_name, is_placeholder_name
+
+    for cand in (
+        join_display,
+        hit.get('name'),
+        ' '.join(
+            x for x in [hit.get('first_name') or '', hit.get('last_name') or ''] if x
+        ).strip(),
+    ):
+        cleaned = clean_display_name(str(cand or ''))
+        if cleaned:
+            return cleaned
+    title = str(hit.get('title') or hit.get('headline') or '').strip()
+    if title and not is_placeholder_name(title) and len(title) < 80:
+        return title
+    skills = [str(s).strip() for s in (hit.get('skills') or [])[:3] if str(s).strip()]
+    gid = hit.get('gulp_id') or hit.get('fm_id') or ''
+    src = 'Gulp' if hit.get('gulp_id') else ('FLM' if hit.get('fm_id') else 'Extern')
+    if skills:
+        return f"{src} {gid} · {', '.join(skills)}" if gid else ', '.join(skills)
+    if gid:
+        return f'{src} {gid}'
+    return 'Unbekannt'
+
+
 def fetch_gulp_hits(skills: List[str], *, pages: int = DEFAULT_GULP_PAGES) -> List[Dict]:
     try:
         from apps.abpe_shaduler.services import radar_berater_gulp as gulp
@@ -156,18 +183,23 @@ def classify_external_hits(
             stats['skipped_low_overlap'] += 1
             return
         jd = join.as_dict()
+        display = _hit_display_name(hit, jd.get('display_name') or '')
         base = {
             'match_source': source,
             'match_sources': [source],
             'external_overlap': ov_n,
             'external_overlap_skills': ov_skills,
             'external_hit': {
-                'name': hit.get('name'),
+                'name': display,
+                'raw_name': hit.get('name'),
+                'title': hit.get('title') or hit.get('headline') or '',
                 'gulp_id': hit.get('gulp_id'),
+                'mongo_id': hit.get('mongo_id'),
                 'fm_id': hit.get('fm_id'),
                 'fm_slug': hit.get('fm_slug'),
                 'profil_url': hit.get('profil_url') or hit.get('url'),
                 'skills': (hit.get('skills') or [])[:20],
+                'ort': hit.get('ort') or hit.get('location') or '',
                 'satz': hit.get('satz'),
             },
             'crm_link': jd,
@@ -175,6 +207,7 @@ def classify_external_hits(
             'email': jd.get('email') or '',
             'phone': jd.get('phone') or '',
             'profile_refresh_suggested': jd.get('profile_refresh_suggested'),
+            'display_name': display,
         }
         cons = join.consultant
         if join.known and cons is not None and jd.get('can_contact'):
@@ -202,18 +235,24 @@ def classify_external_hits(
                 stats['skipped_dup_db'] += 1  # informativ: war schon DB
             return
 
-        # Backoffice: unbekannt ODER bekannt ohne Kontakt ODER ohne Consultant
+        # Backoffice: unbekannt ODER bekannt ohne Kontakt ODER CRM ohne Consultant-CV
+        if join.known and cons is None and jd.get('can_contact'):
+            reason = 'known_crm'  # CRM+Kontakt, aber kein CV → manuell
+        elif join.known and cons is None:
+            reason = 'no_consultant'
+        elif join.known and not jd.get('can_contact'):
+            reason = 'no_contact'
+        else:
+            reason = 'unknown'
         backoffice.append({
             **base,
-            'reason': (
-                'no_consultant' if (join.known and cons is None)
-                else ('no_contact' if (join.known and not jd.get('can_contact'))
-                      else 'unknown')
-            ),
+            'reason': reason,
             'join_notes': jd.get('notes') or [],
-            'display_name': jd.get('display_name') or hit.get('name') or '',
+            'display_name': display,
         })
         stats['backoffice'] += 1
+        if join.known:
+            stats['backoffice_known'] = stats.get('backoffice_known', 0) + 1
 
     gulp_hits = fetch_gulp_hits(skills, pages=gulp_pages)
     stats['gulp_raw'] = len(gulp_hits)
@@ -234,6 +273,16 @@ def classify_external_hits(
             logger.warning('flm join: %s', exc)
             join = msj.JoinHit(notes=[str(exc)])
         _handle('flm', h, join)
+
+    # Bekannte CRM-Treffer zuerst, dann nach Overlap
+    _prio = {'known_crm': 0, 'no_contact': 1, 'no_consultant': 2, 'unknown': 3}
+    backoffice.sort(
+        key=lambda b: (
+            _prio.get(b.get('reason') or '', 9),
+            -(b.get('external_overlap') or 0),
+            str(b.get('display_name') or ''),
+        )
+    )
 
     return {
         'known_results': known_results,

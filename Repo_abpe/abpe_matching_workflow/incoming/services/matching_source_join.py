@@ -20,6 +20,27 @@ _RE_FM_SLUG = re.compile(
     re.I,
 )
 _RE_FM_ID = re.compile(r'-(\d{4,8})$')
+_RE_PLACEHOLDER_NAME = re.compile(
+    r'^(?:gulp|fm|freelancermap)\s*[\dA-Fa-f]{3,}$',
+    re.I,
+)
+
+
+def is_placeholder_name(name: str) -> bool:
+    """Gulp/FLM-Listen liefern oft nur 'Gulp 384563' / 'FM 12345'."""
+    n = (name or '').strip()
+    if not n:
+        return True
+    if _RE_PLACEHOLDER_NAME.match(n):
+        return True
+    if n.lower() in ('gulp ?', 'freelancermap', 'unbekannt'):
+        return True
+    return False
+
+
+def clean_display_name(name: str) -> str:
+    n = (name or '').strip()
+    return '' if is_placeholder_name(n) else n
 
 
 @dataclass
@@ -132,7 +153,7 @@ def _finish(
     notes: Optional[List[str]] = None,
 ) -> JoinHit:
     crm_id = ''
-    name = display_name
+    name = clean_display_name(display_name)
     if contact is not None:
         crm_id = str(getattr(contact, 'crm_id', '') or '')
         if not name:
@@ -170,18 +191,46 @@ def _finish(
     )
 
 
+def _gulp_id_variants(gid: str) -> List[str]:
+    """CRM speichert gulp_id_c oft numerisch ohne führende Nullen."""
+    g = str(gid or '').strip()
+    if not g:
+        return []
+    out = [g]
+    if g.isdigit():
+        stripped = g.lstrip('0') or '0'
+        if stripped not in out:
+            out.append(stripped)
+        # führende Nullen bis Feldlänge 16
+        for w in (6, 7, 8):
+            padded = g.zfill(w) if len(g) <= w else g
+            if padded not in out:
+                out.append(padded)
+    return out
+
+
 def resolve_gulp_hit(hit: Dict[str, Any]) -> JoinHit:
     """Gulp-Listen-Treffer → CRM/Consultant per gulp_id."""
     gid = str(hit.get('gulp_id') or '').strip()
+    mongo = str(hit.get('mongo_id') or '').strip()
+    if (not gid or len(gid) < 3) and mongo:
+        gid = mongo
     if not gid or len(gid) < 3:
         return JoinHit(notes=['keine gulp_id'])
 
     Contact, Cstm = _crm_models()
     contact = None
     cstm = None
+    variants = _gulp_id_variants(gid)
     if Cstm is not None:
+        from django.db.models import Q
+        q = Q()
+        for v in variants:
+            q |= Q(gulp_id_c=v)
         cstm = (
-            Cstm.objects.filter(gulp_id_c=gid)
+            Cstm.objects.filter(q)
+            .exclude(gulp_id_c__isnull=True)
+            .exclude(gulp_id_c='')
             .select_related('contact')
             .first()
         )
@@ -194,12 +243,18 @@ def resolve_gulp_hit(hit: Dict[str, Any]) -> JoinHit:
 
     consultant = None
     join_via = ''
-    # Radar FK
+    # Radar FK (gulp_id oder mongo)
     try:
         from django.apps import apps
+        from django.db.models import Q
         Radar = apps.get_model('abpe_shaduler', 'RadarConsultantItem')
+        rq = Q()
+        for v in variants:
+            rq |= Q(gulp_id=v)
+        if mongo:
+            rq |= Q(gulp_id=mongo)
         radar = (
-            Radar.objects.filter(gulp_id=gid, deleted_at__isnull=True)
+            Radar.objects.filter(rq, deleted_at__isnull=True)
             .select_related('consultant')
             .order_by('-updated_at')
             .first()
@@ -220,14 +275,17 @@ def resolve_gulp_hit(hit: Dict[str, Any]) -> JoinHit:
     if consultant is None:
         pool = _consultant_pool()
         from django.db.models import Q
-        hit_c = pool.filter(consultant_dir=gid).order_by('-created_at').first()
-        if hit_c:
-            consultant, join_via = hit_c, 'gulp_id_dir'
-        else:
-            hit_c = pool.filter(
-                Q(consultant_dir__endswith=f'_{gid}')
-                | Q(consultant_dir__endswith=f'-{gid}')
-            ).order_by('-created_at').first()
+        hit_c = None
+        for v in variants:
+            hit_c = pool.filter(consultant_dir=v).order_by('-created_at').first()
+            if hit_c:
+                consultant, join_via = hit_c, 'gulp_id_dir'
+                break
+        if consultant is None:
+            qdir = Q()
+            for v in variants:
+                qdir |= Q(consultant_dir__endswith=f'_{v}') | Q(consultant_dir__endswith=f'-{v}')
+            hit_c = pool.filter(qdir).order_by('-created_at').first()
             if hit_c:
                 consultant, join_via = hit_c, 'gulp_id_dir_suffix'
 
@@ -301,8 +359,13 @@ def resolve_flm_hit(hit: Dict[str, Any]) -> JoinHit:
                 ).first()
                 join_via = 'flm_slug'
 
-    # Name (nur wenn eindeutig)
-    name = (hit.get('name') or '').strip()
+    # Name (nur wenn eindeutig; Platzhalter/Titel überspringen)
+    name = clean_display_name(hit.get('name') or '')
+    if not name:
+        fn = clean_display_name(hit.get('first_name') or '')
+        ln = clean_display_name(hit.get('last_name') or '')
+        if fn and ln:
+            name = f'{fn} {ln}'.strip()
     first = last = ''
     # echte Personennamen, keine Titel-Zeilen
     if name and '|' not in name and len(name.split()) <= 4 and not name.lower().startswith(

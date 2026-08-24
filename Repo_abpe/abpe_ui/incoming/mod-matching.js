@@ -1088,6 +1088,17 @@ window.Matching = (function() {
                         const url = eh.profil_url || '';
                         const nm = _esc(b.display_name || eh.name || '—');
                         const ov = (b.external_overlap_skills || []).join(', ');
+                        const sk = (eh.skills || []).slice(0, 4).join(', ');
+                        const contactBits = [
+                            b.email ? _esc(b.email) : '',
+                            b.phone ? _esc(b.phone) : '',
+                        ].filter(Boolean).join(' · ');
+                        const reasonLabel = ({
+                            known_crm: 'CRM bekannt (ohne CV)',
+                            no_consultant: 'CRM ohne Consultant',
+                            no_contact: 'bekannt ohne Kontakt',
+                            unknown: 'nicht im Bestand',
+                        })[b.reason] || _esc(b.reason || '');
                         html += `
                         <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:.85;background:#fffbeb">
                           <div style="min-width:52px;text-align:center;font-size:11px;font-weight:700;color:#9a3412">
@@ -1096,11 +1107,14 @@ window.Matching = (function() {
                           <div style="flex:1">
                             <div style="font-weight:700;font-size:12px">${nm}${_srcBadge(src)}</div>
                             <div style="font-size:10px;color:#888">
-                              ${ _esc(b.reason || '') }
+                              ${reasonLabel}
                               ${ov ? ' · ' + _esc(ov) : ''}
+                              ${sk ? ' · ' + _esc(sk) : ''}
+                              ${eh.ort ? ' · ' + _esc(String(eh.ort)) : ''}
                               ${eh.gulp_id ? ' · gulp=' + _esc(String(eh.gulp_id)) : ''}
                               ${eh.fm_id ? ' · fm=' + _esc(String(eh.fm_id)) : ''}
                             </div>
+                            ${contactBits ? `<div style="font-size:10px;color:#166534">${contactBits}</div>` : ''}
                           </div>
                           ${url ? `<a href="${_escAttr(url)}" target="_blank" rel="noopener" class="matching-btn-sm">Profil</a>` : ''}
                         </div>`;
