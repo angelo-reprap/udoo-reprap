@@ -1051,75 +1051,77 @@ def api_contact_update(request, crm_id):
     elif action == 'im_delete':
         CrmContactIM.objects.filter(id=data.get('id'), contact_id=crm_id).delete()
 
-    # ── E-Mail löschen ────────────────────────────────────
-    elif action == 'email_delete':
+    # ── E-Mail (Import einmal — sonst UnboundLocalError durch lokale Imports) ──
+    elif action in (
+        'email_delete', 'email_set_primary', 'email_add',
+        'email_gesperrt_toggle', 'email_kampagne_toggle',
+    ):
         from apps.abpe_crm.models import CrmEmailAddress, CrmEmailAddrBeanRel
-        email_addr = data.get('email', '').strip()
-        if email_addr:
-            ea = CrmEmailAddress.objects.filter(email_address=email_addr).first()
-            if ea:
-                CrmEmailAddrBeanRel.objects.filter(
-                    bean_id=crm_id, email_address=ea
-                ).delete()
-                if not CrmEmailAddrBeanRel.objects.filter(email_address=ea).exists():
-                    ea.delete()
 
-    # ── E-Mail als Primär setzen ───────────────────────────
-    elif action == 'email_set_primary':
-        email_addr = data.get('email', '').strip()
-        if email_addr:
-            ea = CrmEmailAddress.objects.filter(email_address=email_addr).first()
-            if ea:
-                CrmEmailAddrBeanRel.objects.filter(
-                    bean_id=crm_id, bean_module='Contacts'
-                ).update(primary_address=False)
-                CrmEmailAddrBeanRel.objects.filter(
-                    bean_id=crm_id, email_address=ea, bean_module='Contacts'
-                ).update(primary_address=True)
+        if action == 'email_delete':
+            email_addr = data.get('email', '').strip()
+            if email_addr:
+                ea = CrmEmailAddress.objects.filter(email_address=email_addr).first()
+                if ea:
+                    CrmEmailAddrBeanRel.objects.filter(
+                        bean_id=crm_id, email_address=ea
+                    ).delete()
+                    if not CrmEmailAddrBeanRel.objects.filter(email_address=ea).exists():
+                        ea.delete()
 
-    # ── E-Mail hinzufügen ─────────────────────────────────
-    elif action == 'email_add':
-        import uuid as _uuid
-        from apps.abpe_crm.models import CrmEmailAddress, CrmEmailAddrBeanRel
-        email = data.get('email', '').strip()
-        primaer  = bool(data.get('primaer', False))
-        gesperrt = bool(data.get('gesperrt', False))
-        if email:
-            ea, _ = CrmEmailAddress.objects.get_or_create(
-                email_address=email,
-                defaults={
-                    'crm_id':             'LOCAL-' + str(_uuid.uuid4())[:8].upper(),
-                    'email_address_caps': email.upper(),
-                    'invalid_email':      gesperrt,
-                    'opt_out':            gesperrt,
-                    'kampagne_ok':        False,
-                }
-            )
-            CrmEmailAddrBeanRel.objects.get_or_create(
-                bean_id=crm_id,
-                email_address=ea,
-                defaults={
-                    'crm_id':          'LOCAL-' + str(_uuid.uuid4())[:8].upper(),
-                    'bean_module':     'Contacts',
-                    'primary_address': primaer,
-                }
-            )
+        elif action == 'email_set_primary':
+            email_addr = data.get('email', '').strip()
+            if email_addr:
+                ea = CrmEmailAddress.objects.filter(email_address=email_addr).first()
+                if ea:
+                    CrmEmailAddrBeanRel.objects.filter(
+                        bean_id=crm_id, bean_module='Contacts'
+                    ).update(primary_address=False)
+                    CrmEmailAddrBeanRel.objects.filter(
+                        bean_id=crm_id, email_address=ea, bean_module='Contacts'
+                    ).update(primary_address=True)
 
-    # ── E-Mail Gesperrt Toggle ────────────────────────────
-    elif action == 'email_gesperrt_toggle':
-        email_addr = data.get('email', '').strip()
-        gesperrt = bool(data.get('gesperrt', False))
-        if email_addr:
-            CrmEmailAddress.objects.filter(email_address=email_addr).update(
-                opt_out=gesperrt, invalid_email=gesperrt
-            )
+        elif action == 'email_add':
+            import uuid as _uuid
+            email = data.get('email', '').strip()
+            primaer  = bool(data.get('primaer', False))
+            gesperrt = bool(data.get('gesperrt', False))
+            if email:
+                ea, _ = CrmEmailAddress.objects.get_or_create(
+                    email_address=email,
+                    defaults={
+                        'crm_id':             'LOCAL-' + str(_uuid.uuid4())[:8].upper(),
+                        'email_address_caps': email.upper(),
+                        'invalid_email':      gesperrt,
+                        'opt_out':            gesperrt,
+                        'kampagne_ok':        False,
+                    }
+                )
+                CrmEmailAddrBeanRel.objects.get_or_create(
+                    bean_id=crm_id,
+                    email_address=ea,
+                    defaults={
+                        'crm_id':          'LOCAL-' + str(_uuid.uuid4())[:8].upper(),
+                        'bean_module':     'Contacts',
+                        'primary_address': primaer,
+                    }
+                )
 
-    # ── Kampagne OK Toggle ─────────────────────────────────
-    elif action == 'email_kampagne_toggle':
-        email_addr = data.get('email', '').strip()
-        kampagne_ok = bool(data.get('kampagne_ok', False))
-        if email_addr:
-            CrmEmailAddress.objects.filter(email_address=email_addr).update(kampagne_ok=kampagne_ok)
+        elif action == 'email_gesperrt_toggle':
+            email_addr = data.get('email', '').strip()
+            gesperrt = bool(data.get('gesperrt', False))
+            if email_addr:
+                CrmEmailAddress.objects.filter(email_address=email_addr).update(
+                    opt_out=gesperrt, invalid_email=gesperrt
+                )
+
+        elif action == 'email_kampagne_toggle':
+            email_addr = data.get('email', '').strip()
+            kampagne_ok = bool(data.get('kampagne_ok', False))
+            if email_addr:
+                CrmEmailAddress.objects.filter(email_address=email_addr).update(
+                    kampagne_ok=kampagne_ok
+                )
 
     return JsonResponse({'ok': True})
 
