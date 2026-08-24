@@ -98,7 +98,8 @@ for r in results:
     print(
         f"{mark}#{r.get('rank')}  score={r['overall_score']:.3f}  "
         f"skill={r['skill_score']:.3f} "
-        f"(cov={sd.get('coverage')} str={sd.get('strength')} q={sd.get('quality')})  "
+        f"(cov={sd.get('coverage')} eff={sd.get('coverage_eff')} "
+        f"str={sd.get('strength')} q={sd.get('quality')})  "
         f"{name}  aid={getattr(c, 'aid', '')}"
     )
     mw = sd.get('matched_weights') or []

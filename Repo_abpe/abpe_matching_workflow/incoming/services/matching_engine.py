@@ -54,6 +54,9 @@ class MatchingEngine:
         # Skill-Score: Coverage × Gewichts-Modulation (kein Doppel-Penalty)
         self.cov_blend = float(s.get('skill_coverage_blend', 0.45))
         self.str_blend = float(s.get('skill_strength_blend', 0.55))
+        # coverage^power: bei vielen Required-Skills (z.B. 10) sind 5/10 Treffer
+        # sonst strukturell unter threshold 0.5 (w_req=0.5 + Neutrals ≈0.22).
+        self.coverage_power = float(s.get('skill_coverage_power', 0.75))
         # Soft-Default-Gewicht wenn ConsultantSkill.weight fehlt
         self.default_skill_weight = float(s.get('default_skill_weight', 0.50))
         self.es_recall_cfg = dict(cfg.get('es_recall') or {})
@@ -391,11 +394,11 @@ class MatchingEngine:
                 strength_num / max(strength_den, 1e-9)
             ) if strength_den > 0 else 0.0
             blend = max(self.cov_blend + self.str_blend, 1e-9)
-            # req = coverage * (cov_anteil*1 + str_anteil*strength)
-            # → voller Treffer mit weight 1.0 ≈ altes binäres Coverage;
-            #   weight < 1 sortiert innerhalb gleicher Coverage nach unten.
             quality = (self.cov_blend * 1.0 + self.str_blend * strength) / blend
-            req_score = coverage * quality
+            # Soft-Coverage: 5/10 Skills → nicht halb so „schlecht“ wie binär
+            power = self.coverage_power if self.coverage_power > 0 else 1.0
+            coverage_eff = coverage ** power if coverage > 0 else 0.0
+            req_score = coverage_eff * quality
 
         matched_nice = [
             s for s in nice_expanded
@@ -430,12 +433,21 @@ class MatchingEngine:
             'score': round(overall, 4),
             'match_reason': '',
             'skill_details': {
-                'mode': 'weighted_v2',
+                'mode': 'weighted_v3',
                 'coverage': round(coverage if required_original else 0.0, 4),
+                'coverage_eff': round(
+                    (
+                        (coverage ** self.coverage_power)
+                        if (required_original and coverage > 0 and self.coverage_power > 0)
+                        else (coverage if required_original else 0.0)
+                    ),
+                    4,
+                ),
                 'strength': round(strength if required_original else 0.0, 4),
                 'quality': round(quality if required_original else 0.0, 4),
                 'coverage_blend': self.cov_blend,
                 'strength_blend': self.str_blend,
+                'coverage_power': self.coverage_power,
                 'matched_required': matched_required,
                 'missing_required': missing_required,
                 'matched_nice': matched_nice,
@@ -451,8 +463,8 @@ class MatchingEngine:
             return out
         for cs in skills:
             raw = getattr(getattr(cs, 'skill', None), 'name', None) or ''
-            name = raw.strip().lower()
-            if not name:
+            name = self._normalize_skill_label(raw)
+            if not name or not self._is_matchable_skill_label(name):
                 continue
             try:
                 w = float(getattr(cs, 'weight', None))
@@ -472,37 +484,140 @@ class MatchingEngine:
         consultant_weights: Dict[str, float],
     ) -> Tuple[Optional[str], float]:
         """
-        Beste (Name, Weight)-Treffer für ein Required-Skill inkl. seiner Synonyme.
-        skill_synonyms: Ergebnis von _expand_with_synonyms([skill]) — inkl. Original.
+        Strikter Match: Exact / Whole-Word / Synonym — kein Substring (java≠javascript).
         """
-        tokens = set()
-        for syn in [skill_l] + list(skill_synonyms or []):
-            for tok in self._skill_match_tokens(syn):
-                tokens.add(tok)
-        if not tokens:
+        req_norm = self._normalize_skill_label(skill_l)
+        want = set()
+        if req_norm:
+            want.add(req_norm)
+            want |= self._skill_match_tokens(req_norm)
+        for syn in skill_synonyms or []:
+            sn = self._normalize_skill_label(syn)
+            if not sn or not self._is_matchable_skill_label(sn):
+                continue
+            want.add(sn)
+            want |= self._skill_match_tokens(sn)
+        # nur brauchbare Tokens
+        want = {t for t in want if t and len(t) >= 2}
+        if not want:
             return None, 0.0
 
         best_name = None
         best_w = -1.0
+        best_rank = 99  # niedriger = besser (exact vor whole-word)
+
         for name, w in consultant_weights.items():
-            name_tokens = self._skill_match_tokens(name)
-            # exakt oder Token-Schnittmenge
-            if name in tokens or tokens & name_tokens:
-                if w > best_w:
-                    best_name, best_w = name, w
+            if self._is_blocked_alias(req_norm, name):
                 continue
-            # Fuzzy nur für Tokens ≥ 4 Zeichen (vermeidet "java"⊂"javascript"-Noise
-            # nicht vollständig, aber "ci"/"js" False-Positives)
-            for tok in tokens:
-                if len(tok) < 4:
-                    continue
-                if tok in name or (len(name) >= 4 and name in tok):
-                    if w > best_w:
-                        best_name, best_w = name, w
-                    break
+            rank = self._match_rank(want, req_norm, name)
+            if rank is None:
+                continue
+            if rank < best_rank or (rank == best_rank and w > best_w):
+                best_rank = rank
+                best_name = name
+                best_w = w
+
         if best_name is None:
             return None, 0.0
         return best_name, best_w
+
+    def _match_rank(self, want: Set[str], req_norm: str, name: str) -> Optional[int]:
+        """0=exact, 1=token-exact, 2=whole-word; None=kein Treffer."""
+        if name == req_norm or name in want:
+            return 0
+        name_tokens = self._skill_match_tokens(name)
+        # Token-Gleichheit nur für Labels (kein Prosa-Schnitt „dokumentation“)
+        if not self._is_matchable_skill_label(name):
+            return None
+        primary = self._primary_token(req_norm)
+        # primäres Required-Token muss als Ganzes vorkommen
+        if primary and primary in name_tokens and primary in want:
+            if self._is_blocked_alias(req_norm, name):
+                return None
+            return 1
+        # weitere Want-Tokens ≥ 4 Zeichen als Whole-Word im Namen
+        for tok in want:
+            if len(tok) < 4:
+                continue
+            if self._whole_word(tok, name):
+                if self._is_blocked_alias(req_norm, name):
+                    return None
+                return 2
+        return None
+
+    @staticmethod
+    def _primary_token(skill_l: str) -> str:
+        s = (skill_l or '').strip().lower()
+        if not s:
+            return ''
+        # CI/CD → cicd bevorzugt
+        compact = ''.join(ch for ch in s if ch.isalnum())
+        if s in ('ci/cd', 'ci-cd') or compact == 'cicd':
+            return 'cicd'
+        parts = re.split(r'[\s/|,;+]+', s)
+        parts = [p.strip().strip('.') for p in parts if p.strip()]
+        if not parts:
+            return compact or s
+        # längstes Teil-Token (nut.js → nut.js / nut)
+        best = max(parts, key=len)
+        if best.endswith('.js') and len(best) > 3:
+            return best[:-3]
+        return best
+
+    @staticmethod
+    def _whole_word(tok: str, text: str) -> bool:
+        if not tok or not text:
+            return False
+        return re.search(
+            rf'(?<![a-z0-9]){re.escape(tok)}(?![a-z0-9])',
+            text,
+            flags=re.IGNORECASE,
+        ) is not None
+
+    @staticmethod
+    def _is_blocked_alias(req: str, name: str) -> bool:
+        """Bekannte False-Positives: java≠javascript, etc."""
+        r = (req or '').strip().lower()
+        n = (name or '').strip().lower().replace(' ', '')
+        if r == 'java' or r.startswith('java ') or r == 'java':
+            if 'javascript' in n or n in ('javascript', 'typescript', 'javasript'):
+                return True
+            if 'java' in n and 'script' in n:
+                return True
+        if r in ('js', 'javascript') and n == 'java':
+            return True
+        return False
+
+    @staticmethod
+    def _normalize_skill_label(raw: str) -> str:
+        s = (raw or '').strip().lower()
+        # Bullet / Whitespace
+        s = s.replace('\uf0b7', ' ').replace('', ' ')
+        s = re.sub(r'\s+', ' ', s).strip(' .-•\t')
+        return s
+
+    @staticmethod
+    def _is_matchable_skill_label(name: str) -> bool:
+        """Verwirft Prosa/Müll-Skills aus der CV-Pipeline fürs Matching."""
+        n = (name or '').strip()
+        if len(n) < 2 or len(n) > 40:
+            return False
+        low = n.lower()
+        if low.count(' ') > 3:
+            return False
+        junk = (
+            'kenntnisse', 'erfahrung', 'grundlagen', 'dokumentation',
+            'erstellung', 'migration', 'bereitstellung', 'konfiguration mit',
+            'für die', ' mit ', ' und ', ' von ', ' einiger ', 'pipelines',
+        )
+        # 'dokumentation' allein = kein Tech-Skill; Phrasen ebenso
+        if low == 'dokumentation' or low == 'documentation':
+            return False
+        if any(j in low for j in junk) and low.count(' ') >= 1:
+            return False
+        if re.search(r'(für die|mit der|erstellung von|migration von)', low):
+            return False
+        return True
 
     @staticmethod
     def _skill_match_tokens(raw: str) -> Set[str]:
@@ -511,7 +626,6 @@ class MatchingEngine:
         if not s:
             return set()
         out = {s}
-        # Satzzeichen → Split
         compact = ''.join(ch for ch in s if ch.isalnum())
         if compact and compact != s:
             out.add(compact)
@@ -524,7 +638,12 @@ class MatchingEngine:
                 out.add(part[:-3])
             if '.' in part:
                 out.add(part.replace('.', ''))
-        return {t for t in out if t}
+        # zu kurze Tokens (ci, cd, js) nur behalten wenn Original kurz ist
+        cleaned = set()
+        for t in out:
+            if len(t) >= 3 or t == s:
+                cleaned.add(t)
+        return cleaned
 
     # ──────────────────────────────────────────────────────
     # TEIL-SCORER
