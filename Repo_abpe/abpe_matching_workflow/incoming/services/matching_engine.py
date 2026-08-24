@@ -66,11 +66,21 @@ class MatchingEngine:
     # PUBLIC
     # ──────────────────────────────────────────────────────
 
-    def run(self, project, limit: int = 20, min_score: float = None) -> List[Dict]:
+    def run(self, project, limit: int = None, min_score: float = None) -> List[Dict]:
         """
         Vollständiger Matching-Lauf für ein ProjectRequest.
         Gibt Liste von Dicts zurück — bereit für ProjectConsultant.
+
+        limit: Top-N nach Score (nicht Zufall). Default aus settings
+        matching.shortlist_limit, sonst 20.
         """
+        if limit is None:
+            try:
+                limit = int((_cfg().get('shortlist_limit') or 20))
+            except (TypeError, ValueError):
+                limit = 20
+        limit = max(1, min(int(limit), 200))
+
         if min_score is None:
             min_score = project.shortlist_threshold or self.min_score
 

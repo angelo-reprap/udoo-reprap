@@ -469,6 +469,7 @@ def api_shortlist(request, project_id):
             'backoffice_count': len(backoffice),
             'external_stats': ext_stats,
             'project_status': getattr(p, 'status', '') or '',
+            'shortlist_limit': _matching_shortlist_limit(),
             # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
             'project_id':       str(p.id),
             'project_number':   p.project_number or '',

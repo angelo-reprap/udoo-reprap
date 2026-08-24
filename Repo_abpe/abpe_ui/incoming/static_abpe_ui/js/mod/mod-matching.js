@@ -992,6 +992,9 @@ window.Matching = (function() {
                     <span id="threshold-count" style="font-size:10px;color:#888">
                         ${d.above_threshold} ${_t('matching.above_threshold_full')}
                     </span>
+                    <span style="font-size:10px;color:#94a3b8" title="Matching speichert die besten N nach Score (kein Zufall)">
+                        Top ${d.count || 0}${d.shortlist_limit ? ' / ' + d.shortlist_limit : ''}
+                    </span>
                     <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:8px">
                         ${_esc(_kiT('source_filter_label', 'Quelle'))}:
                         <select id="shortlist-source-filter"
@@ -1044,6 +1047,10 @@ window.Matching = (function() {
                                            r.overall_score >= 0.5 ? 'score-mid' : 'score-lo';
                         const opacity = r.above_threshold ? '1' : '0.4';
                         const src = (r.match_source || 'db').toLowerCase();
+                        const srcList = (Array.isArray(r.match_sources) && r.match_sources.length)
+                            ? r.match_sources.map(s => String(s || '').toLowerCase())
+                            : [src];
+                        const srcAttr = srcList.filter(Boolean).join(',');
                         const linkSt = r.crm_link_status || '';
                         const pct = (r.overall_score * 100);
                         const pctLabel = (Math.abs(pct - Math.round(pct)) < 0.05)
@@ -1052,15 +1059,17 @@ window.Matching = (function() {
                         const strHint = (r.strength != null && r.strength > 0)
                             ? `<div style="font-size:9px;color:#94a3b8">str ${(Number(r.strength)*100).toFixed(0)}%</div>`
                             : '';
+                        const badges = srcList.map(s => _srcBadge(s, linkSt)).join('');
                         html += `
                         <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
                              data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}"
+                             data-sources="${_escAttr(srcAttr)}"
                              data-rank="${r.rank || ''}" data-strength="${r.strength || 0}">
                             <div class="matching-score-box ${scoreClass}">
                                 ${pctLabel}%${strHint}
                             </div>
                             <div style="flex:1">
-                                <div style="font-weight:700;font-size:12px">${r.name}${_srcBadge(src, linkSt)}</div>
+                                <div style="font-weight:700;font-size:12px">${r.name}${badges}</div>
                                 <div style="font-size:10px;color:#888">
                                     ${r.matched_skills?.slice(0,4).join(' · ')} · ${r.location || ''}
                                 </div>
@@ -3389,19 +3398,40 @@ window.Matching = (function() {
         const el = document.getElementById('threshold-val');
         if (el) el.textContent = t.toFixed(2);
         const srcSel = document.getElementById('shortlist-source-filter');
-        const src = srcSel ? srcSel.value : 'all';
-        document.querySelectorAll('#shortlist-results .matching-card[data-score]').forEach(card => {
-            const srcOk = (src === 'all' || (card.dataset.source || 'db') === src);
+        const src = srcSel ? String(srcSel.value || 'all').toLowerCase() : 'all';
+        const root = document.getElementById('shortlist-results');
+        if (!root) return;
+
+        const cards = [...root.querySelectorAll('.matching-card[data-score]')];
+        cards.forEach(card => {
+            const primary = String(card.dataset.source || 'db').toLowerCase();
+            const allSrc = String(card.dataset.sources || primary)
+                .split(',')
+                .map(s => s.trim().toLowerCase())
+                .filter(Boolean);
+            const srcOk = (src === 'all' || allSrc.indexOf(src) >= 0 || primary === src);
             card.style.display = srcOk ? '' : 'none';
             if (srcOk) {
                 card.style.opacity = parseFloat(card.dataset.score) >= t ? '1' : '0.4';
             }
         });
-        const above = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
-            .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score) >= t).length;
+
+        // Sichtbare Karten nach Score neu sortieren (Quelle-Filter = Sortierung)
+        const visible = cards.filter(c => c.style.display !== 'none');
+        visible.sort((a, b) => {
+            const ds = parseFloat(b.dataset.score) - parseFloat(a.dataset.score);
+            if (Math.abs(ds) > 1e-9) return ds;
+            return parseFloat(b.dataset.strength || 0) - parseFloat(a.dataset.strength || 0);
+        });
+        const frag = document.createDocumentFragment();
+        visible.forEach(c => frag.appendChild(c));
+        // Versteckte ans Ende, Reihenfolge untereinander egal
+        cards.filter(c => c.style.display === 'none').forEach(c => frag.appendChild(c));
+        root.appendChild(frag);
+
+        const above = visible.filter(c => parseFloat(c.dataset.score) >= t).length;
         const cnt = document.getElementById('threshold-count');
         if (cnt) cnt.textContent = above + ' ' + _t('matching.above_threshold_full');
-        // „Alle anschreiben“-Zähler im Button aktualisieren
         const sendBtn = document.querySelector('.matching-threshold-bar .matching-btn-primary');
         if (sendBtn) {
             sendBtn.textContent = _t('matching.btn_send_all_count') + ' (' + above + ') ↗';
@@ -3409,11 +3439,13 @@ window.Matching = (function() {
     }
 
     function filterShortlistSource(src) {
+        const srcSel = document.getElementById('shortlist-source-filter');
+        if (srcSel && src) {
+            srcSel.value = src;
+        }
         const slider = document.getElementById('threshold-slider');
         const val = slider ? slider.value : '45';
         updateThreshold(val);
-        // noop — updateThreshold liest #shortlist-source-filter
-        void src;
     }
 
     function sendAllAboveThreshold() {
