@@ -3418,37 +3418,66 @@ window.Matching = (function() {
         if (el) el.textContent = t.toFixed(2);
         const srcSel = document.getElementById('shortlist-source-filter');
         const src = srcSel ? String(srcSel.value || 'all').toLowerCase() : 'all';
-        const root = document.getElementById('shortlist-results');
-        if (!root) return;
 
-        const cards = [...root.querySelectorAll('.matching-card[data-score]')];
-        cards.forEach(card => {
+        function _cardSources(card) {
             const primary = String(card.dataset.source || 'db').toLowerCase();
-            const allSrc = String(card.dataset.sources || primary)
+            return String(card.dataset.sources || primary)
                 .split(',')
                 .map(s => s.trim().toLowerCase())
                 .filter(Boolean);
-            const srcOk = (src === 'all' || allSrc.indexOf(src) >= 0 || primary === src);
-            card.style.display = srcOk ? '' : 'none';
-            if (srcOk) {
-                card.style.opacity = parseFloat(card.dataset.score) >= t ? '1' : '0.4';
+        }
+        function _srcOk(card) {
+            if (src === 'all') return true;
+            const allSrc = _cardSources(card);
+            const primary = String(card.dataset.source || 'db').toLowerCase();
+            return allSrc.indexOf(src) >= 0 || primary === src;
+        }
+
+        const root = document.getElementById('shortlist-results');
+        let above = 0;
+        if (root) {
+            const cards = [...root.querySelectorAll('.matching-card[data-score]')];
+            cards.forEach(card => {
+                const srcOk = _srcOk(card);
+                card.style.display = srcOk ? '' : 'none';
+                if (srcOk) {
+                    const score = parseFloat(card.dataset.score);
+                    card.style.opacity = score >= t ? '1' : '0.4';
+                    if (score >= t) above += 1;
+                }
+            });
+            const visible = cards.filter(c => c.style.display !== 'none');
+            visible.sort((a, b) => {
+                const ds = parseFloat(b.dataset.score) - parseFloat(a.dataset.score);
+                if (Math.abs(ds) > 1e-9) return ds;
+                return parseFloat(b.dataset.strength || 0) - parseFloat(a.dataset.strength || 0);
+            });
+            const frag = document.createDocumentFragment();
+            visible.forEach(c => frag.appendChild(c));
+            cards.filter(c => c.style.display === 'none').forEach(c => frag.appendChild(c));
+            root.appendChild(frag);
+        }
+
+        // Backoffice mitfiltern (Gulp/FLM Treffer)
+        const boRoot = document.getElementById('shortlist-backoffice');
+        const boWrap = document.getElementById('shortlist-backoffice-wrap');
+        let boVisible = 0;
+        if (boRoot) {
+            const boCards = [...boRoot.querySelectorAll('.matching-card')];
+            boCards.forEach(card => {
+                const ok = _srcOk(card);
+                card.style.display = ok ? '' : 'none';
+                if (ok) boVisible += 1;
+            });
+            if (boWrap) {
+                // Bei Quelle=DB Backoffice ausblenden; bei Gulp/FLM/Alle zeigen wenn Treffer
+                const showBo = (src === 'all' || src === 'gulp' || src === 'flm') && boVisible > 0;
+                boWrap.style.display = showBo ? '' : 'none';
             }
-        });
+            const boCnt = document.getElementById('shortlist-backoffice-count');
+            if (boCnt) boCnt.textContent = String(boVisible);
+        }
 
-        // Sichtbare Karten nach Score neu sortieren (Quelle-Filter = Sortierung)
-        const visible = cards.filter(c => c.style.display !== 'none');
-        visible.sort((a, b) => {
-            const ds = parseFloat(b.dataset.score) - parseFloat(a.dataset.score);
-            if (Math.abs(ds) > 1e-9) return ds;
-            return parseFloat(b.dataset.strength || 0) - parseFloat(a.dataset.strength || 0);
-        });
-        const frag = document.createDocumentFragment();
-        visible.forEach(c => frag.appendChild(c));
-        // Versteckte ans Ende, Reihenfolge untereinander egal
-        cards.filter(c => c.style.display === 'none').forEach(c => frag.appendChild(c));
-        root.appendChild(frag);
-
-        const above = visible.filter(c => parseFloat(c.dataset.score) >= t).length;
         const cnt = document.getElementById('threshold-count');
         if (cnt) cnt.textContent = above + ' ' + _t('matching.above_threshold_full');
         const sendBtn = document.querySelector('.matching-threshold-bar .matching-btn-primary');
@@ -3459,7 +3488,7 @@ window.Matching = (function() {
 
     function filterShortlistSource(src) {
         const srcSel = document.getElementById('shortlist-source-filter');
-        if (srcSel && src) {
+        if (srcSel && src != null && src !== '') {
             srcSel.value = src;
         }
         const slider = document.getElementById('threshold-slider');
