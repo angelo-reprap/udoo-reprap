@@ -209,6 +209,7 @@ class MatchingEngine:
 
         # 1) DB/ES zuerst scoren — Shortlist darf nicht an Gulp/FLM-Latenz hängen
         scored_by_id: Dict[int, Dict] = {}
+        es_below = 0
         for c in candidates:
             src = source_by_id.get(c.id, 'db')
             result = _score_one(c, src)
@@ -224,6 +225,17 @@ class MatchingEngine:
                 result['skill_details'] = sd
             if result['overall_score'] >= min_score:
                 scored_by_id[c.id] = result
+            elif src == 'es' or c.id in es_ids:
+                es_below += 1
+                logger.info(
+                    'ES-Kandidat unter Schwellwert: %s score=%.3f < %.2f aid=%s',
+                    getattr(c, 'full_name', c.id),
+                    result['overall_score'],
+                    min_score,
+                    getattr(c, 'aid', ''),
+                )
+        if es_below:
+            logger.info('ES unter Schwellwert: %s von %s neuen ES-Kandidaten', es_below, len(es_ids))
 
         # 2) Gulp/FLM fail-open (nach DB-Score)
         external_meta = {'known_results': [], 'backoffice': [], 'stats': {}}
@@ -431,7 +443,8 @@ class MatchingEngine:
             return empty
 
         index = cfg.get('index') or 'abpe_matching_profiles_probe'
-        size = int(cfg.get('size') or 50)
+        size = int(cfg.get('size') or 200)
+        size = max(10, min(size, 1000))
 
         try:
             from elasticsearch import Elasticsearch
@@ -577,7 +590,8 @@ class MatchingEngine:
 
         overlap_ids = {cid for cid in found if cid in existing_ids}
         extra = [c for cid, c in found.items() if cid not in existing_ids]
-        max_extra = int(cfg.get('max_extra') or 80)
+        max_extra = int(cfg.get('max_extra') or 200)
+        max_extra = max(10, min(max_extra, 1000))
         return {
             'extra': extra[:max_extra],
             'overlap_ids': overlap_ids,
@@ -586,6 +600,7 @@ class MatchingEngine:
             'skip': '',
             'crm_ids': len(crm_ids),
             'aids': len(aids),
+            'size_requested': size,
         }
 
     # ──────────────────────────────────────────────────────
