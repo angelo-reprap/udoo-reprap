@@ -348,6 +348,7 @@ class MatchingEngine:
         coverage_num = 0.0
         coverage_den = 0.0
         strength_sum = 0.0
+        syn_cache: Dict[str, List[str]] = {}
 
         if not required_original:
             req_score = 0.0
@@ -359,8 +360,12 @@ class MatchingEngine:
                 rw = float(req_weights.get(skill_l, 1.0) or 1.0)
                 coverage_den += rw
 
+                # Per-Skill-Synonyme (nicht die flache Gesamt-Liste) —
+                # sonst greifen Relationen ohne Substring-Überlappung (Java↔JVM) nicht.
+                if skill_l not in syn_cache:
+                    syn_cache[skill_l] = self._expand_with_synonyms([skill])
                 hit_name, hit_w = self._best_skill_hit(
-                    skill_l, required_expanded, consultant_weights
+                    skill_l, syn_cache[skill_l], consultant_weights
                 )
                 if hit_name is not None:
                     matched_required.append(skill)
@@ -451,29 +456,32 @@ class MatchingEngine:
     def _best_skill_hit(
         self,
         skill_l: str,
-        required_expanded: List[str],
+        skill_synonyms: List[str],
         consultant_weights: Dict[str, float],
     ) -> Tuple[Optional[str], float]:
-        """Beste (Name, Weight)-Treffer für ein Required-Skill inkl. Synonyme."""
-        if skill_l in consultant_weights:
-            return skill_l, consultant_weights[skill_l]
+        """
+        Beste (Name, Weight)-Treffer für ein Required-Skill inkl. seiner Synonyme.
+        skill_synonyms: Ergebnis von _expand_with_synonyms([skill]) — inkl. Original.
+        """
+        tokens = {skill_l}
+        for syn in skill_synonyms or []:
+            s = (syn or '').strip().lower()
+            if s:
+                tokens.add(s)
 
         best_name = None
         best_w = -1.0
         for name, w in consultant_weights.items():
-            # Direkt-Fuzzy (wie v2)
-            if skill_l in name or name in skill_l:
+            if name in tokens:
                 if w > best_w:
                     best_name, best_w = name, w
                 continue
-            # Synonym-Menge: expanded-Token liegt in consultant-skill oder umgekehrt
-            for syn in required_expanded:
-                syn_l = syn.lower()
-                if skill_l not in syn_l and syn_l not in skill_l:
-                    continue
-                if syn_l == name or syn_l in name or name in syn_l:
+            # Fuzzy: Token ist Teil des Consultant-Skill-Namens (oder umgekehrt)
+            for tok in tokens:
+                if tok in name or name in tok:
                     if w > best_w:
                         best_name, best_w = name, w
+                    break
         if best_name is None:
             return None, 0.0
         return best_name, best_w
