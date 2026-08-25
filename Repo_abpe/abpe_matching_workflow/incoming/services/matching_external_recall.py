@@ -15,8 +15,10 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 logger = logging.getLogger(__name__)
 
 DEFAULT_MIN_OVERLAP = 1
-DEFAULT_GULP_PAGES = 2
-DEFAULT_FLM_PAGES = 2
+# Abruf-Limit Matching: Gulp/FLM je max. 100 (nicht Plattform-Gesamt)
+DEFAULT_GULP_PAGES = 5   # 5 × 20 = 100
+DEFAULT_FLM_PAGES = 5
+DEFAULT_MAX_EXTERNAL_HITS = 100
 
 
 def _skill_names(project) -> List[str]:
@@ -81,7 +83,12 @@ def _hit_display_name(hit: Dict[str, Any], join_display: str = '') -> str:
     return 'Unbekannt'
 
 
-def fetch_gulp_hits(skills: List[str], *, pages: int = DEFAULT_GULP_PAGES) -> List[Dict]:
+def fetch_gulp_hits(
+    skills: List[str],
+    *,
+    pages: int = DEFAULT_GULP_PAGES,
+    max_hits: int = DEFAULT_MAX_EXTERNAL_HITS,
+) -> List[Dict]:
     try:
         from apps.abpe_shaduler.services import radar_berater_gulp as gulp
     except Exception as exc:
@@ -93,9 +100,12 @@ def fetch_gulp_hits(skills: List[str], *, pages: int = DEFAULT_GULP_PAGES) -> Li
     term = _search_term(skills)
     if not term:
         return []
+    cap = max(1, min(int(max_hits or DEFAULT_MAX_EXTERNAL_HITS), DEFAULT_MAX_EXTERNAL_HITS))
     out: List[Dict] = []
     seen: Set[str] = set()
     for page in range(max(1, pages)):
+        if len(out) >= cap:
+            break
         try:
             res = gulp.fetch_experts_list(
                 page=page, size=20, available_only=True, search_term=term,
@@ -112,10 +122,17 @@ def fetch_gulp_hits(skills: List[str], *, pages: int = DEFAULT_GULP_PAGES) -> Li
                 continue
             seen.add(key)
             out.append(h)
-    return out
+            if len(out) >= cap:
+                break
+    return out[:cap]
 
 
-def fetch_flm_hits(skills: List[str], *, pages: int = DEFAULT_FLM_PAGES) -> List[Dict]:
+def fetch_flm_hits(
+    skills: List[str],
+    *,
+    pages: int = DEFAULT_FLM_PAGES,
+    max_hits: int = DEFAULT_MAX_EXTERNAL_HITS,
+) -> List[Dict]:
     try:
         from apps.abpe_shaduler.services import radar_berater_fl as fl
     except Exception as exc:
@@ -124,9 +141,12 @@ def fetch_flm_hits(skills: List[str], *, pages: int = DEFAULT_FLM_PAGES) -> List
     term = _search_term(skills)
     if not term:
         return []
+    cap = max(1, min(int(max_hits or DEFAULT_MAX_EXTERNAL_HITS), DEFAULT_MAX_EXTERNAL_HITS))
     out: List[Dict] = []
     seen: Set[str] = set()
     for page in range(1, max(1, pages) + 1):
+        if len(out) >= cap:
+            break
         try:
             res = fl.fetch_freelancers_list(
                 page=page, available_only=True, query=term,
@@ -142,7 +162,9 @@ def fetch_flm_hits(skills: List[str], *, pages: int = DEFAULT_FLM_PAGES) -> List
                 continue
             seen.add(key)
             out.append(h)
-    return out
+            if len(out) >= cap:
+                break
+    return out[:cap]
 
 
 def classify_external_hits(
@@ -152,6 +174,7 @@ def classify_external_hits(
     min_overlap: int = DEFAULT_MIN_OVERLAP,
     gulp_pages: int = DEFAULT_GULP_PAGES,
     flm_pages: int = DEFAULT_FLM_PAGES,
+    max_hits: int = DEFAULT_MAX_EXTERNAL_HITS,
 ) -> Dict[str, Any]:
     """
     Returns:
@@ -254,7 +277,7 @@ def classify_external_hits(
         if join.known:
             stats['backoffice_known'] = stats.get('backoffice_known', 0) + 1
 
-    gulp_hits = fetch_gulp_hits(skills, pages=gulp_pages)
+    gulp_hits = fetch_gulp_hits(skills, pages=gulp_pages, max_hits=max_hits)
     stats['gulp_raw'] = len(gulp_hits)
     for h in gulp_hits:
         try:
@@ -264,7 +287,7 @@ def classify_external_hits(
             join = msj.JoinHit(notes=[str(exc)])
         _handle('gulp', h, join)
 
-    flm_hits = fetch_flm_hits(skills, pages=flm_pages)
+    flm_hits = fetch_flm_hits(skills, pages=flm_pages, max_hits=max_hits)
     stats['flm_raw'] = len(flm_hits)
     for h in flm_hits:
         try:
@@ -301,7 +324,7 @@ def store_backoffice_on_project(project, backoffice: List[Dict], stats: Dict) ->
     meta = dict(raw) if isinstance(raw, dict) else {}
     # Kompakte Serialisierung (kein consultant Objekt)
     slim = []
-    for b in backoffice[:100]:
+    for b in backoffice[:200]:
         slim.append({
             'match_source': b.get('match_source'),
             'crm_link_status': b.get('crm_link_status'),

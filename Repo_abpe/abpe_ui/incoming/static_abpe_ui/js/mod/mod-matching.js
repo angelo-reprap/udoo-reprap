@@ -1075,6 +1075,25 @@ window.Matching = (function() {
                             ? `<div style="font-size:9px;color:#94a3b8">str ${(Number(r.strength)*100).toFixed(0)}%</div>`
                             : '';
                         const badges = srcList.map(s => _srcBadge(s, linkSt)).join('');
+                        const isExtSrc = srcList.includes('gulp') || srcList.includes('flm');
+                        const hasDbEs = srcList.includes('db') || srcList.includes('es');
+                        const profilUrl = String(r.profil_url || '').trim();
+                        const schwerpunkt = String(r.schwerpunkt || '').trim();
+                        const subLine = [
+                            schwerpunkt,
+                            r.location ? String(r.location) : '',
+                        ].filter(Boolean).join(' · ');
+                        // Gulp/FLM ohne DB/ES → HTML-Profil (kein generiertes CV)
+                        const docBtn = (isExtSrc && profilUrl && !hasDbEs)
+                            ? `<a href="${_escAttr(profilUrl)}" target="_blank" rel="noopener"
+                                  class="matching-btn-sm" title="Externes HTML-Profil">HTML</a>`
+                            : (r.cv_editor_url
+                                ? `<a href="${_escAttr(r.cv_editor_url)}" target="_blank"
+                                      class="matching-btn-sm">CV</a>`
+                                : (profilUrl
+                                    ? `<a href="${_escAttr(profilUrl)}" target="_blank" rel="noopener"
+                                          class="matching-btn-sm" title="Externes HTML-Profil">HTML</a>`
+                                    : ''));
                         html += `
                         <div class="matching-card matching-hit" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
                              data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}"
@@ -1086,7 +1105,7 @@ window.Matching = (function() {
                             <div style="flex:1">
                                 <div style="font-weight:700;font-size:12px">${r.name}${badges}</div>
                                 <div style="font-size:10px;color:#888">
-                                    ${r.matched_skills?.slice(0,4).join(' · ')} · ${r.location || ''}
+                                    ${_esc(subLine || '—')}
                                 </div>
                                 ${r.match_reason ? `<div style="font-size:10px;color:#666;font-style:italic;margin-top:2px">"${r.match_reason}"</div>` : ''}
                                 <div class="matching-score-bar">
@@ -1102,8 +1121,7 @@ window.Matching = (function() {
                                         onclick="Matching.sendEmail('${r.id}')">
                                     <i class="bi bi-envelope"></i> ${_t('matching.btn_email')}
                                 </button>
-                                <a href="${r.cv_editor_url}" target="_blank"
-                                   class="matching-btn-sm">CV</a>
+                                ${docBtn}
                             </div>
                         </div>`;
                         if (r.above_threshold) {
@@ -1132,8 +1150,8 @@ window.Matching = (function() {
                         const src = (b.match_source || '').toLowerCase();
                         const url = eh.profil_url || '';
                         const nm = _esc(b.display_name || eh.name || '—');
+                        const sp = String(b.schwerpunkt || eh.title || eh.headline || '').trim();
                         const ov = (b.external_overlap_skills || []).join(', ');
-                        const sk = (eh.skills || []).slice(0, 4).join(', ');
                         const contactBits = [
                             b.email ? _esc(b.email) : '',
                             b.phone ? _esc(b.phone) : '',
@@ -1144,6 +1162,12 @@ window.Matching = (function() {
                             no_contact: 'bekannt ohne Kontakt',
                             unknown: 'nicht im Bestand',
                         })[b.reason] || _esc(b.reason || '');
+                        const subBo = [
+                            sp,
+                            reasonLabel,
+                            ov,
+                            eh.ort ? String(eh.ort) : '',
+                        ].filter(Boolean).join(' · ');
                         html += `
                         <div class="matching-card matching-hit" data-kind="backoffice"
                              data-source="${_escAttr(src)}" data-sources="${_escAttr(src)}"
@@ -1154,17 +1178,10 @@ window.Matching = (function() {
                           </div>
                           <div style="flex:1">
                             <div style="font-weight:700;font-size:12px">${nm}${_srcBadge(src)}</div>
-                            <div style="font-size:10px;color:#888">
-                              ${reasonLabel}
-                              ${ov ? ' · ' + _esc(ov) : ''}
-                              ${sk ? ' · ' + _esc(sk) : ''}
-                              ${eh.ort ? ' · ' + _esc(String(eh.ort)) : ''}
-                              ${eh.gulp_id ? ' · gulp=' + _esc(String(eh.gulp_id)) : ''}
-                              ${eh.fm_id ? ' · fm=' + _esc(String(eh.fm_id)) : ''}
-                            </div>
+                            <div style="font-size:10px;color:#888">${_esc(subBo || '—')}</div>
                             ${contactBits ? `<div style="font-size:10px;color:#166534">${contactBits}</div>` : ''}
                           </div>
-                          ${url ? `<a href="${_escAttr(url)}" target="_blank" rel="noopener" class="matching-btn-sm">Profil</a>` : ''}
+                          ${url ? `<a href="${_escAttr(url)}" target="_blank" rel="noopener" class="matching-btn-sm" title="Externes HTML-Profil">HTML</a>` : ''}
                         </div>`;
                     }
                     html += '</div></div>';

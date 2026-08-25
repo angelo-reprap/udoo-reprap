@@ -251,8 +251,9 @@ class MatchingEngine:
                     project,
                     existing_consultant_ids=set(source_by_id.keys()),
                     min_overlap=int(ext_cfg.get('min_overlap') or 1),
-                    gulp_pages=int(ext_cfg.get('gulp_pages') or 2),
-                    flm_pages=int(ext_cfg.get('flm_pages') or 2),
+                    gulp_pages=int(ext_cfg.get('gulp_pages') or 5),
+                    flm_pages=int(ext_cfg.get('flm_pages') or 5),
+                    max_hits=int(ext_cfg.get('max_hits') or 100),
                 )
                 for kr in external_meta.get('known_results') or []:
                     cons = kr.get('consultant_cv')
