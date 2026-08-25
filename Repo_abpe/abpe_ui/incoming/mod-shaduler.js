@@ -4204,6 +4204,27 @@
     currentResult = null;
     var ovl = document.getElementById('sh-ovl');
     if (!ovl) return;
+
+    function _downloadWorklistCsv(rows, baseName) {
+      var lines = ['ID;Name;HTML'];
+      (rows || []).forEach(function (r) {
+        function q(v) {
+          var s = String(v == null ? '' : v).replace(/"/g, '""');
+          return '"' + s + '"';
+        }
+        lines.push([q(r.external_id), q(r.name), q(r.html_url)].join(';'));
+      });
+      var blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = String(baseName || 'arbeitliste').replace(/[^\w\-]+/g, '_').slice(0, 80) + '.csv';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        URL.revokeObjectURL(a.href);
+        a.remove();
+      }, 500);
+    }
     var art = ARTEN[t.art] || ARTEN.intern;
     var ico = document.getElementById('sh-m-ico');
     if (ico) ico.className = 'bi ' + art.icon;
@@ -4224,6 +4245,42 @@
         '" target="_blank" rel="noopener" style="display:inline-block;padding:4px 10px;font-size:12px">' +
         esc(_t('sh.open_html', 'HTML öffnen')) + '</a></div>';
     }
+    // Arbeitsliste GulpID/FLM + HTML (Gruppen-Kopf)
+    var wl = Array.isArray(t.worklist) ? t.worklist : [];
+    if (wl.length) {
+      html += '<div style="margin-top:10px">' +
+        '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">' +
+        '<b style="font-size:12px">' + esc(_t('sh.worklist', 'Arbeitsliste')) +
+        ' (' + wl.length + ')</b>' +
+        '<button type="button" id="sh-wl-copy" class="sh-pick" style="font-size:11px;padding:2px 8px">' +
+        '<i class="bi bi-clipboard"></i> ' + esc(_t('sh.copy_list', 'Liste kopieren')) + '</button>' +
+        '<button type="button" id="sh-wl-csv" class="sh-pick" style="font-size:11px;padding:2px 8px">' +
+        '<i class="bi bi-download"></i> CSV</button>' +
+        '</div>' +
+        '<div style="max-height:280px;overflow:auto;border:1px solid #e2e8f0;border-radius:6px">' +
+        '<table style="width:100%;border-collapse:collapse;font-size:11px">' +
+        '<thead><tr style="background:#f1f5f9;text-align:left">' +
+        '<th style="padding:4px 6px">ID</th><th style="padding:4px 6px">Name</th>' +
+        '<th style="padding:4px 6px">HTML</th></tr></thead><tbody>';
+      wl.forEach(function (row) {
+        var id = row.external_id || '—';
+        var nm = row.name || '—';
+        var url = row.html_url || '';
+        html += '<tr style="border-top:1px solid #e2e8f0">' +
+          '<td style="padding:4px 6px;white-space:nowrap;font-weight:600">' + esc(id) + '</td>' +
+          '<td style="padding:4px 6px">' + esc(nm) + '</td>' +
+          '<td style="padding:4px 6px">' +
+          (url
+            ? '<a href="' + esc(url) + '" target="_blank" rel="noopener" style="color:#0d9488">HTML</a>'
+            : '—') +
+          '</td></tr>';
+      });
+      html += '</tbody></table></div>' +
+        '<div style="font-size:10px;color:#64748b;margin-top:6px">' +
+        esc(_t('sh.worklist_hint',
+          'Ablauf: HTML öffnen → Profil in Gulp/FLM prüfen → bei Bedarf dort anschreiben → Einzelaufgabe erledigen.')) +
+        '</div></div>';
+    }
     if (ex.hist && ex.hist.length) {
       html += '<ul>' + ex.hist.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>';
     }
@@ -4234,6 +4291,36 @@
     } else {
       excerptEl.style.display = isWa ? 'none' : '';
       excerptEl.innerHTML = isWa ? '' : ('<div class="none">' + esc(_t('sh.kein_auszug', 'Kein Auszug')) + '</div>');
+    }
+    // Copy / CSV für Arbeitsliste
+    if (wl.length) {
+      var copyBtn = document.getElementById('sh-wl-copy');
+      var csvBtn = document.getElementById('sh-wl-csv');
+      var tsv = 'ID\tName\tHTML\n' + wl.map(function (r) {
+        return [r.external_id || '', r.name || '', r.html_url || ''].join('\t');
+      }).join('\n');
+      if (copyBtn) {
+        copyBtn.onclick = function (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(tsv).then(function () {
+              toast(_t('sh.list_copied', 'Liste kopiert (ID + Name + HTML)'));
+            }).catch(function () {
+              toast(_t('sh.copy_fail', 'Kopieren fehlgeschlagen'));
+            });
+          } else {
+            toast(_t('sh.copy_fail', 'Kopieren fehlgeschlagen'));
+          }
+        };
+      }
+      if (csvBtn) {
+        csvBtn.onclick = function (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          _downloadWorklistCsv(wl, (t.titel || 'arbeitliste').slice(0, 60));
+        };
+      }
     }
     document.getElementById('sh-m-action').textContent = t.action_label || _t('sh.erledigen', 'Erledigen');
     document.getElementById('sh-m-actnote').textContent = t.action_note || '';

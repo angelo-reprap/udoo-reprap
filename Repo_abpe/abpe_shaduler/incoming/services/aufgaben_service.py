@@ -380,6 +380,53 @@ def _html_url_from_beschreibung(text: str) -> str:
     return (m.group(1) if m else '').strip()
 
 
+def _external_id_from_beschreibung(text: str) -> str:
+    s = text or ''
+    m = re.search(r'(?:Gulp-ID|FLM-ID|FM-ID|ID)\s*:\s*(\S+)', s, re.I)
+    return (m.group(1) if m else '').strip()
+
+
+def _worklist_for(aufgabe: Aufgabe) -> list[dict[str, Any]]:
+    """Arbeitsliste GulpID/FLM + HTML — aus ergebnis_daten oder Kinder."""
+    ed = aufgabe.ergebnis_daten if isinstance(aufgabe.ergebnis_daten, dict) else {}
+    wl = ed.get('worklist')
+    if isinstance(wl, list) and wl:
+        out = []
+        for row in wl:
+            if not isinstance(row, dict):
+                continue
+            out.append({
+                'external_id': str(row.get('external_id') or '').strip(),
+                'name': str(row.get('name') or '').strip(),
+                'html_url': str(row.get('html_url') or '').strip(),
+                'aufgabe_id': str(row.get('aufgabe_id') or '').strip(),
+            })
+        if out:
+            return out
+    # Parent ohne gespeicherte Liste → aus Kindern rekonstruieren
+    if aufgabe.gruppe_id and not aufgabe.parent_id:
+        kids = (
+            Aufgabe.objects.filter(gruppe_id=aufgabe.gruppe_id)
+            .exclude(pk=aufgabe.pk)
+            .order_by('titel')
+        )
+        out = []
+        for k in kids:
+            name = re.sub(r'^(?:Gulp|FLM)\s*:\s*', '', k.titel or '', flags=re.I).strip()
+            out.append({
+                'external_id': (
+                    _external_id_from_beschreibung(k.beschreibung)
+                    or (k.ref_id if k.ref_type == 'berater' else '')
+                    or ''
+                ),
+                'name': name or (k.titel or ''),
+                'html_url': _html_url_from_beschreibung(k.beschreibung),
+                'aufgabe_id': str(k.pk),
+            })
+        return out
+    return []
+
+
 def _kontext_for_art(art: str) -> str:
     return {
         'anruf': 'kunde_angebot',
@@ -525,6 +572,7 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'gruppe_id': str(aufgabe.gruppe_id) if aufgabe.gruppe_id else None,
         'parent_id': str(aufgabe.parent_id) if aufgabe.parent_id else None,
         'html_url': _html_url_from_beschreibung(aufgabe.beschreibung),
+        'worklist': _worklist_for(aufgabe),
         'faellig_am': aufgabe.faellig_am.isoformat(),
         'faellig_zeit': aufgabe.faellig_zeit.strftime('%H:%M') if aufgabe.faellig_zeit else None,
         'due_label': due_label(aufgabe, today),

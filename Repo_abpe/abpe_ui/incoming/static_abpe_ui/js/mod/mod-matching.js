@@ -3551,6 +3551,15 @@ window.Matching = (function() {
 
         const items = [];
         const seen = new Set();
+        function _extIdFromUrl(url, prefer) {
+            if (prefer) return String(prefer).trim();
+            const u = String(url || '');
+            let m = u.match(/[?&]gulpId=(\d+)/i);
+            if (m) return m[1];
+            m = u.match(/freelancermap\.de\/profil\/([^/?#]+)/i);
+            if (m) return m[1];
+            return '';
+        }
         function _push(name, htmlUrl, refId, extra) {
             const url = String(htmlUrl || '').trim();
             if (!url) return;
@@ -3558,10 +3567,19 @@ window.Matching = (function() {
             if (seen.has(key)) return;
             seen.add(key);
             const nm = String(name || 'Unbekannt').trim() || 'Unbekannt';
+            const extId = _extIdFromUrl(
+                url,
+                extra && (extra.external_id || extra.gulp_id || extra.fm_id || extra.fm_slug)
+            );
             items.push({
                 titel: `${label}: ${nm}`.slice(0, 200),
+                name: nm,
+                external_id: extId,
+                gulp_id: src === 'gulp' ? extId : '',
+                fm_id: src === 'flm' ? extId : '',
                 html_url: url,
                 beschreibung: [
+                    extId ? `${src === 'flm' ? 'FLM-ID' : 'Gulp-ID'}: ${extId}` : '',
                     `HTML: ${url}`,
                     extra && extra.schwerpunkt ? `Schwerpunkt: ${extra.schwerpunkt}` : '',
                     extra && extra.reason ? `Status: ${extra.reason}` : '',
@@ -3569,7 +3587,7 @@ window.Matching = (function() {
                     `Quelle: ${label}`,
                 ].filter(Boolean).join('\n'),
                 ref_type: 'berater',
-                ref_id: String(refId || url).slice(0, 64),
+                ref_id: String(extId || refId || url).slice(0, 64),
                 prioritaet: 3,
             });
         }
@@ -3583,7 +3601,12 @@ window.Matching = (function() {
                 r.name,
                 r.profil_url,
                 r.consultant_id || r.id,
-                { schwerpunkt: r.schwerpunkt }
+                {
+                    schwerpunkt: r.schwerpunkt,
+                    gulp_id: r.gulp_id,
+                    fm_id: r.fm_id,
+                    fm_slug: r.fm_slug,
+                }
             );
         });
         (cache.backoffice || []).forEach(b => {
@@ -3596,6 +3619,9 @@ window.Matching = (function() {
                 {
                     schwerpunkt: b.schwerpunkt || eh.title || eh.headline,
                     reason: b.reason,
+                    gulp_id: eh.gulp_id,
+                    fm_id: eh.fm_id,
+                    fm_slug: eh.fm_slug,
                 }
             );
         });
@@ -3608,18 +3634,36 @@ window.Matching = (function() {
         if (!confirm(
             `${items.length} ${label}-Profile als Wiedervorlagen-Gruppe anlegen?\n`
             + `(Shaduler → Aufgaben → Wiedervorlagen)\n`
+            + `Arbeitsliste: ${src === 'flm' ? 'FLM-ID' : 'Gulp-ID'} + HTML\n`
             + projLabel
         )) {
             if (sw) sw.checked = false;
             return;
         }
 
+        function _downloadCsv(rows) {
+            const lines = ['ID;Name;HTML'];
+            rows.forEach(r => {
+                const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+                lines.push([q(r.external_id), q(r.name), q(r.html_url)].join(';'));
+            });
+            const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `${label}_Nachbearbeitung_${(cache.project_number || 'liste')}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+        }
+
         _jsonPost('/shaduler/api/aufgaben/bulk/', {
             art: 'wiedervorlage',
+            source: src,
+            kanal: src,
             gruppe_titel: `${label}-Nachbearbeitung — ${projLabel}`.slice(0, 200),
             gruppe_beschreibung: [
                 `${items.length} Profile aus Matching (${label}).`,
-                'HTML-Links in den Einzelaufgaben zur Nachbearbeitung.',
+                'Arbeitsliste: ID + HTML zur Nachbearbeitung in Gulp/FLM.',
                 `Anfrage: ${projLabel}`,
             ].join('\n'),
             ref_type: 'projekt',
@@ -3628,12 +3672,13 @@ window.Matching = (function() {
             items: items,
         }).then(res => {
             if (res && res.ok) {
-                const n = res.count || items.length;
+                const n = (res.worklist && res.worklist.length) || items.length;
+                _downloadCsv(res.worklist && res.worklist.length ? res.worklist : items);
                 alert(
                     `✓ ${n} Wiedervorlagen angelegt (${label}).\n`
-                    + 'Öffne Shaduler → Aufgaben → Wiedervorlagen.'
+                    + 'CSV mit ID + HTML wurde heruntergeladen.\n'
+                    + 'Shaduler → Wiedervorlagen → Gruppenkopf öffnen = Arbeitsliste.'
                 );
-                // Schalter an lassen = „bereits generiert“
             } else {
                 alert('Fehler: ' + ((res && res.error) || 'Bulk-Anlage fehlgeschlagen'));
                 if (sw) sw.checked = false;

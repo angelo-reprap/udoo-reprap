@@ -640,6 +640,18 @@ def api_shortlist(request, project_id):
                     (en.get('profil_url') or '').strip()
                     or str(eh.get('profil_url') or eh.get('url') or '').strip()
                 )
+                gulp_id = (
+                    str(eh.get('gulp_id') or '').strip()
+                    or (en.get('gulp_id') or '').strip()
+                )
+                fm_id = (
+                    str(eh.get('fm_id') or '').strip()
+                    or (en.get('fm_id') or '').strip()
+                )
+                fm_slug = (
+                    str(eh.get('fm_slug') or '').strip()
+                    or (en.get('fm_slug') or '').strip()
+                )
                 aid = getattr(c, 'aid', '') or ''
                 cv_url = f'/cv-extractor/editor/{aid}/' if aid else ''
                 data.append({
@@ -657,6 +669,9 @@ def api_shortlist(request, project_id):
                     'availability':   getattr(c, 'availability', None) or '',
                     'schwerpunkt':    schwerpunkt,
                     'profil_url':     profil_url,
+                    'gulp_id':        gulp_id,
+                    'fm_id':          fm_id,
+                    'fm_slug':        fm_slug,
                     'overall_score':  round(float(r.overall_score or 0), 3),
                     'skill_score':    round(float(r.skill_score or 0), 3),
                     'industry_score': round(float(r.industry_score or 0), 3),
