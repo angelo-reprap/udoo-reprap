@@ -4511,7 +4511,7 @@ window.Matching = (function() {
         <div id="ow-panel" style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
           <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none">
             <i class="bi bi-send"></i>
-            <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}</b>
+            <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}${st.selectedOnly ? ' · Auswahl' : ''}</b>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
                     onclick="Matching.closeOutreachWizard()">×</button>
           </div>
