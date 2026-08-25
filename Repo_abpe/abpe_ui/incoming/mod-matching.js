@@ -1043,9 +1043,23 @@ window.Matching = (function() {
                         <span style="color:#94a3b8">(${dropCounts.flm || 0})</span>
                     </label>
                     <button class="matching-btn-primary" style="margin-left:auto"
+                            id="btn-outreach-selected"
                             onclick="Matching.sendAllAboveThreshold()">
                         ${_t('matching.btn_send_all_count')} (${d.above_threshold}) ↗
                     </button>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 8px;font-size:11px;color:#555">
+                    <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;user-select:none">
+                        <input type="checkbox" id="shortlist-select-all"
+                               onchange="Matching.toggleSelectAllVisible(this.checked)"
+                               style="accent-color:#163258;width:14px;height:14px">
+                        ${_esc(_kiT('select_all_visible', 'Sichtbare auswählen'))}
+                    </label>
+                    <span id="shortlist-selected-count" style="color:#163258;font-weight:600">0 ausgewählt</span>
+                    <button type="button" class="matching-btn-sm" onclick="Matching.clearOutreachSelection()">
+                        ${_esc(_kiT('clear_selection', 'Auswahl leeren'))}
+                    </button>
+                    <span style="color:#94a3b8">${_esc(_kiT('select_hint', 'Haken setzen → Anschreiben nur für Auswahl'))}</span>
                 </div>`;
 
                 const extSt = d.external_stats || {};
@@ -1115,6 +1129,14 @@ window.Matching = (function() {
                              data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}"
                              data-sources="${_escAttr(srcAttr)}" data-kind="shortlist"
                              data-rank="${r.rank || ''}" data-strength="${r.strength || 0}">
+                            <label style="display:flex;align-items:center;padding:0 2px;cursor:pointer;flex-shrink:0"
+                                   title="Für Outreach auswählen"
+                                   onclick="event.stopPropagation()">
+                                <input type="checkbox" class="matching-outreach-cb"
+                                       data-id="${_escAttr(r.id)}"
+                                       onchange="Matching.toggleOutreachSelect('${_escAttr(r.id)}', this.checked)"
+                                       style="accent-color:#163258;width:15px;height:15px;margin:0">
+                            </label>
                             <div class="matching-score-box ${scoreClass}">
                                 ${pctLabel}%${strHint}
                             </div>
@@ -1217,6 +1239,8 @@ window.Matching = (function() {
                     project_title: d.project_title || d.title || '',
                 };
                 Matching.filterShortlistSource('all');
+                _restoreOutreachCheckboxes();
+                _updateOutreachSelectUi();
             })
             .catch(e => {
                 if (loading) loading.style.display = 'none';
@@ -3513,10 +3537,7 @@ window.Matching = (function() {
 
         const cnt = document.getElementById('threshold-count');
         if (cnt) cnt.textContent = above + ' ' + _t('matching.above_threshold_full');
-        const sendBtn = document.querySelector('.matching-threshold-bar .matching-btn-primary');
-        if (sendBtn) {
-            sendBtn.textContent = _t('matching.btn_send_all_count') + ' (' + above + ') ↗';
-        }
+        _updateOutreachSelectUi(above);
     }
 
     function filterShortlistSource(src) {
@@ -3527,6 +3548,96 @@ window.Matching = (function() {
         const slider = document.getElementById('threshold-slider');
         const val = slider ? slider.value : '45';
         updateThreshold(val);
+    }
+
+    function _outreachSelectedSet() {
+        if (!(window._matchingOutreachSelected instanceof Set)) {
+            window._matchingOutreachSelected = new Set();
+        }
+        return window._matchingOutreachSelected;
+    }
+
+    function toggleOutreachSelect(id, checked) {
+        const set = _outreachSelectedSet();
+        const key = String(id || '');
+        if (!key) return;
+        if (checked) set.add(key);
+        else set.delete(key);
+        _updateOutreachSelectUi();
+    }
+
+    function clearOutreachSelection() {
+        _outreachSelectedSet().clear();
+        document.querySelectorAll('#shortlist-results .matching-outreach-cb').forEach(cb => {
+            cb.checked = false;
+        });
+        const all = document.getElementById('shortlist-select-all');
+        if (all) all.checked = false;
+        _updateOutreachSelectUi();
+    }
+
+    function toggleSelectAllVisible(checked) {
+        const set = _outreachSelectedSet();
+        const slider = document.getElementById('threshold-slider');
+        const t = slider ? (parseFloat(slider.value) / 100) : 0.45;
+        document.querySelectorAll('#shortlist-results .matching-card.matching-hit').forEach(card => {
+            if (card.style.display === 'none') return;
+            if (parseFloat(card.dataset.score || 0) < t) return;
+            const id = String(card.dataset.id || '');
+            const cb = card.querySelector('.matching-outreach-cb');
+            if (!id || !cb) return;
+            cb.checked = !!checked;
+            if (checked) set.add(id);
+            else set.delete(id);
+        });
+        _updateOutreachSelectUi();
+    }
+
+    function _restoreOutreachCheckboxes() {
+        const set = _outreachSelectedSet();
+        document.querySelectorAll('#shortlist-results .matching-outreach-cb').forEach(cb => {
+            cb.checked = set.has(String(cb.getAttribute('data-id') || ''));
+        });
+    }
+
+    function _updateOutreachSelectUi(aboveOverride) {
+        const set = _outreachSelectedSet();
+        const n = set.size;
+        const label = document.getElementById('shortlist-selected-count');
+        if (label) {
+            label.textContent = n
+                ? (n + ' ausgewählt')
+                : '0 ausgewählt';
+        }
+        const slider = document.getElementById('threshold-slider');
+        const t = slider ? (parseFloat(slider.value) / 100) : 0.45;
+        let above = aboveOverride;
+        if (above == null) {
+            above = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
+                .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score) >= t)
+                .length;
+        }
+        const sendBtn = document.getElementById('btn-outreach-selected')
+            || document.querySelector('.matching-threshold-bar .matching-btn-primary');
+        if (sendBtn) {
+            if (n > 0) {
+                sendBtn.textContent = _kiT('btn_send_selected', 'Auswahl anschreiben')
+                    + ' (' + n + ') ↗';
+            } else {
+                sendBtn.textContent = _t('matching.btn_send_all_count') + ' (' + above + ') ↗';
+            }
+        }
+        // Select-all: nur wenn alle sichtbaren ≥ Schwellwert angehakt
+        const allCb = document.getElementById('shortlist-select-all');
+        if (allCb) {
+            const vis = [...document.querySelectorAll('#shortlist-results .matching-card.matching-hit')]
+                .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score || 0) >= t);
+            const allOn = vis.length > 0 && vis.every(c => {
+                const cb = c.querySelector('.matching-outreach-cb');
+                return cb && cb.checked;
+            });
+            allCb.checked = allOn;
+        }
     }
 
     function sendAllAboveThreshold() {
@@ -3632,9 +3743,9 @@ window.Matching = (function() {
             return;
         }
         if (!confirm(
-            `${items.length} ${label}-Profile als Wiedervorlagen-Gruppe anlegen?\n`
+            `${items.length} ${label}-Profile in EINE Wiedervorlage mit Arbeitsliste?\n`
             + `(Shaduler → Aufgaben → Wiedervorlagen)\n`
-            + `Arbeitsliste: ${src === 'flm' ? 'FLM-ID' : 'Gulp-ID'} + HTML\n`
+            + `Liste: ${src === 'flm' ? 'FLM-ID' : 'Gulp-ID'} + HTML\n`
             + projLabel
         )) {
             if (sw) sw.checked = false;
@@ -3689,32 +3800,53 @@ window.Matching = (function() {
         });
     }
 
-    // ── Outreach-Wizard („Alle anschreiben“) ───────────────────────────────
+    // ── Outreach-Wizard („Alle anschreiben“ / Auswahl) ─────────────────────
     function _outreachCandidates() {
         const cache = window._matchingShortlistCache || {};
         const slider = document.getElementById('threshold-slider');
         const t = slider ? (parseFloat(slider.value) / 100) : (cache.threshold || 0.45);
+        const selected = _outreachSelectedSet();
+        const preferSelected = selected.size > 0;
+
+        function _mapCard(c) {
+            const id = c.dataset.id;
+            const hit = (cache.results || []).find(r => r.id === id) || {};
+            return {
+                id: id,
+                name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
+                score: parseFloat(c.dataset.score),
+                email: hit.email || '',
+                match_source: hit.match_source || c.dataset.source || 'db',
+                matched_skills: hit.matched_skills || [],
+                match_reason: hit.match_reason || '',
+                consultant_id: hit.consultant_id || '',
+                project_consultant_id: hit.project_consultant_id || null,
+                cv_editor_url: hit.cv_editor_url || '',
+            };
+        }
+
         const fromDom = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
-            .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score) >= t)
-            .map(c => {
-                const id = c.dataset.id;
-                const hit = (cache.results || []).find(r => r.id === id) || {};
-                return {
-                    id: id,
-                    name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
-                    score: parseFloat(c.dataset.score),
-                    email: hit.email || '',
-                    match_source: hit.match_source || c.dataset.source || 'db',
-                    matched_skills: hit.matched_skills || [],
-                    match_reason: hit.match_reason || '',
-                    consultant_id: hit.consultant_id || '',
-                    project_consultant_id: hit.project_consultant_id || null,
-                    cv_editor_url: hit.cv_editor_url || '',
-                };
-            });
-        if (fromDom.length) return { threshold: t, list: fromDom, projectId: cache.projectId };
+            .filter(c => {
+                if (c.style.display === 'none') return false;
+                if (parseFloat(c.dataset.score) < t) return false;
+                if (preferSelected && !selected.has(String(c.dataset.id || ''))) return false;
+                return true;
+            })
+            .map(_mapCard);
+        if (fromDom.length) {
+            return {
+                threshold: t,
+                list: fromDom,
+                projectId: cache.projectId,
+                selectedOnly: preferSelected,
+            };
+        }
         const list = (cache.results || [])
-            .filter(r => (r.overall_score || 0) >= t)
+            .filter(r => {
+                if ((r.overall_score || 0) < t) return false;
+                if (preferSelected && !selected.has(String(r.id))) return false;
+                return true;
+            })
             .map(r => ({
                 id: r.id,
                 name: r.name,
@@ -3726,14 +3858,32 @@ window.Matching = (function() {
                 project_consultant_id: r.project_consultant_id || null,
                 cv_editor_url: r.cv_editor_url || '',
             }));
-        return { threshold: t, list, projectId: cache.projectId };
+        return {
+            threshold: t,
+            list,
+            projectId: cache.projectId,
+            selectedOnly: preferSelected,
+        };
     }
 
     function openOutreachWizard() {
         const pack = _outreachCandidates();
         if (!pack.list.length) {
-            alert(_kiT('outreach_none', 'Keine Berater oberhalb des Schwellwerts.'));
+            if (pack.selectedOnly) {
+                alert(_kiT('outreach_none_selected',
+                    'Keine der ausgewählten Berater liegt über dem Schwellwert (oder ist sichtbar).'));
+            } else {
+                alert(_kiT('outreach_none', 'Keine Berater oberhalb des Schwellwerts.'));
+            }
             return;
+        }
+        if (!pack.selectedOnly && pack.list.length > 30) {
+            if (!confirm(
+                pack.list.length + ' Berater über Schwellwert — wirklich alle anschreiben?\n'
+                + 'Tipp: In der Shortlist Haken setzen, dann nur die Auswahl.'
+            )) {
+                return;
+            }
         }
         window._outreachWizard = {
             projectId: pack.projectId || (window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject) || null,
@@ -3750,6 +3900,7 @@ window.Matching = (function() {
             mailTarget: 'to',    // to | cc | bcc für kompakte Suche
             crm_contact_id: '',
             loading: false,
+            selectedOnly: !!pack.selectedOnly,
             _searchTimers: {},
         };
         _renderOutreachWizard();
@@ -6367,6 +6518,8 @@ window.Matching = (function() {
         openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
         updateThreshold, filterShortlistSource, sendAllAboveThreshold,
         toggleGenerateExternalList,
+        toggleOutreachSelect, toggleSelectAllVisible, clearOutreachSelection,
+        _restoreOutreachCheckboxes, _updateOutreachSelectUi,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
         outreachPolish, outreachReloadDraft, outreachSend,
         outreachPickEmail, outreachApplyEmail,
