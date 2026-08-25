@@ -31,7 +31,8 @@ for f in \
   services/matching_source_join.py \
   services/matching_external_recall.py \
   services/matching_service.py \
-  views.py tasks.py
+  services/outreach_wizard.py \
+  views.py urls.py tasks.py
 do
   [[ -f "$SRC_MW/$f" ]] || { echo "FAIL fehlt: $SRC_MW/$f"; exit 1; }
 done
@@ -57,6 +58,14 @@ grep -q "r.schwerpunkt" "$SRC_UI" \
   || { echo "FAIL: UI ohne Schwerpunkt-Zeile"; exit 1; }
 grep -q "toggleGenerateExternalList" "$SRC_UI" \
   || { echo "FAIL: UI ohne Gulp/FLM Listen-Schalter"; exit 1; }
+grep -q "outreachSelectTemplate" "$SRC_UI" \
+  || { echo "FAIL: UI ohne Email-Studio Template-Auswahl"; exit 1; }
+grep -q "api_outreach_email_templates" "$SRC_MW/views.py" \
+  || { echo "FAIL: views ohne outreach email-templates API"; exit 1; }
+grep -q "outreach/email-templates" "$SRC_MW/urls.py" \
+  || { echo "FAIL: urls ohne outreach/email-templates"; exit 1; }
+grep -q "DEFAULT_OUTREACH_TEMPLATE" "$SRC_MW/services/outreach_wizard.py" \
+  || { echo "FAIL: outreach_wizard ohne DEFAULT_OUTREACH_TEMPLATE"; exit 1; }
 grep -q "api_aufgaben_bulk_create" "$REPO/Repo_abpe/abpe_shaduler/incoming/views.py" \
   || { echo "FAIL: Shaduler ohne bulk Aufgaben-API"; exit 1; }
 grep -q "aufgaben/bulk" "$REPO/Repo_abpe/abpe_shaduler/incoming/urls.py" \
@@ -79,7 +88,9 @@ deploy_one "$SRC_MW/services/matching_engine.py" "$LIVE_MW/services/matching_eng
 deploy_one "$SRC_MW/services/matching_source_join.py" "$LIVE_MW/services/matching_source_join.py" "$BAK/mw"
 deploy_one "$SRC_MW/services/matching_external_recall.py" "$LIVE_MW/services/matching_external_recall.py" "$BAK/mw"
 deploy_one "$SRC_MW/services/matching_service.py" "$LIVE_MW/services/matching_service.py" "$BAK/mw"
+deploy_one "$SRC_MW/services/outreach_wizard.py" "$LIVE_MW/services/outreach_wizard.py" "$BAK/mw"
 deploy_one "$SRC_MW/views.py" "$LIVE_MW/views.py" "$BAK/mw"
+deploy_one "$SRC_MW/urls.py" "$LIVE_MW/urls.py" "$BAK/mw"
 deploy_one "$SRC_MW/tasks.py" "$LIVE_MW/tasks.py" "$BAK/mw"
 
 # Shortlist-Reset + Aufgaben-Bulk (Wiedervorlagen-Gruppen)

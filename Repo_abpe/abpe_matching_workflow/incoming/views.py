@@ -1447,6 +1447,20 @@ def api_outreach_deep_reason(request, match_result_id):
         return Response({'ok': False, 'error': str(e)}, status=500)
 
 
+@extend_schema(summary="Outreach: Email-Studio-Vorlagen")
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def api_outreach_email_templates(request):
+    """ACTIVE Email-Studio-Vorlagen für den Outreach-Wizard (Default: matching_outreach_wizard)."""
+    try:
+        from .services.outreach_wizard import list_outreach_email_templates
+        return Response(list_outreach_email_templates())
+    except Exception as e:
+        logger.exception('api_outreach_email_templates: %s', e)
+        return Response({'ok': False, 'error': str(e), 'templates': [], 'default': 'matching_outreach_wizard'}, status=500)
+
+
 @extend_schema(summary="Outreach: Anschreiben-Draft")
 @csrf_exempt
 @api_view(['POST'])
@@ -1455,6 +1469,7 @@ def api_outreach_letter_draft(request, match_result_id):
     try:
         from .services.outreach_wizard import (
             resolve_match_result, build_letter_draft, build_deep_reason, ensure_project_consultant,
+            DEFAULT_OUTREACH_TEMPLATE,
         )
         mr = resolve_match_result(match_result_id)
         pc = ensure_project_consultant(mr)
@@ -1462,7 +1477,17 @@ def api_outreach_letter_draft(request, match_result_id):
         deep = body.get('deep_reason') if isinstance(body.get('deep_reason'), dict) else None
         if body.get('refresh_reason') or not deep:
             deep = build_deep_reason(mr)
-        data = build_letter_draft(mr, deep=deep, extra_notes=body.get('extra_notes') or '')
+        # use_ai: Default True; beim Vorlagenwechsel Frontend sendet false
+        use_ai = body.get('use_ai')
+        if use_ai is None:
+            use_ai = True
+        data = build_letter_draft(
+            mr,
+            deep=deep,
+            extra_notes=body.get('extra_notes') or '',
+            template_identifier=body.get('template_identifier') or DEFAULT_OUTREACH_TEMPLATE,
+            use_ai=bool(use_ai),
+        )
         data['project_consultant_id'] = str(pc.id)
         data['deep_reason'] = deep
         return Response(data)

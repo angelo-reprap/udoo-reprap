@@ -3902,9 +3902,65 @@ window.Matching = (function() {
             loading: false,
             selectedOnly: !!pack.selectedOnly,
             _searchTimers: {},
+            templates: [],
+            templateIdentifier: 'matching_outreach_wizard',
+            useAiOnLoad: true,   // false nach Vorlagenwechsel
         };
         _renderOutreachWizard();
-        _outreachLoadCurrent();
+        _outreachEnsureTemplates().then(function () {
+            _renderOutreachWizard();
+            _outreachLoadCurrent();
+        });
+    }
+
+    function _outreachEnsureTemplates() {
+        const st = window._outreachWizard;
+        if (!st) return Promise.resolve([]);
+        if (st.templates && st.templates.length) return Promise.resolve(st.templates);
+        return fetch(API + 'outreach/email-templates/', {
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        })
+        .then(r => r.json())
+        .then(d => {
+            st.templates = (d && d.templates) || [];
+            if (d && d.default) st.templateIdentifier = d.default;
+            if (!st.templates.length) {
+                st.templates = [{
+                    identifier: 'matching_outreach_wizard',
+                    name: 'Matching — Outreach-Wizard Anschreiben',
+                    is_default: true,
+                }];
+            }
+            if (!st.templateIdentifier) {
+                const def = st.templates.find(t => t.is_default) || st.templates[0];
+                st.templateIdentifier = (def && def.identifier) || 'matching_outreach_wizard';
+            }
+            return st.templates;
+        })
+        .catch(() => {
+            st.templates = [{
+                identifier: 'matching_outreach_wizard',
+                name: 'Matching — Outreach-Wizard Anschreiben',
+                is_default: true,
+            }];
+            st.templateIdentifier = 'matching_outreach_wizard';
+            return st.templates;
+        });
+    }
+
+    function _outreachTemplateOptionsHtml(st) {
+        const list = (st && st.templates) || [];
+        const cur = (st && st.templateIdentifier) || 'matching_outreach_wizard';
+        if (!list.length) {
+            return `<option value="matching_outreach_wizard" selected>Matching — Outreach-Wizard Anschreiben</option>`;
+        }
+        return list.map(t => {
+            const id = t.identifier || '';
+            const sel = id === cur ? ' selected' : '';
+            const mark = t.is_default ? ' ★' : '';
+            return `<option value="${_escAttr(id)}"${sel}>${_esc(t.name || id)}${mark}</option>`;
+        }).join('');
     }
 
     function _outreachParseEmails(raw) {
@@ -4524,7 +4580,7 @@ window.Matching = (function() {
                 <div style="font-size:12px;color:#666">${Math.round((cur.score || 0) * 100)}% · ${_esc((cur.matched_skills || []).slice(0, 5).join(' · '))}</div>
                 ${cur.cv_editor_url ? `<a href="${_escAttr(cur.cv_editor_url)}" target="_blank" class="matching-btn-sm">CV</a>` : ''}
               </div>
-              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'DeepSeek lädt …' : ''}</div>
+              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'Lädt Entwurf …' : ''}</div>
               <div style="background:#f5f7fa;border-radius:8px;padding:10px">
                 <div style="font-size:11px;font-weight:700;color:#163258;margin-bottom:4px">${_esc(_kiT('outreach_why', 'Warum anschreiben'))}</div>
                 <div id="ow-why" style="font-size:12px;line-height:1.45">${_esc(deep.why || cur.match_reason || '…')}</div>
@@ -4534,6 +4590,12 @@ window.Matching = (function() {
                 </div>
               </div>
               ${_outreachEmailBlockHtml(st, cur, draft)}
+              <label style="font-size:11px;color:#666">Vorlage (Email Studio)
+                <select id="ow-tpl" class="matching-form-input" style="width:100%;margin-top:3px"
+                        onchange="Matching.outreachSelectTemplate(this.value)">
+                  ${_outreachTemplateOptionsHtml(st)}
+                </select>
+              </label>
               <label style="font-size:11px;color:#666">Betreff
                 <input id="ow-subj" class="matching-form-input" style="width:100%;margin-top:3px"
                        value="${_escAttr(draft.subject || '')}">
@@ -4653,12 +4715,20 @@ window.Matching = (function() {
         st.selectedEmail = st.selectedEmail || cur.email || '';
         _renderOutreachWizard();
         const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
+        const useAi = st.useAiOnLoad !== false;
+        const tplId = st.templateIdentifier || 'matching_outreach_wizard';
+        // Nach Vorlagenwechsel: kein erneutes DeepSeek, bis „Neu entwerfen“
+        st.useAiOnLoad = true;
 
         const draftP = fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/letter/draft/', {
             method: 'POST',
             credentials: 'same-origin',
             headers,
-            body: JSON.stringify({ refresh_reason: true }),
+            body: JSON.stringify({
+                refresh_reason: true,
+                template_identifier: tplId,
+                use_ai: useAi,
+            }),
         })
         .then(async r => {
             let d = {};
@@ -4677,6 +4747,7 @@ window.Matching = (function() {
                 reply_likelihood: d.reply_likelihood,
             };
             st.draft = d;
+            if (d.template_identifier) st.templateIdentifier = d.template_identifier;
             if (d.project_consultant_id) cur.project_consultant_id = d.project_consultant_id;
             st.emails = crm.emails || [];
             st.crm_contact_id = crm.crm_contact_id || '';
@@ -4686,6 +4757,14 @@ window.Matching = (function() {
             if (st.draft) st.draft.to_email = st.selectedEmail;
             st.loading = false;
             _renderOutreachWizard();
+            const el = document.getElementById('ow-status');
+            if (el) {
+                el.style.color = '#666';
+                const src = d.template_name || d.template_identifier || tplId;
+                el.textContent = useAi
+                    ? ('Entwurf · ' + src)
+                    : ('Vorlage · ' + src);
+            }
         })
         .catch(e => {
             console.error(e);
@@ -4697,6 +4776,7 @@ window.Matching = (function() {
                 to_email: st.selectedEmail || cur.email || '',
                 subject: _fillTpl(tpl.subject, ctx),
                 body: _fillTpl(tpl.body, ctx),
+                template_identifier: tplId,
             };
             // CRM trotzdem versuchen
             _outreachLoadCrmFor(cur).then(crm => {
@@ -4714,6 +4794,18 @@ window.Matching = (function() {
                 }
             });
         });
+    }
+
+    function outreachSelectTemplate(identifier) {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const id = String(identifier || '').trim();
+        if (!id || id === st.templateIdentifier) return;
+        _outreachCaptureForm(st);
+        st.templateIdentifier = id;
+        st.useAiOnLoad = false;
+        st.draft = null;
+        _outreachLoadCurrent();
     }
 
     function outreachSkip() {
@@ -4788,6 +4880,7 @@ window.Matching = (function() {
         if (!st || st.loading) return;
         st.deep = null;
         st.draft = null;
+        st.useAiOnLoad = true;
         _outreachLoadCurrent();
     }
 
@@ -6521,7 +6614,7 @@ window.Matching = (function() {
         toggleOutreachSelect, toggleSelectAllVisible, clearOutreachSelection,
         _restoreOutreachCheckboxes, _updateOutreachSelectUi,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
-        outreachPolish, outreachReloadDraft, outreachSend,
+        outreachPolish, outreachReloadDraft, outreachSelectTemplate, outreachSend,
         outreachPickEmail, outreachApplyEmail,
         outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
         outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,
