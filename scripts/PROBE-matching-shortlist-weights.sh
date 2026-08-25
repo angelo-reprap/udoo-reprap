@@ -75,7 +75,8 @@ print(f'Projekt: {getattr(p, "project_number", p.id)}  {p.title}')
 print(f'required_skills: {eng._skill_names(p.required_skills)}')
 print(f'extracted_technologies: {list(p.extracted_technologies or [])}')
 print(f'threshold: {p.shortlist_threshold}')
-print(f'scoring blends: coverage={eng.cov_blend} strength={eng.str_blend}')
+print(f'scoring blends: coverage={eng.cov_blend} strength={eng.str_blend} '
+      f'power={eng.coverage_power} sat_boost={eng.strength_sat_boost}')
 print(f'es_recall: {json.dumps(eng.es_recall_cfg or {"enabled": "(default on)"}, ensure_ascii=False)}')
 print('=' * 64)
 
