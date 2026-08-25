@@ -295,6 +295,14 @@ def erstellen(
 ) -> Aufgabe:
     if faellig_am is None:
         faellig_am = _today()
+    gid = gruppe_id
+    if isinstance(gid, str) and gid.strip():
+        try:
+            gid = UUID(gid.strip())
+        except (TypeError, ValueError):
+            gid = None
+    elif not gid:
+        gid = None
     aufgabe = Aufgabe.objects.create(
         art=art,
         kanal=kanal or '',
@@ -309,7 +317,7 @@ def erstellen(
         quelle=quelle,
         regel=regel,
         parent=parent,
-        gruppe_id=gruppe_id,
+        gruppe_id=gid,
     )
     aktivitaet_service.schreiben(
         medium=AktivitaetMediumForArt(art),
@@ -355,6 +363,21 @@ def due_label(aufgabe: Aufgabe, today: Optional[date] = None) -> str:
             return f'heute {aufgabe.faellig_zeit.strftime("%H:%M")}'
         return 'heute'
     return d.strftime('%d.%m.%Y')
+
+
+_RE_HTML_URL = re.compile(
+    r'(?:HTML:\s*)?(https?://[^\s<>"\']+)',
+    re.I,
+)
+
+
+def _html_url_from_beschreibung(text: str) -> str:
+    s = text or ''
+    m = re.search(r'HTML:\s*(\S+)', s, re.I)
+    if m:
+        return m.group(1).strip()
+    m = _RE_HTML_URL.search(s)
+    return (m.group(1) if m else '').strip()
 
 
 def _kontext_for_art(art: str) -> str:
@@ -499,6 +522,9 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'ref_id': aufgabe.ref_id,
         'ref_label': ref_label,
         'crm_url': crm_url,
+        'gruppe_id': str(aufgabe.gruppe_id) if aufgabe.gruppe_id else None,
+        'parent_id': str(aufgabe.parent_id) if aufgabe.parent_id else None,
+        'html_url': _html_url_from_beschreibung(aufgabe.beschreibung),
         'faellig_am': aufgabe.faellig_am.isoformat(),
         'faellig_zeit': aufgabe.faellig_zeit.strftime('%H:%M') if aufgabe.faellig_zeit else None,
         'due_label': due_label(aufgabe, today),

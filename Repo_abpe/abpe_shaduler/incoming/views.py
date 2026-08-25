@@ -104,11 +104,79 @@ def api_aufgabe_create(request):
         ref_type=data.get('ref_type') or '',
         ref_id=data.get('ref_id') or '',
         prioritaet=int(data.get('prioritaet') or 3),
+        gruppe_id=data.get('gruppe_id') or None,
         user=request.user,
     )
     return JsonResponse({
         'ok': True,
         'created': aufgaben_service.serialize(aufgabe),
+    }, status=201)
+
+
+@login_required
+@require_POST
+def api_aufgaben_bulk_create(request):
+    """
+    Legt mehrere Aufgaben als eine Gruppe an (gleiche gruppe_id).
+    Typisch: Matching → Gulp/FLM-Nachbearbeitung als Wiedervorlagen.
+    Body:
+      art, gruppe_titel?, gruppe_beschreibung?,
+      items: [{titel, beschreibung?, ref_type?, ref_id?, prioritaet?, html_url?}]
+    """
+    import uuid as _uuid
+    data = _json_body(request)
+    art = data.get('art') or Aufgabe.Art.WIEDERVORLAGE
+    items = data.get('items') or []
+    if not isinstance(items, list) or not items:
+        return JsonResponse({'ok': False, 'error': 'items required'}, status=400)
+    items = items[:200]
+    gruppe_id = _uuid.uuid4()
+    gruppe_titel = (data.get('gruppe_titel') or '').strip()
+    gruppe_beschreibung = (data.get('gruppe_beschreibung') or '').strip()
+    created = []
+    parent = None
+    if gruppe_titel:
+        parent = aufgaben_service.erstellen(
+            art=art,
+            titel=gruppe_titel[:200],
+            beschreibung=gruppe_beschreibung or f'{len(items)} Profile zur Nachbearbeitung',
+            zugewiesen_an=request.user,
+            prioritaet=int(data.get('prioritaet') or 2),
+            ref_type=data.get('ref_type') or 'projekt',
+            ref_id=str(data.get('ref_id') or '')[:64],
+            gruppe_id=gruppe_id,
+            user=request.user,
+        )
+        created.append(aufgaben_service.serialize(parent))
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        titel = (it.get('titel') or '').strip()
+        if not titel:
+            continue
+        beschr = (it.get('beschreibung') or '').strip()
+        html_url = (it.get('html_url') or it.get('profil_url') or '').strip()
+        if html_url and 'HTML:' not in beschr and html_url not in beschr:
+            beschr = (f'HTML: {html_url}\n' + beschr).strip()
+        child = aufgaben_service.erstellen(
+            art=art,
+            titel=titel[:200],
+            beschreibung=beschr,
+            zugewiesen_an=request.user,
+            kanal=it.get('kanal') or data.get('kanal') or '',
+            ref_type=it.get('ref_type') or '',
+            ref_id=str(it.get('ref_id') or '')[:64],
+            prioritaet=int(it.get('prioritaet') or data.get('item_prioritaet') or 3),
+            gruppe_id=gruppe_id,
+            parent=parent,
+            user=request.user,
+        )
+        created.append(aufgaben_service.serialize(child))
+    return JsonResponse({
+        'ok': True,
+        'gruppe_id': str(gruppe_id),
+        'count': len(created),
+        'created': created,
     }, status=201)
 
 

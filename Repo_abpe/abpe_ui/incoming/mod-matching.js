@@ -1026,6 +1026,22 @@ window.Matching = (function() {
                             onclick="Matching.rematch('${projectId}')">
                         <i class="bi bi-arrow-repeat"></i> ${_esc(_kiT('btn_rematch', 'Erneut matchen'))}
                     </button>
+                    <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:4px;cursor:pointer;user-select:none"
+                           title="Gulp-Treffer (Shortlist+Backoffice) als Wiedervorlagen-Gruppe anlegen">
+                        <input type="checkbox" id="sw-gen-gulp"
+                               onchange="Matching.toggleGenerateExternalList('gulp', this.checked)"
+                               style="accent-color:#9a3412;width:14px;height:14px">
+                        ${_esc(_kiT('btn_gen_gulp_list', 'Liste Gulp generieren'))}
+                        <span style="color:#94a3b8">(${dropCounts.gulp || 0})</span>
+                    </label>
+                    <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:2px;cursor:pointer;user-select:none"
+                           title="FLM-Treffer (Shortlist+Backoffice) als Wiedervorlagen-Gruppe anlegen">
+                        <input type="checkbox" id="sw-gen-flm"
+                               onchange="Matching.toggleGenerateExternalList('flm', this.checked)"
+                               style="accent-color:#5b21b6;width:14px;height:14px">
+                        ${_esc(_kiT('btn_gen_flm_list', 'Liste FLM generieren'))}
+                        <span style="color:#94a3b8">(${dropCounts.flm || 0})</span>
+                    </label>
                     <button class="matching-btn-primary" style="margin-left:auto"
                             onclick="Matching.sendAllAboveThreshold()">
                         ${_t('matching.btn_send_all_count')} (${d.above_threshold}) ↗
@@ -3515,6 +3531,117 @@ window.Matching = (function() {
 
     function sendAllAboveThreshold() {
         openOutreachWizard();
+    }
+
+    /**
+     * Schalter: Gulp/FLM-Liste → Wiedervorlagen-Gruppe (HTML-Links zur Nachbearbeitung).
+     */
+    function toggleGenerateExternalList(source, enabled) {
+        const src = String(source || '').toLowerCase();
+        const swId = src === 'flm' ? 'sw-gen-flm' : 'sw-gen-gulp';
+        const sw = document.getElementById(swId);
+        if (!enabled) {
+            return;
+        }
+        const cache = window._matchingShortlistCache || {};
+        const projectId = cache.projectId || '';
+        const projLabel = [cache.project_number, cache.project_title].filter(Boolean).join(' · ')
+            || projectId || 'Anfrage';
+        const label = src === 'flm' ? 'FLM' : 'Gulp';
+
+        const items = [];
+        const seen = new Set();
+        function _push(name, htmlUrl, refId, extra) {
+            const url = String(htmlUrl || '').trim();
+            if (!url) return;
+            const key = url.toLowerCase();
+            if (seen.has(key)) return;
+            seen.add(key);
+            const nm = String(name || 'Unbekannt').trim() || 'Unbekannt';
+            items.push({
+                titel: `${label}: ${nm}`.slice(0, 200),
+                html_url: url,
+                beschreibung: [
+                    `HTML: ${url}`,
+                    extra && extra.schwerpunkt ? `Schwerpunkt: ${extra.schwerpunkt}` : '',
+                    extra && extra.reason ? `Status: ${extra.reason}` : '',
+                    `Anfrage: ${projLabel}`,
+                    `Quelle: ${label}`,
+                ].filter(Boolean).join('\n'),
+                ref_type: 'berater',
+                ref_id: String(refId || url).slice(0, 64),
+                prioritaet: 3,
+            });
+        }
+
+        (cache.results || []).forEach(r => {
+            const srcList = (Array.isArray(r.match_sources) && r.match_sources.length)
+                ? r.match_sources.map(s => String(s || '').toLowerCase())
+                : [String(r.match_source || '').toLowerCase()];
+            if (!srcList.includes(src)) return;
+            _push(
+                r.name,
+                r.profil_url,
+                r.consultant_id || r.id,
+                { schwerpunkt: r.schwerpunkt }
+            );
+        });
+        (cache.backoffice || []).forEach(b => {
+            if (String(b.match_source || '').toLowerCase() !== src) return;
+            const eh = b.external_hit || {};
+            _push(
+                b.display_name || eh.name,
+                eh.profil_url || eh.url,
+                eh.gulp_id || eh.fm_id || eh.fm_slug || b.display_name,
+                {
+                    schwerpunkt: b.schwerpunkt || eh.title || eh.headline,
+                    reason: b.reason,
+                }
+            );
+        });
+
+        if (!items.length) {
+            alert(`Keine ${label}-Treffer mit HTML-Link in Shortlist/Backoffice.`);
+            if (sw) sw.checked = false;
+            return;
+        }
+        if (!confirm(
+            `${items.length} ${label}-Profile als Wiedervorlagen-Gruppe anlegen?\n`
+            + `(Shaduler → Aufgaben → Wiedervorlagen)\n`
+            + projLabel
+        )) {
+            if (sw) sw.checked = false;
+            return;
+        }
+
+        _jsonPost('/shaduler/api/aufgaben/bulk/', {
+            art: 'wiedervorlage',
+            gruppe_titel: `${label}-Nachbearbeitung — ${projLabel}`.slice(0, 200),
+            gruppe_beschreibung: [
+                `${items.length} Profile aus Matching (${label}).`,
+                'HTML-Links in den Einzelaufgaben zur Nachbearbeitung.',
+                `Anfrage: ${projLabel}`,
+            ].join('\n'),
+            ref_type: 'projekt',
+            ref_id: String(projectId || cache.project_number || '').slice(0, 64),
+            prioritaet: 2,
+            items: items,
+        }).then(res => {
+            if (res && res.ok) {
+                const n = res.count || items.length;
+                alert(
+                    `✓ ${n} Wiedervorlagen angelegt (${label}).\n`
+                    + 'Öffne Shaduler → Aufgaben → Wiedervorlagen.'
+                );
+                // Schalter an lassen = „bereits generiert“
+            } else {
+                alert('Fehler: ' + ((res && res.error) || 'Bulk-Anlage fehlgeschlagen'));
+                if (sw) sw.checked = false;
+            }
+        }).catch(err => {
+            alert('Fehler: ' + (err && err.message ? err.message : err));
+            if (sw) sw.checked = false;
+        });
     }
 
     // ── Outreach-Wizard („Alle anschreiben“) ───────────────────────────────
@@ -6194,6 +6321,7 @@ window.Matching = (function() {
         init, applyI18n, switchTab, newRequest,
         openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
         updateThreshold, filterShortlistSource, sendAllAboveThreshold,
+        toggleGenerateExternalList,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
         outreachPolish, outreachReloadDraft, outreachSend,
         outreachPickEmail, outreachApplyEmail,

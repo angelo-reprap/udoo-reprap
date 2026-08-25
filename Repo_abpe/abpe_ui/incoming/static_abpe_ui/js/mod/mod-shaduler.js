@@ -3834,6 +3834,21 @@
       '<span class="cnt">(' + TASKS.length + ')</span>';
     c.appendChild(head);
 
+    function _taskRow(t) {
+      var el = document.createElement('div');
+      el.className = 'task' + (t.ueberfaellig ? ' ov' : '');
+      var htmlHint = t.html_url
+        ? '<small style="color:#0d9488">HTML</small>'
+        : '';
+      el.innerHTML =
+        '<div class="tx"><b>' + esc(t.titel) + '</b><small>' +
+        esc(t.ref_label || t.ref_type || '') + '</small>' + htmlHint + '</div>' +
+        '<span class="due">' + (t.ueberfaellig ? '<i class="bi bi-exclamation-triangle-fill"></i> ' : '') +
+        esc(t.due_label || '') + '</span>';
+      el.addEventListener('click', function () { openModal(t); });
+      return el;
+    }
+
     ORDER.forEach(function (art) {
       var a = ARTEN[art];
       if (!a) return;
@@ -3858,16 +3873,48 @@
         renderAcc();
       });
       var body = acc.querySelector('.acc-body');
-      list.forEach(function (t) {
-        var el = document.createElement('div');
-        el.className = 'task' + (t.ueberfaellig ? ' ov' : '');
-        el.innerHTML =
-          '<div class="tx"><b>' + esc(t.titel) + '</b><small>' + esc(t.ref_label || t.ref_type || '') + '</small></div>' +
-          '<span class="due">' + (t.ueberfaellig ? '<i class="bi bi-exclamation-triangle-fill"></i> ' : '') +
-          esc(t.due_label || '') + '</span>';
-        el.addEventListener('click', function () { openModal(t); });
-        body.appendChild(el);
-      });
+      // Wiedervorlagen: nach gruppe_id clustern (Matching Gulp/FLM-Listen)
+      if (art === 'wiedervorlage' && list.length) {
+        var groups = {};
+        var order = [];
+        list.forEach(function (t) {
+          var gid = t.gruppe_id || ('__solo_' + t.id);
+          if (!groups[gid]) {
+            groups[gid] = [];
+            order.push(gid);
+          }
+          groups[gid].push(t);
+        });
+        order.forEach(function (gid) {
+          var gList = groups[gid];
+          if (!gid.indexOf || gid.indexOf('__solo_') === 0) {
+            gList.forEach(function (t) { body.appendChild(_taskRow(t)); });
+            return;
+          }
+          var parent = gList.find(function (t) { return !t.parent_id; }) || gList[0];
+          var kids = gList.filter(function (t) { return t.id !== parent.id; });
+          var wrap = document.createElement('div');
+          wrap.className = 'wv-gruppe';
+          wrap.style.cssText = 'margin:6px 0 10px;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc';
+          var gh = document.createElement('div');
+          gh.style.cssText = 'font-size:11px;font-weight:700;color:#163258;margin-bottom:4px;cursor:pointer;display:flex;gap:6px;align-items:center';
+          gh.innerHTML =
+            '<i class="bi bi-collection" style="color:#64748b"></i>' +
+            '<span>' + esc(parent.titel || 'Gruppe') + '</span>' +
+            '<span style="font-weight:500;color:#94a3b8">(' + gList.length + ')</span>';
+          wrap.appendChild(gh);
+          var gBody = document.createElement('div');
+          // Parent zuerst, dann Kinder
+          gBody.appendChild(_taskRow(parent));
+          kids.forEach(function (t) { gBody.appendChild(_taskRow(t)); });
+          wrap.appendChild(gBody);
+          body.appendChild(wrap);
+        });
+      } else {
+        list.forEach(function (t) {
+          body.appendChild(_taskRow(t));
+        });
+      }
       c.appendChild(acc);
     });
 
@@ -4165,7 +4212,18 @@
     var isWa = t && (t.art === 'sms_messenger' || t.whatsapp_url || t.wa);
     var ex = t.excerpt || {};
     var html = '';
-    if (!isWa && ex.stand) html += '<div><b>' + esc(_t('sh.stand', 'Stand')) + ':</b> ' + esc(ex.stand) + '</div>';
+    if (!isWa && ex.stand) {
+      var standHtml = esc(ex.stand).replace(
+        /(https?:\/\/[^\s<&]+)/g,
+        '<a href="$1" target="_blank" rel="noopener" style="color:#0d9488;word-break:break-all">$1</a>'
+      );
+      html += '<div><b>' + esc(_t('sh.stand', 'Stand')) + ':</b> ' + standHtml + '</div>';
+    }
+    if (t.html_url) {
+      html += '<div style="margin-top:6px"><a class="primary" href="' + esc(t.html_url) +
+        '" target="_blank" rel="noopener" style="display:inline-block;padding:4px 10px;font-size:12px">' +
+        esc(_t('sh.open_html', 'HTML öffnen')) + '</a></div>';
+    }
     if (ex.hist && ex.hist.length) {
       html += '<ul>' + ex.hist.map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('') + '</ul>';
     }
