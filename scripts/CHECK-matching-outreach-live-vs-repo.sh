@@ -2,8 +2,8 @@
 # Prüft Live-Dateien vs. Git-Branch (Outreach-Wizard) — 1:1 Guard.
 #
 #   cd /mnt/public/udoo-reprap
-#   git fetch origin cursor/matching-outreach-wizard-1532
-#   bash <(git show origin/cursor/matching-outreach-wizard-1532:scripts/CHECK-matching-outreach-live-vs-repo.sh)
+#   git fetch origin cursor/matching-shortlist-weights-1532
+#   bash <(git show origin/cursor/matching-shortlist-weights-1532:scripts/CHECK-matching-outreach-live-vs-repo.sh)
 #
 # Exit 0 = Dateien gleich (oder Live fehlt = frischer Deploy ok)
 # Exit 2 = Live hat Markierungen die Repo nicht hat → zuerst PULL
@@ -11,7 +11,7 @@
 #
 set -euo pipefail
 
-BRANCH="${BRANCH:-cursor/matching-outreach-wizard-1532}"
+BRANCH="${BRANCH:-cursor/matching-shortlist-weights-1532}"
 LIVE_MW="${LIVE_MW:-/opt/abpe/backend/apps/abpe_matching_workflow}"
 LIVE_UI="${LIVE_UI:-/opt/abpe/backend/apps/abpe_ui}"
 LIVE_JS="${LIVE_JS:-$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js}"
@@ -34,7 +34,6 @@ check_pair() {
   local gs ls
   gs="$(_sha_git "$rel" || true)"
   if [[ -z "$gs" || "$gs" == "$(echo -n | sha256sum | awk '{print $1}')" ]]; then
-    # empty/missing in git
     if [[ ! -f "$live" ]]; then
       echo "  SKIP  $rel (weder Live noch Git)"
       return
@@ -74,11 +73,11 @@ check_pair() {
   fi
 }
 
-check_pair "Repo_abpe/abpe_ui/incoming/mod-matching.js" "$LIVE_JS" "outreachUnifiedSearch"
-check_pair "Repo_abpe/abpe_matching_workflow/incoming/views.py" "$LIVE_MW/views.py" "api_outreach_deep_reason"
-check_pair "Repo_abpe/abpe_matching_workflow/incoming/urls.py" "$LIVE_MW/urls.py" "api_outreach_letter_draft"
+check_pair "Repo_abpe/abpe_ui/incoming/mod-matching.js" "$LIVE_JS" "outreachSelectSignature"
+check_pair "Repo_abpe/abpe_matching_workflow/incoming/views.py" "$LIVE_MW/views.py" "api_outreach_email_templates"
+check_pair "Repo_abpe/abpe_matching_workflow/incoming/urls.py" "$LIVE_MW/urls.py" "outreach/email-templates"
 check_pair "Repo_abpe/abpe_matching_workflow/incoming/services/outreach_wizard.py" \
-  "$LIVE_MW/services/outreach_wizard.py" "build_letter_draft"
+  "$LIVE_MW/services/outreach_wizard.py" "_redact_customer_names"
 LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
 check_pair "Repo_abpe/abpe_crm/incoming/views.py" "$LIVE_CRM/views.py" "orm_emergency"
 LIVE_SH_JS="${LIVE_SH_JS:-$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js}"
@@ -89,7 +88,7 @@ check_pair "Repo_abpe/abpe_ui/incoming/mod-shaduler.css" "$LIVE_SH_CSS" "sh-art-
 echo
 if [[ "$live_ahead" -eq 1 ]]; then
   echo "ERGEBNIS: Live voraus / hat Extra → zuerst Live→Repo pullen, sonst Feature-Verlust."
-  echo "  bash <(git show origin/$BRANCH:scripts/PULL-matching-from-live.sh) --push"
+  echo "  bash scripts/SAFE-pull-matching-live-to-repo.sh"
   exit 2
 fi
 if [[ "$differs" -eq 0 ]]; then
