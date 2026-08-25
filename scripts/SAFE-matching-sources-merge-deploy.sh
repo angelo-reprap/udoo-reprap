@@ -60,6 +60,10 @@ grep -q "toggleGenerateExternalList" "$SRC_UI" \
   || { echo "FAIL: UI ohne Gulp/FLM Listen-Schalter"; exit 1; }
 grep -q "outreachSelectTemplate" "$SRC_UI" \
   || { echo "FAIL: UI ohne Email-Studio Template-Auswahl"; exit 1; }
+grep -q "outreachSetDefaultTemplate" "$SRC_UI" \
+  || { echo "FAIL: UI ohne Als Standard setzen"; exit 1; }
+grep -q "matching_outreach_default_template_v1" "$SRC_UI" \
+  || { echo "FAIL: UI ohne localStorage Standard-Vorlage"; exit 1; }
 grep -q "api_outreach_email_templates" "$SRC_MW/views.py" \
   || { echo "FAIL: views ohne outreach email-templates API"; exit 1; }
 grep -q "outreach/email-templates" "$SRC_MW/urls.py" \

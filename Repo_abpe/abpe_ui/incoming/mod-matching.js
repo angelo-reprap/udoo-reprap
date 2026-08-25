@@ -3903,13 +3903,53 @@ window.Matching = (function() {
             selectedOnly: !!pack.selectedOnly,
             _searchTimers: {},
             templates: [],
-            templateIdentifier: 'matching_outreach_wizard',
+            templateIdentifier: _outreachResolveDefaultId([], 'matching_outreach_wizard'),
             useAiOnLoad: true,   // false nach Vorlagenwechsel
         };
         _renderOutreachWizard();
         _outreachEnsureTemplates().then(function () {
             _renderOutreachWizard();
             _outreachLoadCurrent();
+        });
+    }
+
+    var _OW_TPL_DEFAULT_KEY = 'matching_outreach_default_template_v1';
+    var _OW_TPL_FALLBACK = 'matching_outreach_wizard';
+
+    function _outreachGetSavedDefault() {
+        try {
+            var v = localStorage.getItem(_OW_TPL_DEFAULT_KEY);
+            if (v && String(v).trim()) return String(v).trim();
+        } catch (e) { /* ignore */ }
+        return '';
+    }
+
+    function _outreachSetSavedDefault(ident) {
+        try {
+            localStorage.setItem(_OW_TPL_DEFAULT_KEY, String(ident || '').trim());
+        } catch (e) { /* ignore */ }
+    }
+
+    function _outreachResolveDefaultId(templates, apiDefault) {
+        var list = templates || [];
+        var saved = _outreachGetSavedDefault();
+        if (saved && (!list.length || list.some(function (t) { return t && t.identifier === saved; }))) {
+            return saved;
+        }
+        if (apiDefault && (!list.length || list.some(function (t) { return t && t.identifier === apiDefault; }))) {
+            return apiDefault;
+        }
+        var marked = list.find(function (t) { return t && t.is_default; });
+        if (marked && marked.identifier) return marked.identifier;
+        return _OW_TPL_FALLBACK;
+    }
+
+    function _outreachApplyDefaultFlags(templates, defaultId) {
+        var def = defaultId || _OW_TPL_FALLBACK;
+        return (templates || []).map(function (t) {
+            return Object.assign({}, t, {
+                is_default: !!(t && t.identifier === def),
+            });
         });
     }
 
@@ -3923,35 +3963,34 @@ window.Matching = (function() {
         })
         .then(r => r.json())
         .then(d => {
-            st.templates = (d && d.templates) || [];
-            if (d && d.default) st.templateIdentifier = d.default;
-            if (!st.templates.length) {
-                st.templates = [{
-                    identifier: 'matching_outreach_wizard',
+            var raw = (d && d.templates) || [];
+            if (!raw.length) {
+                raw = [{
+                    identifier: _OW_TPL_FALLBACK,
                     name: 'Matching — Outreach-Wizard Anschreiben',
                     is_default: true,
                 }];
             }
-            if (!st.templateIdentifier) {
-                const def = st.templates.find(t => t.is_default) || st.templates[0];
-                st.templateIdentifier = (def && def.identifier) || 'matching_outreach_wizard';
-            }
+            var defId = _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
+            st.templates = _outreachApplyDefaultFlags(raw, defId);
+            st.templateIdentifier = defId;
             return st.templates;
         })
         .catch(() => {
-            st.templates = [{
-                identifier: 'matching_outreach_wizard',
+            var defId = _outreachResolveDefaultId([], _OW_TPL_FALLBACK);
+            st.templates = _outreachApplyDefaultFlags([{
+                identifier: _OW_TPL_FALLBACK,
                 name: 'Matching — Outreach-Wizard Anschreiben',
                 is_default: true,
-            }];
-            st.templateIdentifier = 'matching_outreach_wizard';
+            }], defId);
+            st.templateIdentifier = defId;
             return st.templates;
         });
     }
 
     function _outreachTemplateOptionsHtml(st) {
         const list = ((st && st.templates) || []).slice();
-        const cur = (st && st.templateIdentifier) || 'matching_outreach_wizard';
+        const cur = (st && st.templateIdentifier) || _OW_TPL_FALLBACK;
         list.sort(function (a, b) {
             const ad = a && a.is_default ? 0 : 1;
             const bd = b && b.is_default ? 0 : 1;
@@ -3959,7 +3998,7 @@ window.Matching = (function() {
             return String((a && a.name) || '').localeCompare(String((b && b.name) || ''), 'de');
         });
         if (!list.length) {
-            return '<option value="matching_outreach_wizard" selected>'
+            return '<option value="' + _escAttr(_OW_TPL_FALLBACK) + '" selected>'
                 + 'Matching — Outreach-Wizard Anschreiben (Standard)</option>';
         }
         return list.map(function (t) {
@@ -3972,23 +4011,51 @@ window.Matching = (function() {
     }
 
     function _outreachTemplateBlockHtml(st) {
-        const cur = (st && st.templateIdentifier) || 'matching_outreach_wizard';
+        const cur = (st && st.templateIdentifier) || _OW_TPL_FALLBACK;
         const tpl = ((st && st.templates) || []).find(function (t) {
             return t && t.identifier === cur;
         });
-        const isDef = !!(tpl && tpl.is_default) || cur === 'matching_outreach_wizard';
+        const isDef = !!(tpl && tpl.is_default) || cur === _outreachResolveDefaultId(st.templates || [], _OW_TPL_FALLBACK);
         const badge = isDef
             ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
               + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard</span>'
             : '';
+        const setBtn = isDef
+            ? ''
+            : '<button type="button" class="matching-btn-sm" style="white-space:nowrap;margin-top:18px"'
+              + ' onclick="Matching.outreachSetDefaultTemplate()"'
+              + ' title="Diese Vorlage als Standard für den Outreach-Wizard speichern">'
+              + 'Als Standard setzen</button>';
         return ''
-            + '<label style="font-size:11px;color:#666;display:block">'
+            + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
+            + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:220px">'
             + 'Vorlage (Email Studio)' + badge
             + '<select id="ow-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
             + ' onchange="Matching.outreachSelectTemplate(this.value)">'
             + _outreachTemplateOptionsHtml(st)
             + '</select>'
-            + '</label>';
+            + '</label>'
+            + setBtn
+            + '</div>';
+    }
+
+    function outreachSetDefaultTemplate() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const sel = document.getElementById('ow-tpl');
+        const id = String((sel && sel.value) || st.templateIdentifier || '').trim();
+        if (!id) return;
+        _outreachSetSavedDefault(id);
+        st.templates = _outreachApplyDefaultFlags(st.templates || [], id);
+        st.templateIdentifier = id;
+        _outreachCaptureForm(st);
+        _renderOutreachWizard();
+        const el = document.getElementById('ow-status');
+        if (el) {
+            el.style.color = '#155724';
+            const name = ((st.templates || []).find(function (t) { return t && t.identifier === id; }) || {}).name || id;
+            el.textContent = 'Standard-Vorlage: ' + name;
+        }
     }
 
     function _outreachParseEmails(raw) {
@@ -6637,7 +6704,7 @@ window.Matching = (function() {
         toggleOutreachSelect, toggleSelectAllVisible, clearOutreachSelection,
         _restoreOutreachCheckboxes, _updateOutreachSelectUi,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
-        outreachPolish, outreachReloadDraft, outreachSelectTemplate, outreachSend,
+        outreachPolish, outreachReloadDraft, outreachSelectTemplate, outreachSetDefaultTemplate, outreachSend,
         outreachPickEmail, outreachApplyEmail,
         outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
         outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,
