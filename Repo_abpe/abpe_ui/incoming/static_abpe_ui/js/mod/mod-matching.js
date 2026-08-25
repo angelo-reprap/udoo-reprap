@@ -3950,17 +3950,45 @@ window.Matching = (function() {
     }
 
     function _outreachTemplateOptionsHtml(st) {
-        const list = (st && st.templates) || [];
+        const list = ((st && st.templates) || []).slice();
         const cur = (st && st.templateIdentifier) || 'matching_outreach_wizard';
+        list.sort(function (a, b) {
+            const ad = a && a.is_default ? 0 : 1;
+            const bd = b && b.is_default ? 0 : 1;
+            if (ad !== bd) return ad - bd;
+            return String((a && a.name) || '').localeCompare(String((b && b.name) || ''), 'de');
+        });
         if (!list.length) {
-            return `<option value="matching_outreach_wizard" selected>Matching — Outreach-Wizard Anschreiben</option>`;
+            return '<option value="matching_outreach_wizard" selected>'
+                + 'Matching — Outreach-Wizard Anschreiben (Standard)</option>';
         }
-        return list.map(t => {
-            const id = t.identifier || '';
+        return list.map(function (t) {
+            const id = (t && t.identifier) || '';
             const sel = id === cur ? ' selected' : '';
-            const mark = t.is_default ? ' ★' : '';
-            return `<option value="${_escAttr(id)}"${sel}>${_esc(t.name || id)}${mark}</option>`;
+            const mark = (t && t.is_default) ? ' (Standard)' : '';
+            return '<option value="' + _escAttr(id) + '"' + sel + '>'
+                + _esc((t && t.name) || id) + mark + '</option>';
         }).join('');
+    }
+
+    function _outreachTemplateBlockHtml(st) {
+        const cur = (st && st.templateIdentifier) || 'matching_outreach_wizard';
+        const tpl = ((st && st.templates) || []).find(function (t) {
+            return t && t.identifier === cur;
+        });
+        const isDef = !!(tpl && tpl.is_default) || cur === 'matching_outreach_wizard';
+        const badge = isDef
+            ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
+              + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard</span>'
+            : '';
+        return ''
+            + '<label style="font-size:11px;color:#666;display:block">'
+            + 'Vorlage (Email Studio)' + badge
+            + '<select id="ow-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.outreachSelectTemplate(this.value)">'
+            + _outreachTemplateOptionsHtml(st)
+            + '</select>'
+            + '</label>';
     }
 
     function _outreachParseEmails(raw) {
@@ -4580,7 +4608,7 @@ window.Matching = (function() {
                 <div style="font-size:12px;color:#666">${Math.round((cur.score || 0) * 100)}% · ${_esc((cur.matched_skills || []).slice(0, 5).join(' · '))}</div>
                 ${cur.cv_editor_url ? `<a href="${_escAttr(cur.cv_editor_url)}" target="_blank" class="matching-btn-sm">CV</a>` : ''}
               </div>
-              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'DeepSeek lädt …' : ''}</div>
+              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'Lädt Entwurf …' : ''}</div>
               <div style="background:#f5f7fa;border-radius:8px;padding:10px">
                 <div style="font-size:11px;font-weight:700;color:#163258;margin-bottom:4px">${_esc(_kiT('outreach_why', 'Warum anschreiben'))}</div>
                 <div id="ow-why" style="font-size:12px;line-height:1.45">${_esc(deep.why || cur.match_reason || '…')}</div>
@@ -4590,12 +4618,7 @@ window.Matching = (function() {
                 </div>
               </div>
               ${_outreachEmailBlockHtml(st, cur, draft)}
-              <label style="font-size:11px;color:#666">Vorlage (Email Studio)
-                <select id="ow-tpl" class="matching-form-input" style="width:100%;margin-top:3px"
-                        onchange="Matching.outreachSelectTemplate(this.value)">
-                  ${_outreachTemplateOptionsHtml(st)}
-                </select>
-              </label>
+              ${_outreachTemplateBlockHtml(st)}
               <label style="font-size:11px;color:#666">Betreff
                 <input id="ow-subj" class="matching-form-input" style="width:100%;margin-top:3px"
                        value="${_escAttr(draft.subject || '')}">

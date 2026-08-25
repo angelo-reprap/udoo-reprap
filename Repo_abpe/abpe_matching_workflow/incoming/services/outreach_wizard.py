@@ -254,6 +254,8 @@ def list_outreach_email_templates() -> Dict[str, Any]:
             'subject': 'Anfrage {project} — passt das für Sie?',
             'is_default': True,
         })
+    # Default immer zuerst
+    templates.sort(key=lambda t: (0 if t.get('is_default') else 1, (t.get('name') or '').lower()))
     return {
         'ok': True,
         'default': DEFAULT_OUTREACH_TEMPLATE,
