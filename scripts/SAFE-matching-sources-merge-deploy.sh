@@ -55,6 +55,12 @@ grep -q "HTML-Profil" "$SRC_UI" \
   || { echo "FAIL: UI ohne HTML-Profil-Button"; exit 1; }
 grep -q "r.schwerpunkt" "$SRC_UI" \
   || { echo "FAIL: UI ohne Schwerpunkt-Zeile"; exit 1; }
+grep -q "toggleGenerateExternalList" "$SRC_UI" \
+  || { echo "FAIL: UI ohne Gulp/FLM Listen-Schalter"; exit 1; }
+grep -q "api_aufgaben_bulk_create" "$REPO/Repo_abpe/abpe_shaduler/incoming/views.py" \
+  || { echo "FAIL: Shaduler ohne bulk Aufgaben-API"; exit 1; }
+grep -q "aufgaben/bulk" "$REPO/Repo_abpe/abpe_shaduler/incoming/urls.py" \
+  || { echo "FAIL: urls ohne aufgaben/bulk"; exit 1; }
 
 mkdir -p "$BAK"/{mw,sh,ui}
 echo "Backup → $BAK"
@@ -76,10 +82,17 @@ deploy_one "$SRC_MW/services/matching_service.py" "$LIVE_MW/services/matching_se
 deploy_one "$SRC_MW/views.py" "$LIVE_MW/views.py" "$BAK/mw"
 deploy_one "$SRC_MW/tasks.py" "$LIVE_MW/tasks.py" "$BAK/mw"
 
-# Shortlist-Reset: MatchResult löschen via project_request=
+# Shortlist-Reset + Aufgaben-Bulk (Wiedervorlagen-Gruppen)
 LIVE_SH_ROOT="${LIVE_SH%/services}"
 if [[ -f "$REPO/Repo_abpe/abpe_shaduler/incoming/views.py" && -d "$LIVE_SH_ROOT" ]]; then
   deploy_one "$REPO/Repo_abpe/abpe_shaduler/incoming/views.py" "$LIVE_SH_ROOT/views.py" "$BAK/sh"
+fi
+if [[ -f "$REPO/Repo_abpe/abpe_shaduler/incoming/urls.py" && -d "$LIVE_SH_ROOT" ]]; then
+  deploy_one "$REPO/Repo_abpe/abpe_shaduler/incoming/urls.py" "$LIVE_SH_ROOT/urls.py" "$BAK/sh"
+fi
+if [[ -f "$REPO/Repo_abpe/abpe_shaduler/incoming/services/aufgaben_service.py" ]]; then
+  deploy_one "$REPO/Repo_abpe/abpe_shaduler/incoming/services/aufgaben_service.py" \
+    "$LIVE_SH/services/aufgaben_service.py" "$BAK/sh"
 fi
 
 # Gulp/FLM search_term/query (falls Repo neuer)
@@ -90,10 +103,17 @@ if [[ -f "$SRC_SH/services/radar_berater_fl.py" ]]; then
   deploy_one "$SRC_SH/services/radar_berater_fl.py" "$LIVE_SH/services/radar_berater_fl.py" "$BAK/sh"
 fi
 
+SRC_UI_SH="$REPO/Repo_abpe/abpe_ui/incoming/mod-shaduler.js"
 mkdir -p "$LIVE_UI/static/abpe_ui/js/mod"
 deploy_one "$SRC_UI" "$LIVE_UI/static/abpe_ui/js/mod/mod-matching.js" "$BAK/ui"
+if [[ -f "$SRC_UI_SH" ]]; then
+  deploy_one "$SRC_UI_SH" "$LIVE_UI/static/abpe_ui/js/mod/mod-shaduler.js" "$BAK/ui"
+fi
 if [[ -d "$STATICFILES/abpe_ui/js/mod" ]]; then
   deploy_one "$SRC_UI" "$STATICFILES/abpe_ui/js/mod/mod-matching.js" "$BAK/ui"
+  if [[ -f "$SRC_UI_SH" ]]; then
+    deploy_one "$SRC_UI_SH" "$STATICFILES/abpe_ui/js/mod/mod-shaduler.js" "$BAK/ui"
+  fi
 fi
 
 find "$LIVE_MW" "$LIVE_SH" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
@@ -102,5 +122,5 @@ echo
 echo "Deploy fertig. Backup: $BAK"
 echo "  supervisorctl restart abpe-django abpe-celery"
 echo "  Browser Ctrl+F5 → Shortlist → Erneut matchen"
-echo "Erwartung: Gulp/FLM je ≤100, Schwerpunkt-Zeile, Gulp/FLM→HTML statt CV"
+echo "Erwartung: Gulp/FLM je ≤100, Schwerpunkt, HTML-Button, Schalter→Wiedervorlagen-Gruppe"
 echo "Restore: cp -a $BAK/mw/* $LIVE_MW/services/  (und views/tasks aus $BAK/mw)"
