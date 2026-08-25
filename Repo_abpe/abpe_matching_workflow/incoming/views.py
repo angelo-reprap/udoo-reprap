@@ -664,7 +664,15 @@ def api_shortlist(request, project_id):
                         f"{getattr(c, 'first_name', '')} {getattr(c, 'last_name', '')}".strip()
                     ) or aid or '—',
                     'email':          email or (crm.get('email') or ''),
-                    'phone':          crm.get('phone') or '',
+                    'phone':          (
+                        str(crm.get('phone') or '').strip()
+                        or (getattr(c, 'phone', None) or '').strip()
+                    ),
+                    'crm_contact_id': (
+                        (en.get('crm_contact_id') or '').strip()
+                        or str(crm.get('crm_contact_id') or '').strip()
+                        or (getattr(c, 'crm_contact_id', None) or '').strip()
+                    ),
                     'location':       getattr(c, 'location', None) or '',
                     'availability':   getattr(c, 'availability', None) or '',
                     'schwerpunkt':    schwerpunkt,
@@ -804,30 +812,103 @@ def api_match_status(request, match_id):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def api_match_detail(request, match_id):
+    """
+    Akzeptiert ProjectConsultant-ID (Kanban) ODER MatchResult-ID (Shortlist).
+    Liefert flache Kontaktfelder für Anrufen/E-Mail + CRM-Anreicherung.
+    """
+    from django.http import Http404
     try:
-        pc = get_object_or_404(
-            ProjectConsultant.objects.select_related('project', 'consultant_cv'),
-            id=match_id
-        )
+        pc = ProjectConsultant.objects.select_related(
+            'project', 'consultant_cv',
+        ).filter(id=match_id).first()
+        mr = None
+        if not pc:
+            from .services.outreach_wizard import resolve_match_result, ensure_project_consultant
+            try:
+                mr = resolve_match_result(match_id)
+            except Exception:
+                return Response({'success': False, 'error': 'Match nicht gefunden'}, status=404)
+            pc = ensure_project_consultant(mr)
+
         c = pc.consultant_cv
-        return Response({
-            'success': True,
-            'match': {
-                'id':            str(pc.id),
-                'project':       {'id': str(pc.project.id), 'number': pc.project.project_number, 'title': pc.project.title},
-                'consultant':    {'aid': c.aid, 'name': c.full_name, 'email': c.email, 'location': c.location},
-                'match_score':   pc.match_score,
-                'match_reason':  pc.match_reason,
-                'status':        pc.status,
-                'status_history':pc.status_history,
-                'contacted_at':  pc.contacted_at.isoformat() if pc.contacted_at else None,
-                'needs_followup':pc.needs_followup,
-                'days_since_contacted': pc.days_since_contacted,
-                'emails':        list(pc.emails.values('email_type', 'subject', 'sent_at', 'status')),
-            }
-        })
+        email = ''
+        try:
+            email = (getattr(c, 'email', None) or '').split(';')[0].strip()
+        except Exception:
+            email = ''
+        phone = (getattr(c, 'phone', None) or '').strip()
+        crm_id = (getattr(c, 'crm_contact_id', None) or '').strip()
+        gulp_id = ''
+        try:
+            gulp_id = (getattr(c, 'gulp_id', None) or '').strip()
+        except Exception:
+            gulp_id = ''
+        # Skill-Details vom MatchResult nachziehen falls vorhanden
+        if mr is None:
+            try:
+                from .models import MatchResult
+                mr = MatchResult.objects.filter(
+                    project_request=pc.project,
+                    consultant_cv=c,
+                ).order_by('-overall_score').first()
+            except Exception:
+                mr = None
+        if mr and isinstance(getattr(mr, 'skill_details', None), dict):
+            sd = mr.skill_details or {}
+            crm_link = sd.get('crm_link') if isinstance(sd.get('crm_link'), dict) else {}
+            if not crm_id:
+                crm_id = str(crm_link.get('crm_contact_id') or '').strip()
+            if not phone:
+                phone = str(crm_link.get('phone') or '').strip()
+            if not email:
+                email = str(crm_link.get('email') or '').strip()
+            eh = sd.get('external_hit') if isinstance(sd.get('external_hit'), dict) else {}
+            if not gulp_id:
+                gulp_id = str(eh.get('gulp_id') or '').strip()
+
+        name = getattr(c, 'full_name', None) or (
+            f"{getattr(c, 'first_name', '')} {getattr(c, 'last_name', '')}".strip()
+        ) or (getattr(c, 'aid', '') or '')
+
+        payload = {
+            'id': str(pc.id),
+            'project_consultant_id': str(pc.id),
+            'match_result_id': str(mr.id) if mr else None,
+            'name': name,
+            'full_name': name,
+            'email': email,
+            'phone': phone,
+            'location': getattr(c, 'location', None) or '',
+            'aid': getattr(c, 'aid', None) or '',
+            'consultant_aid': getattr(c, 'aid', None) or '',
+            'crm_contact_id': crm_id,
+            'crm_id': crm_id,
+            'gulp_id': gulp_id,
+            'match_score': pc.match_score,
+            'match_reason': pc.match_reason or (mr.match_reason if mr else '') or '',
+            'status': pc.status,
+            'cv_editor_url': (
+                f"/cv-extractor/editor/{c.aid}/" if getattr(c, 'aid', None) else ''
+            ),
+            'project': {
+                'id': str(pc.project.id),
+                'number': pc.project.project_number,
+                'title': pc.project.title,
+            },
+            'consultant': {
+                'aid': getattr(c, 'aid', None) or '',
+                'name': name,
+                'email': email,
+                'phone': phone,
+                'location': getattr(c, 'location', None) or '',
+                'crm_contact_id': crm_id,
+            },
+        }
+        return Response({'success': True, 'match': payload, **payload})
+    except Http404:
+        return Response({'success': False, 'error': 'nicht gefunden'}, status=404)
     except Exception as e:
-        logger.exception(f"api_match_detail: {e}")
+        logger.exception('api_match_detail: %s', e)
         return Response({'success': False, 'error': str(e)}, status=500)
 
 

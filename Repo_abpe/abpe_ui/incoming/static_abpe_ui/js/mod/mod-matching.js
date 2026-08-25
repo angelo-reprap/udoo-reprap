@@ -1126,9 +1126,17 @@ window.Matching = (function() {
                                     : ''));
                         html += `
                         <div class="matching-card matching-hit" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
-                             data-score="${r.overall_score}" data-id="${r.id}" data-source="${_escAttr(src)}"
+                             data-score="${r.overall_score}" data-id="${r.id}" data-match-id="${r.id}"
+                             data-source="${_escAttr(src)}"
                              data-sources="${_escAttr(srcAttr)}" data-kind="shortlist"
-                             data-rank="${r.rank || ''}" data-strength="${r.strength || 0}">
+                             data-rank="${r.rank || ''}" data-strength="${r.strength || 0}"
+                             data-name="${_escAttr(r.name || '')}"
+                             data-location="${_escAttr(r.location || '')}"
+                             data-phone="${_escAttr(r.phone || '')}"
+                             data-email="${_escAttr(r.email || '')}"
+                             data-crm="${_escAttr(r.crm_contact_id || '')}"
+                             data-gulp="${_escAttr(r.gulp_id || '')}"
+                             data-aid="${_escAttr(r.consultant_id || '')}">
                             <label style="display:flex;align-items:center;padding:0 2px;cursor:pointer;flex-shrink:0"
                                    title="Für Outreach auswählen"
                                    onclick="event.stopPropagation()">
@@ -1152,11 +1160,11 @@ window.Matching = (function() {
                             </div>
                             <div style="display:flex;gap:4px">
                                 <button class="matching-btn-sm matching-btn-call"
-                                        onclick="Matching.call('${r.id}')">
+                                        onclick="event.stopPropagation();Matching.openContact('${r.id}')">
                                     <i class="bi bi-telephone"></i> ${_t('matching.btn_call')}
                                 </button>
                                 <button class="matching-btn-sm matching-btn-mail"
-                                        onclick="Matching.sendEmail('${r.id}')">
+                                        onclick="event.stopPropagation();Matching.openContact('${r.id}')">
                                     <i class="bi bi-envelope"></i> ${_t('matching.btn_email')}
                                 </button>
                                 ${docBtn}
@@ -5393,25 +5401,66 @@ window.Matching = (function() {
     }
 
     function _cardEl(matchId) {
-        return document.querySelector('.matching-card[data-match-id="' + matchId + '"]');
+        const id = String(matchId || '');
+        return document.querySelector('.matching-card[data-match-id="' + id + '"]')
+            || document.querySelector('.matching-card[data-id="' + id + '"]');
+    }
+
+    function _seedFromShortlistCache(matchId) {
+        const cache = window._matchingShortlistCache || {};
+        const hit = (cache.results || []).find(r => String(r.id) === String(matchId));
+        if (!hit) return null;
+        return {
+            id: matchId,
+            name: hit.name || '',
+            location: hit.location || '',
+            phone: hit.phone || '',
+            email: hit.email || '',
+            crm_contact_id: hit.crm_contact_id || '',
+            gulp_id: hit.gulp_id || '',
+            aid: hit.consultant_id || '',
+            stage: 'shortlist',
+            match_score: hit.overall_score || 0,
+            skills: hit.matched_skills || [],
+            match_reason: hit.match_reason || '',
+            cv_editor_url: hit.cv_editor_url || '',
+            project_consultant_id: hit.project_consultant_id || null,
+            phones: [],
+            emails: [],
+        };
     }
 
     function _matchFromCard(matchId) {
+        const seeded = _seedFromShortlistCache(matchId);
         const el = _cardEl(matchId);
-        if (!el) return { id: matchId };
-        return {
+        if (!el) return seeded || { id: matchId, phones: [], emails: [] };
+        const fromCard = {
             id: matchId,
             name: el.getAttribute('data-name') || '',
             location: el.getAttribute('data-location') || '',
             phone: el.getAttribute('data-phone') || '',
             email: el.getAttribute('data-email') || '',
             crm_contact_id: el.getAttribute('data-crm') || '',
-            stage: el.getAttribute('data-stage') || '',
+            gulp_id: el.getAttribute('data-gulp') || '',
+            aid: el.getAttribute('data-aid') || '',
+            stage: el.getAttribute('data-stage') || (el.getAttribute('data-kind') === 'shortlist' ? 'shortlist' : ''),
             match_score: parseFloat(el.getAttribute('data-score') || '0') || 0,
             phones: [],
             emails: [],
             skills: [],
         };
+        if (!seeded) return fromCard;
+        return Object.assign({}, seeded, {
+            name: fromCard.name || seeded.name,
+            location: fromCard.location || seeded.location,
+            phone: fromCard.phone || seeded.phone,
+            email: fromCard.email || seeded.email,
+            crm_contact_id: fromCard.crm_contact_id || seeded.crm_contact_id,
+            gulp_id: fromCard.gulp_id || seeded.gulp_id,
+            aid: fromCard.aid || seeded.aid,
+            stage: fromCard.stage || seeded.stage,
+            match_score: fromCard.match_score || seeded.match_score,
+        });
     }
 
     function _pickPhone(list, fallback) {
@@ -5685,26 +5734,29 @@ window.Matching = (function() {
                 .then(d => {
                     if (!d || d.success === false) return tryOne(i + 1);
                     const m = d.match || d.consultant || d.result || d;
+                    const cons = (m && m.consultant) || {};
                     return {
                         id: matchId,
-                        name: m.name || m.full_name || base.name,
-                        location: m.location || m.city || base.location,
-                        phone: m.phone || m.telefon || m.mobile || m.phone_mobile || base.phone,
-                        email: m.email || m.mail || base.email,
-                        crm_contact_id: m.crm_contact_id || m.crm_id || m.consultant_crm_id || base.crm_contact_id,
-                        // Board-Spalte hat Vorrang vor API-Status (z.B. "interested")
+                        name: m.name || m.full_name || cons.name || base.name,
+                        location: m.location || m.city || cons.location || base.location,
+                        phone: m.phone || m.telefon || m.mobile || m.phone_mobile
+                            || cons.phone || base.phone,
+                        email: m.email || m.mail || cons.email || base.email,
+                        crm_contact_id: m.crm_contact_id || m.crm_id || m.consultant_crm_id
+                            || cons.crm_contact_id || base.crm_contact_id,
                         stage: base.stage || m.status || m.stage || '',
                         match_score: m.match_score != null ? m.match_score : base.match_score,
-                        skills: m.matched_skills || m.skills || [],
-                        match_reason: m.match_reason || m.reason || '',
-                        aid: m.aid || m.consultant_aid || '',
-                        gulp_id: m.gulp_id || '',
+                        skills: m.matched_skills || m.skills || base.skills || [],
+                        match_reason: m.match_reason || m.reason || base.match_reason || '',
+                        aid: m.aid || m.consultant_aid || cons.aid || base.aid || '',
+                        gulp_id: m.gulp_id || base.gulp_id || '',
                         rate: m.rate || m.satz || '',
                         available_from: _normDate(m.verfuegbar_ab || m.available_from || m.available || ''),
                         freelancermap: m.freelancermap || m.freelancermap_profil || m.fm_url || '',
-                        cv_editor_url: m.cv_editor_url || m.cv_url || '',
-                        phones: [],
-                        emails: [],
+                        cv_editor_url: m.cv_editor_url || m.cv_url || base.cv_editor_url || '',
+                        project_consultant_id: m.project_consultant_id || base.project_consultant_id || null,
+                        phones: Array.isArray(m.phones) ? m.phones : [],
+                        emails: Array.isArray(m.emails) ? m.emails : [],
                     };
                 })
                 .catch(() => tryOne(i + 1));
@@ -6419,6 +6471,10 @@ window.Matching = (function() {
     function closeContactPopup() { _closeContactPopup(); }
 
     function kanbanCardClick(matchId) {
+        openContact(matchId);
+    }
+
+    function openContact(matchId) {
         const ov = document.createElement('div');
         ov.id = 'matching-contact-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:10050;display:flex;align-items:center;justify-content:center';
@@ -6451,8 +6507,22 @@ window.Matching = (function() {
             window.open(url, 'webdial', 'height=100,width=100');
         };
         if (phoneNumber) { run(phoneNumber); return; }
-        if (cached && cached.phone) { run(cached.phone); return; }
-        _fetchMatchDetail(matchId).then(d => run(d.phone || ''));
+        if (cached && (cached.phone || (cached.phones && cached.phones.length))) {
+            const p = cached.phone || _pickPhone(cached.phones, '');
+            if (p) { run(p); return; }
+            // Mehrere / unklare Nummern → Kontakt-Popup
+            openContact(matchId);
+            return;
+        }
+        _fetchMatchDetail(matchId).then(d => {
+            const p = d.phone || _pickPhone(d.phones, '');
+            if (p) { run(p); return; }
+            if ((d.phones && d.phones.length) || d.crm_contact_id || d.name) {
+                openContact(matchId);
+                return;
+            }
+            run('');
+        });
     }
 
     function sendEmail(matchId, stage, variant) {
@@ -6784,7 +6854,7 @@ window.Matching = (function() {
         outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
-        kanbanDragStart, kanbanDrop, kanbanCardClick,
+        kanbanDragStart, kanbanDrop, kanbanCardClick, openContact,
         closeContactPopup, submitStageMail, openCv, createCvTask,
         saveAvailability, adoptAvailability, saveRate, saveMatchTerms,
         _normDatePublic: _normDate,
