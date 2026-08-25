@@ -5242,10 +5242,10 @@ window.Matching = (function() {
             nextStatus: 'angeschrieben',
             actionKey: 'anschreiben',
             label: 'Anschreiben',
-            subject: 'Anfrage {project} — passt das für Sie?',
+            subject: '{project} — passt das für Sie?',
             body:
                 'Guten Tag {name},\n\n' +
-                'zu unserer aktuellen Kundenanfrage „{project}“ ({customer}) möchten wir Sie gerne anfragen.\n' +
+                'zu unserer aktuellen Kundenanfrage „{project}“ möchten wir Sie gerne anfragen.\n' +
                 'Passt das thematisch zu Ihrem Profil?\n\n' +
                 'Viele Grüße',
         },
@@ -5256,7 +5256,7 @@ window.Matching = (function() {
             subject: 'Nachfrage Verfügbarkeit — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'kurze Nachfrage zu „{project}“ ({customer}):\n' +
+                'kurze Nachfrage zu „{project}“:\n' +
                 'Besteht Interesse, und wann wären Sie verfügbar (ab Datum / Stunden pro Woche)?\n\n' +
                 'Viele Grüße',
         },
@@ -5264,10 +5264,10 @@ window.Matching = (function() {
             nextStatus: 'beim_kunden',
             actionKey: 'vorstellen',
             label: 'Beim Kunden vorstellen',
-            subject: 'Vorstellung beim Kunden — {project}',
+            subject: 'Vorstellung — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'wir möchten Sie dem Kunden zu „{project}“ ({customer}) vorstellen.\n' +
+                'wir möchten Sie zu unserer Anfrage „{project}“ vorstellen.\n' +
                 'Dürfen wir Ihr Profil (anonymisiert/mit CV) weiterleiten?\n\n' +
                 'Viele Grüße',
         },
@@ -5278,7 +5278,7 @@ window.Matching = (function() {
             subject: 'Interview-Koordination — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'der Kunde zu „{project}“ ({customer}) möchte Sie kennenlernen.\n' +
+                'zu „{project}“ möchten wir Sie gerne kennenlernen.\n' +
                 'Welche Termine passen Ihnen diese Woche (Datum/Uhrzeit, Tel. oder Video)?\n\n' +
                 'Viele Grüße',
         },
@@ -5289,7 +5289,7 @@ window.Matching = (function() {
             subject: 'Vermittlung — Startabstimmung {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'zur Vermittlung „{project}“ ({customer}):\n' +
+                'zur Vermittlung „{project}“:\n' +
                 'Bitte teilen Sie uns Ihren Wunsch-Starttermin und den Ansprechpartner vor Ort mit.\n\n' +
                 'Viele Grüße',
         },
@@ -5300,10 +5300,10 @@ window.Matching = (function() {
             subject: 'Startinfo — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'zur Aufnahme bei „{project}“ ({customer}):\n' +
+                'zur Aufnahme bei „{project}“:\n' +
                 '• Start: {start}\n' +
                 '• Ort / Remote: {location}\n' +
-                '• Ansprechpartner Kunde: bitte melden Sie sich bei Bedarf über uns.\n\n' +
+                '• Ansprechpartner: bitte melden Sie sich bei Bedarf über uns.\n\n' +
                 'Viel Erfolg und viele Grüße',
         },
         absage: {
@@ -5313,8 +5313,8 @@ window.Matching = (function() {
             subject: 'Rückmeldung zur Anfrage {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'vielen Dank für Ihr Interesse an „{project}“ ({customer}).\n' +
-                'Leider hat sich der Kunde anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.\n\n' +
+                'vielen Dank für Ihr Interesse an „{project}“.\n' +
+                'Leider hat sich die Auswahl anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.\n\n' +
                 'Freundliche Grüße',
         },
     };
@@ -5381,14 +5381,38 @@ window.Matching = (function() {
 
     function _projectContext() {
         const cfgP = window.MATCHING_CONFIG || {};
-        const labelEl = document.querySelector('#content-kanban [style*="font-size:12px"]');
-        const raw = (labelEl && labelEl.textContent) || '';
-        const parts = raw.split('·').map(x => x.trim()).filter(Boolean);
+        const cache = window._matchingShortlistCache || {};
+        let projectNumber = String(cache.project_number || '').trim();
+        let projectTitle = String(cache.project_title || '').trim();
+        let projectId = cache.projectId || cfgP.activeProject || '';
+
+        // Fallback: Kanban-/Anfragen-Header „ANF-… · Titel“
+        if (!projectNumber && !projectTitle) {
+            const labelEl = document.querySelector('#content-kanban [style*="font-size:12px"]')
+                || document.querySelector('#content-shortlist [data-project-label]')
+                || document.querySelector('#matching-proj-label');
+            const raw = (labelEl && labelEl.textContent) || '';
+            const parts = raw.split('·').map(x => x.trim()).filter(Boolean);
+            if (parts.length >= 2) {
+                projectNumber = parts[0];
+                projectTitle = parts.slice(1).join(' · ');
+            } else if (parts.length === 1) {
+                projectTitle = parts[0];
+            }
+        }
+
+        const project = [projectNumber, projectTitle].filter(Boolean).join(' · ')
+            || projectTitle
+            || projectNumber
+            || 'Kundenanfrage';
+
         return {
-            projectId: cfgP.activeProject || '',
-            project: parts[1] || parts[0] || 'Anfrage',
-            projectNumber: parts[0] || '',
-            customer: cfgP.activeCustomer || '',
+            projectId: projectId,
+            project: project,
+            projectNumber: projectNumber,
+            projectTitle: projectTitle,
+            // Vertraulichkeit: nie Firmen-/Kundennamen in Mail-Platzhalter
+            customer: '',
             location: '',
             start: '',
         };
@@ -6311,7 +6335,7 @@ window.Matching = (function() {
                 return `<div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
                   <span style="flex:1;word-break:break-all">${_esc(e)}</span>
                   <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 6px"
-                          onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}')">
+                          onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}','','${_escAttr(e)}')">
                     <i class="bi bi-envelope"></i>
                   </button>
                 </div>`;
@@ -6525,19 +6549,37 @@ window.Matching = (function() {
         });
     }
 
-    function sendEmail(matchId, stage, variant) {
+    function sendEmail(matchId, stage, variant, preferredTo) {
         const start = (window._matchingContactCache || {})[matchId]
             ? Promise.resolve(window._matchingContactCache[matchId])
             : _fetchMatchDetail(matchId);
         start.then(detail => {
             const st = _normStage(stage || detail.stage);
+            const toPref = (preferredTo && String(preferredTo).trim())
+                || detail.email
+                || _pickEmail(detail.emails, '')
+                || '';
+
+            // Shortlist-Anschreiben → Email-Studio-Vorlage + ausführlicher Draft
+            if (st === 'shortlist' && variant !== 'absage') {
+                _openStudioAnschreibenComposer({
+                    matchId: matchId,
+                    detail: detail,
+                    stage: st,
+                    nextStatus: 'angeschrieben',
+                    actionLabel: 'Anschreiben',
+                    to: toPref,
+                });
+                return;
+            }
+
             const tpl = _stageMailTpl(st, variant);
             const ctx = Object.assign(_projectContext(), {
                 name: detail.name || '',
                 location: detail.location || detail.address || '',
                 start: '',
+                customer: '',
             });
-            if (!ctx.customer) ctx.customer = detail.company || '';
             const subject = _fillTpl(tpl.subject, ctx);
             const body = _fillTpl(tpl.body, ctx);
             _openStageMailComposer({
@@ -6547,9 +6589,10 @@ window.Matching = (function() {
                 variant: variant || '',
                 nextStatus: variant === 'absage' ? 'absage' : tpl.nextStatus,
                 actionLabel: tpl.label,
-                to: detail.email || _pickEmail(detail.emails, ''),
+                to: toPref,
                 subject: subject,
                 body: body,
+                studio: false,
             });
         });
     }
@@ -6557,16 +6600,326 @@ window.Matching = (function() {
     function _closeStageMailComposer() {
         const ov = document.getElementById('matching-mail-ovl');
         if (ov) ov.remove();
+        window._matchingMailDraft = null;
+    }
+
+    function _stageMailLoadTemplates(studio) {
+        return fetch(API + 'outreach/email-templates/', {
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        })
+        .then(r => r.json())
+        .then(d => {
+            var raw = (d && d.templates) || [];
+            if (!raw.length) {
+                raw = [{
+                    identifier: _OW_TPL_FALLBACK,
+                    name: 'Matching — Outreach-Wizard Anschreiben',
+                    is_default: true,
+                }];
+            }
+            var defId = _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
+            studio.templates = _outreachApplyDefaultFlags(raw, defId);
+            if (!studio.templateIdentifier) studio.templateIdentifier = defId;
+            else if (!studio.templates.some(function (t) { return t && t.identifier === studio.templateIdentifier; })) {
+                studio.templateIdentifier = defId;
+            }
+            studio.signatures = (d && d.signatures) || [];
+            if (!studio.signatureId) {
+                studio.signatureId = _outreachResolveSignatureId(studio.signatures);
+            }
+            return studio;
+        })
+        .catch(function () {
+            studio.templates = [{
+                identifier: _OW_TPL_FALLBACK,
+                name: 'Matching — Outreach-Wizard Anschreiben',
+                is_default: true,
+            }];
+            studio.templateIdentifier = studio.templateIdentifier || _OW_TPL_FALLBACK;
+            studio.signatures = studio.signatures || [];
+            studio.signatureId = studio.signatureId || '';
+            return studio;
+        });
+    }
+
+    function _stageMailFetchDraft(studio, useAi) {
+        const matchId = studio.matchId;
+        const tplId = studio.templateIdentifier || _OW_TPL_FALLBACK;
+        const ai = useAi !== false;
+        return fetch(API + 'outreach/' + encodeURIComponent(matchId) + '/letter/draft/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                refresh_reason: true,
+                template_identifier: tplId,
+                use_ai: ai,
+            }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) {
+                throw new Error((d && d.error) || ('Draft HTTP ' + r.status));
+            }
+            return d;
+        });
+    }
+
+    function _stageMailFallbackBody(detail) {
+        const tpl = STAGE_MAIL.shortlist;
+        const ctx = Object.assign(_projectContext(), {
+            name: detail.name || '',
+            customer: '',
+        });
+        return {
+            subject: _fillTpl(tpl.subject, ctx),
+            body: _fillTpl(tpl.body, ctx),
+            to_email: detail.email || _pickEmail(detail.emails, '') || '',
+        };
+    }
+
+    function _openStudioAnschreibenComposer(opts) {
+        _closeStageMailComposer();
+        const ov = document.createElement('div');
+        ov.id = 'matching-mail-ovl';
+        ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10060;display:flex;align-items:center;justify-content:center;padding:16px';
+        ov.innerHTML = '<div style="background:#fff;padding:22px 28px;border-radius:10px;font-size:13px;color:#666;box-shadow:0 12px 40px rgba(0,0,0,.25)">'
+            + '<i class="bi bi-hourglass-split"></i> Anschreiben wird aus Email-Studio-Vorlage geladen…'
+            + '<div style="font-size:11px;margin-top:6px;color:#888">Vorlage · Projekt · Begründung</div>'
+            + '</div>';
+        document.body.appendChild(ov);
+
+        const studio = {
+            matchId: opts.matchId,
+            detail: opts.detail,
+            templates: [],
+            templateIdentifier: _outreachResolveDefaultId([], _OW_TPL_FALLBACK),
+            signatures: [],
+            signatureId: _outreachGetSavedSignature() || '',
+            useAiOnLoad: true,
+        };
+
+        _stageMailLoadTemplates(studio)
+            .then(function () {
+                return _stageMailFetchDraft(studio, true);
+            })
+            .then(function (draft) {
+                if (draft.template_identifier) studio.templateIdentifier = draft.template_identifier;
+                _openStageMailComposer({
+                    matchId: opts.matchId,
+                    detail: opts.detail,
+                    stage: opts.stage || 'shortlist',
+                    nextStatus: opts.nextStatus || 'angeschrieben',
+                    actionLabel: opts.actionLabel || 'Anschreiben',
+                    to: opts.to || draft.to_email || '',
+                    subject: draft.subject || '',
+                    body: draft.body || draft.body_text || '',
+                    studio: true,
+                    studioState: studio,
+                    project_consultant_id: draft.project_consultant_id || null,
+                    template_name: draft.template_name || studio.templateIdentifier,
+                    draft_model: draft.model || '',
+                });
+            })
+            .catch(function (err) {
+                console.warn('Studio-Anschreiben Draft:', err);
+                const fb = _stageMailFallbackBody(opts.detail || {});
+                _openStageMailComposer({
+                    matchId: opts.matchId,
+                    detail: opts.detail,
+                    stage: opts.stage || 'shortlist',
+                    nextStatus: opts.nextStatus || 'angeschrieben',
+                    actionLabel: opts.actionLabel || 'Anschreiben',
+                    to: opts.to || fb.to_email || '',
+                    subject: fb.subject,
+                    body: fb.body,
+                    studio: true,
+                    studioState: studio,
+                    template_name: studio.templateIdentifier,
+                    draft_model: 'fallback',
+                    loadError: (err && err.message) || String(err),
+                });
+            });
+    }
+
+    function _stageMailTemplateBlockHtml(studio) {
+        const fake = { templates: (studio && studio.templates) || [], templateIdentifier: (studio && studio.templateIdentifier) || _OW_TPL_FALLBACK };
+        const cur = fake.templateIdentifier;
+        const tpl = (fake.templates || []).find(function (t) { return t && t.identifier === cur; });
+        const isDef = !!(tpl && tpl.is_default);
+        const badge = isDef
+            ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
+              + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard</span>'
+            : '';
+        const setBtn = isDef
+            ? ''
+            : '<button type="button" class="matching-btn-sm" style="white-space:nowrap;margin-top:18px"'
+              + ' onclick="Matching.stageMailSetDefaultTemplate()"'
+              + ' title="Diese Vorlage als Standard speichern">Als Standard setzen</button>';
+        return ''
+            + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
+            + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:200px">'
+            + 'Vorlage (Email Studio)' + badge
+            + '<select id="mm-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.stageMailSelectTemplate(this.value)">'
+            + _outreachTemplateOptionsHtml(fake)
+            + '</select>'
+            + '</label>'
+            + setBtn
+            + '</div>'
+            + '<label style="font-size:11px;color:#666;display:block">'
+            + 'Signatur'
+            + '<select id="mm-sig" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.stageMailSelectSignature(this.value)">'
+            + _outreachSignatureOptionsHtml({
+                signatures: (studio && studio.signatures) || [],
+                signatureId: studio && studio.signatureId != null ? String(studio.signatureId) : '',
+            })
+            + '</select>'
+            + '</label>';
+    }
+
+    function stageMailSelectTemplate(identifier) {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studio || !draft.studioState) return;
+        const id = String(identifier || '').trim();
+        if (!id || id === draft.studioState.templateIdentifier) return;
+        draft.studioState.templateIdentifier = id;
+        const msg = document.getElementById('mm-msg');
+        const bodyEl = document.getElementById('mm-body');
+        const subjEl = document.getElementById('mm-subj');
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Vorlage wird geladen …'; }
+        _stageMailFetchDraft(draft.studioState, false)
+            .then(function (d) {
+                if (subjEl) subjEl.value = d.subject || '';
+                if (bodyEl) bodyEl.value = d.body || d.body_text || '';
+                if (d.project_consultant_id) draft.project_consultant_id = d.project_consultant_id;
+                draft.template_name = d.template_name || id;
+                if (msg) {
+                    msg.style.color = '#155724';
+                    msg.textContent = 'Vorlage · ' + (d.template_name || id);
+                }
+            })
+            .catch(function (e) {
+                if (msg) {
+                    msg.style.color = '#b91c1c';
+                    msg.textContent = e.message || String(e);
+                }
+            });
+    }
+
+    function stageMailSelectSignature(id) {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studioState) return;
+        draft.studioState.signatureId = id == null ? '' : String(id);
+        if (draft.studioState.signatureId) _outreachSetSavedSignature(draft.studioState.signatureId);
+        else _outreachSetSavedSignature('');
+    }
+
+    function stageMailSetDefaultTemplate() {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studioState) return;
+        const sel = document.getElementById('mm-tpl');
+        const id = String((sel && sel.value) || draft.studioState.templateIdentifier || '').trim();
+        if (!id) return;
+        _outreachSetSavedDefault(id);
+        draft.studioState.templates = _outreachApplyDefaultFlags(draft.studioState.templates || [], id);
+        draft.studioState.templateIdentifier = id;
+        const block = document.getElementById('mm-studio-block');
+        if (block) block.innerHTML = _stageMailTemplateBlockHtml(draft.studioState);
+        const msg = document.getElementById('mm-msg');
+        if (msg) {
+            msg.style.color = '#155724';
+            const name = ((draft.studioState.templates || []).find(function (t) { return t && t.identifier === id; }) || {}).name || id;
+            msg.textContent = 'Standard-Vorlage: ' + name;
+        }
+    }
+
+    function stageMailPolish() {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studio) return;
+        const bodyEl = document.getElementById('mm-body');
+        const text = (bodyEl && bodyEl.value) || '';
+        if (!text.trim()) return;
+        const msg = document.getElementById('mm-msg');
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Glätten …'; }
+        fetch(API + 'outreach/letter/polish/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({ draft_text: text, keep_style: true }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) throw new Error((d && d.error) || 'Polish fehlgeschlagen');
+            return d;
+        })
+        .then(function (d) {
+            if (bodyEl) bodyEl.value = d.body || d.body_text || text;
+            if (msg) { msg.style.color = '#155724'; msg.textContent = 'Geglättet.'; }
+        })
+        .catch(function (e) {
+            if (msg) { msg.style.color = '#b91c1c'; msg.textContent = e.message || String(e); }
+        });
+    }
+
+    function stageMailReloadDraft() {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studio || !draft.studioState) return;
+        const msg = document.getElementById('mm-msg');
+        const bodyEl = document.getElementById('mm-body');
+        const subjEl = document.getElementById('mm-subj');
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Neu entwerfen …'; }
+        _stageMailFetchDraft(draft.studioState, true)
+            .then(function (d) {
+                if (subjEl) subjEl.value = d.subject || '';
+                if (bodyEl) bodyEl.value = d.body || d.body_text || '';
+                if (d.project_consultant_id) draft.project_consultant_id = d.project_consultant_id;
+                draft.template_name = d.template_name || draft.studioState.templateIdentifier;
+                if (msg) {
+                    msg.style.color = '#155724';
+                    msg.textContent = 'Entwurf · ' + (d.template_name || draft.studioState.templateIdentifier);
+                }
+            })
+            .catch(function (e) {
+                if (msg) { msg.style.color = '#b91c1c'; msg.textContent = e.message || String(e); }
+            });
     }
 
     function _openStageMailComposer(opts) {
         _closeStageMailComposer();
+        const isStudio = !!opts.studio;
+        const studio = opts.studioState || null;
+        const statusHint = opts.loadError
+            ? ('Fallback-Text — Draft: ' + opts.loadError)
+            : (isStudio
+                ? ('Email Studio · ' + (opts.template_name || (studio && studio.templateIdentifier) || _OW_TPL_FALLBACK)
+                    + (opts.draft_model && opts.draft_model !== 'template' && opts.draft_model !== 'fallback'
+                        ? ' · KI' : ''))
+                : '');
+        const studioBlock = isStudio && studio
+            ? ('<div id="mm-studio-block" style="display:grid;gap:8px">'
+                + _stageMailTemplateBlockHtml(studio)
+                + '</div>')
+            : '';
+        const studioActions = isStudio
+            ? ('<div style="display:flex;gap:6px;flex-wrap:wrap">'
+                + '<button type="button" class="matching-btn-sm" onclick="Matching.stageMailReloadDraft()">'
+                + '<i class="bi bi-arrow-repeat"></i> Neu entwerfen</button>'
+                + '<button type="button" class="matching-btn-sm" onclick="Matching.stageMailPolish()">'
+                + '<i class="bi bi-magic"></i> Glätten</button>'
+                + '</div>')
+            : '';
+
         const ov = document.createElement('div');
         ov.id = 'matching-mail-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10060;display:flex;align-items:center;justify-content:center;padding:16px';
         ov.onclick = function (e) { if (e.target === ov) _closeStageMailComposer(); };
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;max-width:560px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:90vh;overflow:auto">
+        <div style="background:#fff;border-radius:10px;max-width:${isStudio ? '640' : '560'}px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:92vh;overflow:auto">
           <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
             <i class="bi bi-envelope"></i>
             <b style="flex:1">${_esc(opts.actionLabel || 'E-Mail')} — ${_esc(opts.detail.name || '')}</b>
@@ -6574,6 +6927,7 @@ window.Matching = (function() {
                     onclick="document.getElementById('matching-mail-ovl')?.remove()">×</button>
           </div>
           <div style="padding:14px;display:grid;gap:8px">
+            ${studioBlock}
             <label style="font-size:11px;color:#666">An
               <input id="mm-to" class="matching-form-input" style="width:100%;margin-top:3px"
                      type="email" value="${_escAttr(opts.to)}">
@@ -6583,10 +6937,11 @@ window.Matching = (function() {
                      value="${_escAttr(opts.subject)}">
             </label>
             <label style="font-size:11px;color:#666">Nachricht
-              <textarea id="mm-body" class="matching-form-textarea" rows="10"
+              <textarea id="mm-body" class="matching-form-textarea" rows="${isStudio ? '14' : '10'}"
                         style="width:100%;margin-top:3px;font-family:inherit">${_esc(opts.body)}</textarea>
             </label>
-            <div id="mm-msg" style="font-size:11px;min-height:16px"></div>
+            ${studioActions}
+            <div id="mm-msg" style="font-size:11px;min-height:16px;color:${opts.loadError ? '#b91c1c' : '#666'}">${_esc(statusHint)}</div>
             <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
               <button type="button" class="matching-btn-sm"
                       onclick="document.getElementById('matching-mail-ovl')?.remove()">Abbrechen</button>
@@ -6607,6 +6962,22 @@ window.Matching = (function() {
         return '<div>' + _esc(txt).replace(/\n/g, '<br>') + '</div>';
     }
 
+    function _refreshAfterStageMail(moved) {
+        const shortlist = document.getElementById('content-shortlist');
+        const pid = (window._matchingShortlistCache || {}).projectId;
+        if (shortlist && pid) {
+            shortlist.dataset.loaded = '0';
+            _loadShortlistForProject(pid, shortlist);
+        }
+        if (moved) {
+            const content = document.getElementById('content-kanban');
+            if (content) {
+                content.dataset.loaded = '0';
+                _loadKanban(content, document.getElementById('loading-kanban'));
+            }
+        }
+    }
+
     function submitStageMail() {
         const draft = window._matchingMailDraft || {};
         const to = ((document.getElementById('mm-to') || {}).value || '').trim();
@@ -6614,6 +6985,10 @@ window.Matching = (function() {
         const body = ((document.getElementById('mm-body') || {}).value || '').trim();
         const msg = document.getElementById('mm-msg');
         const sendBtn = document.getElementById('mm-send');
+        const sigEl = document.getElementById('mm-sig');
+        const signatureId = (sigEl && sigEl.value)
+            || (draft.studioState && draft.studioState.signatureId)
+            || '';
         function show(ok, text) {
             if (!msg) return;
             msg.style.color = ok ? '#155724' : '#b91c1c';
@@ -6632,6 +7007,7 @@ window.Matching = (function() {
             body: _bodyTextToHtml(body),
             contact_name: (draft.detail && draft.detail.name) || '',
             crm_id: (draft.detail && draft.detail.crm_contact_id) || '',
+            signature_id: signatureId || '',
         };
 
         fetch('/crm/api/email/send/', {
@@ -6650,9 +7026,34 @@ window.Matching = (function() {
             if (!(pack.ok && j.ok !== false && j.success !== false && !j.error)) {
                 throw new Error(j.error || 'Senden fehlgeschlagen');
             }
+            // Shortlist/Studio: MatchResult → outreach/complete (ProjectConsultant + contacted)
+            if (draft.studio && draft.matchId) {
+                return fetch(API + 'outreach/' + encodeURIComponent(draft.matchId) + '/complete/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrf(),
+                    },
+                    body: JSON.stringify({
+                        status: 'contacted',
+                        create_task: false,
+                        note: 'Shortlist Anschreiben (Email Studio)',
+                    }),
+                }).then(r => r.json().then(j2 => ({ ok: r.ok, j: j2, moved: 'angeschrieben' })))
+                .then(pack2 => {
+                    if (!pack2.ok || (pack2.j && pack2.j.ok === false)) {
+                        console.warn('outreach complete:', pack2.j);
+                    }
+                    return pack2.moved;
+                });
+            }
             const next = draft.nextStatus;
-            if (next && draft.matchId) {
-                return fetch(API + 'match/' + draft.matchId + '/move/', {
+            const moveId = draft.project_consultant_id
+                || (draft.detail && draft.detail.project_consultant_id)
+                || draft.matchId;
+            if (next && moveId) {
+                return fetch(API + 'match/' + moveId + '/move/', {
                     method: 'POST',
                     credentials: 'same-origin',
                     headers: {
@@ -6667,14 +7068,7 @@ window.Matching = (function() {
         .then(moved => {
             _closeStageMailComposer();
             _closeContactPopup();
-            if (moved) {
-                // Board neu laden
-                const content = document.getElementById('content-kanban');
-                if (content) {
-                    content.dataset.loaded = '0';
-                    _loadKanban(content, document.getElementById('loading-kanban'));
-                }
-            }
+            _refreshAfterStageMail(moved);
             alert(_kiT('mail_sent', 'E-Mail gesendet') + (moved ? (' → ' + moved) : ''));
         })
         .catch(err => {
@@ -6856,6 +7250,8 @@ window.Matching = (function() {
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick, openContact,
         closeContactPopup, submitStageMail, openCv, createCvTask,
+        stageMailSelectTemplate, stageMailSelectSignature, stageMailSetDefaultTemplate,
+        stageMailPolish, stageMailReloadDraft,
         saveAvailability, adoptAvailability, saveRate, saveMatchTerms,
         _normDatePublic: _normDate,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,
