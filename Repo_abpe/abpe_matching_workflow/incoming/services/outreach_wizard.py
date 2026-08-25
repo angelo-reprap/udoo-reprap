@@ -388,7 +388,7 @@ def _why_letter_sie(
             flags=re.I,
         )
         text = re.sub(rf'^{re.escape(n)}\s+', '', text, flags=re.I)
-    text = text.strip()
+    text = text.strip().rstrip('.')
     if not text:
         skills = [str(s) for s in (fit_skills or []) if s][:3]
         if skills:
@@ -398,18 +398,25 @@ def _why_letter_sie(
                 + ', die für diese Anfrage zentral sind.'
             )
         return 'Aus Ihrem Werdegang entnehmen wir eine gute thematische Passung zu dieser Anfrage.'
-    if text.lower().startswith('aus ihrem werdegag entnehmen wir, dass sie über') or \
-       text.lower().startswith('aus ihrem werdegang entnehmen wir, dass sie über'):
-        # Grammatik: „… dass Sie über X.“ → „… dass Sie über X verfügen.“
-        if not re.search(r'verfügen\.?\s*$', text, re.I):
-            text = re.sub(r'\.?\s*$', ' verfügen.', text)
-    if not re.match(
+    # „… dass Sie über X“ → „… dass Sie über X verfügen.“
+    m = re.match(
+        r'^(Aus Ihrem Werdegang entnehmen wir, dass Sie über .+?)(?:\s+verfügen)?$',
+        text,
+        re.I,
+    )
+    if m:
+        text = m.group(1).rstrip() + ' verfügen.'
+    elif not re.match(
         r'^(Aus Ihrem|Anhand Ihres|Ihrer Erfahrung|Ihrem Profil|Sie |Ihnen )',
         text,
         re.I,
     ):
         rest = text[0].lower() + text[1:] if text[:1].isupper() else text
         text = f'Aus Ihrem Werdegang entnehmen wir, dass {rest}'
+        if not text.endswith('.'):
+            text += '.'
+    elif not text.endswith('.'):
+        text += '.'
     return _why_short(text, 320)
 
 
