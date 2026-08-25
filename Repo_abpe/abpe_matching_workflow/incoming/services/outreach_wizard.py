@@ -374,9 +374,16 @@ def _why_letter_sie(
     text = re.sub(r'\s+', ' ', (why or '').strip())
     names = [n for n in (name, first) if n]
     for n in names:
+        # „Max Mustermann verfügt über X“ → Werdegang-Form
         text = re.sub(
-            rf'^{re.escape(n)}\s+(verfügt|bringt|hat|zeigt|zeichnet|erreicht)\s+(über\s+)?',
-            'Sie verfügen über ',
+            rf'^{re.escape(n)}\s+verfügt\s+über\s+',
+            'Aus Ihrem Werdegang entnehmen wir, dass Sie über ',
+            text,
+            flags=re.I,
+        )
+        text = re.sub(
+            rf'^{re.escape(n)}\s+(bringt|hat|zeigt|zeichnet|erreicht)\s+',
+            'Aus Ihrem Werdegang entnehmen wir, dass Sie ',
             text,
             flags=re.I,
         )
@@ -391,6 +398,11 @@ def _why_letter_sie(
                 + ', die für diese Anfrage zentral sind.'
             )
         return 'Aus Ihrem Werdegang entnehmen wir eine gute thematische Passung zu dieser Anfrage.'
+    if text.lower().startswith('aus ihrem werdegag entnehmen wir, dass sie über') or \
+       text.lower().startswith('aus ihrem werdegang entnehmen wir, dass sie über'):
+        # Grammatik: „… dass Sie über X.“ → „… dass Sie über X verfügen.“
+        if not re.search(r'verfügen\.?\s*$', text, re.I):
+            text = re.sub(r'\.?\s*$', ' verfügen.', text)
     if not re.match(
         r'^(Aus Ihrem|Anhand Ihres|Ihrer Erfahrung|Ihrem Profil|Sie |Ihnen )',
         text,
