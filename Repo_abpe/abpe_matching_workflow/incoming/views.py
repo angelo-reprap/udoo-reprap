@@ -46,6 +46,178 @@ def _load_matching_settings():
         return {}
 
 
+def _matching_shortlist_limit() -> int:
+    """
+    Top-N nach Score. 0 = kein Limit (alle ≥ Schwellwert).
+    settings matching.shortlist_limit; Default 0.
+    """
+    try:
+        raw = _load_matching_settings().get('shortlist_limit', 0)
+        n = int(0 if raw is None else raw)
+    except (TypeError, ValueError):
+        n = 0
+    if n <= 0:
+        return 0
+    return max(1, min(n, 2000))
+
+
+def _shortlist_crm_enrichment(results) -> dict:
+    """
+    Batch: CRM-Schwerpunkt (skill_priority_c) + Profil-URLs je Consultant.
+    Keys: consultant.id → {schwerpunkt, profil_url, crm_contact_id}
+    """
+    out = {}
+    cons_ids = []
+    crm_by_cons = {}
+    for r in results:
+        c = getattr(r, 'consultant_cv', None)
+        if c is None:
+            continue
+        cons_ids.append(c.id)
+        sd = r.skill_details if isinstance(r.skill_details, dict) else {}
+        link = sd.get('crm_link') if isinstance(sd.get('crm_link'), dict) else {}
+        crm_id = str(link.get('crm_contact_id') or '').strip()
+        eh = sd.get('external_hit') if isinstance(sd.get('external_hit'), dict) else {}
+        profil = str(eh.get('profil_url') or eh.get('url') or '').strip()
+        title = str(eh.get('title') or eh.get('headline') or '').strip()
+        out[c.id] = {
+            'schwerpunkt': title,
+            'profil_url': profil,
+            'crm_contact_id': crm_id,
+            'gulp_id': str(eh.get('gulp_id') or '').strip(),
+            'fm_id': str(eh.get('fm_id') or '').strip(),
+            'fm_slug': str(eh.get('fm_slug') or '').strip(),
+        }
+        if crm_id:
+            crm_by_cons[c.id] = crm_id
+
+    # Radar: Consultant → CRM + Profil-URL
+    if cons_ids:
+        try:
+            from apps.abpe_shaduler.models import RadarConsultantItem
+            for row in (
+                RadarConsultantItem.objects.filter(consultant_id__in=cons_ids)
+                .only('consultant_id', 'crm_contact_id', 'gulp_id', 'profil_url')
+            ):
+                cid = row.consultant_id
+                if not cid:
+                    continue
+                bucket = out.setdefault(cid, {
+                    'schwerpunkt': '', 'profil_url': '', 'crm_contact_id': '',
+                    'gulp_id': '', 'fm_id': '', 'fm_slug': '',
+                })
+                if row.crm_contact_id and not bucket.get('crm_contact_id'):
+                    bucket['crm_contact_id'] = str(row.crm_contact_id)
+                    crm_by_cons[cid] = str(row.crm_contact_id)
+                if row.gulp_id and not bucket.get('gulp_id'):
+                    bucket['gulp_id'] = str(row.gulp_id)
+                if row.profil_url and not bucket.get('profil_url'):
+                    bucket['profil_url'] = str(row.profil_url).strip()
+        except Exception as exc:
+            logger.debug('shortlist radar enrich: %s', exc)
+
+    # E-Mail → CRM (für DB-Treffer ohne Radar/External-Link)
+    email_by_cons = {}
+    for r in results:
+        c = getattr(r, 'consultant_cv', None)
+        if c is None or c.id in crm_by_cons:
+            continue
+        try:
+            em = (getattr(c, 'email', None) or '').split(';')[0].strip().lower()
+        except Exception:
+            em = ''
+        if em and '@' in em:
+            email_by_cons[em] = c.id
+    if email_by_cons:
+        try:
+            from apps.abpe_crm.models import CrmEmailAddrBeanRel, CrmContactCstm
+            rels = (
+                CrmEmailAddrBeanRel.objects.filter(
+                    bean_module__iexact='Contacts',
+                    email_address__email_address__in=list(email_by_cons.keys()),
+                )
+                .select_related('email_address')
+                .order_by('-primary_address')[:500]
+            )
+            for rel in rels:
+                ea = getattr(rel, 'email_address', None)
+                addr = (getattr(ea, 'email_address', None) or '').strip().lower()
+                cid = email_by_cons.get(addr)
+                bean = str(getattr(rel, 'bean_id', '') or '').strip()
+                if cid and bean and cid not in crm_by_cons:
+                    crm_by_cons[cid] = bean
+                    out.setdefault(cid, {
+                        'schwerpunkt': '', 'profil_url': '', 'crm_contact_id': bean,
+                        'gulp_id': '', 'fm_id': '', 'fm_slug': '',
+                    })['crm_contact_id'] = bean
+        except Exception as exc:
+            logger.debug('shortlist email enrich: %s', exc)
+
+    crm_ids = list({v for v in crm_by_cons.values() if v})
+    if crm_ids:
+        try:
+            from apps.abpe_crm.models import CrmContactCstm
+            for row in CrmContactCstm.objects.filter(contact_id__in=crm_ids).only(
+                'contact_id',
+                'skill_priority_c',
+                'gulp_id_c',
+                'web_profil1_typ_c', 'web_profil1_location_c',
+                'web_profil2_typ_c', 'web_profil2_location_c',
+                'web_profil3_typ_c', 'web_profil3_location_c',
+                'web_profil4_typ_c', 'web_profil4_location_c',
+            ):
+                crm_id = str(getattr(row, 'contact_id', '') or '')
+                sp = (getattr(row, 'skill_priority_c', None) or '').strip()
+                # Webprofil-URL: Gulp / Freelancermap bevorzugen
+                web_url = ''
+                for i in (1, 2, 3, 4):
+                    typ = str(getattr(row, f'web_profil{i}_typ_c', '') or '').lower()
+                    loc = str(getattr(row, f'web_profil{i}_location_c', '') or '').strip()
+                    if not loc.startswith('http'):
+                        continue
+                    if 'gulp' in typ or 'freelance' in typ or 'flm' in typ or 'freelancermap' in typ:
+                        web_url = loc
+                        break
+                    if not web_url:
+                        web_url = loc
+                for cid, mapped in crm_by_cons.items():
+                    if mapped != crm_id:
+                        continue
+                    bucket = out.setdefault(cid, {
+                        'schwerpunkt': '', 'profil_url': '', 'crm_contact_id': crm_id,
+                        'gulp_id': '', 'fm_id': '', 'fm_slug': '',
+                    })
+                    if sp:
+                        bucket['schwerpunkt'] = sp
+                    if web_url and not bucket.get('profil_url'):
+                        bucket['profil_url'] = web_url
+                    gid = (getattr(row, 'gulp_id_c', None) or '').strip()
+                    if gid and not bucket.get('gulp_id'):
+                        bucket['gulp_id'] = gid
+        except Exception as exc:
+            logger.debug('shortlist cstm enrich: %s', exc)
+
+    # Fallback-Profil-URLs aus IDs
+    for bucket in out.values():
+        if bucket.get('profil_url'):
+            continue
+        gid = bucket.get('gulp_id') or ''
+        if gid:
+            bucket['profil_url'] = (
+                f'https://www.gulp.de/talentfinder/app/experten'
+                f'?gulpId={gid}'
+            )
+            continue
+        slug = bucket.get('fm_slug') or ''
+        fm_id = bucket.get('fm_id') or ''
+        if slug:
+            bucket['profil_url'] = f'https://www.freelancermap.de/profil/{slug}'
+        elif fm_id:
+            bucket['profil_url'] = f'https://www.freelancermap.de/profil/{fm_id}'
+
+    return out
+
+
 # ============================================================
 # PORTAL-VIEWS (Template-Render)
 # ============================================================
@@ -384,12 +556,17 @@ def api_shortlist(request, project_id):
     """Shortlist-Ergebnisse für ein Projekt"""
     try:
         p         = get_object_or_404(ProjectRequest, id=project_id)
-        threshold = float(request.GET.get('threshold', p.shortlist_threshold))
+        threshold = float(request.GET.get('threshold', p.shortlist_threshold or 0.45))
         skill_names = _project_skill_names(p)
 
-        results = MatchResult.objects.filter(
-            project_request=p
-        ).select_related('consultant_cv').order_by('-overall_score')
+        try:
+            results = MatchResult.objects.filter(
+                project_request=p
+            ).select_related('consultant_cv').order_by('rank', '-overall_score')
+        except Exception:
+            results = MatchResult.objects.filter(
+                project_request=p
+            ).select_related('consultant_cv').order_by('-overall_score')
 
         # ProjectConsultant-IDs für Outreach/Mail (MatchResult.id ≠ PC.id)
         pc_by_cv = {
@@ -399,35 +576,174 @@ def api_shortlist(request, project_id):
             )
         }
 
+        def _as_dict(val):
+            return val if isinstance(val, dict) else {}
+
+        def _as_list(val, fallback=None):
+            if isinstance(val, list):
+                return list(val)
+            if isinstance(val, tuple):
+                return list(val)
+            if isinstance(val, str) and val.strip():
+                return [val.strip()]
+            return list(fallback or [])
+
         data = []
+        source_counts = {'db': 0, 'es': 0, 'gulp': 0, 'flm': 0}
+        primary_counts = {'db': 0, 'es': 0, 'gulp': 0, 'flm': 0}
+        enrich = _shortlist_crm_enrichment(results)
         for r in results:
-            c = r.consultant_cv
-            pc = pc_by_cv.get(c.id)
-            email = ''
             try:
-                email = (c.email or '').split(';')[0].strip()
-            except Exception:
+                c = r.consultant_cv
+                if c is None:
+                    continue
+                pc = pc_by_cv.get(c.id)
                 email = ''
-            data.append({
-                'id':             str(r.id),
-                'match_result_id': str(r.id),
-                'project_consultant_id': str(pc.id) if pc else None,
-                'pc_status':      pc.status if pc else None,
-                'consultant_id':  c.aid,
-                'name':           c.full_name,
-                'email':          email,
-                'location':       c.location,
-                'availability':   c.availability,
-                'overall_score':  round(r.overall_score, 3),
-                'skill_score':    round(r.skill_score, 3),
-                'industry_score': round(r.industry_score, 3),
-                'rank':           r.rank,
-                'matched_skills': r.matched_skills,
-                'missing_skills': r.missing_skills,
-                'match_reason':   r.match_reason,
-                'above_threshold': r.overall_score >= threshold,
-                'cv_editor_url':  f'/cv-extractor/editor/{c.aid}/',
-            })
+                try:
+                    email = (getattr(c, 'email', None) or '').split(';')[0].strip()
+                except Exception:
+                    email = ''
+                sd = _as_dict(r.skill_details)
+                crm = _as_dict(sd.get('crm_link'))
+                eh = _as_dict(sd.get('external_hit'))
+                en = enrich.get(c.id) or {}
+                match_source = sd.get('match_source') or None
+                if not match_source and pc is not None:
+                    md = _as_dict(getattr(pc, 'match_details', None))
+                    match_source = md.get('match_source')
+                match_source = str(match_source or 'db').lower().strip()
+                if match_source not in primary_counts:
+                    match_source = 'db'
+                match_sources = _as_list(sd.get('match_sources'), [match_source])
+                if not match_sources:
+                    match_sources = [match_source]
+                match_sources = [
+                    str(s or '').lower().strip() for s in match_sources if str(s or '').strip()
+                ]
+                # Dedup Quellenliste
+                seen_src = set()
+                ms_clean = []
+                for s in match_sources:
+                    if s not in seen_src:
+                        seen_src.add(s)
+                        ms_clean.append(s)
+                match_sources = ms_clean or [match_source]
+                # any-source (Badge-Zählung) vs primary (Hauptquelle)
+                if match_source in primary_counts:
+                    primary_counts[match_source] += 1
+                for s in match_sources:
+                    if s in source_counts:
+                        source_counts[s] += 1
+                    elif match_source == s:
+                        source_counts['db'] += 1
+                crm_link_status = sd.get('crm_link_status') or 'known'
+                try:
+                    strength = round(float(sd.get('strength') or 0), 3)
+                except (TypeError, ValueError):
+                    strength = 0.0
+                try:
+                    coverage = round(float(sd.get('coverage') or 0), 3)
+                except (TypeError, ValueError):
+                    coverage = 0.0
+                try:
+                    coverage_eff = round(float(sd.get('coverage_eff') or coverage or 0), 3)
+                except (TypeError, ValueError):
+                    coverage_eff = coverage
+                schwerpunkt = (
+                    (en.get('schwerpunkt') or '').strip()
+                    or str(eh.get('title') or eh.get('headline') or '').strip()
+                )
+                profil_url = (
+                    (en.get('profil_url') or '').strip()
+                    or str(eh.get('profil_url') or eh.get('url') or '').strip()
+                )
+                gulp_id = (
+                    str(eh.get('gulp_id') or '').strip()
+                    or (en.get('gulp_id') or '').strip()
+                )
+                fm_id = (
+                    str(eh.get('fm_id') or '').strip()
+                    or (en.get('fm_id') or '').strip()
+                )
+                fm_slug = (
+                    str(eh.get('fm_slug') or '').strip()
+                    or (en.get('fm_slug') or '').strip()
+                )
+                aid = getattr(c, 'aid', '') or ''
+                cv_url = f'/cv-extractor/editor/{aid}/' if aid else ''
+                data.append({
+                    'id':             str(r.id),
+                    'match_result_id': str(r.id),
+                    'project_consultant_id': str(pc.id) if pc else None,
+                    'pc_status':      pc.status if pc else None,
+                    'consultant_id':  aid,
+                    'name':           getattr(c, 'full_name', None) or (
+                        f"{getattr(c, 'first_name', '')} {getattr(c, 'last_name', '')}".strip()
+                    ) or aid or '—',
+                    'email':          email or (crm.get('email') or ''),
+                    'phone':          (
+                        str(crm.get('phone') or '').strip()
+                        or (getattr(c, 'phone', None) or '').strip()
+                    ),
+                    'crm_contact_id': (
+                        (en.get('crm_contact_id') or '').strip()
+                        or str(crm.get('crm_contact_id') or '').strip()
+                        or (getattr(c, 'crm_contact_id', None) or '').strip()
+                    ),
+                    'location':       getattr(c, 'location', None) or '',
+                    'availability':   getattr(c, 'availability', None) or '',
+                    'schwerpunkt':    schwerpunkt,
+                    'profil_url':     profil_url,
+                    'gulp_id':        gulp_id,
+                    'fm_id':          fm_id,
+                    'fm_slug':        fm_slug,
+                    'overall_score':  round(float(r.overall_score or 0), 4),
+                    'skill_score':    round(float(r.skill_score or 0), 3),
+                    'industry_score': round(float(r.industry_score or 0), 3),
+                    'rank':           r.rank,
+                    'strength':       strength,
+                    'coverage':       coverage,
+                    'coverage_eff':   coverage_eff,
+                    'matched_skills': r.matched_skills or [],
+                    'missing_skills': r.missing_skills or [],
+                    'match_reason':   r.match_reason or '',
+                    'match_source':   match_source,
+                    'match_sources':  match_sources,
+                    'crm_link_status': crm_link_status,
+                    'profile_refresh_suggested': bool(sd.get('profile_refresh_suggested')),
+                    'above_threshold': float(r.overall_score or 0) >= threshold,
+                    'cv_editor_url':  cv_url,
+                })
+            except Exception as row_exc:
+                logger.warning('api_shortlist row skip %s: %s', getattr(r, 'id', '?'), row_exc)
+                continue
+
+        # Backoffice-Liste (Gulp/FLM ohne Kontakt / unbekannt)
+        backoffice = []
+        ext_stats = {}
+        er = p.extracted_requirements if isinstance(p.extracted_requirements, dict) else {}
+        if isinstance(er, dict):
+            raw_bo = er.get('_matching_backoffice') or []
+            # Nur JSON-sichere Dicts
+            if isinstance(raw_bo, list):
+                for b in raw_bo:
+                    if isinstance(b, dict):
+                        # Schwerpunkt aus externem Titel, falls fehlend
+                        eh = b.get('external_hit') if isinstance(b.get('external_hit'), dict) else {}
+                        if not b.get('schwerpunkt'):
+                            b = dict(b)
+                            b['schwerpunkt'] = (
+                                str(eh.get('title') or eh.get('headline') or '').strip()
+                            )
+                        backoffice.append(b)
+            ext_stats = er.get('_matching_external_stats') or {}
+            if not isinstance(ext_stats, dict):
+                ext_stats = {}
+
+        try:
+            shortlist_limit = _matching_shortlist_limit()
+        except Exception:
+            shortlist_limit = 20
 
         return Response({
             'success':   True,
@@ -435,6 +751,17 @@ def api_shortlist(request, project_id):
             'results':   data,
             'count':     len(data),
             'above_threshold': sum(1 for d in data if d['above_threshold']),
+            'source_counts': source_counts,
+            'primary_counts': primary_counts,
+            'source_count_note': (
+                'source_counts = Treffer mit Badge (Mehrfachquellen zählen mehrfach); '
+                'primary_counts = Hauptquelle; Dropdown = Shortlist + Backoffice'
+            ),
+            'backoffice': backoffice,
+            'backoffice_count': len(backoffice),
+            'external_stats': ext_stats,
+            'project_status': getattr(p, 'status', '') or '',
+            'shortlist_limit': shortlist_limit,
             # UI braucht Skills am Projekt — sonst Warnung „Keine Skills“ immer falsch
             'project_id':       str(p.id),
             'project_number':   p.project_number or '',
@@ -508,30 +835,103 @@ def api_match_status(request, match_id):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def api_match_detail(request, match_id):
+    """
+    Akzeptiert ProjectConsultant-ID (Kanban) ODER MatchResult-ID (Shortlist).
+    Liefert flache Kontaktfelder für Anrufen/E-Mail + CRM-Anreicherung.
+    """
+    from django.http import Http404
     try:
-        pc = get_object_or_404(
-            ProjectConsultant.objects.select_related('project', 'consultant_cv'),
-            id=match_id
-        )
+        pc = ProjectConsultant.objects.select_related(
+            'project', 'consultant_cv',
+        ).filter(id=match_id).first()
+        mr = None
+        if not pc:
+            from .services.outreach_wizard import resolve_match_result, ensure_project_consultant
+            try:
+                mr = resolve_match_result(match_id)
+            except Exception:
+                return Response({'success': False, 'error': 'Match nicht gefunden'}, status=404)
+            pc = ensure_project_consultant(mr)
+
         c = pc.consultant_cv
-        return Response({
-            'success': True,
-            'match': {
-                'id':            str(pc.id),
-                'project':       {'id': str(pc.project.id), 'number': pc.project.project_number, 'title': pc.project.title},
-                'consultant':    {'aid': c.aid, 'name': c.full_name, 'email': c.email, 'location': c.location},
-                'match_score':   pc.match_score,
-                'match_reason':  pc.match_reason,
-                'status':        pc.status,
-                'status_history':pc.status_history,
-                'contacted_at':  pc.contacted_at.isoformat() if pc.contacted_at else None,
-                'needs_followup':pc.needs_followup,
-                'days_since_contacted': pc.days_since_contacted,
-                'emails':        list(pc.emails.values('email_type', 'subject', 'sent_at', 'status')),
-            }
-        })
+        email = ''
+        try:
+            email = (getattr(c, 'email', None) or '').split(';')[0].strip()
+        except Exception:
+            email = ''
+        phone = (getattr(c, 'phone', None) or '').strip()
+        crm_id = (getattr(c, 'crm_contact_id', None) or '').strip()
+        gulp_id = ''
+        try:
+            gulp_id = (getattr(c, 'gulp_id', None) or '').strip()
+        except Exception:
+            gulp_id = ''
+        # Skill-Details vom MatchResult nachziehen falls vorhanden
+        if mr is None:
+            try:
+                from .models import MatchResult
+                mr = MatchResult.objects.filter(
+                    project_request=pc.project,
+                    consultant_cv=c,
+                ).order_by('-overall_score').first()
+            except Exception:
+                mr = None
+        if mr and isinstance(getattr(mr, 'skill_details', None), dict):
+            sd = mr.skill_details or {}
+            crm_link = sd.get('crm_link') if isinstance(sd.get('crm_link'), dict) else {}
+            if not crm_id:
+                crm_id = str(crm_link.get('crm_contact_id') or '').strip()
+            if not phone:
+                phone = str(crm_link.get('phone') or '').strip()
+            if not email:
+                email = str(crm_link.get('email') or '').strip()
+            eh = sd.get('external_hit') if isinstance(sd.get('external_hit'), dict) else {}
+            if not gulp_id:
+                gulp_id = str(eh.get('gulp_id') or '').strip()
+
+        name = getattr(c, 'full_name', None) or (
+            f"{getattr(c, 'first_name', '')} {getattr(c, 'last_name', '')}".strip()
+        ) or (getattr(c, 'aid', '') or '')
+
+        payload = {
+            'id': str(pc.id),
+            'project_consultant_id': str(pc.id),
+            'match_result_id': str(mr.id) if mr else None,
+            'name': name,
+            'full_name': name,
+            'email': email,
+            'phone': phone,
+            'location': getattr(c, 'location', None) or '',
+            'aid': getattr(c, 'aid', None) or '',
+            'consultant_aid': getattr(c, 'aid', None) or '',
+            'crm_contact_id': crm_id,
+            'crm_id': crm_id,
+            'gulp_id': gulp_id,
+            'match_score': pc.match_score,
+            'match_reason': pc.match_reason or (mr.match_reason if mr else '') or '',
+            'status': pc.status,
+            'cv_editor_url': (
+                f"/cv-extractor/editor/{c.aid}/" if getattr(c, 'aid', None) else ''
+            ),
+            'project': {
+                'id': str(pc.project.id),
+                'number': pc.project.project_number,
+                'title': pc.project.title,
+            },
+            'consultant': {
+                'aid': getattr(c, 'aid', None) or '',
+                'name': name,
+                'email': email,
+                'phone': phone,
+                'location': getattr(c, 'location', None) or '',
+                'crm_contact_id': crm_id,
+            },
+        }
+        return Response({'success': True, 'match': payload, **payload})
+    except Http404:
+        return Response({'success': False, 'error': 'nicht gefunden'}, status=404)
     except Exception as e:
-        logger.exception(f"api_match_detail: {e}")
+        logger.exception('api_match_detail: %s', e)
         return Response({'success': False, 'error': str(e)}, status=500)
 
 
@@ -1151,6 +1551,20 @@ def api_outreach_deep_reason(request, match_result_id):
         return Response({'ok': False, 'error': str(e)}, status=500)
 
 
+@extend_schema(summary="Outreach: Email-Studio-Vorlagen")
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def api_outreach_email_templates(request):
+    """ACTIVE Email-Studio-Vorlagen für den Outreach-Wizard (Default: matching_outreach_wizard)."""
+    try:
+        from .services.outreach_wizard import list_outreach_email_templates
+        return Response(list_outreach_email_templates())
+    except Exception as e:
+        logger.exception('api_outreach_email_templates: %s', e)
+        return Response({'ok': False, 'error': str(e), 'templates': [], 'default': 'matching_outreach_wizard'}, status=500)
+
+
 @extend_schema(summary="Outreach: Anschreiben-Draft")
 @csrf_exempt
 @api_view(['POST'])
@@ -1159,6 +1573,7 @@ def api_outreach_letter_draft(request, match_result_id):
     try:
         from .services.outreach_wizard import (
             resolve_match_result, build_letter_draft, build_deep_reason, ensure_project_consultant,
+            DEFAULT_OUTREACH_TEMPLATE,
         )
         mr = resolve_match_result(match_result_id)
         pc = ensure_project_consultant(mr)
@@ -1166,7 +1581,17 @@ def api_outreach_letter_draft(request, match_result_id):
         deep = body.get('deep_reason') if isinstance(body.get('deep_reason'), dict) else None
         if body.get('refresh_reason') or not deep:
             deep = build_deep_reason(mr)
-        data = build_letter_draft(mr, deep=deep, extra_notes=body.get('extra_notes') or '')
+        # use_ai: Default True; beim Vorlagenwechsel Frontend sendet false
+        use_ai = body.get('use_ai')
+        if use_ai is None:
+            use_ai = True
+        data = build_letter_draft(
+            mr,
+            deep=deep,
+            extra_notes=body.get('extra_notes') or '',
+            template_identifier=body.get('template_identifier') or DEFAULT_OUTREACH_TEMPLATE,
+            use_ai=bool(use_ai),
+        )
         data['project_consultant_id'] = str(pc.id)
         data['deep_reason'] = deep
         return Response(data)

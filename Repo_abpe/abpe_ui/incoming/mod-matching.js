@@ -944,7 +944,53 @@ window.Matching = (function() {
                 }
 
                 const threshold = d.threshold || 0.5;
+                const srcCounts = d.source_counts || { db: 0, es: 0, gulp: 0, flm: 0 };
+                const primaryCounts = d.primary_counts || null;
+                const boList = Array.isArray(d.backoffice) ? d.backoffice : [];
+                // Dropdown: Shortlist any-source + Backoffice separat sichtbar
+                const boBySrc = { db: 0, es: 0, gulp: 0, flm: 0 };
+                boList.forEach(b => {
+                    const s = String(b.match_source || '').toLowerCase();
+                    if (Object.prototype.hasOwnProperty.call(boBySrc, s)) boBySrc[s] += 1;
+                });
+                const _srcDropLabel = (key, label) => {
+                    const n = srcCounts[key] || 0;
+                    const bo = boBySrc[key] || 0;
+                    const prim = primaryCounts ? (primaryCounts[key] || 0) : null;
+                    let t = label + ' (' + n;
+                    if (bo) t += '+' + bo + ' BO';
+                    t += ')';
+                    if (prim != null && prim !== n) t += ' · Haupt ' + prim;
+                    return t;
+                };
+                const dropCounts = {
+                    db: (srcCounts.db || 0) + boBySrc.db,
+                    es: (srcCounts.es || 0) + boBySrc.es,
+                    gulp: (srcCounts.gulp || 0) + boBySrc.gulp,
+                    flm: (srcCounts.flm || 0) + boBySrc.flm,
+                };
+                const totalHits = (d.count || 0) + boList.length;
                 const projLabel = [d.project_number, d.project_title || d.title].filter(Boolean).join(' · ');
+                const _srcBadge = (src, linkStatus) => {
+                    const s = String(src || 'db').toLowerCase();
+                    const map = {
+                        db:   { label: 'DB',   bg: '#e8f0fe', fg: '#163258', bd: '#93c5fd' },
+                        es:   { label: 'ES',   bg: '#ecfdf5', fg: '#065f46', bd: '#6ee7b7' },
+                        gulp: { label: 'Gulp', bg: '#fff7ed', fg: '#9a3412', bd: '#fdba74' },
+                        flm:  { label: 'FLM',  bg: '#f5f3ff', fg: '#5b21b6', bd: '#c4b5fd' },
+                    };
+                    const m = map[s] || map.db;
+                    let html = `<span class="matching-src-badge" title="Quelle: ${m.label}"
+                        style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.03em;
+                               padding:1px 6px;border-radius:3px;border:1px solid ${m.bd};
+                               background:${m.bg};color:${m.fg};margin-left:6px;vertical-align:middle">${m.label}</span>`;
+                    if (linkStatus === 'known' && (s === 'gulp' || s === 'flm')) {
+                        html += `<span title="Im Bestand bekannt — Kontakt nutzbar"
+                            style="display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;
+                                   border:1px solid #86efac;background:#f0fdf4;color:#166534;margin-left:4px">bekannt</span>`;
+                    }
+                    return html;
+                };
                 let html = `
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
                     <button type="button" class="matching-btn-sm" onclick="Matching.pickShortlistRequest()">
@@ -971,18 +1017,78 @@ window.Matching = (function() {
                     <span id="threshold-count" style="font-size:10px;color:#888">
                         ${d.above_threshold} ${_t('matching.above_threshold_full')}
                     </span>
+                    <span style="font-size:10px;color:#94a3b8" title="Alle Treffer ≥ Schwellwert (kein festes Top-N)">
+                        ${totalHits} Treffer
+                    </span>
+                    <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:8px">
+                        ${_esc(_kiT('source_filter_label', 'Quelle'))}:
+                        <select id="shortlist-source-filter"
+                                onchange="Matching.filterShortlistSource(this.value)"
+                                style="font-size:11px;padding:2px 6px;border:1px solid #cbd5e1;border-radius:4px;background:#fff">
+                            <option value="all">${_esc(_kiT('source_all', 'Alle'))} (${totalHits})</option>
+                            <option value="db" title="Badge DB (ggf. + Backoffice)">${_esc(_srcDropLabel('db', 'DB'))}</option>
+                            <option value="es" title="Badge ES — auch DB+ES-Treffer">${_esc(_srcDropLabel('es', 'ES'))}</option>
+                            <option value="gulp">${_esc(_srcDropLabel('gulp', 'Gulp'))}</option>
+                            <option value="flm">${_esc(_srcDropLabel('flm', 'FLM'))}</option>
+                        </select>
+                    </label>
                     <button type="button" class="matching-btn-sm"
                             title="${_escAttr(_kiT('rematch_title', 'Shortlist löschen und Matching neu starten'))}"
                             onclick="Matching.rematch('${projectId}')">
                         <i class="bi bi-arrow-repeat"></i> ${_esc(_kiT('btn_rematch', 'Erneut matchen'))}
                     </button>
+                    <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:4px;cursor:pointer;user-select:none"
+                           title="Gulp-Treffer (Shortlist+Backoffice) als Wiedervorlagen-Gruppe anlegen">
+                        <input type="checkbox" id="sw-gen-gulp"
+                               onchange="Matching.toggleGenerateExternalList('gulp', this.checked)"
+                               style="accent-color:#9a3412;width:14px;height:14px">
+                        ${_esc(_kiT('btn_gen_gulp_list', 'Liste Gulp generieren'))}
+                        <span style="color:#94a3b8">(${dropCounts.gulp || 0})</span>
+                    </label>
+                    <label style="font-size:11px;color:#555;display:inline-flex;align-items:center;gap:4px;margin-left:2px;cursor:pointer;user-select:none"
+                           title="FLM-Treffer (Shortlist+Backoffice) als Wiedervorlagen-Gruppe anlegen">
+                        <input type="checkbox" id="sw-gen-flm"
+                               onchange="Matching.toggleGenerateExternalList('flm', this.checked)"
+                               style="accent-color:#5b21b6;width:14px;height:14px">
+                        ${_esc(_kiT('btn_gen_flm_list', 'Liste FLM generieren'))}
+                        <span style="color:#94a3b8">(${dropCounts.flm || 0})</span>
+                    </label>
                     <button class="matching-btn-primary" style="margin-left:auto"
+                            id="btn-outreach-selected"
                             onclick="Matching.sendAllAboveThreshold()">
                         ${_t('matching.btn_send_all_count')} (${d.above_threshold}) ↗
                     </button>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 8px;font-size:11px;color:#555">
+                    <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;user-select:none">
+                        <input type="checkbox" id="shortlist-select-all"
+                               onchange="Matching.toggleSelectAllVisible(this.checked)"
+                               style="accent-color:#163258;width:14px;height:14px">
+                        ${_esc(_kiT('select_all_visible', 'Sichtbare auswählen'))}
+                    </label>
+                    <span id="shortlist-selected-count" style="color:#163258;font-weight:600">0 ausgewählt</span>
+                    <button type="button" class="matching-btn-sm" onclick="Matching.clearOutreachSelection()">
+                        ${_esc(_kiT('clear_selection', 'Auswahl leeren'))}
+                    </button>
+                    <span style="color:#94a3b8">${_esc(_kiT('select_hint', 'Haken setzen → Anschreiben nur für Auswahl'))}</span>
                 </div>`;
 
-                if (d.count === 0) {
+                const extSt = d.external_stats || {};
+                const boN = d.backoffice_count || boList.length || 0;
+                if (d.project_status === 'matching' && !(srcCounts.gulp || srcCounts.flm || boN)) {
+                    html += `<div style="font-size:11px;color:#b45309;margin:6px 0 10px;padding:6px 8px;background:#fffbeb;border-radius:4px">
+                        Matching läuft noch (Gulp/FLM kann 30–90 s dauern) — Shortlist aktualisiert sich automatisch.
+                    </div>`;
+                } else if (boN || extSt.gulp_raw || extSt.flm_raw) {
+                    html += `<div style="font-size:10px;color:#64748b;margin:4px 0 8px">
+                        Extern: gulp=${extSt.gulp_raw || 0} flm=${extSt.flm_raw || 0}
+                        · known=${(extSt.gulp_known || 0) + (extSt.flm_known || 0)}
+                        · backoffice=${boN}
+                        <span style="color:#9a3412"> — Dropdown Gulp/FLM filtert auch Backoffice</span>
+                    </div>`;
+                }
+
+                if (d.count === 0 && boN === 0) {
                     html += `<div style="padding:30px;text-align:center;color:#888">
                         ${_t('matching.no_results')}<br>
                         <button class="matching-btn-primary" style="margin-top:10px"
@@ -992,20 +1098,76 @@ window.Matching = (function() {
                     </div>`;
                 } else {
                     html += '<div id="shortlist-results">';
-                    for (const r of d.results) {
+                    for (const r of (d.results || [])) {
                         const scoreClass = r.overall_score >= 0.7 ? 'score-hi' :
                                            r.overall_score >= 0.5 ? 'score-mid' : 'score-lo';
                         const opacity = r.above_threshold ? '1' : '0.4';
+                        const src = (r.match_source || 'db').toLowerCase();
+                        const srcList = (Array.isArray(r.match_sources) && r.match_sources.length)
+                            ? r.match_sources.map(s => String(s || '').toLowerCase())
+                            : [src];
+                        const srcAttr = srcList.filter(Boolean).join(',');
+                        const linkSt = r.crm_link_status || '';
+                        const pct = (r.overall_score * 100);
+                        // Immer 1 Dezimal — sonst wirken 67.1 / 67.4 wie gleiche 67%
+                        const pctLabel = pct.toFixed(1);
+                        const strPct = (r.strength != null) ? (Number(r.strength) * 100) : null;
+                        const covPct = (r.coverage != null) ? (Number(r.coverage) * 100) : null;
+                        const strHint = (strPct != null || covPct != null)
+                            ? `<div style="font-size:9px;color:#94a3b8;line-height:1.2" title="Strength / Coverage">`
+                              + (strPct != null ? `str ${strPct.toFixed(0)}%` : '')
+                              + (strPct != null && covPct != null ? ' · ' : '')
+                              + (covPct != null ? `cov ${covPct.toFixed(0)}%` : '')
+                              + `</div>`
+                            : '';
+                        const badges = srcList.map(s => _srcBadge(s, linkSt)).join('');
+                        const isExtSrc = srcList.includes('gulp') || srcList.includes('flm');
+                        const hasDbEs = srcList.includes('db') || srcList.includes('es');
+                        const profilUrl = String(r.profil_url || '').trim();
+                        const schwerpunkt = String(r.schwerpunkt || '').trim();
+                        const subLine = [
+                            schwerpunkt,
+                            r.location ? String(r.location) : '',
+                        ].filter(Boolean).join(' · ');
+                        // Gulp/FLM ohne DB/ES → HTML-Profil (kein generiertes CV)
+                        const docBtn = (isExtSrc && profilUrl && !hasDbEs)
+                            ? `<a href="${_escAttr(profilUrl)}" target="_blank" rel="noopener"
+                                  class="matching-btn-sm" title="Externes HTML-Profil">HTML</a>`
+                            : (r.cv_editor_url
+                                ? `<a href="${_escAttr(r.cv_editor_url)}" target="_blank"
+                                      class="matching-btn-sm">CV</a>`
+                                : (profilUrl
+                                    ? `<a href="${_escAttr(profilUrl)}" target="_blank" rel="noopener"
+                                          class="matching-btn-sm" title="Externes HTML-Profil">HTML</a>`
+                                    : ''));
                         html += `
-                        <div class="matching-card" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
-                             data-score="${r.overall_score}" data-id="${r.id}">
+                        <div class="matching-card matching-hit" style="display:flex;align-items:center;gap:8px;opacity:${opacity}"
+                             data-score="${r.overall_score}" data-id="${r.id}" data-match-id="${r.id}"
+                             data-source="${_escAttr(src)}"
+                             data-sources="${_escAttr(srcAttr)}" data-kind="shortlist"
+                             data-rank="${r.rank || ''}" data-strength="${r.strength || 0}"
+                             data-name="${_escAttr(r.name || '')}"
+                             data-location="${_escAttr(r.location || '')}"
+                             data-phone="${_escAttr(r.phone || '')}"
+                             data-email="${_escAttr(r.email || '')}"
+                             data-crm="${_escAttr(r.crm_contact_id || '')}"
+                             data-gulp="${_escAttr(r.gulp_id || '')}"
+                             data-aid="${_escAttr(r.consultant_id || '')}">
+                            <label style="display:flex;align-items:center;padding:0 2px;cursor:pointer;flex-shrink:0"
+                                   title="Für Outreach auswählen"
+                                   onclick="event.stopPropagation()">
+                                <input type="checkbox" class="matching-outreach-cb"
+                                       data-id="${_escAttr(r.id)}"
+                                       onchange="Matching.toggleOutreachSelect('${_escAttr(r.id)}', this.checked)"
+                                       style="accent-color:#163258;width:15px;height:15px;margin:0">
+                            </label>
                             <div class="matching-score-box ${scoreClass}">
-                                ${(r.overall_score*100).toFixed(0)}%
+                                ${pctLabel}%${strHint}
                             </div>
                             <div style="flex:1">
-                                <div style="font-weight:700;font-size:12px">${r.name}</div>
+                                <div style="font-weight:700;font-size:12px">${r.name}${badges}</div>
                                 <div style="font-size:10px;color:#888">
-                                    ${r.matched_skills?.slice(0,4).join(' · ')} · ${r.location || ''}
+                                    ${_esc(subLine || '—')}
                                 </div>
                                 ${r.match_reason ? `<div style="font-size:10px;color:#666;font-style:italic;margin-top:2px">"${r.match_reason}"</div>` : ''}
                                 <div class="matching-score-bar">
@@ -1014,15 +1176,14 @@ window.Matching = (function() {
                             </div>
                             <div style="display:flex;gap:4px">
                                 <button class="matching-btn-sm matching-btn-call"
-                                        onclick="Matching.call('${r.id}')">
+                                        onclick="event.stopPropagation();Matching.openContact('${r.id}')">
                                     <i class="bi bi-telephone"></i> ${_t('matching.btn_call')}
                                 </button>
                                 <button class="matching-btn-sm matching-btn-mail"
-                                        onclick="Matching.sendEmail('${r.id}')">
+                                        onclick="event.stopPropagation();Matching.openContact('${r.id}')">
                                     <i class="bi bi-envelope"></i> ${_t('matching.btn_email')}
                                 </button>
-                                <a href="${r.cv_editor_url}" target="_blank"
-                                   class="matching-btn-sm">CV</a>
+                                ${docBtn}
                             </div>
                         </div>`;
                         if (r.above_threshold) {
@@ -1035,6 +1196,59 @@ window.Matching = (function() {
                     html += '</div>';
                 }
 
+                // Backoffice: Gulp/FLM — im Quellen-Dropdown mitgezählt + filterbar
+                if (boList.length) {
+                    html += `
+                    <div id="shortlist-backoffice-wrap" style="margin-top:18px;padding-top:12px;border-top:1px dashed #cbd5e1">
+                      <div id="shortlist-backoffice-title" style="font-size:12px;font-weight:700;color:#9a3412;margin-bottom:8px">
+                        Backoffice — <span id="shortlist-backoffice-count">${boList.length}</span> Treffer ohne Kontakt / nicht im Bestand
+                        <span style="font-weight:500;color:#888;font-size:10px">
+                          (kein Auto-CV-Update; manuell nachziehen)
+                        </span>
+                      </div>
+                      <div id="shortlist-backoffice">`;
+                    for (const b of boList.slice(0, 200)) {
+                        const eh = b.external_hit || {};
+                        const src = (b.match_source || '').toLowerCase();
+                        const url = eh.profil_url || '';
+                        const nm = _esc(b.display_name || eh.name || '—');
+                        const sp = String(b.schwerpunkt || eh.title || eh.headline || '').trim();
+                        const ov = (b.external_overlap_skills || []).join(', ');
+                        const contactBits = [
+                            b.email ? _esc(b.email) : '',
+                            b.phone ? _esc(b.phone) : '',
+                        ].filter(Boolean).join(' · ');
+                        const reasonLabel = ({
+                            known_crm: 'CRM bekannt (ohne CV)',
+                            no_consultant: 'CRM ohne Consultant',
+                            no_contact: 'bekannt ohne Kontakt',
+                            unknown: 'nicht im Bestand',
+                        })[b.reason] || _esc(b.reason || '');
+                        const subBo = [
+                            sp,
+                            reasonLabel,
+                            ov,
+                            eh.ort ? String(eh.ort) : '',
+                        ].filter(Boolean).join(' · ');
+                        html += `
+                        <div class="matching-card matching-hit" data-kind="backoffice"
+                             data-source="${_escAttr(src)}" data-sources="${_escAttr(src)}"
+                             data-score="${b.external_overlap || 0}"
+                             style="display:flex;align-items:center;gap:8px;opacity:.85;background:#fffbeb">
+                          <div style="min-width:52px;text-align:center;font-size:11px;font-weight:700;color:#9a3412">
+                            ${b.external_overlap != null ? (b.external_overlap + '∩') : '—'}
+                          </div>
+                          <div style="flex:1">
+                            <div style="font-weight:700;font-size:12px">${nm}${_srcBadge(src)}</div>
+                            <div style="font-size:10px;color:#888">${_esc(subBo || '—')}</div>
+                            ${contactBits ? `<div style="font-size:10px;color:#166534">${contactBits}</div>` : ''}
+                          </div>
+                          ${url ? `<a href="${_escAttr(url)}" target="_blank" rel="noopener" class="matching-btn-sm" title="Externes HTML-Profil">HTML</a>` : ''}
+                        </div>`;
+                    }
+                    html += '</div></div>';
+                }
+
                 content.innerHTML = html;
                 content.dataset.loaded = '1';
                 content.dataset.projectId = projectId;
@@ -1042,9 +1256,15 @@ window.Matching = (function() {
                     projectId: projectId,
                     threshold: threshold,
                     results: d.results || [],
+                    backoffice: boList,
+                    source_counts: srcCounts,
+                    drop_counts: dropCounts,
                     project_number: d.project_number || '',
                     project_title: d.project_title || d.title || '',
                 };
+                Matching.filterShortlistSource('all');
+                _restoreOutreachCheckboxes();
+                _updateOutreachSelectUi();
             })
             .catch(e => {
                 if (loading) loading.style.display = 'none';
@@ -2956,8 +3176,10 @@ window.Matching = (function() {
                 alert(_t('matching.matching_started'));
                 const content = document.getElementById('content-shortlist');
                 if (content) content.dataset.loaded = '0';
-                // Matching läuft async — Shortlist mehrfach nachladen
-                const delays = [2000, 5000, 10000, 20000];
+                // Matching inkl. Gulp/FLM kann 30–90s dauern — länger nachladen
+                const delays = opts.reset
+                    ? [3000, 8000, 15000, 30000, 45000, 70000, 90000]
+                    : [2000, 5000, 10000, 20000];
                 delays.forEach(ms => {
                     setTimeout(() => {
                         const el = document.getElementById('content-shortlist');
@@ -3275,44 +3497,380 @@ window.Matching = (function() {
         const t = val / 100;
         const el = document.getElementById('threshold-val');
         if (el) el.textContent = t.toFixed(2);
-        document.querySelectorAll('#shortlist-results .matching-card[data-score]').forEach(card => {
-            card.style.opacity = parseFloat(card.dataset.score) >= t ? '1' : '0.4';
-        });
-        const above = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
-            .filter(c => parseFloat(c.dataset.score) >= t).length;
+        const srcSel = document.getElementById('shortlist-source-filter');
+        const src = srcSel ? String(srcSel.value || 'all').toLowerCase() : 'all';
+
+        function _cardSources(card) {
+            const primary = String(card.dataset.source || 'db').toLowerCase();
+            return String(card.dataset.sources || primary)
+                .split(',')
+                .map(s => s.trim().toLowerCase())
+                .filter(Boolean);
+        }
+        function _srcOk(card) {
+            if (src === 'all') return true;
+            const allSrc = _cardSources(card);
+            const primary = String(card.dataset.source || 'db').toLowerCase();
+            return allSrc.indexOf(src) >= 0 || primary === src;
+        }
+
+        const root = document.getElementById('shortlist-results');
+        let above = 0;
+        if (root) {
+            const cards = [...root.querySelectorAll('.matching-card[data-score]')];
+            cards.forEach(card => {
+                const srcOk = _srcOk(card);
+                card.style.display = srcOk ? '' : 'none';
+                if (srcOk) {
+                    const score = parseFloat(card.dataset.score);
+                    card.style.opacity = score >= t ? '1' : '0.4';
+                    if (score >= t) above += 1;
+                }
+            });
+            const visible = cards.filter(c => c.style.display !== 'none');
+            visible.sort((a, b) => {
+                const ds = parseFloat(b.dataset.score) - parseFloat(a.dataset.score);
+                if (Math.abs(ds) > 1e-9) return ds;
+                return parseFloat(b.dataset.strength || 0) - parseFloat(a.dataset.strength || 0);
+            });
+            const frag = document.createDocumentFragment();
+            visible.forEach(c => frag.appendChild(c));
+            cards.filter(c => c.style.display === 'none').forEach(c => frag.appendChild(c));
+            root.appendChild(frag);
+        }
+
+        // Backoffice mitfiltern (Gulp/FLM Treffer)
+        const boRoot = document.getElementById('shortlist-backoffice');
+        const boWrap = document.getElementById('shortlist-backoffice-wrap');
+        let boVisible = 0;
+        if (boRoot) {
+            const boCards = [...boRoot.querySelectorAll('.matching-card')];
+            boCards.forEach(card => {
+                const ok = _srcOk(card);
+                card.style.display = ok ? '' : 'none';
+                if (ok) boVisible += 1;
+            });
+            if (boWrap) {
+                // Bei Quelle=DB Backoffice ausblenden; bei Gulp/FLM/Alle zeigen wenn Treffer
+                const showBo = (src === 'all' || src === 'gulp' || src === 'flm') && boVisible > 0;
+                boWrap.style.display = showBo ? '' : 'none';
+            }
+            const boCnt = document.getElementById('shortlist-backoffice-count');
+            if (boCnt) boCnt.textContent = String(boVisible);
+        }
+
         const cnt = document.getElementById('threshold-count');
         if (cnt) cnt.textContent = above + ' ' + _t('matching.above_threshold_full');
+        _updateOutreachSelectUi(above);
+    }
+
+    function filterShortlistSource(src) {
+        const srcSel = document.getElementById('shortlist-source-filter');
+        if (srcSel && src != null && src !== '') {
+            srcSel.value = src;
+        }
+        const slider = document.getElementById('threshold-slider');
+        const val = slider ? slider.value : '45';
+        updateThreshold(val);
+    }
+
+    function _outreachSelectedSet() {
+        if (!(window._matchingOutreachSelected instanceof Set)) {
+            window._matchingOutreachSelected = new Set();
+        }
+        return window._matchingOutreachSelected;
+    }
+
+    function toggleOutreachSelect(id, checked) {
+        const set = _outreachSelectedSet();
+        const key = String(id || '');
+        if (!key) return;
+        if (checked) set.add(key);
+        else set.delete(key);
+        _updateOutreachSelectUi();
+    }
+
+    function clearOutreachSelection() {
+        _outreachSelectedSet().clear();
+        document.querySelectorAll('#shortlist-results .matching-outreach-cb').forEach(cb => {
+            cb.checked = false;
+        });
+        const all = document.getElementById('shortlist-select-all');
+        if (all) all.checked = false;
+        _updateOutreachSelectUi();
+    }
+
+    function toggleSelectAllVisible(checked) {
+        const set = _outreachSelectedSet();
+        const slider = document.getElementById('threshold-slider');
+        const t = slider ? (parseFloat(slider.value) / 100) : 0.45;
+        document.querySelectorAll('#shortlist-results .matching-card.matching-hit').forEach(card => {
+            if (card.style.display === 'none') return;
+            if (parseFloat(card.dataset.score || 0) < t) return;
+            const id = String(card.dataset.id || '');
+            const cb = card.querySelector('.matching-outreach-cb');
+            if (!id || !cb) return;
+            cb.checked = !!checked;
+            if (checked) set.add(id);
+            else set.delete(id);
+        });
+        _updateOutreachSelectUi();
+    }
+
+    function _restoreOutreachCheckboxes() {
+        const set = _outreachSelectedSet();
+        document.querySelectorAll('#shortlist-results .matching-outreach-cb').forEach(cb => {
+            cb.checked = set.has(String(cb.getAttribute('data-id') || ''));
+        });
+    }
+
+    function _updateOutreachSelectUi(aboveOverride) {
+        const set = _outreachSelectedSet();
+        const n = set.size;
+        const label = document.getElementById('shortlist-selected-count');
+        if (label) {
+            label.textContent = n
+                ? (n + ' ausgewählt')
+                : '0 ausgewählt';
+        }
+        const slider = document.getElementById('threshold-slider');
+        const t = slider ? (parseFloat(slider.value) / 100) : 0.45;
+        let above = aboveOverride;
+        if (above == null) {
+            above = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
+                .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score) >= t)
+                .length;
+        }
+        const sendBtn = document.getElementById('btn-outreach-selected')
+            || document.querySelector('.matching-threshold-bar .matching-btn-primary');
+        if (sendBtn) {
+            if (n > 0) {
+                sendBtn.textContent = _kiT('btn_send_selected', 'Auswahl anschreiben')
+                    + ' (' + n + ') ↗';
+            } else {
+                sendBtn.textContent = _t('matching.btn_send_all_count') + ' (' + above + ') ↗';
+            }
+        }
+        // Select-all: nur wenn alle sichtbaren ≥ Schwellwert angehakt
+        const allCb = document.getElementById('shortlist-select-all');
+        if (allCb) {
+            const vis = [...document.querySelectorAll('#shortlist-results .matching-card.matching-hit')]
+                .filter(c => c.style.display !== 'none' && parseFloat(c.dataset.score || 0) >= t);
+            const allOn = vis.length > 0 && vis.every(c => {
+                const cb = c.querySelector('.matching-outreach-cb');
+                return cb && cb.checked;
+            });
+            allCb.checked = allOn;
+        }
     }
 
     function sendAllAboveThreshold() {
         openOutreachWizard();
     }
 
-    // ── Outreach-Wizard („Alle anschreiben“) ───────────────────────────────
+    /**
+     * Schalter: Gulp/FLM-Liste → Wiedervorlagen-Gruppe (HTML-Links zur Nachbearbeitung).
+     */
+    function toggleGenerateExternalList(source, enabled) {
+        const src = String(source || '').toLowerCase();
+        const swId = src === 'flm' ? 'sw-gen-flm' : 'sw-gen-gulp';
+        const sw = document.getElementById(swId);
+        if (!enabled) {
+            return;
+        }
+        const cache = window._matchingShortlistCache || {};
+        const projectId = cache.projectId || '';
+        const projLabel = [cache.project_number, cache.project_title].filter(Boolean).join(' · ')
+            || projectId || 'Anfrage';
+        const label = src === 'flm' ? 'FLM' : 'Gulp';
+
+        const items = [];
+        const seen = new Set();
+        function _extIdFromUrl(url, prefer) {
+            if (prefer) return String(prefer).trim();
+            const u = String(url || '');
+            let m = u.match(/[?&]gulpId=(\d+)/i);
+            if (m) return m[1];
+            m = u.match(/freelancermap\.de\/profil\/([^/?#]+)/i);
+            if (m) return m[1];
+            return '';
+        }
+        function _push(name, htmlUrl, refId, extra) {
+            const url = String(htmlUrl || '').trim();
+            if (!url) return;
+            const key = url.toLowerCase();
+            if (seen.has(key)) return;
+            seen.add(key);
+            const nm = String(name || 'Unbekannt').trim() || 'Unbekannt';
+            const extId = _extIdFromUrl(
+                url,
+                extra && (extra.external_id || extra.gulp_id || extra.fm_id || extra.fm_slug)
+            );
+            items.push({
+                titel: `${label}: ${nm}`.slice(0, 200),
+                name: nm,
+                external_id: extId,
+                gulp_id: src === 'gulp' ? extId : '',
+                fm_id: src === 'flm' ? extId : '',
+                html_url: url,
+                beschreibung: [
+                    extId ? `${src === 'flm' ? 'FLM-ID' : 'Gulp-ID'}: ${extId}` : '',
+                    `HTML: ${url}`,
+                    extra && extra.schwerpunkt ? `Schwerpunkt: ${extra.schwerpunkt}` : '',
+                    extra && extra.reason ? `Status: ${extra.reason}` : '',
+                    `Anfrage: ${projLabel}`,
+                    `Quelle: ${label}`,
+                ].filter(Boolean).join('\n'),
+                ref_type: 'berater',
+                ref_id: String(extId || refId || url).slice(0, 64),
+                prioritaet: 3,
+            });
+        }
+
+        (cache.results || []).forEach(r => {
+            const srcList = (Array.isArray(r.match_sources) && r.match_sources.length)
+                ? r.match_sources.map(s => String(s || '').toLowerCase())
+                : [String(r.match_source || '').toLowerCase()];
+            if (!srcList.includes(src)) return;
+            _push(
+                r.name,
+                r.profil_url,
+                r.consultant_id || r.id,
+                {
+                    schwerpunkt: r.schwerpunkt,
+                    gulp_id: r.gulp_id,
+                    fm_id: r.fm_id,
+                    fm_slug: r.fm_slug,
+                }
+            );
+        });
+        (cache.backoffice || []).forEach(b => {
+            if (String(b.match_source || '').toLowerCase() !== src) return;
+            const eh = b.external_hit || {};
+            _push(
+                b.display_name || eh.name,
+                eh.profil_url || eh.url,
+                eh.gulp_id || eh.fm_id || eh.fm_slug || b.display_name,
+                {
+                    schwerpunkt: b.schwerpunkt || eh.title || eh.headline,
+                    reason: b.reason,
+                    gulp_id: eh.gulp_id,
+                    fm_id: eh.fm_id,
+                    fm_slug: eh.fm_slug,
+                }
+            );
+        });
+
+        if (!items.length) {
+            alert(`Keine ${label}-Treffer mit HTML-Link in Shortlist/Backoffice.`);
+            if (sw) sw.checked = false;
+            return;
+        }
+        if (!confirm(
+            `${items.length} ${label}-Profile in EINE Wiedervorlage mit Arbeitsliste?\n`
+            + `(Shaduler → Aufgaben → Wiedervorlagen)\n`
+            + `Liste: ${src === 'flm' ? 'FLM-ID' : 'Gulp-ID'} + HTML\n`
+            + projLabel
+        )) {
+            if (sw) sw.checked = false;
+            return;
+        }
+
+        function _downloadCsv(rows) {
+            const lines = ['ID;Name;HTML'];
+            rows.forEach(r => {
+                const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+                lines.push([q(r.external_id), q(r.name), q(r.html_url)].join(';'));
+            });
+            const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `${label}_Nachbearbeitung_${(cache.project_number || 'liste')}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+        }
+
+        _jsonPost('/shaduler/api/aufgaben/bulk/', {
+            art: 'wiedervorlage',
+            source: src,
+            kanal: src,
+            gruppe_titel: `${label}-Nachbearbeitung — ${projLabel}`.slice(0, 200),
+            gruppe_beschreibung: [
+                `${items.length} Profile aus Matching (${label}).`,
+                'Arbeitsliste: ID + HTML zur Nachbearbeitung in Gulp/FLM.',
+                `Anfrage: ${projLabel}`,
+            ].join('\n'),
+            ref_type: 'projekt',
+            ref_id: String(projectId || cache.project_number || '').slice(0, 64),
+            prioritaet: 2,
+            items: items,
+        }).then(res => {
+            if (res && res.ok) {
+                const n = (res.worklist && res.worklist.length) || items.length;
+                _downloadCsv(res.worklist && res.worklist.length ? res.worklist : items);
+                alert(
+                    `✓ 1 Wiedervorlage mit ${n} Profilen (${label}).\n`
+                    + 'CSV mit ID + HTML wurde heruntergeladen.\n'
+                    + 'Shaduler → Wiedervorlagen → Eintrag öffnen = Arbeitsliste.'
+                );
+            } else {
+                alert('Fehler: ' + ((res && res.error) || 'Bulk-Anlage fehlgeschlagen'));
+                if (sw) sw.checked = false;
+            }
+        }).catch(err => {
+            alert('Fehler: ' + (err && err.message ? err.message : err));
+            if (sw) sw.checked = false;
+        });
+    }
+
+    // ── Outreach-Wizard („Alle anschreiben“ / Auswahl) ─────────────────────
     function _outreachCandidates() {
         const cache = window._matchingShortlistCache || {};
         const slider = document.getElementById('threshold-slider');
         const t = slider ? (parseFloat(slider.value) / 100) : (cache.threshold || 0.45);
+        const selected = _outreachSelectedSet();
+        const preferSelected = selected.size > 0;
+
+        function _mapCard(c) {
+            const id = c.dataset.id;
+            const hit = (cache.results || []).find(r => r.id === id) || {};
+            return {
+                id: id,
+                name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
+                score: parseFloat(c.dataset.score),
+                email: hit.email || '',
+                match_source: hit.match_source || c.dataset.source || 'db',
+                matched_skills: hit.matched_skills || [],
+                match_reason: hit.match_reason || '',
+                consultant_id: hit.consultant_id || '',
+                project_consultant_id: hit.project_consultant_id || null,
+                cv_editor_url: hit.cv_editor_url || '',
+            };
+        }
+
         const fromDom = [...document.querySelectorAll('#shortlist-results .matching-card[data-score]')]
-            .filter(c => parseFloat(c.dataset.score) >= t)
-            .map(c => {
-                const id = c.dataset.id;
-                const hit = (cache.results || []).find(r => r.id === id) || {};
-                return {
-                    id: id,
-                    name: hit.name || (c.querySelector('div[style*="font-weight:700"]') || {}).textContent || id,
-                    score: parseFloat(c.dataset.score),
-                    email: hit.email || '',
-                    matched_skills: hit.matched_skills || [],
-                    match_reason: hit.match_reason || '',
-                    consultant_id: hit.consultant_id || '',
-                    project_consultant_id: hit.project_consultant_id || null,
-                    cv_editor_url: hit.cv_editor_url || '',
-                };
-            });
-        if (fromDom.length) return { threshold: t, list: fromDom, projectId: cache.projectId };
+            .filter(c => {
+                if (c.style.display === 'none') return false;
+                if (parseFloat(c.dataset.score) < t) return false;
+                if (preferSelected && !selected.has(String(c.dataset.id || ''))) return false;
+                return true;
+            })
+            .map(_mapCard);
+        if (fromDom.length) {
+            return {
+                threshold: t,
+                list: fromDom,
+                projectId: cache.projectId,
+                selectedOnly: preferSelected,
+            };
+        }
         const list = (cache.results || [])
-            .filter(r => (r.overall_score || 0) >= t)
+            .filter(r => {
+                if ((r.overall_score || 0) < t) return false;
+                if (preferSelected && !selected.has(String(r.id))) return false;
+                return true;
+            })
             .map(r => ({
                 id: r.id,
                 name: r.name,
@@ -3324,14 +3882,32 @@ window.Matching = (function() {
                 project_consultant_id: r.project_consultant_id || null,
                 cv_editor_url: r.cv_editor_url || '',
             }));
-        return { threshold: t, list, projectId: cache.projectId };
+        return {
+            threshold: t,
+            list,
+            projectId: cache.projectId,
+            selectedOnly: preferSelected,
+        };
     }
 
     function openOutreachWizard() {
         const pack = _outreachCandidates();
         if (!pack.list.length) {
-            alert(_kiT('outreach_none', 'Keine Berater oberhalb des Schwellwerts.'));
+            if (pack.selectedOnly) {
+                alert(_kiT('outreach_none_selected',
+                    'Keine der ausgewählten Berater liegt über dem Schwellwert (oder ist sichtbar).'));
+            } else {
+                alert(_kiT('outreach_none', 'Keine Berater oberhalb des Schwellwerts.'));
+            }
             return;
+        }
+        if (!pack.selectedOnly && pack.list.length > 30) {
+            if (!confirm(
+                pack.list.length + ' Berater über Schwellwert — wirklich alle anschreiben?\n'
+                + 'Tipp: In der Shortlist Haken setzen, dann nur die Auswahl.'
+            )) {
+                return;
+            }
         }
         window._outreachWizard = {
             projectId: pack.projectId || (window.MATCHING_CONFIG && window.MATCHING_CONFIG.activeProject) || null,
@@ -3348,10 +3924,233 @@ window.Matching = (function() {
             mailTarget: 'to',    // to | cc | bcc für kompakte Suche
             crm_contact_id: '',
             loading: false,
+            selectedOnly: !!pack.selectedOnly,
             _searchTimers: {},
+            templates: [],
+            templateIdentifier: _outreachResolveDefaultId([], 'matching_outreach_wizard'),
+            signatures: [],
+            signatureId: '',
+            useAiOnLoad: true,   // false nach Vorlagenwechsel
         };
         _renderOutreachWizard();
-        _outreachLoadCurrent();
+        _outreachEnsureTemplates().then(function () {
+            _renderOutreachWizard();
+            _outreachLoadCurrent();
+        });
+    }
+
+    var _OW_TPL_DEFAULT_KEY = 'matching_outreach_default_template_v1';
+    var _OW_SIG_DEFAULT_KEY = 'matching_outreach_default_signature_v1';
+    var _OW_TPL_FALLBACK = 'matching_outreach_wizard';
+
+    function _outreachGetSavedDefault() {
+        try {
+            var v = localStorage.getItem(_OW_TPL_DEFAULT_KEY);
+            if (v && String(v).trim()) return String(v).trim();
+        } catch (e) { /* ignore */ }
+        return '';
+    }
+
+    function _outreachSetSavedDefault(ident) {
+        try {
+            localStorage.setItem(_OW_TPL_DEFAULT_KEY, String(ident || '').trim());
+        } catch (e) { /* ignore */ }
+    }
+
+    function _outreachGetSavedSignature() {
+        try {
+            var v = localStorage.getItem(_OW_SIG_DEFAULT_KEY);
+            if (v && String(v).trim()) return String(v).trim();
+        } catch (e) { /* ignore */ }
+        return '';
+    }
+
+    function _outreachSetSavedSignature(id) {
+        try {
+            if (id == null || id === '') {
+                localStorage.removeItem(_OW_SIG_DEFAULT_KEY);
+            } else {
+                localStorage.setItem(_OW_SIG_DEFAULT_KEY, String(id));
+            }
+        } catch (e) { /* ignore */ }
+    }
+
+    function _outreachResolveDefaultId(templates, apiDefault) {
+        var list = templates || [];
+        var saved = _outreachGetSavedDefault();
+        if (saved && (!list.length || list.some(function (t) { return t && t.identifier === saved; }))) {
+            return saved;
+        }
+        if (apiDefault && (!list.length || list.some(function (t) { return t && t.identifier === apiDefault; }))) {
+            return apiDefault;
+        }
+        var marked = list.find(function (t) { return t && t.is_default; });
+        if (marked && marked.identifier) return marked.identifier;
+        return _OW_TPL_FALLBACK;
+    }
+
+    function _outreachResolveSignatureId(signatures) {
+        var list = signatures || [];
+        var saved = _outreachGetSavedSignature();
+        if (saved && list.some(function (s) { return String(s.id) === String(saved); })) {
+            return String(saved);
+        }
+        var marked = list.find(function (s) { return s && s.is_default; });
+        if (marked && marked.id != null) return String(marked.id);
+        return list.length && list[0].id != null ? String(list[0].id) : '';
+    }
+
+    function _outreachApplyDefaultFlags(templates, defaultId) {
+        var def = defaultId || _OW_TPL_FALLBACK;
+        return (templates || []).map(function (t) {
+            return Object.assign({}, t, {
+                is_default: !!(t && t.identifier === def),
+            });
+        });
+    }
+
+    function _outreachEnsureTemplates() {
+        const st = window._outreachWizard;
+        if (!st) return Promise.resolve([]);
+        if (st.templates && st.templates.length) return Promise.resolve(st.templates);
+        return fetch(API + 'outreach/email-templates/', {
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        })
+        .then(r => r.json())
+        .then(d => {
+            var raw = (d && d.templates) || [];
+            if (!raw.length) {
+                raw = [{
+                    identifier: _OW_TPL_FALLBACK,
+                    name: 'Matching — Outreach-Wizard Anschreiben',
+                    is_default: true,
+                }];
+            }
+            var defId = _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
+            st.templates = _outreachApplyDefaultFlags(raw, defId);
+            st.templateIdentifier = defId;
+            st.signatures = (d && d.signatures) || [];
+            st.signatureId = _outreachResolveSignatureId(st.signatures);
+            return st.templates;
+        })
+        .catch(() => {
+            var defId = _outreachResolveDefaultId([], _OW_TPL_FALLBACK);
+            st.templates = _outreachApplyDefaultFlags([{
+                identifier: _OW_TPL_FALLBACK,
+                name: 'Matching — Outreach-Wizard Anschreiben',
+                is_default: true,
+            }], defId);
+            st.templateIdentifier = defId;
+            st.signatures = st.signatures || [];
+            st.signatureId = st.signatureId || '';
+            return st.templates;
+        });
+    }
+
+    function _outreachTemplateOptionsHtml(st) {
+        const list = ((st && st.templates) || []).slice();
+        const cur = (st && st.templateIdentifier) || _OW_TPL_FALLBACK;
+        list.sort(function (a, b) {
+            const ad = a && a.is_default ? 0 : 1;
+            const bd = b && b.is_default ? 0 : 1;
+            if (ad !== bd) return ad - bd;
+            return String((a && a.name) || '').localeCompare(String((b && b.name) || ''), 'de');
+        });
+        if (!list.length) {
+            return '<option value="' + _escAttr(_OW_TPL_FALLBACK) + '" selected>'
+                + 'Matching — Outreach-Wizard Anschreiben (Standard)</option>';
+        }
+        return list.map(function (t) {
+            const id = (t && t.identifier) || '';
+            const sel = id === cur ? ' selected' : '';
+            const mark = (t && t.is_default) ? ' (Standard)' : '';
+            return '<option value="' + _escAttr(id) + '"' + sel + '>'
+                + _esc((t && t.name) || id) + mark + '</option>';
+        }).join('');
+    }
+
+    function _outreachSignatureOptionsHtml(st) {
+        const list = (st && st.signatures) || [];
+        const cur = st && st.signatureId != null ? String(st.signatureId) : '';
+        let html = '<option value="">— Keine Signatur —</option>';
+        list.forEach(function (s) {
+            const id = s && s.id != null ? String(s.id) : '';
+            const sel = id && id === cur ? ' selected' : '';
+            const mark = s && s.is_default ? ' (ES-Default)' : '';
+            html += '<option value="' + _escAttr(id) + '"' + sel + '>'
+                + _esc((s && s.name) || ('Signatur ' + id)) + mark + '</option>';
+        });
+        return html;
+    }
+
+    function _outreachSignatureBlockHtml(st) {
+        return ''
+            + '<label style="font-size:11px;color:#666;display:block">'
+            + 'Signatur'
+            + '<select id="ow-sig" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.outreachSelectSignature(this.value)">'
+            + _outreachSignatureOptionsHtml(st)
+            + '</select>'
+            + '</label>';
+    }
+
+    function outreachSelectSignature(id) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.signatureId = id == null ? '' : String(id);
+        if (st.signatureId) _outreachSetSavedSignature(st.signatureId);
+        else _outreachSetSavedSignature('');
+    }
+
+    function _outreachTemplateBlockHtml(st) {
+        const cur = (st && st.templateIdentifier) || _OW_TPL_FALLBACK;
+        const tpl = ((st && st.templates) || []).find(function (t) {
+            return t && t.identifier === cur;
+        });
+        const isDef = !!(tpl && tpl.is_default);
+        const badge = isDef
+            ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
+              + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard</span>'
+            : '';
+        const setBtn = isDef
+            ? ''
+            : '<button type="button" class="matching-btn-sm" style="white-space:nowrap;margin-top:18px"'
+              + ' onclick="Matching.outreachSetDefaultTemplate()"'
+              + ' title="Diese Vorlage als Standard für den Outreach-Wizard speichern">'
+              + 'Als Standard setzen</button>';
+        return ''
+            + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
+            + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:220px">'
+            + 'Vorlage wählen (Email Studio)' + badge
+            + '<select id="ow-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.outreachSelectTemplate(this.value)"'
+            + ' title="Alle aktiven Email-Studio-Vorlagen">'
+            + _outreachTemplateOptionsHtml(st)
+            + '</select>'
+            + '</label>'
+            + setBtn
+            + '</div>'
+            + _outreachSignatureBlockHtml(st);
+    }
+
+    function outreachSetDefaultTemplate() {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const sel = document.getElementById('ow-tpl');
+        const id = String((sel && sel.value) || st.templateIdentifier || '').trim();
+        if (!id) return;
+        _outreachSetSavedDefault(id);
+        st.templates = _outreachApplyDefaultFlags(st.templates || [], id);
+        st.templateIdentifier = id;
+        _outreachCaptureForm(st);
+        _renderOutreachWizard();
+        const el = document.getElementById('ow-status');
+        if (el) {
+            el.style.color = '#155724';
+            const name = ((st.templates || []).find(function (t) { return t && t.identifier === id; }) || {}).name || id;
+            el.textContent = 'Standard-Vorlage: ' + name;
+        }
     }
 
     function _outreachParseEmails(raw) {
@@ -3488,6 +4287,8 @@ window.Matching = (function() {
         const subj = ((document.getElementById('ow-subj') || {}).value || '');
         const body = ((document.getElementById('ow-body') || {}).value || '');
         const task = document.getElementById('ow-task');
+        const sigEl = document.getElementById('ow-sig');
+        if (sigEl) st.signatureId = sigEl.value || '';
         if (st.draft) {
             if (to) st.draft.to_email = to;
             if (document.getElementById('ow-subj')) st.draft.subject = subj;
@@ -3864,31 +4665,37 @@ window.Matching = (function() {
         window._outreachDrag = null;
     }
 
-    function _outreachEnableDrag(ov, st) {
-        const panel = ov.querySelector('#ow-panel');
-        const bar = ov.querySelector('#ow-drag-bar');
-        if (!panel || !bar) return;
+    /**
+     * Overlay-Panel per Header verschieben (wie Outreach-Wizard).
+     * opts.pos = {left,top} zum Wiederherstellen; opts.onPos(pos) beim Ziehen.
+     */
+    function _enableOverlayPanelDrag(ov, panel, bar, opts) {
+        opts = opts || {};
+        if (!ov || !panel || !bar) return;
+        bar.style.cursor = 'move';
+        bar.style.userSelect = 'none';
+        bar.style.touchAction = 'none';
+        if (!bar.getAttribute('title')) bar.setAttribute('title', 'Ziehen zum Verschieben');
 
-        // Gespeicherte Position wiederherstellen
-        if (st.dragPos && typeof st.dragPos.left === 'number') {
+        if (opts.pos && typeof opts.pos.left === 'number') {
             ov.style.alignItems = 'flex-start';
             ov.style.justifyContent = 'flex-start';
             panel.style.position = 'relative';
-            panel.style.left = st.dragPos.left + 'px';
-            panel.style.top = st.dragPos.top + 'px';
+            panel.style.left = opts.pos.left + 'px';
+            panel.style.top = opts.pos.top + 'px';
             panel.style.margin = '0';
         }
 
         bar.onmousedown = function (e) {
             if (e.button !== 0) return;
-            if (e.target && e.target.closest && e.target.closest('button')) return;
+            if (e.target && e.target.closest && e.target.closest('button, a, input, select, textarea')) return;
             e.preventDefault();
+            e.stopPropagation();
             const rect = panel.getBoundingClientRect();
             const startX = e.clientX;
             const startY = e.clientY;
             const origLeft = rect.left;
             const origTop = rect.top;
-            // Von Flex-Zentrierung auf absolute Position umschalten
             ov.style.alignItems = 'flex-start';
             ov.style.justifyContent = 'flex-start';
             panel.style.position = 'relative';
@@ -3896,36 +4703,47 @@ window.Matching = (function() {
             panel.style.top = origTop + 'px';
             panel.style.margin = '0';
             bar.style.cursor = 'grabbing';
-            window._outreachDrag = { startX, startY, origLeft, origTop, panel, bar, ov };
+            const dragState = { startX: startX, startY: startY };
+            window._matchingPopupDrag = dragState;
+            if (opts.dragFlag) window[opts.dragFlag] = dragState;
 
             function onMove(ev) {
-                const d = window._outreachDrag;
-                if (!d) return;
-                const dx = ev.clientX - d.startX;
-                const dy = ev.clientY - d.startY;
-                let left = d.origLeft + dx;
-                let top = d.origTop + dy;
-                // Viewport-Grenzen (wenigstens 40px Header sichtbar)
+                if (!window._matchingPopupDrag) return;
+                const dx = ev.clientX - startX;
+                const dy = ev.clientY - startY;
+                let left = origLeft + dx;
+                let top = origTop + dy;
                 const maxL = window.innerWidth - 80;
                 const maxT = window.innerHeight - 40;
                 left = Math.max(-rect.width + 80, Math.min(maxL, left));
                 top = Math.max(0, Math.min(maxT, top));
-                d.panel.style.left = left + 'px';
-                d.panel.style.top = top + 'px';
-                if (window._outreachWizard) {
-                    window._outreachWizard.dragPos = { left: left, top: top };
-                }
+                panel.style.left = left + 'px';
+                panel.style.top = top + 'px';
+                if (typeof opts.onPos === 'function') opts.onPos({ left: left, top: top });
             }
             function onUp() {
-                const d = window._outreachDrag;
-                if (d && d.bar) d.bar.style.cursor = 'move';
-                window._outreachDrag = null;
+                bar.style.cursor = 'move';
+                window._matchingPopupDrag = null;
+                if (opts.dragFlag) window[opts.dragFlag] = null;
                 document.removeEventListener('mousemove', onMove);
                 document.removeEventListener('mouseup', onUp);
             }
             document.addEventListener('mousemove', onMove);
             document.addEventListener('mouseup', onUp);
         };
+    }
+
+    function _outreachEnableDrag(ov, st) {
+        const panel = ov.querySelector('#ow-panel');
+        const bar = ov.querySelector('#ow-drag-bar');
+        if (!panel || !bar) return;
+        _enableOverlayPanelDrag(ov, panel, bar, {
+            pos: st && st.dragPos,
+            onPos: function (pos) {
+                if (window._outreachWizard) window._outreachWizard.dragPos = pos;
+            },
+            dragFlag: '_outreachDrag',
+        });
     }
 
     function _renderOutreachWizard() {
@@ -3937,7 +4755,7 @@ window.Matching = (function() {
             ov.id = 'matching-outreach-ovl';
             ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10070;display:flex;align-items:center;justify-content:center;padding:12px';
             ov.onclick = function (e) {
-                if (window._outreachDrag) return;
+                if (window._outreachDrag || window._matchingPopupDrag) return;
                 if (e.target === ov) closeOutreachWizard();
             };
             document.body.appendChild(ov);
@@ -3956,9 +4774,10 @@ window.Matching = (function() {
 
         ov.innerHTML = `
         <div id="ow-panel" style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
-          <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none">
+          <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none" title="Ziehen zum Verschieben">
+            <i class="bi bi-grip-horizontal" style="opacity:.85"></i>
             <i class="bi bi-send"></i>
-            <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}</b>
+            <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}${st.selectedOnly ? ' · Auswahl' : ''}</b>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
                     onclick="Matching.closeOutreachWizard()">×</button>
           </div>
@@ -3971,7 +4790,7 @@ window.Matching = (function() {
                 <div style="font-size:12px;color:#666">${Math.round((cur.score || 0) * 100)}% · ${_esc((cur.matched_skills || []).slice(0, 5).join(' · '))}</div>
                 ${cur.cv_editor_url ? `<a href="${_escAttr(cur.cv_editor_url)}" target="_blank" class="matching-btn-sm">CV</a>` : ''}
               </div>
-              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'DeepSeek lädt …' : ''}</div>
+              <div id="ow-status" style="font-size:11px;color:#666;min-height:16px">${st.loading ? 'Lädt Entwurf …' : ''}</div>
               <div style="background:#f5f7fa;border-radius:8px;padding:10px">
                 <div style="font-size:11px;font-weight:700;color:#163258;margin-bottom:4px">${_esc(_kiT('outreach_why', 'Warum anschreiben'))}</div>
                 <div id="ow-why" style="font-size:12px;line-height:1.45">${_esc(deep.why || cur.match_reason || '…')}</div>
@@ -3981,12 +4800,13 @@ window.Matching = (function() {
                 </div>
               </div>
               ${_outreachEmailBlockHtml(st, cur, draft)}
+              ${_outreachTemplateBlockHtml(st)}
               <label style="font-size:11px;color:#666">Betreff
                 <input id="ow-subj" class="matching-form-input" style="width:100%;margin-top:3px"
                        value="${_escAttr(draft.subject || '')}">
               </label>
               <label style="font-size:11px;color:#666">Anschreiben
-                <textarea id="ow-body" class="matching-form-textarea" rows="9"
+                <textarea id="ow-body" class="matching-form-textarea" rows="14"
                           style="width:100%;margin-top:3px;font-family:inherit">${_esc(draft.body || draft.body_text || '')}</textarea>
               </label>
               <div id="ow-task-box" style="display:grid;gap:6px;padding:8px 10px;background:#f8fafc;border-radius:8px;border:1px solid #e5e7eb">
@@ -4100,12 +4920,20 @@ window.Matching = (function() {
         st.selectedEmail = st.selectedEmail || cur.email || '';
         _renderOutreachWizard();
         const headers = { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' };
+        const useAi = st.useAiOnLoad !== false;
+        const tplId = st.templateIdentifier || 'matching_outreach_wizard';
+        // Nach Vorlagenwechsel: kein erneutes DeepSeek, bis „Neu entwerfen“
+        st.useAiOnLoad = true;
 
         const draftP = fetch(API + 'outreach/' + encodeURIComponent(cur.id) + '/letter/draft/', {
             method: 'POST',
             credentials: 'same-origin',
             headers,
-            body: JSON.stringify({ refresh_reason: true }),
+            body: JSON.stringify({
+                refresh_reason: true,
+                template_identifier: tplId,
+                use_ai: useAi,
+            }),
         })
         .then(async r => {
             let d = {};
@@ -4124,6 +4952,7 @@ window.Matching = (function() {
                 reply_likelihood: d.reply_likelihood,
             };
             st.draft = d;
+            if (d.template_identifier) st.templateIdentifier = d.template_identifier;
             if (d.project_consultant_id) cur.project_consultant_id = d.project_consultant_id;
             st.emails = crm.emails || [];
             st.crm_contact_id = crm.crm_contact_id || '';
@@ -4133,6 +4962,14 @@ window.Matching = (function() {
             if (st.draft) st.draft.to_email = st.selectedEmail;
             st.loading = false;
             _renderOutreachWizard();
+            const el = document.getElementById('ow-status');
+            if (el) {
+                el.style.color = '#666';
+                const src = d.template_name || d.template_identifier || tplId;
+                el.textContent = useAi
+                    ? ('Entwurf · ' + src)
+                    : ('Vorlage · ' + src);
+            }
         })
         .catch(e => {
             console.error(e);
@@ -4144,6 +4981,7 @@ window.Matching = (function() {
                 to_email: st.selectedEmail || cur.email || '',
                 subject: _fillTpl(tpl.subject, ctx),
                 body: _fillTpl(tpl.body, ctx),
+                template_identifier: tplId,
             };
             // CRM trotzdem versuchen
             _outreachLoadCrmFor(cur).then(crm => {
@@ -4161,6 +4999,18 @@ window.Matching = (function() {
                 }
             });
         });
+    }
+
+    function outreachSelectTemplate(identifier) {
+        const st = window._outreachWizard;
+        if (!st || st.loading) return;
+        const id = String(identifier || '').trim();
+        if (!id || id === st.templateIdentifier) return;
+        _outreachCaptureForm(st);
+        st.templateIdentifier = id;
+        st.useAiOnLoad = false;
+        st.draft = null;
+        _outreachLoadCurrent();
     }
 
     function outreachSkip() {
@@ -4235,6 +5085,7 @@ window.Matching = (function() {
         if (!st || st.loading) return;
         st.deep = null;
         st.draft = null;
+        st.useAiOnLoad = true;
         _outreachLoadCurrent();
     }
 
@@ -4276,6 +5127,7 @@ window.Matching = (function() {
             body: _bodyTextToHtml(body),
             contact_name: cur.name || '',
             crm_id: st.crm_contact_id || '',
+            signature_id: st.signatureId || '',
         };
 
         fetch('/crm/api/email/send/', {
@@ -4425,10 +5277,10 @@ window.Matching = (function() {
             nextStatus: 'angeschrieben',
             actionKey: 'anschreiben',
             label: 'Anschreiben',
-            subject: 'Anfrage {project} — passt das für Sie?',
+            subject: '{project} — passt das für Sie?',
             body:
                 'Guten Tag {name},\n\n' +
-                'zu unserer aktuellen Kundenanfrage „{project}“ ({customer}) möchten wir Sie gerne anfragen.\n' +
+                'zu unserer aktuellen Kundenanfrage „{project}“ möchten wir Sie gerne anfragen.\n' +
                 'Passt das thematisch zu Ihrem Profil?\n\n' +
                 'Viele Grüße',
         },
@@ -4439,7 +5291,7 @@ window.Matching = (function() {
             subject: 'Nachfrage Verfügbarkeit — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'kurze Nachfrage zu „{project}“ ({customer}):\n' +
+                'kurze Nachfrage zu „{project}“:\n' +
                 'Besteht Interesse, und wann wären Sie verfügbar (ab Datum / Stunden pro Woche)?\n\n' +
                 'Viele Grüße',
         },
@@ -4447,10 +5299,10 @@ window.Matching = (function() {
             nextStatus: 'beim_kunden',
             actionKey: 'vorstellen',
             label: 'Beim Kunden vorstellen',
-            subject: 'Vorstellung beim Kunden — {project}',
+            subject: 'Vorstellung — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'wir möchten Sie dem Kunden zu „{project}“ ({customer}) vorstellen.\n' +
+                'wir möchten Sie zu unserer Anfrage „{project}“ vorstellen.\n' +
                 'Dürfen wir Ihr Profil (anonymisiert/mit CV) weiterleiten?\n\n' +
                 'Viele Grüße',
         },
@@ -4461,7 +5313,7 @@ window.Matching = (function() {
             subject: 'Interview-Koordination — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'der Kunde zu „{project}“ ({customer}) möchte Sie kennenlernen.\n' +
+                'zu „{project}“ möchten wir Sie gerne kennenlernen.\n' +
                 'Welche Termine passen Ihnen diese Woche (Datum/Uhrzeit, Tel. oder Video)?\n\n' +
                 'Viele Grüße',
         },
@@ -4472,7 +5324,7 @@ window.Matching = (function() {
             subject: 'Vermittlung — Startabstimmung {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'zur Vermittlung „{project}“ ({customer}):\n' +
+                'zur Vermittlung „{project}“:\n' +
                 'Bitte teilen Sie uns Ihren Wunsch-Starttermin und den Ansprechpartner vor Ort mit.\n\n' +
                 'Viele Grüße',
         },
@@ -4483,10 +5335,10 @@ window.Matching = (function() {
             subject: 'Startinfo — {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'zur Aufnahme bei „{project}“ ({customer}):\n' +
+                'zur Aufnahme bei „{project}“:\n' +
                 '• Start: {start}\n' +
                 '• Ort / Remote: {location}\n' +
-                '• Ansprechpartner Kunde: bitte melden Sie sich bei Bedarf über uns.\n\n' +
+                '• Ansprechpartner: bitte melden Sie sich bei Bedarf über uns.\n\n' +
                 'Viel Erfolg und viele Grüße',
         },
         absage: {
@@ -4496,8 +5348,8 @@ window.Matching = (function() {
             subject: 'Rückmeldung zur Anfrage {project}',
             body:
                 'Guten Tag {name},\n\n' +
-                'vielen Dank für Ihr Interesse an „{project}“ ({customer}).\n' +
-                'Leider hat sich der Kunde anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.\n\n' +
+                'vielen Dank für Ihr Interesse an „{project}“.\n' +
+                'Leider hat sich die Auswahl anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.\n\n' +
                 'Freundliche Grüße',
         },
     };
@@ -4564,14 +5416,38 @@ window.Matching = (function() {
 
     function _projectContext() {
         const cfgP = window.MATCHING_CONFIG || {};
-        const labelEl = document.querySelector('#content-kanban [style*="font-size:12px"]');
-        const raw = (labelEl && labelEl.textContent) || '';
-        const parts = raw.split('·').map(x => x.trim()).filter(Boolean);
+        const cache = window._matchingShortlistCache || {};
+        let projectNumber = String(cache.project_number || '').trim();
+        let projectTitle = String(cache.project_title || '').trim();
+        let projectId = cache.projectId || cfgP.activeProject || '';
+
+        // Fallback: Kanban-/Anfragen-Header „ANF-… · Titel“
+        if (!projectNumber && !projectTitle) {
+            const labelEl = document.querySelector('#content-kanban [style*="font-size:12px"]')
+                || document.querySelector('#content-shortlist [data-project-label]')
+                || document.querySelector('#matching-proj-label');
+            const raw = (labelEl && labelEl.textContent) || '';
+            const parts = raw.split('·').map(x => x.trim()).filter(Boolean);
+            if (parts.length >= 2) {
+                projectNumber = parts[0];
+                projectTitle = parts.slice(1).join(' · ');
+            } else if (parts.length === 1) {
+                projectTitle = parts[0];
+            }
+        }
+
+        const project = [projectNumber, projectTitle].filter(Boolean).join(' · ')
+            || projectTitle
+            || projectNumber
+            || 'Kundenanfrage';
+
         return {
-            projectId: cfgP.activeProject || '',
-            project: parts[1] || parts[0] || 'Anfrage',
-            projectNumber: parts[0] || '',
-            customer: cfgP.activeCustomer || '',
+            projectId: projectId,
+            project: project,
+            projectNumber: projectNumber,
+            projectTitle: projectTitle,
+            // Vertraulichkeit: nie Firmen-/Kundennamen in Mail-Platzhalter
+            customer: '',
             location: '',
             start: '',
         };
@@ -4584,25 +5460,66 @@ window.Matching = (function() {
     }
 
     function _cardEl(matchId) {
-        return document.querySelector('.matching-card[data-match-id="' + matchId + '"]');
+        const id = String(matchId || '');
+        return document.querySelector('.matching-card[data-match-id="' + id + '"]')
+            || document.querySelector('.matching-card[data-id="' + id + '"]');
+    }
+
+    function _seedFromShortlistCache(matchId) {
+        const cache = window._matchingShortlistCache || {};
+        const hit = (cache.results || []).find(r => String(r.id) === String(matchId));
+        if (!hit) return null;
+        return {
+            id: matchId,
+            name: hit.name || '',
+            location: hit.location || '',
+            phone: hit.phone || '',
+            email: hit.email || '',
+            crm_contact_id: hit.crm_contact_id || '',
+            gulp_id: hit.gulp_id || '',
+            aid: hit.consultant_id || '',
+            stage: 'shortlist',
+            match_score: hit.overall_score || 0,
+            skills: hit.matched_skills || [],
+            match_reason: hit.match_reason || '',
+            cv_editor_url: hit.cv_editor_url || '',
+            project_consultant_id: hit.project_consultant_id || null,
+            phones: [],
+            emails: [],
+        };
     }
 
     function _matchFromCard(matchId) {
+        const seeded = _seedFromShortlistCache(matchId);
         const el = _cardEl(matchId);
-        if (!el) return { id: matchId };
-        return {
+        if (!el) return seeded || { id: matchId, phones: [], emails: [] };
+        const fromCard = {
             id: matchId,
             name: el.getAttribute('data-name') || '',
             location: el.getAttribute('data-location') || '',
             phone: el.getAttribute('data-phone') || '',
             email: el.getAttribute('data-email') || '',
             crm_contact_id: el.getAttribute('data-crm') || '',
-            stage: el.getAttribute('data-stage') || '',
+            gulp_id: el.getAttribute('data-gulp') || '',
+            aid: el.getAttribute('data-aid') || '',
+            stage: el.getAttribute('data-stage') || (el.getAttribute('data-kind') === 'shortlist' ? 'shortlist' : ''),
             match_score: parseFloat(el.getAttribute('data-score') || '0') || 0,
             phones: [],
             emails: [],
             skills: [],
         };
+        if (!seeded) return fromCard;
+        return Object.assign({}, seeded, {
+            name: fromCard.name || seeded.name,
+            location: fromCard.location || seeded.location,
+            phone: fromCard.phone || seeded.phone,
+            email: fromCard.email || seeded.email,
+            crm_contact_id: fromCard.crm_contact_id || seeded.crm_contact_id,
+            gulp_id: fromCard.gulp_id || seeded.gulp_id,
+            aid: fromCard.aid || seeded.aid,
+            stage: fromCard.stage || seeded.stage,
+            match_score: fromCard.match_score || seeded.match_score,
+        });
     }
 
     function _pickPhone(list, fallback) {
@@ -4876,26 +5793,29 @@ window.Matching = (function() {
                 .then(d => {
                     if (!d || d.success === false) return tryOne(i + 1);
                     const m = d.match || d.consultant || d.result || d;
+                    const cons = (m && m.consultant) || {};
                     return {
                         id: matchId,
-                        name: m.name || m.full_name || base.name,
-                        location: m.location || m.city || base.location,
-                        phone: m.phone || m.telefon || m.mobile || m.phone_mobile || base.phone,
-                        email: m.email || m.mail || base.email,
-                        crm_contact_id: m.crm_contact_id || m.crm_id || m.consultant_crm_id || base.crm_contact_id,
-                        // Board-Spalte hat Vorrang vor API-Status (z.B. "interested")
+                        name: m.name || m.full_name || cons.name || base.name,
+                        location: m.location || m.city || cons.location || base.location,
+                        phone: m.phone || m.telefon || m.mobile || m.phone_mobile
+                            || cons.phone || base.phone,
+                        email: m.email || m.mail || cons.email || base.email,
+                        crm_contact_id: m.crm_contact_id || m.crm_id || m.consultant_crm_id
+                            || cons.crm_contact_id || base.crm_contact_id,
                         stage: base.stage || m.status || m.stage || '',
                         match_score: m.match_score != null ? m.match_score : base.match_score,
-                        skills: m.matched_skills || m.skills || [],
-                        match_reason: m.match_reason || m.reason || '',
-                        aid: m.aid || m.consultant_aid || '',
-                        gulp_id: m.gulp_id || '',
+                        skills: m.matched_skills || m.skills || base.skills || [],
+                        match_reason: m.match_reason || m.reason || base.match_reason || '',
+                        aid: m.aid || m.consultant_aid || cons.aid || base.aid || '',
+                        gulp_id: m.gulp_id || base.gulp_id || '',
                         rate: m.rate || m.satz || '',
                         available_from: _normDate(m.verfuegbar_ab || m.available_from || m.available || ''),
                         freelancermap: m.freelancermap || m.freelancermap_profil || m.fm_url || '',
-                        cv_editor_url: m.cv_editor_url || m.cv_url || '',
-                        phones: [],
-                        emails: [],
+                        cv_editor_url: m.cv_editor_url || m.cv_url || base.cv_editor_url || '',
+                        project_consultant_id: m.project_consultant_id || base.project_consultant_id || null,
+                        phones: Array.isArray(m.phones) ? m.phones : [],
+                        emails: Array.isArray(m.emails) ? m.emails : [],
                     };
                 })
                 .catch(() => tryOne(i + 1));
@@ -5450,7 +6370,7 @@ window.Matching = (function() {
                 return `<div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
                   <span style="flex:1;word-break:break-all">${_esc(e)}</span>
                   <button type="button" class="matching-btn-sm" style="font-size:10px;padding:2px 6px"
-                          onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}')">
+                          onclick="Matching.sendEmail('${detail.id}','${_escAttr(stage)}','','${_escAttr(e)}')">
                     <i class="bi bi-envelope"></i>
                   </button>
                 </div>`;
@@ -5460,10 +6380,14 @@ window.Matching = (function() {
         const ov = document.createElement('div');
         ov.id = 'matching-contact-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10050;display:flex;align-items:center;justify-content:center;padding:16px';
-        ov.onclick = function (e) { if (e.target === ov) _closeContactPopup(); };
+        ov.onclick = function (e) {
+            if (window._matchingPopupDrag) return;
+            if (e.target === ov) _closeContactPopup();
+        };
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;max-width:520px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;max-height:92vh;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+        <div id="matching-contact-panel" style="background:#fff;border-radius:10px;max-width:520px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;max-height:92vh;display:flex;flex-direction:column">
+          <div id="matching-contact-drag" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none" title="Ziehen zum Verschieben">
+            <i class="bi bi-grip-horizontal" style="opacity:.85"></i>
             <i class="bi bi-person-badge"></i>
             <div style="flex:1;min-width:0">
               <b style="display:block;font-size:14px">${_esc(detail.name || 'Kontakt')}</b>
@@ -5600,6 +6524,11 @@ window.Matching = (function() {
           </div>
         </div>`;
         document.body.appendChild(ov);
+        _enableOverlayPanelDrag(
+            ov,
+            ov.querySelector('#matching-contact-panel'),
+            ov.querySelector('#matching-contact-drag')
+        );
         _renderAvailBox(document.getElementById('matching-avail-box'), detail, {
             gulp: detail.gulp_id ? { loading: true } : null,
             fm: detail.freelancermap ? { loading: true } : null,
@@ -5610,6 +6539,10 @@ window.Matching = (function() {
     function closeContactPopup() { _closeContactPopup(); }
 
     function kanbanCardClick(matchId) {
+        openContact(matchId);
+    }
+
+    function openContact(matchId) {
         const ov = document.createElement('div');
         ov.id = 'matching-contact-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:10050;display:flex;align-items:center;justify-content:center';
@@ -5642,23 +6575,55 @@ window.Matching = (function() {
             window.open(url, 'webdial', 'height=100,width=100');
         };
         if (phoneNumber) { run(phoneNumber); return; }
-        if (cached && cached.phone) { run(cached.phone); return; }
-        _fetchMatchDetail(matchId).then(d => run(d.phone || ''));
+        if (cached && (cached.phone || (cached.phones && cached.phones.length))) {
+            const p = cached.phone || _pickPhone(cached.phones, '');
+            if (p) { run(p); return; }
+            // Mehrere / unklare Nummern → Kontakt-Popup
+            openContact(matchId);
+            return;
+        }
+        _fetchMatchDetail(matchId).then(d => {
+            const p = d.phone || _pickPhone(d.phones, '');
+            if (p) { run(p); return; }
+            if ((d.phones && d.phones.length) || d.crm_contact_id || d.name) {
+                openContact(matchId);
+                return;
+            }
+            run('');
+        });
     }
 
-    function sendEmail(matchId, stage, variant) {
+    function sendEmail(matchId, stage, variant, preferredTo) {
         const start = (window._matchingContactCache || {})[matchId]
             ? Promise.resolve(window._matchingContactCache[matchId])
             : _fetchMatchDetail(matchId);
         start.then(detail => {
             const st = _normStage(stage || detail.stage);
+            const toPref = (preferredTo && String(preferredTo).trim())
+                || detail.email
+                || _pickEmail(detail.emails, '')
+                || '';
+
+            // Shortlist-Anschreiben → Email-Studio-Vorlage + ausführlicher Draft
+            if (st === 'shortlist' && variant !== 'absage') {
+                _openStudioAnschreibenComposer({
+                    matchId: matchId,
+                    detail: detail,
+                    stage: st,
+                    nextStatus: 'angeschrieben',
+                    actionLabel: 'Anschreiben',
+                    to: toPref,
+                });
+                return;
+            }
+
             const tpl = _stageMailTpl(st, variant);
             const ctx = Object.assign(_projectContext(), {
                 name: detail.name || '',
                 location: detail.location || detail.address || '',
                 start: '',
+                customer: '',
             });
-            if (!ctx.customer) ctx.customer = detail.company || '';
             const subject = _fillTpl(tpl.subject, ctx);
             const body = _fillTpl(tpl.body, ctx);
             _openStageMailComposer({
@@ -5668,9 +6633,10 @@ window.Matching = (function() {
                 variant: variant || '',
                 nextStatus: variant === 'absage' ? 'absage' : tpl.nextStatus,
                 actionLabel: tpl.label,
-                to: detail.email || _pickEmail(detail.emails, ''),
+                to: toPref,
                 subject: subject,
                 body: body,
+                studio: false,
             });
         });
     }
@@ -5678,23 +6644,339 @@ window.Matching = (function() {
     function _closeStageMailComposer() {
         const ov = document.getElementById('matching-mail-ovl');
         if (ov) ov.remove();
+        window._matchingMailDraft = null;
     }
 
-    function _openStageMailComposer(opts) {
+    function _stageMailLoadTemplates(studio) {
+        return fetch(API + 'outreach/email-templates/', {
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        })
+        .then(r => r.json())
+        .then(d => {
+            var raw = (d && d.templates) || [];
+            if (!raw.length) {
+                raw = [{
+                    identifier: _OW_TPL_FALLBACK,
+                    name: 'Matching — Outreach-Wizard Anschreiben',
+                    is_default: true,
+                }];
+            }
+            var defId = _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
+            studio.templates = _outreachApplyDefaultFlags(raw, defId);
+            if (!studio.templateIdentifier) studio.templateIdentifier = defId;
+            else if (!studio.templates.some(function (t) { return t && t.identifier === studio.templateIdentifier; })) {
+                studio.templateIdentifier = defId;
+            }
+            studio.signatures = (d && d.signatures) || [];
+            if (!studio.signatureId) {
+                studio.signatureId = _outreachResolveSignatureId(studio.signatures);
+            }
+            return studio;
+        })
+        .catch(function () {
+            studio.templates = [{
+                identifier: _OW_TPL_FALLBACK,
+                name: 'Matching — Outreach-Wizard Anschreiben',
+                is_default: true,
+            }];
+            studio.templateIdentifier = studio.templateIdentifier || _OW_TPL_FALLBACK;
+            studio.signatures = studio.signatures || [];
+            studio.signatureId = studio.signatureId || '';
+            return studio;
+        });
+    }
+
+    function _stageMailFetchDraft(studio, useAi) {
+        const matchId = studio.matchId;
+        const tplId = studio.templateIdentifier || _OW_TPL_FALLBACK;
+        const ai = useAi !== false;
+        return fetch(API + 'outreach/' + encodeURIComponent(matchId) + '/letter/draft/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                refresh_reason: true,
+                template_identifier: tplId,
+                use_ai: ai,
+            }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) {
+                throw new Error((d && d.error) || ('Draft HTTP ' + r.status));
+            }
+            return d;
+        });
+    }
+
+    function _stageMailFallbackBody(detail) {
+        const tpl = STAGE_MAIL.shortlist;
+        const ctx = Object.assign(_projectContext(), {
+            name: detail.name || '',
+            customer: '',
+        });
+        return {
+            subject: _fillTpl(tpl.subject, ctx),
+            body: _fillTpl(tpl.body, ctx),
+            to_email: detail.email || _pickEmail(detail.emails, '') || '',
+        };
+    }
+
+    function _openStudioAnschreibenComposer(opts) {
         _closeStageMailComposer();
         const ov = document.createElement('div');
         ov.id = 'matching-mail-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10060;display:flex;align-items:center;justify-content:center;padding:16px';
-        ov.onclick = function (e) { if (e.target === ov) _closeStageMailComposer(); };
+        ov.innerHTML = '<div style="background:#fff;padding:22px 28px;border-radius:10px;font-size:13px;color:#666;box-shadow:0 12px 40px rgba(0,0,0,.25)">'
+            + '<i class="bi bi-hourglass-split"></i> Anschreiben wird aus Email-Studio-Vorlage geladen…'
+            + '<div style="font-size:11px;margin-top:6px;color:#888">Vorlage · Projekt · Begründung</div>'
+            + '</div>';
+        document.body.appendChild(ov);
+
+        const studio = {
+            matchId: opts.matchId,
+            detail: opts.detail,
+            templates: [],
+            templateIdentifier: _outreachResolveDefaultId([], _OW_TPL_FALLBACK),
+            signatures: [],
+            signatureId: _outreachGetSavedSignature() || '',
+            useAiOnLoad: true,
+        };
+
+        _stageMailLoadTemplates(studio)
+            .then(function () {
+                return _stageMailFetchDraft(studio, true);
+            })
+            .then(function (draft) {
+                if (draft.template_identifier) studio.templateIdentifier = draft.template_identifier;
+                _openStageMailComposer({
+                    matchId: opts.matchId,
+                    detail: opts.detail,
+                    stage: opts.stage || 'shortlist',
+                    nextStatus: opts.nextStatus || 'angeschrieben',
+                    actionLabel: opts.actionLabel || 'Anschreiben',
+                    to: opts.to || draft.to_email || '',
+                    subject: draft.subject || '',
+                    body: draft.body || draft.body_text || '',
+                    studio: true,
+                    studioState: studio,
+                    project_consultant_id: draft.project_consultant_id || null,
+                    template_name: draft.template_name || studio.templateIdentifier,
+                    draft_model: draft.model || '',
+                });
+            })
+            .catch(function (err) {
+                console.warn('Studio-Anschreiben Draft:', err);
+                const fb = _stageMailFallbackBody(opts.detail || {});
+                _openStageMailComposer({
+                    matchId: opts.matchId,
+                    detail: opts.detail,
+                    stage: opts.stage || 'shortlist',
+                    nextStatus: opts.nextStatus || 'angeschrieben',
+                    actionLabel: opts.actionLabel || 'Anschreiben',
+                    to: opts.to || fb.to_email || '',
+                    subject: fb.subject,
+                    body: fb.body,
+                    studio: true,
+                    studioState: studio,
+                    template_name: studio.templateIdentifier,
+                    draft_model: 'fallback',
+                    loadError: (err && err.message) || String(err),
+                });
+            });
+    }
+
+    function _stageMailTemplateBlockHtml(studio) {
+        const fake = { templates: (studio && studio.templates) || [], templateIdentifier: (studio && studio.templateIdentifier) || _OW_TPL_FALLBACK };
+        const cur = fake.templateIdentifier;
+        const tpl = (fake.templates || []).find(function (t) { return t && t.identifier === cur; });
+        const isDef = !!(tpl && tpl.is_default);
+        const badge = isDef
+            ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
+              + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard</span>'
+            : '';
+        const setBtn = isDef
+            ? ''
+            : '<button type="button" class="matching-btn-sm" style="white-space:nowrap;margin-top:18px"'
+              + ' onclick="Matching.stageMailSetDefaultTemplate()"'
+              + ' title="Diese Vorlage als Standard speichern">Als Standard setzen</button>';
+        return ''
+            + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
+            + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:200px">'
+            + 'Vorlage wählen (Email Studio)' + badge
+            + '<select id="mm-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.stageMailSelectTemplate(this.value)"'
+            + ' title="Alle aktiven Email-Studio-Vorlagen">'
+            + _outreachTemplateOptionsHtml(fake)
+            + '</select>'
+            + '</label>'
+            + setBtn
+            + '</div>'
+            + '<label style="font-size:11px;color:#666;display:block">'
+            + 'Signatur'
+            + '<select id="mm-sig" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.stageMailSelectSignature(this.value)">'
+            + _outreachSignatureOptionsHtml({
+                signatures: (studio && studio.signatures) || [],
+                signatureId: studio && studio.signatureId != null ? String(studio.signatureId) : '',
+            })
+            + '</select>'
+            + '</label>';
+    }
+
+    function stageMailSelectTemplate(identifier) {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studio || !draft.studioState) return;
+        const id = String(identifier || '').trim();
+        if (!id || id === draft.studioState.templateIdentifier) return;
+        draft.studioState.templateIdentifier = id;
+        const msg = document.getElementById('mm-msg');
+        const bodyEl = document.getElementById('mm-body');
+        const subjEl = document.getElementById('mm-subj');
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Vorlage wird geladen …'; }
+        _stageMailFetchDraft(draft.studioState, false)
+            .then(function (d) {
+                if (subjEl) subjEl.value = d.subject || '';
+                if (bodyEl) bodyEl.value = d.body || d.body_text || '';
+                if (d.project_consultant_id) draft.project_consultant_id = d.project_consultant_id;
+                draft.template_name = d.template_name || id;
+                if (msg) {
+                    msg.style.color = '#155724';
+                    msg.textContent = 'Vorlage · ' + (d.template_name || id);
+                }
+            })
+            .catch(function (e) {
+                if (msg) {
+                    msg.style.color = '#b91c1c';
+                    msg.textContent = e.message || String(e);
+                }
+            });
+    }
+
+    function stageMailSelectSignature(id) {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studioState) return;
+        draft.studioState.signatureId = id == null ? '' : String(id);
+        if (draft.studioState.signatureId) _outreachSetSavedSignature(draft.studioState.signatureId);
+        else _outreachSetSavedSignature('');
+    }
+
+    function stageMailSetDefaultTemplate() {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studioState) return;
+        const sel = document.getElementById('mm-tpl');
+        const id = String((sel && sel.value) || draft.studioState.templateIdentifier || '').trim();
+        if (!id) return;
+        _outreachSetSavedDefault(id);
+        draft.studioState.templates = _outreachApplyDefaultFlags(draft.studioState.templates || [], id);
+        draft.studioState.templateIdentifier = id;
+        const block = document.getElementById('mm-studio-block');
+        if (block) block.innerHTML = _stageMailTemplateBlockHtml(draft.studioState);
+        const msg = document.getElementById('mm-msg');
+        if (msg) {
+            msg.style.color = '#155724';
+            const name = ((draft.studioState.templates || []).find(function (t) { return t && t.identifier === id; }) || {}).name || id;
+            msg.textContent = 'Standard-Vorlage: ' + name;
+        }
+    }
+
+    function stageMailPolish() {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studio) return;
+        const bodyEl = document.getElementById('mm-body');
+        const text = (bodyEl && bodyEl.value) || '';
+        if (!text.trim()) return;
+        const msg = document.getElementById('mm-msg');
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Glätten …'; }
+        fetch(API + 'outreach/letter/polish/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
+            body: JSON.stringify({ draft_text: text, keep_style: true }),
+        })
+        .then(async r => {
+            let d = {};
+            try { d = await r.json(); } catch (_) {}
+            if (!r.ok || d.ok === false) throw new Error((d && d.error) || 'Polish fehlgeschlagen');
+            return d;
+        })
+        .then(function (d) {
+            if (bodyEl) bodyEl.value = d.body || d.body_text || text;
+            if (msg) { msg.style.color = '#155724'; msg.textContent = 'Geglättet.'; }
+        })
+        .catch(function (e) {
+            if (msg) { msg.style.color = '#b91c1c'; msg.textContent = e.message || String(e); }
+        });
+    }
+
+    function stageMailReloadDraft() {
+        const draft = window._matchingMailDraft;
+        if (!draft || !draft.studio || !draft.studioState) return;
+        const msg = document.getElementById('mm-msg');
+        const bodyEl = document.getElementById('mm-body');
+        const subjEl = document.getElementById('mm-subj');
+        if (msg) { msg.style.color = '#666'; msg.textContent = 'Neu entwerfen …'; }
+        _stageMailFetchDraft(draft.studioState, true)
+            .then(function (d) {
+                if (subjEl) subjEl.value = d.subject || '';
+                if (bodyEl) bodyEl.value = d.body || d.body_text || '';
+                if (d.project_consultant_id) draft.project_consultant_id = d.project_consultant_id;
+                draft.template_name = d.template_name || draft.studioState.templateIdentifier;
+                if (msg) {
+                    msg.style.color = '#155724';
+                    msg.textContent = 'Entwurf · ' + (d.template_name || draft.studioState.templateIdentifier);
+                }
+            })
+            .catch(function (e) {
+                if (msg) { msg.style.color = '#b91c1c'; msg.textContent = e.message || String(e); }
+            });
+    }
+
+    function _openStageMailComposer(opts) {
+        _closeStageMailComposer();
+        const isStudio = !!opts.studio;
+        const studio = opts.studioState || null;
+        const statusHint = opts.loadError
+            ? ('Fallback-Text — Draft: ' + opts.loadError)
+            : (isStudio
+                ? ('Email Studio · ' + (opts.template_name || (studio && studio.templateIdentifier) || _OW_TPL_FALLBACK)
+                    + (opts.draft_model && opts.draft_model !== 'template' && opts.draft_model !== 'fallback'
+                        ? ' · KI' : ''))
+                : '');
+        const studioBlock = isStudio && studio
+            ? ('<div id="mm-studio-block" style="display:grid;gap:8px">'
+                + _stageMailTemplateBlockHtml(studio)
+                + '</div>')
+            : '';
+        const studioActions = isStudio
+            ? ('<div style="display:flex;gap:6px;flex-wrap:wrap">'
+                + '<button type="button" class="matching-btn-sm" onclick="Matching.stageMailReloadDraft()">'
+                + '<i class="bi bi-arrow-repeat"></i> Neu entwerfen</button>'
+                + '<button type="button" class="matching-btn-sm" onclick="Matching.stageMailPolish()">'
+                + '<i class="bi bi-magic"></i> Glätten</button>'
+                + '</div>')
+            : '';
+
+        const ov = document.createElement('div');
+        ov.id = 'matching-mail-ovl';
+        ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10060;display:flex;align-items:center;justify-content:center;padding:16px';
+        ov.onclick = function (e) {
+            if (window._matchingPopupDrag) return;
+            if (e.target === ov) _closeStageMailComposer();
+        };
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;max-width:560px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:90vh;overflow:auto">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+        <div id="matching-mail-panel" style="background:#fff;border-radius:10px;max-width:${isStudio ? '640' : '560'}px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:92vh;overflow:auto">
+          <div id="matching-mail-drag" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none" title="Ziehen zum Verschieben">
+            <i class="bi bi-grip-horizontal" style="opacity:.85"></i>
             <i class="bi bi-envelope"></i>
             <b style="flex:1">${_esc(opts.actionLabel || 'E-Mail')} — ${_esc(opts.detail.name || '')}</b>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
-                    onclick="document.getElementById('matching-mail-ovl')?.remove()">×</button>
+                    onclick="Matching.closeStageMailComposer()">×</button>
           </div>
           <div style="padding:14px;display:grid;gap:8px">
+            ${studioBlock}
             <label style="font-size:11px;color:#666">An
               <input id="mm-to" class="matching-form-input" style="width:100%;margin-top:3px"
                      type="email" value="${_escAttr(opts.to)}">
@@ -5704,13 +6986,14 @@ window.Matching = (function() {
                      value="${_escAttr(opts.subject)}">
             </label>
             <label style="font-size:11px;color:#666">Nachricht
-              <textarea id="mm-body" class="matching-form-textarea" rows="10"
+              <textarea id="mm-body" class="matching-form-textarea" rows="${isStudio ? '14' : '10'}"
                         style="width:100%;margin-top:3px;font-family:inherit">${_esc(opts.body)}</textarea>
             </label>
-            <div id="mm-msg" style="font-size:11px;min-height:16px"></div>
+            ${studioActions}
+            <div id="mm-msg" style="font-size:11px;min-height:16px;color:${opts.loadError ? '#b91c1c' : '#666'}">${_esc(statusHint)}</div>
             <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
               <button type="button" class="matching-btn-sm"
-                      onclick="document.getElementById('matching-mail-ovl')?.remove()">Abbrechen</button>
+                      onclick="Matching.closeStageMailComposer()">Abbrechen</button>
               <button type="button" class="matching-btn-primary" id="mm-send"
                       onclick="Matching.submitStageMail()">
                 <i class="bi bi-send"></i> Senden${opts.nextStatus ? ' & Status' : ''}
@@ -5720,12 +7003,35 @@ window.Matching = (function() {
         </div>`;
         document.body.appendChild(ov);
         window._matchingMailDraft = opts;
+        _enableOverlayPanelDrag(
+            ov,
+            ov.querySelector('#matching-mail-panel'),
+            ov.querySelector('#matching-mail-drag')
+        );
         const toEl = document.getElementById('mm-to');
         if (toEl && !toEl.value) toEl.focus();
     }
 
+    function closeStageMailComposer() { _closeStageMailComposer(); }
+
     function _bodyTextToHtml(txt) {
         return '<div>' + _esc(txt).replace(/\n/g, '<br>') + '</div>';
+    }
+
+    function _refreshAfterStageMail(moved) {
+        const shortlist = document.getElementById('content-shortlist');
+        const pid = (window._matchingShortlistCache || {}).projectId;
+        if (shortlist && pid) {
+            shortlist.dataset.loaded = '0';
+            _loadShortlistForProject(pid, shortlist);
+        }
+        if (moved) {
+            const content = document.getElementById('content-kanban');
+            if (content) {
+                content.dataset.loaded = '0';
+                _loadKanban(content, document.getElementById('loading-kanban'));
+            }
+        }
     }
 
     function submitStageMail() {
@@ -5735,6 +7041,10 @@ window.Matching = (function() {
         const body = ((document.getElementById('mm-body') || {}).value || '').trim();
         const msg = document.getElementById('mm-msg');
         const sendBtn = document.getElementById('mm-send');
+        const sigEl = document.getElementById('mm-sig');
+        const signatureId = (sigEl && sigEl.value)
+            || (draft.studioState && draft.studioState.signatureId)
+            || '';
         function show(ok, text) {
             if (!msg) return;
             msg.style.color = ok ? '#155724' : '#b91c1c';
@@ -5753,6 +7063,7 @@ window.Matching = (function() {
             body: _bodyTextToHtml(body),
             contact_name: (draft.detail && draft.detail.name) || '',
             crm_id: (draft.detail && draft.detail.crm_contact_id) || '',
+            signature_id: signatureId || '',
         };
 
         fetch('/crm/api/email/send/', {
@@ -5771,9 +7082,34 @@ window.Matching = (function() {
             if (!(pack.ok && j.ok !== false && j.success !== false && !j.error)) {
                 throw new Error(j.error || 'Senden fehlgeschlagen');
             }
+            // Shortlist/Studio: MatchResult → outreach/complete (ProjectConsultant + contacted)
+            if (draft.studio && draft.matchId) {
+                return fetch(API + 'outreach/' + encodeURIComponent(draft.matchId) + '/complete/', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrf(),
+                    },
+                    body: JSON.stringify({
+                        status: 'contacted',
+                        create_task: false,
+                        note: 'Shortlist Anschreiben (Email Studio)',
+                    }),
+                }).then(r => r.json().then(j2 => ({ ok: r.ok, j: j2, moved: 'angeschrieben' })))
+                .then(pack2 => {
+                    if (!pack2.ok || (pack2.j && pack2.j.ok === false)) {
+                        console.warn('outreach complete:', pack2.j);
+                    }
+                    return pack2.moved;
+                });
+            }
             const next = draft.nextStatus;
-            if (next && draft.matchId) {
-                return fetch(API + 'match/' + draft.matchId + '/move/', {
+            const moveId = draft.project_consultant_id
+                || (draft.detail && draft.detail.project_consultant_id)
+                || draft.matchId;
+            if (next && moveId) {
+                return fetch(API + 'match/' + moveId + '/move/', {
                     method: 'POST',
                     credentials: 'same-origin',
                     headers: {
@@ -5788,14 +7124,7 @@ window.Matching = (function() {
         .then(moved => {
             _closeStageMailComposer();
             _closeContactPopup();
-            if (moved) {
-                // Board neu laden
-                const content = document.getElementById('content-kanban');
-                if (content) {
-                    content.dataset.loaded = '0';
-                    _loadKanban(content, document.getElementById('loading-kanban'));
-                }
-            }
+            _refreshAfterStageMail(moved);
             alert(_kiT('mail_sent', 'E-Mail gesendet') + (moved ? (' → ' + moved) : ''));
         })
         .catch(err => {
@@ -5963,16 +7292,22 @@ window.Matching = (function() {
     return {
         init, applyI18n, switchTab, newRequest,
         openProject, openRequestEdit, saveRequestEdit, pickShortlistRequest, pickKanbanRequest, runMatching, rematch, saveNewRequest,
-        updateThreshold, sendAllAboveThreshold,
+        updateThreshold, filterShortlistSource, sendAllAboveThreshold,
+        toggleGenerateExternalList,
+        toggleOutreachSelect, toggleSelectAllVisible, clearOutreachSelection,
+        _restoreOutreachCheckboxes, _updateOutreachSelectUi,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
-        outreachPolish, outreachReloadDraft, outreachSend,
+        outreachPolish, outreachReloadDraft, outreachSelectTemplate, outreachSetDefaultTemplate,
+        outreachSelectSignature, outreachSend,
         outreachPickEmail, outreachApplyEmail,
         outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
         outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
-        kanbanDragStart, kanbanDrop, kanbanCardClick,
-        closeContactPopup, submitStageMail, openCv, createCvTask,
+        kanbanDragStart, kanbanDrop, kanbanCardClick, openContact,
+        closeContactPopup, submitStageMail, closeStageMailComposer, openCv, createCvTask,
+        stageMailSelectTemplate, stageMailSelectSignature, stageMailSetDefaultTemplate,
+        stageMailPolish, stageMailReloadDraft,
         saveAvailability, adoptAvailability, saveRate, saveMatchTerms,
         _normDatePublic: _normDate,
         closeProject, sendContract, sendPlacementStart, savePlacementDetails,

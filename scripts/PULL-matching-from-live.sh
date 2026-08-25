@@ -9,8 +9,8 @@
 #
 # Auf ucs5:
 #   cd /mnt/public/udoo-reprap
-#   git fetch origin cursor/matching-ki-anfrage-wizard-7f07
-#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/LIVE-FIRST-pull.sh)
+#   git fetch origin cursor/matching-shortlist-weights-1532
+#   bash <(git show origin/cursor/matching-shortlist-weights-1532:scripts/LIVE-FIRST-pull.sh)
 #
 # Flags:
 #   --push           commit + push nach Pull
@@ -20,7 +20,7 @@
 set -euo pipefail
 
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-cursor/matching-ki-anfrage-wizard-7f07}"
+BRANCH="${BRANCH:-cursor/matching-shortlist-weights-1532}"
 LIVE_CRM="${LIVE_CRM:-/opt/abpe/backend/apps/abpe_crm}"
 LIVE_SH="${LIVE_SH:-/opt/abpe/backend/apps/abpe_shaduler}"
 LIVE_KI="${LIVE_KI:-/opt/abpe/backend/apps/abpe_ki_wiz}"
@@ -277,6 +277,12 @@ check "CRM Terms satz_remote" "$DEST_CRM/views.py" "satz_remote_c"
 check "Shaduler MatchingBeraterTerms" "$DEST_SH/models.py" "class MatchingBeraterTerms"
 check "UI saveMatchTerms" "$DEST_UI/mod-matching.js" "saveMatchTerms"
 check "UI phone_raw" "$DEST_UI/mod-matching.js" "phone_raw"
+check "UI outreachSelectTemplate" "$DEST_UI/mod-matching.js" "outreachSelectTemplate"
+check "UI outreachSelectSignature" "$DEST_UI/mod-matching.js" "outreachSelectSignature"
+if [[ -n "${DEST_M:-}" && -d "${DEST_M:-}" ]]; then
+  check "Matching outreach_wizard redact" "$DEST_M/services/outreach_wizard.py" "_redact_customer_names"
+  check "Matching email-templates API" "$DEST_M/views.py" "api_outreach_email_templates"
+fi
 check "KI matching_anfrage" "$DEST_KI/prompt_defaults.py" "wiz_matching_anfrage_generate"
 
 STAMP="$REPO/Repo_abpe/.live-pull-stamp"

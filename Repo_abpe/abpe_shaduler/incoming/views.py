@@ -2,6 +2,7 @@
 Shaduler Views — V1: Aufgaben-Kern an DB-Services; Demo nur noch per ?demo=1.
 """
 import json
+import re
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -104,11 +105,107 @@ def api_aufgabe_create(request):
         ref_type=data.get('ref_type') or '',
         ref_id=data.get('ref_id') or '',
         prioritaet=int(data.get('prioritaet') or 3),
+        gruppe_id=data.get('gruppe_id') or None,
         user=request.user,
     )
     return JsonResponse({
         'ok': True,
         'created': aufgaben_service.serialize(aufgabe),
+    }, status=201)
+
+
+@login_required
+@require_POST
+def api_aufgaben_bulk_create(request):
+    """
+    Eine Gruppen-Aufgabe (Wiedervorlage) mit Arbeitsliste — keine Einzelkinder.
+    Body:
+      art, gruppe_titel?, gruppe_beschreibung?, source?,
+      items: [{titel, name?, external_id?, html_url?, …}]
+    Speichert ergebnis_daten.worklist = [{external_id, name, html_url}, …]
+    """
+    import uuid as _uuid
+    data = _json_body(request)
+    art = data.get('art') or Aufgabe.Art.WIEDERVORLAGE
+    items = data.get('items') or []
+    if not isinstance(items, list) or not items:
+        return JsonResponse({'ok': False, 'error': 'items required'}, status=400)
+    items = items[:200]
+    gruppe_id = _uuid.uuid4()
+    gruppe_titel = (data.get('gruppe_titel') or '').strip()
+    if not gruppe_titel:
+        return JsonResponse({'ok': False, 'error': 'gruppe_titel required'}, status=400)
+    gruppe_beschreibung = (data.get('gruppe_beschreibung') or '').strip()
+    source = str(data.get('source') or data.get('kanal') or '').strip().lower()
+
+    worklist = []
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        titel = (it.get('titel') or '').strip()
+        html_url = (it.get('html_url') or it.get('profil_url') or '').strip()
+        external_id = str(
+            it.get('external_id') or it.get('gulp_id') or it.get('fm_id')
+            or it.get('ref_id') or ''
+        ).strip()
+        name = str(it.get('name') or '').strip()
+        if not name and titel:
+            name = re.sub(r'^(?:Gulp|FLM)\s*:\s*', '', titel, flags=re.I).strip() or titel
+        if not (html_url or external_id or name):
+            continue
+        worklist.append({
+            'external_id': external_id,
+            'name': name or '—',
+            'html_url': html_url,
+        })
+
+    if not worklist:
+        return JsonResponse({'ok': False, 'error': 'keine gültigen items'}, status=400)
+
+    id_label = 'Gulp-ID' if source == 'gulp' else ('FLM-ID' if source == 'flm' else 'ID')
+    list_lines = [f'{id_label}\tName\tHTML']
+    for row in worklist:
+        list_lines.append(
+            f"{row.get('external_id') or '—'}\t"
+            f"{row.get('name') or '—'}\t"
+            f"{row.get('html_url') or ''}"
+        )
+    header = (
+        gruppe_beschreibung
+        or f'{len(worklist)} Profile zur Nachbearbeitung ({source or "extern"}).'
+    ).strip()
+    beschreibung = (
+        f'{header}\n\n'
+        f'Arbeitsliste ({len(worklist)}):\n'
+        + '\n'.join(list_lines)
+    )[:8000]
+
+    parent = aufgaben_service.erstellen(
+        art=art,
+        titel=gruppe_titel[:200],
+        beschreibung=beschreibung,
+        zugewiesen_an=request.user,
+        prioritaet=int(data.get('prioritaet') or 2),
+        ref_type=data.get('ref_type') or 'projekt',
+        ref_id=str(data.get('ref_id') or '')[:64],
+        kanal=data.get('kanal') or source or '',
+        gruppe_id=gruppe_id,
+        user=request.user,
+    )
+    ed = dict(parent.ergebnis_daten or {}) if isinstance(parent.ergebnis_daten, dict) else {}
+    ed['worklist'] = worklist
+    ed['source'] = source or ed.get('source') or ''
+    ed['id_label'] = id_label
+    parent.ergebnis_daten = ed
+    parent.save(update_fields=['ergebnis_daten'])
+
+    ser = aufgaben_service.serialize(parent)
+    return JsonResponse({
+        'ok': True,
+        'gruppe_id': str(gruppe_id),
+        'count': 1,
+        'worklist': worklist,
+        'created': [ser],
     }, status=201)
 
 
@@ -1099,12 +1196,11 @@ def api_matching_shortlist_reset(request, project_id):
 
     deleted_count, _ = qs.delete()
 
+    # MatchResults hier NICHT löschen.
+    # Sonst ist die Shortlist leer, bis Celery fertig ist — und bei Timeout/Fehler
+    # bleibt sie dauerhaft leer (Backoffice kann trotzdem schon geschrieben sein).
+    # Ersetzen macht run_matching_async / SAFE-matching-rematch-sync.sh atomar.
     match_results_deleted = 0
-    if MatchResult is not None:
-        try:
-            match_results_deleted, _ = MatchResult.objects.filter(project=project).delete()
-        except Exception:
-            match_results_deleted = 0
 
     skill_names = []
     try:

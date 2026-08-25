@@ -70,6 +70,8 @@ urlpatterns = [
     # ============================================================
     # API — OUTREACH WIZARD (Shortlist MatchResult-IDs)
     # ============================================================
+    path('api/outreach/email-templates/',
+         views.api_outreach_email_templates, name='api_outreach_email_templates'),
     path('api/outreach/<uuid:match_result_id>/deep-reason/',
          views.api_outreach_deep_reason,   name='api_outreach_deep_reason'),
     path('api/outreach/<uuid:match_result_id>/letter/draft/',

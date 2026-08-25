@@ -295,6 +295,14 @@ def erstellen(
 ) -> Aufgabe:
     if faellig_am is None:
         faellig_am = _today()
+    gid = gruppe_id
+    if isinstance(gid, str) and gid.strip():
+        try:
+            gid = UUID(gid.strip())
+        except (TypeError, ValueError):
+            gid = None
+    elif not gid:
+        gid = None
     aufgabe = Aufgabe.objects.create(
         art=art,
         kanal=kanal or '',
@@ -309,7 +317,7 @@ def erstellen(
         quelle=quelle,
         regel=regel,
         parent=parent,
-        gruppe_id=gruppe_id,
+        gruppe_id=gid,
     )
     aktivitaet_service.schreiben(
         medium=AktivitaetMediumForArt(art),
@@ -355,6 +363,68 @@ def due_label(aufgabe: Aufgabe, today: Optional[date] = None) -> str:
             return f'heute {aufgabe.faellig_zeit.strftime("%H:%M")}'
         return 'heute'
     return d.strftime('%d.%m.%Y')
+
+
+_RE_HTML_URL = re.compile(
+    r'(?:HTML:\s*)?(https?://[^\s<>"\']+)',
+    re.I,
+)
+
+
+def _html_url_from_beschreibung(text: str) -> str:
+    s = text or ''
+    m = re.search(r'HTML:\s*(\S+)', s, re.I)
+    if m:
+        return m.group(1).strip()
+    m = _RE_HTML_URL.search(s)
+    return (m.group(1) if m else '').strip()
+
+
+def _external_id_from_beschreibung(text: str) -> str:
+    s = text or ''
+    m = re.search(r'(?:Gulp-ID|FLM-ID|FM-ID|ID)\s*:\s*(\S+)', s, re.I)
+    return (m.group(1) if m else '').strip()
+
+
+def _worklist_for(aufgabe: Aufgabe) -> list[dict[str, Any]]:
+    """Arbeitsliste GulpID/FLM + HTML — aus ergebnis_daten oder Kinder."""
+    ed = aufgabe.ergebnis_daten if isinstance(aufgabe.ergebnis_daten, dict) else {}
+    wl = ed.get('worklist')
+    if isinstance(wl, list) and wl:
+        out = []
+        for row in wl:
+            if not isinstance(row, dict):
+                continue
+            out.append({
+                'external_id': str(row.get('external_id') or '').strip(),
+                'name': str(row.get('name') or '').strip(),
+                'html_url': str(row.get('html_url') or '').strip(),
+                'aufgabe_id': str(row.get('aufgabe_id') or '').strip(),
+            })
+        if out:
+            return out
+    # Parent ohne gespeicherte Liste → aus Kindern rekonstruieren
+    if aufgabe.gruppe_id and not aufgabe.parent_id:
+        kids = (
+            Aufgabe.objects.filter(gruppe_id=aufgabe.gruppe_id)
+            .exclude(pk=aufgabe.pk)
+            .order_by('titel')
+        )
+        out = []
+        for k in kids:
+            name = re.sub(r'^(?:Gulp|FLM)\s*:\s*', '', k.titel or '', flags=re.I).strip()
+            out.append({
+                'external_id': (
+                    _external_id_from_beschreibung(k.beschreibung)
+                    or (k.ref_id if k.ref_type == 'berater' else '')
+                    or ''
+                ),
+                'name': name or (k.titel or ''),
+                'html_url': _html_url_from_beschreibung(k.beschreibung),
+                'aufgabe_id': str(k.pk),
+            })
+        return out
+    return []
 
 
 def _kontext_for_art(art: str) -> str:
@@ -499,6 +569,10 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'ref_id': aufgabe.ref_id,
         'ref_label': ref_label,
         'crm_url': crm_url,
+        'gruppe_id': str(aufgabe.gruppe_id) if aufgabe.gruppe_id else None,
+        'parent_id': str(aufgabe.parent_id) if aufgabe.parent_id else None,
+        'html_url': _html_url_from_beschreibung(aufgabe.beschreibung),
+        'worklist': _worklist_for(aufgabe),
         'faellig_am': aufgabe.faellig_am.isoformat(),
         'faellig_zeit': aufgabe.faellig_zeit.strftime('%H:%M') if aufgabe.faellig_zeit else None,
         'due_label': due_label(aufgabe, today),
@@ -533,6 +607,8 @@ def liste(
         qs = qs.filter(status=status)
     if not include_others:
         qs = qs.filter(zugewiesen_an=user)
+    # Keine Kind-Aufgaben in der Queue — Gruppenkopf trägt die Arbeitsliste
+    qs = qs.filter(parent__isnull=True)
     return list(qs.select_related('ergebnis', 'regel', 'zugewiesen_an').order_by(
         'faellig_am', 'prioritaet', 'titel',
     ))
@@ -540,13 +616,18 @@ def liste(
 
 def stats(user) -> dict[str, Any]:
     today = _today()
-    offen = Aufgabe.objects.filter(zugewiesen_an=user, status=Aufgabe.Status.OFFEN)
+    offen = Aufgabe.objects.filter(
+        zugewiesen_an=user,
+        status=Aufgabe.Status.OFFEN,
+        parent__isnull=True,
+    )
     heute = offen.filter(faellig_am=today).count()
     ueber = offen.filter(faellig_am__lt=today).count()
     geplant = offen.filter(faellig_am__gt=today).count()
     erledigt_heute = Aufgabe.objects.filter(
         zugewiesen_an=user,
         status=Aufgabe.Status.ERLEDIGT,
+        parent__isnull=True,
         erledigt_am__date=today,
     ).count()
     radar_a = radar_b = 0

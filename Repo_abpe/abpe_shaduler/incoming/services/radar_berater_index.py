@@ -35,6 +35,8 @@ BERATER_INDEX_MAPPING = {
             'name': {'type': 'text', 'analyzer': 'de_text',
                      'fields': {'keyword': {'type': 'keyword', 'ignore_above': 320}}},
             'beschreibung': {'type': 'text', 'analyzer': 'de_text'},
+            # Volltext aus cv_versions (API-Projekte/Ausbildung) — Matching-Corpus
+            'cv_text': {'type': 'text', 'analyzer': 'de_text'},
             'skills': {'type': 'keyword'},
             'skills_text': {'type': 'text', 'analyzer': 'de_text'},
             'ort': {'type': 'keyword'},
@@ -170,9 +172,11 @@ def ensure_index(es=None, *, recreate: bool = False) -> bool:
         if not exists:
             _es_create_index(es, name)
             log.info('created berater index %s', name)
-        elif recreate:
-            # Mapping-Drift: nur loggen — echter Neuaufbau in reindex_all via temp
-            log.info('berater index %s exists — recreate via temp index in reindex_all', name)
+        else:
+            _ensure_cv_text_mapping(es, name)
+            if recreate:
+                # Mapping-Drift: nur loggen — echter Neuaufbau in reindex_all via temp
+                log.info('berater index %s exists — recreate via temp index in reindex_all', name)
         return True
     except Exception as exc:
         try:
@@ -182,6 +186,34 @@ def ensure_index(es=None, *, recreate: bool = False) -> bool:
             pass
         log.warning('ensure berater index failed: %s', exc)
         return False
+
+
+def _ensure_cv_text_mapping(es, name: str) -> None:
+    """cv_text nachziehen ohne Full-Rebuild (put_mapping)."""
+    props = {'cv_text': {'type': 'text', 'analyzer': 'de_text'}}
+    try:
+        es.indices.put_mapping(index=name, body={'properties': props})
+    except TypeError:
+        try:
+            es.indices.put_mapping(index=name, properties=props)
+        except Exception as exc:
+            log.info('put_mapping cv_text: %s', exc)
+    except Exception as exc:
+        log.info('put_mapping cv_text: %s', exc)
+
+
+def _cv_text_from_obj(obj) -> str:
+    """Letzter cv_versions-Volltext (API-Projekte …) für ES-Matching."""
+    versions = getattr(obj, 'cv_versions', None) or []
+    if not isinstance(versions, list) or not versions:
+        return ''
+    for entry in reversed(versions):
+        if not isinstance(entry, dict):
+            continue
+        text = (entry.get('text') or '').strip()
+        if text:
+            return text[:80000]
+    return ''
 
 
 def _delete_index_quiet(es, name: str) -> None:
@@ -395,6 +427,7 @@ def doc_from_obj(obj) -> dict[str, Any]:
         'name': obj.name or '',
         # Volltext für ES-Suche (Liste lädt beschreibung nicht; Detail kommt aus DB)
         'beschreibung': obj.beschreibung or '',
+        'cv_text': _cv_text_from_obj(obj),
         'skills': skills,
         'skills_text': ' '.join(skills),
         'ort': obj.ort or '',
@@ -523,7 +556,7 @@ def search(
             'multi_match': {
                 'query': q,
                 'fields': [
-                    'name^3', 'skills_text^2', 'beschreibung', 'ort',
+                    'name^3', 'skills_text^2', 'beschreibung', 'cv_text^2', 'ort',
                     'gulp_id^4', 'fm_id^4',
                 ],
                 'type': 'best_fields',
@@ -533,7 +566,9 @@ def search(
     else:
         must.append({'match_all': {}})
     order = 'asc' if sort in ('date_asc', 'asc', 'oldest') else 'desc'
-    # ES 8: Sortierung nach _id ist verboten → gulp_id/fm_id als Tiebreaker
+    # Kein Sort auf gulp_id/fm_id: Live-Index kann die Felder als text haben
+    # (Fielddata disabled → search_phase_execution_exception). Mapping-Soll:
+    # keyword — nach recreate. Tiebreaker nur keyword-sichere Felder.
     body = {
         'size': max(1, min(10000, int(limit))),
         'track_total_hits': True,
@@ -547,8 +582,7 @@ def search(
         'sort': [
             {'eingegangen_am': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
             {'updated_at': {'order': order, 'unmapped_type': 'date', 'missing': '_last'}},
-            {'gulp_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
-            {'fm_id': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
+            {'name.keyword': {'order': 'asc', 'unmapped_type': 'keyword', 'missing': '_last'}},
         ],
         'aggs': {
             'by_source': {'terms': {'field': 'source', 'size': 20}},

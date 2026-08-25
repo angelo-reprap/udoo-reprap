@@ -2,8 +2,8 @@
 # Ein Befehl auf ucs5: Live → Git (schnell, leichtes Backup, Commit+Push).
 #
 #   cd /mnt/public/udoo-reprap
-#   git fetch origin cursor/matching-ki-anfrage-wizard-7f07
-#   bash <(git show origin/cursor/matching-ki-anfrage-wizard-7f07:scripts/LIVE-FIRST-pull.sh)
+#   git fetch origin cursor/matching-shortlist-weights-1532
+#   bash <(git show origin/cursor/matching-shortlist-weights-1532:scripts/LIVE-FIRST-pull.sh)
 #
 # Backup liegt unter /opt/abpe/backups/matching-live-*/ — nur kritische
 # Dateien (views/urls/models + UI-JS), KEIN 1.4G CRM-Tar.
@@ -11,7 +11,7 @@
 #
 set -euo pipefail
 REPO="${REPO:-/mnt/public/udoo-reprap}"
-BRANCH="${BRANCH:-cursor/matching-ki-anfrage-wizard-7f07}"
+BRANCH="${BRANCH:-cursor/matching-shortlist-weights-1532}"
 EXTRA=()
 [[ "${FULL_BACKUP:-0}" == "1" ]] && EXTRA+=(--full-backup)
 [[ "${NO_BACKUP:-0}" == "1" ]] && EXTRA+=(--no-backup)

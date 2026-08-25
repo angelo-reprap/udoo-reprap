@@ -16,6 +16,7 @@ urlpatterns = [
     path('api/stats/', views.api_stats, name='api_stats'),
     path('api/aufgaben/', views.api_aufgaben_list, name='api_aufgaben_list'),
     path('api/aufgaben/create/', views.api_aufgabe_create, name='api_aufgabe_create'),
+    path('api/aufgaben/bulk/', views.api_aufgaben_bulk_create, name='api_aufgaben_bulk_create'),
     path('api/aufgaben/<uuid:pk>/', views.api_aufgabe_detail, name='api_aufgabe_detail'),
     path('api/aufgaben/<uuid:pk>/ergebnis/', views.api_aufgabe_ergebnis, name='api_aufgabe_ergebnis'),
     path('api/aufgaben/<uuid:pk>/snooze/', views.api_aufgabe_snooze, name='api_aufgabe_snooze'),

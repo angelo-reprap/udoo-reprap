@@ -12,15 +12,29 @@ class SchedulerClientError(Exception):
     pass
 
 
+def _normalize_loopback(url: str) -> str:
+    """ucs5: localhost kann ReadTimeout (IPv6), 127.0.0.1 ist stabil."""
+    u = (url or '').strip()
+    if '://localhost:' in u:
+        u = u.replace('://localhost:', '://127.0.0.1:', 1)
+    elif '://localhost/' in u:
+        u = u.replace('://localhost/', '://127.0.0.1/', 1)
+    return u
+
+
 def _base_url():
-    return getattr(
-        settings, 'SCHEDULER_API_BASE_URL', 'http://localhost:8000/scheduler/api',
+    return _normalize_loopback(
+        getattr(
+            settings, 'SCHEDULER_API_BASE_URL', 'http://127.0.0.1:8000/scheduler/api',
+        )
     )
 
 
 def _callback_base_url():
-    return getattr(
-        settings, 'SHADULER_CALLBACK_BASE_URL', 'http://localhost:8000/shaduler/api',
+    return _normalize_loopback(
+        getattr(
+            settings, 'SHADULER_CALLBACK_BASE_URL', 'http://127.0.0.1:8000/shaduler/api',
+        )
     )
 
 

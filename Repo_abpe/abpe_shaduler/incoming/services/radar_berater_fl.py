@@ -494,13 +494,16 @@ def fetch_freelancers_list(
     page: int = 1,
     available_only: bool = True,
     countries: Optional[list[int]] = None,
+    query: str = '',
 ) -> dict[str, Any]:
     """
     FM Freelancer-Suche (öffentlich).
     page: 1-basiert (pagenr).
+    query: Freitext/Keywords (wie Suchfeld auf /freelancer).
     """
     page = max(1, int(page or 1))
     countries = countries or [1, 2, 3]  # DE, AT, CH
+    q = (query or '').strip()
     params: list[tuple[str, str]] = [
         ('pagenr', str(page)),
         ('sort', '1'),
@@ -517,7 +520,7 @@ def fetch_freelancers_list(
         ('excludeDachRegion', '0'),
         ('excludeUnavailable', '1' if available_only else '0'),
         ('excludeMemolist', '0'),
-        ('query', ''),
+        ('query', q),
     ]
     for i, cid in enumerate(countries):
         params.append((f'countries[{i}]', str(cid)))
@@ -530,11 +533,12 @@ def fetch_freelancers_list(
             'error': f'FM Suche HTTP {code}',
             'results': [],
             'http': code,
+            'query': q,
         }
     try:
         data = json.loads(raw.decode('utf-8', errors='replace'))
     except Exception as exc:
-        return {'ok': False, 'error': f'JSON: {exc}', 'results': []}
+        return {'ok': False, 'error': f'JSON: {exc}', 'results': [], 'query': q}
 
     freelancers = data.get('freelancers') if isinstance(data, dict) else None
     if not isinstance(freelancers, list):
@@ -557,6 +561,7 @@ def fetch_freelancers_list(
         'ok': True,
         'results': out,
         'page': page,
+        'query': q,
         'raw_count': len(freelancers),
         'total': total,
         'average_price': data.get('averagePrice') if isinstance(data, dict) else None,

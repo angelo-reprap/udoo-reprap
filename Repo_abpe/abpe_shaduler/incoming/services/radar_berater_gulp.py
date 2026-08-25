@@ -745,6 +745,7 @@ def fetch_experts_list(
     page: int = 0,
     size: int = 20,
     available_only: bool = True,
+    search_term: str = '',
 ) -> dict[str, Any]:
     """
     Talentfinder Listen-Suche (wie UI /experten).
@@ -752,6 +753,7 @@ def fetch_experts_list(
     POST …/expert-profiles/search?pageIndex=&pageSize=
     Body analog GULPImporter / Search-UI (sortOrder UPDATED_DATE).
     available_only: availabilityDate=heute (Filter „verfügbar ab“).
+    search_term: optionaler Freitext (Skills/Keywords wie in der TF-UI).
     """
     if not has_gulp_session():
         return {
@@ -766,6 +768,8 @@ def fetch_experts_list(
     qs = urllib.parse.urlencode({'pageIndex': page, 'pageSize': size})
     url = f'{TF_PROFILE_API}/search?{qs}'
 
+    term = (search_term or '').strip() or None
+
     # Wie Talentfinder-UI: zuletzt geändert; Verfügbarkeit = ab heute
     body: dict[str, Any] = {
         'mId': None,
@@ -773,7 +777,7 @@ def fetch_experts_list(
         'availabilityPercent': 20,
         'remote': False,
         'searchOnlyInRecentProjects': False,
-        'searchTerm': None,
+        'searchTerm': term,
     }
     if available_only:
         body['availabilityDate'] = date.today().isoformat()
@@ -838,6 +842,7 @@ def fetch_experts_list(
         'page': page,
         'size': size,
         'available_only': available_only,
+        'search_term': term or '',
         'raw_count': len(items),
         'total': total,
         'http': code,
