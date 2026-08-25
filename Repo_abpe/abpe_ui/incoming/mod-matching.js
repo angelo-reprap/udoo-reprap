@@ -945,13 +945,24 @@ window.Matching = (function() {
 
                 const threshold = d.threshold || 0.5;
                 const srcCounts = d.source_counts || { db: 0, es: 0, gulp: 0, flm: 0 };
+                const primaryCounts = d.primary_counts || null;
                 const boList = Array.isArray(d.backoffice) ? d.backoffice : [];
-                // Dropdown zählt Shortlist + Backoffice — sonst Gulp/FLM immer (0)
+                // Dropdown: Shortlist any-source + Backoffice separat sichtbar
                 const boBySrc = { db: 0, es: 0, gulp: 0, flm: 0 };
                 boList.forEach(b => {
                     const s = String(b.match_source || '').toLowerCase();
                     if (Object.prototype.hasOwnProperty.call(boBySrc, s)) boBySrc[s] += 1;
                 });
+                const _srcDropLabel = (key, label) => {
+                    const n = srcCounts[key] || 0;
+                    const bo = boBySrc[key] || 0;
+                    const prim = primaryCounts ? (primaryCounts[key] || 0) : null;
+                    let t = label + ' (' + n;
+                    if (bo) t += '+' + bo + ' BO';
+                    t += ')';
+                    if (prim != null && prim !== n) t += ' · Haupt ' + prim;
+                    return t;
+                };
                 const dropCounts = {
                     db: (srcCounts.db || 0) + boBySrc.db,
                     es: (srcCounts.es || 0) + boBySrc.es,
@@ -1015,10 +1026,10 @@ window.Matching = (function() {
                                 onchange="Matching.filterShortlistSource(this.value)"
                                 style="font-size:11px;padding:2px 6px;border:1px solid #cbd5e1;border-radius:4px;background:#fff">
                             <option value="all">${_esc(_kiT('source_all', 'Alle'))} (${totalHits})</option>
-                            <option value="db">DB (${dropCounts.db})</option>
-                            <option value="es">ES (${dropCounts.es})</option>
-                            <option value="gulp">Gulp (${dropCounts.gulp})</option>
-                            <option value="flm">FLM (${dropCounts.flm})</option>
+                            <option value="db" title="Badge DB (ggf. + Backoffice)">${_esc(_srcDropLabel('db', 'DB'))}</option>
+                            <option value="es" title="Badge ES — auch DB+ES-Treffer">${_esc(_srcDropLabel('es', 'ES'))}</option>
+                            <option value="gulp">${_esc(_srcDropLabel('gulp', 'Gulp'))}</option>
+                            <option value="flm">${_esc(_srcDropLabel('flm', 'FLM'))}</option>
                         </select>
                     </label>
                     <button type="button" class="matching-btn-sm"
@@ -1098,11 +1109,16 @@ window.Matching = (function() {
                         const srcAttr = srcList.filter(Boolean).join(',');
                         const linkSt = r.crm_link_status || '';
                         const pct = (r.overall_score * 100);
-                        const pctLabel = (Math.abs(pct - Math.round(pct)) < 0.05)
-                            ? pct.toFixed(0)
-                            : pct.toFixed(1);
-                        const strHint = (r.strength != null && r.strength > 0)
-                            ? `<div style="font-size:9px;color:#94a3b8">str ${(Number(r.strength)*100).toFixed(0)}%</div>`
+                        // Immer 1 Dezimal — sonst wirken 67.1 / 67.4 wie gleiche 67%
+                        const pctLabel = pct.toFixed(1);
+                        const strPct = (r.strength != null) ? (Number(r.strength) * 100) : null;
+                        const covPct = (r.coverage != null) ? (Number(r.coverage) * 100) : null;
+                        const strHint = (strPct != null || covPct != null)
+                            ? `<div style="font-size:9px;color:#94a3b8;line-height:1.2" title="Strength / Coverage">`
+                              + (strPct != null ? `str ${strPct.toFixed(0)}%` : '')
+                              + (strPct != null && covPct != null ? ' · ' : '')
+                              + (covPct != null ? `cov ${covPct.toFixed(0)}%` : '')
+                              + `</div>`
                             : '';
                         const badges = srcList.map(s => _srcBadge(s, linkSt)).join('');
                         const isExtSrc = srcList.includes('gulp') || srcList.includes('flm');

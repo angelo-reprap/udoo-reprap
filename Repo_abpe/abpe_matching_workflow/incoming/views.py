@@ -590,6 +590,7 @@ def api_shortlist(request, project_id):
 
         data = []
         source_counts = {'db': 0, 'es': 0, 'gulp': 0, 'flm': 0}
+        primary_counts = {'db': 0, 'es': 0, 'gulp': 0, 'flm': 0}
         enrich = _shortlist_crm_enrichment(results)
         for r in results:
             try:
@@ -611,14 +612,26 @@ def api_shortlist(request, project_id):
                     md = _as_dict(getattr(pc, 'match_details', None))
                     match_source = md.get('match_source')
                 match_source = str(match_source or 'db').lower().strip()
-                if match_source not in source_counts:
+                if match_source not in primary_counts:
                     match_source = 'db'
                 match_sources = _as_list(sd.get('match_sources'), [match_source])
                 if not match_sources:
                     match_sources = [match_source]
-                # Jede Quelle einmal zählen (db+es → beide Dropdowns)
+                match_sources = [
+                    str(s or '').lower().strip() for s in match_sources if str(s or '').strip()
+                ]
+                # Dedup Quellenliste
+                seen_src = set()
+                ms_clean = []
                 for s in match_sources:
-                    s = str(s or '').lower().strip()
+                    if s not in seen_src:
+                        seen_src.add(s)
+                        ms_clean.append(s)
+                match_sources = ms_clean or [match_source]
+                # any-source (Badge-Zählung) vs primary (Hauptquelle)
+                if match_source in primary_counts:
+                    primary_counts[match_source] += 1
+                for s in match_sources:
                     if s in source_counts:
                         source_counts[s] += 1
                     elif match_source == s:
@@ -632,6 +645,10 @@ def api_shortlist(request, project_id):
                     coverage = round(float(sd.get('coverage') or 0), 3)
                 except (TypeError, ValueError):
                     coverage = 0.0
+                try:
+                    coverage_eff = round(float(sd.get('coverage_eff') or coverage or 0), 3)
+                except (TypeError, ValueError):
+                    coverage_eff = coverage
                 schwerpunkt = (
                     (en.get('schwerpunkt') or '').strip()
                     or str(eh.get('title') or eh.get('headline') or '').strip()
@@ -680,12 +697,13 @@ def api_shortlist(request, project_id):
                     'gulp_id':        gulp_id,
                     'fm_id':          fm_id,
                     'fm_slug':        fm_slug,
-                    'overall_score':  round(float(r.overall_score or 0), 3),
+                    'overall_score':  round(float(r.overall_score or 0), 4),
                     'skill_score':    round(float(r.skill_score or 0), 3),
                     'industry_score': round(float(r.industry_score or 0), 3),
                     'rank':           r.rank,
                     'strength':       strength,
                     'coverage':       coverage,
+                    'coverage_eff':   coverage_eff,
                     'matched_skills': r.matched_skills or [],
                     'missing_skills': r.missing_skills or [],
                     'match_reason':   r.match_reason or '',
@@ -734,6 +752,11 @@ def api_shortlist(request, project_id):
             'count':     len(data),
             'above_threshold': sum(1 for d in data if d['above_threshold']),
             'source_counts': source_counts,
+            'primary_counts': primary_counts,
+            'source_count_note': (
+                'source_counts = Treffer mit Badge (Mehrfachquellen zählen mehrfach); '
+                'primary_counts = Hauptquelle; Dropdown = Shortlist + Backoffice'
+            ),
             'backoffice': backoffice,
             'backoffice_count': len(backoffice),
             'external_stats': ext_stats,

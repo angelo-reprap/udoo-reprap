@@ -57,10 +57,27 @@ class MatchingEngine:
         # coverage^power: bei vielen Required-Skills (z.B. 10) sind 5/10 Treffer
         # sonst strukturell unter threshold 0.5 (w_req=0.5 + Neutrals ≈0.22).
         self.coverage_power = float(s.get('skill_coverage_power', 0.62))
+        # Bei hoher Coverage Strength stärker gewichten → Ranking trennt Volltreffer
+        self.strength_sat_boost = float(s.get('skill_strength_sat_boost', 0.55))
         # Soft-Default-Gewicht wenn ConsultantSkill.weight fehlt
         self.default_skill_weight = float(s.get('default_skill_weight', 0.50))
         self.es_recall_cfg = dict(cfg.get('es_recall') or {})
         self.last_external_meta: Dict[str, Any] = {}
+
+    @staticmethod
+    def _merge_sources(*parts) -> List[str]:
+        """Quellen-Badges mergen ohne Duplikate (Reihenfolge: db → es → gulp → flm)."""
+        order = {'db': 0, 'es': 1, 'gulp': 2, 'flm': 3}
+        out: List[str] = []
+        for part in parts:
+            items = part if isinstance(part, (list, tuple)) else ([part] if part else [])
+            for s in items:
+                s = str(s or '').lower().strip()
+                if not s or s in out:
+                    continue
+                out.append(s)
+        out.sort(key=lambda x: order.get(x, 50))
+        return out or ['db']
 
     # ──────────────────────────────────────────────────────
     # PUBLIC
@@ -160,12 +177,11 @@ class MatchingEngine:
         # ES hat Person auch gefunden, obwohl schon in ORM → Badge-Quellen anreichern
         es_enrich: Dict[int, List[str]] = {}
         for cid in es_overlap_ids:
-            if cid in source_by_id:
-                prev = source_by_id[cid]
-                sources = [prev] if prev else []
-                if 'es' not in sources:
-                    sources.append('es')
-                es_enrich[cid] = sources
+            prev = source_by_id.get(cid, 'db')
+            es_enrich[cid] = self._merge_sources(prev, 'es')
+            # Primär bleibt db wenn ORM-Treffer; nur Badge-Liste wird angereichert
+            if cid not in source_by_id:
+                source_by_id[cid] = 'es'
 
         score_kw = dict(
             required_expanded=required_expanded,
@@ -260,41 +276,49 @@ class MatchingEngine:
                     if cons is None:
                         continue
                     src = kr.get('match_source') or 'gulp'
-                    if cons.id in source_by_id:
-                        prev = source_by_id[cons.id]
-                        sources = []
-                        if prev and prev not in sources:
-                            sources.append(prev)
-                        if src not in sources:
-                            sources.append(src)
-                        source_by_id[cons.id] = src
-                        kr = dict(kr)
-                        kr['match_sources'] = sources
-                        kr['match_source'] = src
-                        ext_by_consultant[cons.id] = kr
-                        # Badge auf bereits gescoretem Treffer aktualisieren
-                        if cons.id in scored_by_id:
-                            scored_by_id[cons.id]['match_source'] = src
-                            scored_by_id[cons.id]['match_sources'] = sources
-                            sd = scored_by_id[cons.id].get('skill_details') or {}
-                            sd['match_source'] = src
-                            sd['match_sources'] = sources
-                            sd['crm_link'] = kr.get('crm_link')
-                            sd['crm_link_status'] = kr.get('crm_link_status')
-                            sd['profile_refresh_suggested'] = kr.get(
-                                'profile_refresh_suggested'
-                            )
-                            sd['external_hit'] = kr.get('external_hit')
-                            scored_by_id[cons.id]['skill_details'] = sd
-                            scored_by_id[cons.id]['email'] = kr.get('email') or ''
-                            scored_by_id[cons.id]['phone'] = kr.get('phone') or ''
-                            scored_by_id[cons.id]['crm_link_status'] = kr.get(
-                                'crm_link_status'
-                            )
+                    prev = source_by_id.get(cons.id)
+                    existing_sources = []
+                    if cons.id in scored_by_id:
+                        existing_sources = list(
+                            scored_by_id[cons.id].get('match_sources') or []
+                        )
+                    elif cons.id in es_enrich:
+                        existing_sources = list(es_enrich[cons.id])
+                    sources = self._merge_sources(existing_sources, prev, src)
+                    source_by_id[cons.id] = src
+                    kr = dict(kr)
+                    kr['match_sources'] = sources
+                    kr['match_source'] = src
+                    ext_by_consultant[cons.id] = kr
+                    # Badge auf bereits gescoretem Treffer aktualisieren (ES nicht verlieren)
+                    if cons.id in scored_by_id:
+                        if 'db' in sources:
+                            primary = 'db'
+                        elif src in ('gulp', 'flm'):
+                            primary = src
+                        elif 'es' in sources:
+                            primary = 'es'
+                        else:
+                            primary = src
+                        scored_by_id[cons.id]['match_source'] = primary
+                        scored_by_id[cons.id]['match_sources'] = sources
+                        sd = scored_by_id[cons.id].get('skill_details') or {}
+                        sd['match_source'] = primary
+                        sd['match_sources'] = sources
+                        sd['crm_link'] = kr.get('crm_link')
+                        sd['crm_link_status'] = kr.get('crm_link_status')
+                        sd['profile_refresh_suggested'] = kr.get(
+                            'profile_refresh_suggested'
+                        )
+                        sd['external_hit'] = kr.get('external_hit')
+                        scored_by_id[cons.id]['skill_details'] = sd
+                        scored_by_id[cons.id]['email'] = kr.get('email') or ''
+                        scored_by_id[cons.id]['phone'] = kr.get('phone') or ''
+                        scored_by_id[cons.id]['crm_link_status'] = kr.get(
+                            'crm_link_status'
+                        )
                         continue
                     # Neu aus Gulp/FLM → nachscoren
-                    source_by_id[cons.id] = src
-                    ext_by_consultant[cons.id] = kr
                     setattr(cons, '_matching_external', kr)
                     result = _score_one(cons, src, kr)
                     if result['overall_score'] >= min_score:
@@ -334,8 +358,9 @@ class MatchingEngine:
             r['rank'] = i + 1
             r['rank_score'] = round(
                 float(r.get('overall_score') or 0)
-                + 0.01 * float((r.get('skill_details') or {}).get('strength') or 0)
-                + 0.001 * float((r.get('skill_details') or {}).get('coverage_eff') or 0),
+                + 0.02 * float((r.get('skill_details') or {}).get('strength') or 0)
+                + 0.005 * float((r.get('skill_details') or {}).get('coverage_eff') or 0)
+                + 0.002 * float(r.get('experience_score') or 0),
                 6,
             )
 
@@ -677,11 +702,15 @@ class MatchingEngine:
             strength = (
                 strength_num / max(strength_den, 1e-9)
             ) if strength_den > 0 else 0.0
-            blend = max(self.cov_blend + self.str_blend, 1e-9)
-            quality = (self.cov_blend * 1.0 + self.str_blend * strength) / blend
             # Soft-Coverage: 5/10 Skills → nicht halb so „schlecht“ wie binär
             power = self.coverage_power if self.coverage_power > 0 else 1.0
             coverage_eff = coverage ** power if coverage > 0 else 0.0
+            # Bei hoher Coverage Strength stärker gewichten → Volltreffer trennen sich
+            sat = max(0.0, min(float(self.strength_sat_boost or 0), 2.0))
+            eff_str = self.str_blend * (1.0 + sat * coverage_eff)
+            eff_cov = self.cov_blend
+            blend = max(eff_cov + eff_str, 1e-9)
+            quality = (eff_cov * 1.0 + eff_str * strength) / blend
             req_score = coverage_eff * quality
 
         matched_nice = [
@@ -731,6 +760,7 @@ class MatchingEngine:
                 'quality': round(quality if required_original else 0.0, 4),
                 'coverage_blend': self.cov_blend,
                 'strength_blend': self.str_blend,
+                'strength_sat_boost': self.strength_sat_boost,
                 'coverage_power': self.coverage_power,
                 'matched_required': matched_required,
                 'missing_required': missing_required,
