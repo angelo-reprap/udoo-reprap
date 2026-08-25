@@ -3904,6 +3904,8 @@ window.Matching = (function() {
             _searchTimers: {},
             templates: [],
             templateIdentifier: _outreachResolveDefaultId([], 'matching_outreach_wizard'),
+            signatures: [],
+            signatureId: '',
             useAiOnLoad: true,   // false nach Vorlagenwechsel
         };
         _renderOutreachWizard();
@@ -3914,6 +3916,7 @@ window.Matching = (function() {
     }
 
     var _OW_TPL_DEFAULT_KEY = 'matching_outreach_default_template_v1';
+    var _OW_SIG_DEFAULT_KEY = 'matching_outreach_default_signature_v1';
     var _OW_TPL_FALLBACK = 'matching_outreach_wizard';
 
     function _outreachGetSavedDefault() {
@@ -3930,6 +3933,24 @@ window.Matching = (function() {
         } catch (e) { /* ignore */ }
     }
 
+    function _outreachGetSavedSignature() {
+        try {
+            var v = localStorage.getItem(_OW_SIG_DEFAULT_KEY);
+            if (v && String(v).trim()) return String(v).trim();
+        } catch (e) { /* ignore */ }
+        return '';
+    }
+
+    function _outreachSetSavedSignature(id) {
+        try {
+            if (id == null || id === '') {
+                localStorage.removeItem(_OW_SIG_DEFAULT_KEY);
+            } else {
+                localStorage.setItem(_OW_SIG_DEFAULT_KEY, String(id));
+            }
+        } catch (e) { /* ignore */ }
+    }
+
     function _outreachResolveDefaultId(templates, apiDefault) {
         var list = templates || [];
         var saved = _outreachGetSavedDefault();
@@ -3942,6 +3963,17 @@ window.Matching = (function() {
         var marked = list.find(function (t) { return t && t.is_default; });
         if (marked && marked.identifier) return marked.identifier;
         return _OW_TPL_FALLBACK;
+    }
+
+    function _outreachResolveSignatureId(signatures) {
+        var list = signatures || [];
+        var saved = _outreachGetSavedSignature();
+        if (saved && list.some(function (s) { return String(s.id) === String(saved); })) {
+            return String(saved);
+        }
+        var marked = list.find(function (s) { return s && s.is_default; });
+        if (marked && marked.id != null) return String(marked.id);
+        return list.length && list[0].id != null ? String(list[0].id) : '';
     }
 
     function _outreachApplyDefaultFlags(templates, defaultId) {
@@ -3974,6 +4006,8 @@ window.Matching = (function() {
             var defId = _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
             st.templates = _outreachApplyDefaultFlags(raw, defId);
             st.templateIdentifier = defId;
+            st.signatures = (d && d.signatures) || [];
+            st.signatureId = _outreachResolveSignatureId(st.signatures);
             return st.templates;
         })
         .catch(() => {
@@ -3984,6 +4018,8 @@ window.Matching = (function() {
                 is_default: true,
             }], defId);
             st.templateIdentifier = defId;
+            st.signatures = st.signatures || [];
+            st.signatureId = st.signatureId || '';
             return st.templates;
         });
     }
@@ -4010,12 +4046,45 @@ window.Matching = (function() {
         }).join('');
     }
 
+    function _outreachSignatureOptionsHtml(st) {
+        const list = (st && st.signatures) || [];
+        const cur = st && st.signatureId != null ? String(st.signatureId) : '';
+        let html = '<option value="">— Keine Signatur —</option>';
+        list.forEach(function (s) {
+            const id = s && s.id != null ? String(s.id) : '';
+            const sel = id && id === cur ? ' selected' : '';
+            const mark = s && s.is_default ? ' (ES-Default)' : '';
+            html += '<option value="' + _escAttr(id) + '"' + sel + '>'
+                + _esc((s && s.name) || ('Signatur ' + id)) + mark + '</option>';
+        });
+        return html;
+    }
+
+    function _outreachSignatureBlockHtml(st) {
+        return ''
+            + '<label style="font-size:11px;color:#666;display:block">'
+            + 'Signatur'
+            + '<select id="ow-sig" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
+            + ' onchange="Matching.outreachSelectSignature(this.value)">'
+            + _outreachSignatureOptionsHtml(st)
+            + '</select>'
+            + '</label>';
+    }
+
+    function outreachSelectSignature(id) {
+        const st = window._outreachWizard;
+        if (!st) return;
+        st.signatureId = id == null ? '' : String(id);
+        if (st.signatureId) _outreachSetSavedSignature(st.signatureId);
+        else _outreachSetSavedSignature('');
+    }
+
     function _outreachTemplateBlockHtml(st) {
         const cur = (st && st.templateIdentifier) || _OW_TPL_FALLBACK;
         const tpl = ((st && st.templates) || []).find(function (t) {
             return t && t.identifier === cur;
         });
-        const isDef = !!(tpl && tpl.is_default) || cur === _outreachResolveDefaultId(st.templates || [], _OW_TPL_FALLBACK);
+        const isDef = !!(tpl && tpl.is_default);
         const badge = isDef
             ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
               + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard</span>'
@@ -4036,7 +4105,8 @@ window.Matching = (function() {
             + '</select>'
             + '</label>'
             + setBtn
-            + '</div>';
+            + '</div>'
+            + _outreachSignatureBlockHtml(st);
     }
 
     function outreachSetDefaultTemplate() {
@@ -4192,6 +4262,8 @@ window.Matching = (function() {
         const subj = ((document.getElementById('ow-subj') || {}).value || '');
         const body = ((document.getElementById('ow-body') || {}).value || '');
         const task = document.getElementById('ow-task');
+        const sigEl = document.getElementById('ow-sig');
+        if (sigEl) st.signatureId = sigEl.value || '';
         if (st.draft) {
             if (to) st.draft.to_email = to;
             if (document.getElementById('ow-subj')) st.draft.subject = subj;
@@ -4691,7 +4763,7 @@ window.Matching = (function() {
                        value="${_escAttr(draft.subject || '')}">
               </label>
               <label style="font-size:11px;color:#666">Anschreiben
-                <textarea id="ow-body" class="matching-form-textarea" rows="9"
+                <textarea id="ow-body" class="matching-form-textarea" rows="14"
                           style="width:100%;margin-top:3px;font-family:inherit">${_esc(draft.body || draft.body_text || '')}</textarea>
               </label>
               <div id="ow-task-box" style="display:grid;gap:6px;padding:8px 10px;background:#f8fafc;border-radius:8px;border:1px solid #e5e7eb">
@@ -5012,6 +5084,7 @@ window.Matching = (function() {
             body: _bodyTextToHtml(body),
             contact_name: cur.name || '',
             crm_id: st.crm_contact_id || '',
+            signature_id: st.signatureId || '',
         };
 
         fetch('/crm/api/email/send/', {
@@ -6704,7 +6777,8 @@ window.Matching = (function() {
         toggleOutreachSelect, toggleSelectAllVisible, clearOutreachSelection,
         _restoreOutreachCheckboxes, _updateOutreachSelectUi,
         openOutreachWizard, closeOutreachWizard, outreachGoto, outreachSkip,
-        outreachPolish, outreachReloadDraft, outreachSelectTemplate, outreachSetDefaultTemplate, outreachSend,
+        outreachPolish, outreachReloadDraft, outreachSelectTemplate, outreachSetDefaultTemplate,
+        outreachSelectSignature, outreachSend,
         outreachPickEmail, outreachApplyEmail,
         outreachApplyMulti, outreachRemoveMulti, outreachAddMultiEmail, outreachSearchMulti,
         outreachSetMailTarget, outreachUnifiedSearch, outreachUnifiedApply,

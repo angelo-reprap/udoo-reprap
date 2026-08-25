@@ -231,8 +231,9 @@ Score: {mr.overall_score}
 
 
 def list_outreach_email_templates() -> Dict[str, Any]:
-    """ACTIVE Email-Studio-Vorlagen für den Outreach-Wizard."""
+    """ACTIVE Email-Studio-Vorlagen + Signaturen für den Outreach-Wizard."""
     templates: List[Dict[str, Any]] = []
+    signatures: List[Dict[str, Any]] = []
     try:
         from apps.abpe_email_studio.models import EmailTemplate, TemplateStatus
         qs = EmailTemplate.objects.filter(status=TemplateStatus.ACTIVE).order_by('name')
@@ -256,10 +257,25 @@ def list_outreach_email_templates() -> Dict[str, Any]:
         })
     # Default immer zuerst
     templates.sort(key=lambda t: (0 if t.get('is_default') else 1, (t.get('name') or '').lower()))
+
+    try:
+        from apps.abpe_email_studio.models import EmailSignature
+        qs_sig = EmailSignature.objects.all().order_by('-is_default', 'name')
+        for s in qs_sig:
+            signatures.append({
+                'id': s.pk,
+                'name': s.name or f'Signatur {s.pk}',
+                'identifier': getattr(s, 'identifier', '') or '',
+                'is_default': bool(getattr(s, 'is_default', False)),
+            })
+    except Exception as e:
+        logger.warning('list_outreach_email_templates signatures: %s', e)
+
     return {
         'ok': True,
         'default': DEFAULT_OUTREACH_TEMPLATE,
         'templates': templates,
+        'signatures': signatures,
     }
 
 
@@ -302,6 +318,38 @@ def _load_es_template(identifier: str):
         return None
 
 
+def _fmt_date(val) -> str:
+    if not val:
+        return ''
+    try:
+        return val.strftime('%d.%m.%Y')
+    except Exception:
+        return str(val)
+
+
+def _why_short(why: str, max_len: int = 280) -> str:
+    text = re.sub(r'\s+', ' ', (why or '').strip())
+    if not text:
+        return ''
+    # Ersten 1–2 Sätze bevorzugen
+    parts = re.split(r'(?<=[.!?])\s+', text)
+    short = ''
+    for p in parts:
+        if not p:
+            continue
+        cand = (short + ' ' + p).strip() if short else p
+        if short and len(cand) > max_len:
+            break
+        short = cand
+        if len(short) >= 120:
+            break
+    if not short:
+        short = text
+    if len(short) > max_len:
+        short = short[: max_len - 1].rstrip(' ,;:') + '…'
+    return short
+
+
 def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any]:
     project = mr.project_request
     c = mr.consultant_cv
@@ -315,11 +363,43 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
     else:
         points_s = str(points or '')
     why = ((deep or {}).get('why') or mr.match_reason or '').strip()
+    why_short = _why_short(why)
     score = mr.overall_score or 0
     try:
         score_pct = f'{float(score) * 100:.0f}%'
     except Exception:
         score_pct = str(score)
+
+    req_skills = _skill_names(getattr(project, 'required_skills', None))[:12]
+    req_s = ', '.join(req_skills)
+    loc = (getattr(project, 'location', None) or '').strip()
+    start = _fmt_date(getattr(project, 'start_date', None))
+    months = int(getattr(project, 'duration_months', 0) or 0)
+    duration = f'{months} Monat{"e" if months != 1 else ""}' if months else ''
+    workload_n = int(getattr(project, 'workload_percent', 0) or 0)
+    workload = f'{workload_n} %' if workload_n else ''
+    remote = 'möglich' if getattr(project, 'remote_possible', True) else 'vor Ort'
+    desc = (project.description or '').strip()
+    if len(desc) > 900:
+        desc = desc[:897].rstrip() + '…'
+
+    detail_lines = [
+        f'Was: {title}',
+    ]
+    if customer:
+        detail_lines.append(f'Kunde: {customer}')
+    if loc:
+        detail_lines.append(f'Wo: {loc}')
+    if start:
+        detail_lines.append(f'Wann (Start): {start}')
+    if duration:
+        detail_lines.append(f'Laufzeit: {duration}')
+    if workload:
+        detail_lines.append(f'Auslastung: {workload}')
+    if remote:
+        detail_lines.append(f'Remote: {remote}')
+    project_details = '\n'.join(detail_lines)
+
     return {
         'name': c.full_name or '',
         'first_name': first,
@@ -331,9 +411,23 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
         'anfragen_id': project.project_number or str(getattr(project, 'id', '') or ''),
         'customer': customer,
         'kunde': customer,
-        'skills': points_s,
+        'location': loc,
+        'standort': loc,
+        'start': start,
+        'start_date': start,
+        'duration': duration,
+        'laufzeit': duration,
+        'workload': workload,
+        'auslastung': workload,
+        'remote': remote,
+        'description': desc,
+        'beschreibung': desc,
+        'project_details': project_details,
+        'required_skills': req_s,
+        'skills': points_s or req_s,
         'talking_points': points_s,
         'why': why,
+        'why_short': why_short,
         'match_score': score_pct,
         'signature': '',
         'email': (getattr(c, 'email', None) or '').split(';')[0].strip(),
@@ -341,22 +435,35 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
 
 
 def _baseline_from_context(ctx: Dict[str, Any]) -> Tuple[str, str]:
-    """Hardcoded Fallback wenn Email-Studio-Vorlage fehlt."""
+    """Hardcoded Fallback: Begrüßung → Anfrage ausführlich → Warum kurz."""
     first = ctx.get('first_name') or ''
     title = ctx.get('project') or 'Projekt'
-    customer = ctx.get('customer') or ''
-    points_s = ctx.get('skills') or ''
+    details = (ctx.get('project_details') or f'Was: {title}').strip()
+    desc = (ctx.get('description') or '').strip()
+    req = (ctx.get('required_skills') or ctx.get('skills') or '').strip()
+    why_short = (ctx.get('why_short') or ctx.get('why') or '').strip()
+
     subject = f'Anfrage {title} — passt das für Sie?'
-    body = (
-        f'Guten Tag {first},\n\n'
-        f'zu unserer aktuellen Kundenanfrage „{title}“'
-        + (f' ({customer})' if customer else '')
-        + ' möchten wir Sie gerne anfragen.\n'
-        f'Passt das thematisch zu Ihrem Profil'
-        + (f' (u. a. {points_s})' if points_s else '')
-        + '?\n\nViele Grüße'
-    )
-    return subject, body
+    parts = [
+        f'Guten Tag {first},',
+        '',
+        'wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:',
+        '',
+        details,
+    ]
+    if desc:
+        parts.extend(['', desc])
+    if req:
+        parts.extend(['', f'Gesucht u. a.: {req}'])
+    if why_short:
+        parts.extend(['', 'Warum wir Sie ansprechen:', why_short])
+    parts.extend([
+        '',
+        'Über eine kurze Rückmeldung freuen wir uns.',
+        '',
+        'Mit freundlichen Grüßen',
+    ])
+    return subject, '\n'.join(parts)
 
 
 def build_letter_draft(
@@ -400,29 +507,43 @@ def build_letter_draft(
     model = 'template'
     if use_ai:
         system = (
-            'Du formulierst kurze, professionelle Anschreiben für Personalvermittler. '
+            'Du formulierst professionelle, persönliche Anschreiben für Personalvermittler. '
             'Antworte NUR als JSON: {"subject":"...","body":"...","greeting":"..."} '
-            'body = Plaintext mit \\n, duzen/siezen: Siezen. Kein HTML. '
-            'Behalte den Inhalt der Baseline bei, formuliere nur natürlicher.'
+            'body = Plaintext mit \\n, Siezen, kein HTML, keine Signatur im Text.'
         )
-        prompt = f"""Persönliches Anschreiben entwerfen (auf Basis der Vorlage).
+        prompt = f"""Schreibe ein persönliches Anschreiben an den Berater.
+
+ZWINGENDE Struktur (in dieser Reihenfolge):
+1) Begrüßung mit Vornamen (z. B. „Guten Tag {first},“)
+2) Ausführlicher Anfrage-Teil: Was / Kunde / Wo / Wann / Laufzeit / Auslastung / Remote,
+   dann die Projektbeschreibung in verständlichen Sätzen, dann gesuchte Skills.
+3) Kurzer Absatz „Warum wir Sie ansprechen:“ (2–3 Sätze Kurzfassung, nicht die komplette Analyse wiederholen)
+4) Bitte um kurze Rückmeldung + „Mit freundlichen Grüßen“
+Keine Signatur / keinen Absendernamen anhängen.
 
 Anfrage: {title}
 Kunde: {customer}
-Beschreibung: {(project.description or '')[:400]}
+Standort: {ctx.get('location') or '—'}
+Start: {ctx.get('start') or '—'}
+Laufzeit: {ctx.get('duration') or '—'}
+Auslastung: {ctx.get('workload') or '—'}
+Remote: {ctx.get('remote') or '—'}
+Beschreibung: {(project.description or '')[:800]}
+Gesuchte Skills: {ctx.get('required_skills') or points_s}
 Berater: {c.full_name}
-Warum passend: {(deep or {}).get('why') or mr.match_reason or ''}
+Warum passend (Lang): {(deep or {}).get('why') or mr.match_reason or ''}
+Warum kurz: {ctx.get('why_short') or ''}
 Talking Points: {points_s}
-Extra-Hinweise des Disponenten: {extra_notes or '(keine)'}
+Extra-Hinweise: {extra_notes or '(keine)'}
 Vorlage: {tpl_name or ident}
 
 Baseline-Betreff: {subject}
 Baseline-Text:
 {body}
 
-Halte den Stil knapp und freundlich. Maximal 120 Wörter im body.
+Ausführlich bei der Anfrage, knapp beim Warum. Ca. 180–250 Wörter im body.
 """
-        raw, model = _deepseek_chat(prompt, system=system, max_tokens=500)
+        raw, model = _deepseek_chat(prompt, system=system, max_tokens=900)
         parsed = _parse_json_blob(raw or '') if raw else None
         if parsed and parsed.get('body'):
             subject = (parsed.get('subject') or subject).strip()
@@ -449,19 +570,22 @@ Halte den Stil knapp und freundlich. Maximal 120 Wörter im body.
         'consultant_aid': c.aid,
         'template_identifier': ident,
         'template_name': tpl_name or ident,
+        'why_short': ctx.get('why_short') or '',
+        'project_details': ctx.get('project_details') or '',
     }
 
 
 def polish_letter(draft_text: str, keep_style: bool = True) -> Dict[str, Any]:
     system = (
         'Du polierst Anschreiben leicht. Antworte NUR JSON '
-        '{"body":"..."} mit Plaintext. Keine Erfindung neuer Fakten.'
+        '{"body":"..."} mit Plaintext. Keine Erfindung neuer Fakten. '
+        'Behalte die Struktur: Begrüßung → Anfrage → Warum kurz → Abschluss.'
     )
     prompt = (
-        f'Stil beibehalten={keep_style}. Poliere diesen Text (Klarheit, Grammatik, Kürze):\n\n'
+        f'Stil beibehalten={keep_style}. Poliere diesen Text (Klarheit, Grammatik):\n\n'
         f'{draft_text}'
     )
-    raw, model = _deepseek_chat(prompt, system=system, max_tokens=500)
+    raw, model = _deepseek_chat(prompt, system=system, max_tokens=900)
     parsed = _parse_json_blob(raw or '') if raw else None
     body = (parsed or {}).get('body') if parsed else None
     if not body:

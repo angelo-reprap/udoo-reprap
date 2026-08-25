@@ -2,12 +2,16 @@
 """Upsert Email-Studio-Vorlage matching_outreach_wizard.
 
 Default-Anschreiben für den Matching Outreach-Wizard.
-Platzhalter (Email Studio / Composer):
-  {name} {first_name} {last_name} {berater_name}
+Struktur: Begrüßung → Anfrage ausführlich → Warum kurz → Abschluss.
+Signatur kommt separat über den Wizard (Email-Studio-Signaturen).
+
+Platzhalter:
+  {first_name} {name} {last_name} {berater_name}
   {project} {projekt_titel} {project_number} {anfragen_id}
   {customer} {kunde}
-  {skills} {talking_points} {why} {match_score}
-  {signature}
+  {location} {standort} {start} {duration} {workload} {remote}
+  {description} {project_details} {required_skills}
+  {skills} {talking_points} {why} {why_short} {match_score}
 
 Live (ucs5):
   cd /opt/abpe/backend && source /opt/abpe/venv311/bin/activate
@@ -20,9 +24,17 @@ IDENT = "matching_outreach_wizard"
 
 HTML = """{{block:abcona_header_blau}}
 <p>Guten Tag {first_name},</p>
-<p>zu unserer aktuellen Kundenanfrage „<strong>{project}</strong>“{customer_clause} möchten wir Sie gerne anfragen.</p>
-<p>Passt das thematisch zu Ihrem Profil{skills_clause}?</p>
-<p>{why_clause}</p>
+<p>wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:</p>
+<p><strong>Was:</strong> {project}<br>
+<strong>Kunde:</strong> {customer}<br>
+<strong>Wo:</strong> {location}<br>
+<strong>Wann (Start):</strong> {start}<br>
+<strong>Laufzeit:</strong> {duration}<br>
+<strong>Auslastung:</strong> {workload}<br>
+<strong>Remote:</strong> {remote}</p>
+<p>{description}</p>
+<p><strong>Gesucht u. a.:</strong> {required_skills}</p>
+<p><strong>Warum wir Sie ansprechen:</strong><br>{why_short}</p>
 <p>Über eine kurze Rückmeldung freuen wir uns.</p>
 <p>Mit freundlichen Grüßen</p>
 {{block:signature}}
@@ -30,22 +42,27 @@ HTML = """{{block:abcona_header_blau}}
 
 TEXT = """Guten Tag {first_name},
 
-zu unserer aktuellen Kundenanfrage „{project}“{customer_clause} möchten wir Sie gerne anfragen.
+wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:
 
-Passt das thematisch zu Ihrem Profil{skills_clause}?
+Was: {project}
+Kunde: {customer}
+Wo: {location}
+Wann (Start): {start}
+Laufzeit: {duration}
+Auslastung: {workload}
+Remote: {remote}
 
-{why_clause}
+{description}
+
+Gesucht u. a.: {required_skills}
+
+Warum wir Sie ansprechen:
+{why_short}
 
 Über eine kurze Rückmeldung freuen wir uns.
 
 Mit freundlichen Grüßen
-
-{signature}
 """
-
-# Hinweis: customer_clause / skills_clause / why_clause werden vom Wizard
-# vor dem Rendern gesetzt (leer oder „ (Kunde)“, „ (u. a. …)“, Why-Satz).
-# Fallback ohne Wizard-Preprocess: feste Formulierungen unten in description.
 
 defaults = {
     "name": "Matching — Outreach-Wizard Anschreiben",
@@ -56,42 +73,12 @@ defaults = {
     "sender_mode": SenderMode.USER,
     "include_signature": True,
     "description": (
-        "Default-Vorlage für Matching Outreach-Wizard (Shortlist → Anschreiben). "
-        "Platzhalter: {first_name}, {name}, {berater_name}, {project}, {projekt_titel}, "
-        "{project_number}, {customer}, {kunde}, {skills}, {talking_points}, {why}, "
-        "{match_score}, {signature}. "
-        "Weitere Vorlagen später im Wizard wählbar; diese bleibt Default."
+        "Default-Vorlage Outreach-Wizard. Struktur: Begrüßung → Anfrage "
+        "(Was/Wo/Wann/…) → Warum kurz. Signatur im Wizard wählbar. "
+        "Platzhalter: {first_name}, {project}, {customer}, {location}, {start}, "
+        "{duration}, {workload}, {remote}, {description}, {required_skills}, {why_short}."
     ),
 }
-
-# Einfachere Variante ohne *_clause (falls Renderer keine leeren Clause-Vars mag):
-HTML_SIMPLE = """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>zu unserer aktuellen Kundenanfrage „<strong>{project}</strong>“ ({customer}) möchten wir Sie gerne anfragen.</p>
-<p>Passt das thematisch zu Ihrem Profil (u.&nbsp;a. {skills})?</p>
-<p>{why}</p>
-<p>Über eine kurze Rückmeldung freuen wir uns.</p>
-<p>Mit freundlichen Grüßen</p>
-{{block:signature}}
-"""
-
-TEXT_SIMPLE = """Guten Tag {first_name},
-
-zu unserer aktuellen Kundenanfrage „{project}“ ({customer}) möchten wir Sie gerne anfragen.
-
-Passt das thematisch zu Ihrem Profil (u. a. {skills})?
-
-{why}
-
-Über eine kurze Rückmeldung freuen wir uns.
-
-Mit freundlichen Grüßen
-
-{signature}
-"""
-
-defaults["html_body"] = HTML_SIMPLE.strip()
-defaults["text_body"] = TEXT_SIMPLE.strip()
 
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -100,7 +87,6 @@ except Exception:
     pass
 try:
     from apps.abpe_email_studio.models import AppScope
-    # Matching-Scope wenn vorhanden, sonst GENERAL
     if hasattr(AppScope, "MATCHING"):
         defaults["app_scope"] = AppScope.MATCHING
     elif hasattr(AppScope, "GENERAL"):
