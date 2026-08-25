@@ -4106,9 +4106,10 @@ window.Matching = (function() {
         return ''
             + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
             + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:220px">'
-            + 'Vorlage (Email Studio)' + badge
+            + 'Vorlage wählen (Email Studio)' + badge
             + '<select id="ow-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
-            + ' onchange="Matching.outreachSelectTemplate(this.value)">'
+            + ' onchange="Matching.outreachSelectTemplate(this.value)"'
+            + ' title="Alle aktiven Email-Studio-Vorlagen">'
             + _outreachTemplateOptionsHtml(st)
             + '</select>'
             + '</label>'
@@ -4648,31 +4649,37 @@ window.Matching = (function() {
         window._outreachDrag = null;
     }
 
-    function _outreachEnableDrag(ov, st) {
-        const panel = ov.querySelector('#ow-panel');
-        const bar = ov.querySelector('#ow-drag-bar');
-        if (!panel || !bar) return;
+    /**
+     * Overlay-Panel per Header verschieben (wie Outreach-Wizard).
+     * opts.pos = {left,top} zum Wiederherstellen; opts.onPos(pos) beim Ziehen.
+     */
+    function _enableOverlayPanelDrag(ov, panel, bar, opts) {
+        opts = opts || {};
+        if (!ov || !panel || !bar) return;
+        bar.style.cursor = 'move';
+        bar.style.userSelect = 'none';
+        bar.style.touchAction = 'none';
+        if (!bar.getAttribute('title')) bar.setAttribute('title', 'Ziehen zum Verschieben');
 
-        // Gespeicherte Position wiederherstellen
-        if (st.dragPos && typeof st.dragPos.left === 'number') {
+        if (opts.pos && typeof opts.pos.left === 'number') {
             ov.style.alignItems = 'flex-start';
             ov.style.justifyContent = 'flex-start';
             panel.style.position = 'relative';
-            panel.style.left = st.dragPos.left + 'px';
-            panel.style.top = st.dragPos.top + 'px';
+            panel.style.left = opts.pos.left + 'px';
+            panel.style.top = opts.pos.top + 'px';
             panel.style.margin = '0';
         }
 
         bar.onmousedown = function (e) {
             if (e.button !== 0) return;
-            if (e.target && e.target.closest && e.target.closest('button')) return;
+            if (e.target && e.target.closest && e.target.closest('button, a, input, select, textarea')) return;
             e.preventDefault();
+            e.stopPropagation();
             const rect = panel.getBoundingClientRect();
             const startX = e.clientX;
             const startY = e.clientY;
             const origLeft = rect.left;
             const origTop = rect.top;
-            // Von Flex-Zentrierung auf absolute Position umschalten
             ov.style.alignItems = 'flex-start';
             ov.style.justifyContent = 'flex-start';
             panel.style.position = 'relative';
@@ -4680,36 +4687,47 @@ window.Matching = (function() {
             panel.style.top = origTop + 'px';
             panel.style.margin = '0';
             bar.style.cursor = 'grabbing';
-            window._outreachDrag = { startX, startY, origLeft, origTop, panel, bar, ov };
+            const dragState = { startX: startX, startY: startY };
+            window._matchingPopupDrag = dragState;
+            if (opts.dragFlag) window[opts.dragFlag] = dragState;
 
             function onMove(ev) {
-                const d = window._outreachDrag;
-                if (!d) return;
-                const dx = ev.clientX - d.startX;
-                const dy = ev.clientY - d.startY;
-                let left = d.origLeft + dx;
-                let top = d.origTop + dy;
-                // Viewport-Grenzen (wenigstens 40px Header sichtbar)
+                if (!window._matchingPopupDrag) return;
+                const dx = ev.clientX - startX;
+                const dy = ev.clientY - startY;
+                let left = origLeft + dx;
+                let top = origTop + dy;
                 const maxL = window.innerWidth - 80;
                 const maxT = window.innerHeight - 40;
                 left = Math.max(-rect.width + 80, Math.min(maxL, left));
                 top = Math.max(0, Math.min(maxT, top));
-                d.panel.style.left = left + 'px';
-                d.panel.style.top = top + 'px';
-                if (window._outreachWizard) {
-                    window._outreachWizard.dragPos = { left: left, top: top };
-                }
+                panel.style.left = left + 'px';
+                panel.style.top = top + 'px';
+                if (typeof opts.onPos === 'function') opts.onPos({ left: left, top: top });
             }
             function onUp() {
-                const d = window._outreachDrag;
-                if (d && d.bar) d.bar.style.cursor = 'move';
-                window._outreachDrag = null;
+                bar.style.cursor = 'move';
+                window._matchingPopupDrag = null;
+                if (opts.dragFlag) window[opts.dragFlag] = null;
                 document.removeEventListener('mousemove', onMove);
                 document.removeEventListener('mouseup', onUp);
             }
             document.addEventListener('mousemove', onMove);
             document.addEventListener('mouseup', onUp);
         };
+    }
+
+    function _outreachEnableDrag(ov, st) {
+        const panel = ov.querySelector('#ow-panel');
+        const bar = ov.querySelector('#ow-drag-bar');
+        if (!panel || !bar) return;
+        _enableOverlayPanelDrag(ov, panel, bar, {
+            pos: st && st.dragPos,
+            onPos: function (pos) {
+                if (window._outreachWizard) window._outreachWizard.dragPos = pos;
+            },
+            dragFlag: '_outreachDrag',
+        });
     }
 
     function _renderOutreachWizard() {
@@ -4721,7 +4739,7 @@ window.Matching = (function() {
             ov.id = 'matching-outreach-ovl';
             ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10070;display:flex;align-items:center;justify-content:center;padding:12px';
             ov.onclick = function (e) {
-                if (window._outreachDrag) return;
+                if (window._outreachDrag || window._matchingPopupDrag) return;
                 if (e.target === ov) closeOutreachWizard();
             };
             document.body.appendChild(ov);
@@ -4740,7 +4758,8 @@ window.Matching = (function() {
 
         ov.innerHTML = `
         <div id="ow-panel" style="background:#fff;border-radius:10px;width:min(960px,96vw);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.25)">
-          <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none">
+          <div id="ow-drag-bar" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none" title="Ziehen zum Verschieben">
+            <i class="bi bi-grip-horizontal" style="opacity:.85"></i>
             <i class="bi bi-send"></i>
             <b style="flex:1">${_esc(_kiT('outreach_title', 'Outreach-Wizard'))} — ${i}/${n}${st.selectedOnly ? ' · Auswahl' : ''}</b>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
@@ -6345,10 +6364,14 @@ window.Matching = (function() {
         const ov = document.createElement('div');
         ov.id = 'matching-contact-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10050;display:flex;align-items:center;justify-content:center;padding:16px';
-        ov.onclick = function (e) { if (e.target === ov) _closeContactPopup(); };
+        ov.onclick = function (e) {
+            if (window._matchingPopupDrag) return;
+            if (e.target === ov) _closeContactPopup();
+        };
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;max-width:520px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;max-height:92vh;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+        <div id="matching-contact-panel" style="background:#fff;border-radius:10px;max-width:520px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;max-height:92vh;display:flex;flex-direction:column">
+          <div id="matching-contact-drag" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none" title="Ziehen zum Verschieben">
+            <i class="bi bi-grip-horizontal" style="opacity:.85"></i>
             <i class="bi bi-person-badge"></i>
             <div style="flex:1;min-width:0">
               <b style="display:block;font-size:14px">${_esc(detail.name || 'Kontakt')}</b>
@@ -6485,6 +6508,11 @@ window.Matching = (function() {
           </div>
         </div>`;
         document.body.appendChild(ov);
+        _enableOverlayPanelDrag(
+            ov,
+            ov.querySelector('#matching-contact-panel'),
+            ov.querySelector('#matching-contact-drag')
+        );
         _renderAvailBox(document.getElementById('matching-avail-box'), detail, {
             gulp: detail.gulp_id ? { loading: true } : null,
             fm: detail.freelancermap ? { loading: true } : null,
@@ -6761,9 +6789,10 @@ window.Matching = (function() {
         return ''
             + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
             + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:200px">'
-            + 'Vorlage (Email Studio)' + badge
+            + 'Vorlage wählen (Email Studio)' + badge
             + '<select id="mm-tpl" class="matching-form-input" style="width:100%;margin-top:3px;display:block"'
-            + ' onchange="Matching.stageMailSelectTemplate(this.value)">'
+            + ' onchange="Matching.stageMailSelectTemplate(this.value)"'
+            + ' title="Alle aktiven Email-Studio-Vorlagen">'
             + _outreachTemplateOptionsHtml(fake)
             + '</select>'
             + '</label>'
@@ -6917,14 +6946,18 @@ window.Matching = (function() {
         const ov = document.createElement('div');
         ov.id = 'matching-mail-ovl';
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10060;display:flex;align-items:center;justify-content:center;padding:16px';
-        ov.onclick = function (e) { if (e.target === ov) _closeStageMailComposer(); };
+        ov.onclick = function (e) {
+            if (window._matchingPopupDrag) return;
+            if (e.target === ov) _closeStageMailComposer();
+        };
         ov.innerHTML = `
-        <div style="background:#fff;border-radius:10px;max-width:${isStudio ? '640' : '560'}px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:92vh;overflow:auto">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff">
+        <div id="matching-mail-panel" style="background:#fff;border-radius:10px;max-width:${isStudio ? '640' : '560'}px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);max-height:92vh;overflow:auto">
+          <div id="matching-mail-drag" style="display:flex;align-items:center;gap:8px;padding:12px 14px;background:var(--abcona-blue,#163258);color:#fff;cursor:move;user-select:none;touch-action:none" title="Ziehen zum Verschieben">
+            <i class="bi bi-grip-horizontal" style="opacity:.85"></i>
             <i class="bi bi-envelope"></i>
             <b style="flex:1">${_esc(opts.actionLabel || 'E-Mail')} — ${_esc(opts.detail.name || '')}</b>
             <button type="button" style="background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer"
-                    onclick="document.getElementById('matching-mail-ovl')?.remove()">×</button>
+                    onclick="Matching.closeStageMailComposer()">×</button>
           </div>
           <div style="padding:14px;display:grid;gap:8px">
             ${studioBlock}
@@ -6944,7 +6977,7 @@ window.Matching = (function() {
             <div id="mm-msg" style="font-size:11px;min-height:16px;color:${opts.loadError ? '#b91c1c' : '#666'}">${_esc(statusHint)}</div>
             <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
               <button type="button" class="matching-btn-sm"
-                      onclick="document.getElementById('matching-mail-ovl')?.remove()">Abbrechen</button>
+                      onclick="Matching.closeStageMailComposer()">Abbrechen</button>
               <button type="button" class="matching-btn-primary" id="mm-send"
                       onclick="Matching.submitStageMail()">
                 <i class="bi bi-send"></i> Senden${opts.nextStatus ? ' & Status' : ''}
@@ -6954,9 +6987,16 @@ window.Matching = (function() {
         </div>`;
         document.body.appendChild(ov);
         window._matchingMailDraft = opts;
+        _enableOverlayPanelDrag(
+            ov,
+            ov.querySelector('#matching-mail-panel'),
+            ov.querySelector('#matching-mail-drag')
+        );
         const toEl = document.getElementById('mm-to');
         if (toEl && !toEl.value) toEl.focus();
     }
+
+    function closeStageMailComposer() { _closeStageMailComposer(); }
 
     function _bodyTextToHtml(txt) {
         return '<div>' + _esc(txt).replace(/\n/g, '<br>') + '</div>';
@@ -7249,7 +7289,7 @@ window.Matching = (function() {
         toggleArchiveDetail, searchAnfragen, filterAnfragen,
         searchAccounts, searchContacts, call, sendEmail,
         kanbanDragStart, kanbanDrop, kanbanCardClick, openContact,
-        closeContactPopup, submitStageMail, openCv, createCvTask,
+        closeContactPopup, submitStageMail, closeStageMailComposer, openCv, createCvTask,
         stageMailSelectTemplate, stageMailSelectSignature, stageMailSetDefaultTemplate,
         stageMailPolish, stageMailReloadDraft,
         saveAvailability, adoptAvailability, saveRate, saveMatchTerms,
