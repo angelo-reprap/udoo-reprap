@@ -3,12 +3,11 @@
 
 Default-Anschreiben für den Matching Outreach-Wizard.
 Struktur: Begrüßung → Anfrage ausführlich → Warum kurz → Abschluss.
-Signatur kommt separat über den Wizard (Email-Studio-Signaturen).
+Kein Firmen-/Kundenname (Vertraulichkeit) — Signatur im Wizard.
 
 Platzhalter:
   {first_name} {name} {last_name} {berater_name}
   {project} {projekt_titel} {project_number} {anfragen_id}
-  {customer} {kunde}
   {location} {standort} {start} {duration} {workload} {remote}
   {description} {project_details} {required_skills}
   {skills} {talking_points} {why} {why_short} {match_score}
@@ -26,7 +25,6 @@ HTML = """{{block:abcona_header_blau}}
 <p>Guten Tag {first_name},</p>
 <p>wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:</p>
 <p><strong>Was:</strong> {project}<br>
-<strong>Kunde:</strong> {customer}<br>
 <strong>Wo:</strong> {location}<br>
 <strong>Wann (Start):</strong> {start}<br>
 <strong>Laufzeit:</strong> {duration}<br>
@@ -45,7 +43,6 @@ TEXT = """Guten Tag {first_name},
 wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:
 
 Was: {project}
-Kunde: {customer}
 Wo: {location}
 Wann (Start): {start}
 Laufzeit: {duration}
@@ -73,11 +70,9 @@ defaults = {
     "sender_mode": SenderMode.USER,
     "include_signature": True,
     "description": (
-        "Default-Vorlage Outreach-Wizard. Struktur: Begrüßung → Anfrage "
-        "(Was/Wo/Wann/…) → Warum kurz in Sie-Form "
-        "(‚Aus Ihrem Werdegang entnehmen wir …‘). Signatur im Wizard wählbar. "
-        "Platzhalter: {first_name}, {project}, {customer}, {location}, {start}, "
-        "{duration}, {workload}, {remote}, {description}, {required_skills}, {why_short}."
+        "Default-Vorlage Outreach-Wizard. Kein Firmenname (Vertraulichkeit). "
+        "Struktur: Begrüßung → Anfrage (Was/Wo/Wann/…) → Warum kurz in Sie-Form. "
+        "Signatur im Wizard wählbar."
     ),
 }
 

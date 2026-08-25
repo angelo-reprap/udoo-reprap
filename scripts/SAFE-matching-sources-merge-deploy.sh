@@ -70,6 +70,8 @@ grep -q "why_short" "$SRC_MW/services/outreach_wizard.py" \
   || { echo "FAIL: outreach_wizard ohne why_short"; exit 1; }
 grep -q "project_details" "$SRC_MW/services/outreach_wizard.py" \
   || { echo "FAIL: outreach_wizard ohne project_details"; exit 1; }
+grep -q "_redact_customer_names" "$SRC_MW/services/outreach_wizard.py" \
+  || { echo "FAIL: outreach_wizard ohne Firmennamen-Redaktion"; exit 1; }
 grep -q "api_outreach_email_templates" "$SRC_MW/views.py" \
   || { echo "FAIL: views ohne outreach email-templates API"; exit 1; }
 grep -q "outreach/email-templates" "$SRC_MW/urls.py" \

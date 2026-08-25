@@ -341,6 +341,42 @@ def _fmt_date(val) -> str:
         return str(val)
 
 
+def _customer_name_variants(customer: str) -> List[str]:
+    """Firmennamen + Basis ohne Rechtsform (Bosch GmbH → Bosch)."""
+    raw = re.sub(r'\s+', ' ', (customer or '').strip())
+    if not raw:
+        return []
+    variants = {raw}
+    base = re.sub(
+        r'\s+(GmbH|AG|SE|KG|OHG|UG|mbH|e\.?\s*V\.?|Inc\.?|Ltd\.?|LLC|'
+        r'Co\.?|Corporation|Corp\.?|Group|Holding| & Co\.?)\.?\s*$',
+        '',
+        raw,
+        flags=re.I,
+    ).strip(' ,.-')
+    if base and len(base) >= 3:
+        variants.add(base)
+    # längere zuerst, damit „Bosch GmbH“ vor „Bosch“ ersetzt wird
+    return sorted(variants, key=len, reverse=True)
+
+
+def _redact_customer_names(text: str, customer: str) -> str:
+    """Firmennamen aus Anschreiben-Text entfernen (Vertraulichkeit)."""
+    out = text or ''
+    if not out or not (customer or '').strip():
+        return out
+    for v in _customer_name_variants(customer):
+        out = re.sub(re.escape(v), '', out, flags=re.I)
+    out = re.sub(r'(?im)^\s*Kunde:\s*$', '', out)
+    out = re.sub(r'(?i)\bKunde:\s*(?=\n|$)', '', out)
+    out = re.sub(r'\(\s*[,;/–-]*\s*\)', '', out)
+    out = re.sub(r'\s+([,;:./])', r'\1', out)
+    out = re.sub(r' {2,}', ' ', out)
+    out = re.sub(r'[ \t]+\n', '\n', out)
+    out = re.sub(r'\n{3,}', '\n\n', out)
+    return out.strip()
+
+
 def _why_short(why: str, max_len: int = 280) -> str:
     text = re.sub(r'\s+', ' ', (why or '').strip())
     if not text:
@@ -460,12 +496,15 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
     desc = (project.description or '').strip()
     if len(desc) > 900:
         desc = desc[:897].rstrip() + '…'
+    # Vertraulichkeit: Firmennamen nicht ins Anschreiben
+    title_letter = _redact_customer_names(title, customer) or title
+    desc = _redact_customer_names(desc, customer)
+    why_short = _redact_customer_names(why_short, customer)
 
     detail_lines = [
-        f'Was: {title}',
+        f'Was: {title_letter}',
     ]
-    if customer:
-        detail_lines.append(f'Kunde: {customer}')
+    # kein „Kunde:“ — Vertraulichkeit
     if loc:
         detail_lines.append(f'Wo: {loc}')
     if start:
@@ -483,12 +522,13 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
         'first_name': first,
         'last_name': last,
         'berater_name': c.full_name or '',
-        'project': title,
-        'projekt_titel': title,
+        'project': title_letter,
+        'projekt_titel': title_letter,
         'project_number': project.project_number or '',
         'anfragen_id': project.project_number or str(getattr(project, 'id', '') or ''),
-        'customer': customer,
-        'kunde': customer,
+        # Platzhalter leer lassen — Template darf keinen Firmennamen zeigen
+        'customer': '',
+        'kunde': '',
         'location': loc,
         'standort': loc,
         'start': start,
@@ -509,6 +549,7 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
         'match_score': score_pct,
         'signature': '',
         'email': (getattr(c, 'email', None) or '').split(';')[0].strip(),
+        '_customer_internal': customer,
     }
 
 
@@ -556,7 +597,7 @@ def build_letter_draft(
     ctx = _outreach_template_context(mr, deep=deep)
     first = ctx['first_name']
     title = ctx['project']
-    customer = ctx['customer']
+    customer_internal = ctx.get('_customer_internal') or getattr(project, 'customer_name', '') or ''
     points_s = ctx['skills']
 
     ident = (template_identifier or DEFAULT_OUTREACH_TEMPLATE).strip() or DEFAULT_OUTREACH_TEMPLATE
@@ -582,33 +623,45 @@ def build_letter_draft(
         else:
             subject, body = _baseline_from_context(ctx)
 
+    # Leere „Kunde:“-Zeilen aus Template entfernen
+    body = re.sub(r'(?im)^\s*Kunde:\s*\n?', '', body or '')
+    body = re.sub(r'\n{3,}', '\n\n', body).strip()
+    subject = _redact_customer_names(subject, customer_internal)
+    body = _redact_customer_names(body, customer_internal)
+
     model = 'template'
     if use_ai:
         system = (
             'Du formulierst professionelle, persönliche Anschreiben für Personalvermittler. '
             'Antworte NUR als JSON: {"subject":"...","body":"...","greeting":"..."} '
-            'body = Plaintext mit \\n, Siezen, kein HTML, keine Signatur im Text.'
+            'body = Plaintext mit \\n, Siezen, kein HTML, keine Signatur im Text. '
+            'VERTRAULICHKEIT: Niemals Firmen- oder Kundennamen nennen.'
         )
         prompt = f"""Schreibe ein persönliches Anschreiben an den Berater.
 
 ZWINGENDE Struktur (in dieser Reihenfolge):
 1) Begrüßung mit Vornamen (z. B. „Guten Tag {first},“)
-2) Ausführlicher Anfrage-Teil: Was / Kunde / Wo / Wann / Laufzeit / Auslastung / Remote,
+2) Ausführlicher Anfrage-Teil: Was / Wo / Wann / Laufzeit / Auslastung / Remote
+   (KEINE Zeile „Kunde:“, KEIN Firmenname),
    dann die Projektbeschreibung in verständlichen Sätzen, dann gesuchte Skills.
 3) Absatz „Warum wir Sie ansprechen:“ — 2–3 Sätze in Sie-Form.
    Einstieg z. B. „Aus Ihrem Werdegang entnehmen wir, …“ oder „Anhand Ihres Profils …“.
-   VERBOTEN: Berater-Namen in der 3. Person („{c.full_name} verfügt …“, „Henning S. …“).
+   VERBOTEN: Berater-Namen in der 3. Person („{c.full_name} verfügt …“).
 4) Bitte um kurze Rückmeldung + „Mit freundlichen Grüßen“
 Keine Signatur / keinen Absendernamen anhängen.
 
+VERTRAULICHKEIT (streng):
+- Firmen-/Kundennamen NIEMALS nennen (auch nicht Andeutungen wie „beim großen Automobilzulieferer“ mit erkennbarem Namen).
+- Keine Zeile „Kunde: …“. Formuliere „unsere Kundenanfrage“ / „das Projekt“.
+- Interner Kundenname nur zur Info, NICHT verwenden: {customer_internal or '(leer)'}
+
 Anfrage: {title}
-Kunde: {customer}
 Standort: {ctx.get('location') or '—'}
 Start: {ctx.get('start') or '—'}
 Laufzeit: {ctx.get('duration') or '—'}
 Auslastung: {ctx.get('workload') or '—'}
 Remote: {ctx.get('remote') or '—'}
-Beschreibung: {(project.description or '')[:800]}
+Beschreibung (bereits bereinigt): {(ctx.get('description') or '')[:800]}
 Gesuchte Skills: {ctx.get('required_skills') or points_s}
 Berater (nur intern, nicht im Warum-Text nennen): {c.full_name}
 Warum passend (intern): {(deep or {}).get('why') or mr.match_reason or ''}
@@ -632,6 +685,10 @@ Ausführlich bei der Anfrage, knapp beim Warum. Ca. 180–250 Wörter im body.
         else:
             greeting = f'Guten Tag {first}'
             model = model if not raw else (model or 'template')
+        subject = _redact_customer_names(subject, customer_internal)
+        body = _redact_customer_names(body, customer_internal)
+        body = re.sub(r'(?im)^\s*Kunde:\s*\n?', '', body or '')
+        body = re.sub(r'\n{3,}', '\n\n', body).strip()
     else:
         greeting = f'Guten Tag {first}'
 
