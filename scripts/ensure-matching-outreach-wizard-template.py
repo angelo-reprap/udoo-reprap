@@ -74,7 +74,8 @@ defaults = {
     "include_signature": True,
     "description": (
         "Default-Vorlage Outreach-Wizard. Struktur: Begrüßung → Anfrage "
-        "(Was/Wo/Wann/…) → Warum kurz. Signatur im Wizard wählbar. "
+        "(Was/Wo/Wann/…) → Warum kurz in Sie-Form "
+        "(‚Aus Ihrem Werdegang entnehmen wir …‘). Signatur im Wizard wählbar. "
         "Platzhalter: {first_name}, {project}, {customer}, {location}, {start}, "
         "{duration}, {workload}, {remote}, {description}, {required_skills}, {why_short}."
     ),

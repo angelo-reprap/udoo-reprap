@@ -162,7 +162,8 @@ def build_deep_reason(mr) -> Dict[str, Any]:
     prompt = f"""Bewerte diesen Berater für die Anfrage und gib JSON zurück:
 
 {{
-  "why": "2-4 Sätze warum anschreiben",
+  "why": "2-4 Sätze interne Begründung warum anschreiben (Name ok)",
+  "why_letter": "2-3 Sätze fürs Anschreiben in Sie-Form; beginne mit ‚Aus Ihrem Werdegang entnehmen wir, …‘ oder ähnlich; NIEMALS den Berater-Namen in der 3. Person",
   "interest": "hoch|mittel|niedrig",
   "reply_likelihood": 0.0,
   "risks": ["..."],
@@ -196,6 +197,7 @@ Score: {mr.overall_score}
         fit = matched[:5] if isinstance(matched, list) else []
         parsed = {
             'why': why,
+            'why_letter': '',
             'interest': 'mittel',
             'reply_likelihood': float(mr.overall_score or 0.5),
             'risks': (missing[:3] if isinstance(missing, list) else []),
@@ -212,6 +214,17 @@ Score: {mr.overall_score}
         rl = float(mr.overall_score or 0)
     rl = max(0.0, min(1.0, rl))
 
+    fit_skills = parsed.get('fit_skills') or []
+    why_text = parsed.get('why') or ''
+    why_letter = (parsed.get('why_letter') or '').strip()
+    if not why_letter:
+        why_letter = _why_letter_sie(
+            why_text,
+            fit_skills=fit_skills if isinstance(fit_skills, list) else [],
+            name=c.full_name or '',
+            first=(c.first_name or '').strip(),
+        )
+
     return {
         'ok': True,
         'match_result_id': str(mr.id),
@@ -219,11 +232,12 @@ Score: {mr.overall_score}
         'consultant_name': c.full_name,
         'score': round(float(mr.overall_score or 0), 3),
         'existing_reason': mr.match_reason or '',
-        'why': parsed.get('why') or '',
+        'why': why_text,
+        'why_letter': why_letter,
         'interest': parsed.get('interest') or 'mittel',
         'reply_likelihood': rl,
         'risks': parsed.get('risks') or [],
-        'fit_skills': parsed.get('fit_skills') or [],
+        'fit_skills': fit_skills,
         'mismatch_notes': parsed.get('mismatch_notes') or [],
         'talking_points': parsed.get('talking_points') or [],
         'model': model,
@@ -350,6 +364,43 @@ def _why_short(why: str, max_len: int = 280) -> str:
     return short
 
 
+def _why_letter_sie(
+    why: str,
+    fit_skills: Optional[list] = None,
+    name: str = '',
+    first: str = '',
+) -> str:
+    """Sie-Form fürs Anschreiben — kein Name in der 3. Person."""
+    text = re.sub(r'\s+', ' ', (why or '').strip())
+    names = [n for n in (name, first) if n]
+    for n in names:
+        text = re.sub(
+            rf'^{re.escape(n)}\s+(verfügt|bringt|hat|zeigt|zeichnet|erreicht)\s+(über\s+)?',
+            'Sie verfügen über ',
+            text,
+            flags=re.I,
+        )
+        text = re.sub(rf'^{re.escape(n)}\s+', '', text, flags=re.I)
+    text = text.strip()
+    if not text:
+        skills = [str(s) for s in (fit_skills or []) if s][:3]
+        if skills:
+            return (
+                'Aus Ihrem Werdegang entnehmen wir eine starke Passung zu '
+                + ', '.join(skills)
+                + ', die für diese Anfrage zentral sind.'
+            )
+        return 'Aus Ihrem Werdegang entnehmen wir eine gute thematische Passung zu dieser Anfrage.'
+    if not re.match(
+        r'^(Aus Ihrem|Anhand Ihres|Ihrer Erfahrung|Ihrem Profil|Sie |Ihnen )',
+        text,
+        re.I,
+    ):
+        rest = text[0].lower() + text[1:] if text[:1].isupper() else text
+        text = f'Aus Ihrem Werdegang entnehmen wir, dass {rest}'
+    return _why_short(text, 320)
+
+
 def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any]:
     project = mr.project_request
     c = mr.consultant_cv
@@ -363,7 +414,15 @@ def _outreach_template_context(mr, deep: Optional[dict] = None) -> Dict[str, Any
     else:
         points_s = str(points or '')
     why = ((deep or {}).get('why') or mr.match_reason or '').strip()
-    why_short = _why_short(why)
+    why_letter = ((deep or {}).get('why_letter') or '').strip()
+    if not why_letter:
+        why_letter = _why_letter_sie(
+            why,
+            fit_skills=(deep or {}).get('fit_skills') or (mr.matched_skills or [])[:4],
+            name=c.full_name or '',
+            first=first,
+        )
+    why_short = why_letter
     score = mr.overall_score or 0
     try:
         score_pct = f'{float(score) * 100:.0f}%'
@@ -517,7 +576,9 @@ ZWINGENDE Struktur (in dieser Reihenfolge):
 1) Begrüßung mit Vornamen (z. B. „Guten Tag {first},“)
 2) Ausführlicher Anfrage-Teil: Was / Kunde / Wo / Wann / Laufzeit / Auslastung / Remote,
    dann die Projektbeschreibung in verständlichen Sätzen, dann gesuchte Skills.
-3) Kurzer Absatz „Warum wir Sie ansprechen:“ (2–3 Sätze Kurzfassung, nicht die komplette Analyse wiederholen)
+3) Absatz „Warum wir Sie ansprechen:“ — 2–3 Sätze in Sie-Form.
+   Einstieg z. B. „Aus Ihrem Werdegang entnehmen wir, …“ oder „Anhand Ihres Profils …“.
+   VERBOTEN: Berater-Namen in der 3. Person („{c.full_name} verfügt …“, „Henning S. …“).
 4) Bitte um kurze Rückmeldung + „Mit freundlichen Grüßen“
 Keine Signatur / keinen Absendernamen anhängen.
 
@@ -530,9 +591,9 @@ Auslastung: {ctx.get('workload') or '—'}
 Remote: {ctx.get('remote') or '—'}
 Beschreibung: {(project.description or '')[:800]}
 Gesuchte Skills: {ctx.get('required_skills') or points_s}
-Berater: {c.full_name}
-Warum passend (Lang): {(deep or {}).get('why') or mr.match_reason or ''}
-Warum kurz: {ctx.get('why_short') or ''}
+Berater (nur intern, nicht im Warum-Text nennen): {c.full_name}
+Warum passend (intern): {(deep or {}).get('why') or mr.match_reason or ''}
+Warum fürs Anschreiben (Sie-Form, übernehmen/leicht glätten): {ctx.get('why_short') or ''}
 Talking Points: {points_s}
 Extra-Hinweise: {extra_notes or '(keine)'}
 Vorlage: {tpl_name or ident}
@@ -579,7 +640,10 @@ def polish_letter(draft_text: str, keep_style: bool = True) -> Dict[str, Any]:
     system = (
         'Du polierst Anschreiben leicht. Antworte NUR JSON '
         '{"body":"..."} mit Plaintext. Keine Erfindung neuer Fakten. '
-        'Behalte die Struktur: Begrüßung → Anfrage → Warum kurz → Abschluss.'
+        'Behalte die Struktur: Begrüßung → Anfrage → Warum kurz → Abschluss. '
+        'Im Warum-Absatz immer Sie-Form '
+        '(„Aus Ihrem Werdegang entnehmen wir …“); '
+        'keine Namen in der 3. Person.'
     )
     prompt = (
         f'Stil beibehalten={keep_style}. Poliere diesen Text (Klarheit, Grammatik):\n\n'
