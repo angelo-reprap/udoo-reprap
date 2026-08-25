@@ -454,16 +454,17 @@ def collapse_serialized(
 
     by_group: dict[str, list[dict]] = {}
     singles: list[dict] = []
-    order: list[str] = []
+    order: list[tuple[str, str]] = []  # ('g', gid) | ('s', index)
 
     for r in results:
         gid = r.get('gruppe_id') or ''
         if not gid:
             singles.append(r)
+            order.append(('s', str(len(singles) - 1)))
             continue
         if gid not in by_group:
             by_group[gid] = []
-            order.append(gid)
+            order.append(('g', gid))
         by_group[gid].append(r)
 
     # Serialisierte Geschwister ergänzen (andere Quelle, nicht in ES-Hit)
@@ -477,18 +478,20 @@ def collapse_serialized(
                 members.append(serialize_db_item(o))
                 have.add(sid)
 
-    out: list[dict] = []
+    out_list: list[dict] = []
     src_f = (source_filter or '').strip().lower()
 
-    for gid in order:
-        members = by_group[gid]
+    def _primary_for_group(gid: str) -> Optional[dict]:
+        members = by_group.get(gid) or []
+        if not members:
+            return None
         if src_f:
             if not any(
                 src_f == ((m.get('sources') or [''])[0] or '').lower()
                 for m in members
             ):
-                continue
-        # Primary: längste Beschreibung, sonst erstes
+                return None
+        members = list(members)
         members.sort(
             key=lambda m: len(m.get('beschreibung') or ''),
             reverse=True,
@@ -525,22 +528,31 @@ def collapse_serialized(
         primary['gruppe_id'] = gid
         primary['group_links'] = links
         primary['anbieter_anzahl'] = len(members)
-        out.append(primary)
+        return primary
 
-    for r in singles:
-        if src_f:
-            s0 = ((r.get('sources') or [''])[0] or '').lower()
-            if s0 != src_f:
+    for kind, key in order:
+        if kind == 'g':
+            primary = _primary_for_group(key)
+            if primary:
+                out_list.append(primary)
+        else:
+            try:
+                r = singles[int(key)]
+            except Exception:
                 continue
-        rr = dict(r)
-        rr['grp'] = 1
-        rr.setdefault('group_links', [{
-            'id': rr.get('id'),
-            'source': ((rr.get('sources') or [''])[0] or ''),
-            'url': rr.get('external_url') or '',
-            'headline': rr.get('headline') or '',
-            'company': rr.get('company') or '',
-        }])
-        out.append(rr)
+            if src_f:
+                s0 = ((r.get('sources') or [''])[0] or '').lower()
+                if s0 != src_f:
+                    continue
+            rr = dict(r)
+            rr['grp'] = 1
+            rr.setdefault('group_links', [{
+                'id': rr.get('id'),
+                'source': ((rr.get('sources') or [''])[0] or ''),
+                'url': rr.get('external_url') or '',
+                'headline': rr.get('headline') or '',
+                'company': rr.get('company') or '',
+            }])
+            out_list.append(rr)
 
-    return out
+    return out_list

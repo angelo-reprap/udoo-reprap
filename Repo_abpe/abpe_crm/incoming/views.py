@@ -1159,6 +1159,7 @@ def api_contact_update(request, crm_id):
 
     # ── E-Mail als Primär setzen ───────────────────────────
     elif action == 'email_set_primary':
+        from apps.abpe_crm.models import CrmEmailAddress, CrmEmailAddrBeanRel
         email_addr = data.get('email', '').strip()
         if email_addr:
             ea = CrmEmailAddress.objects.filter(email_address=email_addr).first()
@@ -1200,6 +1201,7 @@ def api_contact_update(request, crm_id):
 
     # ── E-Mail Gesperrt Toggle ────────────────────────────
     elif action == 'email_gesperrt_toggle':
+        from apps.abpe_crm.models import CrmEmailAddress
         email_addr = data.get('email', '').strip()
         gesperrt = bool(data.get('gesperrt', False))
         if email_addr:
@@ -1209,6 +1211,7 @@ def api_contact_update(request, crm_id):
 
     # ── Kampagne OK Toggle ─────────────────────────────────
     elif action == 'email_kampagne_toggle':
+        from apps.abpe_crm.models import CrmEmailAddress
         email_addr = data.get('email', '').strip()
         kampagne_ok = bool(data.get('kampagne_ok', False))
         if email_addr:

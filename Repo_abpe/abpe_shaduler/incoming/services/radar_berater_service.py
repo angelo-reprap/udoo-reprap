@@ -27,23 +27,45 @@ BERATER_SOURCES = ('gulp', 'freelancermap')
 
 
 def _ensure_source(name: str = SOURCE_NAME):
+    """RadarSource für Berater — robust gegen Duplikate (name+ziel)."""
+    from django.db.models import Count
+
     from apps.abpe_shaduler.models import RadarSource
+
     url = gulp.TF_EXPERTEN if name == SOURCE_NAME else fl.FM_LIST
-    typ = (
-        RadarSource.Typ.HTML_PUBLIC
-        if name == SOURCE_NAME_FL
-        else RadarSource.Typ.HTML_PUBLIC
+    typ = RadarSource.Typ.HTML_PUBLIC
+    ziel = RadarSource.Ziel.BERATER
+    qs = RadarSource.objects.filter(name=name, ziel=ziel)
+    src = (
+        qs.annotate(_n=Count('consultant_items', distinct=True))
+        .order_by('-aktiv', '-_n', 'created_at')
+        .first()
     )
-    src, _ = RadarSource.objects.get_or_create(
-        name=name,
-        ziel=RadarSource.Ziel.BERATER,
-        defaults={
-            'typ': typ,
-            'url': url,
-            'aktiv': True,
-            'intervall_min': 30,
-        },
-    )
+    if src is None:
+        src = RadarSource.objects.create(
+            name=name,
+            ziel=ziel,
+            typ=typ,
+            url=url,
+            aktiv=True,
+            intervall_min=30,
+        )
+    else:
+        dup_ids = list(qs.exclude(pk=src.pk).values_list('pk', flat=True))
+        if dup_ids:
+            RadarSource.objects.filter(pk__in=dup_ids).update(
+                aktiv=False,
+                letzter_status='duplikat-deaktiviert',
+            )
+        updates = []
+        if url and src.url != url:
+            src.url = url
+            updates.append('url')
+        if not src.aktiv:
+            src.aktiv = True
+            updates.append('aktiv')
+        if updates:
+            src.save(update_fields=updates)
     return src
 
 
@@ -53,6 +75,62 @@ def _dedup(gulp_id: str) -> str:
 
 def _dedup_fm(fm_id: str) -> str:
     return hashlib.sha256(f'fm:{fm_id}'.encode('utf-8')).hexdigest()
+
+
+def _parse_dt(val) -> Optional[datetime]:
+    """ISO/datetime → datetime (für age/geholt)."""
+    if not val:
+        return None
+    if isinstance(val, datetime):
+        return val
+    s = str(val).strip()
+    if not s:
+        return None
+    try:
+        if s.endswith('Z'):
+            s = s[:-1] + '+00:00'
+        return datetime.fromisoformat(s)
+    except Exception:
+        return None
+
+
+def _format_age(created: Optional[datetime], *, today: Optional[date] = None) -> str:
+    """
+    Wie Radar-Anfragen: heute „vor X Min“ / „vor X Std“, sonst Datum „19.08.2026“.
+    Basis: eingegangen_am (Listen-Sync / list_rank).
+    """
+    if not created:
+        return ''
+    today = today or date.today()
+    try:
+        created_d = created.date()
+    except Exception:
+        return ''
+    if created_d != today:
+        return created.strftime('%d.%m.%Y')
+    try:
+        now = datetime.now(created.tzinfo) if created.tzinfo else datetime.now()
+        mins = int((now - created).total_seconds() // 60)
+        if mins < 0:
+            mins = 0
+        if mins < 60:
+            return f'vor {mins} Min'
+        hours = mins // 60
+        if hours < 24:
+            return f'vor {hours} Std'
+        return created.strftime('%d.%m.%Y')
+    except Exception:
+        return created.strftime('%d.%m.%Y')
+
+
+def _format_geholt(created: Optional[datetime]) -> str:
+    """Absoluter Hol-Zeitpunkt: „19.08.2026 14:20“ (eingegangen_am)."""
+    if not created:
+        return ''
+    try:
+        return created.strftime('%d.%m.%Y %H:%M')
+    except Exception:
+        return ''
 
 
 def _parse_date(val) -> Optional[date]:
@@ -268,6 +346,64 @@ def _append_cv_version(obj, text: str, source: str = 'gulp') -> None:
     obj.cv_versions = versions[-20:]  # keep last 20
 
 
+def _append_crm_profil_text(
+    crm_id: str,
+    *,
+    field: str,
+    text: str,
+    source: str,
+    log_rows: list,
+) -> list:
+    """
+    Volltext unten an CRM-Profilfeld anhängen (gulp_profil_c / freelancermap_profil_c).
+    Nie ersetzen — nur ergänzen. Gleicher Hash → Skip.
+    """
+    text = (text or '').strip()
+    if not text or not crm_id or field not in (
+        'gulp_profil_c', 'freelancermap_profil_c',
+    ):
+        return log_rows
+    h = hashlib.sha256(text.encode('utf-8')).hexdigest()[:16]
+    marker = f'--- abpe-radar-cv {source} hash:{h} ---'
+    try:
+        from apps.abpe_crm.models import CrmContact
+        c = CrmContact.objects.select_related('cstm').filter(crm_id=crm_id).first()
+        if not c:
+            return log_rows
+        cstm = getattr(c, 'cstm', None)
+        if cstm is None or not hasattr(cstm, field):
+            return log_rows
+        cur = (getattr(cstm, field, None) or '')
+        if marker in cur or f'hash:{h}' in cur:
+            return log_rows
+        block = text[:80000]
+        sep = '\n\n' if cur.strip() else ''
+        setattr(cstm, field, (cur.rstrip() + sep + marker + '\n' + block).strip())
+        cstm.save(update_fields=[field])
+        log_rows.append({
+            'at': timezone.now().isoformat(),
+            'action': 'crm_profil_append',
+            'field': field,
+            'hash': h,
+            'chars': len(block),
+        })
+        # content-Index (ES) zeitnah aktualisieren
+        try:
+            from apps.abpe_crm.documents_content import ContentPersonIndex
+            ContentPersonIndex().update(c)
+        except Exception as exc:
+            log.info('content index update skip: %s', exc)
+    except Exception as exc:
+        log.warning('CRM profil append failed %s %s: %s', crm_id, field, exc)
+        log_rows.append({
+            'at': timezone.now().isoformat(),
+            'action': 'crm_profil_append_error',
+            'field': field,
+            'error': str(exc),
+        })
+    return log_rows
+
+
 def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     """Item-Dict → RadarConsultantItem (+ optional CRM update). Gulp- oder FM-ID."""
     from apps.abpe_shaduler.models import RadarConsultantItem
@@ -384,7 +520,21 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
     if beschreibung:
         obj.beschreibung = beschreibung
     obj.eckdaten = {**(obj.eckdaten or {}), **eck}
-    if not obj.eingegangen_am:
+
+    # „Datum: neueste“ = Wann zuletzt in FM/Gulp-Aktuellste gesehen (Listenrang),
+    # nicht Verfügbar-ab und nicht einmalige Importzeit.
+    list_rank = item.get('list_rank')
+    bump = item.get('bump_eingegangen') or item.get('from_available_sync')
+    if list_rank is not None:
+        try:
+            rank_i = max(0, int(list_rank))
+        except (TypeError, ValueError):
+            rank_i = 0
+        # Erster Treffer der Aktuellste-Liste = jetzt, folgende je 1s älter
+        obj.eingegangen_am = timezone.now() - timedelta(seconds=rank_i)
+    elif bump:
+        obj.eingegangen_am = timezone.now()
+    elif not obj.eingegangen_am:
         obj.eingegangen_am = timezone.now()
 
     if item.get('cv_text'):
@@ -411,6 +561,25 @@ def upsert_berater(item: dict[str, Any], *, apply_crm: bool = True) -> Any:
                 )
                 patch['freelancermap_touch'] = True
             log_rows = _fill_missing_crm(crm['crm_id'], patch, log_rows)
+            # Bekannt: API-Volltext unten an CRM-Profiltext (content-Index)
+            cv_blob = (item.get('cv_text') or beschreibung or '').strip()
+            if apply_crm and cv_blob:
+                if gulp_id:
+                    log_rows = _append_crm_profil_text(
+                        crm['crm_id'],
+                        field='gulp_profil_c',
+                        text=cv_blob,
+                        source='gulp',
+                        log_rows=log_rows,
+                    )
+                if fm_id:
+                    log_rows = _append_crm_profil_text(
+                        crm['crm_id'],
+                        field='freelancermap_profil_c',
+                        text=cv_blob,
+                        source='freelancermap',
+                        log_rows=log_rows,
+                    )
     else:
         if not obj.crm_contact_id:
             obj.match_status = RadarConsultantItem.MatchStatus.UNBEKANNT
@@ -505,6 +674,8 @@ def serialize_berater(obj, *, detail: bool = False, preview_chars: int = 4000) -
         ),
         'eingegangen_am': obj.eingegangen_am.isoformat() if obj.eingegangen_am else None,
         'updated_at': obj.updated_at.isoformat() if obj.updated_at else None,
+        'age': _format_age(obj.eingegangen_am),
+        'geholt': _format_geholt(obj.eingegangen_am),
         'cv_versions': len(obj.cv_versions or []),
         'cv_latest_chars': (obj.cv_versions or [{}])[-1].get('chars') if obj.cv_versions else None,
         'deleted': bool(getattr(obj, 'deleted_at', None)),
@@ -585,6 +756,8 @@ def serialize_list_hit(hit: dict[str, Any]) -> dict[str, Any]:
         'crm_url': f'/crm/berater/?detail={cid}' if cid else '',
         'eingegangen_am': hit.get('eingegangen_am'),
         'updated_at': hit.get('updated_at'),
+        'age': _format_age(_parse_dt(hit.get('eingegangen_am'))),
+        'geholt': _format_geholt(_parse_dt(hit.get('eingegangen_am'))),
         'cv_versions': hit.get('cv_versions') or 0,
         'deleted': bool(hit.get('deleted')),
         'meta': hit.get('meta') or '',
@@ -1231,12 +1404,15 @@ def sync_available_from_gulp(
                     'last_name': packed.get('last_name') or '',
                     'source': 'gulp_available',
                     'mongo_id': mid or packed.get('mongo_id') or '',
+                    'list_rank': stats['scanned'] - 1,
+                    'from_available_sync': True,
                     'eckdaten': {
                         'availability_percent': packed.get('availability_percent'),
                         'remote': packed.get('remote'),
                         'gulp_status': 'ok',
                         'gulp_checked_at': timezone.now().isoformat(),
                         'from_available_sync': True,
+                        'list_rank': stats['scanned'] - 1,
                     },
                 }, apply_crm=True)
             except Exception as exc:
@@ -1293,10 +1469,11 @@ def sync_available_from_fl(
     delay_s: float = 0.15,
 ) -> dict[str, Any]:
     """
-    Freelancermap „verfügbare Freelancer“ einlesen (öffentliche Suche).
+    Freelancermap „verfügbare Freelancer“ einlesen (öffentliche Suche, Aktuellste).
 
     - bekannt (Radar/CRM via freelancermap_profil_c): aktualisieren
     - neu: Radar-Eintrag mit Titel/Skills/Projekten
+    - list_rank setzt eingegangen_am → „Datum: neueste“ = FM-Listenreihenfolge
     """
     from apps.abpe_shaduler.models import RadarConsultantItem
 
@@ -1317,6 +1494,7 @@ def sync_available_from_fl(
         'pages': pages,
         'fm_total': None,
         'source': 'freelancermap',
+        'sort': 'aktuellste',
         'fl_session': bool(sess.get('ok')),
         'fl_session_info': {
             'ok': sess.get('ok'),
@@ -1333,7 +1511,9 @@ def sync_available_from_fl(
     for page in range(1, pages + 1):
         if stats['scanned'] >= take:
             break
-        listed = fl.fetch_freelancers_list(page=page, available_only=True)
+        listed = fl.fetch_freelancers_list(
+            page=page, available_only=True, most_recent=True,
+        )
         if not listed.get('ok'):
             stats['ok'] = False
             stats['error'] = listed.get('error') or 'FM Suche fehlgeschlagen'
@@ -1379,11 +1559,14 @@ def sync_available_from_fl(
                     **hit,
                     'source': 'freelancermap_available',
                     'source_name': SOURCE_NAME_FL,
+                    'list_rank': stats['scanned'] - 1,
+                    'from_available_sync': True,
                     'eckdaten': {
                         'availability_percent': hit.get('availability_percent'),
                         'availability_code': hit.get('availability_code'),
                         'anonym': hit.get('anonym'),
                         'from_available_sync': True,
+                        'list_rank': stats['scanned'] - 1,
                         'checked_at': timezone.now().isoformat(),
                     },
                 }, apply_crm=True)
