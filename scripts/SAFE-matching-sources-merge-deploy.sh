@@ -47,6 +47,14 @@ grep -q "filterShortlistSource" "$SRC_UI" \
   || { echo "FAIL: UI ohne filterShortlistSource"; exit 1; }
 grep -q "shortlist-backoffice" "$SRC_UI" \
   || { echo "FAIL: UI ohne Backoffice-Block"; exit 1; }
+grep -q "DEFAULT_MAX_EXTERNAL_HITS" "$SRC_MW/services/matching_external_recall.py" \
+  || { echo "FAIL: external_recall ohne DEFAULT_MAX_EXTERNAL_HITS (100)"; exit 1; }
+grep -q "schwerpunkt" "$SRC_MW/views.py" \
+  || { echo "FAIL: views ohne Schwerpunkt-Enrichment"; exit 1; }
+grep -q "HTML-Profil" "$SRC_UI" \
+  || { echo "FAIL: UI ohne HTML-Profil-Button"; exit 1; }
+grep -q "r.schwerpunkt" "$SRC_UI" \
+  || { echo "FAIL: UI ohne Schwerpunkt-Zeile"; exit 1; }
 
 mkdir -p "$BAK"/{mw,sh,ui}
 echo "Backup → $BAK"
@@ -94,4 +102,5 @@ echo
 echo "Deploy fertig. Backup: $BAK"
 echo "  supervisorctl restart abpe-django abpe-celery"
 echo "  Browser Ctrl+F5 → Shortlist → Erneut matchen"
+echo "Erwartung: Gulp/FLM je ≤100, Schwerpunkt-Zeile, Gulp/FLM→HTML statt CV"
 echo "Restore: cp -a $BAK/mw/* $LIVE_MW/services/  (und views/tasks aus $BAK/mw)"
