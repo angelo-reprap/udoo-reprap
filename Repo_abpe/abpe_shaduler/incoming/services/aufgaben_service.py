@@ -607,6 +607,8 @@ def liste(
         qs = qs.filter(status=status)
     if not include_others:
         qs = qs.filter(zugewiesen_an=user)
+    # Keine Kind-Aufgaben in der Queue — Gruppenkopf trägt die Arbeitsliste
+    qs = qs.filter(parent__isnull=True)
     return list(qs.select_related('ergebnis', 'regel', 'zugewiesen_an').order_by(
         'faellig_am', 'prioritaet', 'titel',
     ))
@@ -614,13 +616,18 @@ def liste(
 
 def stats(user) -> dict[str, Any]:
     today = _today()
-    offen = Aufgabe.objects.filter(zugewiesen_an=user, status=Aufgabe.Status.OFFEN)
+    offen = Aufgabe.objects.filter(
+        zugewiesen_an=user,
+        status=Aufgabe.Status.OFFEN,
+        parent__isnull=True,
+    )
     heute = offen.filter(faellig_am=today).count()
     ueber = offen.filter(faellig_am__lt=today).count()
     geplant = offen.filter(faellig_am__gt=today).count()
     erledigt_heute = Aufgabe.objects.filter(
         zugewiesen_an=user,
         status=Aufgabe.Status.ERLEDIGT,
+        parent__isnull=True,
         erledigt_am__date=today,
     ).count()
     radar_a = radar_b = 0

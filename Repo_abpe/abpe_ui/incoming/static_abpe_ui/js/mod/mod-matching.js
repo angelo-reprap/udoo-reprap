@@ -3675,9 +3675,9 @@ window.Matching = (function() {
                 const n = (res.worklist && res.worklist.length) || items.length;
                 _downloadCsv(res.worklist && res.worklist.length ? res.worklist : items);
                 alert(
-                    `✓ ${n} Wiedervorlagen angelegt (${label}).\n`
+                    `✓ 1 Wiedervorlage mit ${n} Profilen (${label}).\n`
                     + 'CSV mit ID + HTML wurde heruntergeladen.\n'
-                    + 'Shaduler → Wiedervorlagen → Gruppenkopf öffnen = Arbeitsliste.'
+                    + 'Shaduler → Wiedervorlagen → Eintrag öffnen = Arbeitsliste.'
                 );
             } else {
                 alert('Fehler: ' + ((res && res.error) || 'Bulk-Anlage fehlgeschlagen'));

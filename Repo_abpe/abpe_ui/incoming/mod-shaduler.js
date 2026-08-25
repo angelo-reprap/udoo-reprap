@@ -3852,17 +3852,26 @@
     ORDER.forEach(function (art) {
       var a = ARTEN[art];
       if (!a) return;
-      var list = TASKS.filter(function (t) { return t.art === art; });
+      var list = TASKS.filter(function (t) {
+        // Kinder einer Gruppe nicht einzeln listen — nur der Kopf mit Arbeitsliste
+        if (t.parent_id) return false;
+        return t.art === art;
+      });
       var ov = list.filter(function (t) { return t.ueberfaellig; }).length;
       var open = !!openGroups[art];
       var acc = document.createElement('div');
       acc.className = 'acc' + (open ? ' open' : '');
       var label = _t(a.labelKey, a.label);
+      var wlExtra = 0;
+      list.forEach(function (t) {
+        if (Array.isArray(t.worklist) && t.worklist.length) wlExtra += t.worklist.length;
+      });
+      var cntLabel = list.length + (wlExtra ? ' · ' + wlExtra + ' Profile' : '');
       acc.innerHTML =
         '<div class="acc-head">' +
         '<span class="gi" style="background:var(' + a.cv + ')"><i class="bi ' + a.icon + '"></i></span>' +
         '<b>' + esc(label) + '</b>' +
-        '<span class="cnt">(' + list.length + ')' +
+        '<span class="cnt">(' + cntLabel + ')' +
         (ov ? ' <span class="ovd">· ' + ov + ' <i class="bi bi-exclamation-triangle-fill"></i></span>' : '') +
         '</span><span class="car"><i class="bi bi-chevron-right"></i></span></div>' +
         '<div class="acc-body">' +
@@ -3873,48 +3882,21 @@
         renderAcc();
       });
       var body = acc.querySelector('.acc-body');
-      // Wiedervorlagen: nach gruppe_id clustern (Matching Gulp/FLM-Listen)
-      if (art === 'wiedervorlage' && list.length) {
-        var groups = {};
-        var order = [];
-        list.forEach(function (t) {
-          var gid = t.gruppe_id || ('__solo_' + t.id);
-          if (!groups[gid]) {
-            groups[gid] = [];
-            order.push(gid);
+      // Eine Zeile pro Aufgabe (Gruppenkopf enthält worklist im Modal)
+      list.forEach(function (t) {
+        var el = _taskRow(t);
+        if (Array.isArray(t.worklist) && t.worklist.length) {
+          var tip = el.querySelector('.tx');
+          if (tip) {
+            tip.insertAdjacentHTML(
+              'beforeend',
+              '<small style="color:#163258;font-weight:600"> · ' +
+              t.worklist.length + ' in Liste</small>'
+            );
           }
-          groups[gid].push(t);
-        });
-        order.forEach(function (gid) {
-          var gList = groups[gid];
-          if (!gid.indexOf || gid.indexOf('__solo_') === 0) {
-            gList.forEach(function (t) { body.appendChild(_taskRow(t)); });
-            return;
-          }
-          var parent = gList.find(function (t) { return !t.parent_id; }) || gList[0];
-          var kids = gList.filter(function (t) { return t.id !== parent.id; });
-          var wrap = document.createElement('div');
-          wrap.className = 'wv-gruppe';
-          wrap.style.cssText = 'margin:6px 0 10px;padding:6px 8px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc';
-          var gh = document.createElement('div');
-          gh.style.cssText = 'font-size:11px;font-weight:700;color:#163258;margin-bottom:4px;cursor:pointer;display:flex;gap:6px;align-items:center';
-          gh.innerHTML =
-            '<i class="bi bi-collection" style="color:#64748b"></i>' +
-            '<span>' + esc(parent.titel || 'Gruppe') + '</span>' +
-            '<span style="font-weight:500;color:#94a3b8">(' + gList.length + ')</span>';
-          wrap.appendChild(gh);
-          var gBody = document.createElement('div');
-          // Parent zuerst, dann Kinder
-          gBody.appendChild(_taskRow(parent));
-          kids.forEach(function (t) { gBody.appendChild(_taskRow(t)); });
-          wrap.appendChild(gBody);
-          body.appendChild(wrap);
-        });
-      } else {
-        list.forEach(function (t) {
-          body.appendChild(_taskRow(t));
-        });
-      }
+        }
+        body.appendChild(el);
+      });
       c.appendChild(acc);
     });
 
@@ -4278,7 +4260,7 @@
       html += '</tbody></table></div>' +
         '<div style="font-size:10px;color:#64748b;margin-top:6px">' +
         esc(_t('sh.worklist_hint',
-          'Ablauf: HTML öffnen → Profil in Gulp/FLM prüfen → bei Bedarf dort anschreiben → Einzelaufgabe erledigen.')) +
+          'Ablauf: HTML öffnen → Profil in Gulp/FLM prüfen → bei Bedarf dort anschreiben. Danach diese Aufgabe erledigen.')) +
         '</div></div>';
     }
     if (ex.hist && ex.hist.length) {
