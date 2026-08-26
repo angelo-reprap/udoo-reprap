@@ -64,6 +64,10 @@ grep -q "outreachSetDefaultTemplate" "$SRC_UI" \
   || { echo "FAIL: UI ohne Als Standard setzen"; exit 1; }
 grep -q "matching_outreach_default_template_v1" "$SRC_UI" \
   || { echo "FAIL: UI ohne localStorage Standard-Vorlage"; exit 1; }
+grep -q "matching_present_to_client" "$SRC_UI" \
+  || { echo "FAIL: UI ohne Interesse-Vorlage matching_present_to_client"; exit 1; }
+grep -q "stageTemplateMissing" "$SRC_UI" \
+  || { echo "FAIL: UI ohne stageTemplateMissing-Hinweis"; exit 1; }
 grep -q "outreachSelectSignature" "$SRC_UI" \
   || { echo "FAIL: UI ohne Signatur-Auswahl"; exit 1; }
 grep -q "why_short" "$SRC_MW/services/outreach_wizard.py" \

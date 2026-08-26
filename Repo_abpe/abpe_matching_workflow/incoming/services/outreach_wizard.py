@@ -15,6 +15,17 @@ from typing import Any, Dict, List, Optional, Tuple
 logger = logging.getLogger(__name__)
 
 DEFAULT_OUTREACH_TEMPLATE = 'matching_outreach_wizard'
+
+# Empfohlene Email-Studio-Identifier pro Kanban-Spalte (Default, überschreibbar im UI)
+STAGE_TEMPLATE_DEFAULTS = {
+    'shortlist': 'matching_outreach_wizard',
+    'angeschrieben': 'matching_followup_availability',
+    'interesse': 'matching_present_to_client',
+    'beim_kunden': 'matching_interview_coord',
+    'interview': 'matching_placement_start',
+    'vermittelt': 'matching_start_info',
+    'absage': 'matching_rejection',
+}
 _BLOCK_RE = re.compile(r'\{\{\s*block:\w+\s*\}\}', re.I)
 _TAG_RE = re.compile(r'<[^>]+>')
 
@@ -104,14 +115,62 @@ def _parse_json_blob(text: str) -> Optional[dict]:
 
 
 def resolve_match_result(match_result_id):
-    from ..models import MatchResult
-    return MatchResult.objects.select_related(
-        'project_request', 'consultant_cv'
-    ).get(id=match_result_id)
+    """
+    Shortlist: MatchResult-ID.
+    Kanban/Workflow: ProjectConsultant-ID → zugehöriges MatchResult
+    (oder leichtgewichtig aus PC erzeugen).
+    """
+    from ..models import MatchResult, ProjectConsultant
+
+    qs = MatchResult.objects.select_related('project_request', 'consultant_cv')
+    mr = qs.filter(id=match_result_id).first()
+    if mr:
+        return mr
+
+    pc = ProjectConsultant.objects.select_related(
+        'project', 'consultant_cv',
+    ).filter(id=match_result_id).first()
+    if not pc:
+        raise MatchResult.DoesNotExist(
+            f'MatchResult/ProjectConsultant {match_result_id} not found'
+        )
+
+    mr = (
+        qs.filter(
+            project_request_id=pc.project_id,
+            consultant_cv_id=pc.consultant_cv_id,
+        )
+        .order_by('-calculated_at', '-overall_score')
+        .first()
+    )
+    if mr:
+        mr._resolved_from_pc = pc  # type: ignore[attr-defined]
+        return mr
+
+    md = pc.match_details if isinstance(pc.match_details, dict) else {}
+    mr = MatchResult.objects.create(
+        project_request=pc.project,
+        consultant_cv=pc.consultant_cv,
+        overall_score=float(pc.match_score or 0),
+        match_reason=pc.match_reason or '',
+        matched_skills=list(md.get('matched_skills') or []),
+        missing_skills=list(md.get('missing_skills') or []),
+        skill_details=md if md else {'from_project_consultant': str(pc.id)},
+        calculated_by='outreach_from_pc',
+    )
+    mr._resolved_from_pc = pc  # type: ignore[attr-defined]
+    logger.info(
+        'MatchResult aus ProjectConsultant erzeugt: pc=%s mr=%s',
+        pc.id, mr.id,
+    )
+    return mr
 
 
 def ensure_project_consultant(mr) -> Any:
     """MatchResult → ProjectConsultant (get_or_create)."""
+    existing = getattr(mr, '_resolved_from_pc', None)
+    if existing is not None:
+        return existing
     from ..models import ProjectConsultant
     project = mr.project_request
     consultant = mr.consultant_cv
@@ -288,6 +347,7 @@ def list_outreach_email_templates() -> Dict[str, Any]:
     return {
         'ok': True,
         'default': DEFAULT_OUTREACH_TEMPLATE,
+        'stage_defaults': dict(STAGE_TEMPLATE_DEFAULTS),
         'templates': templates,
         'signatures': signatures,
     }
@@ -591,6 +651,7 @@ def build_letter_draft(
     extra_notes: str = '',
     template_identifier: Optional[str] = None,
     use_ai: bool = True,
+    stage: str = '',
 ) -> Dict[str, Any]:
     project = mr.project_request
     c = mr.consultant_cv
@@ -599,8 +660,42 @@ def build_letter_draft(
     title = ctx['project']
     customer_internal = ctx.get('_customer_internal') or getattr(project, 'customer_name', '') or ''
     points_s = ctx['skills']
+    stage_l = (stage or '').strip().lower().replace('-', '_').replace(' ', '_')
+    stage_hints = {
+        'shortlist': (
+            'Erstanschreiben: Interesse wecken, Anfrage kurz vorstellen, '
+            'nach Passung/Verfügbarkeit fragen.'
+        ),
+        'angeschrieben': (
+            'Follow-up nach erstem Kontakt: nach Verfügbarkeit/Interesse fragen, '
+            'höflich nachfassen.'
+        ),
+        'interesse': (
+            'Berater hat Interesse signalisiert: bedanken, mitteilen dass wir ihn '
+            'der Kundenanfrage vorstellen / Profil weiterleiten möchten, '
+            'Einverständnis und nächste Schritte klären. KEIN Firmenname.'
+        ),
+        'beim_kunden': (
+            'Beim Kunden vorgestellt: Informieren dass Rückmeldung vom Kunden kommt '
+            '(Interview-Wunsch, Termin oder Absage). Offen für Terminvorschläge halten.'
+        ),
+        'interview': (
+            'Interview-Koordination oder Vermittlungs-/Startabstimmung: '
+            'Termine oder Startwünsche erfragen.'
+        ),
+        'vermittelt': (
+            'Startinfo nach Vermittlung: Starttermin, Ort/Remote, Ansprechpartner über uns.'
+        ),
+        'absage': (
+            'Freundliche Absage: Dank für Interesse, Kunde hat sich anderweitig entschieden, '
+            'Tür für Folgeanfragen offen halten.'
+        ),
+    }
+    stage_hint = stage_hints.get(stage_l, stage_hints['shortlist'])
 
     ident = (template_identifier or DEFAULT_OUTREACH_TEMPLATE).strip() or DEFAULT_OUTREACH_TEMPLATE
+    if not template_identifier and stage_l:
+        ident = STAGE_TEMPLATE_DEFAULTS.get(stage_l, ident)
     tpl = _load_es_template(ident)
     tpl_name = ''
     if tpl:
@@ -614,8 +709,11 @@ def build_letter_draft(
             # Gewählte Vorlage fehlt → Default versuchen
             tpl = _load_es_template(DEFAULT_OUTREACH_TEMPLATE)
             if tpl:
-                ident = DEFAULT_OUTREACH_TEMPLATE
-                tpl_name = tpl.name or ident
+                # Identifier beibehalten wenn Stage-Vorlage fehlt? Besser Default-Inhalt
+                # aber Stage-Hinweis in AI nutzen. Ident für UI: angeforderte Stage-ID belassen
+                # nur body/subject aus Default-Template wenn Stage-Template fehlt.
+                fallback_ident = DEFAULT_OUTREACH_TEMPLATE
+                tpl_name = (tpl.name or fallback_ident) + f' (Fallback, {ident} fehlt)'
                 subject = _fill_placeholders(tpl.subject or '', ctx).strip() or f'Anfrage {title} — passt das für Sie?'
                 body = _fill_placeholders(_plaintext_from_template(tpl), ctx).strip()
             else:
@@ -639,19 +737,20 @@ def build_letter_draft(
         )
         prompt = f"""Schreibe ein persönliches Anschreiben an den Berater.
 
-ZWINGENDE Struktur (in dieser Reihenfolge):
+Workflow-Stufe: {stage_l or 'shortlist'}
+Ziel dieser Mail: {stage_hint}
+
+ZWINGENDE Struktur (an die Stufe anpassen):
 1) Begrüßung mit Vornamen (z. B. „Guten Tag {first},“)
-2) Ausführlicher Anfrage-Teil: Was / Wo / Wann / Laufzeit / Auslastung / Remote
-   (KEINE Zeile „Kunde:“, KEIN Firmenname),
-   dann die Projektbeschreibung in verständlichen Sätzen, dann gesuchte Skills.
-3) Absatz „Warum wir Sie ansprechen:“ — 2–3 Sätze in Sie-Form.
-   Einstieg z. B. „Aus Ihrem Werdegang entnehmen wir, …“ oder „Anhand Ihres Profils …“.
-   VERBOTEN: Berater-Namen in der 3. Person („{c.full_name} verfügt …“).
+2) Anfrage-/Sachteil passend zur Stufe (Was/Wo/Wann nur wenn Erstanschreiben oder nötig;
+   KEINE Zeile „Kunde:“, KEIN Firmenname).
+3) Bei Erstanschreiben: Absatz „Warum wir Sie ansprechen:“ — Sie-Form.
+   Bei späteren Stufen: klarer nächster Schritt statt neuem Warum-Absatz.
 4) Bitte um kurze Rückmeldung + „Mit freundlichen Grüßen“
 Keine Signatur / keinen Absendernamen anhängen.
 
 VERTRAULICHKEIT (streng):
-- Firmen-/Kundennamen NIEMALS nennen (auch nicht Andeutungen wie „beim großen Automobilzulieferer“ mit erkennbarem Namen).
+- Firmen-/Kundennamen NIEMALS nennen.
 - Keine Zeile „Kunde: …“. Formuliere „unsere Kundenanfrage“ / „das Projekt“.
 - Interner Kundenname nur zur Info, NICHT verwenden: {customer_internal or '(leer)'}
 
@@ -663,9 +762,9 @@ Auslastung: {ctx.get('workload') or '—'}
 Remote: {ctx.get('remote') or '—'}
 Beschreibung (bereits bereinigt): {(ctx.get('description') or '')[:800]}
 Gesuchte Skills: {ctx.get('required_skills') or points_s}
-Berater (nur intern, nicht im Warum-Text nennen): {c.full_name}
+Berater (nur intern): {c.full_name}
 Warum passend (intern): {(deep or {}).get('why') or mr.match_reason or ''}
-Warum fürs Anschreiben (Sie-Form, übernehmen/leicht glätten): {ctx.get('why_short') or ''}
+Warum fürs Anschreiben (Sie-Form): {ctx.get('why_short') or ''}
 Talking Points: {points_s}
 Extra-Hinweise: {extra_notes or '(keine)'}
 Vorlage: {tpl_name or ident}
@@ -674,7 +773,7 @@ Baseline-Betreff: {subject}
 Baseline-Text:
 {body}
 
-Ausführlich bei der Anfrage, knapp beim Warum. Ca. 180–250 Wörter im body.
+Ca. 120–220 Wörter im body, passend zur Stufe.
 """
         raw, model = _deepseek_chat(prompt, system=system, max_tokens=900)
         parsed = _parse_json_blob(raw or '') if raw else None
@@ -707,6 +806,7 @@ Ausführlich bei der Anfrage, knapp beim Warum. Ca. 180–250 Wörter im body.
         'consultant_aid': c.aid,
         'template_identifier': ident,
         'template_name': tpl_name or ident,
+        'stage': stage_l or 'shortlist',
         'why_short': ctx.get('why_short') or '',
         'project_details': ctx.get('project_details') or '',
     }
