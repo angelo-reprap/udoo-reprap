@@ -1861,12 +1861,265 @@ window.Matching = (function() {
         openNewContactPopup(fields, crm);
     }
 
+    /** tim / koenenberg → tim / koenenberg (ASCII für E-Mail-Local) */
+    function _foldEmailToken(s) {
+        let t = String(s || '').toLowerCase().trim();
+        t = t.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+        try {
+            t = t.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        } catch (e) { /* ignore */ }
+        return t.replace(/[^a-z0-9]+/g, '');
+    }
+
+    function _pickPrimaryAccountEmail(emails) {
+        const list = emails || [];
+        if (!list.length) return '';
+        const rows = list.map(function (e) {
+            if (typeof e === 'string') return { email: e, primary: false };
+            return { email: String(e.email || '').trim(), primary: !!e.primary };
+        }).filter(function (r) { return r.email && r.email.indexOf('@') > 0; });
+        if (!rows.length) return '';
+        const generic = rows.find(function (r) {
+            const local = r.email.split('@')[0].toLowerCase();
+            return /^(info|kontakt|office|mail|hello|service|hr|jobs|recruiting)$/.test(local);
+        });
+        if (generic) return generic.email;
+        const prim = rows.find(function (r) { return r.primary; });
+        return (prim || rows[0]).email;
+    }
+
+    /**
+     * Aus bestehenden Ansprechpartner-Mails das Muster erkennen
+     * (z.B. wolfram.schneider@… → first.last).
+     */
+    function _detectEmailSyntax(samples) {
+        const votes = {};
+        const domainVotes = {};
+        (samples || []).forEach(function (s) {
+            const email = String(s.email || '').trim().toLowerCase();
+            const at = email.indexOf('@');
+            if (at < 1) return;
+            const local = email.slice(0, at);
+            const domain = email.slice(at + 1);
+            if (!domain) return;
+            domainVotes[domain] = (domainVotes[domain] || 0) + 1;
+            const f = _foldEmailToken(s.first);
+            const l = _foldEmailToken(s.last);
+            if (!f || !l) return;
+            const cands = [
+                ['first.last', f + '.' + l],
+                ['first_last', f + '_' + l],
+                ['first-last', f + '-' + l],
+                ['firstlast', f + l],
+                ['f.last', f.charAt(0) + '.' + l],
+                ['last.first', l + '.' + f],
+                ['first', f],
+            ];
+            cands.forEach(function (pair) {
+                if (local === pair[1]) votes[pair[0]] = (votes[pair[0]] || 0) + 1;
+            });
+        });
+        const domain = Object.keys(domainVotes).sort(function (a, b) {
+            return domainVotes[b] - domainVotes[a];
+        })[0] || '';
+        const pattern = Object.keys(votes).sort(function (a, b) {
+            return votes[b] - votes[a];
+        })[0] || '';
+        return { pattern: pattern, domain: domain, votes: votes };
+    }
+
+    function _buildEmailFromPattern(pattern, first, last, domain) {
+        const f = _foldEmailToken(first);
+        const l = _foldEmailToken(last);
+        if (!domain) return '';
+        let local = '';
+        switch (pattern) {
+            case 'first.last': local = (f && l) ? (f + '.' + l) : (f || l); break;
+            case 'first_last': local = (f && l) ? (f + '_' + l) : (f || l); break;
+            case 'first-last': local = (f && l) ? (f + '-' + l) : (f || l); break;
+            case 'firstlast': local = f + l; break;
+            case 'f.last': local = (f && l) ? (f.charAt(0) + '.' + l) : (f || l); break;
+            case 'last.first': local = (f && l) ? (l + '.' + f) : (f || l); break;
+            case 'first': local = f || l; break;
+            default:
+                local = (f && l) ? (f + '.' + l) : (f || l);
+        }
+        if (!local) return '';
+        return local + '@' + domain;
+    }
+
+    /**
+     * Vorschlag: 1) Pattern aus Ansprechpartnern  2) Firma-E-Mail
+     * opts: { first, last, companyEmail, ansprechpartner, website }
+     */
+    function _suggestContactEmail(opts) {
+        opts = opts || {};
+        const first = opts.first || '';
+        const last = opts.last || '';
+        const samples = [];
+        (opts.ansprechpartner || []).forEach(function (ap) {
+            const fn = ap.contact__first_name || ap.first_name || '';
+            const ln = ap.contact__last_name || ap.last_name || '';
+            const ems = ap.emails || [];
+            ems.forEach(function (row) {
+                const em = typeof row === 'string' ? row : (row && row.email);
+                if (em) samples.push({ first: fn, last: ln, email: em });
+            });
+            if (!ems.length && ap.email) {
+                samples.push({ first: fn, last: ln, email: ap.email });
+            }
+        });
+        let domain = '';
+        const syn = _detectEmailSyntax(samples);
+        if (syn.domain) domain = syn.domain;
+        if (!domain && opts.companyEmail && opts.companyEmail.indexOf('@') > 0) {
+            domain = opts.companyEmail.split('@')[1].toLowerCase();
+        }
+        if (!domain && opts.website) {
+            try {
+                const u = String(opts.website).replace(/^https?:\/\//i, '').split('/')[0];
+                const host = u.replace(/^www\./i, '').toLowerCase();
+                if (host.indexOf('.') > 0) domain = host;
+            } catch (e) { /* ignore */ }
+        }
+        const pattern = syn.pattern || 'first.last';
+        if (domain && (first || last)) {
+            const guessed = _buildEmailFromPattern(pattern, first, last, domain);
+            if (guessed) {
+                return {
+                    email: guessed,
+                    source: 'pattern',
+                    hint: 'Vorschlag nach Ansprechpartner-Muster (' + pattern + ')',
+                };
+            }
+        }
+        if (opts.companyEmail) {
+            return {
+                email: opts.companyEmail,
+                source: 'company',
+                hint: 'Firma-E-Mail aus CRM (persönliche nicht gefunden)',
+            };
+        }
+        return null;
+    }
+
+    function _setMncEmailHint(text, isAuto) {
+        const hint = document.getElementById('mnc-email-hint');
+        if (!hint) return;
+        if (!text) {
+            hint.style.display = 'none';
+            hint.textContent = '';
+            return;
+        }
+        hint.style.display = '';
+        hint.style.color = isAuto ? '#163258' : '#666';
+        hint.textContent = text;
+    }
+
+    function _applyMncEmailSuggest(sug, opts) {
+        opts = opts || {};
+        const inp = document.getElementById('mnc-email');
+        if (!inp || !sug || !sug.email) return false;
+        const cur = String(inp.value || '').trim();
+        const auto = !!inp.dataset.mncAuto;
+        // Nur füllen wenn leer oder bisheriger Auto-Vorschlag
+        if (cur && !auto && !opts.force) return false;
+        if (cur && auto && cur !== String(inp.dataset.mncAutoVal || '') && !opts.force) {
+            return false; // User hat Auto-Wert geändert
+        }
+        inp.value = sug.email;
+        inp.dataset.mncAuto = '1';
+        inp.dataset.mncAutoVal = sug.email;
+        inp.dataset.mncAutoSource = sug.source || '';
+        _setMncEmailHint(sug.hint || '', true);
+        return true;
+    }
+
+    function _clearMncEmailAutoIfEdited() {
+        const inp = document.getElementById('mnc-email');
+        if (!inp || !inp.dataset.mncAuto) return;
+        const cur = String(inp.value || '').trim();
+        if (cur !== String(inp.dataset.mncAutoVal || '')) {
+            delete inp.dataset.mncAuto;
+            delete inp.dataset.mncAutoVal;
+            delete inp.dataset.mncAutoSource;
+            _setMncEmailHint('', false);
+        }
+    }
+
+    function _mncCurrentNameParts() {
+        const first = ((document.getElementById('mnc-firstname') || {}).value || '').trim();
+        const last = ((document.getElementById('mnc-lastname') || {}).value || '').trim();
+        return { first: first, last: last };
+    }
+
+    function _loadAccountEmailSuggestions(accountId, opts) {
+        opts = opts || {};
+        const id = String(accountId || '').trim();
+        if (!id) return Promise.resolve(null);
+        return fetch('/crm/api/kunden/' + encodeURIComponent(id) + '/', {
+            credentials: 'same-origin',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) {
+                if (!d) return null;
+                window._mncAccountDetail = d;
+                const companyEmail = _pickPrimaryAccountEmail(d.emails || []);
+                const name = _mncCurrentNameParts();
+                const sug = _suggestContactEmail({
+                    first: name.first || opts.first || '',
+                    last: name.last || opts.last || '',
+                    companyEmail: companyEmail,
+                    ansprechpartner: d.ansprechpartner || [],
+                    website: d.website || '',
+                });
+                if (sug) _applyMncEmailSuggest(sug, { force: !!opts.force });
+                // Firma-Telefon nur wenn leer
+                const phoneInp = document.getElementById('mnc-phone');
+                if (phoneInp && !String(phoneInp.value || '').trim()) {
+                    const phones = d.phones || [];
+                    const ph = phones[0] && (phones[0].number || phones[0].phone || phones[0]);
+                    if (typeof ph === 'string' && ph.trim()) phoneInp.value = ph.trim();
+                }
+                return sug;
+            })
+            .catch(function () { return null; });
+    }
+
+    function _refreshMncEmailSuggest() {
+        const d = window._mncAccountDetail;
+        const name = _mncCurrentNameParts();
+        let companyEmail = '';
+        let ap = [];
+        let website = '';
+        if (d) {
+            companyEmail = _pickPrimaryAccountEmail(d.emails || []);
+            ap = d.ansprechpartner || [];
+            website = d.website || '';
+        } else if (window._mncFirmaFallbackEmail) {
+            companyEmail = window._mncFirmaFallbackEmail;
+        }
+        const sug = _suggestContactEmail({
+            first: name.first,
+            last: name.last,
+            companyEmail: companyEmail,
+            ansprechpartner: ap,
+            website: website,
+        });
+        if (sug) _applyMncEmailSuggest(sug);
+    }
+
     function openNewContactPopup(fields, crm) {
         fields = fields || {};
         crm = crm || {};
         closeNewContactPopup();
+        window._mncAccountDetail = null;
+        window._mncFirmaFallbackEmail = '';
 
-        const emailPrefill = fields.contact_email || _val('new-contact-email') || '';
+        let emailPrefill = fields.contact_email || _val('new-contact-email') || '';
+        let emailHint = '';
+        let emailIsAuto = false;
         const phonePrefill = fields.contact_phone || _val('new-contact-phone') || '';
         const firmPrefill = fields.customer_name || _val('new-customer') || '';
         const firmIdPrefill = _val('new-crm-account-id') || '';
@@ -1876,6 +2129,17 @@ window.Matching = (function() {
         if (!firmId && accounts.length === 1) {
             firmName = accounts[0].name || firmName;
             firmId = accounts[0].crm_id || '';
+        }
+        // Persönliche Mail fehlt → Firma-Mail aus Account-Treffer vorbefüllen
+        if (!emailPrefill) {
+            const accWithMail = accounts.find(function (a) { return a && a.email; })
+                || (accounts[0] && accounts[0].email ? accounts[0] : null);
+            if (accWithMail && accWithMail.email) {
+                emailPrefill = accWithMail.email;
+                emailHint = 'Firma-E-Mail aus CRM (persönliche nicht gefunden)';
+                emailIsAuto = true;
+                window._mncFirmaFallbackEmail = accWithMail.email;
+            }
         }
 
         // Person ≠ Firma: wenn Name wie Firma aussieht, aus E-Mail ableiten (bob@bobmichaels.ai)
@@ -1889,6 +2153,16 @@ window.Matching = (function() {
             split = { first: fromMail.first || split.first, last: fromMail.last };
         }
         const salutationGuess = _guessSalutation(split.first, fields.contact_salutation || '');
+
+        // Pattern-Vorschlag schon aus Account-Liste (Domain), falls Name da
+        if (emailIsAuto && (split.first || split.last) && emailPrefill.indexOf('@') > 0) {
+            const domain = emailPrefill.split('@')[1];
+            const patternGuess = _buildEmailFromPattern('first.last', split.first, split.last, domain);
+            if (patternGuess) {
+                emailPrefill = patternGuess;
+                emailHint = 'Vorschlag nach Namens-Muster (first.last) — Domain der Firma';
+            }
+        }
 
         const modal = document.createElement('div');
         modal.id = 'matching-new-contact-modal';
@@ -1955,10 +2229,14 @@ window.Matching = (function() {
                        border:1px solid #c7d2fe;border-radius:8px;background:#f8fafc;font-size:12px"></div>
                 </div>
               </div>
-              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
-                <label style="font-size:12px;opacity:.75">E-Mail <span style="color:#dc3545">*</span></label>
-                <input id="mnc-email" type="email" class="matching-form-input" style="width:100%;border-color:#163258"
-                       placeholder="name@firma.de" value="${_escAttr(emailPrefill)}">
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:start">
+                <label style="font-size:12px;opacity:.75;padding-top:8px">E-Mail <span style="color:#dc3545">*</span></label>
+                <div>
+                  <input id="mnc-email" type="email" class="matching-form-input" style="width:100%;border-color:#163258"
+                         placeholder="name@firma.de" value="${_escAttr(emailPrefill)}"
+                         ${emailIsAuto ? 'data-mnc-auto="1" data-mnc-auto-val="' + _escAttr(emailPrefill) + '"' : ''}>
+                  <div id="mnc-email-hint" style="font-size:11px;margin-top:4px;${emailHint ? '' : 'display:none'};color:#163258">${_esc(emailHint)}</div>
+                </div>
               </div>
               <div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center">
                 <label style="font-size:12px;opacity:.75">Telefon</label>
@@ -1987,6 +2265,11 @@ window.Matching = (function() {
         modal.querySelector('#mnc-firma-web')?.addEventListener('click', function() {
             runFirmaWebEnrich();
         });
+        modal.querySelector('#mnc-email')?.addEventListener('input', _clearMncEmailAutoIfEdited);
+        modal.querySelector('#mnc-firstname')?.addEventListener('change', _refreshMncEmailSuggest);
+        modal.querySelector('#mnc-lastname')?.addEventListener('change', _refreshMncEmailSuggest);
+        modal.querySelector('#mnc-firstname')?.addEventListener('blur', _refreshMncEmailSuggest);
+        modal.querySelector('#mnc-lastname')?.addEventListener('blur', _refreshMncEmailSuggest);
 
         const firmaInp = modal.querySelector('#mnc-firma');
         let firmTimer = null;
@@ -2021,14 +2304,29 @@ window.Matching = (function() {
         setTimeout(function() {
             (document.getElementById('mnc-lastname') || document.getElementById('mnc-email'))?.focus();
             // Firma automatisch auflösen (Treffer wählen / ID setzen)
+            const afterFirm = function (id) {
+                const aid = id || firmId || ((document.getElementById('mnc-firma-id') || {}).value || '').trim();
+                if (aid) {
+                    _loadAccountEmailSuggestions(aid, {
+                        first: split.first,
+                        last: split.last,
+                        force: emailIsAuto || !emailPrefill || !fields.contact_email,
+                    });
+                }
+            };
             if (firmName && firmName.length >= 2) {
-                _resolveFirmaForPopup(firmName, { autoSelectExact: true, showList: !firmId });
+                _resolveFirmaForPopup(firmName, { autoSelectExact: true, showList: !firmId })
+                    .then(afterFirm);
+            } else if (firmId) {
+                afterFirm(firmId);
             }
         }, 80);
     }
 
     function closeNewContactPopup() {
         document.getElementById('matching-new-contact-modal')?.remove();
+        window._mncAccountDetail = null;
+        window._mncFirmaFallbackEmail = '';
     }
 
     function _searchFirmaForPopup(q) {
@@ -2069,6 +2367,9 @@ window.Matching = (function() {
                     _setVal('new-crm-account-id', el.dataset.id || '');
                     _setFirmaLinkedHint(!!el.dataset.id);
                     box.style.display = 'none';
+                    if (el.dataset.id) {
+                        _loadAccountEmailSuggestions(el.dataset.id, { force: false });
+                    }
                 });
             });
             box.querySelector('.mnc-firm-new')?.addEventListener('click', function() {
@@ -2179,7 +2480,8 @@ window.Matching = (function() {
             + '<i class="bi bi-cloud-upload"></i> In CRM übernehmen</button>'
             + '<button type="button" class="matching-btn-sm" id="mnc-firma-web-fill-mail" '
             + 'style="font-size:11px;padding:4px 10px"'
-            + ((e.emails || [])[0] ? '' : ' disabled') + '>'
+            + ((e.emails || [])[0] || window._mncAccountDetail || window._mncFirmaFallbackEmail
+                ? '' : ' disabled') + '>'
             + 'E-Mail ins Formular</button>'
             + '<button type="button" class="matching-btn-sm" id="mnc-firma-web-dismiss" '
             + 'style="font-size:11px;padding:4px 10px">Schließen</button>'
@@ -2190,11 +2492,26 @@ window.Matching = (function() {
             applyFirmaWebEnrichToCrm();
         });
         panel.querySelector('#mnc-firma-web-fill-mail')?.addEventListener('click', function () {
-            const em = (((window._mncFirmaWebLast || {}).enrich || {}).emails || [])[0];
-            if (em) {
-                const inp = document.getElementById('mnc-email');
-                if (inp && !String(inp.value || '').trim()) inp.value = em;
-            }
+            const enrich = ((window._mncFirmaWebLast || {}).enrich || {});
+            const webMail = (enrich.emails || [])[0] || '';
+            const name = _mncCurrentNameParts();
+            const d = window._mncAccountDetail || {};
+            const companyEmail = webMail
+                || _pickPrimaryAccountEmail(d.emails || [])
+                || window._mncFirmaFallbackEmail
+                || '';
+            const sug = _suggestContactEmail({
+                first: name.first,
+                last: name.last,
+                companyEmail: companyEmail,
+                ansprechpartner: d.ansprechpartner || [],
+                website: enrich.website || d.website || '',
+            }) || (companyEmail ? {
+                email: companyEmail,
+                source: 'company',
+                hint: 'Firma-E-Mail (Web/CRM)',
+            } : null);
+            if (sug) _applyMncEmailSuggest(sug, { force: true });
         });
         panel.querySelector('#mnc-firma-web-dismiss')?.addEventListener('click', function () {
             panel.style.display = 'none';
@@ -2624,6 +2941,7 @@ window.Matching = (function() {
             _setVal('new-customer', n);
             _setVal('new-crm-account-id', cached);
             _setFirmaLinkedHint(true);
+            _loadAccountEmailSuggestions(cached, { force: false });
             return Promise.resolve(cached);
         }
         return _searchAccountsAny(n).then(hits => {
@@ -2641,6 +2959,16 @@ window.Matching = (function() {
                 _setFirmaLinkedHint(!!id);
                 const box = document.getElementById('mnc-firma-results');
                 if (box) box.style.display = 'none';
+                if (id) _loadAccountEmailSuggestions(id, { force: false });
+                // Sofort Firma-Mail aus Suchtreffer, falls Detail noch lädt
+                if (exact.email && !((document.getElementById('mnc-email') || {}).value || '').trim()) {
+                    _applyMncEmailSuggest({
+                        email: exact.email,
+                        source: 'company',
+                        hint: 'Firma-E-Mail aus CRM (persönliche nicht gefunden)',
+                    });
+                    window._mncFirmaFallbackEmail = exact.email;
+                }
                 return id;
             }
             if (opts.showList !== false) _searchFirmaForPopup(n);
