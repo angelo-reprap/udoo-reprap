@@ -7666,23 +7666,37 @@ window.Matching = (function() {
     // ──────────────────────────────────────────────────
 
     let _dragMatchId = null;
+    let _dragFromStage = null;
 
     function kanbanDragStart(event, matchId) {
         _dragMatchId = matchId;
+        const card = (event && event.target && event.target.closest)
+            ? event.target.closest('[data-match-id]')
+            : document.querySelector('[data-match-id="' + matchId + '"]');
+        _dragFromStage = card
+            ? _normStage(card.getAttribute('data-stage') || '')
+            : '';
         event.dataTransfer.effectAllowed = 'move';
-        event.target.style.opacity = '0.5';
+        if (event.target && event.target.style) event.target.style.opacity = '0.5';
     }
 
     function kanbanDrop(event, colId) {
         event.preventDefault();
         if (!_dragMatchId) return;
 
+        const matchId = _dragMatchId;
+        const fromStage = _dragFromStage || '';
+        const toStage = _normStage(colId);
+        _dragMatchId = null;
+        _dragFromStage = null;
+
         // Karte visuell verschieben
-        const card = document.querySelector(`[data-match-id="${_dragMatchId}"]`);
+        const card = document.querySelector(`[data-match-id="${matchId}"]`);
         const targetCol = document.getElementById('col-' + colId);
         if (card && targetCol) {
             card.style.opacity = '1';
             targetCol.appendChild(card);
+            card.setAttribute('data-stage', toStage);
             // Leerer-Hinweis entfernen
             const emptyHint = targetCol.querySelector('div[style*="aaa"]');
             if (emptyHint) emptyHint.remove();
@@ -7690,8 +7704,10 @@ window.Matching = (function() {
             _updateKanbanCounts();
         }
 
+        const stageChanged = !!(toStage && toStage !== fromStage);
+
         // Status via API aktualisieren
-        fetch(API + 'match/' + _dragMatchId + '/move/', {
+        fetch(API + 'match/' + matchId + '/move/', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'X-CSRFToken': csrf(), 'Content-Type': 'application/json' },
@@ -7702,7 +7718,15 @@ window.Matching = (function() {
             if (!d.success) console.error('Kanban move fehlgeschlagen:', d.error);
         });
 
-        _dragMatchId = null;
+        // Status gewechselt → Mail der NEUEN Spalte öffnen (Vorlage je Stufe)
+        if (stageChanged && STAGE_MAIL[toStage]) {
+            try {
+                if (window._matchingContactCache && window._matchingContactCache[matchId]) {
+                    window._matchingContactCache[matchId].stage = toStage;
+                }
+            } catch (e) { /* ignore */ }
+            sendEmail(matchId, toStage);
+        }
     }
 
     function _updateKanbanCounts() {
