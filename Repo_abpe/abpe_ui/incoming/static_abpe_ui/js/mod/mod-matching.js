@@ -4293,13 +4293,24 @@ window.Matching = (function() {
         if (st === 'interview' && arguments.length > 1 && arguments[1] === 'absage') {
             st = 'absage';
         }
+        var recommended = (_STAGE_TPL_API && _STAGE_TPL_API[st])
+            || _STAGE_TPL_DEFAULTS[st]
+            || _OW_TPL_FALLBACK;
+        recommended = String(recommended || '').trim();
         try {
             var saved = JSON.parse(localStorage.getItem(_STAGE_TPL_KEY) || '{}');
-            if (saved && saved[st]) return String(saved[st]).trim();
+            if (saved && saved[st]) {
+                var s = String(saved[st]).trim();
+                // Veralteter Shortlist-/Outreach-Default darf Interesse/Folge-Stufen
+                // nicht als „Standard“ überschreiben (häufig nach erstem Deploy).
+                if (s && !(s === _OW_TPL_FALLBACK && recommended && recommended !== _OW_TPL_FALLBACK)) {
+                    return s;
+                }
+            }
         } catch (e) { /* ignore */ }
         var apiMap = _STAGE_TPL_API || {};
         if (apiMap[st]) return String(apiMap[st]).trim();
-        return _STAGE_TPL_DEFAULTS[st] || _OW_TPL_FALLBACK;
+        return recommended || _OW_TPL_FALLBACK;
     }
 
     function _setStageDefaultTemplate(stage, ident) {
@@ -7038,17 +7049,30 @@ window.Matching = (function() {
             var stageDef = studio.stage
                 ? _stageDefaultTemplateId(studio.stage)
                 : '';
-            var defId = stageDef
-                || _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
-            // Stage-Default als „Standard“ markieren (für diese Spalte)
+            var hasStageTpl = !!(stageDef && raw.some(function (t) {
+                return t && String(t.identifier || '') === stageDef;
+            }));
+            // Nur echte Stage-Vorlage als Spalten-Standard markieren —
+            // Outreach-Fallback darf NICHT als „Standard · Interesse“ erscheinen.
+            var selectId = hasStageTpl
+                ? stageDef
+                : _outreachResolveDefaultId(raw, (d && d.default) || _OW_TPL_FALLBACK);
             studio.templates = (raw || []).map(function (t) {
                 return Object.assign({}, t, {
-                    is_default: !!(t && t.identifier === defId),
+                    is_default: !!(hasStageTpl && t && t.identifier === stageDef),
                 });
             });
-            if (!studio.templateIdentifier) studio.templateIdentifier = defId;
-            else if (!studio.templates.some(function (t) { return t && t.identifier === studio.templateIdentifier; })) {
-                studio.templateIdentifier = defId;
+            studio.stageTemplateMissing = !!(stageDef && !hasStageTpl);
+            studio.stageTemplateWanted = stageDef || '';
+            // Draft-API weiter mit Stage-Identifier anfragen (Backend + AI stage-aware),
+            // Dropdown zeigt vorhandene Vorlage (Fallback) wenn Stage-Tpl fehlt.
+            if (hasStageTpl) {
+                studio.templateIdentifier = stageDef;
+            } else if (!studio.templateIdentifier
+                || !studio.templates.some(function (t) {
+                    return t && t.identifier === studio.templateIdentifier;
+                })) {
+                studio.templateIdentifier = selectId;
             }
             studio.signatures = (d && d.signatures) || [];
             if (!studio.signatureId) {
@@ -7057,14 +7081,22 @@ window.Matching = (function() {
             return studio;
         })
         .catch(function () {
+            var stageDef = studio.stage ? _stageDefaultTemplateId(studio.stage) : '';
             studio.templates = [{
                 identifier: _OW_TPL_FALLBACK,
                 name: 'Matching — Outreach-Wizard Anschreiben',
-                is_default: true,
+                is_default: false,
             }];
+            studio.stageTemplateMissing = !!(stageDef && stageDef !== _OW_TPL_FALLBACK);
+            studio.stageTemplateWanted = stageDef || '';
             studio.templateIdentifier = studio.templateIdentifier
-                || _stageDefaultTemplateId(studio.stage)
+                || stageDef
                 || _OW_TPL_FALLBACK;
+            if (!studio.templates.some(function (t) {
+                return t && t.identifier === studio.templateIdentifier;
+            })) {
+                studio.templateIdentifier = _OW_TPL_FALLBACK;
+            }
             studio.signatures = studio.signatures || [];
             studio.signatureId = studio.signatureId || '';
             return studio;
@@ -7073,7 +7105,12 @@ window.Matching = (function() {
 
     function _stageMailFetchDraft(studio, useAi) {
         const matchId = studio.matchId;
-        const tplId = studio.templateIdentifier || _stageDefaultTemplateId(studio.stage) || _OW_TPL_FALLBACK;
+        // Wenn Stage-Vorlage fehlt: trotzdem gewünschten Identifier anfragen
+        // (Backend fällt inhaltlich zurück, AI bleibt stufenbezogen).
+        const tplId = (studio.stageTemplateMissing && studio.stageTemplateWanted)
+            || studio.templateIdentifier
+            || _stageDefaultTemplateId(studio.stage)
+            || _OW_TPL_FALLBACK;
         const ai = useAi !== false;
         return fetch(API + 'outreach/' + encodeURIComponent(matchId) + '/letter/draft/', {
             method: 'POST',
@@ -7139,7 +7176,16 @@ window.Matching = (function() {
                 return _stageMailFetchDraft(studio, true);
             })
             .then(function (draft) {
-                if (draft.template_identifier) studio.templateIdentifier = draft.template_identifier;
+                // Nur übernehmen, wenn die Vorlage in der Dropdown-Liste existiert
+                // (sonst bleibt sichtbarer Fallback; fehlende Stage-Tpl → Hinweis).
+                var tid = draft && draft.template_identifier
+                    ? String(draft.template_identifier).trim()
+                    : '';
+                if (tid && (studio.templates || []).some(function (t) {
+                    return t && t.identifier === tid;
+                })) {
+                    studio.templateIdentifier = tid;
+                }
                 _openStageMailComposer({
                     matchId: opts.matchId,
                     detail: opts.detail,
@@ -7183,17 +7229,33 @@ window.Matching = (function() {
         const tpl = (fake.templates || []).find(function (t) { return t && t.identifier === cur; });
         const stageLbl = _stageLabelShort(studio && studio.stage);
         const isDef = !!(tpl && tpl.is_default);
-        const badge = isDef
-            ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
-              + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard · '
+        const missing = !!(studio && studio.stageTemplateMissing);
+        const wanted = (studio && studio.stageTemplateWanted) || '';
+        const badge = missing
+            ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#92400e;'
+              + 'background:#fef3c7;border-radius:4px;padding:1px 6px">Vorlage fehlt · '
               + _esc(stageLbl) + '</span>'
-            : '';
+            : (isDef
+                ? '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#163258;'
+                  + 'background:#e8eef7;border-radius:4px;padding:1px 6px">Standard · '
+                  + _esc(stageLbl) + '</span>'
+                : '<span style="margin-left:6px;font-size:10px;font-weight:700;color:#555;'
+                  + 'background:#eee;border-radius:4px;padding:1px 6px">'
+                  + _esc(stageLbl) + '</span>');
         const setBtn = isDef
             ? ''
             : '<button type="button" class="matching-btn-sm" style="white-space:nowrap;margin-top:18px"'
               + ' onclick="Matching.stageMailSetDefaultTemplate()"'
               + ' title="Als Standard für Spalte ' + _escAttr(stageLbl) + ' speichern">'
               + 'Als Standard für ' + _esc(stageLbl) + '</button>';
+        const missHint = missing
+            ? '<div style="font-size:11px;color:#92400e;margin-top:4px;grid-column:1/-1">'
+              + 'Empfohlene Vorlage <code style="font-size:10px">' + _esc(wanted) + '</code> '
+              + 'fehlt im Email Studio. Bitte '
+              + '<code style="font-size:10px">SAFE-ensure-matching-stage-templates.sh</code> '
+              + 'auf dem Server ausführen, dann Dialog neu öffnen.'
+              + '</div>'
+            : '';
         return ''
             + '<div style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap">'
             + '<label style="font-size:11px;color:#666;display:block;flex:1;min-width:200px">'
@@ -7205,6 +7267,7 @@ window.Matching = (function() {
             + '</select>'
             + '</label>'
             + setBtn
+            + missHint
             + '</div>'
             + '<label style="font-size:11px;color:#666;display:block">'
             + 'Signatur'
@@ -7267,6 +7330,8 @@ window.Matching = (function() {
         if (_normStage(stage) === 'shortlist') _outreachSetSavedDefault(id);
         draft.studioState.templates = _outreachApplyDefaultFlags(draft.studioState.templates || [], id);
         draft.studioState.templateIdentifier = id;
+        draft.studioState.stageTemplateMissing = false;
+        draft.studioState.stageTemplateWanted = id;
         const block = document.getElementById('mm-studio-block');
         if (block) block.innerHTML = _stageMailTemplateBlockHtml(draft.studioState);
         const msg = document.getElementById('mm-msg');
