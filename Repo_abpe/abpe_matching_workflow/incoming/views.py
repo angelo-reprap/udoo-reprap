@@ -1589,8 +1589,9 @@ def api_outreach_letter_draft(request, match_result_id):
             mr,
             deep=deep,
             extra_notes=body.get('extra_notes') or '',
-            template_identifier=body.get('template_identifier') or DEFAULT_OUTREACH_TEMPLATE,
+            template_identifier=body.get('template_identifier') or None,
             use_ai=bool(use_ai),
+            stage=str(body.get('stage') or ''),
         )
         data['project_consultant_id'] = str(pc.id)
         data['deep_reason'] = deep
