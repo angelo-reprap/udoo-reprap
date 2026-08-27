@@ -428,8 +428,7 @@ const EDMS = {
             .catch(() => { if (det) det.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' + this.t('fehler_beim_laden','Fehler') + '</div>'; });
     },
     _openDocFallback(id) {
-        const body = document.getElementById('edms-vorschau-body');
-        if (body) body.innerHTML = '<iframe class="edms-vorschau-frame" src="' + this.api.preview + id + '/"></iframe>';
+        this._showDocFrame(this.api.file + id + '/', id);
     },
     renderPersonen(people, skipTypeFilter) {
         const list = document.getElementById('edms-col1-list');
@@ -1157,14 +1156,45 @@ const EDMS = {
                 'onload="EDMS._attachFrameCheck(this)"></iframe>';
             return;
         }
-        const previewable = ['pdf','doc','docx','rtf','odt'].includes(ext);
-        if (!previewable) {
+        const office = ['doc', 'docx', 'rtf', 'odt'].includes(ext);
+        if (ext === 'pdf') {
+            // Original-PDF streamen (Range-fähig). api/preview konvertiert
+            // und scheitert bei vielen Rechnungen/Scans mit JSON-Fehler.
+            this._showDocFrame(this.api.file + uuid + '/', uuid);
+            return;
+        }
+        if (!office) {
             body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-file-earmark"></i>' +
                 this.t('edms_kein_preview','Keine Vorschau für dieses Format — herunterladen') +
                 '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + uuid + '\')"><i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
             return;
         }
-        body.innerHTML = '<iframe class="edms-vorschau-frame" src="' + this.api.preview + uuid + '/"></iframe>';
+        this._showDocFrame(this.api.preview + uuid + '/', uuid);
+    },
+
+    _showDocFrame(src, uuid) {
+        const body = document.getElementById('edms-vorschau-body');
+        if (!body) return;
+        body.innerHTML = '<iframe class="edms-vorschau-frame" src="' + src + '" ' +
+            'onload="EDMS._docFrameCheck(this, \'' + this._esc(uuid || '') + '\')"></iframe>';
+    },
+
+    _docFrameCheck(frame, uuid) {
+        try {
+            const doc = frame.contentDocument;
+            const txt = (doc && doc.body && doc.body.innerText) ? doc.body.innerText.trim() : '';
+            if (!txt || txt.indexOf('"ok": false') < 0) return;
+            const fileUrl = this.api.file + uuid + '/';
+            if (uuid && frame.src.indexOf('/preview/') >= 0) {
+                frame.src = fileUrl;
+                return;
+            }
+            const body = document.getElementById('edms-vorschau-body');
+            if (body) body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' +
+                this.t('edms_kein_preview', 'Keine Vorschau für dieses Format — herunterladen') +
+                '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + this._esc(uuid) + '\')">' +
+                '<i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
+        } catch (e) { /* cross-origin — Browser zeigt das PDF selbst */ }
     },
 
     // Mail-Anhang im Dokument-Reiter öffnen (wechselt automatisch dorthin)
@@ -1349,7 +1379,11 @@ const EDMS = {
 
 
     download(uuid) { window.open(this.api.file + uuid + '/?download=1', '_blank'); },
-    openTab(uuid)  { window.open(this.api.preview + uuid + '/', '_blank'); },
+    openTab(uuid)  {
+        const fname = ((document.querySelector('.edms-vorschau-format') || {}).textContent || '').toLowerCase();
+        const url = (fname === 'pdf') ? (this.api.file + uuid + '/') : (this.api.preview + uuid + '/');
+        window.open(url, '_blank');
+    },
 
     copyPath(btn, path) {
         const clean = path.replace(/\\\\/g,'\\');

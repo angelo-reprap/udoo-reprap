@@ -58,5 +58,5 @@ done
 
 echo
 echo "Deploy fertig. Backup: $BAK"
-echo "  Browser Ctrl+F5 → /crm/dms/ → nach Personen → Favoriten"
+echo "  Browser Ctrl+F5 → /crm/dms/ → PDF in der Akte (Rechnung wie CV)"
 echo "Restore: cp -a $BAK/static/abpe_crm/js/mod-edms.js $LIVE_CRM/static/abpe_crm/js/mod-edms.js"
