@@ -2438,9 +2438,6 @@ api_recording_unassigned   = login_or_token_required(require_http_methods(['GET'
 api_recording_assign       = csrf_exempt(login_or_token_required(require_POST(_rec_assign_impl)))
 api_recording_delete       = csrf_exempt(login_or_token_required(require_POST(_rec_delete_impl)))
 
-from .views_edms_file import _api_edms_file as _edms_file_impl
-api_edms_file = login_or_token_required(_edms_file_impl)
-
 
 
 def api_notes_for_contact(request, crm_id):
@@ -2675,3 +2672,7 @@ def api_favoriten_toggle(request):
     setattr(settings_obj, field, ids)
     settings_obj.save(update_fields=[field, 'updated_at'])
     return JsonResponse({'ok': True, 'favorited': favorited, 'crm_id': crm_id})
+
+from .views_edms_file import _api_edms_file as _edms_file_impl
+api_edms_file = login_or_token_required(_edms_file_impl)
+
