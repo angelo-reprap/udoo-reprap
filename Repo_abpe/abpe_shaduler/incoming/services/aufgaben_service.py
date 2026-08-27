@@ -18,6 +18,42 @@ from . import aktivitaet_service
 log = logging.getLogger('abpe_shaduler.aufgaben')
 
 
+_SERVICE_USER_RE = re.compile(r'^(svc_|service_|cron_|bot_)', re.I)
+_LETTER_FOLD = str.maketrans({
+    'Ä': 'A', 'Ö': 'O', 'Ü': 'U', 'ß': 'S',
+    'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A',
+    'É': 'E', 'È': 'E', 'Ê': 'E',
+    'Í': 'I', 'Ì': 'I',
+    'Ó': 'O', 'Ò': 'O', 'Ô': 'O',
+    'Ú': 'U', 'Ù': 'U',
+})
+
+
+def _is_service_username(username: str) -> bool:
+    n = (username or '').strip()
+    if not n:
+        return True
+    if n.lower() in ('anonymoususer', 'anonymous'):
+        return True
+    return bool(_SERVICE_USER_RE.match(n))
+
+
+def _last_name_sort_key(first: str, last: str, display: str, username: str) -> str:
+    if last:
+        return last
+    bits = (display or '').split()
+    if len(bits) >= 2:
+        return bits[-1]
+    return first or username or ''
+
+
+def _last_name_letter(sort_last: str) -> str:
+    ch = (sort_last[:1] or '#').upper().translate(_LETTER_FOLD)
+    if len(ch) != 1 or ch < 'A' or ch > 'Z':
+        return '#'
+    return ch
+
+
 def user_brief(u) -> Optional[dict[str, Any]]:
     """Kurzes User-Dict für API/UI (id, username, display_name)."""
     if u is None:
@@ -28,10 +64,15 @@ def user_brief(u) -> Optional[dict[str, Any]]:
     username = u.get_username() if hasattr(u, 'get_username') else str(u)
     if not name:
         name = username
+    sort_last = _last_name_sort_key(first, last, name, username)
     return {
         'id': int(u.pk),
         'username': username,
         'display_name': name,
+        'first_name': first,
+        'last_name': last,
+        'sort_name': sort_last,
+        'letter': _last_name_letter(sort_last),
     }
 
 
@@ -40,16 +81,22 @@ def visible_q(user) -> Q:
     return Q(zugewiesen_an=user) | Q(delegiert_an=user)
 
 
-def team_users(*, limit: int = 80):
-    """Aktive Portal-Kollegen für den Delegations-Picker."""
+def team_users(*, limit: int = 200):
+    """Aktive Benutzer wie in der Benutzerverwaltung (ohne Dienstkonten)."""
     User = get_user_model()
     qs = User.objects.filter(is_active=True).order_by(
-        'first_name', 'last_name', 'username',
+        'last_name', 'first_name', 'username',
     )
-    staff = qs.filter(Q(is_staff=True) | Q(is_superuser=True))
-    if staff.exists():
-        qs = staff
-    return list(qs[: max(1, int(limit or 80))])
+    out = []
+    cap = max(1, int(limit or 200))
+    for u in qs[: cap + 20]:
+        uname = u.get_username() if hasattr(u, 'get_username') else str(u)
+        if _is_service_username(uname):
+            continue
+        out.append(u)
+        if len(out) >= cap:
+            break
+    return out
 
 _PHONE_LABELS = {
     'phone_mobile': 'Mobil',

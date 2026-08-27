@@ -4408,6 +4408,67 @@
     ovl.style.display = 'flex';
   }
 
+  function lastNameLetter(u) {
+    var last = String((u && u.last_name) || (u && u.sort_name) || '').trim();
+    if (!last) {
+      var dn = String((u && (u.display_name || u.username)) || '').trim();
+      var parts = dn.split(/\s+/);
+      last = parts.length > 1 ? parts[parts.length - 1] : dn;
+    }
+    var ch = (last.charAt(0) || '#').toUpperCase();
+    var fold = { 'Ä': 'A', 'Ö': 'O', 'Ü': 'U', 'ß': 'S' };
+    if (fold[ch]) ch = fold[ch];
+    if (ch < 'A' || ch > 'Z') return '#';
+    return ch;
+  }
+
+  function sortByLastName(users) {
+    return (users || []).slice().sort(function (a, b) {
+      var la = String((a && (a.last_name || a.sort_name || a.display_name)) || '').toLowerCase();
+      var lb = String((b && (b.last_name || b.sort_name || b.display_name)) || '').toLowerCase();
+      if (la !== lb) return la < lb ? -1 : la > lb ? 1 : 0;
+      var fa = String((a && (a.first_name || a.display_name)) || '').toLowerCase();
+      var fb = String((b && (b.first_name || b.display_name)) || '').toLowerCase();
+      if (fa !== fb) return fa < fb ? -1 : fa > fb ? 1 : 0;
+      return 0;
+    });
+  }
+
+  function isServiceUsername(username) {
+    var n = String(username || '').trim().toLowerCase();
+    if (!n || n === 'anonymoususer' || n === 'anonymous') return true;
+    return n.indexOf('svc_') === 0 || n.indexOf('service_') === 0 ||
+      n.indexOf('cron_') === 0 || n.indexOf('bot_') === 0;
+  }
+
+  function normalizeTeamPayload(j) {
+    var list = [];
+    if (!j) return list;
+    if (Array.isArray(j)) list = j;
+    else if (Array.isArray(j.users)) list = j.users;
+    else if (Array.isArray(j.results)) list = j.results;
+    return list.map(function (u) {
+      if (!u || u.is_active === false) return null;
+      var first = String(u.first_name || '').trim();
+      var last = String(u.last_name || '').trim();
+      var username = String(u.username || '');
+      var display = String(u.display_name || (first + ' ' + last).trim() || username);
+      var id = u.id != null ? u.id : u.pk;
+      if (id == null) return null;
+      return {
+        id: id,
+        username: username,
+        display_name: display,
+        first_name: first,
+        last_name: last,
+        sort_name: u.sort_name || last || display,
+        letter: u.letter || '',
+      };
+    }).filter(function (u) {
+      return u && !isServiceUsername(u.username);
+    });
+  }
+
   function currentUserId() {
     var id = cfg.user_id || cfg.userId || (cfg.user && (cfg.user.id || cfg.user.pk));
     if (id == null || id === '') return null;
@@ -4415,22 +4476,42 @@
     return isNaN(n) ? null : n;
   }
 
+  function fetchTeamJson(url) {
+    return fetch(url, {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    }).then(function (r) {
+      if (!r.ok) throw new Error('team ' + r.status);
+      return r.json();
+    });
+  }
+
   function loadTeam() {
     if (TEAM_USERS) return Promise.resolve(TEAM_USERS);
     if (TEAM_PROMISE) return TEAM_PROMISE;
-    TEAM_PROMISE = fetch(api('team/'), {
-      credentials: 'same-origin',
-      headers: { 'X-Requested-With': 'XMLHttpRequest' },
-    })
-      .then(function (r) { return r.json(); })
+    TEAM_PROMISE = fetchTeamJson(api('team/'))
       .then(function (j) {
-        TEAM_USERS = (j && j.users) || [];
         if (j && j.me && j.me.id != null && cfg.user_id == null) cfg.user_id = j.me.id;
-        return TEAM_USERS;
+        var users = normalizeTeamPayload(j);
+        if (users.length) {
+          TEAM_USERS = users;
+          return TEAM_USERS;
+        }
+        return fetchTeamJson('/api/admin-portal/users/').then(function (j2) {
+          TEAM_USERS = normalizeTeamPayload(j2);
+          return TEAM_USERS;
+        });
       })
       .catch(function () {
-        TEAM_USERS = [];
-        return TEAM_USERS;
+        return fetchTeamJson('/api/admin-portal/users/')
+          .then(function (j2) {
+            TEAM_USERS = normalizeTeamPayload(j2);
+            return TEAM_USERS;
+          })
+          .catch(function () {
+            TEAM_USERS = [];
+            return TEAM_USERS;
+          });
       });
     return TEAM_PROMISE;
   }
@@ -4502,7 +4583,7 @@
     if (hint) {
       hint.textContent = _t(
         'sh.delegiert_hint',
-        'Eine oder mehrere Personen — sie sehen und bearbeiten die Aufgabe mit. Du bleibst Eigentümer.'
+        'Namen aus der Benutzerverwaltung. Eine oder mehrere Personen — sie sehen und bearbeiten die Aufgabe mit. Du bleibst Eigentümer.'
       );
     }
 
@@ -4510,31 +4591,44 @@
       if (!currentTask || String(currentTask.id) !== String(task.id)) return;
       chips.innerHTML = '';
       var mine = currentUserId();
-      var colleagues = (users || []).filter(function (u) {
+      var colleagues = sortByLastName((users || []).filter(function (u) {
         return mine == null || Number(u.id) !== mine;
-      });
+      }));
       if (!colleagues.length) {
         chips.innerHTML = '<span class="muted">' +
-          esc(_t('sh.kein_team', 'Keine Kollegen gefunden.')) + '</span>';
+          esc(_t('sh.kein_team', 'Keine Kollegen in der Benutzerverwaltung.')) + '</span>';
         return;
       }
-      colleagues.forEach(function (u) {
+
+      function collectSelectedIds() {
+        var ids = [];
+        chips.querySelectorAll('.sh-pick.on').forEach(function (el) {
+          var id = el.getAttribute('data-uid');
+          if (id) ids.push(Number(id));
+        });
+        return ids;
+      }
+
+      function setChipsDisabled(on) {
+        chips.querySelectorAll('.sh-pick').forEach(function (el) { el.disabled = !!on; });
+      }
+
+      function makeChip(u) {
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'sh-pick' + (selected.indexOf(Number(u.id)) >= 0 ? ' on' : '');
         btn.textContent = u.display_name || u.username || String(u.id);
+        btn.setAttribute('data-uid', String(u.id));
+        btn.title = u.username && u.display_name && u.username !== u.display_name
+          ? (u.display_name + ' (' + u.username + ')')
+          : (u.display_name || u.username || '');
         btn.addEventListener('click', function () {
           if (btn.disabled) return;
           btn.classList.toggle('on');
-          var ids = [];
-          chips.querySelectorAll('.sh-pick.on').forEach(function (el) {
-            var id = el.getAttribute('data-uid');
-            if (id) ids.push(Number(id));
-          });
-          chips.querySelectorAll('.sh-pick').forEach(function (el) { el.disabled = true; });
-          saveDelegates(task.id, ids)
+          setChipsDisabled(true);
+          saveDelegates(task.id, collectSelectedIds())
             .then(function (pack) {
-              chips.querySelectorAll('.sh-pick').forEach(function (el) { el.disabled = false; });
+              setChipsDisabled(false);
               if (!pack.ok) {
                 btn.classList.toggle('on');
                 toast((pack.j && pack.j.error) || _t('sh.toast_error', 'Speichern fehlgeschlagen'));
@@ -4552,13 +4646,36 @@
               }
             })
             .catch(function () {
-              chips.querySelectorAll('.sh-pick').forEach(function (el) { el.disabled = false; });
+              setChipsDisabled(false);
               btn.classList.toggle('on');
               toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
             });
         });
-        btn.setAttribute('data-uid', String(u.id));
-        chips.appendChild(btn);
+        return btn;
+      }
+
+      if (colleagues.length < 10) {
+        var row = document.createElement('div');
+        row.className = 'sh-pick-row';
+        colleagues.forEach(function (u) { row.appendChild(makeChip(u)); });
+        chips.appendChild(row);
+        return;
+      }
+
+      var groups = {};
+      colleagues.forEach(function (u) {
+        var L = u.letter || lastNameLetter(u);
+        (groups[L] = groups[L] || []).push(u);
+      });
+      Object.keys(groups).sort().forEach(function (L) {
+        var head = document.createElement('div');
+        head.className = 'sh-del-letter';
+        head.textContent = L;
+        chips.appendChild(head);
+        var row = document.createElement('div');
+        row.className = 'sh-pick-row sh-del-letter-row';
+        groups[L].forEach(function (u) { row.appendChild(makeChip(u)); });
+        chips.appendChild(row);
       });
     });
   }

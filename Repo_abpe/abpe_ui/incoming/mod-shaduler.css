@@ -478,6 +478,12 @@ body.dark-mode #sh-m-erledigt{color:#6ee7b7}
   color:var(--abcona-blue,#163258);
 }
 .sh-delegate .sh-pick-row{margin:0}
+#sh-m-delegate-chips{display:flex;flex-direction:column;gap:4px}
+.sh-del-letter{
+  width:100%;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+  color:var(--abcona-blue,#163258);margin:6px 0 2px;
+}
+.sh-del-letter-row{margin:0 0 4px}
 .sh-delegate-hint{font-size:.76rem;color:var(--text-secondary,#64748b);margin-top:8px;line-height:1.35;text-align:left}
 .sh-delegate .muted{color:var(--text-secondary,#64748b);font-size:.8rem}
 .task .tx .sh-del-badge{

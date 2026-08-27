@@ -65,6 +65,10 @@ grep -q "api/team/" "$SRC_SH/urls.py" \
   || { echo "FAIL: urls.py ohne api/team/"; exit 1; }
 grep -q "renderDelegatePicker" "$SRC_JS" \
   || { echo "FAIL: mod-shaduler.js ohne renderDelegatePicker"; exit 1; }
+grep -q "lastNameLetter" "$SRC_JS" \
+  || { echo "FAIL: mod-shaduler.js ohne Nachnamen-Gruppierung"; exit 1; }
+grep -q "Benutzerverwaltung" "$SRC_SH/services/aufgaben_service.py" \
+  || { echo "FAIL: team_users nicht an Benutzerverwaltung gekoppelt"; exit 1; }
 grep -q "sh-m-delegate" "$SRC_JS" \
   || { echo "FAIL: mod-shaduler.js ohne sh-m-delegate"; exit 1; }
 grep -q "sh-delegate" "$SRC_CSS" \

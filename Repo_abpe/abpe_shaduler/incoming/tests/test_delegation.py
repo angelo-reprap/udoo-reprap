@@ -81,6 +81,21 @@ class AufgabeDelegationTests(TestCase):
         )
         self.assertEqual(r.status_code, 403)
 
+    def test_team_lists_portal_users_not_only_staff(self):
+        tg = User.objects.create_user(
+            username='tg', password='x', is_staff=False,
+            first_name='Tanja', last_name='Gramatte',
+        )
+        User.objects.create_user(username='svc_meetme_scheduler', password='x')
+        names = {u.username for u in aufgaben_service.team_users()}
+        self.assertIn('tg', names)
+        self.assertIn('verena', names)
+        self.assertNotIn('svc_meetme_scheduler', names)
+        brief = aufgaben_service.user_brief(tg)
+        self.assertEqual(brief['letter'], 'G')
+        self.assertEqual(brief['last_name'], 'Gramatte')
+        self.assertEqual(brief['display_name'], 'Tanja Gramatte')
+
     def test_stats_include_delegated(self):
         self.aufgabe.faellig_am = date.today()
         self.aufgabe.save(update_fields=['faellig_am'])
