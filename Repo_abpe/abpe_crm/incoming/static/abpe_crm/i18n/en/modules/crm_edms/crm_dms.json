@@ -41,6 +41,7 @@
     "edms_mails_platzhalter": "Email display will follow in a later step",
     "edms_msg_outlook": "Open this email (.msg) in Outlook",
     "edms_kein_preview": "No preview for this format — download",
+    "edms_datei_nicht_im_viewer": "PDF could not be loaded (file not reachable on the share)",
     "edms_vorschau_laedt": "Generating preview…",
     "edms_filter_alle_typen": "All types",
     "edms_filter_jahr": "Year",

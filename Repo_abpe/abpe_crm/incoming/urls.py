@@ -137,6 +137,7 @@ urlpatterns = [
     path('api/recording/<int:rec_id>/audio/',   views.api_recording_audio,  name='api_recording_audio'),
     path('api/recording/<int:rec_id>/assign/',  views.api_recording_assign, name='api_recording_assign'),
     path('api/recording/<int:rec_id>/delete/',  views.api_recording_delete, name='api_recording_delete'),
+    path('api/edms/file/<uuid:uuid>/',          views.api_edms_file,       name='api_edms_file'),
 
     # ============================================================
     # API Dokumente

@@ -26,6 +26,7 @@ const EDMS = {
         document: '/edms/api/document/',
         preview:  '/edms/api/preview/',
         file:     '/edms/api/file/',
+        edmsFile: '/crm/api/edms/file/',
         inbox:    '/edms/api/inbox/',
         doctypes: '/edms/api/doctypes/',
         personMails: '/edms/api/person/',
@@ -428,7 +429,7 @@ const EDMS = {
             .catch(() => { if (det) det.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' + this.t('fehler_beim_laden','Fehler') + '</div>'; });
     },
     _openDocFallback(id) {
-        this._showDocFrame(this.api.file + id + '/', id);
+        this._showPdf(id);
     },
     renderPersonen(people, skipTypeFilter) {
         const list = document.getElementById('edms-col1-list');
@@ -1133,12 +1134,20 @@ const EDMS = {
                         '</div>';
                 }
                 if (pfad) pfad.style.display = 'none';  // Pfad nur in Detail-Ansicht (Spalte 2)
-                this.renderVorschauTab(uuid, ext);
+                const verIds = [];
+                (d.versions || []).forEach(v => {
+                    const id = v && (v.uuid || v.id);
+                    if (id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(id))) {
+                        verIds.push(String(id));
+                    }
+                });
+                this._previewDocMeta = d;
+                this.renderVorschauTab(uuid, ext, verIds);
             })
             .catch(() => { if (body) body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' + this.t('fehler_beim_laden','Fehler beim Laden') + '</div>'; });
     },
 
-    renderVorschauTab(uuid, ext) {
+    renderVorschauTab(uuid, ext, extraIds) {
         const body = document.getElementById('edms-vorschau-body');
         if (!body) return;
         if (this.vorschauTab === 'mails') {
@@ -1148,9 +1157,6 @@ const EDMS = {
         // Dokument-Reiter zeigt aktuell einen Mail-Anhang (kein EDMS-Dokument)
         if (this.vorschauTab === 'dokument' && this._currentAttachment) {
             const a = this._currentAttachment;
-            // Alles über die Preview-URL versuchen (PDF/Office->PDF/Bilder).
-            // Bei 415 (nicht darstellbar) zeigt der iframe einen Fehler -> wir
-            // bieten zusätzlich immer den Download an.
             body.innerHTML =
                 '<iframe class="edms-vorschau-frame" src="' + a.preview + '" ' +
                 'onload="EDMS._attachFrameCheck(this)"></iframe>';
@@ -1158,9 +1164,7 @@ const EDMS = {
         }
         const office = ['doc', 'docx', 'rtf', 'odt'].includes(ext);
         if (ext === 'pdf') {
-            // Original-PDF streamen (Range-fähig). api/preview konvertiert
-            // und scheitert bei vielen Rechnungen/Scans mit JSON-Fehler.
-            this._showDocFrame(this.api.file + uuid + '/', uuid);
+            this._showPdf(uuid, extraIds);
             return;
         }
         if (!office) {
@@ -1169,32 +1173,83 @@ const EDMS = {
                 '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + uuid + '\')"><i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
             return;
         }
-        this._showDocFrame(this.api.preview + uuid + '/', uuid);
+        this._showPdf(uuid, extraIds, true);
     },
 
-    _showDocFrame(src, uuid) {
+    _pdfCandidateUrls(uuid, extraIds) {
+        const ids = [];
+        const add = id => {
+            if (!id) return;
+            const s = String(id);
+            if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s)) return;
+            if (ids.indexOf(s) < 0) ids.push(s);
+        };
+        add(uuid);
+        (extraIds || []).forEach(add);
+        const urls = [];
+        ids.forEach(id => {
+            // Preview zuerst: AID-CVs liegen oft nur als gecachte Vorschau-PDF vor.
+            urls.push(this.api.preview + id + '/');
+            // CRM-Streamer: Originalbytes, SAMEORIGIN, Mount-Fallbacks (office/public).
+            urls.push(this.api.edmsFile + id + '/');
+            urls.push(this.api.file + id + '/');
+            urls.push(this.api.file + id + '/?download=1');
+        });
+        return urls;
+    },
+
+    _revokePdfBlob() {
+        if (this._pdfBlobUrl) {
+            try { URL.revokeObjectURL(this._pdfBlobUrl); } catch (e) {}
+            this._pdfBlobUrl = '';
+        }
+    },
+
+    _looksLikePdf(buf, contentType) {
+        const ct = (contentType || '').toLowerCase();
+        if (ct.indexOf('application/pdf') >= 0) return true;
+        if (ct.indexOf('json') >= 0 || ct.indexOf('text/html') >= 0) return false;
+        if (!buf || buf.byteLength < 5) return false;
+        const head = String.fromCharCode.apply(null, new Uint8Array(buf.slice(0, 5)));
+        return head === '%PDF-';
+    },
+
+    _showPdf(uuid, extraIds, officePreview) {
         const body = document.getElementById('edms-vorschau-body');
         if (!body) return;
-        body.innerHTML = '<iframe class="edms-vorschau-frame" src="' + src + '" ' +
-            'onload="EDMS._docFrameCheck(this, \'' + this._esc(uuid || '') + '\')"></iframe>';
-    },
-
-    _docFrameCheck(frame, uuid) {
-        try {
-            const doc = frame.contentDocument;
-            const txt = (doc && doc.body && doc.body.innerText) ? doc.body.innerText.trim() : '';
-            if (!txt || txt.indexOf('"ok": false') < 0) return;
-            const fileUrl = this.api.file + uuid + '/';
-            if (uuid && frame.src.indexOf('/preview/') >= 0) {
-                frame.src = fileUrl;
+        this._revokePdfBlob();
+        body.innerHTML = '<div class="crm-list-loading"><i class="bi bi-arrow-repeat"></i> ' + this.t('edms_vorschau_laedt','Vorschau wird erzeugt…') + '</div>';
+        const urls = officePreview
+            ? [this.api.preview + uuid + '/'].concat(this._pdfCandidateUrls(uuid, extraIds))
+            : this._pdfCandidateUrls(uuid, extraIds);
+        const tryNext = (i) => {
+            if (i >= urls.length) {
+                const meta = this._previewDocMeta || {};
+                const win = meta.win_path || meta.unc_path || '';
+                const pathHint = win
+                    ? '<div class="edms-vorschau-pathhint" style="font-size:11px;color:var(--text-muted);max-width:90%;word-break:break-all">' +
+                      this._esc(win) + '</div>'
+                    : '';
+                body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' +
+                    this.t('edms_datei_nicht_im_viewer', 'PDF konnte nicht geladen werden (Datei auf dem Share nicht erreichbar)') +
+                    pathHint +
+                    '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + this._esc(uuid) + '\')">' +
+                    '<i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
                 return;
             }
-            const body = document.getElementById('edms-vorschau-body');
-            if (body) body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' +
-                this.t('edms_kein_preview', 'Keine Vorschau für dieses Format — herunterladen') +
-                '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + this._esc(uuid) + '\')">' +
-                '<i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
-        } catch (e) { /* cross-origin — Browser zeigt das PDF selbst */ }
+            fetch(urls[i], { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                .then(r => r.arrayBuffer().then(buf => ({ r: r, buf: buf })))
+                .then(pack => {
+                    if (!pack.r.ok) { tryNext(i + 1); return; }
+                    const ct = pack.r.headers.get('content-type') || '';
+                    if (!this._looksLikePdf(pack.buf, ct)) { tryNext(i + 1); return; }
+                    const blob = new Blob([pack.buf], { type: 'application/pdf' });
+                    this._pdfBlobUrl = URL.createObjectURL(blob);
+                    body.innerHTML = '<iframe class="edms-vorschau-frame" src="' + this._pdfBlobUrl + '"></iframe>';
+                })
+                .catch(() => tryNext(i + 1));
+        };
+        tryNext(0);
     },
 
     // Mail-Anhang im Dokument-Reiter öffnen (wechselt automatisch dorthin)
@@ -1378,11 +1433,15 @@ const EDMS = {
     _esc(s) { return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); },
 
 
-    download(uuid) { window.open(this.api.file + uuid + '/?download=1', '_blank'); },
-    openTab(uuid)  {
-        const fname = ((document.querySelector('.edms-vorschau-format') || {}).textContent || '').toLowerCase();
-        const url = (fname === 'pdf') ? (this.api.file + uuid + '/') : (this.api.preview + uuid + '/');
-        window.open(url, '_blank');
+    download(uuid) {
+        window.open(this.api.edmsFile + uuid + '/?download=1', '_blank');
+    },
+    openTab(uuid) {
+        if (this._pdfBlobUrl) {
+            window.open(this._pdfBlobUrl, '_blank');
+            return;
+        }
+        window.open(this.api.edmsFile + uuid + '/', '_blank');
     },
 
     copyPath(btn, path) {
