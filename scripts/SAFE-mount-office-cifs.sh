@@ -96,6 +96,10 @@ fi
 if awk -v p="$OFFICE_MNT" '$2==p && $3=="cifs" {found=1} END{exit !found}' /proc/mounts; then
   echo "Schon CIFS auf $OFFICE_MNT — kein zweites Mount"
 else
+  if command -v systemctl >/dev/null; then
+    systemctl daemon-reload
+    echo "OK systemctl daemon-reload"
+  fi
   if [[ -d "$OFFICE_MNT/abpe" ]]; then
     if [[ -z "$(ls -A "$OFFICE_MNT/abpe" 2>/dev/null)" ]]; then
       rmdir "$OFFICE_MNT/abpe" 2>/dev/null && echo "OK leeres $OFFICE_MNT/abpe entfernt"
@@ -104,9 +108,15 @@ else
     fi
   fi
   mkdir -p "$OFFICE_MNT"
-  echo "mount -t cifs $TARGET $OFFICE_MNT -o $MP_OPTS"
-  mount -t cifs "$TARGET" "$OFFICE_MNT" -o "$MP_OPTS"
-  rc=$?
+  if grep -E "^[^#]*[[:space:]]$OFFICE_MNT[[:space:]]" /etc/fstab >/dev/null 2>&1; then
+    echo "mount $OFFICE_MNT  (fstab)"
+    mount "$OFFICE_MNT"
+    rc=$?
+  else
+    echo "mount -t cifs $TARGET $OFFICE_MNT -o $MP_OPTS"
+    mount -t cifs "$TARGET" "$OFFICE_MNT" -o "$MP_OPTS"
+    rc=$?
+  fi
   if [[ "$rc" -ne 0 ]]; then
     echo "FAIL mount exit $rc — Share-Name prüfen (office/Office/O) oder Passwort"
     echo "Liste: smbclient -L //$NAS -U office"
@@ -123,6 +133,7 @@ ls -l "$FILE" 2>&1
 echo
 if [[ -f "$FILE" ]]; then
   echo "OK Datei sichtbar"
+  echo "Browser: Ctrl+F5 auf /crm/dms/ → Rechnung Hotel Schlossberg"
 else
   echo "Mount ok, Datei noch nicht am erwarteten Relativpfad — ls -lb $OFFICE_MNT | head"
   ls -lb "$OFFICE_MNT" | head -25
@@ -130,6 +141,8 @@ fi
 
 if grep -q "$OFFICE_MNT" /etc/fstab 2>/dev/null; then
   echo "fstab hat bereits $OFFICE_MNT"
+  echo "Nach Reboot: systemctl daemon-reload && mount $OFFICE_MNT"
+  echo "(fstab hat nofail — Boot schluckt Mount-Fehler still)"
 else
   echo
   echo "Persistenz — Zeile nach Prüfung in /etc/fstab (nicht automatisch geschrieben):"
