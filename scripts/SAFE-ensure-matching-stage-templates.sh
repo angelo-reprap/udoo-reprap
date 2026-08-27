@@ -3,8 +3,9 @@
 #
 # ucs5:
 #   cd /mnt/public/udoo-reprap
-#   git pull origin cursor/matching-stage-mail-templates-1532
+#   git fetch origin && git pull origin cursor/email-matching-layout-ee01
 #   bash scripts/SAFE-ensure-matching-stage-templates.sh
+#   Browser: Ctrl+F5 → Email Studio / Matching-Mail neu öffnen
 #
 set -euo pipefail
 

@@ -1,17 +1,77 @@
 #!/usr/bin/env python
 """Upsert Email-Studio-Vorlagen für Matching-Kanban-Stufen.
 
-Eine Quelle für alle Stage-Identifier (auch matching_outreach_wizard).
-Nicht parallel das alte ensure-matching-outreach-wizard-template.py pflegen.
+Einheitliches Layout (v2):
+  Header blau → Anrede → Inhalt/Bausteine → Schluss → Signatur
+Kein Firmen-/Kundenname (Vertraulichkeit) — Signatur im Composer.
 
 Identifier = STAGE_TEMPLATE_DEFAULTS in outreach_wizard.py.
-Kein Firmen-/Kundenname (Vertraulichkeit) — Signatur im Composer.
 
 Live (ucs5):
   cd /mnt/public/udoo-reprap
+  git pull origin cursor/email-matching-layout-ee01
   bash scripts/SAFE-ensure-matching-stage-templates.sh
 """
 from apps.abpe_email_studio.models import EmailTemplate, TemplateStatus, SenderMode
+
+_FONT = (
+    "font-family:Arial,sans-serif;font-size:14px;line-height:1.5;"
+    "color:#333333;"
+)
+_HEADER = "{{block:abcona_header_blau}}"
+_SIGN = "{{block:signature}}"
+
+
+def _p(inner: str) -> str:
+    return f'<p style="{_FONT}margin:0 0 12px 0;">{inner}</p>'
+
+
+def _facts(rows: list[tuple[str, str]]) -> str:
+    lines = "<br>\n".join(
+        f"<strong>{label}:</strong> {value}" for label, value in rows
+    )
+    return (
+        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"'
+        ' border="0" style="margin:0 0 14px 0;">'
+        f'<tr><td style="background-color:#e8f0f8;padding:12px 14px;{_FONT}">'
+        f"{lines}</td></tr></table>"
+    )
+
+
+def _ul(items: list[str]) -> str:
+    lis = "".join(
+        f'<li style="{_FONT}margin:0 0 4px 0;">{item}</li>' for item in items
+    )
+    return f'<ul style="margin:0 0 14px 18px;padding:0;">{lis}</ul>'
+
+
+def _mail(*parts: str) -> str:
+    body = "\n".join(p for p in parts if p)
+    return f"{_HEADER}\n{body}\n{_p('Mit freundlichen Grüßen')}\n{_SIGN}\n"
+
+
+FACTS_PROJEKT = _facts([
+    ("Was", "{project}"),
+    ("Wo", "{location}"),
+    ("Wann (Start)", "{start}"),
+    ("Laufzeit", "{duration}"),
+    ("Auslastung", "{workload}"),
+    ("Remote", "{remote}"),
+])
+
+FACTS_KOMPAKT = _facts([
+    ("Was", "{project}"),
+    ("Wo", "{location}"),
+    ("Wann (Start)", "{start}"),
+    ("Remote", "{remote}"),
+])
+
+FACTS_START = _facts([
+    ("Projekt", "{project}"),
+    ("Start", "{start}"),
+    ("Ort", "{location}"),
+    ("Remote", "{remote}"),
+])
 
 # (identifier, name, subject, html_body, text_body, description)
 TEMPLATES = [
@@ -19,25 +79,24 @@ TEMPLATES = [
         "matching_outreach_wizard",
         "Matching — Outreach-Wizard Anschreiben",
         "Anfrage {project} — passt das für Sie?",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:</p>
-<p><strong>Was:</strong> {project}<br>
-<strong>Wo:</strong> {location}<br>
-<strong>Wann (Start):</strong> {start}<br>
-<strong>Laufzeit:</strong> {duration}<br>
-<strong>Auslastung:</strong> {workload}<br>
-<strong>Remote:</strong> {remote}</p>
-<p>{description}</p>
-<p><strong>Gesucht u. a.:</strong> {required_skills}</p>
-<p><strong>Warum wir Sie ansprechen:</strong><br>{why_short}</p>
-<p>Über eine kurze Rückmeldung freuen wir uns.</p>
-<p>Mit freundlichen Grüßen</p>
-{{block:signature}}
-""",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("wir haben eine Anfrage, die gut zu Ihrem Profil passen könnte."),
+            FACTS_PROJEKT,
+            _p("{description}"),
+            _p("<strong>Gesucht u.&nbsp;a.:</strong> {required_skills}"),
+            _p("<strong>Warum wir Sie ansprechen:</strong><br>{why_short}"),
+            _p("Bitte kurz:"),
+            _ul([
+                "Interesse?",
+                "Verfügbar ab {start}?",
+                "Rahmen (Ort / Remote / Auslastung) passt?",
+            ]),
+            _p("Über eine kurze Rückmeldung freuen wir uns."),
+        ),
         """Guten Tag {first_name},
 
-wir möchten Sie persönlich zu folgender Kundenanfrage anfragen:
+wir haben eine Anfrage, die gut zu Ihrem Profil passen könnte.
 
 Was: {project}
 Wo: {location}
@@ -53,162 +112,179 @@ Gesucht u. a.: {required_skills}
 Warum wir Sie ansprechen:
 {why_short}
 
+Bitte kurz:
+- Interesse?
+- Verfügbar ab {start}?
+- Rahmen (Ort / Remote / Auslastung) passt?
+
 Über eine kurze Rückmeldung freuen wir uns.
 
 Mit freundlichen Grüßen
 """,
-        "Shortlist / Erstanschreiben. Kein Firmenname.",
+        "Shortlist / Erstanschreiben. Kein Firmenname. Layout v2.",
     ),
     (
         "matching_followup_availability",
         "Matching — Nachfrage Interesse / Verfügbarkeit",
-        "Nachfrage Verfügbarkeit — {project}",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>kurze Nachfrage zu unserer Anfrage <strong>{project}</strong>:</p>
-<p>Besteht Interesse, und wann wären Sie verfügbar (ab Datum / Stunden pro Woche)?</p>
-<p>Standort: {location} · Start: {start} · Laufzeit: {duration} · Remote: {remote}</p>
-<p>Über eine kurze Rückmeldung freuen wir uns.</p>
-<p>Mit freundlichen Grüßen</p>
-{{block:signature}}
-""",
+        "Nachfrage — {project}",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("kurze Nachfrage zu unserer Anfrage <strong>{project}</strong>."),
+            _p("Besteht weiterhin Interesse — und ab wann wären Sie verfügbar "
+               "(Datum / Tage pro Woche)?"),
+            FACTS_KOMPAKT,
+            _p("Über eine kurze Rückmeldung freuen wir uns."),
+        ),
         """Guten Tag {first_name},
 
-kurze Nachfrage zu unserer Anfrage {project}:
+kurze Nachfrage zu unserer Anfrage {project}.
 
-Besteht Interesse, und wann wären Sie verfügbar (ab Datum / Stunden pro Woche)?
+Besteht weiterhin Interesse — und ab wann wären Sie verfügbar (Datum / Tage pro Woche)?
 
-Standort: {location} · Start: {start} · Laufzeit: {duration} · Remote: {remote}
+Was: {project}
+Wo: {location}
+Wann (Start): {start}
+Remote: {remote}
 
 Über eine kurze Rückmeldung freuen wir uns.
 
 Mit freundlichen Grüßen
 """,
-        "Kanban: Angeschrieben → Interesse. Follow-up Verfügbarkeit.",
+        "Kanban: Angeschrieben. Follow-up Interesse/Verfügbarkeit. Layout v2.",
     ),
     (
         "matching_present_to_client",
         "Matching — Beim Kunden vorstellen",
         "Vorstellung — {project}",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>vielen Dank für Ihr Interesse an unserer Anfrage <strong>{project}</strong>.</p>
-<p>Wir möchten Sie gerne dem Kunden als passenden Kandidaten vorstellen.</p>
-<p><strong>Was:</strong> {project}<br>
-<strong>Wo:</strong> {location}<br>
-<strong>Wann (Start):</strong> {start}<br>
-<strong>Laufzeit:</strong> {duration}<br>
-<strong>Remote:</strong> {remote}</p>
-<p>Dürfen wir Ihr Profil weiterleiten?</p>
-<p>Mit freundlichen Grüßen</p>
-{{block:signature}}
-""",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("vielen Dank für Ihr Interesse an <strong>{project}</strong>."),
+            _p("Wir möchten Ihr Profil dem Auftraggeber vorstellen."),
+            FACTS_KOMPAKT,
+            _p("Dürfen wir Ihr Profil weiterleiten?"),
+        ),
         """Guten Tag {first_name},
 
-vielen Dank für Ihr Interesse an unserer Anfrage {project}.
+vielen Dank für Ihr Interesse an {project}.
 
-Wir möchten Sie gerne dem Kunden als passenden Kandidaten vorstellen.
+Wir möchten Ihr Profil dem Auftraggeber vorstellen.
 
 Was: {project}
 Wo: {location}
 Wann (Start): {start}
-Laufzeit: {duration}
 Remote: {remote}
 
 Dürfen wir Ihr Profil weiterleiten?
 
 Mit freundlichen Grüßen
 """,
-        "Kanban: Interesse → Beim Kunden. Einverständnis zur Vorstellung.",
+        "Kanban: Interesse → Beim Kunden. Einverständnis, kein Kundenname. Layout v2.",
     ),
     (
         "matching_interview_coord",
         "Matching — Interview koordinieren",
-        "Interview-Koordination — {project}",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>zu unserer Anfrage <strong>{project}</strong> möchten wir Sie gerne kennenlernen.</p>
-<p>Welche Termine passen Ihnen (Datum/Uhrzeit, Telefon oder Video)?</p>
-<p>Mit freundlichen Grüßen</p>
-{{block:signature}}
-""",
+        "Kennlerntermin — {project}",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("zu <strong>{project}</strong> möchten wir Sie gerne kennenlernen."),
+            FACTS_KOMPAKT,
+            _p("Welche Termine passen Ihnen (Datum / Uhrzeit, Telefon oder Video)?"),
+        ),
         """Guten Tag {first_name},
 
-zu unserer Anfrage {project} möchten wir Sie gerne kennenlernen.
+zu {project} möchten wir Sie gerne kennenlernen.
 
-Welche Termine passen Ihnen (Datum/Uhrzeit, Telefon oder Video)?
+Was: {project}
+Wo: {location}
+Wann (Start): {start}
+Remote: {remote}
+
+Welche Termine passen Ihnen (Datum / Uhrzeit, Telefon oder Video)?
 
 Mit freundlichen Grüßen
 """,
-        "Kanban: Beim Kunden → Interview.",
+        "Kanban: Beim Kunden → Interview. Layout v2.",
     ),
     (
         "matching_placement_start",
         "Matching — Vermittlung / Startabstimmung",
-        "Vermittlung — Startabstimmung {project}",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>zur Vermittlung <strong>{project}</strong>:</p>
-<p>Bitte teilen Sie uns Ihren Wunsch-Starttermin und relevante Rahmenbedingungen mit.</p>
-<p>Mit freundlichen Grüßen</p>
-{{block:signature}}
-""",
+        "Startabstimmung — {project}",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("zur Vermittlung <strong>{project}</strong> stimmen wir den Start ab."),
+            FACTS_PROJEKT,
+            _p("Bitte nennen Sie uns:"),
+            _ul([
+                "Wunsch-Starttermin",
+                "verfügbare Tage pro Woche",
+                "weitere Rahmenbedingungen",
+            ]),
+        ),
         """Guten Tag {first_name},
 
-zur Vermittlung {project}:
+zur Vermittlung {project} stimmen wir den Start ab.
 
-Bitte teilen Sie uns Ihren Wunsch-Starttermin und relevante Rahmenbedingungen mit.
+Was: {project}
+Wo: {location}
+Wann (Start): {start}
+Laufzeit: {duration}
+Auslastung: {workload}
+Remote: {remote}
+
+Bitte nennen Sie uns:
+- Wunsch-Starttermin
+- verfügbare Tage pro Woche
+- weitere Rahmenbedingungen
 
 Mit freundlichen Grüßen
 """,
-        "Kanban: Interview → Vermittelt.",
+        "Kanban: Interview → Vermittelt. Layout v2.",
     ),
     (
         "matching_start_info",
         "Matching — Startinfo",
         "Startinfo — {project}",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>zur Aufnahme bei <strong>{project}</strong>:</p>
-<ul>
-<li>Start: {start}</li>
-<li>Ort / Remote: {location}</li>
-<li>Ansprechpartner: bitte melden Sie sich bei Bedarf über uns.</li>
-</ul>
-<p>Viel Erfolg und viele Grüße</p>
-{{block:signature}}
-""",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("zum Start von <strong>{project}</strong>:"),
+            FACTS_START,
+            _p("Ansprechpartner vor Ort klären wir über uns. "
+               "Viel Erfolg — bei Fragen sind wir erreichbar."),
+        ),
         """Guten Tag {first_name},
 
-zur Aufnahme bei {project}:
-• Start: {start}
-• Ort / Remote: {location}
-• Ansprechpartner: bitte melden Sie sich bei Bedarf über uns.
+zum Start von {project}:
 
-Viel Erfolg und viele Grüße
+Projekt: {project}
+Start: {start}
+Ort: {location}
+Remote: {remote}
+
+Ansprechpartner vor Ort klären wir über uns. Viel Erfolg — bei Fragen sind wir erreichbar.
+
+Mit freundlichen Grüßen
 """,
-        "Kanban: Vermittelt — Startinfo.",
+        "Kanban: Vermittelt — Startinfo. Layout v2.",
     ),
     (
         "matching_rejection",
         "Matching — Absage",
         "Rückmeldung zur Anfrage {project}",
-        """{{block:abcona_header_blau}}
-<p>Guten Tag {first_name},</p>
-<p>vielen Dank für Ihr Interesse an <strong>{project}</strong>.</p>
-<p>Leider hat sich die Auswahl anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.</p>
-<p>Freundliche Grüße</p>
-{{block:signature}}
-""",
+        _mail(
+            _p("Guten Tag {first_name},"),
+            _p("vielen Dank für Ihr Interesse an <strong>{project}</strong>."),
+            _p("Die Auswahl ist anders ausgefallen. "
+               "Wir kommen gerne wieder auf Sie zu, wenn etwas Passendes ansteht."),
+        ),
         """Guten Tag {first_name},
 
 vielen Dank für Ihr Interesse an {project}.
 
-Leider hat sich die Auswahl anderweitig entschieden. Wir melden uns gerne bei passenden Folgeanfragen.
+Die Auswahl ist anders ausgefallen. Wir kommen gerne wieder auf Sie zu, wenn etwas Passendes ansteht.
 
-Freundliche Grüße
+Mit freundlichen Grüßen
 """,
-        "Kanban: Absage.",
+        "Kanban: Absage. Header bleibt blau. Layout v2.",
     ),
 ]
 
@@ -254,4 +330,4 @@ for ident, name, subject, html, text, desc in TEMPLATES:
     )
     print(("CREATED" if created else "UPDATED"), ident, "pk=", tpl.pk, "|", tpl.name)
 
-print("OK —", len(TEMPLATES), "Matching-Stage-Vorlagen")
+print("OK —", len(TEMPLATES), "Matching-Stage-Vorlagen (Layout v2)")
