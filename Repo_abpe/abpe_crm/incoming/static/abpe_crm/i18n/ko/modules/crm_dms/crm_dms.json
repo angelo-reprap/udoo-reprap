@@ -38,9 +38,9 @@
     "edms_archivieren": "보관",
     "edms_wiederherstellen": "복원",
     "edms_als_geprueft": "확인됨으로 표시",
-    "edms_mails_platzhalter": "메일 표시는 이후 단계에서 제공됩니다",
+    "edms_mails_platzhalter": "메일 표시는 추후 단계에서 제공됩니다",
     "edms_msg_outlook": "Outlook에서 이 이메일(.msg) 열기",
-    "edms_kein_preview": "이 형식의 미리보기를 지원하지 않습니다 — 다운로드하세요",
+    "edms_kein_preview": "이 형식의 미리보기를 지원하지 않습니다 — 다운로드",
     "edms_vorschau_laedt": "미리보기 생성 중…",
     "edms_filter_alle_typen": "모든 유형",
     "edms_filter_jahr": "연도",
@@ -59,7 +59,7 @@
     "edms_kein_owner": "소유자 없음",
     "edms_dok_details": "문서 세부 정보",
     "edms_reiter_aufnahmen": "녹음",
-    "edms_aufnahmen_platzhalter": "통화 녹음은 이후 단계에서 제공됩니다",
+    "edms_aufnahmen_platzhalter": "통화 녹음은 추후 단계에서 제공됩니다",
     "edms_format_alle": "형식: 전체",
     "edms_format_bild": "이미지",
     "edms_sort_neu": "날짜: 최신순",
@@ -85,9 +85,5 @@
     "edms_status_aktiv": "상태: 유효",
     "edms_status_archiv": "보관됨",
     "edms_status_alle": "전체 (보관 포함)",
-    "edms_mode_archiv": "보관소",
-    "edms_notizen": "메모",
-    "edms_mails": "메일",
-    "edms_keine_notizen": "메모 없음",
-    "edms_att_kein_preview": "이 형식은 표시할 수 없습니다"
+    "edms_mode_archiv": "보관소"
 }

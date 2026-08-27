@@ -69,11 +69,11 @@
     "edms_owner": "Eigenaar",
     "edms_im_posteingang": "nog toewijzen",
     "edms_win_pfad": "Windows-pad",
-    "edms_art": "Soort",
+    "edms_art": "Type",
     "edms_format": "Formaat",
     "edms_dokumentdatum": "Documentdatum",
     "edms_groesse": "Grootte",
-    "edms_aufbewahrung": "Bewaartermijn",
+    "edms_aufbewahrung": "Bewaar-termijn",
     "edms_gewerk": "Vakgebied",
     "edms_status_archiviert": "gearchiveerd",
     "zurueck": "Terug",
@@ -85,9 +85,5 @@
     "edms_status_aktiv": "Status: geldige",
     "edms_status_archiv": "Gearchiveerd",
     "edms_status_alle": "Alle (incl. archief)",
-    "edms_mode_archiv": "Archief",
-    "edms_notizen": "Notities",
-    "edms_mails": "E-mails",
-    "edms_keine_notizen": "Geen notities",
-    "edms_att_kein_preview": "Dit formaat kan niet worden weergegeven"
+    "edms_mode_archiv": "Archief"
 }

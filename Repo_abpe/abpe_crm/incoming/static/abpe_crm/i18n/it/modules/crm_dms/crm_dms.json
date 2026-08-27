@@ -27,7 +27,7 @@
     "edms_posteingang_modus": "Posta in arrivo",
     "edms_dokument_waehlen": "Seleziona documento",
     "edms_treffer_waehlen": "Seleziona risultato nell'elenco",
-    "edms_keine_akte": "Nessun fascicolo (Posta in arrivo)",
+    "edms_keine_akte": "Nessun fascicolo (posta in arrivo)",
     "edms_pfad_kopieren": "Copia percorso",
     "edms_pfad_kopiert": "Percorso copiato",
     "edms_in_crm_oeffnen": "Apri nel CRM",
@@ -78,16 +78,12 @@
     "edms_status_archiviert": "archiviato",
     "zurueck": "Indietro",
     "edms_inbox_zuordnen": "Documenti generali — assegna",
-    "edms_inbox_hint": "Questo documento non ha ancora un proprietario. Dove va?",
+    "edms_inbox_hint": "Questo documento non ha ancora un proprietario. A cosa appartiene?",
     "edms_inbox_person": "Assegna a persona/azienda",
     "edms_inbox_abcona": "Come documento abcona",
     "edms_inbox_done": "Come completato (nessun proprietario)",
     "edms_status_aktiv": "Stato: validi",
     "edms_status_archiv": "Archiviati",
     "edms_status_alle": "Tutti (incl. archivio)",
-    "edms_mode_archiv": "Archivio",
-    "edms_notizen": "Note",
-    "edms_mails": "Email",
-    "edms_keine_notizen": "Nessuna nota",
-    "edms_att_kein_preview": "Questo formato non può essere visualizzato"
+    "edms_mode_archiv": "Archivio"
 }

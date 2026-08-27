@@ -85,9 +85,5 @@
     "edms_status_aktiv": "Status: gültige",
     "edms_status_archiv": "Archivierte",
     "edms_status_alle": "Alle (inkl. Archiv)",
-    "edms_mode_archiv": "Archiv",
-    "edms_notizen": "Notizen",
-    "edms_mails": "Mails",
-    "edms_keine_notizen": "Keine Notizen",
-    "edms_att_kein_preview": "Dieses Format kann nicht angezeigt werden"
+    "edms_mode_archiv": "Archiv"
 }
