@@ -1238,8 +1238,15 @@ const EDMS = {
                     '<div class="edms-vorschau-pathhint" style="font-size:11px;color:var(--text-muted);max-width:90%;word-break:break-all">' +
                     this._esc(p) + '</div>'
                 ).join('');
+                const sib = (err.walk_siblings || []).slice(0, 8).map(s => this._esc(s)).join(', ');
+                const walkHint = err.walk_missing
+                    ? '<div class="edms-vorschau-pathhint" style="font-size:11px;color:var(--text-muted);max-width:90%">bricht ab bei: <b>' +
+                      this._esc(err.walk_missing) + '</b>' +
+                      (err.walk_last_ok ? ' (letzter Ordner: ' + this._esc(err.walk_last_ok) + ')' : '') +
+                      (sib ? '<br>daneben: ' + sib : '') + '</div>'
+                    : '';
                 body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' +
-                    msg + hint + pathHint +
+                    msg + hint + pathHint + walkHint +
                     '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + this._esc(uuid) + '\')">' +
                     '<i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
                 return;

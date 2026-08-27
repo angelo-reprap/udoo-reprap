@@ -38,8 +38,12 @@ def _settings_mounts():
     except Exception:
         pass
     ordered = []
-    for p in (office, public, '/mnt/office', '/mnt/public'):
+    for p in (office, public, '/mnt/office', '/mnt/public', '/mnt/O', '/mnt/o'):
         if p and p not in ordered:
+            ordered.append(p)
+    for extra in ('abpe', 'abcona'):
+        p = os.path.join(office, extra)
+        if p not in ordered:
             ordered.append(p)
     return {'office': office, 'public': public, 'all': ordered}
 
@@ -97,6 +101,44 @@ def _join_under(root, rel):
     return None
 
 
+def _rel_variants(rest):
+    """Typische Abweichungen: Share-Root ist schon Berater/, oder abpe/-Prefix."""
+    if not rest:
+        return []
+    out = []
+
+    def add(x):
+        x = (x or '').strip().strip('/')
+        if x and x not in out:
+            out.append(x)
+
+    add(rest)
+    parts = [p for p in rest.split('/') if p]
+    if parts and parts[0].lower() == 'berater' and len(parts) > 1:
+        add('/'.join(parts[1:]))
+    for pre in ('abpe', 'abcona', 'Dokumente', 'DMS', 'office'):
+        add(pre + '/' + rest)
+        if parts:
+            add(pre + '/' + '/'.join(parts[1:] if parts[0].lower() == 'berater' else parts))
+    return out
+
+
+def _match_child(current, part):
+    try:
+        names = os.listdir(current)
+    except OSError:
+        return None, []
+    match = next((n for n in names if n == part), None)
+    if match is None:
+        match = next((n for n in names if n.lower() == part.lower()), None)
+    if match is None:
+        want = _norm_part(part)
+        match = next((n for n in names if _norm_part(n) == want), None)
+    interesting = [n for n in names if _norm_part(n)[:8] == _norm_part(part)[:8] or '&' in n or 'aktiv' in n.lower()]
+    siblings = interesting[:15] or names[:15]
+    return match, siblings
+
+
 def _ci_resolve(root, rel):
     """Pfad unter root finden, Ordnernamen case-insensitive / '&' vs 'und'."""
     joined = _join_under(root, rel)
@@ -111,16 +153,7 @@ def _ci_resolve(root, rel):
     if any(p == '..' for p in parts):
         return None
     for i, part in enumerate(parts):
-        try:
-            names = os.listdir(current)
-        except OSError:
-            return None
-        match = next((n for n in names if n == part), None)
-        if match is None:
-            match = next((n for n in names if n.lower() == part.lower()), None)
-        if match is None:
-            want = _norm_part(part)
-            match = next((n for n in names if _norm_part(n) == want), None)
+        match, _sib = _match_child(current, part)
         if match is None:
             return None
         nxt = os.path.normpath(os.path.join(current, match))
@@ -132,6 +165,71 @@ def _ci_resolve(root, rel):
             return current if os.path.isfile(current) else None
         if not os.path.isdir(current):
             return None
+    return None
+
+
+def _diagnose_walk(root, rest):
+    """Welches Pfadstück bricht ab? Siblings helfen bei '&'/Tippvarianten."""
+    info = {
+        'root': root,
+        'last_ok': root,
+        'missing': '',
+        'siblings': [],
+    }
+    current = os.path.normpath(root)
+    mount_norm = current
+    parts = [p for p in (rest or '').replace('\\', '/').split('/') if p and p != '.']
+    for i, part in enumerate(parts):
+        match, siblings = _match_child(current, part)
+        if match is None:
+            info['missing'] = part
+            info['siblings'] = siblings
+            info['last_ok'] = current
+            return info
+        nxt = os.path.normpath(os.path.join(current, match))
+        if not (nxt == mount_norm or nxt.startswith(mount_norm + os.sep)):
+            info['missing'] = part
+            info['last_ok'] = current
+            return info
+        current = nxt
+        info['last_ok'] = current
+        last = i == len(parts) - 1
+        if last and not os.path.isfile(current):
+            info['missing'] = part
+            info['siblings'] = siblings
+            return info
+        if not last and not os.path.isdir(current):
+            info['missing'] = part
+            return info
+    return info
+
+
+def _find_filename_under(start, filename, mount_root, max_depth=4):
+    if not start or not filename or not os.path.isdir(start):
+        return None
+    start = os.path.normpath(start)
+    mount_norm = os.path.normpath(mount_root or start)
+    target = filename.lower()
+    try:
+        rel_depth = os.path.relpath(start, mount_norm).count(os.sep) + (0 if os.path.relpath(start, mount_norm) == '.' else 1)
+    except ValueError:
+        rel_depth = 0
+    if rel_depth < 2:
+        return None
+    for dirpath, dirnames, filenames in os.walk(start):
+        dnorm = os.path.normpath(dirpath)
+        if not (dnorm == mount_norm or dnorm.startswith(mount_norm + os.sep)):
+            dirnames[:] = []
+            continue
+        depth = os.path.relpath(dnorm, start).count(os.sep)
+        if os.path.relpath(dnorm, start) == '.':
+            depth = 0
+        if depth >= max_depth:
+            dirnames[:] = []
+            continue
+        for fn in filenames:
+            if fn.lower() == target:
+                return os.path.join(dnorm, fn)
     return None
 
 
@@ -200,11 +298,12 @@ def _resolve_abs_path(version):
             if root in seen_roots:
                 continue
             seen_roots.append(root)
-            if rest:
-                candidates.append(_join_under(root, rest))
-            candidates.append(_join_under(root, raw))
-            if rest:
-                traces.append((root, rest))
+            variants = _rel_variants(rest) if rest else []
+            if not variants and raw:
+                variants = _rel_variants(raw) or [raw]
+            for var in variants:
+                candidates.append(_join_under(root, var))
+                traces.append((root, var))
 
     seen = set()
     ordered = []
@@ -221,6 +320,13 @@ def _resolve_abs_path(version):
 
     for root, rest in traces:
         found = _ci_resolve(root, rest)
+        if found:
+            return found, ordered, None
+
+    filename = getattr(version, 'filename', '') or ''
+    for root, rest in traces:
+        diag = _diagnose_walk(root, rest)
+        found = _find_filename_under(diag.get('last_ok'), filename, root)
         if found:
             return found, ordered, None
 
@@ -290,6 +396,24 @@ def _missing_payload(version, tried, access_exc=None):
     office = _probe_mount(mounts['office'])
     public = _probe_mount(mounts['public'])
     guess = _linux_guess(version)
+    walk = None
+    rest = None
+    off = os.path.normpath(mounts['office'])
+    if guess:
+        g = os.path.normpath(guess)
+        if g == off or g.startswith(off + os.sep):
+            rel = os.path.relpath(g, off)
+            rest = None if rel == '.' else rel
+        else:
+            rest, _hint = _parse_win_or_rel(guess)
+    if not rest:
+        for raw in _collect_raw_paths(version):
+            r, _h = _parse_win_or_rel(raw)
+            if r:
+                rest = r
+                break
+    if rest:
+        walk = _diagnose_walk(mounts['office'], rest)
     perm = isinstance(access_exc, PermissionError) or (
         office['exists'] and not office['listdir_ok']
     )
@@ -305,6 +429,14 @@ def _missing_payload(version, tried, access_exc=None):
         hint = 'Mount /mnt/office fehlt. O:-Rechnungen sind ohne diesen Mount nicht erreichbar.'
         status = 404
         error = 'Office-Share nicht gemountet'
+    elif walk and walk.get('missing'):
+        hint = (
+            'Pfad bricht ab bei %r — nicht wegen Leerzeichen, sondern der Ordner '
+            'heißt auf Linux anders oder sitzt woanders. Letzter Treffer: %s'
+            % (walk.get('missing'), walk.get('last_ok') or '')
+        )
+        status = 404
+        error = 'Datei auf dem Share nicht gefunden'
     else:
         hint = (
             'Datei unter dem gemappten Linux-Pfad nicht gefunden. '
@@ -320,6 +452,9 @@ def _missing_payload(version, tried, access_exc=None):
         'filename': getattr(version, 'filename', '') or '',
         'relative_path': getattr(version, 'relative_path', '') or '',
         'linux_guess': guess or '',
+        'walk_last_ok': (walk or {}).get('last_ok') or '',
+        'walk_missing': (walk or {}).get('missing') or '',
+        'walk_siblings': (walk or {}).get('siblings') or [],
         'mount_office': office,
         'mount_public': public,
         'tried': tried[:8],
