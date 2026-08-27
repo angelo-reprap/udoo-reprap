@@ -11,6 +11,12 @@ const EDMS = {
     akteFilter:    '',
     vorschauTab:   'dokument',
     _personenFilter: 'alle',
+    _viewMode:     'liste',   // 'liste' | 'favoriten'
+    _favTab:       'alle',    // 'alle' | 'berater' | 'kunden'
+    favBeraterIds: new Set(),
+    favKundenIds:  new Set(),
+    _favBerater:   [],
+    _favKunden:    [],
 
     api: {
         search:   '/edms/api/search/',
@@ -40,8 +46,106 @@ const EDMS = {
         this.bindResizers();
         this._initStatLabels();
         this.loadStats();
+        this.loadFavIds();
         this.setMode('personen');
         this._handleDeepLink();
+    },
+
+    // ── Favoriten (gleiche Listen wie Berater / Kunde) ──
+    _favHeaders() {
+        return { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } };
+    },
+    loadFavIds() {
+        return Promise.all([
+            fetch('/crm/api/favoriten/?type=berater', this._favHeaders()).then(r => r.json()),
+            fetch('/crm/api/favoriten/?type=kunden', this._favHeaders()).then(r => r.json()),
+        ]).then(([b, k]) => {
+            this.favBeraterIds = new Set((b.ids || []).map(String));
+            this.favKundenIds = new Set((k.ids || []).map(String));
+            this._favBerater = (b.results || []).map(r => ({
+                crm_id: r.crm_id,
+                name: r.full_name || [r.first_name, r.last_name].filter(Boolean).join(' '),
+                owner_type: 'contact',
+            }));
+            this._favKunden = (k.results || []).map(r => ({
+                crm_id: r.crm_id,
+                name: r.name || '',
+                owner_type: 'account',
+            }));
+        }).catch(() => {});
+    },
+    isFav(crmId, ownerType) {
+        const id = String(crmId || '');
+        return ownerType === 'account' ? this.favKundenIds.has(id) : this.favBeraterIds.has(id);
+    },
+    setViewMode(mode) {
+        this._viewMode = (mode === 'favoriten') ? 'favoriten' : 'liste';
+        const btnL = document.getElementById('edms-btn-liste');
+        const btnF = document.getElementById('edms-btn-favoriten');
+        if (btnL) btnL.classList.toggle('active', this._viewMode === 'liste');
+        if (btnF) btnF.classList.toggle('active', this._viewMode === 'favoriten');
+        const laschen = document.getElementById('edms-fav-laschen');
+        if (laschen) laschen.style.display = (this.mode === 'personen' && this._viewMode === 'favoriten') ? 'flex' : 'none';
+        const pf = document.getElementById('edms-personen-filter');
+        if (pf && this.mode === 'personen') pf.style.display = this._viewMode === 'liste' ? 'flex' : 'none';
+        this.loadCol1(1);
+    },
+    setFavTab(tab) {
+        this._favTab = (tab === 'berater' || tab === 'kunden') ? tab : 'alle';
+        document.querySelectorAll('#edms-fav-laschen [data-fav-tab]').forEach(p => {
+            p.classList.toggle('active', p.dataset.favTab === this._favTab);
+        });
+        this._renderFavoriten();
+    },
+    _renderFavoriten() {
+        const list = document.getElementById('edms-col1-list');
+        if (!list) return;
+        let people = [];
+        if (this._favTab === 'berater') people = this._favBerater.slice();
+        else if (this._favTab === 'kunden') people = this._favKunden.slice();
+        else people = this._favBerater.concat(this._favKunden);
+        const q = ((document.getElementById('crm-global-search') || {}).value || '').trim().toLowerCase();
+        if (q) people = people.filter(p => (p.name || '').toLowerCase().includes(q));
+        if (!people.length) {
+            list.innerHTML = '<div class="crm-list-loading"><i class="bi bi-star"></i> ' +
+                this.t('edms_keine_favoriten', 'Keine Favoriten markiert') + '</div>';
+            this._setCount('edms-col1-count', 0);
+            this._clearPagination();
+            return;
+        }
+        this.renderPersonen(people, true);
+        this._setCount('edms-col1-count', people.length);
+        this._clearPagination();
+    },
+    toggleFav(crmId, ownerType, iconEl) {
+        const typ = ownerType === 'account' ? 'kunden' : 'berater';
+        fetch('/crm/api/favoriten/toggle/', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': this.csrf(),
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: JSON.stringify({ type: typ, crm_id: crmId }),
+        })
+            .then(r => r.json())
+            .then(data => {
+                const id = String(crmId);
+                const set = typ === 'kunden' ? this.favKundenIds : this.favBeraterIds;
+                if (data.favorited) set.add(id);
+                else set.delete(id);
+                if (iconEl) {
+                    iconEl.classList.toggle('bi-star', !data.favorited);
+                    iconEl.classList.toggle('bi-star-fill', !!data.favorited);
+                    iconEl.classList.toggle('crm-fav-active', !!data.favorited);
+                }
+                return this.loadFavIds();
+            })
+            .then(() => {
+                if (this._viewMode === 'favoriten') this._renderFavoriten();
+            })
+            .catch(() => {});
     },
 
     _initStatLabels() {
@@ -156,9 +260,22 @@ const EDMS = {
         if (iEl) iEl.className = 'bi ' + conf[1];
 
         const pf = document.getElementById('edms-personen-filter');
-        if (pf) pf.style.display = (mode === 'personen') ? 'flex' : 'none';
+        if (pf) pf.style.display = (mode === 'personen' && this._viewMode === 'liste') ? 'flex' : 'none';
         const df = document.getElementById('edms-doctype-filter');
         if (df) df.style.display = (mode === 'dokumente') ? 'flex' : 'none';
+        const wrap = document.getElementById('edms-view-toggle-wrap');
+        if (wrap) wrap.style.display = (mode === 'personen') ? 'flex' : 'none';
+        const laschen = document.getElementById('edms-fav-laschen');
+        if (mode !== 'personen') {
+            this._viewMode = 'liste';
+            const btnL = document.getElementById('edms-btn-liste');
+            const btnF = document.getElementById('edms-btn-favoriten');
+            if (btnL) btnL.classList.add('active');
+            if (btnF) btnF.classList.remove('active');
+            if (laschen) laschen.style.display = 'none';
+        } else if (laschen) {
+            laschen.style.display = this._viewMode === 'favoriten' ? 'flex' : 'none';
+        }
 
         this._resetCol2();
         this._resetCol3();
@@ -170,6 +287,11 @@ const EDMS = {
         this.currentPage = page;
         const q = (document.getElementById('crm-global-search') || {}).value || '';
         this._col1Loading();
+
+        if (this.mode === 'personen' && this._viewMode === 'favoriten') {
+            this.loadFavIds().then(() => this._renderFavoriten());
+            return;
+        }
 
         const scope = (document.getElementById('crm-sort') || {}).value || 'all';
         if (q.trim()) {
@@ -309,13 +431,15 @@ const EDMS = {
         const body = document.getElementById('edms-vorschau-body');
         if (body) body.innerHTML = '<iframe class="edms-vorschau-frame" src="' + this.api.preview + id + '/"></iframe>';
     },
-    renderPersonen(people) {
+    renderPersonen(people, skipTypeFilter) {
         const list = document.getElementById('edms-col1-list');
         if (!list) return;
         const filt = this._personenFilter || 'alle';
         let arr = people;
-        if (filt === 'berater') arr = people.filter(p => p.owner_type === 'contact');
-        else if (filt === 'firmen') arr = people.filter(p => p.owner_type === 'account');
+        if (!skipTypeFilter) {
+            if (filt === 'berater' || filt === 'personen') arr = people.filter(p => p.owner_type === 'contact');
+            else if (filt === 'firmen') arr = people.filter(p => p.owner_type === 'account');
+        }
         if (!arr.length) { list.innerHTML = '<div class="crm-list-loading">' + this.t('keine_treffer','Keine Treffer') + '</div>'; return; }
         list.innerHTML = arr.map(p => this._personItem(p)).join('');
         list.querySelectorAll('.crm-list-item').forEach(el => {
@@ -333,12 +457,22 @@ const EDMS = {
             ? this._typeIconHtml('firma', this._kindIcon('firma'))
             : '<div class="crm-avatar edms-kind-person" style="font-size:10px;background:#6b62c9">' + this._initials(p.name) + '</div>';
         const typeLabel = isAccount ? this.t('kunden_label','Firma') : this.t('berater_label','Berater');
-        return '<div class="crm-list-item" data-crm-id="' + p.crm_id + '"' +
-            ' data-owner-type="' + p.owner_type + '" data-name="' + (p.name||'').replace(/"/g,'&quot;') + '">' +
+        const fav = this.isFav(p.crm_id, p.owner_type);
+        const sub = (p.doc_count == null)
+            ? typeLabel
+            : (typeLabel + ' · ' + (p.doc_count || 0) + ' ' + this.t('dokumente','Dok.'));
+        const cid = this._esc(p.crm_id || '');
+        const otype = isAccount ? 'account' : 'contact';
+        return '<div class="crm-list-item" data-crm-id="' + cid + '"' +
+            ' data-owner-type="' + otype + '" data-name="' + this._esc(p.name || '') + '">' +
             icon + '<div class="crm-item-info">' +
-            '<div class="crm-item-name" style="font-size:12px">' + (p.name || '—') + '</div>' +
-            '<div class="crm-item-sub">' + typeLabel + ' · ' + (p.doc_count || 0) + ' ' + this.t('dokumente','Dok.') + '</div>' +
-            '</div></div>';
+            '<div class="crm-item-name" style="font-size:12px">' + this._esc(p.name || '—') + '</div>' +
+            '<div class="crm-item-sub">' + sub + '</div>' +
+            '</div>' +
+            '<i class="bi ' + (fav ? 'bi-star-fill' : 'bi-star') + ' crm-fav-star' + (fav ? ' crm-fav-active' : '') + '"' +
+            ' title="' + this.t('favoriten','Favorit') + '"' +
+            ' onclick="event.stopPropagation(); EDMS.toggleFav(\'' + cid + '\',\'' + otype + '\', this);"></i>' +
+            '</div>';
     },
 
     renderDokumente(results) {

@@ -89,5 +89,7 @@
     "edms_notizen": "Notizen",
     "edms_mails": "Mails",
     "edms_keine_notizen": "Keine Notizen",
-    "edms_att_kein_preview": "Dieses Format kann nicht angezeigt werden"
+    "edms_att_kein_preview": "Dieses Format kann nicht angezeigt werden",
+    "edms_fav_alle": "Alle",
+    "edms_keine_favoriten": "Keine Favoriten markiert"
 }
