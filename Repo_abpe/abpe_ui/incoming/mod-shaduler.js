@@ -50,6 +50,8 @@
   var inboxPollBackoffMs = INBOX_POLL_MS;
   var inboxLastOkAt = null;
   var EDMS_API = '/edms/api/';
+  var TEAM_USERS = null;
+  var TEAM_PROMISE = null;
 
   var ARTEN = {
     wiedervorlage: { icon: 'bi-arrow-repeat', cv: '--a-wv', labelKey: 'sh.art_wiedervorlage', label: 'Wiedervorlagen', short: 'wv' },
@@ -236,6 +238,11 @@
       '</div>' +
       '<button type="button" class="primary" id="sh-m-action"></button>' +
       '<div class="note" id="sh-m-actnote"></div>' +
+      '<div class="sh-delegate" id="sh-m-delegate">' +
+      '<div class="qlbl">' + _t('sh.delegiert_an', 'Delegiert an') + '</div>' +
+      '<div class="sh-pick-row" id="sh-m-delegate-chips"></div>' +
+      '<div class="sh-delegate-hint" id="sh-m-delegate-hint"></div>' +
+      '</div>' +
       '<div class="sh-m-quick" id="sh-m-quick">' +
       '<button type="button" class="sh-m-qbtn" id="sh-m-erledigt">' +
       '<i class="bi bi-check2-circle"></i> ' + _t('sh.erg_erledigt', 'Erledigt') + '</button>' +
@@ -431,6 +438,7 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         TASKS = data.results || [];
+        if (data.me && data.me.id != null) cfg.user_id = data.me.id;
         cb(TASKS);
       })
       .catch(function () { cb([]); });
@@ -3758,6 +3766,7 @@
       var stats = pair[0] || {};
       var data = pair[1] || {};
       TASKS = data.results || [];
+      if (data.me && data.me.id != null) cfg.user_id = data.me.id;
       STATS = {
         heute: stats.heute || 0,
         ueberfaellig: stats.ueberfaellig || 0,
@@ -3840,9 +3849,20 @@
       var htmlHint = t.html_url
         ? '<small style="color:#0d9488">HTML</small>'
         : '';
+      var delBits = [];
+      if (t.ist_delegiert_an_mich && t.zugewiesen_an && t.zugewiesen_an.display_name) {
+        delBits.push(_t('sh.von', 'von') + ' ' + t.zugewiesen_an.display_name);
+      }
+      if (t.delegiert_an_label) {
+        delBits.push(_t('sh.delegiert_an', 'Delegiert an') + ' ' + t.delegiert_an_label);
+      }
+      var delHint = delBits.length
+        ? '<small class="sh-del-badge' + (t.ist_delegiert_an_mich ? ' sh-del-in' : '') + '">' +
+          esc(delBits.join(' · ')) + '</small>'
+        : '';
       el.innerHTML =
         '<div class="tx"><b>' + esc(t.titel) + '</b><small>' +
-        esc(t.ref_label || t.ref_type || '') + '</small>' + htmlHint + '</div>' +
+        esc(t.ref_label || t.ref_type || '') + '</small>' + htmlHint + delHint + '</div>' +
         '<span class="due">' + (t.ueberfaellig ? '<i class="bi bi-exclamation-triangle-fill"></i> ' : '') +
         esc(t.due_label || '') + '</span>';
       el.addEventListener('click', function () { openModal(t); });
@@ -4307,6 +4327,7 @@
     document.getElementById('sh-m-action').textContent = t.action_label || _t('sh.erledigen', 'Erledigen');
     document.getElementById('sh-m-actnote').textContent = t.action_note || '';
     document.getElementById('sh-m-actnote').style.display = '';
+    renderDelegatePicker(t);
 
     var snoozeBox = document.getElementById('sh-m-snooze');
     if (snoozeBox) snoozeBox.style.display = 'none';
@@ -4385,6 +4406,278 @@
     });
     showPhase('act');
     ovl.style.display = 'flex';
+  }
+
+  function lastNameLetter(u) {
+    var last = String((u && u.last_name) || (u && u.sort_name) || '').trim();
+    if (!last) {
+      var dn = String((u && (u.display_name || u.username)) || '').trim();
+      var parts = dn.split(/\s+/);
+      last = parts.length > 1 ? parts[parts.length - 1] : dn;
+    }
+    var ch = (last.charAt(0) || '#').toUpperCase();
+    var fold = { 'Ä': 'A', 'Ö': 'O', 'Ü': 'U', 'ß': 'S' };
+    if (fold[ch]) ch = fold[ch];
+    if (ch < 'A' || ch > 'Z') return '#';
+    return ch;
+  }
+
+  function sortByLastName(users) {
+    return (users || []).slice().sort(function (a, b) {
+      var la = String((a && (a.last_name || a.sort_name || a.display_name)) || '').toLowerCase();
+      var lb = String((b && (b.last_name || b.sort_name || b.display_name)) || '').toLowerCase();
+      if (la !== lb) return la < lb ? -1 : la > lb ? 1 : 0;
+      var fa = String((a && (a.first_name || a.display_name)) || '').toLowerCase();
+      var fb = String((b && (b.first_name || b.display_name)) || '').toLowerCase();
+      if (fa !== fb) return fa < fb ? -1 : fa > fb ? 1 : 0;
+      return 0;
+    });
+  }
+
+  function isServiceUsername(username) {
+    var n = String(username || '').trim().toLowerCase();
+    if (!n || n === 'anonymoususer' || n === 'anonymous') return true;
+    return n.indexOf('svc_') === 0 || n.indexOf('service_') === 0 ||
+      n.indexOf('cron_') === 0 || n.indexOf('bot_') === 0;
+  }
+
+  function normalizeTeamPayload(j) {
+    var list = [];
+    if (!j) return list;
+    if (Array.isArray(j)) list = j;
+    else if (Array.isArray(j.users)) list = j.users;
+    else if (Array.isArray(j.results)) list = j.results;
+    return list.map(function (u) {
+      if (!u || u.is_active === false) return null;
+      var first = String(u.first_name || '').trim();
+      var last = String(u.last_name || '').trim();
+      var username = String(u.username || '');
+      var display = String(u.display_name || (first + ' ' + last).trim() || username);
+      var id = u.id != null ? u.id : u.pk;
+      if (id == null) return null;
+      return {
+        id: id,
+        username: username,
+        display_name: display,
+        first_name: first,
+        last_name: last,
+        sort_name: u.sort_name || last || display,
+        letter: u.letter || '',
+      };
+    }).filter(function (u) {
+      return u && !isServiceUsername(u.username);
+    });
+  }
+
+  function currentUserId() {
+    var id = cfg.user_id || cfg.userId || (cfg.user && (cfg.user.id || cfg.user.pk));
+    if (id == null || id === '') return null;
+    var n = Number(id);
+    return isNaN(n) ? null : n;
+  }
+
+  function fetchTeamJson(url) {
+    return fetch(url, {
+      credentials: 'same-origin',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    }).then(function (r) {
+      if (!r.ok) throw new Error('team ' + r.status);
+      return r.json();
+    });
+  }
+
+  function loadTeam() {
+    if (TEAM_USERS) return Promise.resolve(TEAM_USERS);
+    if (TEAM_PROMISE) return TEAM_PROMISE;
+    TEAM_PROMISE = fetchTeamJson(api('team/'))
+      .then(function (j) {
+        if (j && j.me && j.me.id != null && cfg.user_id == null) cfg.user_id = j.me.id;
+        var users = normalizeTeamPayload(j);
+        if (users.length) {
+          TEAM_USERS = users;
+          return TEAM_USERS;
+        }
+        return fetchTeamJson('/api/admin-portal/users/').then(function (j2) {
+          TEAM_USERS = normalizeTeamPayload(j2);
+          return TEAM_USERS;
+        });
+      })
+      .catch(function () {
+        return fetchTeamJson('/api/admin-portal/users/')
+          .then(function (j2) {
+            TEAM_USERS = normalizeTeamPayload(j2);
+            return TEAM_USERS;
+          })
+          .catch(function () {
+            TEAM_USERS = [];
+            return TEAM_USERS;
+          });
+      });
+    return TEAM_PROMISE;
+  }
+
+  function selectedDelegateIds(task) {
+    var list = (task && task.delegiert_an) || [];
+    return list.map(function (u) { return Number(u.id); }).filter(function (n) { return !isNaN(n); });
+  }
+
+  function mergeTaskPayload(updated) {
+    if (!updated || !updated.id) return;
+    if (currentTask && String(currentTask.id) === String(updated.id)) {
+      currentTask = Object.assign({}, currentTask, updated);
+    }
+    TASKS = TASKS.map(function (row) {
+      return String(row.id) === String(updated.id) ? Object.assign({}, row, updated) : row;
+    });
+  }
+
+  function saveDelegates(taskId, userIds) {
+    return fetch(api('aufgaben/' + encodeURIComponent(taskId) + '/delegieren/'), {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRFToken': csrfToken(),
+      },
+      body: JSON.stringify({ user_ids: userIds }),
+    }).then(function (r) {
+      return r.json().then(function (j) { return { ok: r.ok, j: j }; });
+    });
+  }
+
+  function renderDelegatePicker(task) {
+    var box = document.getElementById('sh-m-delegate');
+    var chips = document.getElementById('sh-m-delegate-chips');
+    var hint = document.getElementById('sh-m-delegate-hint');
+    if (!box || !chips) return;
+    chips.innerHTML = '';
+    if (hint) hint.textContent = '';
+
+    var isDemo = !task || !task.id || String(task.id).indexOf('demo') === 0;
+    var canEdit = !isDemo && task && task.kann_delegieren !== false;
+    var selected = selectedDelegateIds(task);
+
+    if (isDemo) {
+      box.style.display = 'none';
+      return;
+    }
+    box.style.display = '';
+
+    if (!canEdit) {
+      var ownerName = (task.zugewiesen_an && task.zugewiesen_an.display_name) || '';
+      chips.innerHTML = selected.length
+        ? selected.map(function (id) {
+            var u = ((task.delegiert_an || []).filter(function (x) { return Number(x.id) === id; })[0]) || {};
+            return '<span class="sh-pick on">' + esc(u.display_name || u.username || id) + '</span>';
+          }).join('')
+        : '<span class="muted">' + esc(_t('sh.nicht_delegiert', 'nicht delegiert')) + '</span>';
+      if (hint) {
+        hint.textContent = ownerName
+          ? _t('sh.delegiert_von_hint', 'Aufgabe von') + ' ' + ownerName
+          : _t('sh.delegiert_readonly', 'Nur der Eigentümer kann die Zuordnung ändern.');
+      }
+      return;
+    }
+
+    if (hint) {
+      hint.textContent = _t(
+        'sh.delegiert_hint',
+        'Namen aus der Benutzerverwaltung. Eine oder mehrere Personen — sie sehen und bearbeiten die Aufgabe mit. Du bleibst Eigentümer.'
+      );
+    }
+
+    loadTeam().then(function (users) {
+      if (!currentTask || String(currentTask.id) !== String(task.id)) return;
+      chips.innerHTML = '';
+      var mine = currentUserId();
+      var colleagues = sortByLastName((users || []).filter(function (u) {
+        return mine == null || Number(u.id) !== mine;
+      }));
+      if (!colleagues.length) {
+        chips.innerHTML = '<span class="muted">' +
+          esc(_t('sh.kein_team', 'Keine Kollegen in der Benutzerverwaltung.')) + '</span>';
+        return;
+      }
+
+      function collectSelectedIds() {
+        var ids = [];
+        chips.querySelectorAll('.sh-pick.on').forEach(function (el) {
+          var id = el.getAttribute('data-uid');
+          if (id) ids.push(Number(id));
+        });
+        return ids;
+      }
+
+      function setChipsDisabled(on) {
+        chips.querySelectorAll('.sh-pick').forEach(function (el) { el.disabled = !!on; });
+      }
+
+      function makeChip(u) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sh-pick' + (selected.indexOf(Number(u.id)) >= 0 ? ' on' : '');
+        btn.textContent = u.display_name || u.username || String(u.id);
+        btn.setAttribute('data-uid', String(u.id));
+        btn.title = u.username && u.display_name && u.username !== u.display_name
+          ? (u.display_name + ' (' + u.username + ')')
+          : (u.display_name || u.username || '');
+        btn.addEventListener('click', function () {
+          if (btn.disabled) return;
+          btn.classList.toggle('on');
+          setChipsDisabled(true);
+          saveDelegates(task.id, collectSelectedIds())
+            .then(function (pack) {
+              setChipsDisabled(false);
+              if (!pack.ok) {
+                btn.classList.toggle('on');
+                toast((pack.j && pack.j.error) || _t('sh.toast_error', 'Speichern fehlgeschlagen'));
+                return;
+              }
+              var updated = pack.j && pack.j.aufgabe;
+              if (updated) {
+                mergeTaskPayload(updated);
+                renderAcc();
+                toast(
+                  (updated.delegiert_an_label)
+                    ? (_t('sh.delegiert_ok', 'Delegiert an') + ' ' + updated.delegiert_an_label)
+                    : _t('sh.delegiert_cleared', 'Delegation aufgehoben')
+                );
+              }
+            })
+            .catch(function () {
+              setChipsDisabled(false);
+              btn.classList.toggle('on');
+              toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+            });
+        });
+        return btn;
+      }
+
+      if (colleagues.length < 10) {
+        var row = document.createElement('div');
+        row.className = 'sh-pick-row';
+        colleagues.forEach(function (u) { row.appendChild(makeChip(u)); });
+        chips.appendChild(row);
+        return;
+      }
+
+      var groups = {};
+      colleagues.forEach(function (u) {
+        var L = u.letter || lastNameLetter(u);
+        (groups[L] = groups[L] || []).push(u);
+      });
+      Object.keys(groups).sort().forEach(function (L) {
+        var head = document.createElement('div');
+        head.className = 'sh-del-letter';
+        head.textContent = L;
+        chips.appendChild(head);
+        var row = document.createElement('div');
+        row.className = 'sh-pick-row sh-del-letter-row';
+        groups[L].forEach(function (u) { row.appendChild(makeChip(u)); });
+        chips.appendChild(row);
+      });
+    });
   }
 
   function csrfToken() {

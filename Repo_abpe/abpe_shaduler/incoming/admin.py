@@ -34,6 +34,7 @@ class AufgabeAdmin(admin.ModelAdmin):
     list_filter = ('status', 'art', 'quelle')
     search_fields = ('titel', 'beschreibung', 'ref_id')
     raw_id_fields = ('zugewiesen_an', 'erledigt_von', 'regel', 'ergebnis', 'parent')
+    filter_horizontal = ('delegiert_an',)
     date_hierarchy = 'faellig_am'
 
 

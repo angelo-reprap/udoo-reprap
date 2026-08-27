@@ -7,6 +7,7 @@ from datetime import date, timedelta
 from typing import Any, Optional
 from uuid import UUID
 
+from django.contrib.auth import get_user_model
 from django.db.models import Q
 from django.utils import timezone
 
@@ -15,6 +16,87 @@ from apps.abpe_shaduler.models import Aufgabe, ErgebnisTyp
 from . import aktivitaet_service
 
 log = logging.getLogger('abpe_shaduler.aufgaben')
+
+
+_SERVICE_USER_RE = re.compile(r'^(svc_|service_|cron_|bot_)', re.I)
+_LETTER_FOLD = str.maketrans({
+    'Ä': 'A', 'Ö': 'O', 'Ü': 'U', 'ß': 'S',
+    'À': 'A', 'Á': 'A', 'Â': 'A', 'Ã': 'A',
+    'É': 'E', 'È': 'E', 'Ê': 'E',
+    'Í': 'I', 'Ì': 'I',
+    'Ó': 'O', 'Ò': 'O', 'Ô': 'O',
+    'Ú': 'U', 'Ù': 'U',
+})
+
+
+def _is_service_username(username: str) -> bool:
+    n = (username or '').strip()
+    if not n:
+        return True
+    if n.lower() in ('anonymoususer', 'anonymous'):
+        return True
+    return bool(_SERVICE_USER_RE.match(n))
+
+
+def _last_name_sort_key(first: str, last: str, display: str, username: str) -> str:
+    if last:
+        return last
+    bits = (display or '').split()
+    if len(bits) >= 2:
+        return bits[-1]
+    return first or username or ''
+
+
+def _last_name_letter(sort_last: str) -> str:
+    ch = (sort_last[:1] or '#').upper().translate(_LETTER_FOLD)
+    if len(ch) != 1 or ch < 'A' or ch > 'Z':
+        return '#'
+    return ch
+
+
+def user_brief(u) -> Optional[dict[str, Any]]:
+    """Kurzes User-Dict für API/UI (id, username, display_name)."""
+    if u is None:
+        return None
+    first = (getattr(u, 'first_name', None) or '').strip()
+    last = (getattr(u, 'last_name', None) or '').strip()
+    name = f'{first} {last}'.strip()
+    username = u.get_username() if hasattr(u, 'get_username') else str(u)
+    if not name:
+        name = username
+    sort_last = _last_name_sort_key(first, last, name, username)
+    return {
+        'id': int(u.pk),
+        'username': username,
+        'display_name': name,
+        'first_name': first,
+        'last_name': last,
+        'sort_name': sort_last,
+        'letter': _last_name_letter(sort_last),
+    }
+
+
+def visible_q(user) -> Q:
+    """Eigene Aufgaben plus an den User delegierte."""
+    return Q(zugewiesen_an=user) | Q(delegiert_an=user)
+
+
+def team_users(*, limit: int = 200):
+    """Aktive Benutzer wie in der Benutzerverwaltung (ohne Dienstkonten)."""
+    User = get_user_model()
+    qs = User.objects.filter(is_active=True).order_by(
+        'last_name', 'first_name', 'username',
+    )
+    out = []
+    cap = max(1, int(limit or 200))
+    for u in qs[: cap + 20]:
+        uname = u.get_username() if hasattr(u, 'get_username') else str(u)
+        if _is_service_username(uname):
+            continue
+        out.append(u)
+        if len(out) >= cap:
+            break
+    return out
 
 _PHONE_LABELS = {
     'phone_mobile': 'Mobil',
@@ -479,7 +561,7 @@ def ergebnisse_fuer(aufgabe: Aufgabe) -> list[dict[str, Any]]:
     return out
 
 
-def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
+def serialize(aufgabe: Aufgabe, today: Optional[date] = None, viewer=None) -> dict[str, Any]:
     today = today or _today()
     b = bucket_for(aufgabe, today)
     hist = [
@@ -557,6 +639,30 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         wa_digits = phone_to_wa_digits(phone) if phone else ''
         whatsapp_url = build_whatsapp_link(wa_digits, wa_text) if wa_digits else ''
 
+    owner = user_brief(getattr(aufgabe, 'zugewiesen_an', None))
+    delegates: list[dict[str, Any]] = []
+    try:
+        delegates = [
+            b for b in (user_brief(u) for u in aufgabe.delegiert_an.all()) if b
+        ]
+    except Exception:
+        delegates = []
+    delegiert_an_label = ', '.join(
+        d['display_name'] for d in delegates if d.get('display_name')
+    )
+    viewer_id = getattr(viewer, 'pk', None)
+    owner_id = getattr(aufgabe, 'zugewiesen_an_id', None)
+    ist_eigentuemer = bool(
+        viewer_id is None
+        or (owner_id is not None and int(viewer_id) == int(owner_id))
+    )
+    ist_delegiert_an_mich = bool(
+        viewer_id is not None
+        and owner_id is not None
+        and int(viewer_id) != int(owner_id)
+        and any(int(d['id']) == int(viewer_id) for d in delegates)
+    )
+
     return {
         'id': str(aufgabe.pk),
         'art': aufgabe.art,
@@ -588,6 +694,12 @@ def serialize(aufgabe: Aufgabe, today: Optional[date] = None) -> dict[str, Any]:
         'phone': phone,
         'phones': phones,
         'wa_text': wa_text,
+        'zugewiesen_an': owner,
+        'delegiert_an': delegates,
+        'delegiert_an_label': delegiert_an_label,
+        'kann_delegieren': ist_eigentuemer,
+        'ist_eigentuemer': ist_eigentuemer,
+        'ist_delegiert_an_mich': ist_delegiert_an_mich,
         'excerpt': {
             'stand': (aufgabe.beschreibung or '')[:240],
             'hist': hist,
@@ -606,30 +718,32 @@ def liste(
     if status:
         qs = qs.filter(status=status)
     if not include_others:
-        qs = qs.filter(zugewiesen_an=user)
+        qs = qs.filter(visible_q(user)).distinct()
     # Keine Kind-Aufgaben in der Queue — Gruppenkopf trägt die Arbeitsliste
     qs = qs.filter(parent__isnull=True)
-    return list(qs.select_related('ergebnis', 'regel', 'zugewiesen_an').order_by(
-        'faellig_am', 'prioritaet', 'titel',
-    ))
+    return list(
+        qs.select_related('ergebnis', 'regel', 'zugewiesen_an')
+        .prefetch_related('delegiert_an')
+        .order_by('faellig_am', 'prioritaet', 'titel')
+    )
 
 
 def stats(user) -> dict[str, Any]:
     today = _today()
     offen = Aufgabe.objects.filter(
-        zugewiesen_an=user,
+        visible_q(user),
         status=Aufgabe.Status.OFFEN,
         parent__isnull=True,
-    )
+    ).distinct()
     heute = offen.filter(faellig_am=today).count()
     ueber = offen.filter(faellig_am__lt=today).count()
     geplant = offen.filter(faellig_am__gt=today).count()
     erledigt_heute = Aufgabe.objects.filter(
-        zugewiesen_an=user,
+        visible_q(user),
         status=Aufgabe.Status.ERLEDIGT,
         parent__isnull=True,
         erledigt_am__date=today,
-    ).count()
+    ).distinct().count()
     radar_a = radar_b = 0
     try:
         from apps.abpe_shaduler.models import RadarItem, RadarConsultantItem
@@ -688,17 +802,62 @@ def snooze(aufgabe: Aufgabe, days: int = 1, user=None) -> Aufgabe:
     return aufgabe
 
 
-def delegieren(aufgabe: Aufgabe, an_user, user=None) -> Aufgabe:
+def _clear_delegiert_prefetch(aufgabe: Aufgabe) -> None:
+    cache = getattr(aufgabe, '_prefetched_objects_cache', None)
+    if isinstance(cache, dict):
+        cache.pop('delegiert_an', None)
+
+
+def set_delegates(aufgabe: Aufgabe, users, user=None) -> Aufgabe:
+    """Mehrfach-Delegation: Kollegen sehen und bearbeiten die Aufgabe mit.
+
+    `zugewiesen_an` bleibt der Eigentümer — die Aufgabe verschwindet nicht
+    aus dessen Liste.
+    """
+    users = [u for u in (users or []) if u is not None]
+    owner_id = getattr(aufgabe, 'zugewiesen_an_id', None)
+    users = [u for u in users if owner_id is None or int(u.pk) != int(owner_id)]
+    aufgabe.delegiert_an.set(users)
+    _clear_delegiert_prefetch(aufgabe)
+    names = ', '.join(
+        (user_brief(u) or {}).get('display_name') or str(u) for u in users
+    ) or '—'
+    titel = (
+        f'Delegiert an {names}: {aufgabe.titel}'
+        if users
+        else f'Delegation aufgehoben: {aufgabe.titel}'
+    )
+    aktivitaet_service.schreiben(
+        medium='system',
+        titel=titel[:250],
+        ref_type=aufgabe.ref_type,
+        ref_id=aufgabe.ref_id,
+        user=user,
+        details={
+            'aufgabe_id': str(aufgabe.pk),
+            'an_ids': [int(u.pk) for u in users],
+            'mode': 'share',
+        },
+    )
+    return aufgabe
+
+
+def transfer(aufgabe: Aufgabe, an_user, user=None) -> Aufgabe:
+    """Alte 1:1-Übergabe: wechselt zugewiesen_an (Aufgabe wechselt den Owner)."""
     alt = aufgabe.zugewiesen_an_id
     aufgabe.zugewiesen_an = an_user
     aufgabe.status = Aufgabe.Status.DELEGIERT
     aufgabe.save(update_fields=['zugewiesen_an', 'status', 'updated_at'])
-    # Wieder öffnen beim neuen Owner
     aufgabe.status = Aufgabe.Status.OFFEN
     aufgabe.save(update_fields=['status', 'updated_at'])
+    try:
+        aufgabe.delegiert_an.remove(an_user)
+        _clear_delegiert_prefetch(aufgabe)
+    except Exception:
+        pass
     aktivitaet_service.schreiben(
         medium='system',
-        titel=f'Delegiert: {aufgabe.titel}',
+        titel=f'Übergeben an {(user_brief(an_user) or {}).get("display_name")}: {aufgabe.titel}'[:250],
         ref_type=aufgabe.ref_type,
         ref_id=aufgabe.ref_id,
         user=user,
@@ -706,6 +865,14 @@ def delegieren(aufgabe: Aufgabe, an_user, user=None) -> Aufgabe:
             'aufgabe_id': str(aufgabe.pk),
             'von': alt,
             'an': an_user.pk,
+            'mode': 'transfer',
         },
     )
     return aufgabe
+
+
+def delegieren(aufgabe: Aufgabe, an_user, user=None, *, mode: str = 'share') -> Aufgabe:
+    """Kompatibilität: Standard ist Mitbearbeitung (share), nicht Owner-Wechsel."""
+    if (mode or 'share').strip().lower() == 'transfer':
+        return transfer(aufgabe, an_user, user=user)
+    return set_delegates(aufgabe, [an_user] if an_user else [], user=user)

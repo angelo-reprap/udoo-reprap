@@ -6,6 +6,7 @@ import re
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
@@ -38,6 +39,20 @@ def _json_body(request) -> dict:
 def _want_demo(request) -> bool:
     """demo=1 erzwingen; sonst DB. Legacy: ohne Param und leere DB → kein Auto-Demo mehr."""
     return request.GET.get('demo') == '1'
+
+
+def _aufgabe_accessible_qs(user):
+    return Aufgabe.objects.filter(
+        Q(zugewiesen_an=user) | Q(delegiert_an=user)
+    ).distinct()
+
+
+def _get_aufgabe_for(request, pk):
+    return get_object_or_404(_aufgabe_accessible_qs(request.user), pk=pk)
+
+
+def _ser(aufgabe, request):
+    return aufgaben_service.serialize(aufgabe, viewer=request.user)
 
 
 @login_required
@@ -79,12 +94,13 @@ def api_aufgaben_list(request):
             'stats': demo_stats(tasks),
         })
     tasks = aufgaben_service.liste(user=request.user)
-    results = [aufgaben_service.serialize(t) for t in tasks]
+    results = [_ser(t, request) for t in tasks]
     return JsonResponse({
         'ok': True,
         'demo': False,
         'results': results,
         'stats': aufgaben_service.stats(request.user),
+        'me': aufgaben_service.user_brief(request.user),
     })
 
 
@@ -110,7 +126,7 @@ def api_aufgabe_create(request):
     )
     return JsonResponse({
         'ok': True,
-        'created': aufgaben_service.serialize(aufgabe),
+        'created': _ser(aufgabe, request),
     }, status=201)
 
 
@@ -199,7 +215,7 @@ def api_aufgaben_bulk_create(request):
     parent.ergebnis_daten = ed
     parent.save(update_fields=['ergebnis_daten'])
 
-    ser = aufgaben_service.serialize(parent)
+    ser = _ser(parent, request)
     return JsonResponse({
         'ok': True,
         'gruppe_id': str(gruppe_id),
@@ -212,8 +228,8 @@ def api_aufgaben_bulk_create(request):
 @login_required
 @require_GET
 def api_aufgabe_detail(request, pk):
-    aufgabe = get_object_or_404(Aufgabe, pk=pk, zugewiesen_an=request.user)
-    payload = aufgaben_service.serialize(aufgabe)
+    aufgabe = _get_aufgabe_for(request, pk)
+    payload = _ser(aufgabe, request)
     if request.GET.get('ki') == '1' and ki_client.available():
         suggestion = ki_client.suggest_naechste_aktion(
             aufgabe.titel,
@@ -232,7 +248,7 @@ def api_aufgabe_detail(request, pk):
 @login_required
 @require_POST
 def api_aufgabe_ergebnis(request, pk):
-    aufgabe = get_object_or_404(Aufgabe, pk=pk, zugewiesen_an=request.user)
+    aufgabe = _get_aufgabe_for(request, pk)
     data = _json_body(request)
     code = data.get('code') or data.get('ergebnis_code') or ''
     ergebnis_id = data.get('ergebnis_id') or data.get('id') or ''
@@ -252,24 +268,80 @@ def api_aufgabe_ergebnis(request, pk):
 @login_required
 @require_POST
 def api_aufgabe_snooze(request, pk):
-    aufgabe = get_object_or_404(Aufgabe, pk=pk, zugewiesen_an=request.user)
+    aufgabe = _get_aufgabe_for(request, pk)
     data = _json_body(request)
     days = int(data.get('days') or 1)
     aufgaben_service.snooze(aufgabe, days=days, user=request.user)
-    return JsonResponse({'ok': True, 'aufgabe': aufgaben_service.serialize(aufgabe)})
+    return JsonResponse({'ok': True, 'aufgabe': _ser(aufgabe, request)})
 
 
 @login_required
 @require_POST
 def api_aufgabe_delegieren(request, pk):
-    aufgabe = get_object_or_404(Aufgabe, pk=pk, zugewiesen_an=request.user)
+    aufgabe = _get_aufgabe_for(request, pk)
     data = _json_body(request)
-    uid = data.get('user_id')
-    if not uid:
-        return JsonResponse({'ok': False, 'error': 'user_id required'}, status=400)
-    an = get_object_or_404(User, pk=uid)
-    aufgaben_service.delegieren(aufgabe, an, user=request.user)
-    return JsonResponse({'ok': True, 'aufgabe_id': str(aufgabe.pk), 'an': an.username})
+    if aufgabe.zugewiesen_an_id != request.user.id:
+        return JsonResponse(
+            {'ok': False, 'error': 'Nur der Eigentümer kann delegieren.'},
+            status=403,
+        )
+    mode = str(data.get('mode') or 'share').strip().lower()
+    if mode == 'transfer':
+        uid = data.get('user_id')
+        if uid is None and isinstance(data.get('user_ids'), list) and data.get('user_ids'):
+            uid = data['user_ids'][0]
+        if uid is None:
+            return JsonResponse({'ok': False, 'error': 'user_id required'}, status=400)
+        an = get_object_or_404(User, pk=uid, is_active=True)
+        aufgaben_service.transfer(aufgabe, an, user=request.user)
+        return JsonResponse({
+            'ok': True,
+            'mode': 'transfer',
+            'aufgabe': _ser(aufgabe, request),
+            'an': an.username,
+        })
+
+    user_ids = data.get('user_ids')
+    if user_ids is None and data.get('user_id') is not None:
+        user_ids = [data.get('user_id')]
+    if user_ids is None:
+        return JsonResponse({'ok': False, 'error': 'user_ids required'}, status=400)
+    if not isinstance(user_ids, list):
+        return JsonResponse({'ok': False, 'error': 'user_ids must be a list'}, status=400)
+
+    clean: list[int] = []
+    seen: set[int] = set()
+    for raw in user_ids:
+        try:
+            uid = int(raw)
+        except (TypeError, ValueError):
+            continue
+        if uid == request.user.id or uid in seen:
+            continue
+        seen.add(uid)
+        clean.append(uid)
+    found = {
+        int(u.pk): u
+        for u in User.objects.filter(pk__in=clean, is_active=True)
+    }
+    ordered = [found[i] for i in clean if i in found]
+    aufgaben_service.set_delegates(aufgabe, ordered, user=request.user)
+    return JsonResponse({
+        'ok': True,
+        'mode': 'share',
+        'aufgabe': _ser(aufgabe, request),
+    })
+
+
+@login_required
+@require_GET
+def api_team(request):
+    users = aufgaben_service.team_users()
+    return JsonResponse({
+        'ok': True,
+        'me': aufgaben_service.user_brief(request.user),
+        'users': [aufgaben_service.user_brief(u) for u in users],
+    })
 
 
 @login_required
@@ -280,7 +352,7 @@ def api_aufgaben_fuer_ref(request, typ, ref_id):
         'ok': True,
         'ref_type': typ,
         'ref_id': ref_id,
-        'results': [aufgaben_service.serialize(t) for t in tasks],
+        'results': [_ser(t, request) for t in tasks],
     })
 
 
@@ -299,7 +371,7 @@ def api_kalender(request):
         'ok': True,
         'demo': False,
         'view': request.GET.get('view', 'monat'),
-        'results': [aufgaben_service.serialize(t) for t in tasks],
+        'results': [_ser(t, request) for t in tasks],
     })
 
 

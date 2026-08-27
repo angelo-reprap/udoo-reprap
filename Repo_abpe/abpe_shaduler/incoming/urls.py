@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/aufgaben/<uuid:pk>/snooze/', views.api_aufgabe_snooze, name='api_aufgabe_snooze'),
     path('api/aufgaben/<uuid:pk>/delegieren/', views.api_aufgabe_delegieren, name='api_aufgabe_delegieren'),
     path('api/aufgaben/ref/<str:typ>/<str:ref_id>/', views.api_aufgaben_fuer_ref, name='api_aufgaben_fuer_ref'),
+    path('api/team/', views.api_team, name='api_team'),
 
     # Kalender / Ergebnis / Inbox
     path('api/kalender/', views.api_kalender, name='api_kalender'),
