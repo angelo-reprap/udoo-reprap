@@ -22,6 +22,28 @@
             <span class="edms-col-count" id="edms-col1-count"></span>
         </div>
 
+        <div class="edms-view-toggle-wrap" id="edms-view-toggle-wrap">
+            <div class="crm-view-toggle" id="edms-view-toggle">
+                <button type="button" id="edms-btn-liste" class="crm-toggle-btn active" onclick="EDMS.setViewMode('liste')">
+                    <i class="bi bi-list-ul"></i> <span data-i18n="liste">Liste</span>
+                </button>
+                <button type="button" id="edms-btn-favoriten" class="crm-toggle-btn" onclick="EDMS.setViewMode('favoriten')">
+                    <i class="bi bi-star"></i> <span data-i18n="favoriten">Favoriten</span>
+                </button>
+            </div>
+        </div>
+        <div class="edms-fav-laschen" id="edms-fav-laschen" style="display:none" role="tablist">
+            <button type="button" class="edms-pf-pill active" data-fav-tab="alle" onclick="EDMS.setFavTab('alle')">
+                <span data-i18n="edms_fav_alle">Alle</span>
+            </button>
+            <button type="button" class="edms-pf-pill" data-fav-tab="berater" onclick="EDMS.setFavTab('berater')">
+                <span data-i18n="berater_label">Berater</span>
+            </button>
+            <button type="button" class="edms-pf-pill" data-fav-tab="kunden" onclick="EDMS.setFavTab('kunden')">
+                <span data-i18n="kunden_label">Kunden</span>
+            </button>
+        </div>
+
         <div class="edms-personen-filter" id="edms-personen-filter">
             <span class="edms-pf-pill active" data-filter="all" onclick="EDMS.setPersonenFilter('all')" data-i18n-title="edms_pf_alle"><i class="bi bi-list-ul"></i></span>
             <span class="edms-pf-pill" data-filter="personen" onclick="EDMS.setPersonenFilter('personen')" data-i18n-title="edms_pf_berater"><i class="bi bi-person"></i></span>

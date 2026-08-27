@@ -339,6 +339,25 @@
     border-color: var(--abcona-blue);
 }
 
+/* ── Liste / Favoriten (wie Berater/Kunde) ── */
+.edms-view-toggle-wrap {
+    display: flex;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--abcona-gray-card);
+}
+.edms-view-toggle-wrap .crm-view-toggle {
+    margin-left: 0;
+}
+.edms-fav-laschen {
+    display: flex;
+    gap: 5px;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--abcona-gray-card);
+    align-items: center;
+}
+
 /* ── v2: Personen-Filter-Pills ── */
 .edms-personen-filter {
     display: flex;

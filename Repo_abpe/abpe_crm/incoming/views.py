@@ -2672,3 +2672,7 @@ def api_favoriten_toggle(request):
     setattr(settings_obj, field, ids)
     settings_obj.save(update_fields=[field, 'updated_at'])
     return JsonResponse({'ok': True, 'favorited': favorited, 'crm_id': crm_id})
+
+from .views_edms_file import _api_edms_file as _edms_file_impl
+api_edms_file = login_or_token_required(_edms_file_impl)
+

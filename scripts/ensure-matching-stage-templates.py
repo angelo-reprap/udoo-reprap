@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """Upsert Email-Studio-Vorlagen für Matching-Kanban-Stufen.
 
+Eine Quelle für alle Stage-Identifier (auch matching_outreach_wizard).
+Nicht parallel das alte ensure-matching-outreach-wizard-template.py pflegen.
+
 Identifier = STAGE_TEMPLATE_DEFAULTS in outreach_wizard.py.
 Kein Firmen-/Kundenname (Vertraulichkeit) — Signatur im Composer.
 

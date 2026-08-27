@@ -1,0 +1,14 @@
+# Keep Cursor context small — do not index install/build/test dumps.
+**/node_modules/
+**/static/dist/
+**/staticfiles/
+playwright-report/
+test-results/
+**/coverage/
+**/*.mo
+__pycache__/
+_repo_backups/
+_live_backups/
+Repo_abpe/abpe_crm/incoming/static/softphone-electron/
+**/.bak_*/
+**/core-language_backup_*

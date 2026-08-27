@@ -41,6 +41,8 @@
     "edms_mails_platzhalter": "Email display will follow in a later step",
     "edms_msg_outlook": "Open this email (.msg) in Outlook",
     "edms_kein_preview": "No preview for this format — download",
+    "edms_datei_nicht_im_viewer": "PDF could not be loaded (file not reachable on the share)",
+    "edms_datei_keine_rechte": "PDF found, but the server cannot read it (chmod/chown on /mnt/office)",
     "edms_vorschau_laedt": "Generating preview…",
     "edms_filter_alle_typen": "All types",
     "edms_filter_jahr": "Year",
@@ -89,5 +91,7 @@
     "edms_notizen": "Notes",
     "edms_mails": "Emails",
     "edms_keine_notizen": "No notes",
-    "edms_att_kein_preview": "This format cannot be displayed"
+    "edms_att_kein_preview": "This format cannot be displayed",
+    "edms_fav_alle": "All",
+    "edms_keine_favoriten": "No favorites marked"
 }
