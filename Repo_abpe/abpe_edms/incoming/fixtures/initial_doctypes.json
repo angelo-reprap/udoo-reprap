@@ -1,0 +1,138 @@
+[
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "vertrag",
+      "label": "Vertrag",
+      "description": "Rahmenverträge, Sub-Dienstverträge, Vereinbarungen.",
+      "retention_years": 10,
+      "delete_after_days": 365,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Vertraege",
+      "icon_class": "crm-doc-contract",
+      "sort_order": 10,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "rechnung",
+      "label": "Rechnung",
+      "description": "Eingangs- und Ausgangsrechnungen.",
+      "retention_years": 10,
+      "delete_after_days": 365,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Rechnungen",
+      "icon_class": "crm-doc-invoice",
+      "sort_order": 20,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "leistungsnachweis",
+      "label": "Leistungsnachweis",
+      "description": "Leistungsbeschreibungen / Stundennachweise je Arbeitspaket.",
+      "retention_years": 10,
+      "delete_after_days": 365,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Leistungsnachweise",
+      "icon_class": "crm-doc-other",
+      "sort_order": 30,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "zeitnachweis",
+      "label": "Zeitnachweis",
+      "description": "Stundenzettel / Timesheets.",
+      "retention_years": 2,
+      "delete_after_days": 180,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Zeitnachweise",
+      "icon_class": "crm-doc-other",
+      "sort_order": 40,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "angebot",
+      "label": "Angebot",
+      "description": "Angebote und Kalkulationen.",
+      "retention_years": 6,
+      "delete_after_days": 180,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Angebote",
+      "icon_class": "crm-doc-other",
+      "sort_order": 50,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "korrespondenz",
+      "label": "Korrespondenz",
+      "description": "Schriftverkehr, Anschreiben, E-Mail-Belege.",
+      "retention_years": 6,
+      "delete_after_days": 180,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Korrespondenz",
+      "icon_class": "crm-doc-email",
+      "sort_order": 60,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "cv",
+      "label": "CV / Profil",
+      "description": "Qualifikationsprofile der Berater.",
+      "retention_years": null,
+      "delete_after_days": null,
+      "default_volume": "public",
+      "path_template": "Berater/{owner_bucket}/{owner_slug}",
+      "icon_class": "crm-doc-cv",
+      "sort_order": 70,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  },
+  {
+    "model": "abpe_edms.dmsdoctype",
+    "fields": {
+      "key": "sonstiges",
+      "label": "Sonstiges",
+      "description": "Nicht kategorisierte Dokumente.",
+      "retention_years": 6,
+      "delete_after_days": 180,
+      "default_volume": "office",
+      "path_template": "{owner_bucket}/{owner_slug}/Sonstiges",
+      "icon_class": "crm-doc-other",
+      "sort_order": 100,
+      "is_system": true,
+      "created_at": "2026-06-29T16:50:00Z",
+      "modified_at": "2026-06-29T16:50:00Z"
+    }
+  }
+]
