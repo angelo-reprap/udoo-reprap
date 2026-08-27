@@ -114,7 +114,7 @@ def index(request):
 
 @login_required
 def edms(request):
-    ctx = {}
+    ctx = _base_ctx(request, 'crm_edms')
     ctx['page_title'] = 'EDMS'
     ctx['tab'] = 'edms'
     return render(request, 'abpe_crm/edms.html', ctx)

@@ -47,7 +47,7 @@
     "edms_doctype_cv": "简历/简介",
     "edms_doctype_vertrag": "合同",
     "edms_doctype_rechnung": "发票",
-    "edms_doctype_nachweis": "服务证明",
+    "edms_doctype_nachweis": "绩效证明",
     "edms_doctype_zeitnachweis": "工时证明",
     "edms_doctype_angebot": "报价",
     "edms_doctype_korrespondenz": "通信",
@@ -85,5 +85,9 @@
     "edms_status_aktiv": "状态：有效",
     "edms_status_archiv": "已归档",
     "edms_status_alle": "全部（含归档）",
-    "edms_mode_archiv": "归档"
+    "edms_mode_archiv": "归档",
+    "edms_notizen": "备注",
+    "edms_mails": "邮件",
+    "edms_keine_notizen": "无备注",
+    "edms_att_kein_preview": "此格式无法显示"
 }
