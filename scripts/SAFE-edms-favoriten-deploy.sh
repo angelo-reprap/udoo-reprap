@@ -38,6 +38,8 @@ grep -q "edmsFile" "$SRC/static/abpe_crm/js/mod-edms.js" \
   || { echo "FAIL: mod-edms.js ohne Blob-Viewer (edmsFile)"; exit 1; }
 grep -q "_api_edms_file" "$SRC/views_edms_file.py" \
   || { echo "FAIL: views_edms_file.py ohne _api_edms_file"; exit 1; }
+grep -q "_parse_win_or_rel" "$SRC/views_edms_file.py" \
+  || { echo "FAIL: views_edms_file.py ohne O:/X:-Mapping"; exit 1; }
 python3 -c "import ast; ast.parse(open('$SRC/views_edms_file.py',encoding='utf-8').read())"
 
 mkdir -p "$BAK"

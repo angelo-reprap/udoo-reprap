@@ -1218,6 +1218,7 @@ const EDMS = {
         const body = document.getElementById('edms-vorschau-body');
         if (!body) return;
         this._revokePdfBlob();
+        this._lastFileErr = null;
         body.innerHTML = '<div class="crm-list-loading"><i class="bi bi-arrow-repeat"></i> ' + this.t('edms_vorschau_laedt','Vorschau wird erzeugt…') + '</div>';
         const urls = officePreview
             ? [this.api.preview + uuid + '/'].concat(this._pdfCandidateUrls(uuid, extraIds))
@@ -1225,14 +1226,20 @@ const EDMS = {
         const tryNext = (i) => {
             if (i >= urls.length) {
                 const meta = this._previewDocMeta || {};
+                const err = this._lastFileErr || {};
                 const win = meta.win_path || meta.unc_path || '';
-                const pathHint = win
-                    ? '<div class="edms-vorschau-pathhint" style="font-size:11px;color:var(--text-muted);max-width:90%;word-break:break-all">' +
-                      this._esc(win) + '</div>'
-                    : '';
+                const linux = err.linux_path || err.linux_guess || '';
+                const isPerm = (err._status === 403) || (err.error || '').toLowerCase().indexOf('recht') >= 0;
+                const msg = isPerm
+                    ? this.t('edms_datei_keine_rechte', 'PDF gefunden, aber der Server darf sie nicht lesen (chmod/chown auf /mnt/office)')
+                    : this.t('edms_datei_nicht_im_viewer', 'PDF konnte nicht geladen werden (Datei auf dem Share nicht erreichbar)');
+                const hint = err.hint ? '<div class="edms-vorschau-pathhint" style="font-size:11px;color:var(--text-muted);max-width:90%">' + this._esc(err.hint) + '</div>' : '';
+                const pathHint = [win, linux].filter(Boolean).map(p =>
+                    '<div class="edms-vorschau-pathhint" style="font-size:11px;color:var(--text-muted);max-width:90%;word-break:break-all">' +
+                    this._esc(p) + '</div>'
+                ).join('');
                 body.innerHTML = '<div class="edms-vorschau-msg"><i class="bi bi-exclamation-triangle"></i>' +
-                    this.t('edms_datei_nicht_im_viewer', 'PDF konnte nicht geladen werden (Datei auf dem Share nicht erreichbar)') +
-                    pathHint +
+                    msg + hint + pathHint +
                     '<button class="crm-action-btn crm-action-btn-secondary" style="max-width:200px" onclick="EDMS.download(\'' + this._esc(uuid) + '\')">' +
                     '<i class="bi bi-download"></i> ' + this.t('edms_herunterladen','Herunterladen') + '</button></div>';
                 return;
@@ -1240,7 +1247,16 @@ const EDMS = {
             fetch(urls[i], { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
                 .then(r => r.arrayBuffer().then(buf => ({ r: r, buf: buf })))
                 .then(pack => {
-                    if (!pack.r.ok) { tryNext(i + 1); return; }
+                    if (!pack.r.ok) {
+                        if (urls[i].indexOf(this.api.edmsFile) === 0) {
+                            try {
+                                this._lastFileErr = JSON.parse(new TextDecoder().decode(new Uint8Array(pack.buf)));
+                                this._lastFileErr._status = pack.r.status;
+                            } catch (e) {}
+                        }
+                        tryNext(i + 1);
+                        return;
+                    }
                     const ct = pack.r.headers.get('content-type') || '';
                     if (!this._looksLikePdf(pack.buf, ct)) { tryNext(i + 1); return; }
                     const blob = new Blob([pack.buf], { type: 'application/pdf' });
