@@ -238,16 +238,20 @@ def _probe_mount(path):
         'path': path,
         'exists': False,
         'isdir': False,
+        'ismount': False,
         'readable': False,
         'listdir_ok': False,
+        'children': [],
     }
     try:
         info['exists'] = os.path.exists(path)
         info['isdir'] = os.path.isdir(path)
+        info['ismount'] = os.path.ismount(path)
         info['readable'] = os.access(path, os.R_OK | os.X_OK)
         if info['isdir']:
-            os.listdir(path)
+            kids = os.listdir(path)
             info['listdir_ok'] = True
+            info['children'] = kids[:12]
     except OSError as exc:
         info['error'] = str(exc)
     return info
@@ -425,8 +429,19 @@ def _missing_payload(version, tried, access_exc=None):
         )
         status = 403
         error = 'Keine Leserechte auf dem Office-Share'
-    elif not office['exists']:
-        hint = 'Mount /mnt/office fehlt. O:-Rechnungen sind ohne diesen Mount nicht erreichbar.'
+    elif not office.get('exists'):
+        hint = 'Mountpoint /mnt/office fehlt. O:-Rechnungen brauchen den Office-CIFS-Share.'
+        status = 404
+        error = 'Office-Share nicht gemountet'
+    elif not office.get('ismount'):
+        kids = ', '.join(office.get('children') or []) or '(leer)'
+        hint = (
+            '/mnt/office ist kein CIFS-Mount, nur ein lokales Verzeichnis '
+            '(Inhalt: %s). O:-Rechnungen liegen auf dem Office-Share, analog zu '
+            '//172.20.3.150/public auf /mnt/public. Share mounten, z. B. '
+            '//172.20.3.150/office → /mnt/office (gleiche Credentials wie public).'
+            % kids
+        )
         status = 404
         error = 'Office-Share nicht gemountet'
     elif walk and walk.get('missing'):
