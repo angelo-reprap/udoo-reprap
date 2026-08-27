@@ -151,6 +151,13 @@ class Aufgabe(TimeStampedModel):
         settings.AUTH_USER_MODEL, on_delete=models.PROTECT,
         related_name='shaduler_aufgaben', db_index=True,
     )
+    delegiert_an = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name='shaduler_delegierte_aufgaben',
+        verbose_name='Delegiert an',
+        help_text='Kollegen, die die Aufgabe mitbearbeiten (Eigentümer bleibt zugewiesen_an).',
+    )
     ref_type = models.CharField(max_length=20, blank=True, db_index=True)
     ref_id = models.CharField(max_length=64, blank=True, db_index=True)
     quelle = models.CharField(max_length=15, choices=Quelle.choices, default=Quelle.MANUELL)

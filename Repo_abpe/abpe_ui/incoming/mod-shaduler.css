@@ -466,3 +466,29 @@ body.dark-mode #sh-m-erledigt{color:#6ee7b7}
 .sh-radar-pagesize{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;margin:0}
 .sh-radar-pagesize select{padding:3px 6px;border:1px solid var(--border-color);border-radius:6px;background:var(--bg-white);font:inherit}
 .sh-radar-card .sh-inbox-pager{margin:0 0 6px}
+
+/* Delegation: eine/mehrere Personen unter „Geprüft — entscheiden“ */
+.sh-delegate{
+  margin:12px 0 4px;padding:10px 12px;
+  border:1px dashed var(--abcona-blue-light,#1e4a7a);
+  border-radius:10px;background:var(--abcona-blue-alpha,rgba(22,50,88,.06));
+}
+.sh-delegate .qlbl{
+  margin:0 0 8px;font-size:.82rem;font-weight:600;
+  color:var(--abcona-blue,#163258);
+}
+.sh-delegate .sh-pick-row{margin:0}
+.sh-delegate-hint{font-size:.76rem;color:var(--text-secondary,#64748b);margin-top:8px;line-height:1.35;text-align:left}
+.sh-delegate .muted{color:var(--text-secondary,#64748b);font-size:.8rem}
+.task .tx .sh-del-badge{
+  display:inline-block;margin-top:3px;margin-right:6px;
+  color:#1e4a7a;font-weight:600;font-size:.72rem;
+}
+.task .tx .sh-del-in{color:#0f766e}
+body.dark-mode .sh-delegate{
+  background:rgba(255,255,255,.04);
+  border-color:#4a4a4a;
+}
+body.dark-mode .sh-delegate .qlbl{color:#93c5fd}
+body.dark-mode .task .tx .sh-del-badge{color:#93c5fd}
+body.dark-mode .task .tx .sh-del-in{color:#6ee7b7}
