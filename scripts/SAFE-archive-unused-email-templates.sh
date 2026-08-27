@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
-# Email-Studio-Vorlagen für alle Matching-Kanban-Stufen anlegen/aktualisieren.
+# Ungenutzte E-Mail-Vorlagen archivieren (kein Hard-Delete).
 #
-# Liest die Python-Datei von origin (lokales git auf ucs5 ist oft divergent).
-# Erfolg: Zeile „OK — 7 Matching-Stage-Vorlagen (Layout v3)“
+# Email Studio: test, cv_generated_berater_copy → ARCHIVED (sonst DRAFT)
+# Alte Tabelle abpe_matching_workflow.EmailTemplate: is_active=False
 #
-# ucs5:
+# CRM, Intake, MeetMe und die 7 Matching-Stage-Vorlagen bleiben aktiv.
+#
+# ucs5 — Datei von origin lesen (lokales git oft divergent):
 #   cd /mnt/public/udoo-reprap
 #   git fetch origin cursor/email-matching-layout-ee01
-#   bash scripts/SAFE-ensure-matching-stage-templates.sh
-#   Browser: Ctrl+F5 → Email Studio / Matching-Mail neu öffnen
+#   bash scripts/SAFE-archive-unused-email-templates.sh
 #
 set -euo pipefail
 
@@ -16,7 +17,7 @@ BACKEND="${BACKEND:-/opt/abpe/backend}"
 REPO="${REPO:-/mnt/public/udoo-reprap}"
 BRANCH="${BRANCH:-cursor/email-matching-layout-ee01}"
 PY="${PY:-/opt/abpe/venv311/bin/python}"
-REL="scripts/ensure-matching-stage-templates.py"
+REL="scripts/archive-unused-email-templates.py"
 
 [[ -d "$BACKEND" ]] || { echo "FAIL: $BACKEND fehlt"; exit 1; }
 
@@ -28,7 +29,7 @@ export DJANGO_SETTINGS_MODULE="${DJANGO_SETTINGS_MODULE:-abpe_backend.settings}"
 echo "→ fetch origin/$BRANCH …"
 git -C "$REPO" fetch origin "$BRANCH"
 
-echo "→ Upsert Matching-Stage-Vorlagen (Email Studio, Layout v3) …"
+echo "→ Archivieren ungenutzter Vorlagen (kein Delete) …"
 git -C "$REPO" show "origin/${BRANCH}:${REL}" | "$PY" manage.py shell
-echo "OK — u. a. matching_outreach_wizard ohne doppelten Gruß"
-echo "Danach: Browser Ctrl+F5, Email Studio / Matching-Mail neu öffnen"
+echo "OK — Email Studio: Filter „Archiv“ prüfen; Matching-Admin: is_active=False"
+echo "Danach: Browser Ctrl+F5"
