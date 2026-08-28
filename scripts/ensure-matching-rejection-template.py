@@ -39,8 +39,6 @@ HTML = "\n".join([
     _p("Wenn Sie einverstanden sind, kommen wir wieder auf Sie zu, "
        "sobald eine Anfrage wirklich zu Ihnen passt. "
        "Weitere Anfragen senden wir nur mit Ihrer Erlaubnis."),
-    _p("Dürfen wir Sie bei passenden Themen wieder ansprechen? "
-       "Eine kurze Rückmeldung reicht."),
     _SIGN,
 ]) + "\n"
 
@@ -51,8 +49,6 @@ vielen Dank für Ihr Interesse an {project} und für die Zeit, die Sie uns gegeb
 Es tut uns leid: diesmal hat es nicht gepasst. Die Auswahl ist anders ausgefallen — das bedauern wir. Das sagt nichts über Ihr Profil; oft entscheiden Zeitpunkt, Rahmen oder ein sehr spezieller Schwerpunkt.
 
 Wenn Sie einverstanden sind, kommen wir wieder auf Sie zu, sobald eine Anfrage wirklich zu Ihnen passt. Weitere Anfragen senden wir nur mit Ihrer Erlaubnis.
-
-Dürfen wir Sie bei passenden Themen wieder ansprechen? Eine kurze Rückmeldung reicht.
 
 Mit freundlichen Grüßen
 """
