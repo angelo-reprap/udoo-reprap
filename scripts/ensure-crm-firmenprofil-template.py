@@ -56,9 +56,10 @@ HTML = "\n".join([
     _p("vielen Dank für Ihr Interesse."),
     _p("Seit 1996 ist unser Inhaber Angelo Malaguarnera erfolgreich und kompetent "
        "darin tätig, IT-Experten und Projekte für Sie erfolgreich zusammenzubringen."),
-    _p("Mehrere festangestellte Kolleginnen und Kollegen arbeiten langjährig mit uns — "
-       "einzelne seit fast 25 Jahren — als starkes Team: in ihrem jeweiligen "
-       "Kompetenzrahmen gleichberechtigt, mit großem Einsatz und hoher Motivation."),
+    _p("Unsere festangestellten Kolleginnen und Kollegen arbeiten langjährig mit uns, "
+       "einzelne seit fast 25 Jahren: als starkes Team, in ihrem jeweiligen "
+       "Kompetenzrahmen gleichberechtigt, unbürokratisch und effektiv — "
+       "mit großem Einsatz und hoher Motivation für Ihren Erfolg."),
     _p("<strong>Bestand.</strong> "
        "Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. "
        "Dieser direkte Bestand trifft rund 90&nbsp;Prozent der Profile in unseren vier "
@@ -124,7 +125,7 @@ vielen Dank für Ihr Interesse.
 
 Seit 1996 ist unser Inhaber Angelo Malaguarnera erfolgreich und kompetent darin tätig, IT-Experten und Projekte für Sie erfolgreich zusammenzubringen.
 
-Mehrere festangestellte Kolleginnen und Kollegen arbeiten langjährig mit uns — einzelne seit fast 25 Jahren — als starkes Team: in ihrem jeweiligen Kompetenzrahmen gleichberechtigt, mit großem Einsatz und hoher Motivation.
+Unsere festangestellten Kolleginnen und Kollegen arbeiten langjährig mit uns, einzelne seit fast 25 Jahren: als starkes Team, in ihrem jeweiligen Kompetenzrahmen gleichberechtigt, unbürokratisch und effektiv — mit großem Einsatz und hoher Motivation für Ihren Erfolg.
 
 Bestand. Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. Dieser direkte Bestand trifft rund 90 Prozent der Profile in unseren vier Schwerpunkten. Über Empfehlungen, Profilbörsen und Partner erreichen wir darüber hinaus den Großteil der IT-Experten im deutschsprachigen Markt.
 
