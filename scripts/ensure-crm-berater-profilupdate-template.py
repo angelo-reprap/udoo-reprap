@@ -36,47 +36,44 @@ def _ul(items: list[str]) -> str:
 
 HTML = "\n".join([
     _HEADER,
-    _p("Hallo {first_name},"),
-    _p(
-        "kurz zu Ihrem Profil: wir schauen gerade, was bei uns passt — "
-        "und wollten hören, wo Sie stehen."
-    ),
-    _p("Drei kurze Fragen:"),
+    _p("Guten Tag {first_name},"),
+    _p("wir möchten Ihr Profil bei uns auf den aktuellen Stand bringen."),
+    _p("Bitte teilen Sie uns kurz mit:"),
     _ul([
-        "Sind Sie aktuell oder bald wieder verfügbar?",
-        "Ab wann — und in welchem Umfang?",
-        "Hat sich bei Schwerpunkten oder Konditionen etwas geändert?",
+        "Sind Sie aktuell oder in Kürze verfügbar?",
+        "Ab wann, und in welchem Umfang?",
+        "Haben sich Schwerpunkte oder Konditionen geändert?",
     ]),
-    _p("Ein aktuelles CV als PDF an {sender_email} hilft uns. Muss aber nicht."),
-    _p("Wir freuen uns über eine kurze Rückmeldung."),
+    _p("Ein aktuelles CV als PDF an {sender_email} ist hilfreich."),
+    _p("Vielen Dank für eine kurze Rückmeldung."),
     _SIGN,
 ]) + "\n"
 
-TEXT = """Hallo {first_name},
+TEXT = """Guten Tag {first_name},
 
-kurz zu Ihrem Profil: wir schauen gerade, was bei uns passt — und wollten hören, wo Sie stehen.
+wir möchten Ihr Profil bei uns auf den aktuellen Stand bringen.
 
-Drei kurze Fragen:
-- Sind Sie aktuell oder bald wieder verfügbar?
-- Ab wann — und in welchem Umfang?
-- Hat sich bei Schwerpunkten oder Konditionen etwas geändert?
+Bitte teilen Sie uns kurz mit:
+- Sind Sie aktuell oder in Kürze verfügbar?
+- Ab wann, und in welchem Umfang?
+- Haben sich Schwerpunkte oder Konditionen geändert?
 
-Ein aktuelles CV als PDF an {sender_email} hilft uns. Muss aber nicht.
+Ein aktuelles CV als PDF an {sender_email} ist hilfreich.
 
-Wir freuen uns über eine kurze Rückmeldung.
+Vielen Dank für eine kurze Rückmeldung.
 
 Mit freundlichen Grüßen
 """
 
 defaults = {
     "name": "CRM — Berater Profilupdate",
-    "subject": "Kurz nachgefragt — Ihr Profil",
+    "subject": "Aktualisierung Ihres Profils",
     "html_body": HTML.strip(),
     "text_body": TEXT.strip(),
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "CRM Berater: Verfügbarkeit / Profil-Update. Layout wie Matching, Ton locker.",
+    "description": "CRM Berater: Verfügbarkeit / Profil-Update. Geschäftlich, IT-direkt.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -99,4 +96,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — crm_berater_profilupdate (Ton locker)")
+print("OK — crm_berater_profilupdate (geschäftlich / IT)")

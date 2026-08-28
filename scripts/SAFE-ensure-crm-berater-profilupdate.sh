@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Email-Studio: crm_berater_profilupdate (Ton locker) von origin einspielen.
 #
-# Erfolg: OK — crm_berater_profilupdate (Ton locker)
+# Erfolg: OK — crm_berater_profilupdate (geschäftlich / IT)
 #
 # ucs5 (kein git pull, Working Tree oft divergent):
 #   cd /opt/abpe/backend
