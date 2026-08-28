@@ -53,82 +53,94 @@ def _focus(num: str, title: str, body: str) -> str:
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
-    _p("vielen Dank für Ihr Interesse. "
-       "Wir bringen IT-Experten in Ihre Projekte — "
-       "schnell, zuverlässig und auf Augenhöhe."),
-    _p("Was Sie von uns erwarten können:"),
-    _facts([
-        ("Bestand", "rund 23.000 aktive Berater; Zugriff auf den Großteil "
-                    "des deutschsprachigen Marktes"),
-        ("Tempo", "erste Profile meist noch am selben Tag "
-                  "(CV-Pipeline, Matching, Aufgaben)"),
-        ("Einsatz", "kurz- und langfristig"),
-    ]),
+    _p("vielen Dank für Ihr Interesse."),
+    _p("Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, "
+       "IT-Experten in Projekte zu bringen. Mehrere Kolleginnen und Kollegen "
+       "arbeiten seit fast 25 Jahren mit uns. Dieses lange Miteinander hilft uns, "
+       "Ihre Anfrage sehr zielgenau zu verstehen — und Sie bestmöglich zu unterstützen."),
+    _p("<strong>Bestand.</strong> "
+       "Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. "
+       "Dieser direkte Bestand trifft rund 90&nbsp;Prozent der Profile in unseren vier "
+       "Schwerpunkten. Über Partner und Profilbörsen erreichen wir darüber hinaus "
+       "den Großteil der IT-Experten im deutschsprachigen Markt."),
+    _p("<strong>Tempo.</strong> "
+       "Mit der KI-gestützten Infrastruktur, die wir in diesem Jahr in Betrieb genommen haben, "
+       "liegen erste Vorschläge oft noch am selben Tag vor: verfügbare Berater oder Teams, "
+       "die Ihre Aufgabe umsetzen können. Jede Anfrage gehen wir mit dem Anspruch an, "
+       "den Bedarf vollständig zu verstehen und konkret zu besetzen."),
+    _p("<strong>Einsatzmodell.</strong> "
+       "Wir richten uns nach Ihrem Bedarf: kurzfristige Verstärkung oder längere "
+       "Projektbegleitung; vor Ort, remote oder hybrid; Kontingente, die Sie nach Abruf nutzen. "
+       "Vertraglich bilden wir das ab als Dienstvertrag, Werkvertrag, Festpreis, "
+       "Paketpreis, Wartung oder Pauschale."),
     _p("Unsere Schwerpunkte:"),
     _focus(
         "1",
         "Netzwerktechnik",
-        "Architektur, Planung und Umsetzung — markenunabhängig. "
-        "Firewall, Loadbalancer, Proxy, Switching und Routing, "
-        "inkl. Konzept, Betrieb und der dazugehörigen Organisation.",
+        "Architektur, Konzept, Leitung, Planung, Steuerung, Umsetzung sowie Betrieb "
+        "und Organisation. Themen (Auszug): Firewalling, Loadbalancer, Proxy, Routing "
+        "und Switching — markenunabhängig und passend zu Ihrer bestehenden Infrastruktur. "
+        "Schwerpunkt Carrier und Large-Enterprise-Netze; im Mittelstand beraten und "
+        "verstärken wir ebenso.",
     ),
     _focus(
         "2",
-        "Infrastruktur, Plattformen und Betrieb",
-        "Unix-/Linux-Herkunft, Enterprise und Rechenzentrum. "
-        "Konzept, Architektur, Betrieb, Organisation und Projektleitung — "
-        "inkl. DevOps, Container (Docker, Kubernetes) und aktueller Plattformthemen.",
+        "IT-Infrastruktur und Betrieb",
+        "Cloud, Enterprise und Rechenzentrum. Architektur, Konzept, Projektleitung, "
+        "Betrieb, Wartung und Monitoring. Themen (Auszug): virtuelle und cloud-basierte "
+        "Systeme, Datenbanken, DevOps, Docker, Kubernetes — einschließlich aktueller "
+        "System- und Plattformumgebungen.",
     ),
     _focus(
         "3",
         "Softwareentwicklung",
-        "Individualentwicklung in Java, Python, C#/.NET, Perl "
-        "sowie Web (JavaScript, TypeScript, CSS). "
-        "Von der Oberfläche über Fachlogik und Berechnung bis zur Datenhaltung.",
+        "Rollen von Architektur und Tech Lead über Entwicklung und Qualitätssicherung "
+        "bis Projektleitung. Themenfelder: Web, Fachanwendungen, Schnittstellen, "
+        "Berechnung und Datenhaltung. Sprachen und Technik (Auszug): Java, Python, "
+        "C#/.NET, Perl, JavaScript, TypeScript, CSS — von der Oberfläche über die "
+        "Fachlogik bis zur Persistenz.",
     ),
     _focus(
         "4",
         "Künstliche Intelligenz",
-        "Spezifikationsgetriebene Architektur und Entwicklung, KI im Betrieb. "
-        "Für Ihre Projekte stellen wir Spezialisten, die in KI/AI oft noch tiefer sind.",
+        "KI-gestützte Konzepte, Architekturen und Programmierung: spezifikationsgetriebene "
+        "Entwicklung, Assistenz in Entwurf und Review, Integration in bestehende Anwendungen, "
+        "Automatisierung im Betrieb (Administration, Monitoring, Wissenssysteme), "
+        "Agenten und Retrieval. Dazu Spezialisten aus unserem Bestand, die in KI/AI "
+        "Produktionsthemen oft noch tiefer sind als der Werkzeugeinsatz allein.",
     ),
-    _p("Warum das zählt: Bei uns gehen täglich Anfragen ein. "
-       "Nennen Sie uns Ihre Anforderungen, schlagen wir zügig passende "
-       "Profile vor — ohne Umwege."),
-    _p("Seit 2002 arbeiten wir mit Unternehmen und IT-Experten zusammen. "
-       "Gerne stellen wir Ihnen Profile für aktuelle oder geplante Projekte vor."),
-    _p("Haben Sie konkrete Anforderungen? Schreiben Sie uns oder rufen Sie uns an."),
+    _p("Haben Sie konkrete Anforderungen? Schreiben Sie uns oder rufen Sie uns an. "
+       "Wir stellen Profile oder Teams vor — nach Absprache mit den Beraterinnen und Beratern."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-vielen Dank für Ihr Interesse. Wir bringen IT-Experten in Ihre Projekte — schnell, zuverlässig und auf Augenhöhe.
+vielen Dank für Ihr Interesse.
 
-Was Sie von uns erwarten können:
-- Bestand: rund 23.000 aktive Berater; Zugriff auf den Großteil des deutschsprachigen Marktes
-- Tempo: erste Profile meist noch am selben Tag (CV-Pipeline, Matching, Aufgaben)
-- Einsatz: kurz- und langfristig
+Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, IT-Experten in Projekte zu bringen. Mehrere Kolleginnen und Kollegen arbeiten seit fast 25 Jahren mit uns. Dieses lange Miteinander hilft uns, Ihre Anfrage sehr zielgenau zu verstehen — und Sie bestmöglich zu unterstützen.
+
+Bestand. Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. Dieser direkte Bestand trifft rund 90 Prozent der Profile in unseren vier Schwerpunkten. Über Partner und Profilbörsen erreichen wir darüber hinaus den Großteil der IT-Experten im deutschsprachigen Markt.
+
+Tempo. Mit der KI-gestützten Infrastruktur, die wir in diesem Jahr in Betrieb genommen haben, liegen erste Vorschläge oft noch am selben Tag vor: verfügbare Berater oder Teams, die Ihre Aufgabe umsetzen können. Jede Anfrage gehen wir mit dem Anspruch an, den Bedarf vollständig zu verstehen und konkret zu besetzen.
+
+Einsatzmodell. Wir richten uns nach Ihrem Bedarf: kurzfristige Verstärkung oder längere Projektbegleitung; vor Ort, remote oder hybrid; Kontingente, die Sie nach Abruf nutzen. Vertraglich bilden wir das ab als Dienstvertrag, Werkvertrag, Festpreis, Paketpreis, Wartung oder Pauschale.
 
 Unsere Schwerpunkte:
 
 1. Netzwerktechnik
-Architektur, Planung und Umsetzung — markenunabhängig. Firewall, Loadbalancer, Proxy, Switching und Routing, inkl. Konzept, Betrieb und der dazugehörigen Organisation.
+Architektur, Konzept, Leitung, Planung, Steuerung, Umsetzung sowie Betrieb und Organisation. Themen (Auszug): Firewalling, Loadbalancer, Proxy, Routing und Switching — markenunabhängig und passend zu Ihrer bestehenden Infrastruktur. Schwerpunkt Carrier und Large-Enterprise-Netze; im Mittelstand beraten und verstärken wir ebenso.
 
-2. Infrastruktur, Plattformen und Betrieb
-Unix-/Linux-Herkunft, Enterprise und Rechenzentrum. Konzept, Architektur, Betrieb, Organisation und Projektleitung — inkl. DevOps, Container (Docker, Kubernetes) und aktueller Plattformthemen.
+2. IT-Infrastruktur und Betrieb
+Cloud, Enterprise und Rechenzentrum. Architektur, Konzept, Projektleitung, Betrieb, Wartung und Monitoring. Themen (Auszug): virtuelle und cloud-basierte Systeme, Datenbanken, DevOps, Docker, Kubernetes — einschließlich aktueller System- und Plattformumgebungen.
 
 3. Softwareentwicklung
-Individualentwicklung in Java, Python, C#/.NET, Perl sowie Web (JavaScript, TypeScript, CSS). Von der Oberfläche über Fachlogik und Berechnung bis zur Datenhaltung.
+Rollen von Architektur und Tech Lead über Entwicklung und Qualitätssicherung bis Projektleitung. Themenfelder: Web, Fachanwendungen, Schnittstellen, Berechnung und Datenhaltung. Sprachen und Technik (Auszug): Java, Python, C#/.NET, Perl, JavaScript, TypeScript, CSS — von der Oberfläche über die Fachlogik bis zur Persistenz.
 
 4. Künstliche Intelligenz
-Spezifikationsgetriebene Architektur und Entwicklung, KI im Betrieb. Für Ihre Projekte stellen wir Spezialisten, die in KI/AI oft noch tiefer sind.
+KI-gestützte Konzepte, Architekturen und Programmierung: spezifikationsgetriebene Entwicklung, Assistenz in Entwurf und Review, Integration in bestehende Anwendungen, Automatisierung im Betrieb (Administration, Monitoring, Wissenssysteme), Agenten und Retrieval. Dazu Spezialisten aus unserem Bestand, die in KI/AI Produktionsthemen oft noch tiefer sind als der Werkzeugeinsatz allein.
 
-Warum das zählt: Bei uns gehen täglich Anfragen ein. Nennen Sie uns Ihre Anforderungen, schlagen wir zügig passende Profile vor — ohne Umwege.
-
-Seit 2002 arbeiten wir mit Unternehmen und IT-Experten zusammen. Gerne stellen wir Ihnen Profile für aktuelle oder geplante Projekte vor.
-
-Haben Sie konkrete Anforderungen? Schreiben Sie uns oder rufen Sie uns an.
+Haben Sie konkrete Anforderungen? Schreiben Sie uns oder rufen Sie uns an. Wir stellen Profile oder Teams vor — nach Absprache mit den Beraterinnen und Beratern.
 
 Mit freundlichen Grüßen
 """
@@ -141,7 +153,7 @@ defaults = {
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "CRM Unternehmen: 23.000 Berater, selben Tag, 4 Schwerpunkte.",
+    "description": "CRM Unternehmen: Person, 23.000, I&O, KI ausführlich. Kürzen nach Bedarf.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -164,4 +176,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — crm_firmenprofil (Schwerpunkte / 23.000 / selben Tag)")
+print("OK — crm_firmenprofil (Person / I&O / KI ausführlich)")
