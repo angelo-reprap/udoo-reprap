@@ -55,14 +55,15 @@ HTML = "\n".join([
     _p("Guten Tag {first_name},"),
     _p("vielen Dank für Ihr Interesse."),
     _p("Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, "
-       "IT-Experten in Projekte zu bringen. Mehrere Kolleginnen und Kollegen "
-       "arbeiten seit fast 25 Jahren mit uns. Dieses lange Miteinander hilft uns, "
-       "Ihre Anfrage sehr zielgenau zu verstehen — und Sie bestmöglich zu unterstützen."),
+       "IT-Experten und Projekte für Sie erfolgreich zusammenzubringen."),
+    _p("Mehrere festangestellte Kolleginnen und Kollegen arbeiten langjährig mit uns — "
+       "einzelne seit fast 25 Jahren — als starkes Team: in ihrem jeweiligen "
+       "Kompetenzrahmen gleichberechtigt, mit großem Einsatz und hoher Motivation."),
     _p("<strong>Bestand.</strong> "
        "Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. "
        "Dieser direkte Bestand trifft rund 90&nbsp;Prozent der Profile in unseren vier "
-       "Schwerpunkten. Über Partner und Profilbörsen erreichen wir darüber hinaus "
-       "den Großteil der IT-Experten im deutschsprachigen Markt."),
+       "Schwerpunkten. Über Empfehlungen, Profilbörsen und Partner erreichen wir "
+       "darüber hinaus den Großteil der IT-Experten im deutschsprachigen Markt."),
     _p("<strong>Tempo.</strong> "
        "Mit der KI-gestützten Infrastruktur, die wir in diesem Jahr in Betrieb genommen haben, "
        "liegen erste Vorschläge oft noch am selben Tag vor: verfügbare Berater oder Teams, "
@@ -109,8 +110,11 @@ HTML = "\n".join([
         "Agenten und Retrieval. Dazu Spezialisten aus unserem Bestand, die in KI/AI "
         "Produktionsthemen oft noch tiefer sind als der Werkzeugeinsatz allein.",
     ),
-    _p("Haben Sie konkrete Anforderungen? Schreiben Sie uns oder rufen Sie uns an. "
-       "Wir stellen Profile oder Teams vor — nach Absprache mit den Beraterinnen und Beratern."),
+    _p("Haben Sie konkrete Anforderungen?"),
+    _p("Testen Sie uns."),
+    _p("Schreiben Sie uns oder rufen Sie uns an. "
+       "Wir stellen Profile vor oder stellen Teams zusammen — "
+       "mit Beraterinnen und Beratern, die wir gut betreuen."),
     _SIGN,
 ]) + "\n"
 
@@ -118,9 +122,11 @@ TEXT = """Guten Tag {first_name},
 
 vielen Dank für Ihr Interesse.
 
-Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, IT-Experten in Projekte zu bringen. Mehrere Kolleginnen und Kollegen arbeiten seit fast 25 Jahren mit uns. Dieses lange Miteinander hilft uns, Ihre Anfrage sehr zielgenau zu verstehen — und Sie bestmöglich zu unterstützen.
+Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, IT-Experten und Projekte für Sie erfolgreich zusammenzubringen.
 
-Bestand. Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. Dieser direkte Bestand trifft rund 90 Prozent der Profile in unseren vier Schwerpunkten. Über Partner und Profilbörsen erreichen wir darüber hinaus den Großteil der IT-Experten im deutschsprachigen Markt.
+Mehrere festangestellte Kolleginnen und Kollegen arbeiten langjährig mit uns — einzelne seit fast 25 Jahren — als starkes Team: in ihrem jeweiligen Kompetenzrahmen gleichberechtigt, mit großem Einsatz und hoher Motivation.
+
+Bestand. Über 23.000 aktive Berater, die wir im Laufe der Jahre direkt angesprochen haben. Dieser direkte Bestand trifft rund 90 Prozent der Profile in unseren vier Schwerpunkten. Über Empfehlungen, Profilbörsen und Partner erreichen wir darüber hinaus den Großteil der IT-Experten im deutschsprachigen Markt.
 
 Tempo. Mit der KI-gestützten Infrastruktur, die wir in diesem Jahr in Betrieb genommen haben, liegen erste Vorschläge oft noch am selben Tag vor: verfügbare Berater oder Teams, die Ihre Aufgabe umsetzen können. Jede Anfrage gehen wir mit dem Anspruch an, den Bedarf vollständig zu verstehen und konkret zu besetzen.
 
@@ -140,7 +146,11 @@ Rollen von Architektur und Tech Lead über Entwicklung und Qualitätssicherung b
 4. Künstliche Intelligenz
 KI-gestützte Konzepte, Architekturen und Programmierung: spezifikationsgetriebene Entwicklung, Assistenz in Entwurf und Review, Integration in bestehende Anwendungen, Automatisierung im Betrieb (Administration, Monitoring, Wissenssysteme), Agenten und Retrieval. Dazu Spezialisten aus unserem Bestand, die in KI/AI Produktionsthemen oft noch tiefer sind als der Werkzeugeinsatz allein.
 
-Haben Sie konkrete Anforderungen? Schreiben Sie uns oder rufen Sie uns an. Wir stellen Profile oder Teams vor — nach Absprache mit den Beraterinnen und Beratern.
+Haben Sie konkrete Anforderungen?
+
+Testen Sie uns.
+
+Schreiben Sie uns oder rufen Sie uns an. Wir stellen Profile vor oder stellen Teams zusammen — mit Beraterinnen und Beratern, die wir gut betreuen.
 
 Mit freundlichen Grüßen
 """
