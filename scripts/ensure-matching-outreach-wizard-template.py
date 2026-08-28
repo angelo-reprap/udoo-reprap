@@ -36,7 +36,7 @@ HTML = "\n".join([
     _p("Guten Tag {first_name},"),
     _p("wir haben eine Anfrage vorliegen, die nach unserem Eindruck "
        "zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne "
-       "mit Ihnen klären — ohne Druck."),
+       "mit Ihnen klären."),
     _p("Kurz der Stand:"),
     _facts([
         ("Was", "{project}"),
@@ -50,14 +50,13 @@ HTML = "\n".join([
     _p("<strong>Gesucht u.&nbsp;a.:</strong> {required_skills}"),
     _p("<strong>Was uns an Ihrem Profil aufgefallen ist:</strong><br>{why_short}"),
     _p("Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse "
-       "besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen. "
-       "Wenn nicht, genügt ein Satz — dann bleibt es dabei."),
+       "besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-wir haben eine Anfrage vorliegen, die nach unserem Eindruck zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne mit Ihnen klären — ohne Druck.
+wir haben eine Anfrage vorliegen, die nach unserem Eindruck zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne mit Ihnen klären.
 
 Kurz der Stand:
 Was: {project}
@@ -74,7 +73,7 @@ Gesucht u. a.: {required_skills}
 Was uns an Ihrem Profil aufgefallen ist:
 {why_short}
 
-Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen. Wenn nicht, genügt ein Satz — dann bleibt es dabei.
+Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen.
 
 Mit freundlichen Grüßen
 """
