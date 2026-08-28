@@ -54,8 +54,8 @@ HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
     _p("vielen Dank für Ihr Interesse."),
-    _p("Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, "
-       "IT-Experten und Projekte für Sie erfolgreich zusammenzubringen."),
+    _p("Seit 1996 ist unser Inhaber Angelo Malaguarnera erfolgreich und kompetent "
+       "darin tätig, IT-Experten und Projekte für Sie erfolgreich zusammenzubringen."),
     _p("Mehrere festangestellte Kolleginnen und Kollegen arbeiten langjährig mit uns — "
        "einzelne seit fast 25 Jahren — als starkes Team: in ihrem jeweiligen "
        "Kompetenzrahmen gleichberechtigt, mit großem Einsatz und hoher Motivation."),
@@ -111,7 +111,7 @@ HTML = "\n".join([
         "Produktionsthemen oft noch tiefer sind als der Werkzeugeinsatz allein.",
     ),
     _p("Haben Sie konkrete Anforderungen?"),
-    _p("Testen Sie uns."),
+    _p("Testen Sie uns!"),
     _p("Schreiben Sie uns oder rufen Sie uns an. "
        "Wir stellen Profile vor oder stellen Teams zusammen — "
        "mit Beraterinnen und Beratern, die wir gut betreuen."),
@@ -122,7 +122,7 @@ TEXT = """Guten Tag {first_name},
 
 vielen Dank für Ihr Interesse.
 
-Angelo Malaguarnera, Inhaber, ist seit 1996 darin tätig, IT-Experten und Projekte für Sie erfolgreich zusammenzubringen.
+Seit 1996 ist unser Inhaber Angelo Malaguarnera erfolgreich und kompetent darin tätig, IT-Experten und Projekte für Sie erfolgreich zusammenzubringen.
 
 Mehrere festangestellte Kolleginnen und Kollegen arbeiten langjährig mit uns — einzelne seit fast 25 Jahren — als starkes Team: in ihrem jeweiligen Kompetenzrahmen gleichberechtigt, mit großem Einsatz und hoher Motivation.
 
@@ -148,7 +148,7 @@ KI-gestützte Konzepte, Architekturen und Programmierung: spezifikationsgetriebe
 
 Haben Sie konkrete Anforderungen?
 
-Testen Sie uns.
+Testen Sie uns!
 
 Schreiben Sie uns oder rufen Sie uns an. Wir stellen Profile vor oder stellen Teams zusammen — mit Beraterinnen und Beratern, die wir gut betreuen.
 
