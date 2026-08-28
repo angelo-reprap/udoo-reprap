@@ -46,6 +46,10 @@ def _facts(rows: list[tuple[str, str]]) -> str:
     )
 
 
+def _focus(num: str, title: str, body: str) -> str:
+    return _p(f"<strong>{num}. {title}</strong><br>{body}")
+
+
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
@@ -54,10 +58,40 @@ HTML = "\n".join([
        "schnell, zuverlässig und auf Augenhöhe."),
     _p("Was Sie von uns erwarten können:"),
     _facts([
-        ("Einsatz", "IT, Engineering, Management — kurz- und langfristig"),
-        ("Netzwerk", "{berater_anzahl}+ Experten"),
-        ("Tempo", "erste Profile in der Regel innerhalb von 48 Stunden"),
+        ("Bestand", "rund 23.000 aktive Berater; Zugriff auf den Großteil "
+                    "des deutschsprachigen Marktes"),
+        ("Tempo", "erste Profile meist noch am selben Tag "
+                  "(CV-Pipeline, Matching, Aufgaben)"),
+        ("Einsatz", "kurz- und langfristig"),
     ]),
+    _p("Unsere Schwerpunkte:"),
+    _focus(
+        "1",
+        "Netzwerktechnik",
+        "Architektur, Planung und Umsetzung — markenunabhängig. "
+        "Firewall, Loadbalancer, Proxy, Switching und Routing, "
+        "inkl. Konzept, Betrieb und der dazugehörigen Organisation.",
+    ),
+    _focus(
+        "2",
+        "Infrastruktur, Plattformen und Betrieb",
+        "Unix-/Linux-Herkunft, Enterprise und Rechenzentrum. "
+        "Konzept, Architektur, Betrieb, Organisation und Projektleitung — "
+        "inkl. DevOps, Container (Docker, Kubernetes) und aktueller Plattformthemen.",
+    ),
+    _focus(
+        "3",
+        "Softwareentwicklung",
+        "Individualentwicklung in Java, Python, C#/.NET, Perl "
+        "sowie Web (JavaScript, TypeScript, CSS). "
+        "Von der Oberfläche über Fachlogik und Berechnung bis zur Datenhaltung.",
+    ),
+    _focus(
+        "4",
+        "Künstliche Intelligenz",
+        "Spezifikationsgetriebene Architektur und Entwicklung, KI im Betrieb. "
+        "Für Ihre Projekte stellen wir Spezialisten, die in KI/AI oft noch tiefer sind.",
+    ),
     _p("Warum das zählt: Bei uns gehen täglich Anfragen ein. "
        "Nennen Sie uns Ihre Anforderungen, schlagen wir zügig passende "
        "Profile vor — ohne Umwege."),
@@ -72,9 +106,23 @@ TEXT = """Guten Tag {first_name},
 vielen Dank für Ihr Interesse. Wir bringen IT-Experten in Ihre Projekte — schnell, zuverlässig und auf Augenhöhe.
 
 Was Sie von uns erwarten können:
-- Einsatz: IT, Engineering, Management — kurz- und langfristig
-- Netzwerk: {berater_anzahl}+ Experten
-- Tempo: erste Profile in der Regel innerhalb von 48 Stunden
+- Bestand: rund 23.000 aktive Berater; Zugriff auf den Großteil des deutschsprachigen Marktes
+- Tempo: erste Profile meist noch am selben Tag (CV-Pipeline, Matching, Aufgaben)
+- Einsatz: kurz- und langfristig
+
+Unsere Schwerpunkte:
+
+1. Netzwerktechnik
+Architektur, Planung und Umsetzung — markenunabhängig. Firewall, Loadbalancer, Proxy, Switching und Routing, inkl. Konzept, Betrieb und der dazugehörigen Organisation.
+
+2. Infrastruktur, Plattformen und Betrieb
+Unix-/Linux-Herkunft, Enterprise und Rechenzentrum. Konzept, Architektur, Betrieb, Organisation und Projektleitung — inkl. DevOps, Container (Docker, Kubernetes) und aktueller Plattformthemen.
+
+3. Softwareentwicklung
+Individualentwicklung in Java, Python, C#/.NET, Perl sowie Web (JavaScript, TypeScript, CSS). Von der Oberfläche über Fachlogik und Berechnung bis zur Datenhaltung.
+
+4. Künstliche Intelligenz
+Spezifikationsgetriebene Architektur und Entwicklung, KI im Betrieb. Für Ihre Projekte stellen wir Spezialisten, die in KI/AI oft noch tiefer sind.
 
 Warum das zählt: Bei uns gehen täglich Anfragen ein. Nennen Sie uns Ihre Anforderungen, schlagen wir zügig passende Profile vor — ohne Umwege.
 
@@ -93,7 +141,7 @@ defaults = {
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "CRM Unternehmen: Leistungen, Tempo 48h, seit 2002. Ohne Vermittlungs-Wort.",
+    "description": "CRM Unternehmen: 23.000 Berater, selben Tag, 4 Schwerpunkte.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -116,4 +164,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — crm_firmenprofil (Leistungen / Unternehmen)")
+print("OK — crm_firmenprofil (Schwerpunkte / 23.000 / selben Tag)")

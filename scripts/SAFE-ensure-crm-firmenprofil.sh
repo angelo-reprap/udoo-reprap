@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Email-Studio: crm_firmenprofil von origin einspielen.
 #
-# Erfolg: OK — crm_firmenprofil (Leistungen / Unternehmen)
+# Erfolg: OK — crm_firmenprofil (Schwerpunkte / 23.000 / selben Tag)
 #
 set -euo pipefail
 
