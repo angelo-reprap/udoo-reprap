@@ -96,7 +96,13 @@
         '<div class="stat-card"><div class="stat-value" id="n-plan">0</div><div class="stat-title" data-i18n="sh.stat_geplant">geplant</div></div>' +
         '<div class="stat-card"><div class="stat-value" id="n-done">0</div><div class="stat-title" data-i18n="sh.stat_erledigt">heute erledigt</div></div>' +
         '</div>' +
-        '<div class="sh-card"><div id="sh-acc"></div></div>' +
+        '<div class="sh-card">' +
+        '<div class="card-h">' +
+        '<i class="bi bi-list-task"></i> ' + esc(_t('sh.tab_aufgaben', 'Aufgaben')) +
+        '<button type="button" class="sh-btn sh-btn-primary" id="sh-aufgabe-neu">' +
+        '<i class="bi bi-plus-lg"></i> ' + esc(_t('sh.aufgabe_neu', 'Neu')) +
+        '</button></div>' +
+        '<div id="sh-acc"></div></div>' +
         '<div id="sh-demo-hint" class="sh-hint" style="display:none"></div>' +
         '</div>' +
         modalHtml()
@@ -278,6 +284,7 @@
     applyI18n(body);
     if (name === 'aufgaben') {
       bindModal();
+      bindAufgabeNeu();
       loadAufgaben();
     } else if (name === 'kalender') {
       bindModal();
@@ -2115,6 +2122,171 @@
     }
   }
 
+  function bindAufgabeNeu() {
+    var btn = document.getElementById('sh-aufgabe-neu');
+    if (!btn) return;
+    btn.onclick = function () { openManualAufgabeCreate(); };
+  }
+
+  function openManualAufgabeCreate() {
+    closeMailTaskChooser();
+    var defaultArt = 'intern';
+    var arts = [
+      { id: 'anruf', label: _t('sh.art_anruf', 'Anruf'), icon: 'bi-telephone' },
+      { id: 'sms_messenger', label: _t('sh.art_sms_messenger_short', 'WhatsApp'), icon: 'bi-whatsapp' },
+      { id: 'wiedervorlage', label: _t('sh.art_wiedervorlage', 'Wiedervorlage'), icon: 'bi-arrow-repeat' },
+      { id: 'email', label: _t('sh.art_email', 'E-Mail'), icon: 'bi-envelope' },
+      { id: 'post', label: _t('sh.art_post', 'Post'), icon: 'bi-mailbox' },
+      { id: 'termin', label: _t('sh.art_termin', 'Termin'), icon: 'bi-calendar-event' },
+      { id: 'dokument', label: _t('sh.art_dokument', 'Dokument'), icon: 'bi-file-earmark-text' },
+      { id: 'intern', label: _t('sh.art_intern', 'Intern'), icon: 'bi-briefcase' },
+    ];
+    var artBtns = arts.map(function (a) {
+      return '<button type="button" class="sh-pick' + (a.id === defaultArt ? ' on' : '') + '" data-art="' + a.id + '">' +
+        (a.icon ? '<i class="bi ' + a.icon + '"></i> ' : '') + esc(a.label) + '</button>';
+    }).join('');
+    var dueDef = defaultDueDateTime();
+    var ovl = document.createElement('div');
+    ovl.className = 'ovl open';
+    ovl.id = 'sh-mail-task-ovl';
+    ovl.innerHTML =
+      '<div class="sh-modal sh-mail-task-modal">' +
+      '<div class="mh">' +
+      '<div class="ico"><i class="bi bi-plus-lg"></i></div>' +
+      '<div><b>' + esc(_t('sh.aufgabe_neu_title', 'Neue Aufgabe')) + '</b></div>' +
+      '<button type="button" class="x" id="sh-mt-close"><i class="bi bi-x-lg"></i></button>' +
+      '</div>' +
+      '<div class="mb">' +
+      '<div class="inp"><label for="sh-mt-titel">' + esc(_t('sh.aufgabe_titel', 'Titel')) + '</label>' +
+      '<input type="text" id="sh-mt-titel" maxlength="200" autocomplete="off" placeholder="' +
+      esc(_t('sh.aufgabe_titel_ph', 'Was ist zu tun?')) + '"></div>' +
+      '<div class="qlbl">' + esc(_t('sh.inbox_pick_art', 'Art')) + '</div>' +
+      '<div class="sh-pick-row" id="sh-mt-arts">' + artBtns + '</div>' +
+      '<div class="qlbl">' + esc(_t('sh.inbox_pick_due', 'Fälligkeit')) + '</div>' +
+      '<div class="sh-due-grid sh-due-grid-2">' +
+      '<div class="inp"><label for="sh-mt-date">' + esc(_t('sh.inbox_due_date', 'Tag')) + '</label>' +
+      '<input type="date" id="sh-mt-date" value="' + esc(dueDef.date) + '"></div>' +
+      '<div class="inp"><label for="sh-mt-time">' + esc(_t('sh.inbox_due_time', 'Uhrzeit')) + '</label>' +
+      '<input type="time" id="sh-mt-time" value="' + esc(dueDef.time) + '"></div>' +
+      '</div>' +
+      '<div class="sh-pick-row sh-due-quick">' +
+      '<button type="button" class="sh-pick" data-quick="heute">' + esc(_t('sh.due_heute', 'heute')) + '</button>' +
+      '<button type="button" class="sh-pick" data-quick="morgen">' + esc(_t('sh.due_morgen', 'morgen')) + '</button>' +
+      '<button type="button" class="sh-pick" data-quick="1h">' + esc(_t('sh.due_1h', 'in 1 Stunde')) + '</button>' +
+      '</div>' +
+      '<div class="inp"><label for="sh-mt-notiz">' + esc(_t('sh.inbox_notiz', 'Notiz')) + '</label>' +
+      '<textarea id="sh-mt-notiz" rows="3" placeholder="' +
+      esc(_t('sh.inbox_notiz_ph', 'Kurz notieren, was zu tun ist …')) + '"></textarea></div>' +
+      '<button type="button" class="primary" id="sh-mt-save">' +
+      '<i class="bi bi-check2"></i> ' + esc(_t('sh.inbox_task_create', 'Aufgabe anlegen')) +
+      '</button>' +
+      '</div></div>';
+    document.body.appendChild(ovl);
+
+    var selectedArt = defaultArt;
+    ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (b) {
+      b.addEventListener('click', function () {
+        ovl.querySelectorAll('#sh-mt-arts .sh-pick').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        selectedArt = b.getAttribute('data-art') || defaultArt;
+        applyArtDueDefaults(selectedArt);
+      });
+    });
+    applyArtDueDefaults(selectedArt);
+    ovl.querySelectorAll('.sh-due-quick .sh-pick').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var q = b.getAttribute('data-quick');
+        var d = new Date();
+        if (q === 'morgen') d.setDate(d.getDate() + 1);
+        if (q === '1h') {
+          d.setMinutes(0, 0, 0);
+          d.setHours(d.getHours() + 1);
+        } else {
+          d.setHours(9, 0, 0, 0);
+        }
+        var dateEl = document.getElementById('sh-mt-date');
+        var timeEl = document.getElementById('sh-mt-time');
+        if (dateEl) {
+          dateEl.value = d.getFullYear() + '-' +
+            String(d.getMonth() + 1).padStart(2, '0') + '-' +
+            String(d.getDate()).padStart(2, '0');
+        }
+        if (timeEl) {
+          timeEl.value = String(d.getHours()).padStart(2, '0') + ':' +
+            String(d.getMinutes()).padStart(2, '0');
+        }
+        ovl.querySelectorAll('.sh-due-quick .sh-pick').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+      });
+    });
+    var closeBtn = document.getElementById('sh-mt-close');
+    if (closeBtn) closeBtn.onclick = closeMailTaskChooser;
+    ovl.addEventListener('click', function (ev) {
+      if (ev.target === ovl) closeMailTaskChooser();
+    });
+
+    function submitCreate() {
+      var titelEl = document.getElementById('sh-mt-titel');
+      var ta = document.getElementById('sh-mt-notiz');
+      var dateEl = document.getElementById('sh-mt-date');
+      var timeEl = document.getElementById('sh-mt-time');
+      var save = document.getElementById('sh-mt-save');
+      var titel = titelEl ? String(titelEl.value || '').trim() : '';
+      var notiz = ta ? String(ta.value || '').trim() : '';
+      if (!titel) {
+        if (titelEl) titelEl.focus();
+        toast(_t('sh.aufgabe_titel_needed', 'Bitte einen Titel eingeben'));
+        return;
+      }
+      if (save) save.disabled = true;
+      fetch(api('aufgaben/create/'), {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken(),
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({
+          art: selectedArt,
+          titel: titel.slice(0, 200),
+          beschreibung: notiz,
+          quelle: 'manuell',
+          faellig_am: dateEl ? dateEl.value : '',
+          faellig_zeit: timeEl ? timeEl.value : '',
+        }),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (save) save.disabled = false;
+          if (j && j.ok) {
+            closeMailTaskChooser();
+            toast(_t('sh.toast_task_created', 'Aufgabe angelegt'));
+            loadAufgaben();
+          } else {
+            toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+          }
+        })
+        .catch(function () {
+          if (save) save.disabled = false;
+          toast(_t('sh.toast_error', 'Speichern fehlgeschlagen'));
+        });
+    }
+
+    var saveBtn = document.getElementById('sh-mt-save');
+    if (saveBtn) saveBtn.onclick = submitCreate;
+    var titelInput = document.getElementById('sh-mt-titel');
+    if (titelInput) {
+      titelInput.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          submitCreate();
+        }
+      });
+      setTimeout(function () { titelInput.focus(); }, 30);
+    }
+  }
+
   function looksLikeHtml(s) {
     var t = String(s || '');
     // echte Tags — nicht <email@domain> aus Plaintext-Headern
@@ -3785,7 +3957,7 @@
           hint.style.display = 'block';
           hint.textContent = _t(
             'sh.empty_hint',
-            'Keine offenen Aufgaben. Seed: python manage.py seed_shaduler --demo-tasks'
+            'Keine offenen Aufgaben. Über „Neu“ anlegen.'
           );
         } else {
           hint.style.display = 'none';
