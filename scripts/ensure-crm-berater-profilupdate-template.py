@@ -44,7 +44,7 @@ HTML = "\n".join([
         "Haben sich Schwerpunkte oder Konditionen geändert?",
     ]),
     _p("Ein aktualisiertes CV als PDF an {sender_email} hilft uns, "
-       "Sie ohne Umwege vorzustellen."),
+       "Sie ohne Umwege vorzustellen — und das nur nach Absprache mit Ihnen."),
     _p("Warum uns das wichtig ist: Bei uns gehen täglich neue Anfragen ein. "
        "Passt etwas zu Ihrem Profil, können wir mit aktuellen Daten sofort "
        "reagieren — in der Regel schneller als die Konkurrenz."),
@@ -62,7 +62,7 @@ wir möchten Ihren Stand bei uns aktualisieren.
 - Ab wann, und in welchem Umfang?
 - Haben sich Schwerpunkte oder Konditionen geändert?
 
-Ein aktualisiertes CV als PDF an {sender_email} hilft uns, Sie ohne Umwege vorzustellen.
+Ein aktualisiertes CV als PDF an {sender_email} hilft uns, Sie ohne Umwege vorzustellen — und das nur nach Absprache mit Ihnen.
 
 Warum uns das wichtig ist: Bei uns gehen täglich neue Anfragen ein. Passt etwas zu Ihrem Profil, können wir mit aktuellen Daten sofort reagieren — in der Regel schneller als die Konkurrenz.
 
