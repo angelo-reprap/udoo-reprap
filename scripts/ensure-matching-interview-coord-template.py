@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""Upsert matching_outreach_wizard — Erstanschreiben, zurückhaltender.
+"""Upsert matching_interview_coord — Kennenlerntermin, ausführlicher.
 
-Kein Firmenname. Kein steifer Schluss. Kein Frage-Verhör.
+Kein Firmenname. Kein steifer Schluss.
 """
 from apps.abpe_email_studio.models import EmailTemplate, TemplateStatus, SenderMode
 
-IDENT = "matching_outreach_wizard"
+IDENT = "matching_interview_coord"
 
 _FONT = (
     "font-family:Arial,sans-serif;font-size:14px;line-height:1.5;"
@@ -34,59 +34,49 @@ def _facts(rows: list[tuple[str, str]]) -> str:
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
-    _p("wir haben eine Anfrage vorliegen, die nach unserem Eindruck "
-       "zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne "
-       "mit Ihnen klären."),
+    _p("vielen Dank — zu <strong>{project}</strong> geht es einen Schritt weiter. "
+       "Wir möchten gerne einen Kennenlerntermin mit Ihnen vereinbaren."),
+    _p("Ziel ist ein kurzes Gespräch: Ihr Profil, der Rahmen der Anfrage "
+       "und ob es für beide Seiten passt. Telefon oder Video, ganz wie es "
+       "Ihnen recht ist."),
     _p("Kurz der Stand:"),
     _facts([
         ("Was", "{project}"),
         ("Wo", "{location}"),
         ("Wann (Start)", "{start}"),
-        ("Laufzeit", "{duration}"),
-        ("Auslastung", "{workload}"),
         ("Remote", "{remote}"),
     ]),
-    _p("{description}"),
-    _p("<strong>Gesucht u.&nbsp;a.:</strong> {required_skills}"),
-    _p("<strong>Was uns an Ihrem Profil aufgefallen ist:</strong><br>{why_short}"),
-    _p("Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse "
-       "besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen."),
+    _p("Welche Termine passen Ihnen (Datum / Uhrzeit)? "
+       "Zwei oder drei Optionen reichen, wir stimmen den Rest ab."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-wir haben eine Anfrage vorliegen, die nach unserem Eindruck zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne mit Ihnen klären.
+vielen Dank — zu {project} geht es einen Schritt weiter. Wir möchten gerne einen Kennenlerntermin mit Ihnen vereinbaren.
+
+Ziel ist ein kurzes Gespräch: Ihr Profil, der Rahmen der Anfrage und ob es für beide Seiten passt. Telefon oder Video, ganz wie es Ihnen recht ist.
 
 Kurz der Stand:
 Was: {project}
 Wo: {location}
 Wann (Start): {start}
-Laufzeit: {duration}
-Auslastung: {workload}
 Remote: {remote}
 
-{description}
-
-Gesucht u. a.: {required_skills}
-
-Was uns an Ihrem Profil aufgefallen ist:
-{why_short}
-
-Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen.
+Welche Termine passen Ihnen (Datum / Uhrzeit)? Zwei oder drei Optionen reichen, wir stimmen den Rest ab.
 
 Mit freundlichen Grüßen
 """
 
 defaults = {
-    "name": "Matching — Outreach-Wizard Anschreiben",
-    "subject": "Anfrage {project}",
+    "name": "Matching — Interview koordinieren",
+    "subject": "Kennlerntermin — {project}",
     "html_body": HTML.strip(),
     "text_body": TEXT.strip(),
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "Shortlist / Erstanschreiben. Zurückhaltend, kein Firmenname.",
+    "description": "Kanban Beim Kunden → Interview. Kein Kundenname.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -109,4 +99,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — matching_outreach_wizard (zurückhaltend)")
+print("OK — matching_interview_coord (Kennlerntermin)")

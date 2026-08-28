@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""Upsert matching_outreach_wizard — Erstanschreiben, zurückhaltender.
+"""Upsert matching_followup_availability — Nachfrage, ausführlicher.
 
-Kein Firmenname. Kein steifer Schluss. Kein Frage-Verhör.
+Kein Firmenname. Kein steifer Schluss.
 """
 from apps.abpe_email_studio.models import EmailTemplate, TemplateStatus, SenderMode
 
-IDENT = "matching_outreach_wizard"
+IDENT = "matching_followup_availability"
 
 _FONT = (
     "font-family:Arial,sans-serif;font-size:14px;line-height:1.5;"
@@ -34,59 +34,48 @@ def _facts(rows: list[tuple[str, str]]) -> str:
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
-    _p("wir haben eine Anfrage vorliegen, die nach unserem Eindruck "
-       "zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne "
-       "mit Ihnen klären."),
+    _p("wir hatten Ihnen zu <strong>{project}</strong> geschrieben "
+       "und wollten kurz nachfassen — ohne zu drängen."),
+    _p("Uns hilft eine kurze Rückmeldung: Besteht weiterhin Interesse? "
+       "Und ab wann wären Sie verfügbar (Datum / Tage pro Woche)? "
+       "Wenn es nicht passt, reicht ein Satz — dann fassen wir nicht weiter nach."),
     _p("Kurz der Stand:"),
     _facts([
         ("Was", "{project}"),
         ("Wo", "{location}"),
         ("Wann (Start)", "{start}"),
-        ("Laufzeit", "{duration}"),
-        ("Auslastung", "{workload}"),
         ("Remote", "{remote}"),
     ]),
-    _p("{description}"),
-    _p("<strong>Gesucht u.&nbsp;a.:</strong> {required_skills}"),
-    _p("<strong>Was uns an Ihrem Profil aufgefallen ist:</strong><br>{why_short}"),
-    _p("Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse "
-       "besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen."),
+    _p("Vielen Dank für eine kurze Rückmeldung."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-wir haben eine Anfrage vorliegen, die nach unserem Eindruck zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne mit Ihnen klären.
+wir hatten Ihnen zu {project} geschrieben und wollten kurz nachfassen — ohne zu drängen.
+
+Uns hilft eine kurze Rückmeldung: Besteht weiterhin Interesse? Und ab wann wären Sie verfügbar (Datum / Tage pro Woche)? Wenn es nicht passt, reicht ein Satz — dann fassen wir nicht weiter nach.
 
 Kurz der Stand:
 Was: {project}
 Wo: {location}
 Wann (Start): {start}
-Laufzeit: {duration}
-Auslastung: {workload}
 Remote: {remote}
 
-{description}
-
-Gesucht u. a.: {required_skills}
-
-Was uns an Ihrem Profil aufgefallen ist:
-{why_short}
-
-Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen.
+Vielen Dank für eine kurze Rückmeldung.
 
 Mit freundlichen Grüßen
 """
 
 defaults = {
-    "name": "Matching — Outreach-Wizard Anschreiben",
-    "subject": "Anfrage {project}",
+    "name": "Matching — Nachfrage Interesse / Verfügbarkeit",
+    "subject": "Nachfrage — {project}",
     "html_body": HTML.strip(),
     "text_body": TEXT.strip(),
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "Shortlist / Erstanschreiben. Zurückhaltend, kein Firmenname.",
+    "description": "Kanban Angeschrieben. Follow-up Interesse/Verfügbarkeit.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -109,4 +98,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — matching_outreach_wizard (zurückhaltend)")
+print("OK — matching_followup_availability (Nachfrage)")

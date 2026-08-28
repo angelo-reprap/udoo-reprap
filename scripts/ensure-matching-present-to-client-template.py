@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""Upsert matching_outreach_wizard — Erstanschreiben, zurückhaltender.
+"""Upsert matching_present_to_client — Vorstellung nur nach Absprache.
 
-Kein Firmenname. Kein steifer Schluss. Kein Frage-Verhör.
+Kein Firmenname. Kein steifer Schluss.
 """
 from apps.abpe_email_studio.models import EmailTemplate, TemplateStatus, SenderMode
 
-IDENT = "matching_outreach_wizard"
+IDENT = "matching_present_to_client"
 
 _FONT = (
     "font-family:Arial,sans-serif;font-size:14px;line-height:1.5;"
@@ -34,59 +34,53 @@ def _facts(rows: list[tuple[str, str]]) -> str:
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
-    _p("wir haben eine Anfrage vorliegen, die nach unserem Eindruck "
-       "zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne "
-       "mit Ihnen klären."),
+    _p("vielen Dank für Ihr Interesse an <strong>{project}</strong> "
+       "und dass Sie sich gemeldet haben."),
+    _p("Nächster Schritt: Wir möchten Ihr Profil dem Auftraggeber vorstellen. "
+       "Das tun wir nur nach Absprache mit Ihnen — ohne Ihr OK geht nichts "
+       "an den Auftraggeber."),
+    _p("Weitergeleitet wird Ihr Profil (Schwerpunkte, Verfügbarkeit, Fit zur Anfrage). "
+       "Den Namen des Auftraggebers nennen wir Ihnen, sobald es konkret wird."),
     _p("Kurz der Stand:"),
     _facts([
         ("Was", "{project}"),
         ("Wo", "{location}"),
         ("Wann (Start)", "{start}"),
-        ("Laufzeit", "{duration}"),
-        ("Auslastung", "{workload}"),
         ("Remote", "{remote}"),
     ]),
-    _p("{description}"),
-    _p("<strong>Gesucht u.&nbsp;a.:</strong> {required_skills}"),
-    _p("<strong>Was uns an Ihrem Profil aufgefallen ist:</strong><br>{why_short}"),
-    _p("Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse "
-       "besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen."),
+    _p("Wenn der Rahmen für Sie noch passt, geben Sie uns bitte kurz Bescheid. "
+       "Dann stellen wir Sie vor."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-wir haben eine Anfrage vorliegen, die nach unserem Eindruck zu Ihrem Profil passen könnte. Ob sie das tut, möchten wir gerne mit Ihnen klären.
+vielen Dank für Ihr Interesse an {project} und dass Sie sich gemeldet haben.
+
+Nächster Schritt: Wir möchten Ihr Profil dem Auftraggeber vorstellen. Das tun wir nur nach Absprache mit Ihnen — ohne Ihr OK geht nichts an den Auftraggeber.
+
+Weitergeleitet wird Ihr Profil (Schwerpunkte, Verfügbarkeit, Fit zur Anfrage). Den Namen des Auftraggebers nennen wir Ihnen, sobald es konkret wird.
 
 Kurz der Stand:
 Was: {project}
 Wo: {location}
 Wann (Start): {start}
-Laufzeit: {duration}
-Auslastung: {workload}
 Remote: {remote}
 
-{description}
-
-Gesucht u. a.: {required_skills}
-
-Was uns an Ihrem Profil aufgefallen ist:
-{why_short}
-
-Wenn Sie mögen, reicht eine kurze Rückmeldung: ob grundsätzlich Interesse besteht, und ob Start {start} sowie Ort / Remote / Auslastung grob passen.
+Wenn der Rahmen für Sie noch passt, geben Sie uns bitte kurz Bescheid. Dann stellen wir Sie vor.
 
 Mit freundlichen Grüßen
 """
 
 defaults = {
-    "name": "Matching — Outreach-Wizard Anschreiben",
-    "subject": "Anfrage {project}",
+    "name": "Matching — Beim Kunden vorstellen",
+    "subject": "Vorstellung — {project}",
     "html_body": HTML.strip(),
     "text_body": TEXT.strip(),
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "Shortlist / Erstanschreiben. Zurückhaltend, kein Firmenname.",
+    "description": "Kanban Interesse → Beim Kunden. Einverständnis, kein Kundenname.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -109,4 +103,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — matching_outreach_wizard (zurückhaltend)")
+print("OK — matching_present_to_client (Einverständnis)")
