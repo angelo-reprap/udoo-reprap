@@ -37,28 +37,31 @@ def _ul(items: list[str]) -> str:
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
-    _p("wir möchten Ihr Profil bei uns auf den aktuellen Stand bringen."),
-    _p("Bitte teilen Sie uns kurz mit:"),
+    _p("bei uns gehen täglich neue Anfragen ein. "
+       "Wenn etwas zu Ihrem Profil passt, wollen wir sofort reagieren — "
+       "mit aktuellen Daten, und damit in der Regel schneller als die Konkurrenz."),
+    _p("Dafür brauchen wir einen kurzen Stand von Ihnen:"),
     _ul([
         "Sind Sie aktuell oder in Kürze verfügbar?",
         "Ab wann, und in welchem Umfang?",
         "Haben sich Schwerpunkte oder Konditionen geändert?",
     ]),
-    _p("Ein aktuelles CV als PDF an {sender_email} ist hilfreich."),
+    _p("Ein aktualisiertes CV als PDF an {sender_email} hilft uns, "
+       "Sie ohne Umwege vorzustellen."),
     _p("Vielen Dank für eine kurze Rückmeldung."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-wir möchten Ihr Profil bei uns auf den aktuellen Stand bringen.
+bei uns gehen täglich neue Anfragen ein. Wenn etwas zu Ihrem Profil passt, wollen wir sofort reagieren — mit aktuellen Daten, und damit in der Regel schneller als die Konkurrenz.
 
-Bitte teilen Sie uns kurz mit:
+Dafür brauchen wir einen kurzen Stand von Ihnen:
 - Sind Sie aktuell oder in Kürze verfügbar?
 - Ab wann, und in welchem Umfang?
 - Haben sich Schwerpunkte oder Konditionen geändert?
 
-Ein aktuelles CV als PDF an {sender_email} ist hilfreich.
+Ein aktualisiertes CV als PDF an {sender_email} hilft uns, Sie ohne Umwege vorzustellen.
 
 Vielen Dank für eine kurze Rückmeldung.
 
@@ -67,13 +70,13 @@ Mit freundlichen Grüßen
 
 defaults = {
     "name": "CRM — Berater Profilupdate",
-    "subject": "Aktualisierung Ihres Profils",
+    "subject": "Täglich neue Anfragen — Ihr Profil aktuell halten",
     "html_body": HTML.strip(),
     "text_body": TEXT.strip(),
     "status": TemplateStatus.ACTIVE,
     "sender_mode": SenderMode.USER,
     "include_signature": True,
-    "description": "CRM Berater: Verfügbarkeit / Profil-Update. Geschäftlich, IT-direkt.",
+    "description": "CRM Berater: täglich Anfragen, schneller mit aktuellem CV/Stand.",
 }
 try:
     from apps.abpe_email_studio.models import SignatureMode
@@ -96,4 +99,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — crm_berater_profilupdate (geschäftlich / IT)")
+print("OK — crm_berater_profilupdate (Anfragen täglich / Tempo)")
