@@ -37,10 +37,7 @@ def _ul(items: list[str]) -> str:
 HTML = "\n".join([
     _HEADER,
     _p("Guten Tag {first_name},"),
-    _p("bei uns gehen täglich neue Anfragen ein. "
-       "Wenn etwas zu Ihrem Profil passt, wollen wir sofort reagieren — "
-       "mit aktuellen Daten, und damit in der Regel schneller als die Konkurrenz."),
-    _p("Dafür brauchen wir einen kurzen Stand von Ihnen:"),
+    _p("wir möchten Ihren Stand bei uns aktualisieren."),
     _ul([
         "Sind Sie aktuell oder in Kürze verfügbar?",
         "Ab wann, und in welchem Umfang?",
@@ -48,20 +45,28 @@ HTML = "\n".join([
     ]),
     _p("Ein aktualisiertes CV als PDF an {sender_email} hilft uns, "
        "Sie ohne Umwege vorzustellen."),
+    _p("Warum uns das wichtig ist: Bei uns gehen täglich neue Anfragen ein. "
+       "Passt etwas zu Ihrem Profil, können wir mit aktuellen Daten sofort "
+       "reagieren — in der Regel schneller als die Konkurrenz."),
+    _p("Seit 2002 bringen wir IT-Experten in passende Projekte. "
+       "Je aktueller Profil und Verfügbarkeit, desto gezielter der Vorschlag."),
     _p("Vielen Dank für eine kurze Rückmeldung."),
     _SIGN,
 ]) + "\n"
 
 TEXT = """Guten Tag {first_name},
 
-bei uns gehen täglich neue Anfragen ein. Wenn etwas zu Ihrem Profil passt, wollen wir sofort reagieren — mit aktuellen Daten, und damit in der Regel schneller als die Konkurrenz.
+wir möchten Ihren Stand bei uns aktualisieren.
 
-Dafür brauchen wir einen kurzen Stand von Ihnen:
 - Sind Sie aktuell oder in Kürze verfügbar?
 - Ab wann, und in welchem Umfang?
 - Haben sich Schwerpunkte oder Konditionen geändert?
 
 Ein aktualisiertes CV als PDF an {sender_email} hilft uns, Sie ohne Umwege vorzustellen.
+
+Warum uns das wichtig ist: Bei uns gehen täglich neue Anfragen ein. Passt etwas zu Ihrem Profil, können wir mit aktuellen Daten sofort reagieren — in der Regel schneller als die Konkurrenz.
+
+Seit 2002 bringen wir IT-Experten in passende Projekte. Je aktueller Profil und Verfügbarkeit, desto gezielter der Vorschlag.
 
 Vielen Dank für eine kurze Rückmeldung.
 
@@ -99,4 +104,4 @@ tpl, created = EmailTemplate.objects.update_or_create(
     identifier=IDENT, defaults=defaults,
 )
 print(("CREATED" if created else "UPDATED"), IDENT, "pk=", tpl.pk, "|", tpl.name)
-print("OK — crm_berater_profilupdate (Anfragen täglich / Tempo)")
+print("OK — crm_berater_profilupdate (was / warum / seit 2002)")
