@@ -36,6 +36,30 @@ def _json_body(request) -> dict:
         return {}
 
 
+def _parse_faellig(data: dict):
+    """ISO-Datum / Uhrzeit aus dem Create-Payload. Fehlt etwas → (None, None)."""
+    from datetime import datetime as dt_cls
+
+    raw_d = data.get('faellig_am') or data.get('due_date') or ''
+    raw_t = data.get('faellig_zeit') or data.get('due_time') or ''
+    parsed_date = None
+    parsed_time = None
+    if raw_d:
+        try:
+            parsed_date = dt_cls.strptime(str(raw_d)[:10], '%Y-%m-%d').date()
+        except (TypeError, ValueError):
+            parsed_date = None
+    if raw_t:
+        s = str(raw_t).strip()
+        for fmt in ('%H:%M:%S', '%H:%M'):
+            try:
+                parsed_time = dt_cls.strptime(s, fmt).time()
+                break
+            except ValueError:
+                continue
+    return parsed_date, parsed_time
+
+
 def _want_demo(request) -> bool:
     """demo=1 erzwingen; sonst DB. Legacy: ohne Param und leere DB → kein Auto-Demo mehr."""
     return request.GET.get('demo') == '1'
@@ -108,10 +132,20 @@ def api_aufgaben_list(request):
 @require_POST
 def api_aufgabe_create(request):
     data = _json_body(request)
-    art = data.get('art') or Aufgabe.Art.INTERN
+    art = str(data.get('art') or Aufgabe.Art.INTERN).strip()
+    if art not in Aufgabe.Art.values:
+        art = Aufgabe.Art.INTERN
     titel = (data.get('titel') or '').strip()
     if not titel:
         return JsonResponse({'ok': False, 'error': 'titel required'}, status=400)
+    quelle = str(data.get('quelle') or Aufgabe.Quelle.MANUELL).strip()
+    if quelle not in Aufgabe.Quelle.values:
+        quelle = Aufgabe.Quelle.MANUELL
+    try:
+        prioritaet = int(data.get('prioritaet') or 3)
+    except (TypeError, ValueError):
+        prioritaet = 3
+    faellig_am, faellig_zeit = _parse_faellig(data)
     aufgabe = aufgaben_service.erstellen(
         art=art,
         titel=titel,
@@ -120,8 +154,11 @@ def api_aufgabe_create(request):
         kanal=data.get('kanal') or '',
         ref_type=data.get('ref_type') or '',
         ref_id=data.get('ref_id') or '',
-        prioritaet=int(data.get('prioritaet') or 3),
+        prioritaet=prioritaet,
         gruppe_id=data.get('gruppe_id') or None,
+        faellig_am=faellig_am,
+        faellig_zeit=faellig_zeit,
+        quelle=quelle,
         user=request.user,
     )
     return JsonResponse({

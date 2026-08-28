@@ -68,6 +68,8 @@ body.dark-mode .stat-value{color:#e0e0e0}
 .stat-title{font-size:.82rem;color:var(--text-secondary)}
 .card{background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden}
 .card-h{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border-light);font-weight:600;font-size:.95rem}
+.sh-card > .card-h .sh-btn{margin-left:auto;display:inline-flex;align-items:center;gap:6px;flex-shrink:0;font-weight:600}
+.sh-btn-primary:hover{filter:brightness(1.08)}
 
 /* Ziehharmonika */
 .acc-head{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border-light);cursor:pointer;user-select:none;background:var(--abcona-gray-card)}
@@ -267,6 +269,7 @@ th{background:var(--abcona-gray-card);color:var(--text-secondary);font-size:.74r
 .sh-mail-task-modal .crm-line{margin-top:6px;font-size:.8rem;color:var(--abcona-blue-light)}
 .sh-mail-task-modal .excerpt .lbl{font-size:.7rem;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
 .sh-due-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:8px}
+.sh-due-grid-2{grid-template-columns:1.2fr 1fr}
 @media(max-width:560px){.sh-due-grid{grid-template-columns:1fr}}
 .sh-due-grid .inp{margin:0}
 .sh-due-grid select,.sh-due-grid input[type=date],.sh-due-grid input[type=time]{width:100%;padding:9px 10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-white);color:var(--text-primary);font:inherit}
